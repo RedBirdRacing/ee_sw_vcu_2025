@@ -39,6 +39,9 @@ class Pedal {
         // Conversion rate in Hz
         Pedal(int input_pin_1, int input_pin_2, unsigned long millis, int conversion_rate = 1000);   
 
+        // Defualt constructor, expected another constructor should be called before start using
+        Pedal();
+
         // Update function. To be called on every loop and pass the current time in millis
         void pedal_update(unsigned long millis);
 
