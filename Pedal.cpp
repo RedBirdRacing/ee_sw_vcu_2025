@@ -17,7 +17,10 @@ float SINC_128[128] = {0.017232, 0.002666, -0.013033, -0.026004, -0.032934, -0.0
                         -0.018512, 0.007888, 0.031053, 0.045647, 0.048626, 0.039841, 0.021937, -0.000402, -0.021652, -0.036792, 
                         -0.042472, -0.037732, -0.024137, -0.005294, 0.014081, 0.029329, 0.036957, 0.035421, 0.025427, 0.009675, 
                         -0.007851, -0.022884, -0.031899, -0.032934, -0.026004, -0.013033};
-												
+
+
+Pedal::Pedal()
+            : input_pin_1(-1), input_pin_2(-1), previous_millis(0), conversion_rate(0), fault(true) {}
 
 Pedal::Pedal(int input_pin_1, int input_pin_2, unsigned long millis, int conversion_rate = 1000)
             : input_pin_1(input_pin_1), input_pin_2(input_pin_2), previous_millis(millis), conversion_rate(conversion_rate), fault(false)
