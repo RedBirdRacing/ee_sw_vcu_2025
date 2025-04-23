@@ -92,7 +92,7 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg) {
     tx_throttle_msg->data[1] = 0;
     tx_throttle_msg->data[2] = 0;
 
-    DBGLN_PEDAL("CAN STOP: Throttle = 0");
+    DBGLN_PEDAL("CAN STOP");
 }
 
 void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg) {
