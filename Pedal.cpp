@@ -20,10 +20,10 @@ float SINC_128[128] = {0.017232, 0.002666, -0.013033, -0.026004, -0.032934, -0.0
 
 
 Pedal::Pedal()
-            : input_pin_1(-1), input_pin_2(-1), previous_millis(0), conversion_rate(0), fault(true) {}
+            : input_pin_1(-1), input_pin_2(-1), previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
 
 Pedal::Pedal(int input_pin_1, int input_pin_2, unsigned long millis, int conversion_rate = 1000)
-            : input_pin_1(input_pin_1), input_pin_2(input_pin_2), previous_millis(millis), conversion_rate(conversion_rate), fault(false)
+            : input_pin_1(input_pin_1), input_pin_2(input_pin_2), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
             {
     // Init pins
     pinMode(input_pin_1, INPUT);
@@ -66,7 +66,8 @@ void Pedal::pedal_update(unsigned long millis) {
                 if (millis - fault_start_millis > 100) { // Faulty for more than 100 ms 
                     // TODO: Add code for alerting the faulty pedal, and whatever else mandated in rules Ch.2 Section 12.8, 12.9
 
-                    // Turning off the motor is achieved using another digital pin, not via canbus
+                    // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can signals
+                    fault_force_stop = true;
                     
                     DBGLN_PEDAL("FAULT: Pedal mismatch persisted > 100ms!");
 
@@ -95,6 +96,10 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg) {
 }
 
 void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg) {
+    if (fault_force_stop) {
+        pedal_can_frame_stop_motor(tx_throttle_msg);
+        return;
+    }
     float throttle_volt = (float)final_pedal_value * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
 
     int16_t throttle_torque_val = 0;

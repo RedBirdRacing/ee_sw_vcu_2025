@@ -54,6 +54,7 @@ class Pedal {
         // Pedal value after filtering and processing
         // Under normal circumstance, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
         int final_pedal_value;
+        
 
     private:
         int input_pin_1, input_pin_2;
@@ -61,8 +62,10 @@ class Pedal {
         
         // If the two potentiometer inputs are too different (> 10%), the inputs are faulty
         // Definition for faulty is under FSEC 2024 Chapter 2, section 12.8, 12.9
-        bool fault;
+        bool fault = false;
         unsigned long fault_start_millis;
+        // Forced stop the car due too long fault sensors, restart car to reset this to false
+        bool fault_force_stop = true;
 
         // Period in millisecond
         int conversion_period;
