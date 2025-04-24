@@ -128,6 +128,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg) {
     else {
         DBG_PEDAL("Throttle voltage too high");
         DBGLN_PEDAL(throttle_volt);
+        // For safety, this should not be set to other values
         throttle_torque_val = 0;
     }
 

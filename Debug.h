@@ -2,7 +2,10 @@
 #define DEBUG_H
 
 // === Debug Flags ===
-#define DEBUG true // Oveall debug functionality
+
+// ALWAYS LEAVE FALSE FOR GITHUB
+#define DEBUG false // Oveall debug functionality
+
 #define DEBUG_PEDAL true && DEBUG
 #define DEBUG_SIGNAL_PROC false && DEBUG
 #define DEBUG_GENERAL true && DEBUG
