@@ -3,25 +3,26 @@
 template <typename T, int size>
 Queue<T, size>::Queue() : queueFull(false), queueEmpty(true), queueCount(0) {}
 
-
 template <typename T, int size>
-void Queue<T, size>::push(T val) {
-    for (int i = size - 1; i > 0; i--) {
+void Queue<T, size>::push(T val)
+{
+    for (int i = size - 1; i > 0; i--)
+    {
         buffer[i] = buffer[i - 1];
     }
     buffer[0] = val;
 
     if (!queueFull)
         ++queueCount;
-      
+
     queueFull = (queueCount == size);
 }
 
-
 template <typename T, int size>
-T Queue<T, size>::pop() {
-    if (queueCount == 0)        // If the queue is empty and attempts to pop an object, the program will end
-        this->exit(0);          // this->exit() somehow circumnavigates some errors
+T Queue<T, size>::pop()
+{
+    if (queueCount == 0) // If the queue is empty and attempts to pop an object, the program will end
+        this->exit(0);   // this->exit() somehow circumnavigates some errors
 
     --queueCount;
     queueEmpty = (queueCount == 0);
@@ -29,20 +30,20 @@ T Queue<T, size>::pop() {
     return buffer[queueCount];
 }
 
-
 template <typename T, int size>
-T Queue<T, size>::getHead() {
+T Queue<T, size>::getHead()
+{
     return buffer[queueCount - 1];
 }
 
-
 template <typename T, int size>
-bool Queue<T, size>::isEmpty() {
+bool Queue<T, size>::isEmpty()
+{
     return queueEmpty;
 }
 
-
 template <typename T, int size>
-bool Queue<T, size>::isFull() {
+bool Queue<T, size>::isFull()
+{
     return queueFull;
 }

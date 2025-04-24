@@ -13,15 +13,13 @@
 // #define APPS_3V3 24
 // #define BREAK_5V 25
 // #define BREAK_OUT 26
-#define APPS_5V A0 // For arduino testing
-#define APPS_3V3 A1 // For arduino testing
-#define BREAK_5V A2 // For arduino testing
+#define APPS_5V A0   // For arduino testing
+#define APPS_3V3 A1  // For arduino testing
+#define BREAK_5V A2  // For arduino testing
 #define BREAK_OUT A3 // For arduino testing
-
 
 #define LED1 2
 #define LED2 3
 #define LED3 4
-
 
 #endif // PINMAP_H

@@ -61,5 +61,4 @@
 #define DBGLN_STATUS(x)
 #endif
 
-
 #endif // DEBUG_H

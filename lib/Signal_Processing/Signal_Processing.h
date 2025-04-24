@@ -2,14 +2,13 @@
 #ifndef SIGNAL_PROCESSING_H
 #define SIGNAL_PROCESSING_H
 
-
 template <typename T>
-T FIR_filter(T* buffer, float* kernel, int buf_size, float kernel_sum);
+T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum);
 
 template <typename T>
 T average(T val1, T val2);
 
 template <typename T>
-T AVG_filter(T* buffer, int buf_size);
+T AVG_filter(T *buffer, int buf_size);
 
 #endif
