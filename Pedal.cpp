@@ -128,7 +128,8 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg) {
     else {
         DBG_PEDAL("Throttle voltage too high");
         DBGLN_PEDAL(throttle_volt);
-        throttle_torque_val = MAX_THROTTLE_OUT_VAL;
+        // For safety, this should not be set to other values
+        throttle_torque_val = 0;
     }
 
     if (FLIP_MOTOR_OUTPUT_DIRECTION) // Flips the rotating direction of the motor
