@@ -4,3 +4,6 @@
 # build files, remove else build error, no need sync anyway
 .pio/build/
 .pio/libdeps/
+
+# vscode, has absolute file location
+.vscode/
