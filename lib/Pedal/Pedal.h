@@ -37,7 +37,7 @@ class Pedal {
     public:
         // Two input pins for reading both pedal potentiometer
         // Conversion rate in Hz
-        Pedal(int input_pin_1, int input_pin_2, unsigned long millis, int conversion_rate = 1000);   
+        Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned short conversion_rate = 1000);   
 
         // Defualt constructor, expected another constructor should be called before start using
         Pedal();
@@ -58,20 +58,22 @@ class Pedal {
 
     private:
         int input_pin_1, input_pin_2;
-        int conversion_rate;
+
+        // Will rollover every 49 days
+        unsigned long previous_millis;
+
+        unsigned short conversion_rate;
         
         // If the two potentiometer inputs are too different (> 10%), the inputs are faulty
         // Definition for faulty is under FSEC 2024 Chapter 2, section 12.8, 12.9
         bool fault = false;
         unsigned long fault_start_millis;
+
         // Forced stop the car due too long fault sensors, restart car to reset this to false
         bool fault_force_stop = true;
 
         // Period in millisecond
-        int conversion_period;
-
-        // Will rollover every 49 days
-        unsigned long previous_millis;
+        unsigned short conversion_period;
 
         // Returns true if pedal is faulty
         bool check_pedal_fault(int pedal_1, int pedal_2);
