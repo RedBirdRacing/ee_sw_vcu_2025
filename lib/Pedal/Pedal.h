@@ -1,7 +1,7 @@
 #ifndef PEDAL_H
 #define PEDAL_H
 
-#include "Queue.cpp"
+#include "Queue.h"
 #include "mcp2515.h"
 
 // Constants

@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "pinMap.h"
 #include "Pedal.h"
 #include <mcp2515.h>

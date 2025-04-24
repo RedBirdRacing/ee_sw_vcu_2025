@@ -21,7 +21,7 @@ void Queue<T, size>::push(T val) {
 template <typename T, int size>
 T Queue<T, size>::pop() {
     if (queueCount == 0)        // If the queue is empty and attempts to pop an object, the program will end
-        exit(0);
+        this->exit(0);
 
     --queueCount;
     queueEmpty = (queueCount == 0);
