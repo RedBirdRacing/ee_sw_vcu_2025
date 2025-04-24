@@ -47,8 +47,14 @@ void Pedal::pedal_update(unsigned long millis) {
         pedalValue_2.push(analogRead(input_pin_2));
 
         // By default range of pedal 1 is APPS_PEDAL_1_RANGE, pedal 2 is APPS_PEDAL_2_RANGE;
+
+        // this is current taking the direct array the circular queue writes into. Bad idea to do anything other than a simple average
+        // if not using a linear filter, pass the pedalValue_1.getLinearBuffer() to the filter function to ensure the ordering is correct.
+        // can also consider injecting the filter into the queue if need
+        // depends on the hardware filter, reduce software filtering as much as possible
         int pedal_filtered_1 = round(AVG_filter<float>(pedalValue_1.buffer, ADC_BUFFER_SIZE));
         int pedal_filtered_2 = round(AVG_filter<float>(pedalValue_2.buffer, ADC_BUFFER_SIZE));
+
         // int pedal_filtered_1 = round(FIR_filter<float>(pedalValue_1.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
         // int pedal_filtered_2 = round(FIR_filter<float>(pedalValue_2.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
         final_pedal_value = pedal_filtered_1; // Only take in pedal 1 value
