@@ -31,10 +31,10 @@ Select which debug messages are needed by setting the respective debug flags und
 - Better torque curve
 
 ## Folder structure
-include  
-| headers  
-lib  
-| libraries (folders)  
-| | library.json (e.g. in Pedal)  --> link with other files in include/lib  
-src  
-| main.cpp  
+```include
+| headers
+lib
+| libraries (folders)
+| | library.json (e.g. in Pedal)  --> link with other files in include/lib
+src
+| main.cpp```
