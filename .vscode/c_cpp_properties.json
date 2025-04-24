@@ -8,13 +8,13 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include",
-                "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/src",
                 "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Pedal",
                 "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Signal_Processing",
                 "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Queue",
                 "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/mcp2515",
                 "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/src",
+                "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include",
                 "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/variants/standard",
                 "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -26,13 +26,13 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include",
-                    "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/src",
                     "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Pedal",
                     "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Signal_Processing",
                     "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Queue",
                     "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/mcp2515",
                     "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/src",
+                    "C:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include",
                     "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/variants/standard",
                     "C:/Users/ckt63/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
