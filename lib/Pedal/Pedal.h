@@ -24,7 +24,9 @@ const float THROTTLE_LOWER_DEADZONE_MIN_IN_VOLT = APPS_PEDAL_1_MIN_VOLTAGE - APP
 const float THORTTLE_UPPER_DEADZONE_MAX_IN_VOLT = APPS_PEDAL_1_MAX_VOLTAGE + APPS_PEDAL_1_UPPER_DEADZONE_WIDTH;
 
 
-const int MAX_THROTTLE_OUT_VAL = 32760; // Maximum torque value is 32760 for mcp2515
+const int MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp2515
+// current set to a slightly lower value to not use current control
+// see E,EnS group discussion, 20250425HKT020800 discussion
 const int MIN_THROTTLE_OUT_VAL = 300; // Minium torque value tested is 300 (TBC)
 
 const bool FLIP_MOTOR_OUTPUT_DIRECTION = true; // Flips the direction of motor output
