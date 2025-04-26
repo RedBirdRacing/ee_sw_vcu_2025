@@ -49,7 +49,7 @@ const int BUSSIN_TIME_MILLIS = 2000;         // The amount of time that the buzz
 void setup()
 {
     // Init pedals
-    pedal = Pedal(APPS_5V, APPS_3V3, millis());
+    pedal = Pedal(APPS_5V, APPS_3V3, REVERSE_BUTTON, millis());
 
     // Init input pins
     for (int i = 0; i < 4; i++)

@@ -24,7 +24,7 @@ Connect VCU to a serial monitor.
 
 Select which debug messages are needed by setting the respective debug flags under debug.h to true 
 
-### If debug is set to true, expect large delays between pedal input and motor output due to Serial being slow af
+***If debug is set to true, expect large delays between pedal input and motor output due to Serial being slow af***
 
 ## Future development:
 - More CANBUS channels for BMS, datalogger and other components
