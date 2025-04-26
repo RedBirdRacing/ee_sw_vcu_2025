@@ -19,10 +19,10 @@ float SINC_128[128] = {0.017232, 0.002666, -0.013033, -0.026004, -0.032934, -0.0
                        -0.007851, -0.022884, -0.031899, -0.032934, -0.026004, -0.013033};
 
 Pedal::Pedal()
-    : input_pin_1(-1), input_pin_2(-1), previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
+    : input_pin_1(-1), input_pin_2(-1), reverse_pin(-1), previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
 
-Pedal::Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned short conversion_rate)
-    : input_pin_1(input_pin_1), input_pin_2(input_pin_2), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
+Pedal::Pedal(int input_pin_1, int input_pin_2, int reverse_pin, unsigned long millis, unsigned short conversion_rate)
+    : input_pin_1(input_pin_1), input_pin_2(input_pin_2), reverse_pin(reverse_pin), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
 {
     // Init pins
     pinMode(input_pin_1, INPUT);
@@ -139,7 +139,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
         // Scale up the value for canbus
         throttle_torque_val = (throttle_volt - MIN_THROTTLE_IN_VOLT) * MAX_THROTTLE_OUT_VAL / (MAX_THROTTLE_IN_VOLT - MIN_THROTTLE_IN_VOLT);
     }
-    else if (throttle_volt < THORTTLE_UPPER_DEADZONE_MAX_IN_VOLT)
+    else if (throttle_volt < THROTTLE_UPPER_DEADZONE_MAX_IN_VOLT)
     {
         throttle_torque_val = MAX_THROTTLE_OUT_VAL;
     }
@@ -151,13 +151,33 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
         throttle_torque_val = 0;
     }
 
-    if (FLIP_MOTOR_OUTPUT_DIRECTION) // Flips the rotating direction of the motor
+    //
+    //  Do NOT use in actual competition!
+    // Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
+    // rough translation: it is prohibited to use the motor to turn the wheels backwards.
+    //
+
+    reverseButtonPressed = digitalRead(reverse_pin);
+    // enter reverse mode
+    if (!reverseMode)
     {
-        throttle_torque_val = throttle_torque_val * (-1);
+        // brake percentage and speed is placeholder
+        check_enter_reverse_mode(reverseButtonPressed, 0.5, throttle_volt / MAX_THROTTLE_IN_VOLT, 0.0);
+    }
+
+    check_exit_reverse_mode(reverseButtonPressed);
+    // reverse mode
+    if (reverseMode)
+    {
+        // speed 0.0 is placeholder
+        throttle_torque_val = calculateReverseTorque(throttle_volt, 0.0, throttle_torque_val);
     }
 
     DBG_PEDAL("CAN UPDATE: Throttle = ");
     DBGLN_PEDAL(throttle_torque_val);
+
+    // motor reverse is car forward
+    throttle_torque_val = -throttle_torque_val;
 
     tx_throttle_msg->can_id = 0x201;
     tx_throttle_msg->can_dlc = 3;
@@ -180,4 +200,42 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
         return true;
     }
     return false;
+}
+
+bool Pedal::check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
+// Enable reverse mode.
+//
+//  Do NOT use in actual competition!
+// Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
+// rough translation: it is prohibited to use the motor to turn the wheels backwards.
+//
+// return value intended for light/buzzers
+{
+    if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < 0.1 && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
+    {
+        DBGLN_PEDAL("Entering reverse mode!");
+        return true;
+    }
+    return false;
+}
+
+bool Pedal::check_exit_reverse_mode(bool reverseButtonPressed)
+// return value to exit reverse mode, need to re-meet criterias to restart
+// will see what addition critiria can be added
+{
+    return !reverseButtonPressed;
+}
+
+int Pedal::calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested)
+// Calculate the torque value for reverse mode
+// require throttle to be less than 1/3
+// limit speed to threshold
+{
+    if (throttleVolt > MAX_THROTTLE_IN_VOLT / 3)
+        return 0;
+    if (vehicleSpeed > REVERSE_SPEED_MAX)
+        return 0;
+    DBG_PEDAL("Reverse mode: ");
+    return torqueRequested * 0.3; // make reverse slow and controllable
+    // consider that throttle must be less than 1/3
 }

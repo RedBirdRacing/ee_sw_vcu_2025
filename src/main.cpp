@@ -6,7 +6,7 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-uint8_t pin_out[4] = {LED1, LED2, LED3, BREAK_OUT};
+uint8_t pin_out[4] = {LED1, LED2, LED3, BRAKE_OUT};
 uint8_t pin_in[4] = {BTN1, BTN2, BTN3, BTN4};
 
 // === CAN + Pedal ===
@@ -48,7 +48,7 @@ const int BUSSIN_TIME_MILLIS = 2000;         // The amount of time that the buzz
 void setup()
 {
     // Init pedals
-    pedal = Pedal(APPS_5V, APPS_3V3, millis());
+    pedal = Pedal(APPS_5V, APPS_3V3, REVERSE_BUTTON, millis());
 
     // Init input pins
     for (int i = 0; i < 4; i++)
