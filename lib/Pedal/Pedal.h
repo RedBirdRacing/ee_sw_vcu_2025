@@ -41,6 +41,15 @@ const float REVERSE_SPEED_MAX = 0.2;
 
 #define ADC_BUFFER_SIZE 16
 
+
+// reverse mode states
+enum ReverseStates
+{
+    FORWARD = 0,
+    REVERSE = 1,
+    NEUTRAL = 2 // driver need to release throttle and press brakes to enter forward mode
+};
+
 // Class for generic pedal object
 // For Gen 5 car, only throttle pedal is wired through the VCU, so we use Pedal class for Throttle pedal only.
 class Pedal
@@ -66,20 +75,6 @@ public:
     // Under normal circumstance, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
     int final_pedal_value;
 
-    // Enable reverse mode.
-    //
-    //  Do NOT use in actual competition!
-    // Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
-    // rough translation: it is prohibited to use the motor to turn the wheels backwards.
-    //
-    // return value intended for light/buzzers
-    bool check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
-
-    // return value to exit reverse mode, need to re-meet criterias to restart
-    // will see what addition critiria can be added
-    bool check_exit_reverse_mode(bool reverseButtonPressed);
-
-
 private:
     int input_pin_1, input_pin_2, reverse_pin;
 
@@ -101,17 +96,35 @@ private:
 
     // Returns true if pedal is faulty
     bool check_pedal_fault(int pedal_1, int pedal_2);
+    
+        RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_1;
+        RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_2;
 
+        
+        // reverse mode
+        //
+        // Do NOT use in actual competition!
+        // Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
+        // rough translation: it is prohibited to use the motor to turn the wheels backwards.
+    
     // calculate reverse torque value
     int calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested);
 
-    //
+    // reverse button pin to bool
     bool reverseButtonPressed = false;
-    // Reverse mode status
-    bool reverseMode = false;
 
-    RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_1;
-    RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_2;
+    // Reverse mode status
+    ReverseStates reverseMode = FORWARD;
+
+    // return value intended for light/buzzers
+    void check_enter_reverse_mode(ReverseStates& RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
+
+    // return value to exit reverse mode, need to re-meet criterias to restart
+    // will see what addition critiria can be added
+    void check_exit_reverse_mode(ReverseStates& RevState, bool reverseButtonPressed);
+
+    // enter forward
+    void check_enter_forward_mode(ReverseStates& RevState, float brakePercentage, float throttlePercentage, float vehicleSpeed);
 };
 
 #endif // PEDAL_H

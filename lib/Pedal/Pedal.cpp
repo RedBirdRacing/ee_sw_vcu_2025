@@ -159,17 +159,30 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
 
     reverseButtonPressed = digitalRead(reverse_pin);
     // enter reverse mode
-    if (!reverseMode)
+    if (reverseMode != REVERSE)
     {
         // brake percentage and speed is placeholder
-        check_enter_reverse_mode(reverseButtonPressed, 0.5, throttle_volt / MAX_THROTTLE_IN_VOLT, 0.0);
+        check_enter_reverse_mode(reverseMode, reverseButtonPressed, 0.7, throttle_volt / MAX_THROTTLE_IN_VOLT, 0.0);
     }
 
-    check_exit_reverse_mode(reverseButtonPressed);
+    check_exit_reverse_mode(reverseMode, reverseButtonPressed);
+
+    // enter forward
+    if (reverseMode == NEUTRAL)
+    {
+        check_enter_forward_mode(reverseMode, 0.7, throttle_volt / MAX_THROTTLE_IN_VOLT, 0.0);
+        // if still not exited neutral, clamp power to 0
+        if (reverseMode == NEUTRAL)
+        {
+            throttle_torque_val = 0;
+        }
+    }
+
     // reverse mode
-    if (reverseMode)
+    if (reverseMode == REVERSE)
     {
         // speed 0.0 is placeholder
+        // light up LED/buzzer
         throttle_torque_val = calculateReverseTorque(throttle_volt, 0.0, throttle_torque_val);
     }
 
@@ -202,28 +215,38 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
     return false;
 }
 
-bool Pedal::check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
+void Pedal::check_enter_reverse_mode(ReverseStates &RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
 // Enable reverse mode.
 //
 //  Do NOT use in actual competition!
 // Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
 // rough translation: it is prohibited to use the motor to turn the wheels backwards.
-//
-// return value intended for light/buzzers
 {
     if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < 0.1 && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
     {
         DBGLN_PEDAL("Entering reverse mode!");
-        return true;
+        RevState = REVERSE;
     }
-    return false;
 }
 
-bool Pedal::check_exit_reverse_mode(bool reverseButtonPressed)
-// return value to exit reverse mode, need to re-meet criterias to restart
-// will see what addition critiria can be added
+void Pedal::check_exit_reverse_mode(ReverseStates &RevState, bool reverseButtonPressed)
+// will see what additional critiria can be added
 {
-    return !reverseButtonPressed;
+    if (!reverseButtonPressed)
+    {
+        DBGLN_PEDAL("Entering neutral!");
+        RevState = NEUTRAL;
+    }
+}
+
+void Pedal::check_enter_forward_mode(ReverseStates &RevState, float brakePercentage, float throttlePercentage, float vehicleSpeed)
+// will see what additional critiria can be added
+{
+    if (brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < MIN_THROTTLE_IN_VOLT && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
+    {
+        DBGLN_PEDAL("Entering reverse mode!");
+        RevState = FORWARD;
+    }
 }
 
 int Pedal::calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested)

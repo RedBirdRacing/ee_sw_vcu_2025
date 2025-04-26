@@ -26,9 +26,15 @@ Select which debug messages are needed by setting the respective debug flags und
 
 ***If debug is set to true, expect large delays between pedal input and motor output due to Serial being slow af***
 
+## Reverse Mode:
+Although banned by rules, a reverse mode exist for testing purposes ***ONLY***.
+The driver must hold down the reverse button to allow the car to reverse.
+If the button is released, the car is placed in neutral. Throttle will not apply power.
+
 ## Future development:
 - More CANBUS channels for BMS, datalogger and other components
 - Better torque curve
+- Reverse Mode full implementation
 
 ## Folder structure
 ```
