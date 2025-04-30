@@ -27,7 +27,16 @@ Select which debug messages are needed by setting the respective debug flags und
 ### If debug is set to true, expect large delays between pedal input and motor output due to Serial being slow af
 
 ## Future development:
-- Migrate to use Platform IO for developing on VS Code (Arduino IDE is shit)
 - More CANBUS channels for BMS, datalogger and other components
 - Better torque curve
 
+## Folder structure
+```
+include
+| headers
+lib
+| libraries (folders)
+| | library.json (e.g. in Pedal)  --> link with other files in include/lib
+src
+| main.cpp
+```

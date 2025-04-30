@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "pinMap.h"
 #include "Pedal.h"
 #include <mcp2515.h>
@@ -32,7 +33,8 @@ Separately, the following will be done outside the status checking part:
 
 Also, during status 0, 1, and 2, the VCU will keep sending "0 torque" messages to the motor via CAN
 */
-enum CarStatus {
+enum CarStatus
+{
     INIT = 0,
     IN_STARTING_SEQUENCE = 1,
     BUZZING = 2,
@@ -40,8 +42,8 @@ enum CarStatus {
 };
 CarStatus car_status = INIT;
 unsigned long car_status_millis_counter = 0; // Millis counter for 1st and 2nd transitionin states
-const int STATUS_1_TIME_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
-const int BUSSIN_TIME_MILLIS = 2000; // The amount of time that the buzzer will buzz for
+const int STATUS_1_TIME_MILLIS = 2000;       // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
+const int BUSSIN_TIME_MILLIS = 2000;         // The amount of time that the buzzer will buzz for
 
 void setup()
 {
@@ -55,15 +57,16 @@ void setup()
     for (int i = 0; i < 4; i++)
         pinMode(pin_out[i], OUTPUT);
 
-
-    // Init mcp2515 
+    // Init mcp2515
     mcp2515.reset();
     mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ); // 8MHZ for testing on uno
     mcp2515.setNormalMode();
 
     // Init serial for testing if DEBUG flag is set to true
-    if (DEBUG == true) {
-        while (!Serial);
+    if (DEBUG == true)
+    {
+        while (!Serial)
+            ;
         Serial.begin(9600);
     }
 
@@ -129,7 +132,7 @@ void loop()
         if (millis() - car_status_millis_counter >= BUSSIN_TIME_MILLIS)
         {
             digitalWrite(LED2, HIGH); // Turn on "Drive" mode indicator
-            digitalWrite(LED1, LOW); // Turn off buzzer
+            digitalWrite(LED1, LOW);  // Turn off buzzer
             car_status = DRIVE_MODE;
             DBGLN_STATUS("Transition to State 3: Drive mode");
         }
@@ -147,7 +150,7 @@ void loop()
 
     // Pedal update
     if (car_status == DRIVE_MODE)
-    {   
+    {
         // Send pedal value through canbus
         pedal.pedal_can_frame_update(&tx_throttle_msg);
         // The following if block is needed only if we limit the lower bound for canbus cycle period
@@ -170,7 +173,6 @@ void loop()
             DBGLN_STATUS("Throttle pressed too early — Resetting to State 0");
         }
     }
-
 
     // mcp2515.sendMessage(&tx_throttle_msg);
     // uint32_t lastLEDtick = 0;
