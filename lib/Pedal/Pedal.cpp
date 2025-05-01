@@ -152,9 +152,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     }
 
     //
-    //  Do NOT use in actual competition!
-    // Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
-    // rough translation: it is prohibited to use the motor to turn the wheels backwards.
+    //  Do NOT use in actual competition! Read Documentation
     //
 
     reverseButtonPressed = digitalRead(reverse_pin);
@@ -190,7 +188,10 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     DBGLN_PEDAL(throttle_torque_val);
 
     // motor reverse is car forward
-    throttle_torque_val = -throttle_torque_val;
+    if (Flip_Motor_Dir)
+    {
+        throttle_torque_val = -throttle_torque_val;
+    }
 
     tx_throttle_msg->can_id = 0x201;
     tx_throttle_msg->can_dlc = 3;
@@ -218,9 +219,9 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
 void Pedal::check_enter_reverse_mode(ReverseStates &RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
 // Enable reverse mode.
 //
-//  Do NOT use in actual competition!
-// Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
-// rough translation: it is prohibited to use the motor to turn the wheels backwards.
+// Do NOT use in actual competition!
+// Read documentation
+//
 {
     if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < 0.1 && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
     {

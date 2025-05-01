@@ -1,0 +1,150 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+% Listings settings for code
+\lstset{
+    basicstyle=\ttfamily\footnotesize, % Shrink the font size to footnotesize
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b,
+}
+
+% Title and author
+\title{Red Bird Racing EVRT Vehicle Control Unit (VCU) (2025) \\ Project Documentation}
+\author{Red Bird Racing EVRT}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This document provides an overview of the Red Bird Racing EVRT Vehicle Control Unit (VCU) (2025). The VCU firmware is designed to manage pedal input, CAN communication, and vehicle state transitions for our Formula Student electric race car.
+
+\subsection{Project Structure}
+The project is organized as follows:
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+.
++-- include
+|   +-- Debug.h
+|   +-- pinMap.h
+|   +-- README
++-- lib
+|   +-- Pedal
+|   |   +-- Pedal.cpp
+|   |   +-- Pedal.h
+|   |   +-- library.json
+|   +-- Queue
+|   |   +-- Queue.cpp
+|   |   +-- Queue.h
+|   +-- Signal_Processing
+|   |   +-- Signal_Processing.cpp
+|   |   +-- Signal_Processing.h
+|   +-- README
++-- src
+|   +-- main.cpp
++-- test
+|   +-- README
++-- platformio.ini
++-- .vscode
+    +-- launch.json
+    +-- extensions.json
+    +-- c_cpp_properties.json
+\end{lstlisting}
+
+\section{Setup and Tuning}
+\begin{enumerate}
+    \item Adjust pedal input constants in \texttt{Pedal.h}.
+    \item Flash the VCU firmware. Ensure the car is jacked up and powered off during this process.
+    \item Clear the area around the car, especially the rear.
+    \item Test the minimum and maximum pedal input voltages and adjust the constants accordingly.
+\end{enumerate}
+
+\section{Debugging}
+Debugging is performed using the serial monitor. Enable specific debug messages by setting flags in \texttt{Debug.h}. Note that enabling debugging may introduce delays due to the slow serial communication.
+
+\section{Reverse Mode}
+Reverse mode is implemented for testing purposes only and is prohibited in competition. The driver must hold the reverse button to engage reverse mode. Releasing the button places the car in neutral.
+
+\textbf{Important Notes:}
+{\fontspec{Microsoft YaHei}
+\begin{itemize}
+    \item \textbf{Do NOT use in actual competition!}
+    \item \textbf{Rules 5.2.2.3: 禁止通过驱动装置反转车轮。}
+    \item Rough translation: It is prohibited to use the motor to turn the wheels backwards.
+\end{itemize}
+}
+
+\section{Source Code Overview}
+\subsection{\texttt{main.cpp}}
+The main file initializes the pedal, CAN communication, and state machine for the car. It handles transitions between states such as \texttt{INIT}, \texttt{IN\_STARTING\_SEQUENCE}, \texttt{BUZZING}, and \texttt{DRIVE\_MODE}.
+
+\lstinputlisting[language=C++,caption={\texttt{main.cpp}},label={lst:main}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/src/main.cpp}
+
+\subsection{\texttt{Pedal.cpp} and \texttt{Pedal.h}}
+These files define the \texttt{Pedal} class, which encapsulates functionality for reading pedal input, filtering signals, and constructing CAN frames.
+
+\lstinputlisting[language=C++,caption={\texttt{Pedal.cpp}},label={lst:pedalcpp}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Pedal/Pedal.cpp}
+
+\lstinputlisting[language=C++,caption={\texttt{Pedal.h}},label={lst:pedalh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Pedal/Pedal.h}
+
+\subsection{\texttt{Queue.cpp} and \texttt{Queue.h}}
+These files implement a static FIFO queue and a ring buffer for managing pedal input data.
+
+\lstinputlisting[language=C++,caption={\texttt{Queue.cpp}},label={lst:queuecpp}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Queue/Queue.cpp}
+
+\lstinputlisting[language=C++,caption={\texttt{Queue.h}},label={lst:queueh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Queue/Queue.h}
+
+\subsection{\texttt{Signal\_Processing.cpp} and \texttt{Signal\_Processing.h}}
+These files provide simple DSP functions for filtering and processing pedal input signals.
+
+\lstinputlisting[language=C++,caption={\texttt{Signal\_Processing.cpp}},label={lst:signalcpp}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Signal_Processing/Signal_Processing.cpp}
+
+\lstinputlisting[language=C++,caption={\texttt{Signal\_Processing.h}},label={lst:signalh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Signal_Processing/Signal_Processing.h}
+
+\subsection{\texttt{Debug.h}}
+This file defines macros for enabling or disabling debug messages.
+
+\lstinputlisting[language=C++,caption={\texttt{Debug.h}},label={lst:debugh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include/Debug.h}
+
+\subsection{\texttt{pinMap.h}}
+This file maps the pins used in the project to meaningful names.
+
+\lstinputlisting[language=C++,caption={\texttt{pinMap.h}},label={lst:pinmaph}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include/pinMap.h}
+
+\section{PlatformIO Configuration}
+The \texttt{platformio.ini} file configures the PlatformIO environment for the project. It specifies the board, framework, and library dependencies.
+
+\lstinputlisting[caption={\texttt{platformio.ini}},label={lst:platformio}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/platformio.ini}
+
+\section{Future Development}
+\begin{itemize}
+    \item Add more CAN channels for BMS, data logger, and other components.
+    \item Improve the torque curve for better performance.
+    \item Fully implement reverse mode.
+\end{itemize}
+
+\section{References}
+\begin{itemize}
+    \item \href{https://docs.platformio.org/en/latest/}{PlatformIO Documentation}
+    \item \href{https://gcc.gnu.org/onlinedocs/cpp/Header-Files.html}{GCC Header File Documentation}
+\end{itemize}
+
+\end{document}

@@ -7,3 +7,9 @@
 
 # vscode, has absolute file location
 .vscode/
+
+# Documentation
+Documentation/*
+# Except for .pdf and .tex
+!Documentation/RBR_VCU_2025.pdf
+!Documentation/RBR_VCU_2025.tex
