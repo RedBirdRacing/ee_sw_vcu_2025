@@ -81,7 +81,7 @@ The project is organized as follows:
 Debugging is performed using the serial monitor. Enable specific debug messages by setting flags in \texttt{Debug.h}. Note that enabling debugging may introduce delays due to the slow serial communication.
 
 \section{Reverse Mode}
-Reverse mode is implemented for testing purposes only and is prohibited in competition. The driver must hold the reverse button to engage reverse mode. Releasing the button places the car in neutral.
+Reverse mode is implemented for testing purposes only and is prohibited in competition. The driver must hold the reverse button to engage reverse mode. Releasing the button places the car in neutral. The car would re-enter reverse mode if criteria are met; else forward mode is engaged if its criteria are met.
 
 \textbf{Important Notes:}
 {\fontspec{Microsoft YaHei}
@@ -91,6 +91,82 @@ Reverse mode is implemented for testing purposes only and is prohibited in compe
     \item Rough translation: It is prohibited to use the motor to turn the wheels backwards.
 \end{itemize}
 }
+
+\subsection{Implementation in \texttt{Pedal.cpp}}
+The reverse mode logic is implemented in the \texttt{Pedal.cpp} file. Below is an overview of the relevant functions:
+
+\begin{itemize}
+    \item \texttt{void check\_enter\_reverse\_mode(ReverseStates \&RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)}:
+    Enables reverse mode if the reverse button is pressed, the brake percentage exceeds a threshold, the throttle percentage is low, and the vehicle is stationary.
+
+    \item \texttt{void check\_exit\_reverse\_mode(ReverseStates \&RevState, bool reverseButtonPressed)}:
+    Exits reverse mode and enters neutral if the reverse button is released.
+
+    \item \texttt{void check\_enter\_forward\_mode(ReverseStates \&RevState, float brakePercentage, float throttlePercentage, float vehicleSpeed)}:
+    Enables forward mode if the brake percentage exceeds a threshold, the throttle percentage is low, and the vehicle is stationary.
+
+    \item \texttt{int calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested)}:
+    Calculates the torque value for reverse mode. Limits throttle to one-third and ensures the vehicle speed does not exceed a threshold.
+\end{itemize}
+
+\textbf{Constants and Thresholds:}
+\begin{itemize}
+    \item \texttt{REVERSE\_ENTER\_BRAKE\_THRESHOLD}: Minimum brake percentage required to enter reverse mode.
+    \item \texttt{CAR\_STATIONARY\_SPEED\_THRESHOLD}: Maximum vehicle speed for the car to be considered stationary.
+    \item \texttt{MAX\_THROTTLE\_IN\_VOLT}: Maximum throttle voltage.
+    \item \texttt{REVERSE\_SPEED\_MAX}: Maximum allowable speed in reverse mode.
+\end{itemize}
+
+\subsection{Reverse Mode Logic}
+The reverse mode logic in \texttt{Pedal.cpp} is implemented to allow the vehicle to safely enter, exit, and operate in reverse mode. Below is a summary of the key components and logic:
+
+\subsubsection{Key Functions}
+\begin{itemize}
+    \item \texttt{void check\_enter\_reverse\_mode(ReverseStates \&RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)}:
+    Enables reverse mode if the following conditions are met:
+    \begin{itemize}
+        \item The reverse button is pressed.
+        \item The brake percentage exceeds the threshold (\texttt{REVERSE\_ENTER\_BRAKE\_THRESHOLD}).
+        \item The throttle percentage is below 10\%.
+        \item The vehicle speed is below the stationary threshold (\texttt{CAR\_STATIONARY\_SPEED\_THRESHOLD}).
+    \end{itemize}
+
+    \item \texttt{void check\_exit\_reverse\_mode(ReverseStates \&RevState, bool reverseButtonPressed)}:
+    Exits reverse mode and transitions to neutral if the reverse button is released.
+
+    \item \texttt{void check\_enter\_forward\_mode(ReverseStates \&RevState, float brakePercentage, float throttlePercentage, float vehicleSpeed)}:
+    Enables forward mode if the following conditions are met:
+    \begin{itemize}
+        \item The brake percentage exceeds the threshold (\texttt{REVERSE\_ENTER\_BRAKE\_THRESHOLD}).
+        \item The throttle percentage is below the minimum throttle voltage (\texttt{MIN\_THROTTLE\_IN\_VOLT}).
+        \item The vehicle speed is below the stationary threshold (\texttt{CAR\_STATIONARY\_SPEED\_THRESHOLD}).
+    \end{itemize}
+
+    \item \texttt{int calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested)}:
+    Calculates the torque value for reverse mode with the following constraints:
+    \begin{itemize}
+        \item The throttle voltage must be less than one-third of the maximum throttle voltage (\texttt{MAX\_THROTTLE\_IN\_VOLT}).
+        \item The vehicle speed must not exceed the reverse speed limit (\texttt{REVERSE\_SPEED\_MAX}).
+        \item The torque is scaled down to 30\% of the requested torque to ensure reverse mode is slow and controllable.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Reverse Mode Workflow}
+\begin{enumerate}
+    \item The reverse button is read using \texttt{digitalRead(reverse\_pin)}.
+    \item If the vehicle is not already in reverse mode, the function \texttt{check\_enter\_reverse\_mode} is called to evaluate the conditions for entering reverse mode.
+    \item If the reverse button is released, the function \texttt{check\_exit\_reverse\_mode} transitions the vehicle to neutral mode.
+    \item If the vehicle is in neutral mode, the function \texttt{check\_enter\_forward\_mode} evaluates the conditions for entering forward mode.
+    \item If the vehicle is in reverse mode, the function \texttt{calculateReverseTorque} ensures the torque and speed are limited for safety.
+\end{enumerate}
+
+\subsubsection{Safety Notes}
+\begin{itemize}
+    \item Reverse mode is implemented for testing purposes only and should not be used in competition.
+    \item \textbf{Rules 5.2.2.3}
+    \item Rough translation: It is prohibited to use the motor to turn the wheels backwards.
+    \item The reverse mode logic ensures that the vehicle operates safely by limiting throttle and speed in reverse mode.
+\end{itemize}
 
 \section{Source Code Overview}
 \subsection{\texttt{main.cpp}}
