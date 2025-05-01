@@ -223,7 +223,7 @@ void Pedal::check_enter_reverse_mode(ReverseStates &RevState, bool reverseButton
 // Read documentation
 //
 {
-    if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < 0.1 && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
+    if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < REVERSE_ENTER_THROTTLE_THRESHOLD && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
     {
         DBGLN_PEDAL("Entering reverse mode!");
         RevState = REVERSE;
