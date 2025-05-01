@@ -36,6 +36,8 @@ bool Flip_Motor_Dir = true; // Flips the direction of motor output
 const float CAR_STATIONARY_SPEED_THRESHOLD = 0.2;
 // Reverse mode entering brake threshold
 const float REVERSE_ENTER_BRAKE_THRESHOLD = 0.5;
+// Reverse mode entering throttle threshold
+const float REVERSE_ENTER_THROTTLE_THRESHOLD = 0.1;
 // Reverse mode maximum speed
 const float REVERSE_SPEED_MAX = 0.2;
 
