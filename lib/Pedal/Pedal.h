@@ -30,6 +30,7 @@ const int MIN_THROTTLE_OUT_VAL = 300; // Minium torque value tested is 300 (TBC)
 
 // To go forward, this should be true; false sets the motor to go in reverse
 bool Flip_Motor_Dir = true; // Flips the direction of motor output
+// set to true for gen 3
 
 // Reverse mode "stationary" speed threshold
 const float CAR_STATIONARY_SPEED_THRESHOLD = 0.2;
@@ -104,8 +105,8 @@ private:
         // reverse mode
         //
         // Do NOT use in actual competition!
-        // Rules 5.2.2.3: 禁止通过驱动装置反转车轮。
-        // rough translation: it is prohibited to use the motor to turn the wheels backwards.
+        // Read documentation
+        //
     
     // calculate reverse torque value
     int calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested);
