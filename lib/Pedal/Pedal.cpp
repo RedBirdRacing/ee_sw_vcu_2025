@@ -19,14 +19,15 @@ float SINC_128[128] = {0.017232, 0.002666, -0.013033, -0.026004, -0.032934, -0.0
                        -0.007851, -0.022884, -0.031899, -0.032934, -0.026004, -0.013033};
 
 Pedal::Pedal()
-    : input_pin_1(-1), input_pin_2(-1), reverse_pin(-1), previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
+    : input_pin_1(-1), input_pin_2(-1), reverse_pin(-1), buzzer_pin(-1) ,previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
 
-Pedal::Pedal(int input_pin_1, int input_pin_2, int reverse_pin, unsigned long millis, unsigned short conversion_rate)
-    : input_pin_1(input_pin_1), input_pin_2(input_pin_2), reverse_pin(reverse_pin), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
+Pedal::Pedal(int input_pin_1, int input_pin_2, int reverse_pin, int buzzer_pin, unsigned long millis, unsigned short conversion_rate)
+    : input_pin_1(input_pin_1), input_pin_2(input_pin_2), reverse_pin(reverse_pin), buzzer_pin(buzzer_pin), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
 {
     // Init pins
     pinMode(input_pin_1, INPUT);
     pinMode(input_pin_2, INPUT);
+    pinMode(buzzer_pin, OUTPUT);
     conversion_period = 1000 / conversion_rate;
 
     // Init ADC buffers
@@ -107,7 +108,7 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
     DBGLN_PEDAL("CAN STOP");
 }
 
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
+void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis)
 {
     if (fault_force_stop)
     {
@@ -152,36 +153,38 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     }
 
     //
-    //  Do NOT use in actual competition! Read Documentation
+    // Reverse mode logic
+    // Do NOT use in actual competition! Read Documentation
     //
 
     reverseButtonPressed = digitalRead(reverse_pin);
-    // enter reverse mode
-    if (reverseMode != REVERSE)
+    // temp override for testing
+    float brakePercentage = 0.0;
+    float vehicleSpeed = 0.0;
+
+    // check enter reverse mode
+    if (!reverseMode)
     {
-        // brake percentage and speed is placeholder
-        check_enter_reverse_mode(reverseMode, reverseButtonPressed, 0.7, throttle_volt / MAX_THROTTLE_IN_VOLT, 0.0);
+        reverseMode = check_enter_reverse_mode(reverseButtonPressed, brakePercentage, throttle_volt, vehicleSpeed);
     }
-
-    check_exit_reverse_mode(reverseMode, reverseButtonPressed);
-
-    // enter forward
-    if (reverseMode == NEUTRAL)
+    else
     {
-        check_enter_forward_mode(reverseMode, 0.7, throttle_volt / MAX_THROTTLE_IN_VOLT, 0.0);
-        // if still not exited neutral, clamp power to 0
-        if (reverseMode == NEUTRAL)
+        reverseMode = check_enter_forward_mode(reverseButtonPressed, brakePercentage, throttle_volt, vehicleSpeed);
+    }
+    if (reverseMode)
+    {
+        // Reverse mode
+        // buzzer
+        if (millis % (2 * REVERSE_BEEP_CYCLE_TIME) < REVERSE_BEEP_CYCLE_TIME)
         {
-            throttle_torque_val = 0;
+            digitalWrite(buzzer_pin, HIGH);
         }
-    }
-
-    // reverse mode
-    if (reverseMode == REVERSE)
-    {
-        // speed 0.0 is placeholder
-        // light up LED/buzzer
-        throttle_torque_val = calculateReverseTorque(throttle_volt, 0.0, throttle_torque_val);
+        else
+        {
+            digitalWrite(buzzer_pin, LOW);
+        }
+        // Reverse mode torque calculation
+        throttle_torque_val = calculateReverseTorque(throttle_volt, vehicleSpeed, throttle_torque_val);
     }
 
     DBG_PEDAL("CAN UPDATE: Throttle = ");
@@ -216,38 +219,32 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
     return false;
 }
 
-void Pedal::check_enter_reverse_mode(ReverseStates &RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
+bool Pedal::check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
 // Enable reverse mode.
 //
 // Do NOT use in actual competition!
 // Read documentation
 //
+// returns reverseMode status
 {
     if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < REVERSE_ENTER_THROTTLE_THRESHOLD && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
     {
         DBGLN_PEDAL("Entering reverse mode!");
-        RevState = REVERSE;
+        return true;
     }
+    return false;
 }
 
-void Pedal::check_exit_reverse_mode(ReverseStates &RevState, bool reverseButtonPressed)
+bool Pedal::check_enter_forward_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
 // will see what additional critiria can be added
-{
-    if (!reverseButtonPressed)
-    {
-        DBGLN_PEDAL("Entering neutral!");
-        RevState = NEUTRAL;
-    }
-}
-
-void Pedal::check_enter_forward_mode(ReverseStates &RevState, float brakePercentage, float throttlePercentage, float vehicleSpeed)
-// will see what additional critiria can be added
+// returns reverseMode status
 {
     if (brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < MIN_THROTTLE_IN_VOLT && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
     {
-        DBGLN_PEDAL("Entering reverse mode!");
-        RevState = FORWARD;
+        DBGLN_PEDAL("Entering forward mode!");
+        return false;
     }
+    return true;
 }
 
 int Pedal::calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested)
@@ -262,4 +259,5 @@ int Pedal::calculateReverseTorque(float throttleVolt, float vehicleSpeed, int to
     DBG_PEDAL("Reverse mode: ");
     return torqueRequested * 0.3; // make reverse slow and controllable
     // consider that throttle must be less than 1/3
+    // then max torque is 1/10 of the normal torque
 }

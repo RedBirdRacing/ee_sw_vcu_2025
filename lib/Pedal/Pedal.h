@@ -40,18 +40,10 @@ const float REVERSE_ENTER_BRAKE_THRESHOLD = 0.5;
 const float REVERSE_ENTER_THROTTLE_THRESHOLD = 0.1;
 // Reverse mode maximum speed
 const float REVERSE_SPEED_MAX = 0.2;
-
+// Reverse mode buzzer cycle time
+const unsigned short REVERSE_BEEP_CYCLE_TIME = 400; // in ms
 
 #define ADC_BUFFER_SIZE 16
-
-
-// reverse mode states
-enum ReverseStates
-{
-    FORWARD = 0,
-    REVERSE = 1,
-    NEUTRAL = 2 // driver need to release throttle and press brakes to enter forward mode
-};
 
 // Class for generic pedal object
 // For Gen 5 car, only throttle pedal is wired through the VCU, so we use Pedal class for Throttle pedal only.
@@ -60,7 +52,7 @@ class Pedal
 public:
     // Two input pins for reading both pedal potentiometer
     // Conversion rate in Hz
-    Pedal(int input_pin_1, int input_pin_2, int reverse_pin, unsigned long millis, unsigned short conversion_rate = 1000);
+    Pedal(int input_pin_1, int input_pin_2, int reverse_pin, int buzzer_pin, unsigned long millis, unsigned short conversion_rate = 1000);
 
     // Defualt constructor, expected another constructor should be called before start using
     Pedal();
@@ -69,7 +61,7 @@ public:
     void pedal_update(unsigned long millis);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
-    void pedal_can_frame_update(can_frame *tx_throttle_msg);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
@@ -79,7 +71,7 @@ public:
     int final_pedal_value;
 
 private:
-    int input_pin_1, input_pin_2, reverse_pin;
+    int input_pin_1, input_pin_2, reverse_pin, buzzer_pin;
 
     // Will rollover every 49 days
     unsigned long previous_millis;
@@ -99,17 +91,16 @@ private:
 
     // Returns true if pedal is faulty
     bool check_pedal_fault(int pedal_1, int pedal_2);
-    
-        RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_1;
-        RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_2;
 
-        
-        // reverse mode
-        //
-        // Do NOT use in actual competition!
-        // Read documentation
-        //
-    
+    RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_1;
+    RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_2;
+
+    // reverse mode
+    //
+    // Do NOT use in actual competition!
+    // Read documentation
+    //
+
     // calculate reverse torque value
     int calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested);
 
@@ -117,17 +108,13 @@ private:
     bool reverseButtonPressed = false;
 
     // Reverse mode status
-    ReverseStates reverseMode = FORWARD;
+    bool reverseMode = false;
 
-    // return value intended for light/buzzers
-    void check_enter_reverse_mode(ReverseStates& RevState, bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
+    // function check and set reverse, return reverse mode status
+    bool check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
 
-    // return value to exit reverse mode, need to re-meet criterias to restart
-    // will see what addition critiria can be added
-    void check_exit_reverse_mode(ReverseStates& RevState, bool reverseButtonPressed);
-
-    // enter forward
-    void check_enter_forward_mode(ReverseStates& RevState, float brakePercentage, float throttlePercentage, float vehicleSpeed);
+    // function check and set forward, return reverse mode status
+    bool check_enter_forward_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
 };
 
 #endif // PEDAL_H
