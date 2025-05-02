@@ -28,8 +28,8 @@ Select which debug messages are needed by setting the respective debug flags und
 
 ## Reverse Mode:
 Although banned by rules, a reverse mode exist for testing purposes ***ONLY***.  
-In reverse, the buzzer sounds every `REVERSE_BEEP_CYCLE_TIME`  
-The button simply attempts to switch Reverse and Forward.  
+In reverse, the buzzer sounds every `REVERSE_BEEP_CYCLE_TIME` ms.  
+The button simply attempts to switch between forward and reverse.  
 Conditions are checked before mode is switched.  
 1. brake is pressed
 2. throttle is off
@@ -38,7 +38,6 @@ Conditions are checked before mode is switched.
 ## Future development:
 - More CANBUS channels for BMS, datalogger and other components
 - Better torque curve
-- Reverse Mode full implementation
 
 ## Folder structure
 ```
