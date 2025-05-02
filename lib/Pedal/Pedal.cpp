@@ -19,7 +19,7 @@ float SINC_128[128] = {0.017232, 0.002666, -0.013033, -0.026004, -0.032934, -0.0
                        -0.007851, -0.022884, -0.031899, -0.032934, -0.026004, -0.013033};
 
 Pedal::Pedal()
-    : input_pin_1(-1), input_pin_2(-1), reverse_pin(-1), buzzer_pin(-1) ,previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
+    : input_pin_1(-1), input_pin_2(-1), reverse_pin(-1), buzzer_pin(-1), previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
 
 Pedal::Pedal(int input_pin_1, int input_pin_2, int reverse_pin, int buzzer_pin, unsigned long millis, unsigned short conversion_rate)
     : input_pin_1(input_pin_1), input_pin_2(input_pin_2), reverse_pin(reverse_pin), buzzer_pin(buzzer_pin), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
@@ -163,13 +163,16 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long mil
     float vehicleSpeed = 0.0;
 
     // check enter reverse mode
-    if (!reverseMode)
+    if (reverseButtonPressed)
     {
-        reverseMode = check_enter_reverse_mode(reverseButtonPressed, brakePercentage, throttle_volt, vehicleSpeed);
-    }
-    else
-    {
-        reverseMode = check_enter_forward_mode(reverseButtonPressed, brakePercentage, throttle_volt, vehicleSpeed);
+        if (!reverseMode)
+        {
+            reverseMode = check_enter_reverse_mode(brakePercentage, throttle_volt, vehicleSpeed);
+        }
+        else
+        {
+            reverseMode = check_enter_forward_mode(brakePercentage, throttle_volt, vehicleSpeed);
+        }
     }
     if (reverseMode)
     {
@@ -219,7 +222,7 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
     return false;
 }
 
-bool Pedal::check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
+bool Pedal::check_enter_reverse_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed)
 // Enable reverse mode.
 //
 // Do NOT use in actual competition!
@@ -227,7 +230,7 @@ bool Pedal::check_enter_reverse_mode(bool reverseButtonPressed, float brakePerce
 //
 // returns reverseMode status
 {
-    if (reverseButtonPressed && brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < REVERSE_ENTER_THROTTLE_THRESHOLD && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
+    if (brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < REVERSE_ENTER_THROTTLE_THRESHOLD && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
     {
         DBGLN_PEDAL("Entering reverse mode!");
         return true;
@@ -235,8 +238,8 @@ bool Pedal::check_enter_reverse_mode(bool reverseButtonPressed, float brakePerce
     return false;
 }
 
-bool Pedal::check_enter_forward_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed)
-// will see what additional critiria can be added
+bool Pedal::check_enter_forward_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed)
+// will see what additional criteria can be added
 // returns reverseMode status
 {
     if (brakePercentage > REVERSE_ENTER_BRAKE_THRESHOLD && throttlePercentage < MIN_THROTTLE_IN_VOLT && vehicleSpeed < CAR_STATIONARY_SPEED_THRESHOLD)
