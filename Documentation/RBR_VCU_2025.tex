@@ -144,43 +144,43 @@ The reverse mode logic in \texttt{Pedal.cpp} allows the driver to toggle between
 \subsection{\texttt{main.cpp}}
 The main file initializes the pedal, CAN communication, and state machine for the car. It handles transitions between states such as \texttt{INIT}, \texttt{IN\_STARTING\_SEQUENCE}, \texttt{BUZZING}, and \texttt{DRIVE\_MODE}.
 
-\lstinputlisting[language=C++,caption={\texttt{main.cpp}},label={lst:main}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/src/main.cpp}
+\lstinputlisting[language=C++,caption={\texttt{main.cpp}},label={lst:main}]{../src/main.cpp}
 
 \subsection{\texttt{Pedal.cpp} and \texttt{Pedal.h}}
 These files define the \texttt{Pedal} class, which encapsulates functionality for reading pedal input, filtering signals, and constructing CAN frames.
 
-\lstinputlisting[language=C++,caption={\texttt{Pedal.cpp}},label={lst:pedalcpp}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Pedal/Pedal.cpp}
+\lstinputlisting[language=C++,caption={\texttt{Pedal.cpp}},label={lst:pedalcpp}]{../lib/Pedal/Pedal.cpp}
 
-\lstinputlisting[language=C++,caption={\texttt{Pedal.h}},label={lst:pedalh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Pedal/Pedal.h}
+\lstinputlisting[language=C++,caption={\texttt{Pedal.h}},label={lst:pedalh}]{../lib/Pedal/Pedal.h}
 
 \subsection{\texttt{Queue.cpp} and \texttt{Queue.h}}
 These files implement a static FIFO queue and a ring buffer for managing pedal input data.
 
-\lstinputlisting[language=C++,caption={\texttt{Queue.cpp}},label={lst:queuecpp}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Queue/Queue.cpp}
+\lstinputlisting[language=C++,caption={\texttt{Queue.cpp}},label={lst:queuecpp}]{../lib/Queue/Queue.cpp}
 
-\lstinputlisting[language=C++,caption={\texttt{Queue.h}},label={lst:queueh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Queue/Queue.h}
+\lstinputlisting[language=C++,caption={\texttt{Queue.h}},label={lst:queueh}]{../lib/Queue/Queue.h}
 
 \subsection{\texttt{Signal\_Processing.cpp} and \texttt{Signal\_Processing.h}}
 These files provide simple DSP functions for filtering and processing pedal input signals.
 
-\lstinputlisting[language=C++,caption={\texttt{Signal\_Processing.cpp}},label={lst:signalcpp}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Signal_Processing/Signal_Processing.cpp}
+\lstinputlisting[language=C++,caption={\texttt{Signal\_Processing.cpp}},label={lst:signalcpp}]{../lib/Signal_Processing/Signal_Processing.cpp}
 
-\lstinputlisting[language=C++,caption={\texttt{Signal\_Processing.h}},label={lst:signalh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/lib/Signal_Processing/Signal_Processing.h}
+\lstinputlisting[language=C++,caption={\texttt{Signal\_Processing.h}},label={lst:signalh}]{../lib/Signal_Processing/Signal_Processing.h}
 
 \subsection{\texttt{Debug.h}}
 This file defines macros for enabling or disabling debug messages.
 
-\lstinputlisting[language=C++,caption={\texttt{Debug.h}},label={lst:debugh}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include/Debug.h}
+\lstinputlisting[language=C++,caption={\texttt{Debug.h}},label={lst:debugh}]{../include/Debug.h}
 
 \subsection{\texttt{pinMap.h}}
 This file maps the pins used in the project to meaningful names.
 
-\lstinputlisting[language=C++,caption={\texttt{pinMap.h}},label={lst:pinmaph}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/include/pinMap.h}
+\lstinputlisting[language=C++,caption={\texttt{pinMap.h}},label={lst:pinmaph}]{../include/pinMap.h}
 
 \section{PlatformIO Configuration}
 The \texttt{platformio.ini} file configures the PlatformIO environment for the project. It specifies the board, framework, and library dependencies.
 
-\lstinputlisting[caption={\texttt{platformio.ini}},label={lst:platformio}]{c:/Users/ckt63/Documents/GitHub/ee_sw_vcu_2025/platformio.ini}
+\lstinputlisting[caption={\texttt{platformio.ini}},label={lst:platformio}]{../platformio.ini}
 
 \section{Future Development}
 \begin{itemize}
