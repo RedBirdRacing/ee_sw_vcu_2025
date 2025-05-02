@@ -111,10 +111,10 @@ private:
     bool reverseMode = false;
 
     // function check and set reverse, return reverse mode status
-    bool check_enter_reverse_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
+    bool check_enter_reverse_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed);
 
     // function check and set forward, return reverse mode status
-    bool check_enter_forward_mode(bool reverseButtonPressed, float brakePercentage, float throttlePercentage, float vehicleSpeed);
+    bool check_enter_forward_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed);
 };
 
 #endif // PEDAL_H
