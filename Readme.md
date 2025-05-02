@@ -28,9 +28,12 @@ Select which debug messages are needed by setting the respective debug flags und
 
 ## Reverse Mode:
 Although banned by rules, a reverse mode exist for testing purposes ***ONLY***.  
-The driver must hold down the reverse button to allow the car to reverse.  
-If the button is released, the car is placed in neutral. Throttle will not apply power.  
-In neutral, the driver can re-enter reverse or go into forward.  
+In reverse, the buzzer sounds every `REVERSE_BEEP_CYCLE_TIME`  
+The button simply attempts to switch Reverse and Forward.  
+Conditions are checked before mode is switched.  
+1. brake is pressed
+2. throttle is off
+3. car is stopped
 
 ## Future development:
 - More CANBUS channels for BMS, datalogger and other components
