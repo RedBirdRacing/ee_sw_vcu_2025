@@ -11,12 +11,14 @@
 
 // #define APPS_5V 23
 // #define APPS_3V3 24
-// #define BREAK_5V 25
-// #define BREAK_OUT 26
+// #define BRAKE_5V 25
+// #define BRAKE_OUT 26
 #define APPS_5V A0   // For arduino testing
 #define APPS_3V3 A1  // For arduino testing
-#define BREAK_5V A2  // For arduino testing
-#define BREAK_OUT A3 // For arduino testing
+#define BRAKE_5V A2  // For arduino testing
+#define BRAKE_OUT A3 // For arduino testing
+
+#define REVERSE_BUTTON A4 // For arduino testing
 
 #define LED1 2
 #define LED2 3

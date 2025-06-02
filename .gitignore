@@ -7,3 +7,10 @@
 
 # vscode, has absolute file location
 .vscode/
+
+# Documentation
+Documentation/*.aux
+Documentation/*.log
+Documentation/*.synctex.gz
+Documentation/*.toc
+Documentation/*.out

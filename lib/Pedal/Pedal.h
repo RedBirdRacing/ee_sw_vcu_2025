@@ -21,14 +21,27 @@ const float APPS_PEDAL_1_UPPER_DEADZONE_WIDTH = 0.4;
 const float MIN_THROTTLE_IN_VOLT = APPS_PEDAL_1_MIN_VOLTAGE + APPS_PEDAL_1_LOWER_DEADZONE_WIDTH;
 const float MAX_THROTTLE_IN_VOLT = APPS_PEDAL_1_MAX_VOLTAGE - APPS_PEDAL_1_UPPER_DEADZONE_WIDTH;
 const float THROTTLE_LOWER_DEADZONE_MIN_IN_VOLT = APPS_PEDAL_1_MIN_VOLTAGE - APPS_PEDAL_1_LOWER_DEADZONE_WIDTH;
-const float THORTTLE_UPPER_DEADZONE_MAX_IN_VOLT = APPS_PEDAL_1_MAX_VOLTAGE + APPS_PEDAL_1_UPPER_DEADZONE_WIDTH;
+const float THROTTLE_UPPER_DEADZONE_MAX_IN_VOLT = APPS_PEDAL_1_MAX_VOLTAGE + APPS_PEDAL_1_UPPER_DEADZONE_WIDTH;
 
 const int MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp2515
-// current set to a slightly lower value to not use current control
+// currently set to a slightly lower value to not use speed control (100%)
 // see E,EnS group discussion, 20250425HKT020800 discussion
 const int MIN_THROTTLE_OUT_VAL = 300; // Minium torque value tested is 300 (TBC)
 
-const bool FLIP_MOTOR_OUTPUT_DIRECTION = true; // Flips the direction of motor output
+// To go forward, this should be true; false sets the motor to go in reverse
+const bool Flip_Motor_Dir = true; // Flips the direction of motor output
+// set to true for gen 3
+
+// Reverse mode "stationary" speed threshold
+const float CAR_STATIONARY_SPEED_THRESHOLD = 0.2;
+// Reverse mode entering brake threshold
+const float REVERSE_ENTER_BRAKE_THRESHOLD = 0.5;
+// Reverse mode entering throttle threshold
+const float REVERSE_ENTER_THROTTLE_THRESHOLD = 0.1;
+// Reverse mode maximum speed
+const float REVERSE_SPEED_MAX = 0.2;
+// Reverse mode buzzer cycle time
+const unsigned short REVERSE_BEEP_CYCLE_TIME = 400; // in ms
 
 #define ADC_BUFFER_SIZE 16
 
@@ -39,7 +52,7 @@ class Pedal
 public:
     // Two input pins for reading both pedal potentiometer
     // Conversion rate in Hz
-    Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned short conversion_rate = 1000);
+    Pedal(int input_pin_1, int input_pin_2, int reverse_pin, int buzzer_pin, unsigned long millis, unsigned short conversion_rate = 1000);
 
     // Defualt constructor, expected another constructor should be called before start using
     Pedal();
@@ -48,7 +61,7 @@ public:
     void pedal_update(unsigned long millis);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
-    void pedal_can_frame_update(can_frame *tx_throttle_msg);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis, can_frame *tx_debug_msg);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
@@ -58,7 +71,7 @@ public:
     int final_pedal_value;
 
 private:
-    int input_pin_1, input_pin_2;
+    int input_pin_1, input_pin_2, reverse_pin, buzzer_pin;
 
     // Will rollover every 49 days
     unsigned long previous_millis;
@@ -81,6 +94,27 @@ private:
 
     RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_1;
     RingBuffer<float, ADC_BUFFER_SIZE> pedalValue_2;
+
+    // reverse mode
+    //
+    // Do NOT use in actual competition!
+    // Read documentation
+    //
+
+    // calculate reverse torque value
+    int calculateReverseTorque(float throttleVolt, float vehicleSpeed, int torqueRequested);
+
+    // reverse button pin to bool
+    bool reverseButtonPressed = false;
+
+    // Reverse mode status
+    bool reverseMode = false;
+
+    // function check and set reverse, return reverse mode status
+    bool check_enter_reverse_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed);
+
+    // function check and set forward, return reverse mode status
+    bool check_enter_forward_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed);
 };
 
 #endif // PEDAL_H
