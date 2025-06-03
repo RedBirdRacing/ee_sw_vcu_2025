@@ -191,14 +191,14 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long mil
     }
     
 
-    DBG_PEDAL("CAN UPDATE: Throttle = ");
-    DBGLN_PEDAL(throttle_torque_val);
-
     // motor reverse is car forward
     if (Flip_Motor_Dir)
     {
         throttle_torque_val = -throttle_torque_val;
     }
+
+    DBG_PEDAL("CAN UPDATE: Throttle = ");
+    DBGLN_PEDAL(throttle_torque_val);
 
     tx_throttle_msg->can_id = 0x201;
     tx_throttle_msg->can_dlc = 3;
