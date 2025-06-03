@@ -145,7 +145,7 @@ void loop()
     }
     else if (car_status == DRIVE_MODE)
     {
-        // In "Drive mode", car_status won't change, the driver either continue to drive, or shut off the car
+        // In "Drive mode", car_status won't change, the drvier either continue to drive, or shut off the car
         DBGLN_STATUS("In Drive Mode");
     }
     else
@@ -158,7 +158,7 @@ void loop()
     if (car_status == DRIVE_MODE)
     {
         // Send pedal value through canbus
-        pedal.pedal_can_frame_update(&tx_throttle_msg, millis());
+        pedal.pedal_can_frame_update(&tx_throttle_msg, millis(), tx_debug_msg);
         // The following if block is needed only if we limit the lower bound for canbus cycle period
         // if (millis() - final_throttle_time_millis >= THROTTLE_UPDATE_PERIOD_MILLIS)
         // {

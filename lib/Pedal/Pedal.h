@@ -29,7 +29,7 @@ const int MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp
 const int MIN_THROTTLE_OUT_VAL = 300; // Minium torque value tested is 300 (TBC)
 
 // To go forward, this should be true; false sets the motor to go in reverse
-bool Flip_Motor_Dir = true; // Flips the direction of motor output
+const bool Flip_Motor_Dir = true; // Flips the direction of motor output
 // set to true for gen 3
 
 // Reverse mode "stationary" speed threshold
@@ -61,7 +61,7 @@ public:
     void pedal_update(unsigned long millis);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
-    void pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis, can_frame *tx_debug_msg);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);

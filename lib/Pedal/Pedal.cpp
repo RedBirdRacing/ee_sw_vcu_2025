@@ -108,7 +108,7 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
     DBGLN_PEDAL("CAN STOP");
 }
 
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis)
+void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis, can_frame *tx_debug_msg)
 {
     if (fault_force_stop)
     {
@@ -235,6 +235,8 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
     }
     return false;
 }
+
+//// Reverse mode functions
 
 bool Pedal::check_enter_reverse_mode(float brakePercentage, float throttlePercentage, float vehicleSpeed)
 // Enable reverse mode.
