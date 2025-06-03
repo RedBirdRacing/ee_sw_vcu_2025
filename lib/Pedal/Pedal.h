@@ -32,17 +32,6 @@ const int MIN_THROTTLE_OUT_VAL = 300; // Minium torque value tested is 300 (TBC)
 const bool Flip_Motor_Dir = true; // Flips the direction of motor output
 // set to true for gen 3
 
-// Reverse mode "stationary" speed threshold
-const float CAR_STATIONARY_SPEED_THRESHOLD = 0.2;
-// Reverse mode entering brake threshold
-const float REVERSE_ENTER_BRAKE_THRESHOLD = 0.5;
-// Reverse mode entering throttle threshold
-const float REVERSE_ENTER_THROTTLE_THRESHOLD = 0.1;
-// Reverse mode maximum speed
-const float REVERSE_SPEED_MAX = 0.2;
-// Reverse mode buzzer cycle time
-const unsigned short REVERSE_BEEP_CYCLE_TIME = 400; // in ms
-
 #define ADC_BUFFER_SIZE 16
 
 // Class for generic pedal object
@@ -52,7 +41,7 @@ class Pedal
 public:
     // Two input pins for reading both pedal potentiometer
     // Conversion rate in Hz
-    Pedal(int input_pin_1, int input_pin_2, int reverse_pin, int buzzer_pin, unsigned long millis, unsigned short conversion_rate = 1000);
+    Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned short conversion_rate = 1000);
 
     // Defualt constructor, expected another constructor should be called before start using
     Pedal();
@@ -61,7 +50,7 @@ public:
     void pedal_update(unsigned long millis);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
-    void pedal_can_frame_update(can_frame *tx_throttle_msg, unsigned long millis, can_frame *tx_debug_msg);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_debug_msg);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
@@ -71,7 +60,7 @@ public:
     int final_pedal_value;
 
 private:
-    int input_pin_1, input_pin_2, reverse_pin, buzzer_pin;
+    int input_pin_1, input_pin_2;
 
     // Will rollover every 49 days
     unsigned long previous_millis;

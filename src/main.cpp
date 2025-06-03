@@ -49,7 +49,7 @@ const int BUSSIN_TIME_MILLIS = 2000;         // The amount of time that the buzz
 void setup()
 {
     // Init pedals
-    pedal = Pedal(APPS_5V, APPS_3V3, REVERSE_BUTTON, LED1, millis());
+    pedal = Pedal(APPS_5V, APPS_3V3, millis());
 
     // Init input pins
     for (int i = 0; i < 4; i++)
@@ -158,7 +158,7 @@ void loop()
     if (car_status == DRIVE_MODE)
     {
         // Send pedal value through canbus
-        pedal.pedal_can_frame_update(&tx_throttle_msg, millis(), tx_debug_msg);
+        pedal.pedal_can_frame_update(&tx_throttle_msg, tx_debug_msg);
         // The following if block is needed only if we limit the lower bound for canbus cycle period
         // if (millis() - final_throttle_time_millis >= THROTTLE_UPDATE_PERIOD_MILLIS)
         // {

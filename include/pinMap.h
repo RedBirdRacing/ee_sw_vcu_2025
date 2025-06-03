@@ -18,8 +18,6 @@
 #define BRAKE_5V A2  // For arduino testing
 #define BRAKE_OUT A3 // For arduino testing
 
-#define REVERSE_BUTTON A4 // For arduino testing
-
 #define LED1 2
 #define LED2 3
 #define LED3 4
