@@ -9,7 +9,8 @@
 .vscode/
 
 # Documentation
-Documentation/*
-# Except for .pdf and .tex
-!Documentation/RBR_VCU_2025.pdf
-!Documentation/RBR_VCU_2025.tex
+Documentation/*.aux
+Documentation/*.log
+Documentation/*.synctex.gz
+Documentation/*.toc
+Documentation/*.out
