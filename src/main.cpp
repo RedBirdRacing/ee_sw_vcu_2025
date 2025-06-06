@@ -6,7 +6,7 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-uint8_t pin_out[4] = {LED1, LED2, LED3, BREAK_OUT};
+uint8_t pin_out[4] = {LED1, LED2, LED3, BRAKE_OUT};
 uint8_t pin_in[4] = {BTN1, BTN2, BTN3, BTN4};
 
 // === CAN + Pedal ===
@@ -15,6 +15,7 @@ Pedal pedal;
 
 struct can_frame tx_throttle_msg;
 struct can_frame rx_msg;
+struct can_frame *tx_debug_msg = nullptr; // If DBC is not enabled, we don't need to send debug messages
 
 // For limiting the throttle update cycle
 // const int THROTTLE_UPDATE_PERIOD_MILLIS = 50; // Period of sending canbus signal
@@ -71,6 +72,11 @@ void setup()
     }
 
     DBGLN_STATUS("Entered State 0 (Idle)");
+    if (DBC)
+    {
+        struct can_frame local_debug_msg; // Only created if needed
+        tx_debug_msg = &local_debug_msg;  // Point to the local variable
+    }
 }
 
 void loop()
@@ -152,7 +158,7 @@ void loop()
     if (car_status == DRIVE_MODE)
     {
         // Send pedal value through canbus
-        pedal.pedal_can_frame_update(&tx_throttle_msg);
+        pedal.pedal_can_frame_update(&tx_throttle_msg, tx_debug_msg);
         // The following if block is needed only if we limit the lower bound for canbus cycle period
         // if (millis() - final_throttle_time_millis >= THROTTLE_UPDATE_PERIOD_MILLIS)
         // {
@@ -160,6 +166,13 @@ void loop()
         //     final_throttle_time_millis = millis();
         // }
         mcp2515.sendMessage(&tx_throttle_msg);
+
+#if DBC // If DBC is enabled, send debug message; else don't compile this part
+        tx_debug_msg->data[0] = static_cast<uint8_t>(car_status);
+        tx_debug_msg->data[5] = BRAKE_5V;
+        mcp2515.sendMessage(tx_debug_msg); // Send debug message to CAN bus
+#endif
+
         DBGLN_CAN("Throttle CAN frame sent");
     }
     else
