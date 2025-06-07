@@ -3,6 +3,7 @@
 #include "Pedal.h"
 #include <mcp2515.h>
 #include "Debug.h"
+#include "Enums.h"
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
@@ -27,26 +28,6 @@ struct can_frame *tx_debug_msg = nullptr; // If DBC is not enabled, we don't nee
 // const int THROTTLE_UPDATE_PERIOD_MILLIS = 50; // Period of sending canbus signal
 // unsigned long final_throttle_time_millis = 0;  // The last time sent a canbus message
 
-/* === Car Status State Machine ===
-Meaning of different car statuses
-INIT (0):  Just started the car
-IN_STARTING_SEQUENCE (1):  1st Transition state -- Driver holds the "Start" button and is on full brakes, lasts for STATUS_1_TIME_MILLIS milliseconds
-BUZZING (2):  2nd Transition state -- Buzzer bussin, driver can release "Start" button and brakes
-DRIVE_MODE (3):  Ready to drive -- Motor starts responding according to the driver pedal input. "Drive mode" LED lights up, indicating driver can press the throttle
-
-Separately, the following will be done outside the status checking part:
-1.  Before the "Drive mode" LED lights up, if the throttle pedal is pressed (Throttle input is not euqal to 0), the car_status will return to 0
-2.  Before the "Drive mode" LED lights up, the canbus will keep sending "0 torque" messages to the motor
-
-Also, during status 0, 1, and 2, the VCU will keep sending "0 torque" messages to the motor via CAN
-*/
-enum CarStatus
-{
-    INIT = 0,
-    IN_STARTING_SEQUENCE = 1,
-    BUZZING = 2,
-    DRIVE_MODE = 3
-};
 CarStatus car_status = INIT;
 unsigned long car_status_millis_counter = 0; // Millis counter for 1st and 2nd transitionin states
 const int STATUS_1_TIME_MILLIS = 2000;       // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
@@ -69,20 +50,25 @@ void setup()
     mcp2515_motor.setBitrate(CAN_500KBPS, MCP_8MHZ); // 8MHZ for testing on uno
     mcp2515_motor.setNormalMode();
 
-    // Init serial for testing if DEBUG flag is set to true
-    if (DEBUG == true)
-    {
-        while (!Serial)
-            ;
-        Serial.begin(9600);
-    }
+    #if DEBUG_SERIAL
+        while (!Serial) {}  // Wait for serial connection
+        Debug_Serial::initialize();
+        DBGLN_GENERAL("Debug systems initialized");
+    #endif
+
+    #if DEBUG_CAN
+        Debug_CAN::initialize(&mcp2515_motor);
+        DBGLN_GENERAL("Debug CAN initialized");
+    #endif
 
     DBGLN_STATUS("Entered State 0 (Idle)");
-    if (DBC)
-    {
-        struct can_frame local_debug_msg; // Only created if needed
-        tx_debug_msg = &local_debug_msg;  // Point to the local variable
-    }
+    // if (DBC)
+    // {
+    //     struct can_frame local_debug_msg; // Only created if needed
+    //     tx_debug_msg = &local_debug_msg;  // Point to the local variable
+    // }
+
+    DBGLN_GENERAL("Setup complete, entering main loop");
 }
 
 void loop()
@@ -97,29 +83,31 @@ void loop()
     BUZZER_OUT = Buzzer output
     DRIVE_MODE_LED = "Drive" mode indicator
     */
-    DBG_PEDAL("Pedal Value: ");
-    DBGLN_PEDAL(pedal.final_pedal_value);
+    // DBG_THROTTLE("Pedal Value: ");
+    // DBGLN_THROTTLE(pedal.final_pedal_value);
 
     if (car_status == INIT)
     {
-        // car_status = 3; // For testing drive mode
-
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         mcp2515_motor.sendMessage(&tx_throttle_msg);
-        DBGLN_CAN("Holding 0 torque during state 0");
+        // DBGLN_CAN("Holding 0 torque during state 0");
+
+        // -- Debug: Set 0 torque for car state init
 
         if (digitalRead(DRIVE_MODE_BTN) == HIGH && digitalRead(BRAKE_IN) == HIGH) // Check if "Start" button and brake is fully pressed
         {
             car_status = IN_STARTING_SEQUENCE;
             car_status_millis_counter = millis();
             DBGLN_STATUS("Entered State 1");
+
+            // --  Debug: Transition to State 1
         }
     }
     else if (car_status == IN_STARTING_SEQUENCE)
     {
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         mcp2515_motor.sendMessage(&tx_throttle_msg);
-        DBGLN_CAN("Holding 0 torque during state 1");
+        // DBGLN_CAN("Holding 0 torque during state 1");
 
         if (digitalRead(DRIVE_MODE_BTN) == LOW || digitalRead(BRAKE_IN) == LOW) // Check if "Start" button or brake is not fully pressed
         {
@@ -139,7 +127,7 @@ void loop()
     {
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         mcp2515_motor.sendMessage(&tx_throttle_msg);
-        DBGLN_CAN("Holding 0 torque during state 2");
+        // DBGLN_CAN("Holding 0 torque during state 2");
 
         if (millis() - car_status_millis_counter >= BUSSIN_TIME_MILLIS)
         {
@@ -179,7 +167,7 @@ void loop()
         mcp2515_motor.sendMessage(tx_debug_msg); // Send debug message to CAN bus (currently on motor CAN)
 #endif
 
-        DBGLN_CAN("Throttle CAN frame sent");
+        // DBGLN_CAN("Throttle CAN frame sent");
     }
     else
     {
