@@ -6,8 +6,8 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-uint8_t pin_out[3] = {LED, BRAKE_5V_OUT, BUZZER_OUT};
-uint8_t pin_in[2] = {BTN1, BRAKE_IN};
+uint8_t pin_out[3] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
+uint8_t pin_in[2] = {DRIVE_MODE_BTN, BRAKE_IN};
 
 // === CAN (motor) + Pedal ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
@@ -92,10 +92,10 @@ void loop()
 
     /*
     For the time being:
-    BTN1 = "Start" button
+    DRIVE_MODE_BTN = "Start" button
     BRAKE_IN = Brake pedal
     BUZZER_OUT = Buzzer output
-    LED = "Drive" mode indicator
+    DRIVE_MODE_LED = "Drive" mode indicator
     */
     DBG_PEDAL("Pedal Value: ");
     DBGLN_PEDAL(pedal.final_pedal_value);
@@ -108,7 +108,7 @@ void loop()
         mcp2515_motor.sendMessage(&tx_throttle_msg);
         DBGLN_CAN("Holding 0 torque during state 0");
 
-        if (digitalRead(BTN1) == HIGH && digitalRead(BRAKE_IN) == HIGH) // Check if "Start" button and brake is fully pressed
+        if (digitalRead(DRIVE_MODE_BTN) == HIGH && digitalRead(BRAKE_IN) == HIGH) // Check if "Start" button and brake is fully pressed
         {
             car_status = IN_STARTING_SEQUENCE;
             car_status_millis_counter = millis();
@@ -121,7 +121,7 @@ void loop()
         mcp2515_motor.sendMessage(&tx_throttle_msg);
         DBGLN_CAN("Holding 0 torque during state 1");
 
-        if (digitalRead(BTN1) == LOW || digitalRead(BRAKE_IN) == LOW) // Check if "Start" button or brake is not fully pressed
+        if (digitalRead(DRIVE_MODE_BTN) == LOW || digitalRead(BRAKE_IN) == LOW) // Check if "Start" button or brake is not fully pressed
         {
             car_status = INIT;
             car_status_millis_counter = millis();
@@ -143,7 +143,7 @@ void loop()
 
         if (millis() - car_status_millis_counter >= BUSSIN_TIME_MILLIS)
         {
-            digitalWrite(LED, HIGH); // Turn on "Drive" mode indicator
+            digitalWrite(DRIVE_MODE_LED, HIGH); // Turn on "Drive" mode indicator
             digitalWrite(BUZZER_OUT, LOW);  // Turn off buzzer
             car_status = DRIVE_MODE;
             DBGLN_STATUS("Transition to State 3: Drive mode");

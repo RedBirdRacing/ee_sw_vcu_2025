@@ -1,11 +1,6 @@
 #ifndef PINMAP_H
 #define PINMAP_H
 
-#define BTN1 5
-// #define BTN2 6
-// #define BTN3 7
-// #define BTN4 8
-
 // === CAN bus pins ===
 // #define CS_CAN_MOTOR PB2
 // #define CS_CAN_BMS PB1
@@ -28,8 +23,12 @@
 // #define BRAKE_5V_OUT A2  // For arduino testing
 // #define BRAKE_IN A3 // For arduino testing
 
-// === Drive mode indicator LED ===
-#define LED PB0
+// === Drive mode ===
+#define DRIVE_MODE_LED PB0
+// #define DRIVE_MODE_BTN PC4
+
+// === Drive mode for arduino testing ===
+#define DRIVE_MODE_BTN 5
 
 // === Buzzer for car status ===
 #define BUZZER_OUT PD4
