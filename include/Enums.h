@@ -35,9 +35,9 @@ enum Pedal_Fault_Status
 
 // CAN message IDs -- Should start from 0x690
 enum Throttle_CAN_Ids {
-    THROTTLE_IN_MSG   = 0x690,
-    THROTTLE_OUT_MSG  = 0x691,
-    THROTTLE_FAULT_MSG = 0x692
+    THROTTLE_IN_MSG     = 0x690,
+    THROTTLE_OUT_MSG    = 0x691,
+    THROTTLE_FAULT_MSG  = 0x692
 };
 enum Status_CAN_Ids {
     STATUS_CAR_MSG    = 0x693,

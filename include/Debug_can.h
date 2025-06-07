@@ -12,11 +12,11 @@ namespace Debug_CAN {
     void initialize(MCP2515* can_interface);
     
     // Specialized messages
-    void throttle_in(int pedal_filtered_1, int pedal_filtered_2, int pedal_filtered_final);
-    void throttle_out(float throttle_volt, int throttle_torque_val);
+    void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final);
+    void throttle_out(float throttle_volt, int16_t throttle_torque_val);
     void throttle_fault(Pedal_Fault_Status fault_status, float value);
     void status_car(CarStatus car_status);
-    void status_brake(int brake_voltage);
+    void status_brake(float brake_voltage);
 }
 
 #endif // DEBUG_CAN_H

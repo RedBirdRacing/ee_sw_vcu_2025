@@ -61,7 +61,7 @@
 
 // ===== Specialized Message Macros =====
 #if DEBUG_THROTTLE_IN && (DEBUG_SERIAL || DEBUG_CAN)
-inline void DBG_THROTTLE_IN(int pedal_filtered_1, int pedal_filtered_2, int pedal_filtered_final) {
+inline void DBG_THROTTLE_IN(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final) {
     #if DEBUG_SERIAL
         Debug_Serial::throttle_in(pedal_filtered_1, pedal_filtered_2, pedal_filtered_final);
     #endif
@@ -74,7 +74,7 @@ inline void DBG_THROTTLE_IN(int pedal_filtered_1, int pedal_filtered_2, int peda
 #endif
 
 #if DEBUG_THROTTLE_OUT && (DEBUG_SERIAL || DEBUG_CAN)
-inline void DBG_THROTTLE_OUT(float throttle_volt, int throttle_torque_val) {
+inline void DBG_THROTTLE_OUT(float throttle_volt, int16_t throttle_torque_val) {
     #if DEBUG_SERIAL
         Debug_Serial::throttle_out(throttle_volt, throttle_torque_val);
     #endif
@@ -113,7 +113,7 @@ inline void DBG_STATUS_CAR(CarStatus car_status) {
 #endif
 
 #if DEBUG_STATUS_BRAKE && (DEBUG_SERIAL || DEBUG_CAN)
-inline void DBG_STATUS_BRAKE(int brake_voltage) {
+inline void DBG_STATUS_BRAKE(float brake_voltage) {
     #if DEBUG_SERIAL
         Debug_Serial::status_brake(brake_voltage);
     #endif

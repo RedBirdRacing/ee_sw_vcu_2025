@@ -37,8 +37,8 @@ Pedal::Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned sh
     }
     
     // -- Debug: Pedal initialized
-    DBG_GENERAL("Throttle Pedal initialized");
-    DBG_THROTTLE("Throttle Pedal initialized");
+    DBGLN_THROTTLE("Throttle Pedal initialized");
+    DBGLN_GENERAL("Throttle Pedal initialized");
 }
 
 void Pedal::pedal_update(unsigned long millis)
@@ -58,8 +58,8 @@ void Pedal::pedal_update(unsigned long millis)
         // if not using a linear filter, pass the pedalValue_1.getLinearBuffer() to the filter function to ensure the ordering is correct.
         // can also consider injecting the filter into the queue if need
         // depends on the hardware filter, reduce software filtering as much as possible
-        int pedal_filtered_1 = round(AVG_filter<float>(pedalValue_1.buffer, ADC_BUFFER_SIZE));
-        int pedal_filtered_2 = round(AVG_filter<float>(pedalValue_2.buffer, ADC_BUFFER_SIZE));
+        uint16_t pedal_filtered_1 = round(AVG_filter<float>(pedalValue_1.buffer, ADC_BUFFER_SIZE));
+        uint16_t pedal_filtered_2 = round(AVG_filter<float>(pedalValue_2.buffer, ADC_BUFFER_SIZE));
 
         // int pedal_filtered_1 = round(FIR_filter<float>(pedalValue_1.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
         // int pedal_filtered_2 = round(FIR_filter<float>(pedalValue_2.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
@@ -119,16 +119,16 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
     tx_throttle_msg->data[1] = 0;
     tx_throttle_msg->data[2] = 0;
 
-    DBGLN_THROTTLE("CAN STOP");
+    DBGLN_THROTTLE("Stopping motor");
 }
 
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_debug_msg)
+void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
 {
     if (fault_force_stop)
     {
         pedal_can_frame_stop_motor(tx_throttle_msg);
 
-        // -- Debug: Forced pedal to stop
+        DBGLN_THROTTLE("Forced motor to stop due to pedal fault");
         return;
     }
     float throttle_volt = (float)final_pedal_value * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
@@ -182,19 +182,6 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_deb
     tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     tx_throttle_msg->data[1] = throttle_torque_val & 0xFF;
     tx_throttle_msg->data[2] = (throttle_torque_val >> 8) & 0xFF;
-
-// #if DBC
-//     // CAN DBC debug
-//     tx_debug_msg->can_id = 0x102; // ID for debug message
-//     tx_debug_msg->can_dlc = 6;    // Length of the message
-//     // created in main tx_debug_msg->data[0] = static_cast<uint8_t>(car_status); // State of the car
-//     tx_debug_msg->data[1] = input_pin_1; // Pedal 1 voltage
-//     tx_debug_msg->data[2] = input_pin_2; // Pedal 2 voltage
-//     tx_debug_msg->data[3] = throttle_torque_val & 0xFF;
-//     tx_debug_msg->data[4] = (throttle_torque_val >> 8) & 0xFF; // Torque value
-//     // VCU currently not handling brake voltage
-//     // tx_debug_msg->data[5] = input_pin_3;                          // Brake voltage
-// #endif
 }
 
 bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
