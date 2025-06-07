@@ -6,12 +6,18 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-uint8_t pin_out[4] = {LED1, LED2, LED3, BRAKE_OUT};
-uint8_t pin_in[4] = {BTN1, BTN2, BTN3, BTN4};
+uint8_t pin_out[3] = {LED, BRAKE_5V_OUT, BUZZER_OUT};
+uint8_t pin_in[2] = {BTN1, BRAKE_IN};
 
-// === CAN + Pedal ===
-MCP2515 mcp2515(CS_CAN);
+// === CAN (motor) + Pedal ===
+MCP2515 mcp2515_motor(CS_CAN_MOTOR);
 Pedal pedal;
+
+// === CAN (BMS) ===
+MCP2515 mcp2515_BMS(CS_CAN_BMS);
+
+// === CAN (Datalogger) ===
+MCP2515 mcp2515_DL(CS_CAN_DL);
 
 struct can_frame tx_throttle_msg;
 struct can_frame rx_msg;
@@ -59,9 +65,9 @@ void setup()
         pinMode(pin_out[i], OUTPUT);
 
     // Init mcp2515
-    mcp2515.reset();
-    mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ); // 8MHZ for testing on uno
-    mcp2515.setNormalMode();
+    mcp2515_motor.reset();
+    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_8MHZ); // 8MHZ for testing on uno
+    mcp2515_motor.setNormalMode();
 
     // Init serial for testing if DEBUG flag is set to true
     if (DEBUG == true)
@@ -87,9 +93,9 @@ void loop()
     /*
     For the time being:
     BTN1 = "Start" button
-    BTN2 = Brake pedal
-    LED1 = Buzzer output
-    LED2 = "Drive" mode indicator
+    BRAKE_IN = Brake pedal
+    BUZZER_OUT = Buzzer output
+    LED = "Drive" mode indicator
     */
     DBG_PEDAL("Pedal Value: ");
     DBGLN_PEDAL(pedal.final_pedal_value);
@@ -99,10 +105,10 @@ void loop()
         // car_status = 3; // For testing drive mode
 
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-        mcp2515.sendMessage(&tx_throttle_msg);
+        mcp2515_motor.sendMessage(&tx_throttle_msg);
         DBGLN_CAN("Holding 0 torque during state 0");
 
-        if (digitalRead(BTN1) == HIGH && digitalRead(BTN2) == HIGH) // Check if "Start" button and brake is fully pressed
+        if (digitalRead(BTN1) == HIGH && digitalRead(BRAKE_IN) == HIGH) // Check if "Start" button and brake is fully pressed
         {
             car_status = IN_STARTING_SEQUENCE;
             car_status_millis_counter = millis();
@@ -112,10 +118,10 @@ void loop()
     else if (car_status == IN_STARTING_SEQUENCE)
     {
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-        mcp2515.sendMessage(&tx_throttle_msg);
+        mcp2515_motor.sendMessage(&tx_throttle_msg);
         DBGLN_CAN("Holding 0 torque during state 1");
 
-        if (digitalRead(BTN1) == LOW || digitalRead(BTN2) == LOW) // Check if "Start" button or brake is not fully pressed
+        if (digitalRead(BTN1) == LOW || digitalRead(BRAKE_IN) == LOW) // Check if "Start" button or brake is not fully pressed
         {
             car_status = INIT;
             car_status_millis_counter = millis();
@@ -124,7 +130,7 @@ void loop()
         else if (millis() - car_status_millis_counter >= STATUS_1_TIME_MILLIS) // Check if button held long enough
         {
             car_status = BUZZING;
-            digitalWrite(LED1, HIGH); // Turn on buzzer
+            digitalWrite(BUZZER_OUT, HIGH); // Turn on buzzer
             car_status_millis_counter = millis();
             DBGLN_STATUS("Transition to State 2: Buzzer ON");
         }
@@ -132,13 +138,13 @@ void loop()
     else if (car_status == BUZZING)
     {
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-        mcp2515.sendMessage(&tx_throttle_msg);
+        mcp2515_motor.sendMessage(&tx_throttle_msg);
         DBGLN_CAN("Holding 0 torque during state 2");
 
         if (millis() - car_status_millis_counter >= BUSSIN_TIME_MILLIS)
         {
-            digitalWrite(LED2, HIGH); // Turn on "Drive" mode indicator
-            digitalWrite(LED1, LOW);  // Turn off buzzer
+            digitalWrite(LED, HIGH); // Turn on "Drive" mode indicator
+            digitalWrite(BUZZER_OUT, LOW);  // Turn off buzzer
             car_status = DRIVE_MODE;
             DBGLN_STATUS("Transition to State 3: Drive mode");
         }
@@ -165,12 +171,12 @@ void loop()
         //     mcp2515.sendMessage(&tx_throttle_msg);
         //     final_throttle_time_millis = millis();
         // }
-        mcp2515.sendMessage(&tx_throttle_msg);
+        mcp2515_motor.sendMessage(&tx_throttle_msg);
 
 #if DBC // If DBC is enabled, send debug message; else don't compile this part
         tx_debug_msg->data[0] = static_cast<uint8_t>(car_status);
-        tx_debug_msg->data[5] = BRAKE_5V;
-        mcp2515.sendMessage(tx_debug_msg); // Send debug message to CAN bus
+        tx_debug_msg->data[5] = BRAKE_IN;
+        mcp2515_motor.sendMessage(tx_debug_msg); // Send debug message to CAN bus (currently on motor CAN)
 #endif
 
         DBGLN_CAN("Throttle CAN frame sent");
@@ -182,7 +188,7 @@ void loop()
             car_status = INIT;
             car_status_millis_counter = millis(); // Set to current time, in case any counter relies on this
             pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-            mcp2515.sendMessage(&tx_throttle_msg);
+            mcp2515_motor.sendMessage(&tx_throttle_msg);
             DBGLN_STATUS("Throttle pressed too early — Resetting to State 0");
         }
     }
