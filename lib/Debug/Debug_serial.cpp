@@ -4,7 +4,11 @@ void Debug_Serial::initialize() {
     Serial.begin(115200);
 }
 
-void Debug_Serial::throttle_in(int pedal_filtered_1, int pedal_filtered_2, int pedal_filtered_final) {
+void Debug_Serial::print(const char* msg) { Serial.print(msg); }
+
+void Debug_Serial::println(const char* msg) { Serial.println(msg); }
+
+void Debug_Serial::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final) {
     Serial.print("Pedal 1: ");
     Serial.print(pedal_filtered_1);
     Serial.print(" | Pedal 2: ");

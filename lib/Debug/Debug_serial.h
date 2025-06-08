@@ -10,8 +10,8 @@ namespace Debug_Serial {
     void initialize();
     
     // Basic print functions
-    void print(const char* msg) { Serial.print(msg); }
-    void println(const char* msg) { Serial.println(msg); }
+    void print(const char* msg);
+    void println(const char* msg);
     
     // Specialized throttle messages
     void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final);

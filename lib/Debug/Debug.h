@@ -7,7 +7,7 @@
 #define DEBUG true // Overall debug functionality
 
 // ALWAYS LEAVE FALSE FOR GITHUB
-#define DEBUG_SERIAL false && DEBUG // Sends Serial debug messages if enabled
+#define DEBUG_SERIAL true && DEBUG // Sends Serial debug messages if enabled
 #if DEBUG_SERIAL
 #include <Debug_serial.h>
 #endif
@@ -36,24 +36,24 @@
 
 // ===== Simple Serial-Only Macros =====
 #if DEBUG_THROTTLE && DEBUG_SERIAL
-#define DBG_THROTTLE(x)    DebugSerial::print(x)
-#define DBGLN_THROTTLE(x)  DebugSerial::println(x)
+#define DBG_THROTTLE(x)    Debug_Serial::print(x)
+#define DBGLN_THROTTLE(x)  Debug_Serial::println(x)
 #else
 #define DBG_THROTTLE(x)
 #define DBGLN_THROTTLE(x)
 #endif
 
 #if DEBUG_GENERAL && DEBUG_SERIAL
-#define DBG_GENERAL(x)    DebugSerial::print(x)
-#define DBGLN_GENERAL(x)  DebugSerial::println(x)
+#define DBG_GENERAL(x)    Debug_Serial::print(x)
+#define DBGLN_GENERAL(x)  Debug_Serial::println(x)
 #else
 #define DBG_GENERAL(x)
 #define DBGLN_GENERAL(x)
 #endif
 
 #if DEBUG_STATUS && DEBUG_SERIAL
-#define DBG_STATUS(x)    DebugSerial::print(x)
-#define DBGLN_STATUS(x)  DebugSerial::println(x)
+#define DBG_STATUS(x)    Debug_Serial::print(x)
+#define DBGLN_STATUS(x)  Debug_Serial::println(x)
 #else
 #define DBG_STATUS(x)
 #define DBGLN_STATUS(x)

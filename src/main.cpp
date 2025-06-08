@@ -7,8 +7,10 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-uint8_t pin_out[3] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
-uint8_t pin_in[2] = {DRIVE_MODE_BTN, BRAKE_IN};
+const int INPUT_PINS_COUNT = 2;
+uint8_t pin_in[INPUT_PINS_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN};
+const int OUTPUT_PINS_COUNT = 3;
+uint8_t pin_out[OUTPUT_PINS_COUNT] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
 
 // === CAN (motor) + Pedal ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
@@ -38,10 +40,10 @@ void setup()
     pedal = Pedal(APPS_5V, APPS_3V3, millis());
 
     // Init input pins
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < INPUT_PINS_COUNT; i++)
         pinMode(pin_in[i], INPUT);
     // Init output pins
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < OUTPUT_PINS_COUNT; i++)
         pinMode(pin_out[i], OUTPUT);
 
     // Init mcp2515 for motor CAN channel
