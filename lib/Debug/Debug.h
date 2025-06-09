@@ -96,7 +96,7 @@ inline void DBG_THROTTLE_FAULT(Pedal_Fault_Status fault_status, float value) {
     #endif
 }
 #else
-#define DBG_THROTTLE_FAULT(percentage_difference)
+#define DBG_THROTTLE_FAULT(fault_status, value)
 #endif
 
 #if DEBUG_STATUS_CAR && (DEBUG_SERIAL || DEBUG_CAN)
