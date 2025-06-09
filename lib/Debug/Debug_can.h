@@ -4,6 +4,8 @@
 #include <mcp2515.h>
 #include "Enums.h"
 
+static_assert(sizeof(float) == 4, "This code assumes float is 4 bytes");
+
 namespace Debug_CAN {
     // enum CarStatus;
     extern MCP2515* can_interface;
