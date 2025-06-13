@@ -50,14 +50,14 @@ public:
     void pedal_update(unsigned long millis);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
-    void pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_debug_msg);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
 
     // Pedal value after filtering and processing
     // Under normal circumstance, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
-    int final_pedal_value;
+    uint16_t final_pedal_value;
 
 private:
     int input_pin_1, input_pin_2;

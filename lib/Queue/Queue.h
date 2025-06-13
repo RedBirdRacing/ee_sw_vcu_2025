@@ -27,7 +27,7 @@ template <typename T, int size>
 class RingBuffer
 {
 public:
-    RingBuffer() : head(0), count(0) {}
+    RingBuffer() : buffer(), head(0), count(0) {}
 
     void push(T val)
     {

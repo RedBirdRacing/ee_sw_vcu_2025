@@ -18,11 +18,13 @@ Debug.h: Debugging
 4. Test minimum and maximum values by probing the input voltage for APPS sensor (Input voltage for both 5v and 3.3v) Adjust the values (Including deadzones)
 
 ## Debugging:
-Currently, debugging is done through Serial.
+Currently, debugging is done through Serial (CAN debugging is under developement).
 
-Connect VCU to a serial monitor.
+For Serial debugging:
+1. Connect VCU to a serial monitor.
+2. Select which debug messages are needed by setting the respective debug flags under debug.h to true 
 
-Select which debug messages are needed by setting the respective debug flags under debug.h to true 
+For CAN debugging, documentation for CAN frame data is listed in this [Google Docs](https://docs.google.com/document/d/1HoxZtfamggUB-1Y0bmg7lDl-tivFk5IBgUMXbC67wG0/edit?tab=t.0)
 
 ### If debug is set to true, expect large delays between pedal input and motor output due to Serial being slow af
 
