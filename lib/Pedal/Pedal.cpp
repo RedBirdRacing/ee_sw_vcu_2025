@@ -106,7 +106,8 @@ void Pedal::pedal_update(unsigned long millis)
                 // DBGLN_THROTTLE("Pedal mismatch resolved");
             }
             fault = false;
-            fault_force_stop = false; // Reset the force stop flag
+            // by rules, car should be reset after a fault to continue driving
+            // fault_force_stop = false; // Reset the force stop flag
         }
     }
 }
