@@ -35,6 +35,10 @@ Pedal::Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned sh
         pedalValue_1.buffer[i] = 0;
         pedalValue_2.buffer[i] = 0;
     }
+    
+    // -- Debug: Pedal initialized
+    DBGLN_THROTTLE("Throttle Pedal initialized");
+    DBGLN_GENERAL("Throttle Pedal initialized");
 }
 
 void Pedal::pedal_update(unsigned long millis)
@@ -54,19 +58,16 @@ void Pedal::pedal_update(unsigned long millis)
         // if not using a linear filter, pass the pedalValue_1.getLinearBuffer() to the filter function to ensure the ordering is correct.
         // can also consider injecting the filter into the queue if need
         // depends on the hardware filter, reduce software filtering as much as possible
-        int pedal_filtered_1 = round(AVG_filter<float>(pedalValue_1.buffer, ADC_BUFFER_SIZE));
-        int pedal_filtered_2 = round(AVG_filter<float>(pedalValue_2.buffer, ADC_BUFFER_SIZE));
+        uint16_t pedal_filtered_1 = round(AVG_filter<float>(pedalValue_1.buffer, ADC_BUFFER_SIZE));
+        uint16_t pedal_filtered_2 = round(AVG_filter<float>(pedalValue_2.buffer, ADC_BUFFER_SIZE));
 
         // int pedal_filtered_1 = round(FIR_filter<float>(pedalValue_1.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
         // int pedal_filtered_2 = round(FIR_filter<float>(pedalValue_2.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
         final_pedal_value = pedal_filtered_1; // Only take in pedal 1 value
 
-        DBG_PEDAL("Pedal 1: ");
-        DBG_PEDAL(pedal_filtered_1);
-        DBG_PEDAL(" | Pedal 2: ");
-        DBG_PEDAL(pedal_filtered_2);
-        DBG_PEDAL(" | Final: ");
-        DBGLN_PEDAL(final_pedal_value);
+        DBG_THROTTLE_IN(pedal_filtered_1, pedal_filtered_2, final_pedal_value); 
+
+        // Debug: Pedal input values, filtered values
 
         if (check_pedal_fault(pedal_filtered_1, pedal_filtered_2))
         {
@@ -79,7 +80,10 @@ void Pedal::pedal_update(unsigned long millis)
                     // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can signals
                     fault_force_stop = true;
 
-                    DBGLN_PEDAL("FAULT: Pedal mismatch persisted > 100ms!");
+                    DBG_THROTTLE_FAULT(DIFF_FAULT_EXCEED_100MS, 0);
+                    // DBGLN_THROTTLE("FAULT: Pedal mismatch persisted > 100ms!");
+
+                    // -- Debug: Pedal faulty too long
 
                     return;
                 }
@@ -87,11 +91,23 @@ void Pedal::pedal_update(unsigned long millis)
             else
             {
                 fault_start_millis = millis;
-                DBGLN_PEDAL("FAULT: Pedal mismatch started");
+                DBG_THROTTLE_FAULT(DIFF_FAULT_JUST_STARTED, 0);
+                // DBGLN_THROTTLE("FAULT: Pedal mismatch started");
             }
 
             fault = true;
             return;
+        }
+        else
+        {
+            if (fault)
+            {
+                DBG_THROTTLE_FAULT(DIFF_FAULT_RESOLVED, 0);
+                // DBGLN_THROTTLE("Pedal mismatch resolved");
+            }
+            fault = false;
+            // by rules, car should be reset after a fault to continue driving
+            // fault_force_stop = false; // Reset the force stop flag
         }
     }
 }
@@ -104,14 +120,16 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
     tx_throttle_msg->data[1] = 0;
     tx_throttle_msg->data[2] = 0;
 
-    DBGLN_PEDAL("CAN STOP");
+    DBGLN_THROTTLE("Stopping motor");
 }
 
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_debug_msg)
+void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
 {
     if (fault_force_stop)
     {
         pedal_can_frame_stop_motor(tx_throttle_msg);
+
+        DBGLN_THROTTLE("Forced motor to stop due to pedal fault");
         return;
     }
     float throttle_volt = (float)final_pedal_value * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
@@ -126,8 +144,8 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_deb
     */
     if (throttle_volt < THROTTLE_LOWER_DEADZONE_MIN_IN_VOLT)
     {
-        DBG_PEDAL("Throttle voltage too low");
-        DBGLN_PEDAL(throttle_volt);
+        DBG_THROTTLE_FAULT(THROTTLE_TOO_LOW, throttle_volt);
+        // DBG_THROTTLE_FAULT(THROTTLE_TOO_LOW "Throttle voltage too low");
         throttle_torque_val = 0;
     }
     else if (throttle_volt < MIN_THROTTLE_IN_VOLT)
@@ -145,8 +163,8 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_deb
     }
     else
     {
-        DBG_PEDAL("Throttle voltage too high");
-        DBGLN_PEDAL(throttle_volt);
+        // DBG_THROTTLE("Throttle voltage too high");
+        DBG_THROTTLE_FAULT(THROTTLE_TOO_HIGH, throttle_volt);
         // For safety, this should not be set to other values
         throttle_torque_val = 0;
     }
@@ -156,30 +174,15 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, can_frame *tx_deb
     {
         throttle_torque_val = -throttle_torque_val;
     }
-    
 
-    DBG_PEDAL("CAN UPDATE: Throttle = ");
-    DBGLN_PEDAL(throttle_torque_val);
-
+    DBG_THROTTLE_OUT(throttle_volt, throttle_torque_val);
+    // DBG_THROTTLE("CAN UPDATE: Throttle = ");
 
     tx_throttle_msg->can_id = 0x201;
     tx_throttle_msg->can_dlc = 3;
     tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     tx_throttle_msg->data[1] = throttle_torque_val & 0xFF;
     tx_throttle_msg->data[2] = (throttle_torque_val >> 8) & 0xFF;
-
-#if DBC
-    // CAN DBC debug
-    tx_debug_msg->can_id = 0x102; // ID for debug message
-    tx_debug_msg->can_dlc = 6;    // Length of the message
-    // created in main tx_debug_msg->data[0] = static_cast<uint8_t>(car_status); // State of the car
-    tx_debug_msg->data[1] = input_pin_1; // Pedal 1 voltage
-    tx_debug_msg->data[2] = input_pin_2; // Pedal 2 voltage
-    tx_debug_msg->data[3] = throttle_torque_val & 0xFF;
-    tx_debug_msg->data[4] = (throttle_torque_val >> 8) & 0xFF; // Torque value
-    // VCU currently not handling brake voltage
-    // tx_debug_msg->data[5] = input_pin_3;                          // Brake voltage
-#endif
 }
 
 bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
@@ -192,7 +195,8 @@ bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
 
     if (pedal_percentage_diff > 0.1)
     {
-        DBGLN_PEDAL("WARNING: Pedal mismatch > 10%");
+        DBG_THROTTLE_FAULT(DIFF_FAULT_CONTINUING, pedal_percentage_diff);
+        // DBGLN_THROTTLE("WARNING: Pedal mismatch > 10%");
         return true;
     }
     return false;
