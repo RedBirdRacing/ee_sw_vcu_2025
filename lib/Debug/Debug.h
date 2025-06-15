@@ -7,7 +7,7 @@
 #define DEBUG true // Overall debug functionality
 
 // ALWAYS LEAVE FALSE FOR GITHUB
-#define DEBUG_SERIAL true && DEBUG // Sends Serial debug messages if enabled
+#define DEBUG_SERIAL false && DEBUG // Sends Serial debug messages if enabled
 #if DEBUG_SERIAL
 #include <Debug_serial.h>
 #endif
