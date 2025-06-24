@@ -132,7 +132,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
         DBGLN_THROTTLE("Forced motor to stop due to pedal fault");
         return;
     }
-    float throttle_volt = (float)final_pedal_value * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
+    uint8_t throttle_volt = final_pedal_value * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
 
     int16_t throttle_torque_val = 0;
     /*
@@ -155,7 +155,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     else if (throttle_volt < MAX_THROTTLE_IN_VOLT)
     {
         // Scale up the value for canbus
-        throttle_torque_val = (throttle_volt - MIN_THROTTLE_IN_VOLT) * MAX_THROTTLE_OUT_VAL / (MAX_THROTTLE_IN_VOLT - MIN_THROTTLE_IN_VOLT);
+        throttle_torque_val = throttle_torque_mapping(throttle_volt);
     }
     else if (throttle_volt < THROTTLE_UPPER_DEADZONE_MAX_IN_VOLT)
     {
