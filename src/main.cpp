@@ -8,9 +8,9 @@
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
 const int INPUT_PINS_COUNT = 2;
-uint8_t pin_in[INPUT_PINS_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN};
+const uint8_t pin_in[INPUT_PINS_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN};
 const int OUTPUT_PINS_COUNT = 3;
-uint8_t pin_out[OUTPUT_PINS_COUNT] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
+const uint8_t pin_out[OUTPUT_PINS_COUNT] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
 
 // === CAN (motor) + Pedal ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
@@ -140,7 +140,7 @@ void loop()
     }
     else if (car_status == DRIVE_MODE)
     {
-        // In "Drive mode", car_status won't change, the drvier either continue to drive, or shut off the car
+        // In "Drive mode", car_status won't change, the driver either continue to drive, or shut off the car
         DBGLN_STATUS("In Drive Mode");
     }
     else

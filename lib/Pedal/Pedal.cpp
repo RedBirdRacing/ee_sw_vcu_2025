@@ -114,7 +114,7 @@ void Pedal::pedal_update(unsigned long millis)
 
 void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
 {
-    tx_throttle_msg->can_id = 0x201;
+    tx_throttle_msg->can_id  = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
     tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     tx_throttle_msg->data[1] = 0;
@@ -178,7 +178,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     DBG_THROTTLE_OUT(throttle_volt, throttle_torque_val);
     // DBG_THROTTLE("CAN UPDATE: Throttle = ");
 
-    tx_throttle_msg->can_id = 0x201;
+    tx_throttle_msg->can_id  = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
     tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     tx_throttle_msg->data[1] = throttle_torque_val & 0xFF;
