@@ -1,6 +1,8 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
+#include <stdint.h>
+
 // A simple FIFO object
 // This object is completely static
 template <typename T, int size>
@@ -23,7 +25,9 @@ private:
     int queueCount;
 };
 
-template <typename T, int size>
+// using uint8_t for size
+// highest capacity is 255
+template <typename T, uint8_t size>
 class RingBuffer
 {
 public:
@@ -46,8 +50,8 @@ public:
     }
 
     T buffer[size];
-    int head;
-    int count;
+    uint8_t head;
+    uint8_t count;
 };
 
 #endif // QUEUE_H

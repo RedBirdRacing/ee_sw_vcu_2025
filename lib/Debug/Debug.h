@@ -74,12 +74,12 @@ inline void DBG_THROTTLE_IN(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2
 #endif
 
 #if DEBUG_THROTTLE_OUT && (DEBUG_SERIAL || DEBUG_CAN)
-inline void DBG_THROTTLE_OUT(float throttle_volt, int16_t throttle_torque_val) {
+inline void DBG_THROTTLE_OUT(uint16_t throttle_final, int16_t throttle_torque_val) {
     #if DEBUG_SERIAL
-        Debug_Serial::throttle_out(throttle_volt, throttle_torque_val);
+        Debug_Serial::throttle_out(throttle_final, throttle_torque_val);
     #endif
     #if DEBUG_CAN
-        Debug_CAN::throttle_out(throttle_volt, throttle_torque_val);
+        Debug_CAN::throttle_out(throttle_final, throttle_torque_val);
     #endif
 }
 #else
@@ -87,6 +87,8 @@ inline void DBG_THROTTLE_OUT(float throttle_volt, int16_t throttle_torque_val) {
 #endif
 
 #if DEBUG_THROTTLE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
+// Overload: with float value
+// DIFF_FAULT_CONTINUING, THROTTLE_TOO_LOW, THROTTLE_TOO_HIGH
 inline void DBG_THROTTLE_FAULT(Pedal_Fault_Status fault_status, float value) {
     #if DEBUG_SERIAL
         Debug_Serial::throttle_fault(fault_status, value);
@@ -95,8 +97,19 @@ inline void DBG_THROTTLE_FAULT(Pedal_Fault_Status fault_status, float value) {
         Debug_CAN::throttle_fault(fault_status, value);
     #endif
 }
+// Overload: no float value
+// DIFF_FAULT_JUST_STARTED, DIFF_FAULT_EXCEED_100MS, DIFF_FAULT_RESOLVED
+inline void DBG_THROTTLE_FAULT(Pedal_Fault_Status fault_status) {
+    #if DEBUG_SERIAL
+        Debug_Serial::throttle_fault(fault_status);
+    #endif
+    #if DEBUG_CAN
+        Debug_CAN::throttle_fault(fault_status);
+    #endif
+}
 #else
 #define DBG_THROTTLE_FAULT(fault_status, value)
+#define DBG_THROTTLE_FAULT(fault_status)
 #endif
 
 #if DEBUG_STATUS_CAR && (DEBUG_SERIAL || DEBUG_CAN)

@@ -7,10 +7,10 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-const int INPUT_PINS_COUNT = 2;
 const uint8_t pin_in[INPUT_PINS_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN};
-const int OUTPUT_PINS_COUNT = 3;
 const uint8_t pin_out[OUTPUT_PINS_COUNT] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
+const uint8_t INPUT_PINS_COUNT = 2;
+const uint8_t OUTPUT_PINS_COUNT = 3;
 
 // === CAN (motor) + Pedal ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
@@ -30,9 +30,9 @@ struct can_frame rx_msg;
 // unsigned long final_throttle_time_millis = 0;  // The last time sent a canbus message
 
 CarStatus car_status = INIT;
-unsigned long car_status_millis_counter = 0; // Millis counter for 1st and 2nd transitionin states
-const int STATUS_1_TIME_MILLIS = 2000;       // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
-const int BUSSIN_TIME_MILLIS = 2000;         // The amount of time that the buzzer will buzz for
+uint32_t car_status_millis_counter = 0; // Millis counter for 1st and 2nd transitionin states
+const uint16_t STATUS_1_TIME_MILLIS = 2000;       // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
+const uint16_t BUSSIN_TIME_MILLIS = 2000;         // The amount of time that the buzzer will buzz for
 
 void setup()
 {

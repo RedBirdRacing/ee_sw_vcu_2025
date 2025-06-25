@@ -17,9 +17,9 @@ void Debug_Serial::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtere
     Serial.println(pedal_filtered_final);
 }
 
-void Debug_Serial::throttle_out(float throttle_volt, int16_t throttle_torque_val) {
-    Serial.print("Throttle Volt: ");
-    Serial.print(throttle_volt);
+void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val) {
+    Serial.print("Throttle Final: ");
+    Serial.print(throttle_final);
     Serial.print(" | Torque Value: ");
     Serial.println(throttle_torque_val);
 }
@@ -28,19 +28,10 @@ void Debug_Serial::throttle_fault(Pedal_Fault_Status fault_status, float value) 
     switch (fault_status) {
         case NO_FAULT:
             break;
-        case DIFF_FAULT_JUST_STARTED:
-            Serial.println("Pedal mismatch just started");
-            break;
         case DIFF_FAULT_CONTINUING: 
             Serial.print("Pedal mismatch continuing. Difference:");
             Serial.print(value*100);
             Serial.println("%");
-            break;
-        case DIFF_FAULT_EXCEED_100MS:
-            Serial.println("FATAL FAULT: Pedal mismatch persisted > 100ms!");
-            break;
-        case DIFF_FAULT_RESOLVED:
-            Serial.println("Pedal mismatch resolved");
             break;
         case THROTTLE_TOO_LOW:
             Serial.print("Throttle input too low. Value:");
@@ -51,6 +42,25 @@ void Debug_Serial::throttle_fault(Pedal_Fault_Status fault_status, float value) 
             Serial.println("Throttle too high. Value:");
             Serial.print(value);
             Serial.println("v");
+            break;
+        default:
+            Serial.println("Unknown fault status");
+            break;
+    }
+}
+
+void Debug_Serial::throttle_fault(Pedal_Fault_Status fault_status) {
+    switch (fault_status) {
+        case NO_FAULT:
+            break;
+        case DIFF_FAULT_JUST_STARTED:
+            Serial.println("Pedal mismatch just started");
+            break;
+        case DIFF_FAULT_EXCEED_100MS:
+            Serial.println("FATAL FAULT: Pedal mismatch persisted > 100ms!");
+            break;
+        case DIFF_FAULT_RESOLVED:
+            Serial.println("Pedal mismatch resolved");
             break;
         default:
             Serial.println("Unknown fault status");

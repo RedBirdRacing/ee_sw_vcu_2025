@@ -24,11 +24,11 @@ T average(T val1, T val2)
 }
 
 template <typename T>
-T AVG_filter(T *buffer, int buf_size)
+T AVG_filter(T *buffer, uint8_t buf_size)
 {
     float sum = 0;
 
     for (int i = 0; i < buf_size; ++i)
         sum += buffer[i];
-    return sum / (float)buf_size;
+    return sum / buf_size;
 }
