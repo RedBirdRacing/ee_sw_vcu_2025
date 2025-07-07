@@ -1,89 +1,98 @@
 #include "Debug_serial.h"
 
-void Debug_Serial::initialize() {
+void Debug_Serial::initialize()
+{
     Serial.begin(115200);
 }
 
-void Debug_Serial::print(const char* msg) { Serial.print(msg); }
+void Debug_Serial::print(const char *msg) { Serial.print(msg); }
 
-void Debug_Serial::println(const char* msg) { Serial.println(msg); }
+void Debug_Serial::println(const char *msg) { Serial.println(msg); }
 
-void Debug_Serial::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final) {
-    Serial.print("Pedal 1: ");
+void Debug_Serial::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)
+{
+    Serial.print("Pedal 1 filtered: ");
     Serial.print(pedal_filtered_1);
-    Serial.print(" | Pedal 2: ");
+    Serial.print(" | Pedal 2 filtered: ");
     Serial.print(pedal_filtered_2);
     Serial.print(" | Final: ");
     Serial.println(pedal_filtered_final);
 }
 
-void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val) {
+void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val)
+{
     Serial.print("Throttle Final: ");
     Serial.print(throttle_final);
     Serial.print(" | Torque Value: ");
     Serial.println(throttle_torque_val);
 }
 
-void Debug_Serial::throttle_fault(Pedal_Fault_Status fault_status, float value) {
-    switch (fault_status) {
-        case NO_FAULT:
-            break;
-        case DIFF_FAULT_CONTINUING: 
-            Serial.print("Pedal mismatch continuing. Difference:");
-            Serial.print(value*100);
-            Serial.println("%");
-            break;
-        case THROTTLE_TOO_LOW:
-            Serial.print("Throttle input too low. Value:");
-            Serial.print(value);
-            Serial.println("v");
-            break;
-        case THROTTLE_TOO_HIGH:
-            Serial.println("Throttle too high. Value:");
-            Serial.print(value);
-            Serial.println("v");
-            break;
-        default:
-            Serial.println("Unknown fault status");
-            break;
+void Debug_Serial::throttle_fault(pedal_fault_status fault_status, float value)
+{
+    switch (fault_status)
+    {
+    case NONE:
+        break;
+    case DIFF_CONTINUING:
+        Serial.print("Pedal mismatch continuing. Difference:");
+        Serial.print(value * 100);
+        Serial.println("%");
+        break;
+    case THROTTLE_LOW:
+        Serial.print("Throttle input too low. Value:");
+        Serial.print(value);
+        Serial.println("v");
+        break;
+    case THROTTLE_HIGH:
+        Serial.println("Throttle too high. Value:");
+        Serial.print(value);
+        Serial.println("v");
+        break;
+    default:
+        Serial.println("Unknown fault status");
+        break;
     }
 }
 
-void Debug_Serial::throttle_fault(Pedal_Fault_Status fault_status) {
-    switch (fault_status) {
-        case NO_FAULT:
-            break;
-        case DIFF_FAULT_JUST_STARTED:
-            Serial.println("Pedal mismatch just started");
-            break;
-        case DIFF_FAULT_EXCEED_100MS:
-            Serial.println("FATAL FAULT: Pedal mismatch persisted > 100ms!");
-            break;
-        case DIFF_FAULT_RESOLVED:
-            Serial.println("Pedal mismatch resolved");
-            break;
-        default:
-            Serial.println("Unknown fault status");
-            break;
+void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
+{
+    switch (fault_status)
+    {
+    case NONE:
+        break;
+    case DIFF_START:
+        Serial.println("Pedal mismatch just started");
+        break;
+    case DIFF_EXCEED_100MS:
+        Serial.println("FATAL FAULT: Pedal mismatch persisted > 100ms!");
+        break;
+    case DIFF_RESOLVED:
+        Serial.println("Pedal mismatch resolved");
+        break;
+    default:
+        Serial.println("Unknown fault status");
+        break;
     }
 }
 
-void Debug_Serial::status_car(CarStatus car_status) {
-    switch (car_status) {
-        case INIT:
-            Serial.println("Car Status: Initialised");
-            break;
-        case IN_STARTING_SEQUENCE:
-            Serial.println("Car Status: In starting sequence");
-            break;
-        case BUZZING:
-            Serial.println("Car Status: Buzzer buzzing");
-            break;
-        case DRIVE_MODE:
-            Serial.println("Car Status: Drive mode");
-            break;
-        default:
-            Serial.println("Car Status: UNKNOWN");
-            break;
+void Debug_Serial::status_car(main_car_status car_status)
+{
+    switch (car_status)
+    {
+    case INIT:
+        Serial.println("Car Status: Initialised");
+        break;
+    case STARTIN:
+        Serial.println("Car Status: In starting sequence");
+        break;
+    case BUSSIN:
+        Serial.println("Car Status: Buzzer buzzing");
+        break;
+    case DRIVE:
+        Serial.println("Car Status: Drive mode");
+        break;
+    default:
+        Serial.println("Car Status: UNKNOWN");
+        break;
     }
 }

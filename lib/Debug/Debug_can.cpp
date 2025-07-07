@@ -2,17 +2,18 @@
 
 #include <mcp2515.h>
 
-// Definition of the static member
-MCP2515* Debug_CAN::can_interface = nullptr;  // <-- This remains the same
+MCP2515 *Debug_CAN::can_interface = nullptr;
 
-void Debug_CAN::initialize(MCP2515* can) {
+void Debug_CAN::initialize(MCP2515 *can)
+{
     can_interface = can;
 }
 
-void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final) {
-    if (!can_interface) 
+void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)
+{
+    if (!can_interface)
         return;
-    
+
     can_frame tx_msg;
     tx_msg.can_id = THROTTLE_IN_MSG;
     tx_msg.can_dlc = 6;
@@ -28,8 +29,9 @@ void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2
     can_interface->sendMessage(&tx_msg);
 }
 
-void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val) {
-    if (!can_interface) 
+void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val)
+{
+    if (!can_interface)
         return;
 
     can_frame tx_msg;
@@ -45,8 +47,9 @@ void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_va
     can_interface->sendMessage(&tx_msg);
 }
 
-void Debug_CAN::throttle_fault(Pedal_Fault_Status fault_status, float value) {
-    if (!can_interface) 
+void Debug_CAN::throttle_fault(pedal_fault_status fault_status, float value)
+{
+    if (!can_interface)
         return;
 
     can_frame tx_msg;
@@ -60,8 +63,9 @@ void Debug_CAN::throttle_fault(Pedal_Fault_Status fault_status, float value) {
     can_interface->sendMessage(&tx_msg);
 }
 
-void Debug_CAN::throttle_fault(Pedal_Fault_Status fault_status) {
-    if (!can_interface) 
+void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
+{
+    if (!can_interface)
         return;
 
     can_frame tx_msg;
@@ -73,8 +77,9 @@ void Debug_CAN::throttle_fault(Pedal_Fault_Status fault_status) {
     can_interface->sendMessage(&tx_msg);
 }
 
-void Debug_CAN::status_car(CarStatus car_status) {
-    if (!can_interface) 
+void Debug_CAN::status_car(main_car_status car_status)
+{
+    if (!can_interface)
         return;
 
     can_frame tx_msg;

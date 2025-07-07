@@ -4,22 +4,24 @@
 #include <mcp2515.h>
 #include "Enums.h"
 
+// probably can remove since no float is used now, but can @Ariel help me check it?
 static_assert(sizeof(float) == 4, "This code assumes float is 4 bytes");
 
-namespace Debug_CAN {
+namespace Debug_CAN
+{
     // enum CarStatus;
-    extern MCP2515* can_interface;
+    extern MCP2515 *can_interface;
 
     // Initialize CAN debug
-    void initialize(MCP2515* can_interface);
-    
+    void initialize(MCP2515 *can_interface);
+
     // Specialized messages
     void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final);
     void throttle_out(uint16_t throttle_final, int16_t throttle_torque_val);
-    void throttle_fault(Pedal_Fault_Status fault_status, float value);
-    void throttle_fault(Pedal_Fault_Status fault_status);
-    void status_car(CarStatus car_status);
-    void status_brake(float brake_voltage);
+    void throttle_fault(pedal_fault_status fault_status, float value);
+    void throttle_fault(pedal_fault_status fault_status);
+    void status_car(main_car_status car_status);
+    void status_brake(uint16_t brake_voltage);
 }
 
 #endif // DEBUG_CAN_H
