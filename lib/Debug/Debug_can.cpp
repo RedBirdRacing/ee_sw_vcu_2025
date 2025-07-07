@@ -9,7 +9,7 @@ void Debug_CAN::initialize(MCP2515 *can)
     can_interface = can;
 }
 
-void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)
+void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled)
 {
     if (!can_interface)
         return;
@@ -23,8 +23,8 @@ void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2
     tx_msg.data[1] = (pedal_filtered_1 >> 8) & 0xFF; // Upper byte
     tx_msg.data[2] = pedal_filtered_2 & 0xFF;
     tx_msg.data[3] = (pedal_filtered_2 >> 8) & 0xFF; // Upper byte
-    tx_msg.data[4] = pedal_filtered_final & 0xFF;
-    tx_msg.data[5] = (pedal_filtered_final >> 8) & 0xFF; // Upper byte
+    tx_msg.data[4] = pedal_2_scaled & 0xFF;
+    tx_msg.data[5] = (pedal_2_scaled >> 8) & 0xFF; // Upper byte
 
     can_interface->sendMessage(&tx_msg);
 }

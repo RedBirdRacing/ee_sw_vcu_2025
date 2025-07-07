@@ -193,15 +193,4 @@ void loop()
             DBGLN_STATUS("Throttle pressed too early — Resetting to State 0");
         }
     }
-
-    // mcp2515.sendMessage(&tx_throttle_msg);
-    // uint32_t lastLEDtick = 0;
-    // Optional RX handling (disabled for now)
-    // if (mcp2515.readMessage(&rx_msg) == MCP2515::ERROR_OK)
-    // {
-    //     // Commented out as currenlty no need to include receive functionality
-    //     // if (rx_msg.can_id == 0x522)
-    //     //     for (int i = 0; i < 8; i++)
-    //     //         digitalWrite(pin_out[i], (rx_msg.data[0] >> i) & 0x01);
-    // }
 }
