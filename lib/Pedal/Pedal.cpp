@@ -7,7 +7,7 @@
 Pedal::Pedal()
     : fault(true), fault_force_stop(false) {}
 
-void Pedal::pedal_update(uint32_t millis, uint16_t pedal_1, uint16_t pedal_2)
+void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
 {
     // Record readings in buffer
     pedal_value_1.push(pedal_1);
@@ -21,10 +21,10 @@ void Pedal::pedal_update(uint32_t millis, uint16_t pedal_1, uint16_t pedal_2)
     // depends on the hardware filter, reduce software filtering as much as possible
 
     // currently a small average filter is good enough
-    uint16_t pedal_filtered_1 = round(AVG_filter<float>(pedal_value_1.buffer, ADC_BUFFER_SIZE));
-    uint16_t pedal_filtered_2 = round(AVG_filter<float>(pedal_value_2.buffer, ADC_BUFFER_SIZE));
+    pedal_filtered_1 = round(AVG_filter<float>(pedal_value_1.buffer, ADC_BUFFER_SIZE));
+    pedal_filtered_2 = round(AVG_filter<float>(pedal_value_2.buffer, ADC_BUFFER_SIZE));
 
-    pedal_final = pedal_filtered_1; // Only take in pedal 1 value
+    car->pedal_final = pedal_filtered_1; // Only take in pedal 1 value
 
     if (!check_pedal_fault(pedal_filtered_1, pedal_filtered_2))
     {
@@ -37,14 +37,10 @@ void Pedal::pedal_update(uint32_t millis, uint16_t pedal_1, uint16_t pedal_2)
     // Pedal fault detected
     if (fault)
     { // Previous scan is already faulty
-        if (millis - fault_start_millis > 100)
-        { // Faulty for more than 100 ms
-            // TODO: Add code for alerting the faulty pedal, and whatever else mandated in rules Ch.2 Section 12.8, 12.9
-            // Rules actually states there's no need to alert the driver, stopping motor output is enough
-            // Alerting the driver would be done if the digital dash is made, will have to see
-
+        if (car->millis - fault_start_millis > 100) // Faulty for more than 100 ms
+        {
             // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can signals
-            fault_force_stop = true;
+            car->fault_force_stop = true;
             // this force stop flag can only be reset by a power cycle
 
             DBG_THROTTLE_FAULT(DIFF_EXCEED_100MS);
@@ -57,7 +53,7 @@ void Pedal::pedal_update(uint32_t millis, uint16_t pedal_1, uint16_t pedal_2)
     }
     else
     {
-        fault_start_millis = millis;
+        fault_start_millis = car->millis;
         DBG_THROTTLE_FAULT(DIFF_START);
         // DBGLN_THROTTLE("FAULT: Pedal mismatch started");
     }
@@ -66,7 +62,7 @@ void Pedal::pedal_update(uint32_t millis, uint16_t pedal_1, uint16_t pedal_2)
     return;
 }
 
-void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
+void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char reason[])
 {
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
@@ -75,15 +71,14 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
     tx_throttle_msg->data[2] = 0x00;
 
     DBG_THROTTLE("Stopping motor due to: ");
+    DBGLN_THROTTLE(reason); // default reason is "unknown reason."
 }
 
 void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
 {
     if (fault_force_stop)
     {
-        pedal_can_frame_stop_motor(tx_throttle_msg);
-
-        DBGLN_THROTTLE("pedal fault.");
+        pedal_can_frame_stop_motor(tx_throttle_msg, "pedal fault.");
         return;
     }
     // uint8_t throttle_volt = pedal_final * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
@@ -99,32 +94,32 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     if (pedal_final < PEDAL_1_LL)
     {
         DBG_THROTTLE_FAULT(THROTTLE_LOW, pedal_final);
-        // DBG_THROTTLE_FAULT(THROTTLE_TOO_LOW "Throttle voltage too low");
         throttle_torque_val = 0;
     }
     else if (pedal_final < PEDAL_1_LU)
     {
+        // in lower deadzone, treat as 0% throttle
         throttle_torque_val = MIN_THROTTLE_OUT_VAL;
     }
     else if (pedal_final < PEDAL_1_UL)
     {
-        // Scale up the value for canbus
+        // throttle_in -> torque_val
+        // check mapping function for curve
         throttle_torque_val = throttle_torque_mapping(pedal_final, FLIP_MOTOR_DIR);
     }
     else if (pedal_final < PEDAL_1_UU)
     {
+        // in upper deadzone, treat as 100% throttle
         throttle_torque_val = MAX_THROTTLE_OUT_VAL;
     }
     else
     {
-        // DBG_THROTTLE("Throttle voltage too high");
         DBG_THROTTLE_FAULT(THROTTLE_HIGH, pedal_final);
-        // For safety, this should not be set to other values
+        // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
         throttle_torque_val = 0;
     }
 
     DBG_THROTTLE_OUT(pedal_final, throttle_torque_val);
-    // DBG_THROTTLE("CAN UPDATE: Throttle = ");
 
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
@@ -154,8 +149,7 @@ bool Pedal::check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2)
         delta = pedal_2_scaled - pedal_1;
     DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
 
-    // Currently the only indication for faulty pedal is just 2 pedal values are more than 10% different
-
+    // if more than 10% difference between the two pedals, consider it a fault
     if (delta > 102.4) // 10% of 1024
     {
         DBG_THROTTLE_FAULT(DIFF_CONTINUING, delta);

@@ -125,6 +125,19 @@ inline void DBG_STATUS_CAR(main_car_status car_status) {
 #define DBG_STATUS_CAR(car_status)
 #endif
 
+#if DEBUG_STATUS_CAR && (DEBUG_SERIAL || DEBUG_CAN)
+inline void DBG_STATUS_CAR_CHANGE(state_changes status_change) {
+    #if DEBUG_SERIAL
+        Debug_Serial::status_car_change(status_change);
+    #endif
+    #if DEBUG_CAN
+        Debug_CAN::status_car_change(status_change);
+    #endif
+}
+#else
+#define DBG_STATUS_CAR(car_status)
+#endif
+
 #if DEBUG_STATUS_BRAKE && (DEBUG_SERIAL || DEBUG_CAN)
 inline void DBG_STATUS_BRAKE(uint16_t brake_voltage) {
     #if DEBUG_SERIAL

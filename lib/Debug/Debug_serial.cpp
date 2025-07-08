@@ -96,3 +96,28 @@ void Debug_Serial::status_car(main_car_status car_status)
         break;
     }
 }
+
+void Debug_Serial::status_car_change(state_changes status_change)
+{
+    switch (status_change)
+    {
+    case INIT_TO_STARTIN:
+        Serial.println("Car Status Change: INIT -> STARTIN");
+        break;
+    case STARTIN_TO_BUSSIN:
+        Serial.println("Car Status Change: STARTIN -> BUSSIN");
+        break;
+    case BUSSIN_TO_DRIVE:
+        Serial.println("Car Status Change: BUSSIN -> DRIVE");
+        break;
+    case STARTIN_TO_INIT:
+        Serial.println("Car Status Change: STARTIN -> INIT; Drive mode button or brake pedal is released, returning to INIT");
+        break;
+    case THROTTLE_TO_INIT:
+        Serial.println("Car Status Change: THROTTLE -> INIT; Throttle pressed too early!");
+        break;
+    default:
+        Serial.println("Car Status Change: UNKNOWN");
+        break;
+    }
+}

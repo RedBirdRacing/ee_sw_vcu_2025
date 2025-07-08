@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "Queue.h"
 #include <can.h> // for can_frame
+#include "car_state.h"
+#include <Arduino.h> // for string
 
 // Constants
 
@@ -92,17 +94,17 @@ public:
     // Constructor with
 
     // Update function. To be called on every loop and pass the current time in millis
-    void pedal_update(uint32_t millis, uint16_t pedal_1, uint16_t pedal_2);
+    void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
     void pedal_can_frame_update(can_frame *tx_throttle_msg);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
-    void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
+    void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char reason[] = "unknown reason.");
 
     // Pedal value after filtering and processing
     // Under normal circumstances, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
-    uint16_t pedal_final;
+    uint16_t pedal_filtered_1, pedal_filtered_2, pedal_final;
 
 private:
     // If the two potentiometer inputs are too different (> 10%), the inputs are faulty

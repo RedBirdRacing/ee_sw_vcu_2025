@@ -1,5 +1,5 @@
 #ifndef ENUMS_H
-#define ENUMS_H 
+#define ENUMS_H
 
 /* === Car Status State Machine ===
 Meaning of different car statuses
@@ -34,16 +34,28 @@ enum pedal_fault_status
 };
 
 // CAN message IDs -- debug CAN should start from 0x690
-enum throttle_can_id {
-    MOTOR_COMMAND       = 0x201,
+enum throttle_can_id
+{
+    MOTOR_COMMAND = 0x201,
     // Debug CAN messages
-    THROTTLE_IN_MSG     = 0x690,
-    THROTTLE_OUT_MSG    = 0x691,
-    THROTTLE_FAULT_MSG  = 0x692
+    THROTTLE_IN_MSG = 0x690,
+    THROTTLE_OUT_MSG = 0x691,
+    THROTTLE_FAULT_MSG = 0x692
 };
-enum status_can_id {
-    STATUS_CAR_MSG    = 0x693,
-    STATUS_BRAKE_MSG  = 0x694,
+enum status_can_id
+{
+    STATUS_CAR_MSG = 0x693,
+    STATUS_CAR_CHANGE_MSG = 0x694,
+    STATUS_BRAKE_MSG = 0x695,
+};
+
+enum state_changes
+{
+    INIT_TO_STARTIN,
+    STARTIN_TO_BUSSIN,
+    BUSSIN_TO_DRIVE,
+    STARTIN_TO_INIT,
+    THROTTLE_TO_INIT,
 };
 
 #endif // Enums.h
