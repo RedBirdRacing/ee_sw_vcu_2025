@@ -82,6 +82,10 @@ struct can_frame
 // For Gen 5 car, only throttle pedal is wired through the VCU, so we use Pedal class for Throttle pedal only.
 class Pedal
 {
+    // Allow test code to access private members
+    friend void test_pedal_initialization(void);
+    friend void test_pedal_update(void);
+    
 public:
     // Default constructor
     Pedal();
