@@ -15,7 +15,7 @@ void Debug_Serial::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtere
     Serial.print(pedal_filtered_1);
     Serial.print(" | Pedal 2 filtered: ");
     Serial.print(pedal_filtered_2);
-    Serial.print(" | Final: ");
+    Serial.print(" | Pedal 2 scaled: ");
     Serial.println(pedal_filtered_final);
 }
 
@@ -34,19 +34,16 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status, float value)
     case NONE:
         break;
     case DIFF_CONTINUING:
-        Serial.print("Pedal mismatch continuing. Difference:");
-        Serial.print(value * 100);
-        Serial.println("%");
+        Serial.print("Pedal mismatch continuing. Difference: ");
+        Serial.println(value);
         break;
     case THROTTLE_LOW:
-        Serial.print("Throttle input too low. Value:");
-        Serial.print(value);
-        Serial.println("v");
+        Serial.print("Throttle input too low. Value: ");
+        Serial.println(value);
         break;
     case THROTTLE_HIGH:
-        Serial.println("Throttle too high. Value:");
-        Serial.print(value);
-        Serial.println("v");
+        Serial.print("Throttle too high. Value: ");
+        Serial.println(value);
         break;
     default:
         Serial.println("Unknown fault status");

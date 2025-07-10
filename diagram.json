@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Planeson",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0 },
+    { "type": "wokwi-slide-switch", "id": "btn_drive", "top": 50, "left": 350, "attrs": { "label": "DRIVE_MODE_BTN (D5)", "bounce": "0" } },
+    { "type": "wokwi-slide-switch", "id": "btn_brake", "top": 120, "left": 350, "attrs": { "label": "BRAKE_IN (A3)", "bounce": "0" } },
+    { "type": "wokwi-potentiometer", "id": "pot_apps5v", "top": 200, "left": 350, "attrs": { "label": "APPS_5V (A0)" } },
+    { "type": "wokwi-potentiometer", "id": "pot_apps3v3", "top": 270, "left": 350, "attrs": { "label": "APPS_3V3 (A1)" } },
+    { "type": "wokwi-led", "id": "led_drive", "top": 350, "left": 350, "attrs": { "color": "red", "label": "DRIVE_MODE_LED (D4)" } },
+    { "type": "wokwi-led", "id": "led_buzzer", "top": 400, "left": 350, "attrs": { "color": "blue", "label": "BUZZER_OUT (D6)" } }
+  ],
+  "connections": [
+    [ "btn_drive:1", "uno:GND.1", "black", [ "v10", "h0" ] ],
+    [ "btn_drive:2", "uno:5", "green", [ "v15", "*", "h50", "v-15"] ],
+    [ "btn_drive:3", "uno:5V", "red", [ "v20", "*", "h50", "v-25"] ],
+    [ "btn_brake:1", "uno:GND.1", "black", [ "v10", "h0" ] ],
+    [ "btn_brake:2", "uno:A3", "green", [ "v15", "h0" ] ],
+    [ "btn_brake:3", "uno:5V", "red", [ "v20", "h0" ] ],
+
+    [ "pot_apps5v:GND", "uno:GND.2", "black", [ "v10", "h0" ] ],
+    [ "pot_apps5v:VCC", "uno:5V", "red", [ "v15", "h0" ] ],
+    [ "pot_apps5v:SIG", "uno:A0", "blue", [ "v20", "h0" ] ],
+
+    [ "pot_apps3v3:GND", "uno:GND.2", "black", [ "v10", "h0" ] ],
+    [ "pot_apps3v3:VCC", "uno:3.3V", "red", [ "v15", "h0" ] ],
+    [ "pot_apps3v3:SIG", "uno:A1", "blue", [ "v20", "h0" ] ],
+
+    [ "led_drive:A", "uno:4", "red", [ "v15", "*", "h50", "v-10"] ],
+    [ "led_drive:C", "uno:GND.2", "black", [ "v10", "h0" ] ],
+    [ "led_buzzer:A", "uno:6", "blue", [ "v15", "*", "h50", "v-20"] ],
+    [ "led_buzzer:C", "uno:GND.2", "black", [ "v10", "h0" ] ]
+  ]
+}

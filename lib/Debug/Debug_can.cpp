@@ -90,3 +90,17 @@ void Debug_CAN::status_car(main_car_status car_status)
 
     can_interface->sendMessage(&tx_msg);
 }
+
+void Debug_CAN::status_car_change(state_changes status_change)
+{
+    if (!can_interface)
+        return;
+
+    can_frame tx_msg;
+    tx_msg.can_id = STATUS_CAR_CHANGE_MSG;
+    tx_msg.can_dlc = 1;
+
+    tx_msg.data[0] = static_cast<uint8_t>(status_change); // Convert enum to uint8_t
+
+    can_interface->sendMessage(&tx_msg);
+}

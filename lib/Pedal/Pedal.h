@@ -85,8 +85,13 @@ struct can_frame
 class Pedal
 {
     // Allow test code to access private members
-    friend void test_pedal_initialization(void);
-    friend void test_pedal_update(void);
+    friend void test_pedal_update_no_fault(void);
+    friend void test_pedal_update_fault(void);
+    friend void test_pedal_can_frame_stop_motor(void);
+    friend void test_throttle_torque_mapping_normal(void);
+    friend void test_check_pedal_fault(void);
+    friend void setup(void);
+    friend void loop(void);
     
 public:
     // Default constructor
@@ -97,14 +102,14 @@ public:
     void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2);
 
     // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
-    void pedal_can_frame_update(can_frame *tx_throttle_msg);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char reason[] = "unknown reason.");
 
     // Pedal value after filtering and processing
     // Under normal circumstances, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
-    uint16_t pedal_filtered_1, pedal_filtered_2, pedal_final;
+    uint16_t pedal_filtered_1, pedal_filtered_2;
 
 private:
     // If the two potentiometer inputs are too different (> 10%), the inputs are faulty
@@ -122,12 +127,16 @@ private:
     RingBuffer<float, ADC_BUFFER_SIZE> pedal_value_2;
 
     // Returns true if pedal is faulty
-    inline bool check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2);
+    // should be inlined in .cpp
+    // not inlined now for easier testing
+    bool check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2);
 
     // throttle-torque mapping
     // input pedal value in 0-1023 range
     // output torque value in the SIGNED 300(?)-32760 range
-    inline int16_t throttle_torque_mapping(uint16_t pedal, bool flip_motor_dir);
+    // should be inlined in .cpp
+    // not inlined now for easier testing
+    int16_t throttle_torque_mapping(uint16_t pedal, bool flip_motor_dir);
 };
 
 #endif // PEDAL_H

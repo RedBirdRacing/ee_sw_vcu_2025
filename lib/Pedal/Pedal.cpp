@@ -7,6 +7,8 @@
 Pedal::Pedal()
     : fault(true), fault_force_stop(false) {}
 
+
+
 void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
 {
     // Record readings in buffer
@@ -74,7 +76,7 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char re
     DBGLN_THROTTLE(reason); // default reason is "unknown reason."
 }
 
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
+void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
 {
     if (fault_force_stop)
     {
@@ -91,35 +93,35 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     Between MAX_THROTTLE_IN_VOLT and THORTTLE_UPPER_DEADZONE_MIN_IN_VOLT: 100% Torque
     Between THORTTLE_UPPER_DEADZONE_MIN_IN_VOLT and 5V: Error for short circuit
     */
-    if (pedal_final < PEDAL_1_LL)
+    if (car->pedal_final < PEDAL_1_LL)
     {
-        DBG_THROTTLE_FAULT(THROTTLE_LOW, pedal_final);
+        DBG_THROTTLE_FAULT(THROTTLE_LOW, car->pedal_final);
         throttle_torque_val = 0;
     }
-    else if (pedal_final < PEDAL_1_LU)
+    else if (car->pedal_final < PEDAL_1_LU)
     {
         // in lower deadzone, treat as 0% throttle
         throttle_torque_val = MIN_THROTTLE_OUT_VAL;
     }
-    else if (pedal_final < PEDAL_1_UL)
+    else if (car->pedal_final < PEDAL_1_UL)
     {
         // throttle_in -> torque_val
         // check mapping function for curve
-        throttle_torque_val = throttle_torque_mapping(pedal_final, FLIP_MOTOR_DIR);
+        throttle_torque_val = throttle_torque_mapping(car->pedal_final, FLIP_MOTOR_DIR);
     }
-    else if (pedal_final < PEDAL_1_UU)
+    else if (car->pedal_final < PEDAL_1_UU)
     {
         // in upper deadzone, treat as 100% throttle
         throttle_torque_val = MAX_THROTTLE_OUT_VAL;
     }
     else
     {
-        DBG_THROTTLE_FAULT(THROTTLE_HIGH, pedal_final);
+        DBG_THROTTLE_FAULT(THROTTLE_HIGH, car->pedal_final);
         // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
         throttle_torque_val = 0;
     }
 
-    DBG_THROTTLE_OUT(pedal_final, throttle_torque_val);
+    DBG_THROTTLE_OUT(car->pedal_final, throttle_torque_val);
 
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
@@ -128,20 +130,29 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
     tx_throttle_msg->data[2] = (throttle_torque_val >> 8) & 0xFF;
 }
 
-inline int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
+int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
 {
+    if (throttle < PEDAL_1_LU || throttle > PEDAL_1_UL)
+    {
+        // throttle is out of range, return 0 torque
+        return 0;
+    }
     // Map the throttle voltage to a torque value
-    // temp linear mapping
+    // temp linear mapping, with proper casting to prevent overflow
+    int32_t numerator = static_cast<int32_t>(throttle - PEDAL_1_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
+    int32_t denominator = static_cast<int32_t>(PEDAL_1_UL - PEDAL_1_LU);
+    int16_t result = static_cast<int16_t>(numerator / denominator);
+
     if (flip_motor_dir)
     {
-        return (PEDAL_1_LU - throttle) * MAX_THROTTLE_OUT_VAL / (PEDAL_1_UL - PEDAL_1_LU);
+        return -result;
     }
-    return (throttle - PEDAL_1_LU) * MAX_THROTTLE_OUT_VAL / (PEDAL_1_UL - PEDAL_1_LU);
+    return result;
 }
 
 bool Pedal::check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2)
 {
-    uint16_t pedal_2_scaled = round(pedal_2 * (PEDAL_1_RANGE / PEDAL_2_RANGE));
+    uint16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
     uint16_t delta;
     if (pedal_1 > pedal_2_scaled)
         delta = pedal_1 - pedal_2_scaled;
@@ -153,7 +164,6 @@ bool Pedal::check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2)
     if (delta > 102.4) // 10% of 1024
     {
         DBG_THROTTLE_FAULT(DIFF_CONTINUING, delta);
-        // DBGLN_THROTTLE("WARNING: Pedal mismatch > 10%");
         return true;
     }
     return false;

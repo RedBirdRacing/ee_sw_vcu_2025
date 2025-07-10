@@ -1,0 +1,60 @@
+#include <Arduino.h>
+#include "Pedal.h"
+
+Pedal pedal;
+
+void setup()
+{
+    Serial.begin(115200);
+    while (!Serial)
+    {
+        delay(10);
+    } // Wait for serial port to connect
+
+    bool result = pedal.check_pedal_fault(PEDAL_1_LU, PEDAL_1_LU);
+    if (!result)
+    {
+        Serial.println("No fault at start.");
+    }
+
+    // APPS5V Fault Test
+    result = false;
+    int i;
+    for (i = 0; i < 600 && !result; i++)
+    {
+        result = pedal.check_pedal_fault(PEDAL_1_LU + i, PEDAL_1_LU);
+    }
+    if (result)
+    {
+        Serial.print("APPS5V Fault detected after ");
+        Serial.print(i);
+        Serial.println(" iterations");
+    }
+    else
+    {
+        Serial.println("No fault detected in 600 iterations.");
+    }
+
+    // APPS3V3 Fault Test
+    result = false;
+    for (i = 0; i < 600 && !result; i++)
+    {
+        result = pedal.check_pedal_fault(PEDAL_1_LU, PEDAL_1_LU + i);
+    }
+    if (result)
+    {
+        Serial.print("APP3V3 Fault detected after ");
+        Serial.print(i);
+        Serial.println(" iterations");
+    }
+    else
+    {
+        Serial.println("No fault detected in 600 iterations.");
+    }
+}
+
+void loop()
+{
+    // Main loop does nothing in this test
+    delay(1000); // Just to avoid busy looping
+}

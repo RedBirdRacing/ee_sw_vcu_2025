@@ -18,10 +18,11 @@
 #endif
 
 // Throttle pedal input values, fault detection, processed output for motor
-#define DEBUG_THROTTLE true // Serial only
-#define DEBUG_THROTTLE_IN true && DEBUG_THROTTLE && DEBUG_CAN
-#define DEBUG_THROTTLE_OUT true && DEBUG_THROTTLE && DEBUG_CAN
-#define DEBUG_THROTTLE_FAULT true && DEBUG_THROTTLE && DEBUG_CAN
+#define DEBUG_THROTTLE false // Serial only
+#define DEBUG_THROTTLE_OVERALL true // Serial only
+#define DEBUG_THROTTLE_IN false && DEBUG_THROTTLE_OVERALL && DEBUG_CAN
+#define DEBUG_THROTTLE_OUT true && DEBUG_THROTTLE_OVERALL && DEBUG_CAN
+#define DEBUG_THROTTLE_FAULT true && DEBUG_THROTTLE_OVERALL && DEBUG_CAN
 
 // General debug messages, won't be sent through CAN
 #define DEBUG_GENERAL true // Serial only
