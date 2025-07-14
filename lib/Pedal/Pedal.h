@@ -34,6 +34,10 @@ const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 31;
 // const uint16_t PEDAL_2_LOWER_DEADZONE_WIDTH = 31;
 // const uint16_t PEDAL_2_UPPER_DEADZONE_WIDTH = 31;
 
+/*
+    Data entry ends here.
+*/
+
 const uint16_t PEDAL_1_RANGE = PEDAL_1_IN_MAX - PEDAL_1_IN_MIN;
 const uint16_t PEDAL_2_RANGE = PEDAL_2_IN_MAX - PEDAL_2_IN_MIN;
 
@@ -57,6 +61,14 @@ const uint16_t PEDAL_1_LU = (PEDAL_1_IN_MIN < (PEDAL_1_LOWER_DEADZONE_WIDTH - 1)
 
 const uint16_t PEDAL_1_UL = PEDAL_1_IN_MAX - (PEDAL_1_UPPER_DEADZONE_WIDTH - 1) / 2;
 const uint16_t PEDAL_1_UU = PEDAL_1_IN_MAX + (PEDAL_1_UPPER_DEADZONE_WIDTH - 1) / 2;
+
+// since only take pedal 1, no need to define pedal 2 deadzones, directly coupled to pedal 1's deadzones
+
+// pedal_final deadzones
+const uint16_t PEDAL_LL = PEDAL_1_LL;
+const uint16_t PEDAL_LU = PEDAL_1_LU;
+const uint16_t PEDAL_UL = PEDAL_1_UL;
+const uint16_t PEDAL_UU = PEDAL_1_UU;
 
 const uint16_t MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp2515
 // currently set to a slightly lower value to not use speed control (100%)
@@ -117,9 +129,11 @@ private:
     bool fault = true;
     uint32_t fault_start_millis; // rollover in 49.7 days
 
+    /*
     // Forced stop the car due too long fault sensors, restart car to reset this to false
     // Class initializer sets this to false, pedal fault > 100ms trips to true
     bool fault_force_stop = true;
+    */
 
     // Two cyclic queues for storing the pedal values
     // Used for filter, right now average of the last 16 values
@@ -129,7 +143,7 @@ private:
     // Returns true if pedal is faulty
     // should be inlined in .cpp
     // not inlined now for easier testing
-    bool check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2);
+    bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2);
 
     // throttle-torque mapping
     // input pedal value in 0-1023 range

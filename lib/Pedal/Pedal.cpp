@@ -78,7 +78,7 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char re
 
 void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
 {
-    if (fault_force_stop)
+    if (car->fault_force_stop)
     {
         pedal_can_frame_stop_motor(tx_throttle_msg, "pedal fault.");
         return;
@@ -86,42 +86,43 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
     // uint8_t throttle_volt = pedal_final * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
 
     int16_t throttle_torque_val = 0;
+    uint16_t pedal_final = car->pedal_final;
     /*
-    Between 0V and THROTTLE_LOWER_DEADZONE_MAX_IN_VOLT: Error for open circuit
-    Between THROTTLE_LOWER_DEADZONE_MAX_IN_VOLT and MIN_THROTTLE_IN_VOLT: 0% Torque
-    Between MIN_THROTTLE_IN_VOLT and MAX_THROTTLE_IN_VOLT: Linear relationship
-    Between MAX_THROTTLE_IN_VOLT and THORTTLE_UPPER_DEADZONE_MIN_IN_VOLT: 100% Torque
-    Between THORTTLE_UPPER_DEADZONE_MIN_IN_VOLT and 5V: Error for short circuit
+    Below PEDAL_LL: Error for open circuit
+    Between PEDAL_LL and PEDAL_LU: 0% Torque
+    Between PEDAL_LU and PEDAL_UL: mapping to torque, see throttle_torque_mapping()
+    Between PEDAL_UL and PEDAL_UU: 100% Torque
+    Above PEDAL_UU: Error for short circuit
     */
-    if (car->pedal_final < PEDAL_1_LL)
+    if (pedal_final < PEDAL_LL)
     {
-        DBG_THROTTLE_FAULT(THROTTLE_LOW, car->pedal_final);
+        DBG_THROTTLE_FAULT(THROTTLE_LOW, pedal_final);
         throttle_torque_val = 0;
     }
-    else if (car->pedal_final < PEDAL_1_LU)
+    else if (pedal_final < PEDAL_LU)
     {
         // in lower deadzone, treat as 0% throttle
         throttle_torque_val = MIN_THROTTLE_OUT_VAL;
     }
-    else if (car->pedal_final < PEDAL_1_UL)
+    else if (pedal_final < PEDAL_UL)
     {
         // throttle_in -> torque_val
         // check mapping function for curve
-        throttle_torque_val = throttle_torque_mapping(car->pedal_final, FLIP_MOTOR_DIR);
+        throttle_torque_val = throttle_torque_mapping(pedal_final, FLIP_MOTOR_DIR);
     }
-    else if (car->pedal_final < PEDAL_1_UU)
+    else if (pedal_final < PEDAL_UU)
     {
         // in upper deadzone, treat as 100% throttle
         throttle_torque_val = MAX_THROTTLE_OUT_VAL;
     }
     else
     {
-        DBG_THROTTLE_FAULT(THROTTLE_HIGH, car->pedal_final);
+        DBG_THROTTLE_FAULT(THROTTLE_HIGH, pedal_final);
         // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
         throttle_torque_val = 0;
     }
 
-    DBG_THROTTLE_OUT(car->pedal_final, throttle_torque_val);
+    DBG_THROTTLE_OUT(pedal_final, throttle_torque_val);
 
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
@@ -150,18 +151,27 @@ int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
     return result;
 }
 
-bool Pedal::check_pedal_fault(uint16_t pedal_1, uint16_t pedal_2)
+/**
+ * @brief Checks for a fault between two pedal sensor readings.
+ *
+ * Scales pedal_2 to match the range of pedal_1, then calculates the absolute difference.
+ * If the difference exceeds 10% of the full-scale value (i.e., >102.4 for a 10-bit ADC),
+ * the function considers this a fault and returns true. Otherwise, returns false.
+ * Also logs the readings and fault status for debugging.
+ *
+ * @param pedal_1 Raw value from pedal sensor 1 (uint16_t), intentionally casted to int16_t.
+ * @param pedal_2 Raw value from pedal sensor 2 (uint16_t), intentionally casted to int16_t.
+ * @return true if the difference exceeds the threshold (fault detected), false otherwise.
+ */
+bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2)
 {
-    uint16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
-    uint16_t delta;
-    if (pedal_1 > pedal_2_scaled)
-        delta = pedal_1 - pedal_2_scaled;
-    else
-        delta = pedal_2_scaled - pedal_1;
-    DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
 
+    uint16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
+    DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
+    
+    uint16_t delta = pedal_1 - pedal_2_scaled;
     // if more than 10% difference between the two pedals, consider it a fault
-    if (delta > 102.4) // 10% of 1024
+    if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
     {
         DBG_THROTTLE_FAULT(DIFF_CONTINUING, delta);
         return true;

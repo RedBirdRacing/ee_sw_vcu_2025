@@ -52,7 +52,7 @@ void setup()
 
     // Init mcp2515 for motor CAN channel
     mcp2515_motor.reset();
-    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_8MHZ); // 8MHZ for testing on uno
+    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
     mcp2515_motor.setNormalMode();
 
 #if DEBUG_SERIAL
@@ -72,8 +72,11 @@ void setup()
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
 
+    /*
+    For sim only
     pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode
     pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
+    */
 }
 
 void loop()
@@ -98,7 +101,7 @@ void loop()
         digitalWrite(BUZZER_OUT, LOW); // Turn off buzzer
         digitalWrite(DRIVE_MODE_LED, LOW); // Turn off drive mode LED
         return; // If fault force stop is active, do not proceed with the rest of the loop
-        // pedal is still being updated, data can still be gathered and sent through CAN
+        // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
     switch (main_car_state.car_status)
     {
