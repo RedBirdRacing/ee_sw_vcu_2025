@@ -3,12 +3,34 @@
 #include "Debug.h"
 #include <Arduino.h> // for round() only.
 
+/**
+ * Pedal class implementation for handling throttle pedal inputs, filtering, and fault detection.
+ * This class manages two pedal sensors, applies filtering, checks for faults, and updates the car state.
+ * It uses a ring buffer for storing pedal values and applies an average filter to smooth the readings.
+ */
 
-Pedal::Pedal()
-    : fault(true), fault_force_stop(false) {}
+/**
+ * @brief Default constructor for the Pedal class.
+ *
+ * Initializes the pedal state and sets the fault flag to true.
+ * The fault flag indicates that the pedal inputs are considered faulty until proven otherwise.
+ *
+ * @param None
+ * @return None
+ */
+Pedal::Pedal() : fault(true) {}
 
-
-
+/**
+ * @brief Updates pedal sensor readings, applies filtering, and checks for faults.
+ *
+ * Stores new pedal readings, applies an average filter, and updates car state.
+ * If a fault is detected between pedal sensors, sets fault flags and logs status.
+ *
+ * @param car Pointer to car_state structure to update.
+ * @param pedal_1 Raw value from pedal sensor 1.
+ * @param pedal_2 Raw value from pedal sensor 2.
+ * @return None
+ */
 void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
 {
     // Record readings in buffer
@@ -23,8 +45,8 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
     // depends on the hardware filter, reduce software filtering as much as possible
 
     // currently a small average filter is good enough
-    pedal_filtered_1 = round(AVG_filter<float>(pedal_value_1.buffer, ADC_BUFFER_SIZE));
-    pedal_filtered_2 = round(AVG_filter<float>(pedal_value_2.buffer, ADC_BUFFER_SIZE));
+    pedal_filtered_1 = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
+    pedal_filtered_2 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
 
     car->pedal_final = pedal_filtered_1; // Only take in pedal 1 value
 
@@ -38,7 +60,7 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
 
     // Pedal fault detected
     if (fault)
-    { // Previous scan is already faulty
+    {                                               // Previous scan is already faulty
         if (car->millis - fault_start_millis > 100) // Faulty for more than 100 ms
         {
             // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can signals
@@ -64,23 +86,41 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
     return;
 }
 
-void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char reason[])
+/**
+ * @brief Updates the CAN frame with the current pedal values.
+ *
+ * This function prepares a CAN frame to send the current pedal values to the motor controller.
+ * It checks for faults and applies appropriate torque values based on pedal readings.
+ *
+ * @param tx_throttle_msg Pointer to the CAN frame to update.
+ * @param car Pointer to the car_state structure containing current car state.
+ * @return None
+ */
+void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
 {
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
     tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     tx_throttle_msg->data[1] = 0x00;
     tx_throttle_msg->data[2] = 0x00;
-
-    DBG_THROTTLE("Stopping motor due to: ");
-    DBGLN_THROTTLE(reason); // default reason is "unknown reason."
 }
 
+/**
+ * @brief Updates the CAN frame with the most recent pedal value.
+ *
+ * This function prepares a CAN frame to send the current pedal value to the motor controller.
+ * It checks for faults and applies appropriate torque values based on pedal readings.
+ *
+ * @param tx_throttle_msg Pointer to the CAN frame to update.
+ * @param car Pointer to the car_state structure containing current car state.
+ * @return None
+ */
 void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
 {
     if (car->fault_force_stop)
     {
-        pedal_can_frame_stop_motor(tx_throttle_msg, "pedal fault.");
+        pedal_can_frame_stop_motor(tx_throttle_msg);
+        DBGLN_THROTTLE("Stopping motor: pedal fault");
         return;
     }
     // uint8_t throttle_volt = pedal_final * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
@@ -131,6 +171,16 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
     tx_throttle_msg->data[2] = (throttle_torque_val >> 8) & 0xFF;
 }
 
+/**
+ * @brief Maps the pedal voltage to a torque value.
+ *
+ * This function takes a pedal voltage in the range of 0-1023 and maps it to a torque value.
+ * The mapping is linear, and the result is adjusted based on the motor direction.
+ *
+ * @param throttle Pedal voltage in the range of 0-1023.
+ * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
+ * @return Mapped torque value in the signed range of -32760 to 32760.
+ */
 int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
 {
     if (throttle < PEDAL_1_LU || throttle > PEDAL_1_UL)
@@ -168,7 +218,7 @@ bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2)
 
     uint16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
     DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
-    
+
     uint16_t delta = pedal_1 - pedal_2_scaled;
     // if more than 10% difference between the two pedals, consider it a fault
     if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102

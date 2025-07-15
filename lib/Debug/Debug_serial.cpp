@@ -1,24 +1,63 @@
 #include "Debug_serial.h"
 
+/**
+ * @brief Initializes the Debug_Serial interface.
+ * This function sets up the serial communication for debugging purposes.
+ * It should be called before using any other Debug_Serial functions.
+ * 
+ * @param None
+ * @return None
+ */
 void Debug_Serial::initialize()
 {
     Serial.begin(115200);
 }
 
+/**
+ * @brief Prints a message to the serial console.
+ * This function sends a string message to the serial console for debugging.
+ * 
+ * @param msg The message to print.
+ * @return None
+ */
 void Debug_Serial::print(const char *msg) { Serial.print(msg); }
 
+/**
+ * @brief Prints a line to the serial console.
+ * This function sends a string message followed by a newline to the serial console for debugging.
+ * 
+ * @param msg The message to print.
+ * @return None
+ */
 void Debug_Serial::println(const char *msg) { Serial.println(msg); }
 
-void Debug_Serial::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)
+/**
+ * @brief Prints a throttle input message to the serial console.
+ * This function formats and sends the throttle input values to the serial console.
+ * 
+ * @param pedal_1 Value from pedal sensor 1.
+ * @param pedal_2 Value from pedal sensor 2.
+ * @param pedal_2_scaled Scaled value of pedal sensor 2.
+ * @return None
+ */
+void Debug_Serial::throttle_in(uint16_t pedal_1, uint16_t pedal_2, uint16_t pedal_2_scaled)
 {
-    Serial.print("Pedal 1 filtered: ");
-    Serial.print(pedal_filtered_1);
-    Serial.print(" | Pedal 2 filtered: ");
-    Serial.print(pedal_filtered_2);
+    Serial.print("Pedal 1: ");
+    Serial.print(pedal_1);
+    Serial.print(" | Pedal 2: ");
+    Serial.print(pedal_2);
     Serial.print(" | Pedal 2 scaled: ");
-    Serial.println(pedal_filtered_final);
+    Serial.println(pedal_2_scaled);
 }
 
+/**
+ * @brief Prints a throttle output message to the serial console.
+ * This function formats and sends the throttle output values to the serial console.
+ * 
+ * @param throttle_final Final value of the throttle pedal.
+ * @param throttle_torque_val Calculated torque value based on the throttle input.
+ * @return None
+ */
 void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val)
 {
     Serial.print("Throttle Final: ");
@@ -27,6 +66,14 @@ void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque
     Serial.println(throttle_torque_val);
 }
 
+/**
+ * @brief Prints a throttle fault message to the serial console.
+ * This function formats and sends the throttle fault status and value to the serial console.
+ * 
+ * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @param value Optional float value associated with the fault (e.g., pedal voltage).
+ * @return None
+ */
 void Debug_Serial::throttle_fault(pedal_fault_status fault_status, float value)
 {
     switch (fault_status)
@@ -51,6 +98,13 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status, float value)
     }
 }
 
+/**
+ * @brief Prints a throttle fault message to the serial console without a float value.
+ * This function formats and sends the throttle fault status to the serial console.
+ * 
+ * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @return None
+ */
 void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
 {
     switch (fault_status)
@@ -72,6 +126,13 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
     }
 }
 
+/**
+ * @brief Prints the current car status to the serial console.
+ * This function formats and sends the current car status to the serial console.
+ * 
+ * @param car_status The current status of the car as defined in main_car_status enum.
+ * @return None
+ */
 void Debug_Serial::status_car(main_car_status car_status)
 {
     switch (car_status)
@@ -94,6 +155,13 @@ void Debug_Serial::status_car(main_car_status car_status)
     }
 }
 
+/**
+ * @brief Prints the car status change to the serial console.
+ * This function formats and sends the car status change to the serial console.
+ * 
+ * @param status_change The state change of the car as defined in state_changes enum.
+ * @return None
+ */
 void Debug_Serial::status_car_change(state_changes status_change)
 {
     switch (status_change)

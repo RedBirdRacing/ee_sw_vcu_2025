@@ -8,8 +8,17 @@ template <typename T, uint8_t size>
 class RingBuffer
 {
 public:
+    // Constructor
+    // Initializes the buffer and head pointer
     RingBuffer() : buffer(), head(0), count(0) {}
 
+    /**
+     * @brief Pushes a new value into the ring buffer.
+     * This will overwrite the oldest value if the buffer is full.
+     *
+     * @param val The value to be added to the buffer.
+     * @return None
+     */
     void push(T val)
     {
         buffer[head] = val;
@@ -18,6 +27,12 @@ public:
             ++count;
     }
 
+    /**
+     * @brief Returns the elements in the buffer in linear order.
+     *
+     * @param out Pointer to an array where the linear buffer will be stored.
+     * @return None
+     */
     void getLinearBuffer(T *out)
     {
         for (int i = 0; i < count; ++i)

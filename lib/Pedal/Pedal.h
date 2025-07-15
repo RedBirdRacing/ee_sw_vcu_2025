@@ -117,7 +117,7 @@ public:
     void pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car);
 
     // Updates the can_frame to send a "0 Torque" value through canbus.
-    void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg, const char reason[] = "unknown reason.");
+    void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
 
     // Pedal value after filtering and processing
     // Under normal circumstances, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
@@ -137,8 +137,8 @@ private:
 
     // Two cyclic queues for storing the pedal values
     // Used for filter, right now average of the last 16 values
-    RingBuffer<float, ADC_BUFFER_SIZE> pedal_value_1;
-    RingBuffer<float, ADC_BUFFER_SIZE> pedal_value_2;
+    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1;
+    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
 
     // Returns true if pedal is faulty
     // should be inlined in .cpp

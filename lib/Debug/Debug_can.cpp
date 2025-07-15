@@ -4,11 +4,29 @@
 
 MCP2515 *Debug_CAN::can_interface = nullptr;
 
+/**
+ * @brief Initializes the Debug_CAN interface with the given MCP2515 CAN controller.
+ * 
+ * This function sets the can_interface pointer to the provided MCP2515 instance.
+ * It should be called before using any other Debug_CAN functions.
+ * 
+ * @param can Pointer to the MCP2515 CAN controller instance.
+ * @return None
+ */
 void Debug_CAN::initialize(MCP2515 *can)
 {
     can_interface = can;
 }
 
+/**
+ * @brief Sends a debug throttle input message over CAN.
+ * This function prepares a CAN frame with the throttle input values and sends it.
+ * 
+ * @param pedal_filtered_1 Filtered value from pedal sensor 1.
+ * @param pedal_filtered_2 Filtered value from pedal sensor 2.
+ * @param pedal_2_scaled Scaled value of pedal sensor 2.
+ * @return None
+ */
 void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled)
 {
     if (!can_interface)
@@ -29,6 +47,14 @@ void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2
     can_interface->sendMessage(&tx_msg);
 }
 
+/**
+ * @brief Sends a debug throttle output message over CAN.
+ * This function prepares a CAN frame with the throttle output values and sends it.
+ * 
+ * @param throttle_final Final value of the throttle pedal.
+ * @param throttle_torque_val Calculated torque value based on the throttle input.
+ * @return None
+ */
 void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val)
 {
     if (!can_interface)
@@ -47,6 +73,14 @@ void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_va
     can_interface->sendMessage(&tx_msg);
 }
 
+/**
+ * @brief Sends a debug throttle fault message over CAN.
+ * This function prepares a CAN frame with the throttle fault status and sends it.
+ * 
+ * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @param value Optional float value associated with the fault (e.g., pedal voltage).
+ * @return None
+ */
 void Debug_CAN::throttle_fault(pedal_fault_status fault_status, float value)
 {
     if (!can_interface)
@@ -63,6 +97,13 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status, float value)
     can_interface->sendMessage(&tx_msg);
 }
 
+/**
+ * @brief Sends a debug throttle fault message over CAN without a float value.
+ * This function prepares a CAN frame with the throttle fault status and sends it.
+ * 
+ * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @return None
+ */
 void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
 {
     if (!can_interface)
@@ -77,6 +118,13 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
     can_interface->sendMessage(&tx_msg);
 }
 
+/**
+ * @brief Sends a debug car status message over CAN.
+ * This function prepares a CAN frame with the current car status and sends it.
+ * 
+ * @param car_status The current status of the car as defined in main_car_status enum.
+ * @return None
+ */
 void Debug_CAN::status_car(main_car_status car_status)
 {
     if (!can_interface)
@@ -91,6 +139,13 @@ void Debug_CAN::status_car(main_car_status car_status)
     can_interface->sendMessage(&tx_msg);
 }
 
+/**
+ * @brief Sends a debug car status change message over CAN.
+ * This function prepares a CAN frame with the current car status change and sends it.
+ * 
+ * @param status_change The state change of the car as defined in state_changes enum.
+ * @return None
+ */
 void Debug_CAN::status_car_change(state_changes status_change)
 {
     if (!can_interface)

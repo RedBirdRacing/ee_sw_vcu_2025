@@ -81,8 +81,6 @@ void setup()
 
 void loop()
 {
-    // temp
-    //delay(1000);
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3));
@@ -98,15 +96,17 @@ void loop()
     if (main_car_state.fault_force_stop)
     {
         main_car_state.car_status = INIT;
-        digitalWrite(BUZZER_OUT, LOW); // Turn off buzzer
+        digitalWrite(BUZZER_OUT, LOW);     // Turn off buzzer
         digitalWrite(DRIVE_MODE_LED, LOW); // Turn off drive mode LED
-        return; // If fault force stop is active, do not proceed with the rest of the loop
+        return;                            // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
     switch (main_car_state.car_status)
     {
+    // do not return here if not in DRIVE mode, else can't detect pedal being on while starting
     case INIT:
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg, "INIT.");
+        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
+        DBGLN_THROTTLE("Stopping motor: INIT.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (digitalRead(DRIVE_MODE_BTN) == HIGH && digitalRead(BRAKE_IN) == HIGH)
@@ -120,13 +120,14 @@ void loop()
         break;
 
     case STARTIN:
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg, "STARTIN.");
+        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
+        DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (digitalRead(DRIVE_MODE_BTN) == LOW || digitalRead(BRAKE_IN) == LOW)
         {
             main_car_state.car_status = INIT;
-            main_car_state.car_status_millis_counter = main_car_state.millis;
+            main_car_state.car_status_millis_counter = main_car_state.millis; // safety
 
             DBG_STATUS_CAR(main_car_state.car_status);
             DBG_STATUS_CAR_CHANGE(STARTIN_TO_INIT);
@@ -143,13 +144,14 @@ void loop()
         break;
 
     case BUSSIN:
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg, "INIT.");
+        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
+        DBGLN_THROTTLE("Stopping motor: BUSSIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (main_car_state.millis - main_car_state.car_status_millis_counter >= BUSSIN_MILLIS)
         {
-            digitalWrite(DRIVE_MODE_LED, HIGH);
             digitalWrite(BUZZER_OUT, LOW);
+            digitalWrite(DRIVE_MODE_LED, HIGH);
             main_car_state.car_status = DRIVE;
 
             DBG_STATUS_CAR(main_car_state.car_status);
@@ -161,12 +163,6 @@ void loop()
         // Pedal update
         // Send pedal value through canbus
         pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
-        // The following if block is needed only if we limit the lower bound for canbus cycle period
-        // if (main_car_state.millis - final_throttle_time_millis >= THROTTLE_UPDATE_PERIOD_MILLIS)
-        // {
-        //     mcp2515.sendMessage(&tx_throttle_msg);
-        //     final_throttle_time_millis = main_car_state.millis;
-        // }
         mcp2515_motor.sendMessage(&tx_throttle_msg);
         return;
 
@@ -180,7 +176,8 @@ void loop()
     {
         main_car_state.car_status = INIT;
         main_car_state.car_status_millis_counter = main_car_state.millis; // Set to current time, in case any counter relies on this
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg, "throttle input while starting.");
+        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
+        DBGLN_THROTTLE("Stopping motor: throttle input while starting.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         DBG_STATUS_CAR(main_car_state.car_status);

@@ -23,10 +23,18 @@ T average(T val1, T val2)
     return (val1 + val2) / 2;
 }
 
+/**
+ * @brief Applies an average filter on the given buffer.
+ * This function calculates the average of all elements in the buffer.
+ * 
+ * @param buffer Pointer to the buffer containing elements to average.
+ * @param buf_size Size of the buffer.
+ * @return The average value of the elements in the buffer.
+ */
 template <typename T>
 T AVG_filter(T *buffer, uint8_t buf_size)
 {
-    float sum = 0;
+    T sum = 0;
 
     for (int i = 0; i < buf_size; ++i)
         sum += buffer[i];
