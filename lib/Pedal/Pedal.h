@@ -17,7 +17,7 @@
     set PEDAL_X_MIN_VOLTAGE to 69 and PEDAL_X_MAX_VOLTAGE to 948.
 */
 
-const uint16_t PEDAL_1_IN_MIN = 69; // Minimum ADC reading for APPS Pedal 1 (5V)
+const uint16_t PEDAL_1_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 1 (5V)
 const uint16_t PEDAL_1_IN_MAX = 948; // Maximum ADC reading for APPS Pedal 1 (5V)
 const uint16_t PEDAL_2_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 2 (3.3V)
 const uint16_t PEDAL_2_IN_MAX = 675; // Maximum ADC reading for APPS Pedal 2 (3.3V)
@@ -106,21 +106,10 @@ class Pedal
     friend void loop(void);
     
 public:
-    // Default constructor
     Pedal();
-    // Constructor with
-
-    // Update function. To be called on every loop and pass the current time in millis
     void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2);
-
-    // Updates the can_frame with the most update pedal value. To be called on every loop and pass the can_frame by reference.
     void pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car);
-
-    // Updates the can_frame to send a "0 Torque" value through canbus.
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
-
-    // Pedal value after filtering and processing
-    // Under normal circumstances, should store a value between 0 and 1023 inclusive (translates to 0v - 5v)
     uint16_t pedal_filtered_1, pedal_filtered_2;
 
 private:
@@ -128,12 +117,6 @@ private:
     // Definition for faulty is under FSEC 2024 Chapter 2, section 12.8, 12.9
     bool fault = true;
     uint32_t fault_start_millis; // rollover in 49.7 days
-
-    /*
-    // Forced stop the car due too long fault sensors, restart car to reset this to false
-    // Class initializer sets this to false, pedal fault > 100ms trips to true
-    bool fault_force_stop = true;
-    */
 
     // Two cyclic queues for storing the pedal values
     // Used for filter, right now average of the last 16 values

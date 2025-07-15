@@ -64,7 +64,7 @@ void test_pedal_update_fault(void)
 void test_pedal_can_frame_stop_motor(void)
 {
     can_frame frame;
-    pedal.pedal_can_frame_stop_motor(&frame, "test reason");
+    pedal.pedal_can_frame_stop_motor(&frame);
     TEST_ASSERT_EQUAL(MOTOR_COMMAND, frame.can_id);
     TEST_ASSERT_EQUAL(3, frame.can_dlc);
     TEST_ASSERT_EQUAL(0x90, frame.data[0]);
