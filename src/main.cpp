@@ -13,9 +13,11 @@ const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V
 const uint8_t OUTPUT_COUNT = 3;
 const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
 
-// === CAN (motor) + Pedal ===
-MCP2515 mcp2515_motor(CS_CAN_MOTOR);
+// === Pedal ===
 Pedal pedal;
+
+// === CAN (motor) ===
+MCP2515 mcp2515_motor(CS_CAN_MOTOR);
 
 // === CAN (BMS) ===
 MCP2515 mcp2515_BMS(CS_CAN_BMS);
@@ -29,6 +31,18 @@ struct can_frame rx_msg;
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
 
+/**
+ * @brief Global car state structure.
+ *
+ * Holds the current state of the car, including status, timers, pedal input, fault flags, and output torque.
+ *
+ * @param car_status                Current main state of the car (e.g., INIT, DRIVE, etc.).
+ * @param car_status_millis_counter Millisecond counter for state transitions.
+ * @param millis                    Current time in milliseconds.
+ * @param pedal_final               Final processed pedal value.
+ * @param fault_force_stop          True if a fault has triggered a forced stop.
+ * @param torque_out                Output torque value.
+ */
 struct car_state main_car_state = {
     INIT,  // car_status
     0,     // car_status_millis_counter

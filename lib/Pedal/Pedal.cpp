@@ -14,6 +14,7 @@
  *
  * Initializes the pedal state and sets the fault flag to true.
  * The fault flag indicates that the pedal inputs are considered faulty until proven otherwise.
+ * if no non-faulty pedal inputs are received in 100ms, the fault_force_stop flag in car_state is set to true.
  *
  * @param None
  * @return None
