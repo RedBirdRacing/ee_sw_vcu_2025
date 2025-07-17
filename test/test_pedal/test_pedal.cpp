@@ -102,7 +102,6 @@ void test_check_pedal_fault(void)
     }
 
     // floating point issues, 103 fails for some cases, so use 104
-    // +10% works with 103
 
     // fault when +10% difference
     for (uint16_t i = 0; i < 1024 - 104; ++i)
