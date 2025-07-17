@@ -123,16 +123,7 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
 
-    // Returns true if pedal is faulty
-    // should be inlined in .cpp
-    // not inlined now for easier testing
     bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2);
-
-    // throttle-torque mapping
-    // input pedal value in 0-1023 range
-    // output torque value in the SIGNED 300(?)-32760 range
-    // should be inlined in .cpp
-    // not inlined now for easier testing
     int16_t throttle_torque_mapping(uint16_t pedal, bool flip_motor_dir);
 };
 
