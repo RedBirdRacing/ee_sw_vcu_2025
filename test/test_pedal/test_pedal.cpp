@@ -91,26 +91,53 @@ void test_throttle_torque_mapping_normal(void)
 
 void test_check_pedal_fault(void)
 {
-    // 84 was arbitary, just make sure APPS3V3 /3.3*5 and APPS5V delta > 102 then fault, else no fault
+    // make sure APPS3V3 /3.3*5 and APPS5V delta > 102 then fault, else no fault
     // no fault when similar values
-    bool result = pedal.check_pedal_fault(84, 84);
-    TEST_ASSERT_FALSE(result);
+    for (float i = 0; i < 1024; ++i)
+    {
+        float pedal_1 = i;
+        float pedal_2 = i * PEDAL_2_RANGE / PEDAL_1_RANGE;
+        bool result = pedal.check_pedal_fault(pedal_1, pedal_2);
+        TEST_ASSERT_FALSE(result);
+    }
 
-    // edge case: APPS5V higher by 128 -> fault
-    // fine on 127
-    result = pedal.check_pedal_fault(84 + 127, 84);
-    TEST_ASSERT_FALSE(result);
-    // but 128 is too much
-    result = pedal.check_pedal_fault(84 + 128, 84);
-    TEST_ASSERT_TRUE(result);
+    // floating point issues, 103 fails for some cases, so use 104
+    // +10% works with 103
 
-    // edge case: APPS3V higher by 60 -> fault
-    // fine on 59
-    result = pedal.check_pedal_fault(84, 84 + 59);
-    TEST_ASSERT_FALSE(result);
-    // but 60 is too much
-    result = pedal.check_pedal_fault(84, 84 + 60);
-    TEST_ASSERT_TRUE(result);
+    // fault when +10% difference
+    for (uint16_t i = 0; i < 1024 - 104; ++i)
+    {
+        uint16_t pedal_1 = i + 104; // slightly more than 10% difference
+        uint16_t pedal_2 = round((float)i * PEDAL_2_RANGE / PEDAL_1_RANGE);
+        bool result = pedal.check_pedal_fault(pedal_1, pedal_2);
+        TEST_ASSERT_TRUE(result);
+    }
+    // fault when -10% difference
+    for (uint16_t i = 104; i < 1024; ++i)
+    {
+        uint16_t pedal_1 = i - 104; // slightly more than 10% difference
+        uint16_t pedal_2 = round((float)i * PEDAL_2_RANGE / PEDAL_1_RANGE);
+        bool result = pedal.check_pedal_fault(pedal_1, pedal_2);
+        TEST_ASSERT_TRUE(result);
+    }
+
+    // fault when +10% difference in reverse
+    for (uint16_t i = 0; i < 1024 - 104; ++i)
+    {
+        uint16_t pedal_1 = i;
+        uint16_t pedal_2 = round((float)(i + 104) * PEDAL_2_RANGE / PEDAL_1_RANGE); // slightly more than 10% difference
+        bool result = pedal.check_pedal_fault(pedal_1, pedal_2);
+        TEST_ASSERT_TRUE(result);
+    }
+    
+    // fault when -10% difference in reverse
+    for (uint16_t i = 104; i < 1024; ++i)
+    {
+        uint16_t pedal_1 = i;
+        uint16_t pedal_2 = round((float)(i - 104) * PEDAL_2_RANGE / PEDAL_1_RANGE); // slightly more than 10% difference
+        bool result = pedal.check_pedal_fault(pedal_1, pedal_2);
+        TEST_ASSERT_TRUE(result);
+    }
 }
 
 void setup()

@@ -217,10 +217,10 @@ int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
 bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2)
 {
 
-    uint16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
+    int16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
     DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
 
-    uint16_t delta = pedal_1 - pedal_2_scaled;
+    int16_t delta = pedal_1 - pedal_2_scaled;
     // if more than 10% difference between the two pedals, consider it a fault
     if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
     {
