@@ -25,7 +25,7 @@ enum main_car_status
     INIT = 0,     // Just started the car
     STARTIN = 1,  // Driver holds "Start" button and full brakes (transition state)
     BUSSIN = 2,   // Buzzer active, driver can release "Start" and brakes (transition state)
-    DRIVE = 3     // Ready to drive, "Drive mode" LED on, throttle enabled
+    DRIVE = 3     // Ready to drive, Drive mode LED on, throttle enabled
 };
 
 /**
@@ -52,7 +52,7 @@ enum pedal_fault_status
 enum throttle_can_id
 {
     MOTOR_COMMAND = 0x201,        // Main motor command message
-    THROTTLE_IN_MSG = 0x690,      // Debug: throttle pedal input message
+    THROTTLE_IN_MSG = 0x690,      // Debug: throttle input message
     THROTTLE_OUT_MSG = 0x691,     // Debug: throttle output message
     THROTTLE_FAULT_MSG = 0x692    // Debug: throttle fault message
 };
@@ -76,10 +76,10 @@ enum status_can_id
  */
 enum state_changes
 {
-    INIT_TO_STARTIN,      // Transition from INIT to STARTIN
-    STARTIN_TO_BUSSIN,    // Transition from STARTIN to BUSSIN
-    BUSSIN_TO_DRIVE,      // Transition from BUSSIN to DRIVE
-    STARTIN_TO_INIT,      // Transition from STARTIN back to INIT
-    THROTTLE_TO_INIT      // Transition to INIT due to throttle pedal input
-
+    INIT_TO_STARTIN,      // Brakes on and button depressed, transition from INIT to STARTIN
+    STARTIN_TO_BUSSIN,    // Brakes on and button depressed for 2 seconds, transition from STARTIN to BUSSIN
+    BUSSIN_TO_DRIVE,      // Buzzer buzzed for 2 seconds, transition from BUSSIN to DRIVE
+    STARTIN_TO_INIT,      // Brakes or button released, transition from STARTIN back to INIT
+    THROTTLE_TO_INIT      // APPS input, transition to INIT
+};
 #endif // Enums.h

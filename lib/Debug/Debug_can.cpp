@@ -138,7 +138,7 @@ void Debug_CAN::status_car(main_car_status car_status)
 
     can_interface->sendMessage(&tx_msg);
 }
-
+ 
 /**
  * @brief Sends a debug car status change message over CAN.
  * This function prepares a CAN frame with the current car status change and sends it.

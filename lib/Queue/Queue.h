@@ -30,7 +30,8 @@ public:
     /**
      * @brief Returns the elements in the buffer in linear order.
      *
-     * @param out Pointer to an array where the linear buffer will be stored.
+     * @param out Pointer to an array where the linear buffer will be stored. This array shall be created by the caller and must have at least 'size' elements.
+     * @note The order of elements in the output array will be from oldest to newest.
      * @return None
      */
     void getLinearBuffer(T *out)
