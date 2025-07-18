@@ -32,7 +32,7 @@ void test_pedal_update_no_fault(void)
     // fully fill AVG filter with non-faulty values
     for (int i = 0; i < 16; i++)
     {
-        pedal.pedal_update(&car, PEDAL_1_LU + 100, PEDAL_1_LU * PEDAL_2_RANGE / PEDAL_1_RANGE);
+        pedal.pedal_update(&car, PEDAL_1_LU + 100, PEDAL_1_LU * PEDAL_2_RANGE / PEDAL_1_RANGE, 0);
     }
     TEST_ASSERT_FALSE(pedal.fault);
 }
@@ -44,6 +44,7 @@ void test_pedal_update_fault(void)
         0,     // car_status_millis_counter
         0,     // millis
         0,     // pedal_final
+        0,     // brake_final
         false, // fault_force_stop
         0      // torque_out
     };
@@ -56,7 +57,7 @@ void test_pedal_update_fault(void)
     // fully fill AVG filter with faulty values
     for (int i = 0; i < 16; i++)
     {
-        pedal.pedal_update(&car, PEDAL_1_LU + 105, PEDAL_1_LU * PEDAL_2_RANGE / PEDAL_1_RANGE);
+        pedal.pedal_update(&car, PEDAL_1_LU + 105, PEDAL_1_LU * PEDAL_2_RANGE / PEDAL_1_RANGE, 0);
     }
     TEST_ASSERT_TRUE(pedal.fault);
 }
@@ -74,19 +75,103 @@ void test_pedal_can_frame_stop_motor(void)
 
 void test_throttle_torque_mapping_normal(void)
 {
+    // range check
     for (int i = 0; i < 1024; i++)
     {
-        int16_t torque = pedal.throttle_torque_mapping(i, false);
-        TEST_ASSERT_INT16_WITHIN(MAX_THROTTLE_OUT_VAL / 2, MAX_THROTTLE_OUT_VAL / 2, torque);
+        for (int j = 0; j < 1024; ++j)
+        {
+            int16_t torque;
+            if (i < PEDAL_LL || i >= PEDAL_LU)
+            {
+                // test mapping is within positive range with any brake value
+                torque = pedal.throttle_torque_mapping(i, j, false);
+                TEST_ASSERT_INT16_WITHIN(MAX_THROTTLE_OUT_VAL / 2, MAX_THROTTLE_OUT_VAL / 2, torque);
+            }
+            else
+            {
+                // test mapping is within range without regen
+                torque = pedal.throttle_torque_mapping(i, 0, false);
+                TEST_ASSERT_INT16_WITHIN(MAX_THROTTLE_OUT_VAL / 2, MAX_THROTTLE_OUT_VAL / 2, torque);
+                break;
+            }
+        }
     }
 
-    for (int i = 0; i < 2; ++i)
+    // check deadzone handling
+    for (int i = PEDAL_1_LL; i < PEDAL_1_LU; ++i)
     {
-        // Test the mapping at the lower limit
-        TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(PEDAL_1_LU, i));
-        // Test the mapping at the upper limit
-        TEST_ASSERT_EQUAL((i % 2 == 0 ? 1 : -1) * (int16_t)MAX_THROTTLE_OUT_VAL, pedal.throttle_torque_mapping(PEDAL_1_UL, i));
+        // regen range
+        TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(i, 0, false));
+        TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(i, 0, true));
     }
+    for (int i = PEDAL_1_UL; i < PEDAL_1_UU; ++i)
+    {
+        for (int j = 0; j < 1024; ++j)
+            TEST_ASSERT_EQUAL(MAX_THROTTLE_OUT_VAL, pedal.throttle_torque_mapping(i, j, false));
+            TEST_ASSERT_EQUAL(MAX_THROTTLE_OUT_VAL, pedal.throttle_torque_mapping(i, 0, true));
+    }
+    for (int i = 0; i < PEDAL_1_LL; ++i)
+    {
+        for (int j = 0; j < 1024; ++j)
+            TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(i, j, false));
+    }
+    for (int i = PEDAL_1_UU; i < 1024; ++i)
+    {
+        for (int j = 0; j < 1024; ++j)
+            TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(i, j, false));
+    }
+
+    // Check that as input increases, output increase
+    for (int i = PEDAL_1_LU + 1; i <= PEDAL_1_UL; i++)
+    {
+        int16_t torque = pedal.throttle_torque_mapping(i, 0, false);
+        TEST_ASSERT_TRUE_MESSAGE(torque > pedal.throttle_torque_mapping(i - 1, 0, false),
+                                 "Torque should be non-decreasing with increasing input");
+    }
+
+    // Test the mapping at the lower limit
+    TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(PEDAL_1_LU, 0, true));
+    TEST_ASSERT_EQUAL(0, pedal.throttle_torque_mapping(PEDAL_1_LU, 0, false));
+    // Test the mapping at the upper limit
+    TEST_ASSERT_EQUAL((int16_t)MAX_THROTTLE_OUT_VAL, pedal.throttle_torque_mapping(PEDAL_1_UL, 0, true));
+    TEST_ASSERT_EQUAL(-(int16_t)MAX_THROTTLE_OUT_VAL, pedal.throttle_torque_mapping(PEDAL_1_UL, 0, false));
+}
+void test_brake_torque_mapping(void)
+{
+    // Test that brake_torque_mapping returns 0 for out-of-range values
+    for (int i = 0; i < BRAKE_LU; ++i)
+    {
+        TEST_ASSERT_EQUAL(0, pedal.brake_torque_mapping(i, false));
+        TEST_ASSERT_EQUAL(0, pedal.brake_torque_mapping(i, true));
+    }
+    for (int i = BRAKE_UL; i < 1024; ++i)
+    {
+        TEST_ASSERT_EQUAL(0, pedal.brake_torque_mapping(i, false));
+        TEST_ASSERT_EQUAL(0, pedal.brake_torque_mapping(i, true));
+    }
+
+    // Test that as input increases, output increases or decreases according to flip_dir
+    int16_t prev_torque = pedal.brake_torque_mapping(BRAKE_LU, false);
+    for (int i = BRAKE_LU + 1; i <= BRAKE_UL; ++i)
+    {
+        int16_t torque = pedal.brake_torque_mapping(i, false);
+        TEST_ASSERT_TRUE_MESSAGE(torque >= prev_torque, "Torque should be non-decreasing with increasing brake input (flip_dir=false)");
+        prev_torque = torque;
+    }
+
+    prev_torque = pedal.brake_torque_mapping(BRAKE_LU, true);
+    for (int i = BRAKE_LU + 1; i <= BRAKE_UL; ++i)
+    {
+        int16_t torque = pedal.brake_torque_mapping(i, true);
+        TEST_ASSERT_TRUE_MESSAGE(torque <= prev_torque, "Torque should be non-increasing with increasing brake input (flip_dir=true)");
+        prev_torque = torque;
+    }
+
+    // Test the mapping at the lower and upper limits
+    TEST_ASSERT_EQUAL(0, pedal.brake_torque_mapping(BRAKE_LU, false));
+    TEST_ASSERT_EQUAL(0, pedal.brake_torque_mapping(BRAKE_LU, true));
+    TEST_ASSERT_EQUAL(-MAX_THROTTLE_OUT_VAL, pedal.brake_torque_mapping(BRAKE_UL, false));
+    TEST_ASSERT_EQUAL(MAX_THROTTLE_OUT_VAL, pedal.brake_torque_mapping(BRAKE_UL, true));
 }
 
 void test_check_pedal_fault(void)
@@ -128,7 +213,7 @@ void test_check_pedal_fault(void)
         bool result = pedal.check_pedal_fault(pedal_1, pedal_2);
         TEST_ASSERT_TRUE(result);
     }
-    
+
     // fault when -10% difference in reverse
     for (uint16_t i = 104; i < 1024; ++i)
     {

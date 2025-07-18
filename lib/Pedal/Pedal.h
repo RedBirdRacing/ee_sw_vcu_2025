@@ -84,6 +84,8 @@ const uint16_t BRAKE_UU = BRAKE_IN_MAX + (BRAKE_UPPER_DEADZONE_WIDTH - 1) / 2;
 const uint16_t MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp2515
 // currently set to a slightly lower value to not use speed control (100%)
 // see E,EnS group discussion, 20250425HKT020800 discussion
+const uint16_t MAX_REGEN = 20000;
+const uint16_t MIN_REGEN = 0; // pedal off regen value
 const uint16_t MIN_THROTTLE_OUT_VAL = 0; // 0 for off pedal regen
 
 // Flips the direction of motor output
@@ -115,6 +117,7 @@ class Pedal
     friend void test_check_pedal_fault(void);
     friend void setup(void);
     friend void loop(void);
+    friend void test_brake_torque_mapping(void);
     
 public:
     Pedal();
@@ -136,8 +139,8 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
 
     bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2);
-    int16_t throttle_torque_mapping(uint16_t pedal, bool flip_motor_dir);
-    int16_t brake_torque_mapping(uint16_t brake, bool flip_motor_dir);
+    int16_t throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip_dir);
+    int16_t brake_torque_mapping(uint16_t brake, bool flip_dir);
 };
 
 #endif // PEDAL_H

@@ -1,8 +1,19 @@
 #include <Arduino.h>
 #include "pinMap.h"
 #include "Pedal.h"
+
+// ignore -Wpedantic warnings for mcp2515.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 #include <mcp2515.h>
+#pragma GCC diagnostic pop
+
+// ignore -Wunused-parameter warnings for Debug.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
 #include "Debug.h"
+#pragma GCC diagnostic pop
+
 #include "Enums.h"
 #include "car_state.h"
 
@@ -126,7 +137,8 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: INIT.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == HIGH && analogRead(BRAKE_IN) >= BRAKE_THRESHOLD)
+        if (digitalRead(DRIVE_MODE_BTN) == HIGH &&
+            static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD)
         {
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
@@ -141,7 +153,8 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == LOW || analogRead(BRAKE_IN) < BRAKE_THRESHOLD)
+        if (digitalRead(DRIVE_MODE_BTN) == LOW ||
+            static_cast<uint16_t>(analogRead(BRAKE_IN)) < BRAKE_THRESHOLD)
         {
             main_car_state.car_status = INIT;
             main_car_state.car_status_millis_counter = main_car_state.millis; // safety

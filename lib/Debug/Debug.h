@@ -5,7 +5,7 @@
 
 // === Debug Flags ===
 #define DEBUG true                 // if false, all debug messages are ignored
-#define DEBUG_SERIAL false && DEBUG // if false, all serial debug messages are ignored
+#define DEBUG_SERIAL true && DEBUG // if false, all serial debug messages are ignored
 #define DEBUG_CAN true && DEBUG    // if false, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
@@ -16,19 +16,21 @@
 #include <Debug_can.h>
 #endif
 
-#define DEBUG_THROTTLE true
-#define DEBUG_THROTTLE_OVERALL true
-#define DEBUG_THROTTLE_IN true && DEBUG_THROTTLE_OVERALL && DEBUG_CAN
-#define DEBUG_THROTTLE_OUT true && DEBUG_THROTTLE_OVERALL && DEBUG_CAN
-#define DEBUG_THROTTLE_FAULT true && DEBUG_THROTTLE_OVERALL && DEBUG_CAN
+#define DEBUG_THROTTLE true && DEBUG
+#define DEBUG_THROTTLE_IN true && DEBUG_THROTTLE
+#define DEBUG_THROTTLE_OUT true && DEBUG_THROTTLE
+#define DEBUG_THROTTLE_FAULT true && DEBUG_THROTTLE
+#define DEBUG_BRAKE true && DEBUG
+#define DEBUG_BRAKE_IN true && DEBUG_BRAKE
+#define DEBUG_BRAKE_FAULT true && DEBUG_BRAKE
 #define DEBUG_GENERAL true
 #define DEBUG_STATUS true // Serial only
-#define DEBUG_STATUS_CAR true && DEBUG_STATUS &&DEBUG_CAN
-#define DEBUG_STATUS_BRAKE true && DEBUG_STATUS &&DEBUG_CAN
+#define DEBUG_STATUS_CAR true && DEBUG_STATUS
+#define DEBUG_STATUS_BRAKE true && DEBUG_STATUS
 
 // ===== Simple Serial-Only Debug Functions =====
 
-/**
+/** 
  * @brief Prints a throttle debug message to the serial console.
  * @param x The message to print.
  */
@@ -137,7 +139,7 @@ inline void DBG_THROTTLE_OUT(uint16_t throttle_final, int16_t throttle_torque_va
  * @param fault_status The fault status enum.
  * @param value Optional float value for fault.
  */
-inline void DBG_THROTTLE_FAULT(pedal_fault_status fault_status, float value)
+inline void DBG_THROTTLE_FAULT(pedal_fault_status fault_status, uint16_t value)
 {
 #if DEBUG_THROTTLE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
 #if DEBUG_SERIAL
@@ -194,17 +196,19 @@ inline void DBG_STATUS_CAR_CHANGE(state_changes status_change)
 }
 
 /**
- * @brief Sends brake status debug info via CAN or serial (if enabled).
- * @param brake_voltage Brake pedal voltage.
+ * @brief Sends brake fault debug info via CAN or serial (if enabled).
+ * Overloads for fault status with or without value.
+ * @param fault_status The fault status enum.
+ * @param value Optional float value for fault.
  */
-inline void DBG_STATUS_BRAKE(uint16_t brake_voltage)
+inline void DBG_BRAKE_FAULT(pedal_fault_status fault_status, uint16_t value)
 {
-#if DEBUG_STATUS_BRAKE && (DEBUG_SERIAL || DEBUG_CAN)
+#if DEBUG_BRAKE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
 #if DEBUG_SERIAL
-    Debug_Serial::status_brake(brake_voltage);
+    Debug_Serial::brake_fault(fault_status, value);
 #endif
 #if DEBUG_CAN
-    Debug_CAN::status_brake(brake_voltage);
+    Debug_CAN::brake_fault(fault_status, value);
 #endif
 #endif
 }

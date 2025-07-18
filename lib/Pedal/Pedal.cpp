@@ -126,46 +126,10 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
         DBGLN_THROTTLE("Stopping motor: pedal fault");
         return;
     }
-    // uint8_t throttle_volt = pedal_final * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
 
-    int16_t throttle_torque_val = 0;
-    uint16_t pedal_final = car->pedal_final;
-    /*
-    Below PEDAL_LL: Error for open circuit
-    Between PEDAL_LL and PEDAL_LU: 0% Torque
-    Between PEDAL_LU and PEDAL_UL: mapping to torque, see throttle_torque_mapping()
-    Between PEDAL_UL and PEDAL_UU: 100% Torque
-    Above PEDAL_UU: Error for short circuit
-    */
-    if (pedal_final < PEDAL_LL)
-    {
-        DBG_THROTTLE_FAULT(THROTTLE_LOW, pedal_final);
-        throttle_torque_val = 0;
-    }
-    else if (pedal_final < PEDAL_LU)
-    {
-        // in lower deadzone, treat as 0% throttle
-        throttle_torque_val = brake_torque_mapping(car->brake_final, FLIP_MOTOR_DIR);
-    }
-    else if (pedal_final < PEDAL_UL)
-    {
-        // throttle_in -> torque_val
-        // check mapping function for curve
-        throttle_torque_val = throttle_torque_mapping(pedal_final, FLIP_MOTOR_DIR);
-    }
-    else if (pedal_final < PEDAL_UU)
-    {
-        // in upper deadzone, treat as 100% throttle
-        throttle_torque_val = MAX_THROTTLE_OUT_VAL;
-    }
-    else
-    {
-        DBG_THROTTLE_FAULT(THROTTLE_HIGH, pedal_final);
-        // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
-        throttle_torque_val = 0;
-    }
+    int16_t throttle_torque_val = throttle_torque_mapping(car->pedal_final, car->brake_final, FLIP_MOTOR_DIR);
 
-    DBG_THROTTLE_OUT(pedal_final, throttle_torque_val);
+    DBG_THROTTLE_OUT(car->pedal_final, throttle_torque_val);
 
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
@@ -175,32 +139,55 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
 }
 
 /**
- * @brief Maps the pedal ADC to a torque value.
+ * @brief Maps the pedal ADC to a torque value, handling deadzones and faults.
  *
  * This function takes a pedal ADC in the range of 0-1023 and maps it to a torque value.
- * The mapping is linear, and the result is adjusted based on the motor direction.
+ * It handles deadzones, faults, and applies the mapping or returns fixed values as needed.
  *
- * @param throttle Pedal ADC in the range of 0-1023.
+ * @param pedal_final Pedal ADC in the range of 0-1023.
  * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -32760 to 32760.
  */
-int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
+int16_t Pedal::throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip_dir)
 {
-    if (throttle < PEDAL_1_LU || throttle > PEDAL_1_UL)
+    if (pedal < PEDAL_LL)
     {
-        // throttle is out of range, return 0 torque
+        DBG_THROTTLE_FAULT(THROTTLE_LOW, pedal);
         return 0;
     }
-    // Map the throttle voltage to a torque value
-    // temp linear mapping, with proper casting to prevent overflow
-    int32_t numerator = static_cast<int32_t>(throttle - PEDAL_1_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
-    int32_t denominator = static_cast<int32_t>(PEDAL_1_UL - PEDAL_1_LU);
-    int16_t result = static_cast<int16_t>(numerator / denominator);
+    else if (pedal < PEDAL_LU)
+    {
+        // in lower deadzone, treat as 0% throttle, can regen
+        return brake_torque_mapping(brake, flip_dir);
+    }
+    else if (pedal < PEDAL_UL)
+    {
+        // throttle_in -> torque_val
+        // temp linear mapping, with proper casting to prevent overflow
+        int32_t numerator = static_cast<int32_t>(pedal - PEDAL_1_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
+        int32_t denominator = static_cast<int32_t>(PEDAL_1_UL - PEDAL_1_LU);
+        int16_t result = static_cast<int16_t>(numerator / denominator);
 
-    if (flip_motor_dir)
-        return -result;
-    return result;
+        if (flip_dir)
+            return -result;
+        return result;
+    }
+    else if (pedal < PEDAL_UU)
+    {
+        // in upper deadzone, treat as 100% throttle
+        if (flip_dir)
+            return -MAX_THROTTLE_OUT_VAL;
+        else
+            return MAX_THROTTLE_OUT_VAL;
+    }
+    else
+    {
+        // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
+        DBG_THROTTLE_FAULT(THROTTLE_HIGH, pedal);
+        return 0;
+    }
 }
+
 /**
  * @brief Maps the brake ADC to a torque value.
  *
@@ -211,23 +198,47 @@ int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
  * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -32760 to 32760.
  */
-int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_motor_dir)
+int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
 {
-    if (brake < BRAKE_LU || brake > BRAKE_UL)
+    int16_t result = 0;
+    if (brake < BRAKE_LL)
     {
-        // brake is out of range, return 0 torque
+        DBG_BRAKE_FAULT(BRAKE_LOW, brake);
+        result = 0;
+    }
+    else if (brake < BRAKE_LU)
+    {
+        // in lower deadzone, treat as 0% throttle, can regen
+        return brake_torque_mapping(brake, flip_dir);
+    }
+    else if (brake < BRAKE_UL)
+    {
+        // throttle_in -> torque_val
+        // temp linear mapping, with proper casting to prevent overflow
+        int32_t numerator = static_cast<int32_t>(brake - BRAKE_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
+        int32_t denominator = static_cast<int32_t>(BRAKE_UL - BRAKE_LU);
+        int16_t result = static_cast<int16_t>(numerator / denominator);
+
+        if (flip_dir)
+            return -result;
+        return result;
+    }
+    else if (brake < BRAKE_UU)
+    {
+        // in upper deadzone, treat as 100% throttle
+        if (flip_dir)
+            return MAX_REGEN;
+        else
+            return -MAX_REGEN;
+    }
+    else
+    {
+        // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
+        DBG_THROTTLE_FAULT(BRAKE_HIGH, brake);
         return 0;
     }
-    // Map the brake ADC to a torque value
-    // temp linear mapping, with proper casting to prevent overflow
-    int32_t numerator = static_cast<int32_t>(brake - PEDAL_1_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
-    int32_t denominator = static_cast<int32_t>(PEDAL_1_UL - PEDAL_1_LU);
-    int16_t result = static_cast<int16_t>(numerator / denominator);
-
-    // opposite direction of throttle
-    if (flip_motor_dir)
-        return result;
-    return -result;
+    if (flip_dir)
+        return -result;
 }
 
 /**

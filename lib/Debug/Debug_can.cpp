@@ -81,7 +81,7 @@ void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_va
  * @param value Optional float value associated with the fault (e.g., pedal voltage).
  * @return None
  */
-void Debug_CAN::throttle_fault(pedal_fault_status fault_status, float value)
+void Debug_CAN::throttle_fault(pedal_fault_status fault_status, uint16_t value)
 {
     if (!can_interface)
         return;
@@ -92,7 +92,8 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status, float value)
 
     tx_msg.data[0] = static_cast<uint8_t>(fault_status); // Convert enum to uint8_t
 
-    memcpy(&tx_msg.data[1], &value, sizeof(float)); // Copy float value
+    tx_msg.data[1] = value & 0xFF;
+    tx_msg.data[2] = (value >> 8) & 0xFF; // Upper byte
 
     can_interface->sendMessage(&tx_msg);
 }
@@ -114,6 +115,31 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
     tx_msg.can_dlc = 1;
 
     tx_msg.data[0] = static_cast<uint8_t>(fault_status); // Convert enum to uint8_t
+
+    can_interface->sendMessage(&tx_msg);
+}
+
+/**
+ * @brief Sends a debug brake fault message over CAN.
+ * This function prepares a CAN frame with the brake fault status and sends it.
+ * 
+ * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
+ * @param value Optional float value associated with the fault (e.g., brake voltage).
+ * @return None
+ */
+void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
+{
+    if (!can_interface)
+        return;
+
+    can_frame tx_msg;
+    tx_msg.can_id = THROTTLE_FAULT_MSG;
+    tx_msg.can_dlc = 5;
+
+    tx_msg.data[0] = static_cast<uint8_t>(fault_status); // Convert enum to uint8_t
+
+    tx_msg.data[1] = value & 0xFF;
+    tx_msg.data[2] = (value >> 8) & 0xFF; // Upper byte
 
     can_interface->sendMessage(&tx_msg);
 }

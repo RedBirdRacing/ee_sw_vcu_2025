@@ -71,10 +71,10 @@ void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque
  * This function formats and sends the throttle fault status and value to the serial console.
  * 
  * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
- * @param value Optional float value associated with the fault (e.g., pedal voltage).
+ * @param value Optional value associated with the fault
  * @return None
  */
-void Debug_Serial::throttle_fault(pedal_fault_status fault_status, float value)
+void Debug_Serial::throttle_fault(pedal_fault_status fault_status, uint16_t value)
 {
     switch (fault_status)
     {
@@ -119,6 +119,34 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
         break;
     case DIFF_RESOLVED:
         Serial.println("Pedal mismatch resolved");
+        break;
+    default:
+        Serial.println("Unknown fault status");
+        break;
+    }
+}
+
+/**
+ * @brief Prints a brake fault message to the serial console.
+ * This function formats and sends the brake fault status and value to the serial console.
+ * 
+ * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
+ * @param value brake ADC reading
+ * @return None
+ */
+void Debug_Serial::brake_fault(pedal_fault_status fault_status, uint16_t value)
+{
+    switch (fault_status)
+    {
+    case NONE:
+        break;
+    case BRAKE_LOW:
+        Serial.print("Brake input too low. Value: ");
+        Serial.println(value);
+        break;
+    case BRAKE_HIGH:
+        Serial.print("Brake too high. Value: ");
+        Serial.println(value);
         break;
     default:
         Serial.println("Unknown fault status");
