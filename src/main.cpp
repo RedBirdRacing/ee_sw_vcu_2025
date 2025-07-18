@@ -31,6 +31,8 @@ struct can_frame rx_msg;
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
 
+const uint16_t BRAKE_THRESHOLD = 256; // The threshold for the brake pedal to be considered pressed
+
 /**
  * @brief Global car state structure.
  *
@@ -124,7 +126,7 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: INIT.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == HIGH && digitalRead(BRAKE_IN) == HIGH)
+        if (digitalRead(DRIVE_MODE_BTN) == HIGH && analogRead(BRAKE_IN) >= BRAKE_THRESHOLD)
         {
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
@@ -139,7 +141,7 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == LOW || digitalRead(BRAKE_IN) == LOW)
+        if (digitalRead(DRIVE_MODE_BTN) == LOW || analogRead(BRAKE_IN) < BRAKE_THRESHOLD)
         {
             main_car_state.car_status = INIT;
             main_car_state.car_status_millis_counter = main_car_state.millis; // safety
