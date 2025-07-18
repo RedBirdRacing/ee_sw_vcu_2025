@@ -21,6 +21,8 @@ const uint16_t PEDAL_1_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 1 (5V)
 const uint16_t PEDAL_1_IN_MAX = 948; // Maximum ADC reading for APPS Pedal 1 (5V)
 const uint16_t PEDAL_2_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 2 (3.3V)
 const uint16_t PEDAL_2_IN_MAX = 675; // Maximum ADC reading for APPS Pedal 2 (3.3V)
+const uint16_t BRAKE_IN_MIN = 0; // Minimum ADC reading for Brake Pedal
+const uint16_t BRAKE_IN_MAX = 1023; // Maximum ADC reading for Brake Pedal
 
 /*
     Second, set the deadzone. a deadzone is a range of reading that the pedal will not respond to.
@@ -33,6 +35,8 @@ const uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH = 31;
 const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 31;
 // const uint16_t PEDAL_2_LOWER_DEADZONE_WIDTH = 31;
 // const uint16_t PEDAL_2_UPPER_DEADZONE_WIDTH = 31;
+const uint16_t BRAKE_LOWER_DEADZONE_WIDTH = 31;
+const uint16_t BRAKE_UPPER_DEADZONE_WIDTH = 31;
 
 /*
     Data entry ends here.
@@ -40,6 +44,7 @@ const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 31;
 
 const uint16_t PEDAL_1_RANGE = PEDAL_1_IN_MAX - PEDAL_1_IN_MIN;
 const uint16_t PEDAL_2_RANGE = PEDAL_2_IN_MAX - PEDAL_2_IN_MIN;
+const uint16_t BRAKE_RANGE = BRAKE_IN_MAX - BRAKE_IN_MIN;
 
 /* Pedal Voltage Mapping
 |······••••••••••••••••••••••••••••••••••••••••••······|
@@ -48,32 +53,38 @@ LL-LU: Lower Deadzone, treat as zero, LL at least 0V (uint)
 UL-UU: Upper Deadzone, treat as full
 Pedal only "outputs" when between LU and UL, i.e. in ••••••
 above UU and below LL is considered "faulty"
-e.g. UU of 1023 means 1023, 1024... are faulty
+e.g. UU of 1000 means 1000, 1001... are faulty
 thus if throttle should be saturated, UU should be greater than or equal to 1024
 */
 const uint16_t PEDAL_1_LL = (PEDAL_1_IN_MIN < (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2)
                            ? 0.0f
                            : (PEDAL_1_IN_MIN - (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2);
-
 const uint16_t PEDAL_1_LU = (PEDAL_1_IN_MIN < (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2)
                            ? PEDAL_1_LOWER_DEADZONE_WIDTH
                            : (PEDAL_1_IN_MIN + (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2);
-
 const uint16_t PEDAL_1_UL = PEDAL_1_IN_MAX - (PEDAL_1_UPPER_DEADZONE_WIDTH - 1) / 2;
 const uint16_t PEDAL_1_UU = PEDAL_1_IN_MAX + (PEDAL_1_UPPER_DEADZONE_WIDTH - 1) / 2;
-
 // since only take pedal 1, no need to define pedal 2 deadzones, directly coupled to pedal 1's deadzones
-
 // pedal_final deadzones
 const uint16_t PEDAL_LL = PEDAL_1_LL;
 const uint16_t PEDAL_LU = PEDAL_1_LU;
 const uint16_t PEDAL_UL = PEDAL_1_UL;
 const uint16_t PEDAL_UU = PEDAL_1_UU;
 
+const uint16_t BRAKE_LL = (BRAKE_IN_MIN < (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2)
+                           ? 0.0f
+                           : (BRAKE_IN_MIN - (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2);
+const uint16_t BRAKE_LU = (BRAKE_IN_MIN < (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2)
+                            ? BRAKE_LOWER_DEADZONE_WIDTH
+                            : (BRAKE_IN_MIN + (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2);
+const uint16_t BRAKE_UL = BRAKE_IN_MAX - (BRAKE_UPPER_DEADZONE_WIDTH - 1) / 2;
+const uint16_t BRAKE_UU = BRAKE_IN_MAX + (BRAKE_UPPER_DEADZONE_WIDTH - 1) / 2;
+
+
 const uint16_t MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp2515
 // currently set to a slightly lower value to not use speed control (100%)
 // see E,EnS group discussion, 20250425HKT020800 discussion
-const uint16_t MIN_THROTTLE_OUT_VAL = 300; // Minium torque value tested is 300 (TBC)
+const uint16_t MIN_THROTTLE_OUT_VAL = 0; // 0 for off pedal regen
 
 // Flips the direction of motor output
 // set to true for gen 3
@@ -107,7 +118,7 @@ class Pedal
     
 public:
     Pedal();
-    void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2);
+    void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car);
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
     uint16_t pedal_filtered_1, pedal_filtered_2;
@@ -122,9 +133,11 @@ private:
     // Used for filter, right now average of the last 16 values
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
+    RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
 
     bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2);
     int16_t throttle_torque_mapping(uint16_t pedal, bool flip_motor_dir);
+    int16_t brake_torque_mapping(uint16_t brake, bool flip_motor_dir);
 };
 
 #endif // PEDAL_H

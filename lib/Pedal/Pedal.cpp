@@ -32,11 +32,12 @@ Pedal::Pedal() : fault(true) {}
  * @param pedal_2 Raw value from pedal sensor 2.
  * @return None
  */
-void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
+void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 {
     // Record readings in buffer
     pedal_value_1.push(pedal_1);
     pedal_value_2.push(pedal_2);
+    brake_value.push(brake);
 
     // Range of pedal 1 is APPS_PEDAL_1_RANGE, pedal 2 is APPS_PEDAL_2_RANGE;
 
@@ -48,6 +49,7 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2)
     // currently a small average filter is good enough
     pedal_filtered_1 = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
     pedal_filtered_2 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
+    car->brake_final = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
 
     car->pedal_final = pedal_filtered_1; // Only take in pedal 1 value
 
@@ -143,7 +145,7 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
     else if (pedal_final < PEDAL_LU)
     {
         // in lower deadzone, treat as 0% throttle
-        throttle_torque_val = MIN_THROTTLE_OUT_VAL;
+        throttle_torque_val = brake_torque_mapping(car->brake_final, FLIP_MOTOR_DIR);
     }
     else if (pedal_final < PEDAL_UL)
     {
@@ -173,12 +175,12 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
 }
 
 /**
- * @brief Maps the pedal voltage to a torque value.
+ * @brief Maps the pedal ADC to a torque value.
  *
- * This function takes a pedal voltage in the range of 0-1023 and maps it to a torque value.
+ * This function takes a pedal ADC in the range of 0-1023 and maps it to a torque value.
  * The mapping is linear, and the result is adjusted based on the motor direction.
  *
- * @param throttle Pedal voltage in the range of 0-1023.
+ * @param throttle Pedal ADC in the range of 0-1023.
  * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -32760 to 32760.
  */
@@ -196,10 +198,36 @@ int16_t Pedal::throttle_torque_mapping(uint16_t throttle, bool flip_motor_dir)
     int16_t result = static_cast<int16_t>(numerator / denominator);
 
     if (flip_motor_dir)
-    {
         return -result;
-    }
     return result;
+}
+/**
+ * @brief Maps the brake ADC to a torque value.
+ *
+ * This function takes a brake ADC in the range of 0-1023 and maps it to a torque value.
+ * The mapping is linear, and the result is adjusted based on the motor direction.
+ *
+ * @param brake Brake ADC in the range of 0-1023.
+ * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
+ * @return Mapped torque value in the signed range of -32760 to 32760.
+ */
+int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_motor_dir)
+{
+    if (brake < BRAKE_LU || brake > BRAKE_UL)
+    {
+        // brake is out of range, return 0 torque
+        return 0;
+    }
+    // Map the brake ADC to a torque value
+    // temp linear mapping, with proper casting to prevent overflow
+    int32_t numerator = static_cast<int32_t>(brake - PEDAL_1_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
+    int32_t denominator = static_cast<int32_t>(PEDAL_1_UL - PEDAL_1_LU);
+    int16_t result = static_cast<int16_t>(numerator / denominator);
+
+    // opposite direction of throttle
+    if (flip_motor_dir)
+        return result;
+    return -result;
 }
 
 /**

@@ -48,6 +48,7 @@ struct car_state main_car_state = {
     0,     // car_status_millis_counter
     0,     // millis
     0,     // pedal_final
+    0,     // brake
     false, // fault_force_stop
     0      // torque_out
 };
@@ -97,7 +98,7 @@ void loop()
 {
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
-    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3));
+    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     /*
     For the time being:
