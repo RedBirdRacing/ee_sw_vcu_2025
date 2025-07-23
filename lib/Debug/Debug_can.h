@@ -1,7 +1,12 @@
 #ifndef DEBUG_CAN_H
 #define DEBUG_CAN_H
 
+// ignore -Wpedantic warnings for mcp2515.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 #include <mcp2515.h>
+#pragma GCC diagnostic pop
+
 #include "Enums.h"
 
 // probably can remove since no float is used now, but can @Ariel help me check it?

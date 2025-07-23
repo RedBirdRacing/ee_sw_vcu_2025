@@ -1,6 +1,10 @@
 #include "Debug_can.h"
 
+// ignore -Wpedantic warnings for mcp2515.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 #include <mcp2515.h>
+#pragma GCC diagnostic pop
 
 MCP2515 *Debug_CAN::can_interface = nullptr;
 

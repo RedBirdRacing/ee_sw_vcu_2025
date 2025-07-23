@@ -204,41 +204,36 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
     if (brake < BRAKE_LL)
     {
         DBG_BRAKE_FAULT(BRAKE_LOW, brake);
-        result = 0;
+        return 0; // no need mess with result, directly return
     }
     else if (brake < BRAKE_LU)
     {
         // in lower deadzone, treat as 0% throttle, can regen
-        return brake_torque_mapping(brake, flip_dir);
+        result = MIN_REGEN;
     }
     else if (brake < BRAKE_UL)
     {
         // throttle_in -> torque_val
-        // temp linear mapping, with proper casting to prevent overflow
+        // linear mapping, with proper casting to prevent overflow
         int32_t numerator = static_cast<int32_t>(brake - BRAKE_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
         int32_t denominator = static_cast<int32_t>(BRAKE_UL - BRAKE_LU);
         int16_t result = static_cast<int16_t>(numerator / denominator);
-
-        if (flip_dir)
-            return -result;
         return result;
     }
     else if (brake < BRAKE_UU)
     {
         // in upper deadzone, treat as 100% throttle
-        if (flip_dir)
-            return MAX_REGEN;
-        else
-            return -MAX_REGEN;
+        result = MAX_REGEN;
     }
     else
     {
-        // throttle higher than upper deadzone, treat as throttle fault, zeroing torque for safety
+        // throttle higher than upper deadzone, treat as fault, zeroing for safety
         DBG_THROTTLE_FAULT(BRAKE_HIGH, brake);
         return 0;
     }
     if (flip_dir)
         return -result;
+    return result;
 }
 
 /**

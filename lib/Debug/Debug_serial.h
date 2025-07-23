@@ -2,7 +2,6 @@
 #define DEBUG_SERIAL_H
 
 #include <Arduino.h>
-#include <mcp2515.h>
 #include "Enums.h"
 
 namespace Debug_Serial {
