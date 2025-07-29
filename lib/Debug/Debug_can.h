@@ -15,12 +15,17 @@ static_assert(sizeof(float) == 4, "This code assumes float is 4 bytes");
 namespace Debug_CAN
 {
     // enum CarStatus;
+    
     extern MCP2515 *can_interface;
 
+
     // Initialize CAN debug
+
     void initialize(MCP2515 *can_interface);
 
+
     // Specialized messages
+
     void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled);
     void throttle_out(uint16_t throttle_final, int16_t throttle_torque_val);
     void throttle_fault(pedal_fault_status fault_status, uint16_t value);

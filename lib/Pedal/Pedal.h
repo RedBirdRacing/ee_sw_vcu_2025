@@ -94,17 +94,6 @@ const bool FLIP_MOTOR_DIR = true;
 
 #define ADC_BUFFER_SIZE 16
 
-/*
-// mock CAN frame structure, decoupled from MCP2515 library for easier testing and debugging
-// CAN payload length and DLC definitions according to ISO 11898-1
-struct can_frame
-{
-    uint32_t can_id; // 32 bit CAN_ID + EFF/RTR/ERR flags
-    uint8_t can_dlc; // frame payload length in byte (0 .. CAN_MAX_DLEN==8)
-    uint8_t data[8] __attribute__((aligned(8)));
-};
-*/
-
 // Class for generic pedal object
 // For Gen 5 car, only throttle pedal is wired through the VCU, so we use Pedal class for Throttle pedal only.
 class Pedal
