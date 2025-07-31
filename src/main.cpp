@@ -79,7 +79,7 @@ struct car_state main_car_state = {
 
 // Define channels
 #define NUM_ADC_CHANNELS 3
-const uint8_t adc_channels[NUM_ADC_CHANNELS] = {APPS_5V, APPS_3V3, BRAKE_IN};
+const uint8_t adc_channels[NUM_ADC_CHANNELS] = {APPS_5V, APPS_3V3, BRAKE_IN}; // {ADC0, ADC1, ADC2} = {PC0, PC1, PC2}
 volatile uint16_t adc_results[NUM_ADC_CHANNELS];
 volatile uint8_t current_channel = 0;
 
@@ -92,7 +92,7 @@ ISR(ADC_vect) {
 
     // Move to next channel
     current_channel = (current_channel + 1) % NUM_ADC_CHANNELS;
-    ADMUX = (ADMUX & 0xF0) | (adc_channels[current_channel] & 0x0F);
+    ADMUX = (ADMUX & 0xF0) | (current_channel & 0x0F); // Set next channel in ADMUX
 } 
 
 void setup()
@@ -138,24 +138,34 @@ void setup()
     */
 
     // === ADC Free-Running Mode Setup ===
-    // Select first channel
-    ADMUX = (ADMUX & 0xF0) | (adc_channels[0] & 0x0F);
+    // Page 217 of https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
+    //          == https://www.arnabkumardas.com/arduino-tutorial/adc-register-description/
+    // Sample code https://github.com/VinnieM-3/Arduino/blob/master/ADC_FreeRunning.ino
+    
     // AVcc as reference
+    // Must connect 5V to the AREF pin then 100n cap to gnd
+    ADMUX &= ~(1 << REFS1);
     ADMUX |= (1 << REFS0);
     // Right adjust result
     ADMUX &= ~(1 << ADLAR);
-    // Prescaler 128 for 16MHz/128 = 125kHz ADC clock
-    ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
-    // Disable Power Reduction ADC bit
-    PRR &= ~(1 << PRADC);
-    // Enable ADC interrupt
-    ADCSRA |= (1 << ADIE);
-    // Free running mode
-    ADCSRB &= 0xF8;
-    // Enable auto trigger
-    ADCSRA |= (1 << ADATE);
+
+    // Select first channel
+    ADMUX = (ADMUX & 0xF0) | 0x00; // Clear lower 4 bits and set to ADC0 (APPS_5V)
+
     // Enable ADC
     ADCSRA |= (1 << ADEN);
+    // Enable auto trigger
+    ADCSRA |= (1 << ADATE);
+    // Enable ADC interrupt
+    ADCSRA |= (1 << ADIE);
+    // Prescaler 128 for 16MHz/128 = 125kHz ADC clock
+    ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+
+    // Disable Power Reduction ADC bit
+    PRR &= ~(1 << PRADC);
+    
+    // Free running mode
+    ADCSRB &= 0xF8;
     // Enable global interrupts
     sei();
     // Start first conversion
