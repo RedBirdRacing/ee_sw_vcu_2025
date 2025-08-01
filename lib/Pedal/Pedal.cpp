@@ -96,7 +96,6 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
  * It checks for faults and applies appropriate torque values based on pedal readings.
  *
  * @param tx_throttle_msg Pointer to the CAN frame to update.
- * @param car Pointer to the car_state structure containing current car state.
  * @return None
  */
 void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
@@ -158,7 +157,11 @@ int16_t Pedal::throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip
     else if (pedal < PEDAL_LU)
     {
         // in lower deadzone, treat as 0% throttle, can regen
-        return brake_torque_mapping(brake, flip_dir);
+        #if REGEN_ENABLED
+            return brake_torque_mapping(brake, flip_dir);
+        #else
+            return 0;
+        #endif
     }
     else if (pedal < PEDAL_UL)
     {

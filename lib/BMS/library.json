@@ -1,0 +1,9 @@
+{
+    "build": {
+        "libArchive": false,
+        "flags": [
+            "-I$PROJECT_SRC_DIR",
+            "-I$PROJECT_INCLUDE_DIR"
+        ]
+    }
+}

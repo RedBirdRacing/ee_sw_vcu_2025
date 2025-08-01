@@ -7,6 +7,8 @@
 #include "car_state.h"
 #include <Arduino.h> // for string
 
+#define REGEN_ENABLED false // Set to true to enable regenerative braking, false to disable
+
 // Constants
 
 /*

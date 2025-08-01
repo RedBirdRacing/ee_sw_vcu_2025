@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "pinMap.h"
 #include "Pedal.h"
+#include "BMS.h"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -37,7 +38,8 @@ MCP2515 mcp2515_BMS(CS_CAN_BMS);
 MCP2515 mcp2515_DL(CS_CAN_DL);
 
 struct can_frame tx_throttle_msg;
-struct can_frame rx_msg;
+struct can_frame tx_bms_msg;
+struct can_frame rx_bms_msg;
 
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
@@ -66,30 +68,6 @@ struct car_state main_car_state = {
     0      // torque_out
 };
 
-
-/**
- * === Fast analogRead() ===
- * Uses atmega328 registers directly to read analog values faster than the standard analogRead() function.
- */
-
-// Define channels
-#define NUM_ADC_CHANNELS 3
-const uint8_t adc_channels[NUM_ADC_CHANNELS] = {APPS_5V, APPS_3V3, BRAKE_IN}; // {ADC0, ADC1, ADC2} = {PC0, PC1, PC2}
-volatile uint16_t adc_results[NUM_ADC_CHANNELS];
-volatile uint8_t current_channel = 0;
-
-// Free-running ADC interrupt for multi-channel sampling
-ISR(ADC_vect) {
-    // Read result
-    uint8_t low = ADCL;
-    uint8_t high = ADCH;
-    adc_results[current_channel] = (high << 8) | low;
-
-    // Move to next channel
-    current_channel = (current_channel + 1) % NUM_ADC_CHANNELS;
-    ADMUX = (ADMUX & 0xF0) | (current_channel & 0x0F); // Set next channel in ADMUX
-} 
-
 void setup()
 {
     // Init pedals
@@ -106,6 +84,11 @@ void setup()
     mcp2515_motor.reset();
     mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
     mcp2515_motor.setNormalMode();
+
+    // Init mcp2515 for BMS channel
+    mcp2515_BMS.reset();
+    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
+    mcp2515_BMS.setNormalMode();
 
 #if DEBUG_SERIAL
     while (!Serial)
@@ -129,47 +112,13 @@ void setup()
     pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode
     pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
     */
-
-    // === ADC Free-Running Mode Setup ===
-    // Page 217 of https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
-    //          == https://www.arnabkumardas.com/arduino-tutorial/adc-register-description/
-    // Sample code https://github.com/VinnieM-3/Arduino/blob/master/ADC_FreeRunning.ino
-    
-    // AVcc as reference
-    // Must connect 5V to the AREF pin then 100n cap to gnd
-    ADMUX &= ~(1 << REFS1);
-    ADMUX |= (1 << REFS0);
-    // Right adjust result
-    ADMUX &= ~(1 << ADLAR);
-
-    // Select first channel
-    ADMUX = (ADMUX & 0xF0) | 0x00; // Clear lower 4 bits and set to ADC0 (APPS_5V)
-
-    // Enable ADC
-    ADCSRA |= (1 << ADEN);
-    // Enable auto trigger
-    ADCSRA |= (1 << ADATE);
-    // Enable ADC interrupt
-    ADCSRA |= (1 << ADIE);
-    // Prescaler 128 for 16MHz/128 = 125kHz ADC clock
-    ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
-
-    // Disable Power Reduction ADC bit
-    PRR &= ~(1 << PRADC);
-    
-    // Free running mode
-    ADCSRB &= 0xF8;
-    // Enable global interrupts
-    sei();
-    // Start first conversion
-    ADCSRA |= (1 << ADSC);
 }
 
 void loop()
 {
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
-    pedal.pedal_update(&main_car_state, adc_results[0], adc_results[1], adc_results[2]);
+    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     /*
     For the time being:
@@ -179,8 +128,8 @@ void loop()
     DRIVE_MODE_LED = "Drive" mode indicator
     */
 
-   if (main_car_state.fault_force_stop)
-   {
+    if (main_car_state.fault_force_stop)
+    {
         main_car_state.car_status = INIT;
         digitalWrite(BUZZER_OUT, LOW);     // Turn off buzzer
         digitalWrite(DRIVE_MODE_LED, LOW); // Turn off drive mode LED
@@ -190,16 +139,15 @@ void loop()
     
     switch (main_car_state.car_status)
     {
-        // I'm unsure if the compiler is using a jump table or if else, putting DRIVE at the top for efficiency.
-        case DRIVE:
-            // Pedal update
-            // Send pedal value through canbus
-            pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
-            mcp2515_motor.sendMessage(&tx_throttle_msg);
-            return;
+    case DRIVE:
+        // Pedal update
+        // Send pedal value through canbus
+        pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
+        mcp2515_motor.sendMessage(&tx_throttle_msg);
+        return; // no need logic to check if pedal on, car started
 
-        // do not return here if not in DRIVE mode, else can't detect pedal being on while starting
-        case INIT:
+    // do not return here if not in DRIVE mode, else can't detect pedal being on while starting
+    case INIT:
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: INIT.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
@@ -253,9 +201,9 @@ void loop()
 
             DBG_STATUS_CAR(main_car_state.car_status);
             DBG_STATUS_CAR_CHANGE(BUSSIN_TO_DRIVE);
+            BMS::bms_start_hv(&tx_bms_msg, &rx_bms_msg, &mcp2515_BMS);
         }
         break;
-
 
     default:
         DBG_STATUS_CAR(main_car_state.car_status);
@@ -275,3 +223,5 @@ void loop()
         DBG_STATUS_CAR_CHANGE(THROTTLE_TO_INIT);
     }
 }
+
+
