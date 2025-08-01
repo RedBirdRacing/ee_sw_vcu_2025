@@ -13,5 +13,5 @@ namespace BMS
     void bms_can_frame_start_hv(can_frame *tx_bms_msg);
     void bms_can_frame_stop_hv(can_frame *tx_bms_msg);
     void bms_start_hv(can_frame *tx_bms_msg, can_frame *rx_bms_msg, MCP2515 *mcp2515_BMS);
-};
+}
 #endif // BMS_H
