@@ -6,12 +6,16 @@ Pedal pedal;
 
 void setUp(void)
 {
-    // Optional: runs before each test
+    // runs before each test
+    // optional in the sense that this can be empty
+    // to ensure it compiles on all platforms, do not remove this empty function
 }
 
 void tearDown(void)
 {
-    // Optional: runs after each test
+    // runs after each test
+    // optional in the sense that this can be empty
+    // to ensure it compiles on all platforms, do not remove this empty function
 }
 
 void test_pedal_update_no_fault(void)
