@@ -1,0 +1,93 @@
+/**
+ * Fast analogRead() for Arduino
+ * This code uses direct register manipulation to read analog values faster than the standard analogRead() function.
+ * It sets up the ADC in free-running mode, allowing it to continuously sample multiple channels.
+ *
+ * You can verify for yourself that this is works as expected.
+ * This code is designed for the ATmega328P microcontroller, commonly used in Arduino boards like the Uno.
+ *
+ *
+ */
+
+#include <Arduino.h>
+
+/**
+ * === Fast analogRead() ===
+ * Uses atmega328 registers directly to read analog values faster than the standard analogRead() function.
+ */
+
+// Define channels
+#define NUM_ADC_CHANNELS 3
+volatile uint16_t adc_results[NUM_ADC_CHANNELS];
+// adc_results[0] store A2
+// adc_results[1] store A0
+// adc_results[2] store A1
+
+// let uint16_t APPS5V = adc_results[1];
+
+volatile uint8_t current_channel = 0;
+
+// Free-running ADC interrupt for multi-channel sampling
+ISR(ADC_vect)
+{
+    // Read result
+    uint8_t low = ADCL;
+    uint8_t high = ADCH;
+    adc_results[current_channel] = (high << 8) | low;
+
+    // Move to next channel
+    current_channel = (current_channel + 1) % NUM_ADC_CHANNELS;
+    ADMUX = (ADMUX & 0xF0) | (current_channel & 0x0F); // Set next channel in ADMUX
+}
+
+void setup()
+{
+    // Init input pins
+    pinMode(A0, INPUT);
+    pinMode(A1, INPUT);
+    pinMode(A2, INPUT);
+
+    // === ADC Free-Running Mode Setup ===
+    // Page 217 of https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
+    //          == https://www.arnabkumardas.com/arduino-tutorial/adc-register-description/
+    // Sample code https://github.com/VinnieM-3/Arduino/blob/master/ADC_FreeRunning.ino
+
+    // AVcc as reference
+    // Must connect 5V to the AREF pin then 100n cap to gnd
+    ADMUX &= ~(1 << REFS1);
+    ADMUX |= (1 << REFS0);
+    // Right adjust result
+    ADMUX &= ~(1 << ADLAR);
+
+    // Select first channel
+    ADMUX = (ADMUX & 0xF0) | 0x00; // Clear lower 4 bits and set to ADC0 (APPS_5V)
+
+    // Enable ADC
+    ADCSRA |= (1 << ADEN);
+    // Enable auto trigger
+    ADCSRA |= (1 << ADATE);
+    // Enable ADC interrupt
+    ADCSRA |= (1 << ADIE);
+    // Prescaler 128 for 16MHz/128 = 125kHz ADC clock
+    ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+
+    // Disable Power Reduction ADC bit
+    PRR &= ~(1 << PRADC);
+
+    // Free running mode
+    ADCSRB &= 0xF8;
+    // Enable global interrupts
+    sei();
+    // Start first conversion
+    ADCSRA |= (1 << ADSC);
+    Serial.begin(115200);
+}
+
+void loop()
+{
+    // Read ADC results
+    uint16_t adc0 = adc_results[0];
+    uint16_t adc1 = adc_results[1];
+    uint16_t adc2 = adc_results[2];
+    Serial.println("ADC0: " + String(adc0) + "; ADC1: " + String(adc1) + "; ADC2: " + String(adc2));
+}
