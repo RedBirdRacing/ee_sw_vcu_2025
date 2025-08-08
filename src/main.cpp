@@ -118,9 +118,12 @@ void setup()
     delay(1000);
 }
 
+uint8_t i = 0;
+
 void loop()
 {
-    digitalWrite(PD4, HIGH); // Set PD4 high to indicate loop start
+    i = (i + 1)%256;
+    analogWrite(PD4, i); // Set PD4 to low, used for debugging
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
