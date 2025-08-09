@@ -122,8 +122,25 @@ uint8_t i = 0;
 
 void loop()
 {
-    i = (i + 1)%256;
-    analogWrite(PD4, i); // Set PD4 to low, used for debugging
+    digitalWrite(PD4, LOW);
+    delay(2000);
+
+    pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
+    if (mcp2515_motor.readMessage(&tx_throttle_msg) != MCP2515::ERROR_OK)
+    {
+        digitalWrite(PD4, HIGH);
+        delay(4000);
+        return;
+    }
+    if (mcp2515_BMS.readMessage(&tx_throttle_msg) != MCP2515::ERROR_OK)
+    {
+        digitalWrite(PD4, HIGH);
+        delay(8000);
+        return;
+    }
+    return;
+
+
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
