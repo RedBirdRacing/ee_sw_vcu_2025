@@ -85,12 +85,12 @@ void setup()
     // Init mcp2515 for motor CAN channel
     mcp2515_motor.reset();
     mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
-    mcp2515_motor.setNormalMode();
+    mcp2515_motor.setLoopbackMode();
 
     // Init mcp2515 for BMS channel
     mcp2515_BMS.reset();
     mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
-    mcp2515_BMS.setNormalMode();
+    mcp2515_BMS.setLoopbackMode();
 
 #if DEBUG_SERIAL
     while (!Serial)
@@ -126,20 +126,24 @@ void loop()
     delay(2000);
 
     pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-    if (mcp2515_motor.readMessage(&tx_throttle_msg) != MCP2515::ERROR_OK)
+    mcp2515_motor.sendMessage(&tx_throttle_msg);
+
+    if (mcp2515_motor.readMessage(&rx_bms_msg) != MCP2515::ERROR_OK)
     {
         digitalWrite(PD4, HIGH);
         delay(4000);
         return;
     }
-    if (mcp2515_BMS.readMessage(&tx_throttle_msg) != MCP2515::ERROR_OK)
+
+    delay(2000);
+    mcp2515_BMS.sendMessage(&tx_throttle_msg);
+    if (mcp2515_BMS.readMessage(&rx_bms_msg) != MCP2515::ERROR_OK)
     {
         digitalWrite(PD4, HIGH);
         delay(8000);
         return;
     }
     return;
-
 
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
@@ -161,7 +165,7 @@ void loop()
         return;                            // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
-    
+
     switch (main_car_state.car_status)
     {
     case DRIVE:
@@ -248,5 +252,3 @@ void loop()
         DBG_STATUS_CAR_CHANGE(THROTTLE_TO_INIT);
     }
 }
-
-
