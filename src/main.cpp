@@ -114,8 +114,8 @@ void setup()
     pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode
     pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
     */
-    digitalWrite(PD4, LOW);
-    delay(1000);
+    digitalWrite(PD4, HIGH);
+    delay(3000);
 }
 
 uint8_t i = 0;
