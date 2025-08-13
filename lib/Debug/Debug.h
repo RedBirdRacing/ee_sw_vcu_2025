@@ -4,8 +4,8 @@
 #include "Enums.h"
 
 // === Debug Flags ===
-#define DEBUG false                 // if false, all debug messages are ignored
-#define DEBUG_SERIAL true && DEBUG // if false, all serial debug messages are ignored
+#define DEBUG true                 // if false, all debug messages are ignored
+#define DEBUG_SERIAL false && DEBUG // if false, all serial debug messages are ignored
 #define DEBUG_CAN true && DEBUG    // if false, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
