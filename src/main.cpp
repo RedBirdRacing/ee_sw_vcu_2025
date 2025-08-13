@@ -80,6 +80,8 @@ void setup()
     for (int i = 0; i < OUTPUT_COUNT; i++)
         pinMode(pins_out[i], OUTPUT);
 
+    pinMode(PD4, OUTPUT);
+
     // Init mcp2515 for motor CAN channel
     mcp2515_motor.reset();
     mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
@@ -112,10 +114,16 @@ void setup()
     pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode
     pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
     */
+    digitalWrite(PD4, LOW);
+    delay(1000);
 }
+
+uint8_t i = 0;
 
 void loop()
 {
+    i = (i + 1)%256;
+    analogWrite(PD4, i); // Set PD4 to low, used for debugging
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));

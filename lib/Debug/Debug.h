@@ -213,4 +213,4 @@ inline void DBG_BRAKE_FAULT(pedal_fault_status fault_status, uint16_t value)
 #endif
 }
 
-#endif
+#endif // DEBUG_H
