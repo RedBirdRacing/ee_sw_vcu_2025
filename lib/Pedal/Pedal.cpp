@@ -156,12 +156,12 @@ int16_t Pedal::throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip
     }
     else if (pedal < PEDAL_LU)
     {
-        // in lower deadzone, treat as 0% throttle, can regen
-        #if REGEN_ENABLED
-            return brake_torque_mapping(brake, flip_dir);
-        #else
-            return 0;
-        #endif
+// in lower deadzone, treat as 0% throttle, can regen
+#if REGEN_ENABLED
+        return brake_torque_mapping(brake, flip_dir);
+#else
+        return 0;
+#endif
     }
     else if (pedal < PEDAL_UL)
     {

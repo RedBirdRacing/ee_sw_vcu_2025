@@ -73,7 +73,13 @@ void setup()
     // Init pedals
     pedal = Pedal();
 
-    // Init input pins
+
+#if DEBUG_SERIAL
+    Debug_Serial::initialize();
+    DBGLN_GENERAL("Debug serial initialized");
+#endif
+
+    // Init input pins*/
     for (int i = 0; i < INPUT_COUNT; i++)
         pinMode(pins_in[i], INPUT);
     // Init output pins
@@ -90,14 +96,6 @@ void setup()
     mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
     mcp2515_BMS.setNormalMode();
 
-#if DEBUG_SERIAL
-    while (!Serial)
-    {
-    } // Wait for serial connection
-    Debug_Serial::initialize();
-    DBGLN_GENERAL("Debug serial initialized");
-#endif
-
 #if DEBUG_CAN
     Debug_CAN::initialize(&mcp2515_motor); // Currently using motor CAN for debug messages, should change to other
     DBGLN_GENERAL("Debug CAN initialized");
@@ -106,6 +104,7 @@ void setup()
     DBG_STATUS_CAR(main_car_state.car_status);
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
+    
 
     /*
     For sim only
@@ -113,7 +112,6 @@ void setup()
     pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
     */
 }
-
 
 void loop()
 {
@@ -137,7 +135,7 @@ void loop()
         return;                            // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
-    
+
     switch (main_car_state.car_status)
     {
     case DRIVE:
@@ -224,5 +222,3 @@ void loop()
         DBG_STATUS_CAR_CHANGE(THROTTLE_TO_INIT);
     }
 }
-
-
