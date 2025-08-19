@@ -31,7 +31,7 @@
 #else // USE_VCU_V2
 
 // === CAN bus pins ===
-#define CS_CAN_MOTOR PIN_PB2
+#define CS_CAN_MOTOR PIN_PB0
 #define CS_CAN_BMS PIN_PB1
 #define CS_CAN_DL PIN_PD5 // Datalogger
 
@@ -42,7 +42,7 @@
 #define BRAKE_IN PIN_PC3
 
 // === Drive mode ===
-#define DRIVE_MODE_LED PIN_PB0
+#define DRIVE_MODE_LED PIN_PB2
 #define DRIVE_MODE_BTN PIN_PC4
 
 // === Buzzer for car status ===
