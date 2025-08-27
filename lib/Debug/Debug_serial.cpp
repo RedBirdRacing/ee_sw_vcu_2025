@@ -227,6 +227,12 @@ void Debug_Serial::status_bms(BMS_status BMS_status)
 {
     switch (BMS_status)
     {
+    case NO_MSG:
+        Serial.println("BMS Status: No message received");
+        break;
+    case WRONG_ID:
+        Serial.println("BMS Status: Wrong ID");
+        break;
     case WAITING:
         Serial.println("BMS Status: Waiting to start");
         break;
