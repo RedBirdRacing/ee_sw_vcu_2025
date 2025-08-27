@@ -61,28 +61,38 @@ void BMS::bms_start_hv(can_frame *tx_bms_msg, can_frame *rx_bms_msg, MCP2515 *mc
     while (true)
     {
         delay(100); // wait for 100ms before sending the command again
-        mcp2515_BMS->readMessage(rx_bms_msg);
+        if (mcp2515_BMS->readMessage(rx_bms_msg) == MCP2515::ERROR_NOMSG)
+        {
+            DBG_BMS_STATUS(NO_MSG);
+            continue;
+        };
+
         // Check if the BMS is in standby state (0x3 in upper 4 bits)
         if (rx_bms_msg->can_id != BMS_INFO_EXT)
         {
+            DBG_BMS_STATUS(WRONG_ID);
             continue;
         } // Not a BMS info frame, retry
 
         switch (rx_bms_msg->data[6] & 0xF0)
         {
         case 0x30: // Standby state
+            DBG_BMS_STATUS(WAITING);
             BMS::bms_can_frame_start_hv(tx_bms_msg);
             mcp2515_BMS->sendMessage(tx_bms_msg);
             DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
             // sent start HV cmd, wait for BMS to change state
             break;
         case 0x40: // Precharge state
+            DBG_BMS_STATUS(STARTING);
             DBGLN_GENERAL("BMS in precharge state, HV starting");
             break; // BMS is in precharge state, return
         case 0x50: // Run state
+            DBG_BMS_STATUS(STARTED);
             DBGLN_GENERAL("BMS in run state, HV started");
             return; // BMS is in run state, return
         default:
+            DBG_BMS_STATUS(UNUSED);
             DBGLN_GENERAL("BMS in unknown state, retrying...");
             continue; // Unknown state, retry
         }

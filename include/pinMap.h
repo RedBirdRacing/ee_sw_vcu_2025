@@ -1,4 +1,4 @@
-#include "m328pMap.h"
+//#include "m328pMap.h"
 
 #ifndef PINMAP_H
 #define PINMAP_H
@@ -11,27 +11,9 @@
 
 #ifndef USE_VCU_V2
 
+// VCU v3
 // === CAN bus pins ===
-#define CS_CAN_MOTOR PB2
-#define CS_CAN_BMS PB1
-#define CS_CAN_DL PD5 // Datalogger
-
-// === APPS and Brake pins ===
-#define APPS_5V PC0
-#define APPS_3V3 PC1
-#define BRAKE_5V_OUT PC2
-#define BRAKE_IN PC3
-
-// === Drive mode ===
-#define DRIVE_MODE_LED PB0
-#define DRIVE_MODE_BTN PC4
-
-// === Buzzer for car status ===
-#define BUZZER_OUT PD4
-#else // USE_VCU_V2
-
-// === CAN bus pins ===
-#define CS_CAN_MOTOR PIN_PB0
+#define CS_CAN_MOTOR PIN_PB2
 #define CS_CAN_BMS PIN_PB1
 #define CS_CAN_DL PIN_PD5 // Datalogger
 
@@ -42,12 +24,46 @@
 #define BRAKE_IN PIN_PC3
 
 // === Drive mode ===
-#define DRIVE_MODE_LED PIN_PB2
+#define DRIVE_MODE_LED PIN_PB0
 #define DRIVE_MODE_BTN PIN_PC4
 
 // === Buzzer for car status ===
 #define BUZZER_OUT PIN_PD4
-#endif // VCU_V3
+// end of VCU v3
+
+#else // USE_VCU_V2
+
+// VCU v2
+// === CAN bus pins ===
+#define CS_CAN_MOTOR PIN_PB2
+#define CS_CAN_BMS PIN_PB1 // unused
+#define CS_CAN_DL PIN_PD5 // Datalogger
+
+// === APPS and Brake pins ===
+#define APPS_5V PIN_PC0
+
+//#define APPS_3V3 PIN_PC1
+// temp override
+#define APPS_3V3 PIN_PC0
+
+#define BRAKE_5V_OUT PIN_PC2
+
+// temp override
+//#define BRAKE_IN PIN_PC3
+#define BRAKE_IN PIN_PC1
+
+// === Drive mode ===
+#define DRIVE_MODE_LED PIN_PB0
+
+// temp override
+//#define DRIVE_MODE_BTN PIN_PC4  
+#define DRIVE_MODE_BTN PIN_PC1
+
+// === Buzzer for car status ===
+#define BUZZER_OUT PIN_PD4
+// end of VCU v2
+
+#endif // USE_VCU_V2
 
 #else // USE_ARDUINO_PINS
 

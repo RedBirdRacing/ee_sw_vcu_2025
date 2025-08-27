@@ -47,6 +47,23 @@ enum pedal_fault_status
 };
 
 /**
+ * @brief BMS status
+ *
+ * Represents the current state of the Battery Management System (BMS).
+ */
+enum BMS_status
+{
+    NO_MSG = 0,
+    WRONG_ID = 1,
+    WAITING = 2,
+    STARTING = 3,
+    STARTED = 4,
+    UNUSED = 5
+};
+
+// CAN IDs
+
+/**
  * @brief CAN message IDs for throttle and debug.
  *
  * Used for sending throttle and debug messages over CAN bus.
@@ -68,7 +85,8 @@ enum status_can_id
 {
     STATUS_CAR_MSG = 0x693,        // Debug: car status message
     STATUS_CAR_CHANGE_MSG = 0x694, // Debug: car status change message
-    STATUS_BRAKE_MSG = 0x695       // Debug: brake status message
+    STATUS_BRAKE_MSG = 0x695,       // Debug: brake status message
+    STATUS_BMS_MSG = 0x696         // Debug: BMS status message
 };
 
 /**

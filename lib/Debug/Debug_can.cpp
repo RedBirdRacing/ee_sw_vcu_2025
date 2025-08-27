@@ -189,3 +189,24 @@ void Debug_CAN::status_car_change(state_changes status_change)
 
     can_interface->sendMessage(&tx_msg);
 }
+
+/**
+ * @brief Sends a debug BMS status message over CAN.
+ * This function prepares a CAN frame with the current BMS status and sends it.
+ * 
+ * @param BMS_status The current status of the BMS as defined in BMS_status enum.
+ * @return None
+ */
+void Debug_CAN::status_bms(BMS_status BMS_status)
+{
+    if (!can_interface)
+        return;
+
+    can_frame tx_msg;
+    tx_msg.can_id = STATUS_BMS_MSG;
+    tx_msg.can_dlc = 1;
+
+    tx_msg.data[0] = static_cast<uint8_t>(BMS_status); // Convert enum to uint8_t
+
+    can_interface->sendMessage(&tx_msg);
+}

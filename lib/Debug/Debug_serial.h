@@ -21,6 +21,7 @@ namespace Debug_Serial {
     void status_car(main_car_status car_status);
     void status_car_change(state_changes status_change);
     void status_brake(uint16_t brake_voltage);
+    void status_bms(BMS_status BMS_status);
 }
 
 #endif // DEBUG_SERIAL_H

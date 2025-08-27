@@ -60,9 +60,9 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
         fault = false;
         return;
     }
-
     // Pedal fault detected
-    if (fault)
+
+    if (fault) // if previously faulty
     {                                               // Previous scan is already faulty
         if (car->millis - fault_start_millis > 100) // Faulty for more than 100 ms
         {
@@ -71,18 +71,13 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
             // this force stop flag can only be reset by a power cycle
 
             DBG_THROTTLE_FAULT(DIFF_EXCEED_100MS);
-            // DBGLN_THROTTLE("FAULT: Pedal mismatch persisted > 100ms!");
-
-            // -- Debug: Pedal faulty too long
-
             return;
         }
     }
-    else
+    else // new fault detected
     {
         fault_start_millis = car->millis;
         DBG_THROTTLE_FAULT(DIFF_START);
-        // DBGLN_THROTTLE("FAULT: Pedal mismatch started");
     }
 
     fault = true;
@@ -254,7 +249,7 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
 bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2)
 {
 
-    int16_t pedal_2_scaled = round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
+    int16_t pedal_2_scaled = pedal_2; round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
     DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
 
     int16_t delta = pedal_1 - pedal_2_scaled;

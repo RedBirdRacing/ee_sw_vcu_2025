@@ -1,4 +1,5 @@
 #include "Debug_serial.h"
+#include "Enums.h"
 
 /**
  * @brief Initializes the Debug_Serial interface.
@@ -211,6 +212,32 @@ void Debug_Serial::status_car_change(state_changes status_change)
         break;
     default:
         Serial.println("Car Status Change: UNKNOWN");
+        break;
+    }
+}
+
+/**
+ * @brief Prints the current BMS status to the serial console.
+ * This function formats and sends the current BMS status to the serial console.
+ * 
+ * @param BMS_status The current status of the BMS as defined in BMS_status enum.
+ * @return None
+ */
+void Debug_Serial::status_bms(BMS_status BMS_status)
+{
+    switch (BMS_status)
+    {
+    case WAITING:
+        Serial.println("BMS Status: Waiting to start");
+        break;
+    case STARTING:
+        Serial.println("BMS Status: Starting");
+        break;
+    case STARTED:
+        Serial.println("BMS Status: Started");
+        break;
+    default:
+        Serial.println("BMS Status: UNKNOWN");
         break;
     }
 }

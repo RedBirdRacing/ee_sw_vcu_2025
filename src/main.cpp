@@ -30,12 +30,13 @@ Pedal pedal;
 
 // === CAN (motor) ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
+#define mcp2515_BMS mcp2515_motor
 
 // === CAN (BMS) ===
-MCP2515 mcp2515_BMS(CS_CAN_BMS);
+//MCP2515 mcp2515_BMS(CS_CAN_BMS);
 
 // === CAN (Datalogger) ===
-MCP2515 mcp2515_DL(CS_CAN_DL);
+//MCP2515 mcp2515_DL(CS_CAN_DL);
 
 struct can_frame tx_throttle_msg;
 struct can_frame tx_bms_msg;
@@ -73,13 +74,12 @@ void setup()
     // Init pedals
     pedal = Pedal();
 
-
 #if DEBUG_SERIAL
     Debug_Serial::initialize();
     DBGLN_GENERAL("Debug serial initialized");
 #endif
 
-    // Init input pins*/
+    // Init input pins
     for (int i = 0; i < INPUT_COUNT; i++)
         pinMode(pins_in[i], INPUT);
     // Init output pins
@@ -88,12 +88,12 @@ void setup()
 
     // Init mcp2515 for motor CAN channel
     mcp2515_motor.reset();
-    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
+    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_16MHZ);
     mcp2515_motor.setNormalMode();
 
     // Init mcp2515 for BMS channel
     mcp2515_BMS.reset();
-    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
+    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_16MHZ);
     mcp2515_BMS.setNormalMode();
 
 #if DEBUG_CAN
@@ -101,10 +101,9 @@ void setup()
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    DBG_STATUS_CAR(main_car_state.car_status);
+    DBG_STATUS_CAR(main_car_state.car_status);// = BUSSIN); // temp override
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
-    
 
     /*
     For sim only
@@ -117,7 +116,7 @@ void loop()
 {
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
-    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
+    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), 0);
 
     /*
     For the time being:
@@ -126,7 +125,6 @@ void loop()
     BUZZER_OUT = Buzzer output
     DRIVE_MODE_LED = "Drive" mode indicator
     */
-
     if (main_car_state.fault_force_stop)
     {
         main_car_state.car_status = INIT;

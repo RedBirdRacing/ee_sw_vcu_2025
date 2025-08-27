@@ -5,7 +5,7 @@
 
 // === Debug Flags ===
 #define DEBUG true                 // if false, all debug messages are ignored
-#define DEBUG_SERIAL true && DEBUG // if false, all serial debug messages are ignored
+#define DEBUG_SERIAL false && DEBUG // if false, all serial debug messages are ignored
 #define DEBUG_CAN true && DEBUG    // if false, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
@@ -209,6 +209,22 @@ inline void DBG_BRAKE_FAULT(pedal_fault_status fault_status, uint16_t value)
 #endif
 #if DEBUG_CAN
     Debug_CAN::brake_fault(fault_status, value);
+#endif
+#endif
+}
+
+/**
+ * @brief Sends BMS debug info via CAN or serial (if enabled).
+ * @param BMS_status The BMS status enum.
+ */
+inline void DBG_BMS_STATUS(BMS_status BMS_status)
+{
+#if DEBUG_BRAKE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
+#if DEBUG_SERIAL
+    Debug_Serial::status_bms(BMS_status);
+#endif
+#if DEBUG_CAN
+    Debug_CAN::status_bms(BMS_status);
 #endif
 #endif
 }
