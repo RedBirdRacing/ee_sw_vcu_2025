@@ -221,7 +221,7 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
     else if (brake < BRAKE_UU)
     {
         // in upper deadzone, treat as 100% throttle
-        result = MAX_REGEN;
+        result = MAX_THROTTLE_OUT_VAL;
     }
     else
     {
@@ -249,7 +249,7 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
 bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2)
 {
 
-    int16_t pedal_2_scaled = pedal_2; round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
+    int16_t pedal_2_scaled = round((float)pedal_2 * 5.0 / 3.3);//round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
     DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
 
     int16_t delta = pedal_1 - pedal_2_scaled;

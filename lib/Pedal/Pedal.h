@@ -20,9 +20,9 @@
 */
 
 const uint16_t PEDAL_1_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 1 (5V)
-const uint16_t PEDAL_1_IN_MAX = 948; // Maximum ADC reading for APPS Pedal 1 (5V)
+const uint16_t PEDAL_1_IN_MAX = 1022; // Maximum ADC reading for APPS Pedal 1 (5V)
 const uint16_t PEDAL_2_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 2 (3.3V)
-const uint16_t PEDAL_2_IN_MAX = 675; // Maximum ADC reading for APPS Pedal 2 (3.3V)
+const uint16_t PEDAL_2_IN_MAX = 700; // Maximum ADC reading for APPS Pedal 2 (3.3V)
 const uint16_t BRAKE_IN_MIN = 0; // Minimum ADC reading for Brake Pedal
 const uint16_t BRAKE_IN_MAX = 1023; // Maximum ADC reading for Brake Pedal
 
@@ -33,12 +33,12 @@ const uint16_t BRAKE_IN_MAX = 1023; // Maximum ADC reading for Brake Pedal
     While it's better to have an odd number for deadzone, it is not required. This is because the tree planting problem; there are 41 trees for 40 segments.
 */
 
-const uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH = 31;
-const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 31;
-// const uint16_t PEDAL_2_LOWER_DEADZONE_WIDTH = 31;
-// const uint16_t PEDAL_2_UPPER_DEADZONE_WIDTH = 31;
-const uint16_t BRAKE_LOWER_DEADZONE_WIDTH = 31;
-const uint16_t BRAKE_UPPER_DEADZONE_WIDTH = 31;
+const uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH = 3;
+const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 3;
+// const uint16_t PEDAL_2_LOWER_DEADZONE_WIDTH = 3;
+// const uint16_t PEDAL_2_UPPER_DEADZONE_WIDTH = 3;
+const uint16_t BRAKE_LOWER_DEADZONE_WIDTH = 3;
+const uint16_t BRAKE_UPPER_DEADZONE_WIDTH = 3;
 
 /*
     Data entry ends here.

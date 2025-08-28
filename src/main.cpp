@@ -23,7 +23,7 @@
 const uint8_t INPUT_COUNT = 4;
 const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3};
 const uint8_t OUTPUT_COUNT = 3;
-const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT};
+const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_LIGHT, BUZZER_OUT};
 
 // === Pedal ===
 Pedal pedal;
@@ -33,10 +33,10 @@ MCP2515 mcp2515_motor(CS_CAN_MOTOR);
 #define mcp2515_BMS mcp2515_motor
 
 // === CAN (BMS) ===
-//MCP2515 mcp2515_BMS(CS_CAN_BMS);
+// MCP2515 mcp2515_BMS(CS_CAN_BMS);
 
 // === CAN (Datalogger) ===
-//MCP2515 mcp2515_DL(CS_CAN_DL);
+// MCP2515 mcp2515_DL(CS_CAN_DL);
 
 struct can_frame tx_throttle_msg;
 struct can_frame tx_bms_msg;
@@ -46,6 +46,8 @@ const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver nee
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
 
 const uint16_t BRAKE_THRESHOLD = 256; // The threshold for the brake pedal to be considered pressed
+
+bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
 /**
  * @brief Global car state structure.
@@ -88,12 +90,12 @@ void setup()
 
     // Init mcp2515 for motor CAN channel
     mcp2515_motor.reset();
-    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_16MHZ);
+    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
     mcp2515_motor.setNormalMode();
 
     // Init mcp2515 for BMS channel
     mcp2515_BMS.reset();
-    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_16MHZ);
+    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
     mcp2515_BMS.setNormalMode();
 
 #if DEBUG_CAN
@@ -101,7 +103,7 @@ void setup()
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    DBG_STATUS_CAR(main_car_state.car_status);// = BUSSIN); // temp override
+    DBG_STATUS_CAR(main_car_state.car_status); // = BUSSIN); // temp override
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
 
@@ -118,6 +120,8 @@ void loop()
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), 0);
 
+    brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
+    digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     /*
     For the time being:
     DRIVE_MODE_BTN = "Start" button
@@ -127,7 +131,11 @@ void loop()
     */
     if (main_car_state.fault_force_stop)
     {
-        main_car_state.car_status = INIT;
+        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
+        DBGLN_THROTTLE("Stopping motor: Fault exceeded 100ms.");
+        mcp2515_motor.sendMessage(&tx_throttle_msg);
+
+        main_car_state.car_status = INIT;  // safety, later change to fault status
         digitalWrite(BUZZER_OUT, LOW);     // Turn off buzzer
         digitalWrite(DRIVE_MODE_LED, LOW); // Turn off drive mode LED
         return;                            // If fault force stop is active, do not proceed with the rest of the loop
@@ -149,8 +157,7 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: INIT.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == HIGH &&
-            static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD)
+        if (digitalRead(DRIVE_MODE_BTN) == HIGH && brake_pressed)
         {
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
@@ -165,8 +172,7 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == LOW ||
-            static_cast<uint16_t>(analogRead(BRAKE_IN)) < BRAKE_THRESHOLD)
+        if (digitalRead(DRIVE_MODE_BTN) == LOW || !brake_pressed)
         {
             main_car_state.car_status = INIT;
             main_car_state.car_status_millis_counter = main_car_state.millis; // safety

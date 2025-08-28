@@ -42,22 +42,18 @@
 // === APPS and Brake pins ===
 #define APPS_5V PIN_PC0
 
-//#define APPS_3V3 PIN_PC1
-// temp override
-#define APPS_3V3 PIN_PC0
+#define APPS_3V3 PIN_PC1
 
-#define BRAKE_5V_OUT PIN_PC2
+#define BRAKE_IN PIN_PC2
 
-// temp override
-//#define BRAKE_IN PIN_PC3
-#define BRAKE_IN PIN_PC1
+// VCU brake light
+#define BRAKE_LIGHT PIN_PC3
+
 
 // === Drive mode ===
 #define DRIVE_MODE_LED PIN_PB0
 
-// temp override
-//#define DRIVE_MODE_BTN PIN_PC4  
-#define DRIVE_MODE_BTN PIN_PC1
+#define DRIVE_MODE_BTN PIN_PC4 
 
 // === Buzzer for car status ===
 #define BUZZER_OUT PIN_PD4
