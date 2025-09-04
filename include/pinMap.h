@@ -4,7 +4,7 @@
 #define PINMAP_H
 
 //#define USE_ARDUINO_PINS // Uncomment this line to use Arduino Uno pin numbers
-#define USE_VCU_V2 // Uncomment this line to use VCU V2 pin numbers
+//#define USE_VCU_V2 // Uncomment this line to use VCU V2 pin numbers
 
 // === Pinmap guard: define USE_ARDUINO_PINS to use Arduino Uno pin numbers ===
 #ifndef USE_ARDUINO_PINS
@@ -20,7 +20,7 @@
 // === APPS and Brake pins ===
 #define APPS_5V PIN_PC0
 #define APPS_3V3 PIN_PC1
-#define BRAKE_5V_OUT PIN_PC2
+#define HV_CURRENT PIN_PC2
 #define BRAKE_IN PIN_PC3
 
 // === Drive mode ===
@@ -29,6 +29,9 @@
 
 // === Buzzer for car status ===
 #define BUZZER_OUT PIN_PD4
+
+// === Brake light ===
+#define BRAKE_LIGHT PIN_PD3
 // end of VCU v3
 
 #else // USE_VCU_V2

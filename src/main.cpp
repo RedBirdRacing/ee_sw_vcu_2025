@@ -20,8 +20,8 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-const uint8_t INPUT_COUNT = 4;
-const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3};
+const uint8_t INPUT_COUNT = 5;
+const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, APPS_5V, APPS_3V3, HV_CURRENT, BRAKE_IN};
 const uint8_t OUTPUT_COUNT = 3;
 const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_LIGHT, BUZZER_OUT};
 
@@ -30,13 +30,12 @@ Pedal pedal;
 
 // === CAN (motor) ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
-#define mcp2515_BMS mcp2515_motor
 
 // === CAN (BMS) ===
-// MCP2515 mcp2515_BMS(CS_CAN_BMS);
+MCP2515 mcp2515_BMS(CS_CAN_BMS);
 
 // === CAN (Datalogger) ===
-// MCP2515 mcp2515_DL(CS_CAN_DL);
+MCP2515 mcp2515_DL(CS_CAN_DL); // currently used for debug CAN only
 
 struct can_frame tx_throttle_msg;
 struct can_frame tx_bms_msg;
@@ -45,7 +44,7 @@ struct can_frame rx_bms_msg;
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
 
-const uint16_t BRAKE_THRESHOLD = 256; // The threshold for the brake pedal to be considered pressed
+const uint16_t BRAKE_THRESHOLD = 256; // The threshold for the brake pedal to be considered pressed, not full / min because we don't need the brakes to be fully pressed to start, just sufficiently down
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
@@ -78,8 +77,8 @@ struct car_state main_car_state = {
  */
 
 // Define channels
-#define NUM_ADC_CHANNELS 3
-const uint8_t adc_channels[NUM_ADC_CHANNELS] = {APPS_5V, APPS_3V3, BRAKE_IN}; // {ADC0, ADC1, ADC2} = {PC0, PC1, PC2}
+#define NUM_ADC_CHANNELS 4
+const uint8_t adc_channels[NUM_ADC_CHANNELS] = {APPS_5V, APPS_3V3, HV_CURRENT, BRAKE_IN}; // {ADC0, ADC1, ADC2} = {PC0, PC1, PC2}
 volatile uint16_t adc_results[NUM_ADC_CHANNELS];
 volatile uint8_t current_channel = 0;
 
@@ -122,12 +121,17 @@ void setup()
     mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
     mcp2515_BMS.setNormalMode();
 
+    // Init mcp2515 for DL channel
+    mcp2515_DL.reset();
+    mcp2515_DL.setBitrate(CAN_500KBPS, MCP_20MHZ);
+    mcp2515_DL.setNormalMode();
+
 #if DEBUG_CAN
-    Debug_CAN::initialize(&mcp2515_motor); // Currently using motor CAN for debug messages, should change to other
+    Debug_CAN::initialize(&mcp2515_DL); // Currently using datalogger CAN for debug messages, should change to other
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    DBG_STATUS_CAR(main_car_state.car_status); // = BUSSIN); // temp override
+    DBG_STATUS_CAR(main_car_state.car_status);
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
 
@@ -143,9 +147,12 @@ void setup()
     // Sample code https://github.com/VinnieM-3/Arduino/blob/master/ADC_FreeRunning.ino
     
     // AVcc as reference
-    // Must connect 5V to the AREF pin then 100n cap to gnd
-    ADMUX &= ~(1 << REFS1);
-    ADMUX |= (1 << REFS0);
+    //ADMUX &= ~(1 << REFS1);
+    //ADMUX |= (1 << REFS0);
+
+    // ARef as reference
+    ADMUX &= ~((1 << REFS1) | (1 << REFS0));
+
     // Right adjust result
     ADMUX &= ~(1 << ADLAR);
 
@@ -176,7 +183,7 @@ void loop()
 {
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
-    pedal.pedal_update(&main_car_state, adc_results[0], adc_results[1], adc_results[2]);
+    pedal.pedal_update(&main_car_state, adc_results[1], adc_results[2], adc_results[0]);
 
     brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
