@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "pinMap.h"
+#include "boardConf.h"
 #include "Pedal.h"
 #include "BMS.h"
 
@@ -22,25 +22,24 @@
 // Pin setup for pedal pins are done by the constructor of Pedal object
 const uint8_t INPUT_COUNT = 4;
 const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3};
-const uint8_t OUTPUT_COUNT = 3;
-const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_LIGHT, BUZZER_OUT};
+const uint8_t OUTPUT_COUNT = 4;
+const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_LIGHT, BUZZER_OUT, BMS_FAILED_LED};
 
 // === Pedal ===
 Pedal pedal;
 
+// === even if unused, initialize ALL mcp2515 to make sure the CS pin is set up and they don't interfere with the SPI bus ===
 // === CAN (motor) ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
-#define mcp2515_BMS mcp2515_motor
 
 // === CAN (BMS) ===
-// MCP2515 mcp2515_BMS(CS_CAN_BMS);
+MCP2515 mcp2515_BMS(CS_CAN_BMS);
+BMS bms(&mcp2515_BMS);
 
 // === CAN (Datalogger) ===
-// MCP2515 mcp2515_DL(CS_CAN_DL);
+MCP2515 mcp2515_DL(CS_CAN_DL);
 
 struct can_frame tx_throttle_msg;
-struct can_frame tx_bms_msg;
-struct can_frame rx_bms_msg;
 
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
@@ -85,25 +84,31 @@ void setup()
     for (int i = 0; i < INPUT_COUNT; i++)
         pinMode(pins_in[i], INPUT);
     // Init output pins
-    for (int i = 0; i < OUTPUT_COUNT; i++)
+    for (int i = 0; i < OUTPUT_COUNT; i++){
         pinMode(pins_out[i], OUTPUT);
+        digitalWrite(pins_out[i], LOW); // initialize output pins to LOW
+    }
 
     // Init mcp2515 for motor CAN channel
     mcp2515_motor.reset();
-    mcp2515_motor.setBitrate(CAN_500KBPS, MCP_20MHZ);
+    mcp2515_motor.setBitrate(CAN_500KBPS, MCP2515_CRYSTAL_FREQ);
     mcp2515_motor.setNormalMode();
 
     // Init mcp2515 for BMS channel
     mcp2515_BMS.reset();
-    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP_20MHZ);
+    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP2515_CRYSTAL_FREQ);
     mcp2515_BMS.setNormalMode();
 
+    mcp2515_DL.reset();
+    mcp2515_DL.setBitrate(CAN_500KBPS, MCP2515_CRYSTAL_FREQ);
+    mcp2515_DL.setNormalMode();
+
 #if DEBUG_CAN
-    Debug_CAN::initialize(&mcp2515_motor); // Currently using motor CAN for debug messages, should change to other
+    Debug_CAN::initialize(&mcp2515_DL); // Currently using motor CAN for debug messages, should change to other
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    DBG_STATUS_CAR(main_car_state.car_status); // = BUSSIN); // temp override
+    DBG_STATUS_CAR(main_car_state.car_status);
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
 
@@ -157,7 +162,7 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: INIT.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        if (digitalRead(DRIVE_MODE_BTN) == HIGH && brake_pressed)
+        if (digitalRead(DRIVE_MODE_BTN) == BUTTON_ACTIVE && brake_pressed)
         {
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
@@ -171,8 +176,10 @@ void loop()
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
+        
+        bms.check_hv(); // check for HV ready, if not start it
 
-        if (digitalRead(DRIVE_MODE_BTN) == LOW || !brake_pressed)
+        if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
             main_car_state.car_status = INIT;
             main_car_state.car_status_millis_counter = main_car_state.millis; // safety
@@ -182,6 +189,15 @@ void loop()
         }
         else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
         {
+            if (!bms.hv_ready()) // if HV not started, return to INIT
+            {
+                main_car_state.car_status = INIT;
+                main_car_state.car_status_millis_counter = main_car_state.millis; // safety
+
+                DBG_STATUS_CAR(main_car_state.car_status);
+                DBG_STATUS_CAR_CHANGE(BMS_TO_INIT);
+                break;
+            }
             main_car_state.car_status = BUSSIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
             digitalWrite(BUZZER_OUT, HIGH);
@@ -204,7 +220,6 @@ void loop()
 
             DBG_STATUS_CAR(main_car_state.car_status);
             DBG_STATUS_CAR_CHANGE(BUSSIN_TO_DRIVE);
-            BMS::bms_start_hv(&tx_bms_msg, &rx_bms_msg, &mcp2515_BMS);
         }
         break;
 

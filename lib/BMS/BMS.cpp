@@ -1,7 +1,30 @@
 #include "BMS.h"
-#include "mcp2515.h" // CAN frames, sending CAN frame,
+#include "mcp2515.h" // CAN frames, sending CAN frame, reading CAN frame
 #include "debug.h"   // DBGLN_GENERAL
 #include <Arduino.h> // wait()
+
+// Constructor
+BMS::BMS(MCP2515 *mcp2515_BMS)
+    : last_msg_ms(0),
+      read_start_ms(0),
+      tx_bms_start_msg{
+          BMS_SEND_CMD, // can_id
+          2,            // can_dlc
+          {0x01, 0x01}  // data: MainRlyCmd = 1 (output HV), ShutDownCmd = 1 (do not shutdown)
+      },
+      tx_bms_stop_msg{
+          BMS_SEND_CMD, // can_id
+          2,            // can_dlc
+          {0x00, 0x00}  // data: MainRlyCmd = 0 (break open HV), ShutDownCmd = 0 (shutdown)
+      },
+      rx_bms_msg{
+          0,   // can_id
+          0,   // can_dlc
+          {0}, // data
+      },
+      mcp2515_BMS(mcp2515_BMS)
+{
+}
 
 /**
  * @brief Updates the CAN frame with the current pedal values.
@@ -56,45 +79,50 @@ void BMS::bms_can_frame_stop_hv(can_frame *tx_bms_msg)
  * @param mcp2515_BMS Pointer to the MCP2515 CAN controller instance.
  * @return None
  */
-void BMS::bms_start_hv(can_frame *tx_bms_msg, can_frame *rx_bms_msg, MCP2515 *mcp2515_BMS)
+void BMS::check_hv()
 {
-    while (true)
+    if (hv_started)
+        return; // already started
+    if (mcp2515_BMS->readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
     {
-        delay(100); // wait for 100ms before sending the command again
-        if (mcp2515_BMS->readMessage(rx_bms_msg) == MCP2515::ERROR_NOMSG)
-        {
-            DBG_BMS_STATUS(NO_MSG);
-            continue;
-        };
-
-        // Check if the BMS is in standby state (0x3 in upper 4 bits)
-        if (rx_bms_msg->can_id != BMS_INFO_EXT)
-        {
-            DBG_BMS_STATUS(WRONG_ID);
-            continue;
-        } // Not a BMS info frame, retry
-
-        switch (rx_bms_msg->data[6] & 0xF0)
-        {
-        case 0x30: // Standby state
-            DBG_BMS_STATUS(WAITING);
-            BMS::bms_can_frame_start_hv(tx_bms_msg);
-            mcp2515_BMS->sendMessage(tx_bms_msg);
-            DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
-            // sent start HV cmd, wait for BMS to change state
-            break;
-        case 0x40: // Precharge state
-            DBG_BMS_STATUS(STARTING);
-            DBGLN_GENERAL("BMS in precharge state, HV starting");
-            break; // BMS is in precharge state, return
-        case 0x50: // Run state
-            DBG_BMS_STATUS(STARTED);
-            DBGLN_GENERAL("BMS in run state, HV started");
-            return; // BMS is in run state, return
-        default:
-            DBG_BMS_STATUS(UNUSED);
-            DBGLN_GENERAL("BMS in unknown state, retrying...");
-            continue; // Unknown state, retry
-        }
+        DBG_BMS_STATUS(NO_MSG);
+        hv_started = false;
+        return;
     }
+
+    // Check if the BMS is in standby state (0x3 in upper 4 bits)
+    if (rx_bms_msg.can_id != BMS_INFO_EXT)
+    {
+        DBG_BMS_STATUS(WRONG_ID);
+        hv_started = false;
+        return;
+    } // Not a BMS info frame, retry
+
+    switch (rx_bms_msg.data[6] & 0xF0)
+    {
+    case 0x30: // Standby state
+        DBG_BMS_STATUS(WAITING);
+        mcp2515_BMS->sendMessage(&tx_bms_start_msg);
+        // last_msg_ms = *current_ms;
+        DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
+        // sent start HV cmd, wait for BMS to change state
+        hv_started = false;
+        return;
+    case 0x40: // Precharge state
+        DBG_BMS_STATUS(STARTING);
+        DBGLN_GENERAL("BMS in precharge state, HV starting");
+        hv_started = false;
+        return; // BMS is in precharge state, wait
+    case 0x50:  // Run state
+        DBG_BMS_STATUS(STARTED);
+        DBGLN_GENERAL("BMS in run state, HV started");
+        hv_started = true; // BMS is in run state
+        return;
+    default:
+        DBG_BMS_STATUS(UNUSED);
+        DBGLN_GENERAL("BMS in unknown state, retrying...");
+        hv_started = false;
+        return; // Unknown state, retry
+    }
+    hv_started = false; // guard, probably will be optimized out
 }
