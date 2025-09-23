@@ -2,6 +2,7 @@
 #include "boardConf.h"
 #include "Pedal.h"
 #include "BMS.h"
+#include "Scheduler.h"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -70,6 +71,46 @@ struct car_state main_car_state = {
     0      // torque_out
 };
 
+/*    Scheduler(uint32_t period_us_,
+                uint32_t spin_threshold_us_,
+                const void (*tasks_[])(),
+                const uint8_t task_ticks_[])
+*/
+
+
+Scheduler<5> scheduler(10000,
+                       100,
+                       {// List of tasks to be scheduled
+                        // Pedal CAN send task
+                        [](can_frame *tx_msg)
+                        {
+                            pedal.pedal_can_frame_update(tx_msg, &main_car_state);
+                            mcp2515_motor.sendMessage(tx_msg);
+                        },
+                        // BMS CAN send task
+                        [](can_frame *tx_msg)
+                        {
+                            bms.check_hv();
+                        },
+                        // Placeholder for future tasks
+                        [](can_frame *tx_msg)
+                        {
+                            // Future task 1
+                        },
+                        [](can_frame *tx_msg)
+                        {
+                            // Future task 2
+                        },
+                        [](can_frame *tx_msg)
+                        {
+                            // Future task 3
+                        }},
+                       {
+                           0,  // Pedal task runs every tick (10ms)
+                           99, // BMS task runs every 100 ticks (1s)
+
+                       });
+
 void setup()
 {
     // Init pedals
@@ -84,7 +125,8 @@ void setup()
     for (int i = 0; i < INPUT_COUNT; i++)
         pinMode(pins_in[i], INPUT);
     // Init output pins
-    for (int i = 0; i < OUTPUT_COUNT; i++){
+    for (int i = 0; i < OUTPUT_COUNT; i++)
+    {
         pinMode(pins_out[i], OUTPUT);
         digitalWrite(pins_out[i], LOW); // initialize output pins to LOW
     }
@@ -176,7 +218,7 @@ void loop()
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
-        
+
         bms.check_hv(); // check for HV ready, if not start it
 
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
