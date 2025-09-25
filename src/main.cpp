@@ -71,44 +71,25 @@ struct car_state main_car_state = {
     0      // torque_out
 };
 
+
+void scheduler_pedal(){
+    pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
+    mcp2515_motor.sendMessage(&tx_throttle_msg);
+}
+void scheduler_bms(){
+    bms.check_hv();
+}
+
 /*    Scheduler(uint32_t period_us_,
                 uint32_t spin_threshold_us_,
                 const void (*tasks_[])(),
                 const uint8_t task_ticks_[])
 */
-
-
-Scheduler<5> scheduler(10000,
-                       100,
-                       {// List of tasks to be scheduled
-                        // Pedal CAN send task
-                        [](can_frame *tx_msg)
-                        {
-                            pedal.pedal_can_frame_update(tx_msg, &main_car_state);
-                            mcp2515_motor.sendMessage(tx_msg);
-                        },
-                        // BMS CAN send task
-                        [](can_frame *tx_msg)
-                        {
-                            bms.check_hv();
-                        },
-                        // Placeholder for future tasks
-                        [](can_frame *tx_msg)
-                        {
-                            // Future task 1
-                        },
-                        [](can_frame *tx_msg)
-                        {
-                            // Future task 2
-                        },
-                        [](can_frame *tx_msg)
-                        {
-                            // Future task 3
-                        }},
+Scheduler<2> scheduler(10000, 100,
+                       {&scheduler_pedal, &scheduler_bms},
                        {
                            0,  // Pedal task runs every tick (10ms)
-                           99, // BMS task runs every 100 ticks (1s)
-
+                           4 // BMS task runs every 5 ticks (50ms)
                        });
 
 void setup()

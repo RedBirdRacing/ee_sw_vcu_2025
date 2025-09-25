@@ -74,7 +74,6 @@ void BMS::bms_can_frame_stop_hv(can_frame *tx_bms_msg)
  * Keep sending the command until the BMS state changes to precharge(4).
  * Returns when BMS state changes to run(5).
  *
- * @param tx_bms_msg Pointer to the CAN frame to update.
  * @param rx_bms_msg Pointer to the CAN frame to read the response.
  * @param mcp2515_BMS Pointer to the MCP2515 CAN controller instance.
  * @return None
@@ -102,7 +101,7 @@ void BMS::check_hv()
     {
     case 0x30: // Standby state
         DBG_BMS_STATUS(WAITING);
-        mcp2515_BMS->sendMessage(&tx_bms_start_msg);
+        hv_send_start = true;
         // last_msg_ms = *current_ms;
         DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
         // sent start HV cmd, wait for BMS to change state
@@ -110,11 +109,13 @@ void BMS::check_hv()
         return;
     case 0x40: // Precharge state
         DBG_BMS_STATUS(STARTING);
+        hv_send_start = false;
         DBGLN_GENERAL("BMS in precharge state, HV starting");
         hv_started = false;
         return; // BMS is in precharge state, wait
     case 0x50:  // Run state
         DBG_BMS_STATUS(STARTED);
+        hv_send_start = false;
         DBGLN_GENERAL("BMS in run state, HV started");
         hv_started = true; // BMS is in run state
         return;
@@ -126,3 +127,4 @@ void BMS::check_hv()
     }
     hv_started = false; // guard, probably will be optimized out
 }
+
