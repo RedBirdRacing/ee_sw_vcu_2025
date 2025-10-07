@@ -81,6 +81,8 @@ void BMS::bms_can_frame_stop_hv(can_frame *tx_bms_msg)
  */
 void BMS::check_hv()
 {
+    hv_started = true;
+    return; // TEMP disable BMS HV start logic for testing without BMS
     if (hv_started)
         return; // already started
     if (mcp2515_BMS->readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)

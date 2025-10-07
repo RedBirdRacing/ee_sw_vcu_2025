@@ -19,12 +19,12 @@
     set PEDAL_X_MIN_VOLTAGE to 69 and PEDAL_X_MAX_VOLTAGE to 948.
 */
 
-const uint16_t PEDAL_1_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 1 (5V)
-const uint16_t PEDAL_1_IN_MAX = 1022; // Maximum ADC reading for APPS Pedal 1 (5V)
-const uint16_t PEDAL_2_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 2 (3.3V)
-const uint16_t PEDAL_2_IN_MAX = 700; // Maximum ADC reading for APPS Pedal 2 (3.3V)
-const uint16_t BRAKE_IN_MIN = 0; // Minimum ADC reading for Brake Pedal
-const uint16_t BRAKE_IN_MAX = 1023; // Maximum ADC reading for Brake Pedal
+const uint16_t PEDAL_1_IN_MIN = 610; // Minimum ADC reading for APPS Pedal 1 (5V)
+const uint16_t PEDAL_1_IN_MAX = 860; // Maximum ADC reading for APPS Pedal 1 (5V)
+const uint16_t PEDAL_2_IN_MIN = 410; // Minimum ADC reading for APPS Pedal 2 (3.3V)
+const uint16_t PEDAL_2_IN_MAX = 630; // Maximum ADC reading for APPS Pedal 2 (3.3V)
+const uint16_t BRAKE_IN_MIN = 101; // Minimum ADC reading for Brake Pedal
+const uint16_t BRAKE_IN_MAX = 135; // Maximum ADC reading for Brake Pedal
 
 /*
     Second, set the deadzone. a deadzone is a range of reading that the pedal will not respond to.
@@ -33,12 +33,12 @@ const uint16_t BRAKE_IN_MAX = 1023; // Maximum ADC reading for Brake Pedal
     While it's better to have an odd number for deadzone, it is not required. This is because the tree planting problem; there are 41 trees for 40 segments.
 */
 
-const uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH = 3;
-const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 3;
+const uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH = 27;
+const uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 21;
 // const uint16_t PEDAL_2_LOWER_DEADZONE_WIDTH = 3;
 // const uint16_t PEDAL_2_UPPER_DEADZONE_WIDTH = 3;
-const uint16_t BRAKE_LOWER_DEADZONE_WIDTH = 3;
-const uint16_t BRAKE_UPPER_DEADZONE_WIDTH = 3;
+const uint16_t BRAKE_LOWER_DEADZONE_WIDTH = 9;
+const uint16_t BRAKE_UPPER_DEADZONE_WIDTH = 9;
 
 /*
     Data entry ends here.
@@ -92,6 +92,7 @@ const uint16_t MIN_THROTTLE_OUT_VAL = 0; // 0 for off pedal regen
 
 // Flips the direction of motor output
 // set to true for gen 3
+// later make class member for future dev
 const bool FLIP_MOTOR_DIR = true;
 
 #define ADC_BUFFER_SIZE 16
@@ -129,7 +130,7 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
 
-    bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2);
+    bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2, int16_t brake);
     int16_t throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip_dir);
     int16_t brake_torque_mapping(uint16_t brake, bool flip_dir);
 };

@@ -20,7 +20,41 @@
  */
 
 // select the board configuration to use
-#define USE_3CH_CAN
+#define USE_VCU_V3_2
+
+// VCU v3.2
+
+#ifdef USE_VCU_V3_2
+// === CAN bus pins ===
+#define CS_CAN_MOTOR PIN_PD1 // CAN 1
+#define CS_CAN_BMS PIN_PB2   // CAN 3
+#define CS_CAN_DL PIN_PB1    // CAN 2
+
+// === APPS and Brake pins ===
+#define APPS_5V PIN_A6
+#define APPS_3V3 PIN_A7
+#define BRAKE_IN PIN_PC0
+
+// VCU brake light
+#define BRAKE_LIGHT PIN_PD5 // P=Out1
+
+// === Drive mode ===
+#define DRIVE_MODE_LED PIN_PC3 // P=Out6
+#define DRIVE_MODE_BTN PIN_PC5 // IGN_5V
+
+
+// === Buzzer for car status ===
+#define BUZZER_OUT PIN_PD6 // P=Out2
+
+// === BMS HV start failed LED ===
+#define BMS_FAILED_LED PIN_PD7 // P=Out3
+
+// === Button active state ===
+#define BUTTON_ACTIVE HIGH
+
+// === MCP2515 crystal frequency ===
+#define MCP2515_CRYSTAL_FREQ MCP_20MHZ
+#endif // USE_VCU_V3_2
 
 // VCU v3
 
@@ -44,7 +78,7 @@
 #define BUZZER_OUT PIN_PD4
 
 // === BMS HV start failed LED ===
-//#define BMS_FAILED_LED PIN_PD4
+// #define BMS_FAILED_LED PIN_PD4
 
 // === Button active state ===
 #define BUTTON_ACTIVE HIGH
@@ -115,7 +149,7 @@
 #define BUZZER_OUT PIN_PD4
 
 // === BMS HV start failed LED ===
-//#define BMS_FAILED_LED PIN_PD4
+// #define BMS_FAILED_LED PIN_PD4
 
 // === Button active state ===
 #define BUTTON_ACTIVE HIGH
@@ -146,7 +180,7 @@
 #define BUZZER_OUT 6
 
 // === BMS HV start failed LED ===
-//#define BMS_FAILED_LED PIN_PD4
+// #define BMS_FAILED_LED PIN_PD4
 
 // === Button active state ===
 #define BUTTON_ACTIVE HIGH

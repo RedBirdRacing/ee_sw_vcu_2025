@@ -41,14 +41,16 @@ void Debug_Serial::println(const char *msg) { Serial.println(msg); }
  * @param pedal_2_scaled Scaled value of pedal sensor 2.
  * @return None
  */
-void Debug_Serial::throttle_in(uint16_t pedal_1, uint16_t pedal_2, uint16_t pedal_2_scaled)
+void Debug_Serial::throttle_in(uint16_t pedal_1, uint16_t pedal_2, uint16_t pedal_2_scaled, uint16_t brake)
 {
     Serial.print("Pedal 1: ");
     Serial.print(pedal_1);
     Serial.print(" | Pedal 2: ");
     Serial.print(pedal_2);
     Serial.print(" | Pedal 2 scaled: ");
-    Serial.println(pedal_2_scaled);
+    Serial.print(pedal_2_scaled);
+    Serial.print(" | Brake: ");
+    Serial.println(brake);
 }
 
 /**
