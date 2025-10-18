@@ -104,14 +104,14 @@ inline void DBGLN_STATUS(const char *x)
  * @param pedal_filtered_2 Filtered value from pedal 2.
  * @param pedal_filtered_final Final filtered value.
  */
-inline void DBG_THROTTLE_IN(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)
+inline void DBG_THROTTLE_IN(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final, uint16_t brake)
 {
 #if DEBUG_THROTTLE_IN && (DEBUG_SERIAL || DEBUG_CAN)
 #if DEBUG_SERIAL
-    Debug_Serial::throttle_in(pedal_filtered_1, pedal_filtered_2, pedal_filtered_final);
+    Debug_Serial::throttle_in(pedal_filtered_1, pedal_filtered_2, pedal_filtered_final, brake);
 #endif
 #if DEBUG_CAN
-    Debug_CAN::throttle_in(pedal_filtered_1, pedal_filtered_2, pedal_filtered_final);
+    Debug_CAN::throttle_in(pedal_filtered_1, pedal_filtered_2, pedal_filtered_final, brake);
 #endif
 #endif
 }

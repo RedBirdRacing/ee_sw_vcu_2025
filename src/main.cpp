@@ -45,12 +45,12 @@ struct can_frame tx_throttle_msg;
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
 
-const uint16_t BRAKE_THRESHOLD = 256; // The threshold for the brake pedal to be considered pressed
+const uint16_t BRAKE_THRESHOLD = 105; // The threshold for the brake pedal to be considered pressed
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
 /**
- * @brief Global car state structure.
+ * @brief Global car state stru=cture.
  *
  * Holds the current state of the car, including status, timers, pedal input, fault flags, and output torque.
  *
@@ -145,9 +145,10 @@ void setup()
 
 void loop()
 {
+    delay(9); // Loop every 10ms
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
-    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), 0);
+    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);

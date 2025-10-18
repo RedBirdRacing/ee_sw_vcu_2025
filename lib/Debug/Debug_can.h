@@ -26,7 +26,7 @@ namespace Debug_CAN
 
     // Specialized messages
 
-    void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled);
+    void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled, uint16_t brake);
     void throttle_out(uint16_t throttle_final, int16_t throttle_torque_val);
     void throttle_fault(pedal_fault_status fault_status, uint16_t value);
     void throttle_fault(pedal_fault_status fault_status);

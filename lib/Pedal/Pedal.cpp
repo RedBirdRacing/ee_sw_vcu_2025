@@ -53,7 +53,7 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
 
     car->pedal_final = pedal_filtered_1; // Only take in pedal 1 value
 
-    if (!check_pedal_fault(pedal_filtered_1, pedal_filtered_2))
+    if (!check_pedal_fault(pedal_filtered_1, pedal_filtered_2, car->brake_final))
     {
         if (fault)
             DBG_THROTTLE_FAULT(DIFF_RESOLVED);
@@ -245,11 +245,11 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
  * @param pedal_2 Raw value from pedal sensor 2 (uint16_t), intentionally casted to int16_t.
  * @return true if the difference exceeds the threshold (fault detected), false otherwise.
  */
-bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2)
+bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2, int16_t brake)
 {
 
-    int16_t pedal_2_scaled = round((float)pedal_2 * 5.0 / 3.3);//round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
-    DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled);
+    int16_t pedal_2_scaled = round((float)pedal_2 * 4.8 / 3.2);//round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
+    DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled, brake);
 
     int16_t delta = pedal_1 - pedal_2_scaled;
     // if more than 10% difference between the two pedals, consider it a fault

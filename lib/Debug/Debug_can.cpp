@@ -31,14 +31,14 @@ void Debug_CAN::initialize(MCP2515 *can)
  * @param pedal_2_scaled Scaled value of pedal sensor 2.
  * @return None
  */
-void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled)
+void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled, uint16_t brake)
 {
     if (!can_interface)
         return;
 
     can_frame tx_msg;
     tx_msg.can_id = THROTTLE_IN_MSG;
-    tx_msg.can_dlc = 6;
+    tx_msg.can_dlc = 8;
 
     // Little-endian format for uint16_t values
     tx_msg.data[0] = pedal_filtered_1 & 0xFF;
@@ -47,6 +47,8 @@ void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2
     tx_msg.data[3] = (pedal_filtered_2 >> 8) & 0xFF; // Upper byte
     tx_msg.data[4] = pedal_2_scaled & 0xFF;
     tx_msg.data[5] = (pedal_2_scaled >> 8) & 0xFF; // Upper byte
+    tx_msg.data[6] = brake & 0xFF;
+    tx_msg.data[7] = (brake >> 8) & 0xFF; // Upper byte
 
     can_interface->sendMessage(&tx_msg);
 }
