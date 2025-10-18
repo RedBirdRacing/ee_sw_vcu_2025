@@ -85,12 +85,13 @@ void scheduler_bms(){
                 const void (*tasks_[])(),
                 const uint8_t task_ticks_[])
 */
+/*
 Scheduler<2> scheduler(10000, 100,
                        {&scheduler_pedal, &scheduler_bms},
                        {
                            0,  // Pedal task runs every tick (10ms)
                            4 // BMS task runs every 5 ticks (50ms)
-                       });
+                       });*/
 
 void setup()
 {

@@ -19,12 +19,12 @@
     set PEDAL_X_MIN_VOLTAGE to 69 and PEDAL_X_MAX_VOLTAGE to 948.
 */
 
-const uint16_t PEDAL_1_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 1 (5V)
+const uint16_t PEDAL_1_IN_MIN = 0;    // Minimum ADC reading for APPS Pedal 1 (5V)
 const uint16_t PEDAL_1_IN_MAX = 1022; // Maximum ADC reading for APPS Pedal 1 (5V)
-const uint16_t PEDAL_2_IN_MIN = 0; // Minimum ADC reading for APPS Pedal 2 (3.3V)
-const uint16_t PEDAL_2_IN_MAX = 700; // Maximum ADC reading for APPS Pedal 2 (3.3V)
-const uint16_t BRAKE_IN_MIN = 0; // Minimum ADC reading for Brake Pedal
-const uint16_t BRAKE_IN_MAX = 1023; // Maximum ADC reading for Brake Pedal
+const uint16_t PEDAL_2_IN_MIN = 0;    // Minimum ADC reading for APPS Pedal 2 (3.3V)
+const uint16_t PEDAL_2_IN_MAX = 700;  // Maximum ADC reading for APPS Pedal 2 (3.3V)
+const uint16_t BRAKE_IN_MIN = 0;      // Minimum ADC reading for Brake Pedal
+const uint16_t BRAKE_IN_MAX = 1023;   // Maximum ADC reading for Brake Pedal
 
 /*
     Second, set the deadzone. a deadzone is a range of reading that the pedal will not respond to.
@@ -59,11 +59,11 @@ e.g. UU of 1000 means 1000, 1001... are faulty
 thus if throttle should be saturated, UU should be greater than or equal to 1024
 */
 const uint16_t PEDAL_1_LL = (PEDAL_1_IN_MIN < (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2)
-                           ? 0.0f
-                           : (PEDAL_1_IN_MIN - (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2);
+                                ? 0.0f
+                                : (PEDAL_1_IN_MIN - (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2);
 const uint16_t PEDAL_1_LU = (PEDAL_1_IN_MIN < (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2)
-                           ? PEDAL_1_LOWER_DEADZONE_WIDTH
-                           : (PEDAL_1_IN_MIN + (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2);
+                                ? PEDAL_1_LOWER_DEADZONE_WIDTH
+                                : (PEDAL_1_IN_MIN + (PEDAL_1_LOWER_DEADZONE_WIDTH - 1) / 2);
 const uint16_t PEDAL_1_UL = PEDAL_1_IN_MAX - (PEDAL_1_UPPER_DEADZONE_WIDTH - 1) / 2;
 const uint16_t PEDAL_1_UU = PEDAL_1_IN_MAX + (PEDAL_1_UPPER_DEADZONE_WIDTH - 1) / 2;
 // since only take pedal 1, no need to define pedal 2 deadzones, directly coupled to pedal 1's deadzones
@@ -74,20 +74,19 @@ const uint16_t PEDAL_UL = PEDAL_1_UL;
 const uint16_t PEDAL_UU = PEDAL_1_UU;
 
 const uint16_t BRAKE_LL = (BRAKE_IN_MIN < (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2)
-                           ? 0.0f
-                           : (BRAKE_IN_MIN - (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2);
+                              ? 0.0f
+                              : (BRAKE_IN_MIN - (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2);
 const uint16_t BRAKE_LU = (BRAKE_IN_MIN < (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2)
-                            ? BRAKE_LOWER_DEADZONE_WIDTH
-                            : (BRAKE_IN_MIN + (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2);
+                              ? BRAKE_LOWER_DEADZONE_WIDTH
+                              : (BRAKE_IN_MIN + (BRAKE_LOWER_DEADZONE_WIDTH - 1) / 2);
 const uint16_t BRAKE_UL = BRAKE_IN_MAX - (BRAKE_UPPER_DEADZONE_WIDTH - 1) / 2;
 const uint16_t BRAKE_UU = BRAKE_IN_MAX + (BRAKE_UPPER_DEADZONE_WIDTH - 1) / 2;
-
 
 const uint16_t MAX_THROTTLE_OUT_VAL = 32430; // Maximum torque value is 32760 for mcp2515
 // currently set to a slightly lower value to not use speed control (100%)
 // see E,EnS group discussion, 20250425HKT020800 discussion
 const uint16_t MAX_REGEN = 20000;
-const uint16_t MIN_REGEN = 0; // pedal off regen value
+const uint16_t MIN_REGEN = 0;            // pedal off regen value
 const uint16_t MIN_THROTTLE_OUT_VAL = 0; // 0 for off pedal regen
 
 // Flips the direction of motor output
@@ -109,7 +108,7 @@ class Pedal
     friend void setup(void);
     friend void loop(void);
     friend void test_brake_torque_mapping(void);
-    
+
 public:
     Pedal();
     void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
