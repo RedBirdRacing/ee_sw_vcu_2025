@@ -4,9 +4,9 @@
 #include "Enums.h"
 
 // === Debug Flags ===
-#define DEBUG true                 // if false, all debug messages are ignored
+#define DEBUG true                  // if false, all debug messages are ignored
 #define DEBUG_SERIAL false && DEBUG // if false, all serial debug messages are ignored
-#define DEBUG_CAN true && DEBUG    // if false, all CAN debug messages are ignored
+#define DEBUG_CAN true && DEBUG     // if false, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
 #include <Debug_serial.h>
@@ -30,7 +30,7 @@
 
 // ===== Simple Serial-Only Debug Functions =====
 
-/** 
+/**
  * @brief Prints a throttle debug message to the serial console.
  * @param x The message to print.
  */
