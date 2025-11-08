@@ -27,6 +27,7 @@ private:
     can_frame tx_bms_start_msg, tx_bms_stop_msg, rx_bms_msg;
     MCP2515 *mcp2515_BMS;
     bool hv_started = false;
+    bool hv_send_start = false;
 
     void bms_can_frame_start_hv(can_frame *tx_bms_msg);
     void bms_can_frame_stop_hv(can_frame *tx_bms_msg);

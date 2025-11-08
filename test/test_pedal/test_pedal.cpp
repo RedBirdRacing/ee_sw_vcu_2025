@@ -181,6 +181,7 @@ void test_brake_torque_mapping(void)
 void test_check_pedal_fault(void)
 {
     // make sure APPS3V3 /3.3*5 and APPS5V delta > 102 then fault, else no fault
+    
     // no fault when similar values
     for (float i = 0; i < 1024; ++i)
     {

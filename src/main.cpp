@@ -2,6 +2,7 @@
 #include "boardConf.h"
 #include "Pedal.h"
 #include "BMS.h"
+#include "Scheduler.h"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -71,6 +72,28 @@ struct car_state main_car_state = {
     false, // fault_force_stop
     0      // torque_out
 };
+
+
+void scheduler_pedal(){
+    pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
+    mcp2515_motor.sendMessage(&tx_throttle_msg);
+}
+void scheduler_bms(){
+    bms.check_hv();
+}
+
+/*    Scheduler(uint32_t period_us_,
+                uint32_t spin_threshold_us_,
+                const void (*tasks_[])(),
+                const uint8_t task_ticks_[])
+*/
+/*
+Scheduler<2> scheduler(10000, 100,
+                       {&scheduler_pedal, &scheduler_bms},
+                       {
+                           0,  // Pedal task runs every tick (10ms)
+                           4 // BMS task runs every 5 ticks (50ms)
+                       });*/
 
 void setup()
 {

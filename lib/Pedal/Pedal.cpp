@@ -219,8 +219,7 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
         // linear mapping, with proper casting to prevent overflow
         int32_t numerator = static_cast<int32_t>(brake - BRAKE_LU) * static_cast<int32_t>(MAX_THROTTLE_OUT_VAL);
         int32_t denominator = static_cast<int32_t>(BRAKE_UL - BRAKE_LU);
-        int16_t result = static_cast<int16_t>(numerator / denominator);
-        return result;
+        result = static_cast<int16_t>(numerator / denominator);
     }
     else if (brake < BRAKE_UU)
     {
