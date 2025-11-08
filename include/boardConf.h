@@ -34,20 +34,21 @@
 #define APPS_5V PIN_A6
 #define APPS_3V3 PIN_A7
 #define BRAKE_IN PIN_PC0
+#define HALL_SENSOR PIN_PC1
 
 // VCU brake light
 #define BRAKE_LIGHT PIN_PD5 // P=Out1
 
 // === Drive mode ===
-#define DRIVE_MODE_LED PIN_PC3 // P=Out6
+#define FRG PIN_PD7 // P=Out3
 #define DRIVE_MODE_BTN PIN_PC5 // IGN_5V
 
 
 // === Buzzer for car status ===
-#define BUZZER_OUT PIN_PD6 // P=Out2
+#define BUZZER PIN_PD6 // P=Out2
 
 // === BMS HV start failed LED ===
-#define BMS_FAILED_LED PIN_PD7 // P=Out3
+#define BMS_FAILED_LED PIN_PD7 // P=Out2
 
 // === Button active state ===
 #define BUTTON_ACTIVE HIGH
@@ -71,11 +72,11 @@
 #define BRAKE_IN PIN_PC3
 
 // === Drive mode ===
-#define DRIVE_MODE_LED PIN_PB0
+#define FRG PIN_PB0
 #define DRIVE_MODE_BTN PIN_PC4
 
 // === Buzzer for car status ===
-#define BUZZER_OUT PIN_PD4
+#define BUZZER PIN_PD4
 
 // === BMS HV start failed LED ===
 // #define BMS_FAILED_LED PIN_PD4
@@ -107,11 +108,11 @@
 #define BRAKE_LIGHT PIN_PD2
 
 // === Drive mode ===
-#define DRIVE_MODE_LED PIN_PD3
+#define FRG PIN_PD3  // = drive mode LED, soft relay
 #define DRIVE_MODE_BTN PIN_PC4
 
 // === Buzzer for car status ===
-#define BUZZER_OUT PIN_PD4
+#define BUZZER PIN_PD4
 
 // === BMS HV start failed LED ===
 #define BMS_FAILED_LED PIN_PD5
@@ -141,12 +142,12 @@
 #define BRAKE_LIGHT PIN_PC3
 
 // === Drive mode ===
-#define DRIVE_MODE_LED PIN_PB0
+#define FRG PIN_PB0
 
 #define DRIVE_MODE_BTN PIN_PC4
 
 // === Buzzer for car status ===
-#define BUZZER_OUT PIN_PD4
+#define BUZZER PIN_PD4
 
 // === BMS HV start failed LED ===
 // #define BMS_FAILED_LED PIN_PD4
@@ -174,10 +175,10 @@
 #define BRAKE_IN A3
 
 // === Drive mode ===
-#define DRIVE_MODE_LED 4
+#define FRG 4
 #define DRIVE_MODE_BTN 5
 // === Buzzer for car status ===
-#define BUZZER_OUT 6
+#define BUZZER 6
 
 // === BMS HV start failed LED ===
 // #define BMS_FAILED_LED PIN_PD4

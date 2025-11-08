@@ -32,9 +32,9 @@ namespace Debug_CAN
     void throttle_fault(pedal_fault_status fault_status);
     void brake_fault(pedal_fault_status fault_status, uint16_t value);
     void status_car(main_car_status car_status);
-    void status_car_change(state_changes status_change);
     void status_brake(uint16_t brake_voltage);
     void status_bms(BMS_status BMS_status);
+    void hall_sensor(uint16_t hall_sensor_value);
 }
 
 #endif // DEBUG_CAN_H

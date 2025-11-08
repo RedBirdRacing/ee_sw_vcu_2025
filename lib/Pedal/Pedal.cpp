@@ -35,9 +35,9 @@ Pedal::Pedal() : fault(true) {}
 void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 {
     // Record readings in buffer
-    pedal_value_1.push(pedal_1);
-    pedal_value_2.push(pedal_2);
-    brake_value.push(brake);
+    //pedal_value_1.push(pedal_1);
+    //pedal_value_2.push(pedal_2);
+    //brake_value.push(brake);
 
     // Range of pedal 1 is APPS_PEDAL_1_RANGE, pedal 2 is APPS_PEDAL_2_RANGE;
 
@@ -47,9 +47,13 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
     // depends on the hardware filter, reduce software filtering as much as possible
 
     // currently a small average filter is good enough
-    pedal_filtered_1 = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
-    pedal_filtered_2 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
-    car->brake_final = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
+    //pedal_filtered_1 = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
+    //pedal_filtered_2 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
+    //car->brake_final = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
+
+    pedal_filtered_1 = pedal_1;
+    pedal_filtered_2 = pedal_2;
+    car->brake_final = brake;
 
     car->pedal_final = pedal_filtered_1; // Only take in pedal 1 value
 

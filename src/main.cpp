@@ -2,7 +2,6 @@
 #include "boardConf.h"
 #include "Pedal.h"
 #include "BMS.h"
-#include "Scheduler.h"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -21,10 +20,10 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-const uint8_t INPUT_COUNT = 4;
-const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3};
+const uint8_t INPUT_COUNT = 5;
+const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3, HALL_SENSOR};
 const uint8_t OUTPUT_COUNT = 4;
-const uint8_t pins_out[OUTPUT_COUNT] = {DRIVE_MODE_LED, BRAKE_LIGHT, BUZZER_OUT, BMS_FAILED_LED};
+const uint8_t pins_out[OUTPUT_COUNT] = {FRG, BRAKE_LIGHT, BUZZER, BMS_FAILED_LED};
 
 // === Pedal ===
 Pedal pedal;
@@ -39,13 +38,15 @@ BMS bms(&mcp2515_BMS);
 
 // === CAN (Datalogger) ===
 MCP2515 mcp2515_DL(CS_CAN_DL);
+#define mcp2515_motor mcp2515_DL
 
 struct can_frame tx_throttle_msg;
 
 const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
 const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
+const uint16_t BMS_MILLIS = 10000;     // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 
-const uint16_t BRAKE_THRESHOLD = 105; // The threshold for the brake pedal to be considered pressed
+const uint16_t BRAKE_THRESHOLD = 130; // The threshold for the brake pedal to be considered pressed
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
@@ -105,7 +106,9 @@ void setup()
 
     // Init input pins
     for (int i = 0; i < INPUT_COUNT; i++)
+    {
         pinMode(pins_in[i], INPUT);
+    }
     // Init output pins
     for (int i = 0; i < OUTPUT_COUNT; i++)
     {
@@ -146,6 +149,7 @@ void setup()
 void loop()
 {
     delay(9); // Loop every 10ms
+    DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
@@ -156,8 +160,8 @@ void loop()
     For the time being:
     DRIVE_MODE_BTN = "Start" button
     BRAKE_IN = Brake pedal
-    BUZZER_OUT = Buzzer output
-    DRIVE_MODE_LED = "Drive" mode indicator
+    BUZZER = Buzzer output
+    FRG = "Drive" mode indicator
     */
     if (main_car_state.fault_force_stop)
     {
@@ -165,10 +169,10 @@ void loop()
         DBGLN_THROTTLE("Stopping motor: Fault exceeded 100ms.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
-        main_car_state.car_status = INIT;  // safety, later change to fault status
-        digitalWrite(BUZZER_OUT, LOW);     // Turn off buzzer
-        digitalWrite(DRIVE_MODE_LED, LOW); // Turn off drive mode LED
-        return;                            // If fault force stop is active, do not proceed with the rest of the loop
+        main_car_state.car_status = INIT; // safety, later change to fault status
+        digitalWrite(BUZZER, LOW);        // Turn off buzzer
+        digitalWrite(FRG, LOW);           // Turn off drive mode LED
+        return;                           // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
 
@@ -193,7 +197,6 @@ void loop()
             main_car_state.car_status_millis_counter = main_car_state.millis;
 
             DBG_STATUS_CAR(main_car_state.car_status);
-            DBG_STATUS_CAR_CHANGE(INIT_TO_STARTIN);
         }
         break;
 
@@ -210,41 +213,41 @@ void loop()
             main_car_state.car_status_millis_counter = main_car_state.millis; // safety
 
             DBG_STATUS_CAR(main_car_state.car_status);
-            DBG_STATUS_CAR_CHANGE(STARTIN_TO_INIT);
         }
         else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
         {
-            if (!bms.hv_ready()) // if HV not started, return to INIT
+            if (bms.hv_ready()) // if HV not started, return to INIT
             {
-                main_car_state.car_status = INIT;
+                main_car_state.car_status = BUSSIN;
                 main_car_state.car_status_millis_counter = main_car_state.millis; // safety
 
                 DBG_STATUS_CAR(main_car_state.car_status);
-                DBG_STATUS_CAR_CHANGE(BMS_TO_INIT);
                 break;
             }
-            main_car_state.car_status = BUSSIN;
-            main_car_state.car_status_millis_counter = main_car_state.millis;
-            digitalWrite(BUZZER_OUT, HIGH);
+            if (main_car_state.millis - main_car_state.car_status_millis_counter >= BMS_MILLIS)
+            {
+                main_car_state.car_status = BUSSIN;
+                main_car_state.car_status_millis_counter = main_car_state.millis; // safety
 
-            DBG_STATUS_CAR(main_car_state.car_status);
-            DBG_STATUS_CAR_CHANGE(STARTIN_TO_BUSSIN);
+                DBG_STATUS_CAR(main_car_state.car_status);
+                break;
+            }
         }
         break;
 
     case BUSSIN:
+        digitalWrite(BUZZER, HIGH); // Turn on buzzer
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: BUSSIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (main_car_state.millis - main_car_state.car_status_millis_counter >= BUSSIN_MILLIS)
         {
-            digitalWrite(BUZZER_OUT, LOW);
-            digitalWrite(DRIVE_MODE_LED, HIGH);
+            digitalWrite(BUZZER, LOW);
+            digitalWrite(FRG, HIGH);
             main_car_state.car_status = DRIVE;
 
             DBG_STATUS_CAR(main_car_state.car_status);
-            DBG_STATUS_CAR_CHANGE(BUSSIN_TO_DRIVE);
         }
         break;
 
@@ -263,6 +266,5 @@ void loop()
         mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         DBG_STATUS_CAR(main_car_state.car_status);
-        DBG_STATUS_CAR_CHANGE(THROTTLE_TO_INIT);
     }
 }

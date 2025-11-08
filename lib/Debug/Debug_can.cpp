@@ -140,7 +140,7 @@ void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
 
     can_frame tx_msg;
     tx_msg.can_id = THROTTLE_FAULT_MSG;
-    tx_msg.can_dlc = 5;
+    tx_msg.can_dlc = 3;
 
     tx_msg.data[0] = static_cast<uint8_t>(fault_status); // Convert enum to uint8_t
 
@@ -170,27 +170,6 @@ void Debug_CAN::status_car(main_car_status car_status)
 
     can_interface->sendMessage(&tx_msg);
 }
- 
-/**
- * @brief Sends a debug car status change message over CAN.
- * This function prepares a CAN frame with the current car status change and sends it.
- * 
- * @param status_change The state change of the car as defined in state_changes enum.
- * @return None
- */
-void Debug_CAN::status_car_change(state_changes status_change)
-{
-    if (!can_interface)
-        return;
-
-    can_frame tx_msg;
-    tx_msg.can_id = STATUS_CAR_CHANGE_MSG;
-    tx_msg.can_dlc = 1;
-
-    tx_msg.data[0] = static_cast<uint8_t>(status_change); // Convert enum to uint8_t
-
-    can_interface->sendMessage(&tx_msg);
-}
 
 /**
  * @brief Sends a debug BMS status message over CAN.
@@ -209,6 +188,21 @@ void Debug_CAN::status_bms(BMS_status BMS_status)
     tx_msg.can_dlc = 1;
 
     tx_msg.data[0] = static_cast<uint8_t>(BMS_status); // Convert enum to uint8_t
+
+    can_interface->sendMessage(&tx_msg);
+}
+
+void Debug_CAN::hall_sensor(uint16_t hall_sensor_value)
+{
+    if (!can_interface)
+        return;
+
+    can_frame tx_msg;
+    tx_msg.can_id = STATUS_HALL_SENSOR_MSG;
+    tx_msg.can_dlc = 2;
+
+    tx_msg.data[0] = hall_sensor_value & 0xFF;
+    tx_msg.data[1] = (hall_sensor_value >> 8) & 0xFF; // Upper byte
 
     can_interface->sendMessage(&tx_msg);
 }

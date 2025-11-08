@@ -166,55 +166,46 @@ void Debug_Serial::brake_fault(pedal_fault_status fault_status, uint16_t value)
  */
 void Debug_Serial::status_car(main_car_status car_status)
 {
-    switch (car_status)
-    {
-    case INIT:
-        Serial.println("Car Status: Initialised");
-        break;
-    case STARTIN:
-        Serial.println("Car Status: In starting sequence");
-        break;
-    case BUSSIN:
-        Serial.println("Car Status: Buzzer buzzing");
-        break;
-    case DRIVE:
-        Serial.println("Car Status: Drive mode");
-        break;
-    default:
-        Serial.println("Car Status: UNKNOWN");
-        break;
-    }
-}
-
-/**
- * @brief Prints the car status change to the serial console.
- * This function formats and sends the car status change to the serial console.
- * 
- * @param status_change The state change of the car as defined in state_changes enum.
- * @return None
- */
-void Debug_Serial::status_car_change(state_changes status_change)
-{
-    switch (status_change)
-    {
-    case INIT_TO_STARTIN:
-        Serial.println("Car Status Change: INIT -> STARTIN");
-        break;
-    case STARTIN_TO_BUSSIN:
-        Serial.println("Car Status Change: STARTIN -> BUSSIN");
-        break;
-    case BUSSIN_TO_DRIVE:
-        Serial.println("Car Status Change: BUSSIN -> DRIVE");
-        break;
-    case STARTIN_TO_INIT:
-        Serial.println("Car Status Change: STARTIN -> INIT; Drive mode button or brake pedal is released, returning to INIT");
-        break;
-    case THROTTLE_TO_INIT:
-        Serial.println("Car Status Change: THROTTLE -> INIT; Throttle pressed too early!");
-        break;
-    default:
-        Serial.println("Car Status Change: UNKNOWN");
-        break;
+    static main_car_status last_status = INIT;
+    if (car_status != last_status) {
+        Serial.print("Car Status: ");
+        switch (last_status)
+        {
+        case INIT:
+            Serial.print("INIT -> ");
+            break;
+        case STARTIN:
+            Serial.print("STARTIN -> ");
+            break;
+        case BUSSIN:
+            Serial.print("BUSSIN -> ");
+            break;
+        case DRIVE:
+            Serial.print("DRIVE -> ");
+            break;
+        default:
+            Serial.print("UNKNOWN -> ");
+            break;
+        }
+        switch (car_status)
+        {
+        case INIT:
+            Serial.print("INIT -> ");
+            break;
+        case STARTIN:
+            Serial.print("STARTIN -> ");
+            break;
+        case BUSSIN:
+            Serial.print("BUSSIN -> ");
+            break;
+        case DRIVE:
+            Serial.print("DRIVE -> ");
+            break;
+        default:
+            Serial.print("UNKNOWN -> ");
+            break;
+        }
+        last_status = car_status;
     }
 }
 
