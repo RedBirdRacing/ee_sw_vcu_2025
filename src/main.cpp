@@ -2,7 +2,6 @@
 #include "boardConf.h"
 #include "Pedal.h"
 #include "BMS.h"
-#include "Scheduler.h"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
