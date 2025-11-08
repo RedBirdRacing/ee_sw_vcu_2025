@@ -27,6 +27,7 @@
 #define DEBUG_STATUS true // Serial only
 #define DEBUG_STATUS_CAR true && DEBUG_STATUS
 #define DEBUG_STATUS_BRAKE true && DEBUG_STATUS
+#define DEBUG_HALL_SENSOR true && DEBUG
 
 // ===== Simple Serial-Only Debug Functions =====
 
@@ -180,22 +181,6 @@ inline void DBG_STATUS_CAR(main_car_status car_status)
 }
 
 /**
- * @brief Sends car status change debug info via CAN or serial (if enabled).
- * @param status_change Status change enum value.
- */
-inline void DBG_STATUS_CAR_CHANGE(state_changes status_change)
-{
-#if DEBUG_STATUS_CAR && (DEBUG_SERIAL || DEBUG_CAN)
-#if DEBUG_SERIAL
-    Debug_Serial::status_car_change(status_change);
-#endif
-#if DEBUG_CAN
-    Debug_CAN::status_car_change(status_change);
-#endif
-#endif
-}
-
-/**
  * @brief Sends brake fault debug info via CAN or serial (if enabled).
  * Overloads for fault status with or without value.
  * @param fault_status The fault status enum.
@@ -225,6 +210,22 @@ inline void DBG_BMS_STATUS(BMS_status BMS_status)
 #endif
 #if DEBUG_CAN
     Debug_CAN::status_bms(BMS_status);
+#endif
+#endif
+}
+
+/**
+ * @brief Send hall sensor debug info via CAN
+ * @param hall_sensor_value The hall sensor value.
+ */
+inline void DBG_HALL_SENSOR(uint16_t hall_sensor_value)
+{
+#if DEBUG_HALL_SENSOR && (DEBUG_SERIAL || DEBUG_CAN)
+#if DEBUG_SERIAL
+    Debug_Serial::hall_sensor(hall_sensor_value);
+#endif
+#if DEBUG_CAN
+    Debug_CAN::hall_sensor(hall_sensor_value);
 #endif
 #endif
 }

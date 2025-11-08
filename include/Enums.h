@@ -86,21 +86,7 @@ enum status_can_id
     STATUS_CAR_MSG = 0x693,        // Debug: car status message
     STATUS_CAR_CHANGE_MSG = 0x694, // Debug: car status change message
     STATUS_BRAKE_MSG = 0x695,      // Debug: brake status message
-    STATUS_BMS_MSG = 0x696         // Debug: BMS status message
-};
-
-/**
- * @brief State change events for the car status state machine.
- *
- * Used to represent transitions between main car states.
- */
-enum state_changes
-{
-    INIT_TO_STARTIN,   // Brakes on and button depressed, transition from INIT to STARTIN
-    STARTIN_TO_BUSSIN, // Brakes on and button depressed for 2 seconds, transition from STARTIN to BUSSIN
-    BUSSIN_TO_DRIVE,   // Buzzer buzzed for 2 seconds, transition from BUSSIN to DRIVE
-    STARTIN_TO_INIT,   // Brakes or button released, transition from STARTIN back to INIT
-    THROTTLE_TO_INIT,  // APPS input, transition to INIT
-    BMS_TO_INIT        // BMS HV start failed, transition to INIT
+    STATUS_BMS_MSG = 0x696,        // Debug: BMS status message
+    STATUS_HALL_SENSOR_MSG = 0x697 // Debug: Hall sensor message
 };
 #endif // Enums.h
