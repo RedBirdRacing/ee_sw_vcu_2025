@@ -1,7 +1,7 @@
 #include "mcp2515.h"   // can_frame, TXBn, mcp2515 objects
 #include "miniArray.h" // miniArray
 
-// template because we can't declare the size of the array of function pointers otherwise
+// template because we can't declare the size of the arrays without macros here
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 // assume we only schedule CAN bus sends, so all tasks are void func(*tx_msg);
 class Scheduler
