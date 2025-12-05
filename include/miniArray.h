@@ -6,6 +6,6 @@ struct miniArray
     T data[N];
 
     // element access
-    T& operator[](size_t i) { return data[i]; }
-    const T& operator[](size_t i) const { return data[i]; }
+    constexpr T& operator[](size_t i) { return data[i]; }
+    constexpr const T& operator[](size_t i) const { return data[i]; }
 };

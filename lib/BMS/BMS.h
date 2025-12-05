@@ -7,13 +7,13 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-const uint32_t BMS_COMMAND = 0x1801F340;                  // BMS command ID
-const uint32_t BMS_SEND_CMD = BMS_COMMAND | CAN_EFF_FLAG; // Extended Frame Format flag
+constexpr uint32_t BMS_COMMAND = 0x1801F340;                  // BMS command ID
+constexpr uint32_t BMS_SEND_CMD = BMS_COMMAND | CAN_EFF_FLAG; // Extended Frame Format flag
 
-const uint32_t BMS_INFO = 0x186040F3;                  // BMS info ID
-const uint32_t BMS_INFO_EXT = BMS_INFO | CAN_EFF_FLAG; // Extended Frame Format flag
+constexpr uint32_t BMS_INFO = 0x186040F3;                  // BMS info ID
+constexpr uint32_t BMS_INFO_EXT = BMS_INFO | CAN_EFF_FLAG; // Extended Frame Format flag
 
-const uint16_t BMS_READ_MS = 10; // BMS reading max time
+constexpr uint16_t BMS_READ_MS = 10; // BMS reading max time
 
 class BMS
 {

@@ -5,12 +5,12 @@
 #include <stdint.h>
 
 template <typename T>
-T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum);
+constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum);
 
 template <typename T>
-T average(T val1, T val2);
+constexpr T average(T val1, T val2);
 
 template <typename T>
-T AVG_filter(T *buffer, uint8_t buf_size);
+constexpr T AVG_filter(T *buffer, uint8_t buf_size);
 
 #endif

@@ -10,7 +10,7 @@ class RingBuffer
 public:
     // Constructor
     // Initializes the buffer and head pointer
-    RingBuffer() : buffer(), head(0), count(0) {}
+    constexpr RingBuffer() : buffer(), head(0), count(0) {}
 
     /**
      * @brief Pushes a new value into the ring buffer.

@@ -20,10 +20,10 @@
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
-const uint8_t INPUT_COUNT = 5;
-const uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3, HALL_SENSOR};
-const uint8_t OUTPUT_COUNT = 4;
-const uint8_t pins_out[OUTPUT_COUNT] = {FRG, BRAKE_LIGHT, BUZZER, BMS_FAILED_LED};
+constexpr uint8_t INPUT_COUNT = 5;
+constexpr uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3, HALL_SENSOR};
+constexpr uint8_t OUTPUT_COUNT = 4;
+constexpr uint8_t pins_out[OUTPUT_COUNT] = {FRG, BRAKE_LIGHT, BUZZER, BMS_FAILED_LED};
 
 // === Pedal ===
 Pedal pedal;
@@ -42,11 +42,11 @@ MCP2515 mcp2515_DL(CS_CAN_DL);
 
 struct can_frame tx_throttle_msg;
 
-const uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
-const uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
-const uint16_t BMS_MILLIS = 10000;     // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
+constexpr uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
+constexpr uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
+constexpr uint16_t BMS_MILLIS = 10000;     // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 
-const uint16_t BRAKE_THRESHOLD = 130; // The threshold for the brake pedal to be considered pressed
+constexpr uint16_t BRAKE_THRESHOLD = 130; // The threshold for the brake pedal to be considered pressed
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
@@ -218,7 +218,7 @@ void loop()
         {
             if (bms.hv_ready()) // if HV not started, return to INIT
             {
-                main_car_state.car_status = BUSSIN;
+                main_car_state.car_status = INIT;
                 main_car_state.car_status_millis_counter = main_car_state.millis; // safety
 
                 DBG_STATUS_CAR(main_car_state.car_status);
