@@ -99,6 +99,8 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
  */
 void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
 {
+    if (tx_throttle_msg == nullptr)
+        return;
     tx_throttle_msg->can_id = MOTOR_COMMAND;
     tx_throttle_msg->can_dlc = 3;
     tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
@@ -116,8 +118,10 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
  * @param car Pointer to the car_state structure containing current car state.
  * @return None
  */
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car)
+void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, const car_state *car)
 {
+    if (tx_throttle_msg == nullptr || car == nullptr)
+        return;
     if (car->fault_force_stop)
     {
         pedal_can_frame_stop_motor(tx_throttle_msg);

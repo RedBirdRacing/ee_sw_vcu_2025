@@ -240,3 +240,11 @@ void Debug_Serial::status_bms(BMS_status BMS_status)
         break;
     }
 }
+
+
+
+void Debug_Serial::hall_sensor(uint16_t hall_sensor_value)
+{
+    void(Serial.print("Hall Sensor Value: "));
+    void(Serial.println(hall_sensor_value));
+}

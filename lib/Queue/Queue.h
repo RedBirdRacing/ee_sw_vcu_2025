@@ -36,6 +36,9 @@ public:
      */
     void getLinearBuffer(T *out)
     {
+        if (out == nullptr)
+            return;
+
         for (int i = 0; i < count; ++i)
         {
             out[i] = buffer[(head + i) % size];

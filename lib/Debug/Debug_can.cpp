@@ -19,6 +19,8 @@ MCP2515 *Debug_CAN::can_interface = nullptr;
  */
 void Debug_CAN::initialize(MCP2515 *can)
 {
+    if (can == nullptr)
+        return;
     can_interface = can;
 }
 

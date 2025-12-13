@@ -114,7 +114,7 @@ class Pedal
 public:
     Pedal();
     void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
-    void pedal_can_frame_update(can_frame *tx_throttle_msg, car_state *car);
+    void pedal_can_frame_update(can_frame *tx_throttle_msg, const car_state *car);
     void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg);
     uint16_t pedal_filtered_1, pedal_filtered_2;
 

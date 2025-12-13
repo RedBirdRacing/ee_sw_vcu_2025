@@ -88,7 +88,7 @@ private:
     const miniArray<MCP2515, NUM_MCP2515> MCPS;
 
     // helper function to run tasks
-    inline void run_tasks(uint32_t *delta, uint32_t (*current_time_us)())
+    inline void run_tasks(const uint32_t *delta, uint32_t (*current_time_us)())
     {
         for (uint8_t i = 0; i < NUM_TASKS; ++i)
         {

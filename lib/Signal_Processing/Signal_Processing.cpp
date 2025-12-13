@@ -6,6 +6,11 @@
 template <typename T>
 constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)
 {
+    if (buffer == nullptr || kernel == nullptr || buf_size <= 0 || kernel_sum == 0.0f)
+    {
+        return static_cast<T>(0);
+    }
+
     float sum = 0;
 
     for (int i = 0; i < buf_size; ++i)
@@ -34,6 +39,11 @@ constexpr T average(T val1, T val2)
 template <typename T>
 constexpr T AVG_filter(T *buffer, uint8_t buf_size)
 {
+    if (buffer == nullptr || buf_size == 0)
+    {
+        return static_cast<T>(0);
+    }
+
     T sum = 0;
 
     for (int i = 0; i < buf_size; ++i)
