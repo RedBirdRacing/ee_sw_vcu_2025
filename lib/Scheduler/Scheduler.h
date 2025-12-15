@@ -1,4 +1,4 @@
-#include "mcp2515.h"   // can_frame, TXBn, mcp2515 objects
+#include "mcp2515.h"    // can_frame, TXBn, mcp2515 objects
 #include "miniVector.h" // miniVector
 
 // template because we can't declare the size of the arrays without macros here
@@ -35,6 +35,7 @@ public:
         uint32_t delta = current_time_us() - last_fire_us;
         if (delta >= PERIOD_US)
         {
+            run_tasks(&delta, current_time_us);
             if (delta >= 2 * PERIOD_US)
             {
                 // we missed more than one period, override last_fire_us to avoid bursts
@@ -44,8 +45,6 @@ public:
             {
                 last_fire_us += PERIOD_US;
             }
-            // it's time to fire
-            run_tasks(&delta);
         }
         else
         {
@@ -56,8 +55,8 @@ public:
                 while ((uint32_t)(current_time_us() - last_fire_us) < PERIOD_US)
                     ;
                 // now it's time, run the tasks
+                run_tasks(&delta, current_time_us);
                 last_fire_us += PERIOD_US;
-                run_tasks(&delta);
             }
             else
             {
