@@ -1,5 +1,5 @@
 #include "mcp2515.h"   // can_frame, TXBn, mcp2515 objects
-#include "miniArray.h" // miniArray
+#include "miniVector.h" // miniVector
 
 // template because we can't declare the size of the arrays without macros here
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
@@ -15,8 +15,8 @@ public:
     // constructor
     Scheduler(uint32_t period_us_,
               uint32_t spin_threshold_us_,
-              miniArray<TaskFn, NUM_TASKS> tasks_,
-              miniArray<uint8_t, NUM_TASKS> task_ticks_)
+              miniVector<TaskFn, NUM_TASKS> tasks_,
+              miniVector<uint8_t, NUM_TASKS> task_ticks_)
         : TASKS(tasks_),
           TASK_TICKS(task_ticks_),
           PERIOD_US(period_us_),
@@ -33,20 +33,30 @@ public:
     {
         // check if it's time to fire
         uint32_t delta = current_time_us() - last_fire_us;
-        if (delta > PERIOD_US)
+        if (delta >= PERIOD_US)
         {
+            if (delta >= 2 * PERIOD_US)
+            {
+                // we missed more than one period, override last_fire_us to avoid bursts
+                last_fire_us = current_time_us();
+            }
+            else
+            {
+                last_fire_us += PERIOD_US;
+            }
             // it's time to fire
             run_tasks(&delta);
         }
         else
         {
             // not time yet, check if we should spin-wait or return
-            if (delta > PERIOD_US - SPIN_US)
+            if (delta >= PERIOD_US - SPIN_US)
             {
                 // spin-wait
                 while ((uint32_t)(current_time_us() - last_fire_us) < PERIOD_US)
                     ;
                 // now it's time, run the tasks
+                last_fire_us += PERIOD_US;
                 run_tasks(&delta);
             }
             else
@@ -57,19 +67,17 @@ public:
     }
 
     // array of function pointers to tasks
-    const miniArray<TaskFn, NUM_TASKS> TASKS;
+    const miniVector<TaskFn, NUM_TASKS> TASKS;
 
     // stores the number of ticks between two runs of the task, - 1.
     // for instance, if a task runs every 10 ticks, store 9
     // if a task runs every tick, store 0
-    const miniArray<uint8_t, NUM_TASKS> TASK_TICKS;
+    const miniVector<uint8_t, NUM_TASKS> TASK_TICKS;
 
 private:
     // how the period of the scheduler, i.e. time between two fires of the scheduler, in microseconds
     // e.g. 10000 for 10ms cycle time
-    // you should tune this value to make sure it is a multiple of your task periods
-    // but you should also slightly reduce it to account for the slight delays in the microcontroller
-    // e.g. if you want 10ms cycle time, set to something like 9990
+    // note that if missed more than 1 period, next period is set to current time + this value, so would be slightly late
     const uint32_t PERIOD_US;
 
     // threshold to switch from letting non-scheduler task in loop() run, to busy-waiting (to ensure on time firing)
@@ -84,8 +92,8 @@ private:
     // for instance, if BMS tasks every 10 ticks, then initially store 9, and decrement every tick, when it reaches 0, run the task and reset to 9
     uint8_t task_counters[NUM_TASKS];
 
-    // miniArray of mcp2515 objects
-    const miniArray<MCP2515, NUM_MCP2515> MCPS;
+    // miniVector of mcp2515 objects
+    const miniVector<MCP2515, NUM_MCP2515> MCPS;
 
     // helper function to run tasks
     inline void run_tasks(const uint32_t *delta, uint32_t (*current_time_us)())
@@ -104,17 +112,6 @@ private:
                 // decrement counter
                 --task_counters[i];
             }
-        }
-
-        // finally, set next target fire time
-        if (*delta >= PERIOD_US << 1) // if we missed more than one period, just set to now + period
-        {
-            last_fire_us = current_time_us();
-            // this will mean the next cycle is slightly more than 1 period away
-        }
-        else // else just advance by one period to keep phase
-        {
-            last_fire_us += PERIOD_US;
         }
     }
 };
