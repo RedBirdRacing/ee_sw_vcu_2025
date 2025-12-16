@@ -89,4 +89,16 @@ enum status_can_id
     STATUS_BMS_MSG = 0x696,        // Debug: BMS status message
     STATUS_HALL_SENSOR_MSG = 0x697 // Debug: Hall sensor message
 };
+
+/**
+ * @brief MCP2515 instance indices.
+ *
+ * Used to identify different MCP2515 CAN controller instances.
+ */
+enum mcp_index
+{
+    MCP_MOTOR = 0,
+    MCP_BMS = 1,
+    MCP_DL = 2
+};
 #endif // Enums.h

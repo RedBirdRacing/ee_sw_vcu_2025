@@ -20,7 +20,7 @@
  */
 
 // select the board configuration to use
-#define USE_VCU_V3_2
+#define USE_3CH_CAN
 
 // VCU v3.2
 
@@ -103,6 +103,7 @@
 #define APPS_5V PIN_PC0
 #define APPS_3V3 PIN_PC1
 #define BRAKE_IN PIN_PC2
+#define HALL_SENSOR PIN_PC3
 
 // VCU brake light
 #define BRAKE_LIGHT PIN_PD2

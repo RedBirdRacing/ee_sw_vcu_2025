@@ -17,6 +17,7 @@
 
 #include "Enums.h"
 #include "car_state.h"
+#include "Scheduler.h"
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
@@ -39,6 +40,8 @@ BMS bms(&mcp2515_BMS);
 // === CAN (Datalogger) ===
 MCP2515 mcp2515_DL(CS_CAN_DL);
 #define mcp2515_motor mcp2515_DL
+
+MCP2515 *MCPs[3] = {&mcp2515_motor, &mcp2515_BMS, &mcp2515_DL};
 
 struct can_frame tx_throttle_msg;
 
@@ -72,27 +75,22 @@ struct car_state main_car_state = {
     0      // torque_out
 };
 
-
-void scheduler_pedal(){
+void scheduler_pedal(MCP2515 *mcp2515_)
+{
+    static can_frame tx_throttle_msg;
     pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
-    mcp2515_motor.sendMessage(&tx_throttle_msg);
+    mcp2515_->sendMessage(&tx_throttle_msg);
 }
-void scheduler_bms(){
-    bms.check_hv();
+void scheduler_bms(MCP2515 *mcp2515_)
+{
+    bms.check_hv(mcp2515_);
 }
 
-/*    Scheduler(uint32_t period_us_,
-                uint32_t spin_threshold_us_,
-                const void (*tasks_[])(),
-                const uint8_t task_ticks_[])
-*/
-/*
-Scheduler<2> scheduler(10000, 100,
-                       {&scheduler_pedal, &scheduler_bms},
-                       {
-                           0,  // Pedal task runs every tick (10ms)
-                           4 // BMS task runs every 5 ticks (50ms)
-                       });*/
+Scheduler<2, 3> scheduler(
+    10000, // period_us: 10ms
+    1000,   // spin_threshold_us: 1ms
+    MCPs   // MCP2515 instances
+);
 
 void setup()
 {
@@ -144,18 +142,22 @@ void setup()
     pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode
     pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
     */
+
+    // Add scheduler tasks
+    scheduler.add_task(MCP_MOTOR, scheduler_pedal, 5); // Pedal task on motor CAN MCP2515 every tick
 }
 
 void loop()
 {
-    delay(9); // Loop every 10ms
-    DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
+    //DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
     main_car_state.millis = millis(); // Update the current millis time
     // Read pedals
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
+    scheduler.update(*micros);
+    return; // test scheduler
     /*
     For the time being:
     DRIVE_MODE_BTN = "Start" button
@@ -196,6 +198,8 @@ void loop()
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
 
+            scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it
+
             DBG_STATUS_CAR(main_car_state.car_status);
         }
         break;
@@ -204,8 +208,6 @@ void loop()
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
         mcp2515_motor.sendMessage(&tx_throttle_msg);
-
-        bms.check_hv(); // check for HV ready, if not start it
 
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
@@ -216,6 +218,7 @@ void loop()
         }
         else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
         {
+            scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready
             if (bms.hv_ready()) // if HV not started, return to INIT
             {
                 main_car_state.car_status = INIT;

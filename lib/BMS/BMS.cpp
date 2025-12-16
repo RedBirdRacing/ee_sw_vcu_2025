@@ -78,13 +78,13 @@ void BMS::bms_can_frame_stop_hv(can_frame *tx_bms_msg)
  * @param mcp2515_BMS Pointer to the MCP2515 CAN controller instance.
  * @return None
  */
-void BMS::check_hv()
+void BMS::check_hv(MCP2515* mcp2515_)
 {
     hv_started = true;
     return; // TEMP disable BMS HV start logic for testing without BMS
     if (hv_started)
         return; // already started
-    if (mcp2515_BMS->readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
+    if (mcp2515_->readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
     {
         DBG_BMS_STATUS(NO_MSG);
         hv_started = false;
