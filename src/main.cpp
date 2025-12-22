@@ -17,7 +17,7 @@
 
 #include "Enums.h"
 #include "car_state.h"
-#include "Scheduler.h"
+#include "Scheduler.hpp"
 
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
