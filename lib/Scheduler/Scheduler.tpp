@@ -8,7 +8,7 @@
  *
  */
 
-#include "mcp2515.h" // mcp2515 objects
+#include "mcp2515.h"     // mcp2515 objects
 #include "Scheduler.hpp" // Scheduler class template declaration
 using TaskFn = void (*)(MCP2515 *);
 

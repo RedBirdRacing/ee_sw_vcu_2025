@@ -1,8 +1,3 @@
-#ifndef SCHEDULER_HPP
-#define SCHEDULER_HPP
-
-#include "mcp2515.h" // mcp2515 objects
-
 /**
  * @file Scheduler.hpp
  * @author Planeson, Red Bird Racing
@@ -11,6 +6,11 @@
  * @date 2025-12-23
  * @see Scheduler.tpp
  */
+
+#ifndef SCHEDULER_HPP
+#define SCHEDULER_HPP
+
+#include "mcp2515.h" // mcp2515 objects
 
 // template because we can't declare the size of the arrays without macros here
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
