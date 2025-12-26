@@ -54,7 +54,7 @@ constexpr uint16_t BRAKE_THRESHOLD = 130; // The threshold for the brake pedal t
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
 /**
- * @brief Global car state stru=cture.
+ * @brief Global car state structure.
  *
  * Holds the current state of the car, including status, timers, pedal input, fault flags, and output torque.
  *
@@ -77,9 +77,9 @@ struct car_state main_car_state = {
 
 void scheduler_pedal(MCP2515 *mcp2515_)
 {
-    static can_frame tx_throttle_msg;
-    pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
-    mcp2515_->sendMessage(&tx_throttle_msg);
+    static can_frame tx_msg;
+    pedal.pedal_can_frame_update(&tx_msg, &main_car_state);
+    mcp2515_->sendMessage(&tx_msg);
 }
 void scheduler_bms(MCP2515 *mcp2515_)
 {
@@ -92,6 +92,10 @@ Scheduler<2, 3> scheduler(
     MCPs   // MCP2515 instances
 );
 
+/**
+ * @brief Setup function for initializing the VCU system.
+ * Initializes MCP2515s, IO pins, as well as own modules such as Pedal and Debug.
+ */
 void setup()
 {
     // Init pedals
@@ -147,24 +151,20 @@ void setup()
     scheduler.add_task(MCP_MOTOR, scheduler_pedal, 5); // Pedal task on motor CAN MCP2515 every tick
 }
 
+/**
+ * @brief Main loop function for the VCU system.
+ * Handles car state transitions, pipes dataflow between modules.
+ */
 void loop()
 {
     //DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
-    main_car_state.millis = millis(); // Update the current millis time
-    // Read pedals
+    main_car_state.millis = millis();
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     scheduler.update(*micros);
-    return; // test scheduler
-    /*
-    For the time being:
-    DRIVE_MODE_BTN = "Start" button
-    BRAKE_IN = Brake pedal
-    BUZZER = Buzzer output
-    FRG = "Drive" mode indicator
-    */
+
     if (main_car_state.fault_force_stop)
     {
         pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);

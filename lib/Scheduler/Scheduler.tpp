@@ -12,21 +12,12 @@
 #include "Scheduler.hpp" // Scheduler class template declaration
 using TaskFn = void (*)(MCP2515 *);
 
-/**
- * @brief Construct a new Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler object
- *
- * @tparam NUM_TASKS
- * @tparam NUM_MCP2515
- * @param period_us_
- * @param spin_threshold_us_
- * @param mcps_
- */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,
                                              uint32_t spin_threshold_us_,
                                              MCP2515 *mcps_[NUM_MCP2515])
-    : TASKS{nullptr},
-      TASK_TICKS{0},
+    : tasks{nullptr},
+      task_ticks{0},
       PERIOD_US(period_us_),
       SPIN_US(spin_threshold_us_),
       last_fire_us(0),
@@ -38,16 +29,8 @@ Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,
     }
 }
 
-/**
- * @brief Update the scheduler, checking if tasks need to be run based on the current time
- *
- * @tparam NUM_TASKS
- * @tparam NUM_MCP2515
- * @param current_time_us Function pointer to a function returning the current time in microseconds
- * @return None
- */
-template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*current_time_us)())
+    template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
+    void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_time_us)())
 {
     if (current_time_us == nullptr)
         return;
@@ -77,18 +60,8 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*current_time_us)(
     return;
 }
 
-/**
- * @brief Add a task to the scheduler for a specific MCP2515 index
- *
- * @tparam NUM_TASKS
- * @tparam NUM_MCP2515
- * @param mcp_index Index of the MCP2515 instance
- * @param task Function pointer to the task to be added
- * @param tick_interval Number of ticks between task executions, so 0 for every tick, 9 for every 10 ticks
- * @return None
- */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(uint8_t mcp_index, TaskFn task, uint8_t tick_interval)
+void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval)
 {
     if (mcp_index >= NUM_MCP2515 || task == nullptr)
         return;
@@ -96,42 +69,33 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(uint8_t mcp_index, TaskFn task,
     if (task_cnt[mcp_index] >= NUM_TASKS)
         return; // no space
 
-    TASKS[mcp_index][task_cnt[mcp_index]] = task;
-    TASK_TICKS[mcp_index][task_cnt[mcp_index]] = tick_interval;
+    tasks[mcp_index][task_cnt[mcp_index]] = task;
+    task_ticks[mcp_index][task_cnt[mcp_index]] = tick_interval;
     task_counters[mcp_index][task_cnt[mcp_index]] = 1; // run on first tick
     ++task_cnt[mcp_index];
 }
 
-/**
- * @brief Remove a task from the scheduler for a specific MCP2515 instance
- *
- * @tparam NUM_TASKS
- * @tparam NUM_MCP2515
- * @param mcp_index Index of the MCP2515 instance
- * @param task Function pointer to the task to be removed
- * @return None
- */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(uint8_t mcp_index, TaskFn task)
+void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(const mcp_index mcp_index, const TaskFn task)
 {
     if (mcp_index >= NUM_MCP2515 || task == nullptr)
         return;
 
     for (uint8_t i = 0; i < task_cnt[mcp_index]; ++i)
     {
-        if (TASKS[mcp_index][i] == task)
+        if (tasks[mcp_index][i] == task)
         {
             // shift left remaining tasks
             for (uint8_t j = i; j < task_cnt[mcp_index] - 1; ++j)
             {
-                TASKS[mcp_index][j] = TASKS[mcp_index][j + 1];
-                TASK_TICKS[mcp_index][j] = TASK_TICKS[mcp_index][j + 1];
+                tasks[mcp_index][j] = tasks[mcp_index][j + 1];
+                task_ticks[mcp_index][j] = task_ticks[mcp_index][j + 1];
                 task_counters[mcp_index][j] = task_counters[mcp_index][j + 1];
             }
 
             // clean last slot
-            TASKS[mcp_index][task_cnt[mcp_index] - 1] = nullptr;
-            TASK_TICKS[mcp_index][task_cnt[mcp_index] - 1] = 0;
+            tasks[mcp_index][task_cnt[mcp_index] - 1] = nullptr;
+            task_ticks[mcp_index][task_cnt[mcp_index] - 1] = 0;
             task_counters[mcp_index][task_cnt[mcp_index] - 1] = 0;
 
             --task_cnt[mcp_index];
@@ -140,12 +104,6 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(uint8_t mcp_index, TaskFn ta
     }
 }
 
-/**
- * @brief Run scheduled tasks as needed
- *
- * @tparam NUM_TASKS
- * @tparam NUM_MCP2515
- */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 inline void Scheduler<NUM_TASKS, NUM_MCP2515>::run_tasks()
 {
@@ -161,14 +119,14 @@ inline void Scheduler<NUM_TASKS, NUM_MCP2515>::run_tasks()
 
             if (task_counters[mcp_index][task_index] == 1)
             {
-                if (TASKS[mcp_index][task_index] == nullptr)
+                if (tasks[mcp_index][task_index] == nullptr)
                     continue; // no task to run
 
                 // call member function on the MCPS instance
-                (*TASKS[mcp_index][task_index])(MCPS[mcp_index]);
+                (*tasks[mcp_index][task_index])(MCPS[mcp_index]);
 
                 // reset counter
-                task_counters[mcp_index][task_index] = TASK_TICKS[mcp_index][task_index];
+                task_counters[mcp_index][task_index] = task_ticks[mcp_index][task_index];
                 continue;
             }
             // not time yet, decrement counter

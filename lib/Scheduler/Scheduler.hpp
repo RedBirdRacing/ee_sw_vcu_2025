@@ -23,26 +23,62 @@ public:
 
     using TaskFn = void (*)(MCP2515 *);
 
-    // constructor
-
+    /**
+     * @brief Construct a new Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler object
+     *
+     * @tparam NUM_TASKS
+     * @tparam NUM_MCP2515
+     * @param period_us_
+     * @param spin_threshold_us_
+     * @param mcps_
+     */
     Scheduler(uint32_t period_us_,
               uint32_t spin_threshold_us_,
               MCP2515 *mcps_[NUM_MCP2515]);
 
     // no need destructor, since no dynamic memory allocation, and won't destruct in the middle of the program anyway
 
-    void update(unsigned long (*current_time_us)());
-    void add_task(uint8_t mcp_index, TaskFn task, uint8_t tick_interval);
-    void remove_task(uint8_t mcp_index, TaskFn task);
+    /**
+     * @brief Update the scheduler, checking if tasks need to be run based on the current time
+     *
+     * @tparam NUM_TASKS
+     * @tparam NUM_MCP2515
+     * @param current_time_us Function pointer to a function returning the current time in microseconds
+     * @return None
+     */
+    void update(unsigned long (*const current_time_us)());
+
+    /**
+     * @brief Add a task to the scheduler for a specific MCP2515 index
+     *
+     * @tparam NUM_TASKS
+     * @tparam NUM_MCP2515
+     * @param mcp_index Index of the MCP2515 instance
+     * @param task Function pointer to the task to be added
+     * @param tick_interval Number of ticks between task executions, so 0 for every tick, 9 for every 10 ticks
+     * @return None
+     */
+    void add_task(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval);
+
+    /**
+     * @brief Remove a task from the scheduler for a specific MCP2515 instance
+     *
+     * @tparam NUM_TASKS
+     * @tparam NUM_MCP2515
+     * @param mcp_index Index of the MCP2515 instance
+     * @param task Function pointer to the task to be removed
+     * @return None
+     */
+    void remove_task(const mcp_index mcp_index, const TaskFn task);
 
     // array of function pointers to tasks
-    TaskFn TASKS[NUM_MCP2515][NUM_TASKS] = {nullptr};
+    TaskFn tasks[NUM_MCP2515][NUM_TASKS] = {nullptr};
 
     // stores the number of ticks between two runs of the task
     // for instance, if a task runs every 10 ticks, store 10
     // if a task runs every tick, store 1
     // 0 means disabled
-    uint8_t TASK_TICKS[NUM_MCP2515][NUM_TASKS] = {0};
+    uint8_t task_ticks[NUM_MCP2515][NUM_TASKS] = {0};
 
 private:
     // how the period of the scheduler, i.e. time between two fires of the scheduler, in microseconds
@@ -68,7 +104,12 @@ private:
     // array to count number of tasks per MCP2515
     uint8_t task_cnt[NUM_MCP2515] = {0};
 
-    // helper function to run tasks
+    /**
+     * @brief Run scheduled tasks as needed
+     *
+     * @tparam NUM_TASKS
+     * @tparam NUM_MCP2515
+     */
     inline void run_tasks();
 };
 

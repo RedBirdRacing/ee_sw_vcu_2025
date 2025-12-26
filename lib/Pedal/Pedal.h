@@ -107,8 +107,6 @@ class Pedal
     friend void test_pedal_can_frame_stop_motor(void);
     friend void test_throttle_torque_mapping_normal(void);
     friend void test_check_pedal_fault(void);
-    friend void setup(void);
-    friend void loop(void);
     friend void test_brake_torque_mapping(void);
 
 public:

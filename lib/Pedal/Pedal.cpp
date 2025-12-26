@@ -19,7 +19,16 @@
  * @param None
  * @return None
  */
-Pedal::Pedal() : fault(true) {}
+Pedal::Pedal()
+    : pedal_filtered_1(0), // initialize filtered values to 0
+      pedal_filtered_2(0),
+      fault(true),
+      fault_start_millis(0),
+      pedal_value_1(), // RingBuffer default init 0
+      pedal_value_2(),
+      brake_value()
+{
+}
 
 /**
  * @brief Updates pedal sensor readings, applies filtering, and checks for faults.
@@ -35,9 +44,9 @@ Pedal::Pedal() : fault(true) {}
 void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 {
     // Record readings in buffer
-    //pedal_value_1.push(pedal_1);
-    //pedal_value_2.push(pedal_2);
-    //brake_value.push(brake);
+    pedal_value_1.push(pedal_1);
+    pedal_value_2.push(pedal_2);
+    brake_value.push(brake);
 
     // Range of pedal 1 is APPS_PEDAL_1_RANGE, pedal 2 is APPS_PEDAL_2_RANGE;
 
@@ -47,26 +56,24 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
     // depends on the hardware filter, reduce software filtering as much as possible
 
     // currently a small average filter is good enough
-    //pedal_filtered_1 = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
-    //pedal_filtered_2 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
-    //car->brake_final = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
-
-    pedal_filtered_1 = pedal_1;
-    pedal_filtered_2 = pedal_2;
-    car->brake_final = brake;
+    pedal_filtered_1 = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
+    pedal_filtered_2 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
+    car->brake_final = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
 
     car->pedal_final = pedal_filtered_1; // Only take in pedal 1 value
 
     if (!check_pedal_fault(pedal_filtered_1, pedal_filtered_2, car->brake_final))
     {
         if (fault)
+        {
             DBG_THROTTLE_FAULT(DIFF_RESOLVED);
-        fault = false;
+            fault = false;
+        }
         return;
     }
-    // Pedal fault detected
 
-    if (fault) // if previously faulty
+    // Pedal fault detected
+    if (fault)                                      // if previously faulty
     {                                               // Previous scan is already faulty
         if (car->millis - fault_start_millis > 100) // Faulty for more than 100 ms
         {
@@ -256,7 +263,7 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
 bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2, int16_t brake)
 {
 
-    int16_t pedal_2_scaled = round((float)pedal_2 * 4.8 / 3.2);//round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
+    int16_t pedal_2_scaled = round((float)pedal_2 * 4.8 / 3.2); // round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);
     DBG_THROTTLE_IN(pedal_1, pedal_2, pedal_2_scaled, brake);
 
     int16_t delta = pedal_1 - pedal_2_scaled;

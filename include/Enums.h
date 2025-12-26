@@ -22,10 +22,10 @@ Also, during status 0, 1, and 2, the VCU will keep sending "0 torque" messages t
  */
 enum main_car_status
 {
-    INIT = 0,    // Just started the car
-    STARTIN = 1, // Driver holds "Start" button and full brakes (transition state)
-    BUSSIN = 2,  // Buzzer active, driver can release "Start" and brakes (transition state)
-    DRIVE = 3    // Ready to drive, Drive mode LED on, throttle enabled
+    INIT = 0,    /**< Just started the car */
+    STARTIN = 1, /**< Driver holds "Start" button and full brakes (transition state) */
+    BUSSIN = 2,  /**< Buzzer active, driver can release "Start" and brakes (transition state) */
+    DRIVE = 3    /**< Ready to drive, Drive mode LED on, throttle enabled */
 };
 
 /**
@@ -35,15 +35,15 @@ enum main_car_status
  */
 enum pedal_fault_status
 {
-    NONE = 0x00,              // No fault detected
-    DIFF_START = 0x10,        // >10% difference fault just started
-    DIFF_CONTINUING = 0x11,   // >10% difference fault is ongoing
-    DIFF_EXCEED_100MS = 0x12, // >10% difference fault exceeded 100ms
-    DIFF_RESOLVED = 0x19,     // Difference fault resolved
-    THROTTLE_LOW = 0x20,      // Throttle pedal below lower threshold
-    THROTTLE_HIGH = 0x29,     // Throttle pedal above upper threshold
-    BRAKE_LOW = 0x30,         // Brake pedal below lower threshold
-    BRAKE_HIGH = 0x39,        // Brake pedal above upper threshold
+    NONE = 0x00,              /**< No fault detected */
+    DIFF_START = 0x10,        /**< >10% difference fault just started */
+    DIFF_CONTINUING = 0x11,   /**< >10% difference fault is ongoing */
+    DIFF_EXCEED_100MS = 0x12, /**< >10% difference fault exceeded 100ms */
+    DIFF_RESOLVED = 0x19,     /**< Difference fault resolved */
+    THROTTLE_LOW = 0x20,      /**< Throttle pedal below lower threshold */
+    THROTTLE_HIGH = 0x29,     /**< Throttle pedal above upper threshold */
+    BRAKE_LOW = 0x30,         /**< Brake pedal below lower threshold */
+    BRAKE_HIGH = 0x39,        /**< Brake pedal above upper threshold */
 };
 
 /**
@@ -53,12 +53,12 @@ enum pedal_fault_status
  */
 enum BMS_status
 {
-    NO_MSG = 0,
-    WRONG_ID = 1,
-    WAITING = 2,
-    STARTING = 3,
-    STARTED = 4,
-    UNUSED = 5
+    NO_MSG = 0,     /**< No message received from BMS */
+    WRONG_ID = 1,   /**< Received message with wrong CAN ID */
+    WAITING = 2,    /**< BMS is in standby, waiting to start HV */
+    STARTING = 3,   /**< BMS is starting high voltage */
+    STARTED = 4,    /**< BMS has started high voltage */
+    UNUSED = 5      /**< Unused status code */
 };
 
 // CAN IDs
@@ -70,10 +70,10 @@ enum BMS_status
  */
 enum throttle_can_id
 {
-    MOTOR_COMMAND = 0x201,     // Main motor command message
-    THROTTLE_IN_MSG = 0x690,   // Debug: throttle input message
-    THROTTLE_OUT_MSG = 0x691,  // Debug: throttle output message
-    THROTTLE_FAULT_MSG = 0x692 // Debug: throttle fault message
+    MOTOR_COMMAND = 0x201,     /**< Main motor command message */
+    THROTTLE_IN_MSG = 0x690,   /**< Debug: throttle input message */
+    THROTTLE_OUT_MSG = 0x691,  /**< Debug: throttle output message */
+    THROTTLE_FAULT_MSG = 0x692 /**< Debug: throttle fault message */
 };
 
 /**
@@ -83,11 +83,11 @@ enum throttle_can_id
  */
 enum status_can_id
 {
-    STATUS_CAR_MSG = 0x693,        // Debug: car status message
-    STATUS_CAR_CHANGE_MSG = 0x694, // Debug: car status change message
-    STATUS_BRAKE_MSG = 0x695,      // Debug: brake status message
-    STATUS_BMS_MSG = 0x696,        // Debug: BMS status message
-    STATUS_HALL_SENSOR_MSG = 0x697 // Debug: Hall sensor message
+    STATUS_CAR_MSG = 0x693,        /**< Debug: car status message */
+    STATUS_CAR_CHANGE_MSG = 0x694, /**< Debug: car status change message */
+    STATUS_BRAKE_MSG = 0x695,      /**< Debug: brake status message */
+    STATUS_BMS_MSG = 0x696,        /**< Debug: BMS status message */
+    STATUS_HALL_SENSOR_MSG = 0x697 /**< Debug: Hall sensor message */
 };
 
 /**
@@ -97,8 +97,11 @@ enum status_can_id
  */
 enum mcp_index
 {
-    MCP_MOTOR = 0,
-    MCP_BMS = 1,
-    MCP_DL = 2
+    MCP_MOTOR = 0, /**< Motor CAN MCP2515 instance */
+    MCP_BMS = 1,   /**< BMS CAN MCP2515 instance */
+    MCP_DL = 2     /**< Datalogger CAN MCP2515 instance */
 };
+
+#define uint16_max 65535
+
 #endif // Enums.h

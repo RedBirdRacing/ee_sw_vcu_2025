@@ -10,3 +10,6 @@
 
 # Latex Documentation (Depracated)
 Documentation/*
+
+# Ignore compiled documentation
+docs
