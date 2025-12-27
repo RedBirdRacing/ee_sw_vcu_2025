@@ -1,6 +1,9 @@
 var annotated_dup =
 [
+    [ "BMS", "classBMS.html", "classBMS" ],
+    [ "car_state", "structcar__state.html", "structcar__state" ],
+    [ "miniVector", "structminiVector.html", "structminiVector" ],
     [ "Pedal", "classPedal.html", "classPedal" ],
-    [ "Queue", "classQueue.html", "classQueue" ],
-    [ "RingBuffer", "classRingBuffer.html", "classRingBuffer" ]
+    [ "RingBuffer", "classRingBuffer.html", "classRingBuffer" ],
+    [ "Scheduler", "classScheduler.html", "classScheduler" ]
 ];

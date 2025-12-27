@@ -107,36 +107,42 @@ Collaboration diagram for RingBuffer&lt; T, size &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0904abc81da8d5b07554f7151fa3eb4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a0904abc81da8d5b07554f7151fa3eb4a">RingBuffer</a> ()</td></tr>
-<tr class="separator:a0904abc81da8d5b07554f7151fa3eb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ee21ba482fcc7fe22942801f75c3ae"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a90ee21ba482fcc7fe22942801f75c3ae">RingBuffer</a> ()</td></tr>
+<tr class="separator:a90ee21ba482fcc7fe22942801f75c3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad30671837bc9ec407735ecedaeabf36c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c">push</a> (T val)</td></tr>
+<tr class="memdesc:ad30671837bc9ec407735ecedaeabf36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new value into the ring buffer. This will overwrite the oldest value if the buffer is full.  <br /></td></tr>
 <tr class="separator:ad30671837bc9ec407735ecedaeabf36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8843b018a3b9f404488cb3e582353754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a8843b018a3b9f404488cb3e582353754">getLinearBuffer</a> (T *out)</td></tr>
+<tr class="memdesc:a8843b018a3b9f404488cb3e582353754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the elements in the buffer in linear order.  <br /></td></tr>
 <tr class="separator:a8843b018a3b9f404488cb3e582353754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a43ac88b34cda0c89602ff6038ca3912e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">buffer</a> [size]</td></tr>
 <tr class="separator:a43ac88b34cda0c89602ff6038ca3912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fcff45ad6575c16839c68b9d7a6bd08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a0fcff45ad6575c16839c68b9d7a6bd08">head</a></td></tr>
-<tr class="separator:a0fcff45ad6575c16839c68b9d7a6bd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a401c240a4bff89e702cfae350c4a6f2b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a401c240a4bff89e702cfae350c4a6f2b">count</a></td></tr>
-<tr class="separator:a401c240a4bff89e702cfae350c4a6f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a1af6e4f17e60f3de6a847919a5ff9b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">head</a></td></tr>
+<tr class="separator:a8a1af6e4f17e60f3de6a847919a5ff9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375926eb439fc06803b497e1a19add6a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRingBuffer.html#a375926eb439fc06803b497e1a19add6a">count</a></td></tr>
+<tr class="separator:a375926eb439fc06803b497e1a19add6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0904abc81da8d5b07554f7151fa3eb4a" name="a0904abc81da8d5b07554f7151fa3eb4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0904abc81da8d5b07554f7151fa3eb4a">&#9670;&#160;</a></span>RingBuffer()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, uint8_t size&gt;<br />
+class RingBuffer&lt; T, size &gt;</div>
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00008">8</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a90ee21ba482fcc7fe22942801f75c3ae" name="a90ee21ba482fcc7fe22942801f75c3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ee21ba482fcc7fe22942801f75c3ae">&#9670;&#160;</a></span>RingBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int size&gt; </div>
+template&lt;typename T , uint8_t size&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;<a class="el" href="classRingBuffer.html">::RingBuffer</a> </td>
+          <td class="memname">constexpr <a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;<a class="el" href="classRingBuffer.html">::RingBuffer</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -144,11 +150,17 @@ template&lt;typename T , int size&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00013">13</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>: <a class="code hl_variable" href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">buffer</a>{0}, <a class="code hl_variable" href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">head</a>(0), <a class="code hl_variable" href="classRingBuffer.html#a375926eb439fc06803b497e1a19add6a">count</a>(0) {}</div>
+<div class="ttc" id="aclassRingBuffer_html_a375926eb439fc06803b497e1a19add6a"><div class="ttname"><a href="classRingBuffer.html#a375926eb439fc06803b497e1a19add6a">RingBuffer::count</a></div><div class="ttdeci">uint8_t count</div><div class="ttdef"><b>Definition:</b> <a href="Queue_8h_source.html#l00050">Queue.h:50</a></div></div>
+<div class="ttc" id="aclassRingBuffer_html_a43ac88b34cda0c89602ff6038ca3912e"><div class="ttname"><a href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">RingBuffer::buffer</a></div><div class="ttdeci">T buffer[size]</div><div class="ttdef"><b>Definition:</b> <a href="Queue_8h_source.html#l00048">Queue.h:48</a></div></div>
+<div class="ttc" id="aclassRingBuffer_html_a8a1af6e4f17e60f3de6a847919a5ff9b"><div class="ttname"><a href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">RingBuffer::head</a></div><div class="ttdeci">uint8_t head</div><div class="ttdef"><b>Definition:</b> <a href="Queue_8h_source.html#l00049">Queue.h:49</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -158,7 +170,7 @@ template&lt;typename T , int size&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int size&gt; </div>
+template&lt;typename T , uint8_t size&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -178,7 +190,28 @@ template&lt;typename T , int size&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">RingBuffer&lt; T, size &gt;::buffer</a>, <a class="el" href="classRingBuffer.html#a401c240a4bff89e702cfae350c4a6f2b">RingBuffer&lt; T, size &gt;::count</a>, and <a class="el" href="classRingBuffer.html#a0fcff45ad6575c16839c68b9d7a6bd08">RingBuffer&lt; T, size &gt;::head</a>.</p>
+<p>Returns the elements in the buffer in linear order. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>Pointer to an array where the linear buffer will be stored. This array shall be created by the caller and must have at least 'size' elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The order of elements in the output array will be from oldest to newest. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00037">37</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>    {</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">if</span> (out == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">   40</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="classRingBuffer.html#a375926eb439fc06803b497e1a19add6a">count</a>; ++i)</div>
+<div class="line"><span class="lineno">   43</span>        {</div>
+<div class="line"><span class="lineno">   44</span>            out[i] = <a class="code hl_variable" href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">buffer</a>[(<a class="code hl_variable" href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">head</a> + i) % size];</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Queue_8h_source.html#l00048">RingBuffer&lt; T, size &gt;::buffer</a>, <a class="el" href="Queue_8h_source.html#l00050">RingBuffer&lt; T, size &gt;::count</a>, and <a class="el" href="Queue_8h_source.html#l00049">RingBuffer&lt; T, size &gt;::head</a>.</p>
 
 </div>
 </div>
@@ -188,7 +221,7 @@ template&lt;typename T , int size&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int size&gt; </div>
+template&lt;typename T , uint8_t size&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -208,9 +241,26 @@ template&lt;typename T , int size&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">RingBuffer&lt; T, size &gt;::buffer</a>, <a class="el" href="classRingBuffer.html#a401c240a4bff89e702cfae350c4a6f2b">RingBuffer&lt; T, size &gt;::count</a>, and <a class="el" href="classRingBuffer.html#a0fcff45ad6575c16839c68b9d7a6bd08">RingBuffer&lt; T, size &gt;::head</a>.</p>
+<p>Pushes a new value into the ring buffer. This will overwrite the oldest value if the buffer is full. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>The value to be added to the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classPedal.html#ab1c72e4ea23bb08ea320a84a6db8902b">Pedal::pedal_update()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00022">22</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>    {</div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_variable" href="classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e">buffer</a>[<a class="code hl_variable" href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">head</a>] = val;</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_variable" href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">head</a> = (<a class="code hl_variable" href="classRingBuffer.html#a8a1af6e4f17e60f3de6a847919a5ff9b">head</a> + 1) % size;</div>
+<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classRingBuffer.html#a375926eb439fc06803b497e1a19add6a">count</a> &lt; size)</div>
+<div class="line"><span class="lineno">   27</span>            ++<a class="code hl_variable" href="classRingBuffer.html#a375926eb439fc06803b497e1a19add6a">count</a>;</div>
+<div class="line"><span class="lineno">   28</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Queue_8h_source.html#l00048">RingBuffer&lt; T, size &gt;::buffer</a>, <a class="el" href="Queue_8h_source.html#l00050">RingBuffer&lt; T, size &gt;::count</a>, and <a class="el" href="Queue_8h_source.html#l00049">RingBuffer&lt; T, size &gt;::head</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00044">Pedal::pedal_update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -227,7 +277,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int size&gt; </div>
+template&lt;typename T , uint8_t size&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;::buffer[size]</td>
@@ -235,43 +285,49 @@ template&lt;typename T , int size&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classRingBuffer.html#a8843b018a3b9f404488cb3e582353754">RingBuffer&lt; T, size &gt;::getLinearBuffer()</a>, <a class="el" href="classPedal.html#a76479ec36313bba4b45a1e092c725d95">Pedal::Pedal()</a>, <a class="el" href="classPedal.html#ab1c72e4ea23bb08ea320a84a6db8902b">Pedal::pedal_update()</a>, and <a class="el" href="classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c">RingBuffer&lt; T, size &gt;::push()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00048">48</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Queue_8h_source.html#l00037">RingBuffer&lt; T, size &gt;::getLinearBuffer()</a>, <a class="el" href="Pedal_8cpp_source.html#l00044">Pedal::pedal_update()</a>, and <a class="el" href="Queue_8h_source.html#l00022">RingBuffer&lt; T, size &gt;::push()</a>.</p>
 
 </div>
 </div>
-<a id="a401c240a4bff89e702cfae350c4a6f2b" name="a401c240a4bff89e702cfae350c4a6f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a401c240a4bff89e702cfae350c4a6f2b">&#9670;&#160;</a></span>count</h2>
+<a id="a375926eb439fc06803b497e1a19add6a" name="a375926eb439fc06803b497e1a19add6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375926eb439fc06803b497e1a19add6a">&#9670;&#160;</a></span>count</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int size&gt; </div>
+template&lt;typename T , uint8_t size&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;::count</td>
+          <td class="memname">uint8_t <a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;::count</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classRingBuffer.html#a8843b018a3b9f404488cb3e582353754">RingBuffer&lt; T, size &gt;::getLinearBuffer()</a>, and <a class="el" href="classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c">RingBuffer&lt; T, size &gt;::push()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00050">50</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Queue_8h_source.html#l00037">RingBuffer&lt; T, size &gt;::getLinearBuffer()</a>, and <a class="el" href="Queue_8h_source.html#l00022">RingBuffer&lt; T, size &gt;::push()</a>.</p>
 
 </div>
 </div>
-<a id="a0fcff45ad6575c16839c68b9d7a6bd08" name="a0fcff45ad6575c16839c68b9d7a6bd08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fcff45ad6575c16839c68b9d7a6bd08">&#9670;&#160;</a></span>head</h2>
+<a id="a8a1af6e4f17e60f3de6a847919a5ff9b" name="a8a1af6e4f17e60f3de6a847919a5ff9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a1af6e4f17e60f3de6a847919a5ff9b">&#9670;&#160;</a></span>head</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int size&gt; </div>
+template&lt;typename T , uint8_t size&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;::head</td>
+          <td class="memname">uint8_t <a class="el" href="classRingBuffer.html">RingBuffer</a>&lt; T, size &gt;::head</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classRingBuffer.html#a8843b018a3b9f404488cb3e582353754">RingBuffer&lt; T, size &gt;::getLinearBuffer()</a>, and <a class="el" href="classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c">RingBuffer&lt; T, size &gt;::push()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Queue_8h_source.html#l00049">49</a> of file <a class="el" href="Queue_8h_source.html">Queue.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Queue_8h_source.html#l00037">RingBuffer&lt; T, size &gt;::getLinearBuffer()</a>, and <a class="el" href="Queue_8h_source.html#l00022">RingBuffer&lt; T, size &gt;::push()</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 <map id="Debug_CAN::initialize" name="Debug_CAN::initialize">
-<area shape="rect" id="node1" title=" " alt="" coords="112,5,275,31"/>
-<area shape="rect" id="node2" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title=" " alt="" coords="5,5,64,31"/>
+<area shape="rect" id="node1" title="Initializes the Debug_CAN interface with the given MCP2515 CAN controller." alt="" coords="112,5,275,31"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
 </map>

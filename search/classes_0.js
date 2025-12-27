@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pedal_0',['Pedal',['../classPedal.html',1,'']]]
+  ['bms_0',['BMS',['../classBMS.html',1,'']]]
 ];

@@ -1,0 +1,5 @@
+<map id="DBGLN_GENERAL" name="DBGLN_GENERAL">
+<area shape="rect" id="node1" title="Prints a line to the serial console for general debug." alt="" coords="173,31,309,56"/>
+<area shape="rect" id="node2" href="$classBMS.html#a2b5ec1ea35cac26d5defeb652f721975" title="Keep retrying to send BMS start HV command until it succeeds. First check BMS is in standby(3) state,..." alt="" coords="5,5,125,31"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="36,55,95,80"/>
+</map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Pushes a new value into the ring buffer. This will overwrite the oldest value if the buffer is full.">
 <polygon fill="#999999" stroke="#666666" points="323,-19 226,-19 226,0 323,0 323,-19"/>
 <text text-anchor="middle" x="274.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">RingBuffer::push</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classPedal.html#ab1c72e4ea23bb08ea320a84a6db8902b" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classPedal.html#aef9f2037f590fd4b41f3c50a7c2b3568" target="_top" xlink:title="Updates pedal sensor readings, applies filtering, and checks for faults.">
 <polygon fill="white" stroke="#666666" points="190,-19 74,-19 74,0 190,0 190,-19"/>
 <text text-anchor="middle" x="132" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::pedal_update</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" target="_top" xlink:title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules.">
 <polygon fill="white" stroke="#666666" points="38,-19 0,-19 0,0 38,0 38,-19"/>
 <text text-anchor="middle" x="19" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">loop</text>
 </a>

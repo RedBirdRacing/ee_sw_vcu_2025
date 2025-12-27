@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['max_5fthrottle_5fin_5fvolt_0',['MAX_THROTTLE_IN_VOLT',['../Pedal_8h.html#a9bf0ad88f3c41216e70de0f7af7e98e6',1,'Pedal.h']]],
-  ['max_5fthrottle_5fout_5fval_1',['MAX_THROTTLE_OUT_VAL',['../Pedal_8h.html#a0777308c6d1fb87a30422d3e76f128a1',1,'Pedal.h']]],
-  ['min_5fthrottle_5fin_5fvolt_2',['MIN_THROTTLE_IN_VOLT',['../Pedal_8h.html#a94846eb4c469be67c9b80cacdbf5dabe',1,'Pedal.h']]],
-  ['min_5fthrottle_5fout_5fval_3',['MIN_THROTTLE_OUT_VAL',['../Pedal_8h.html#a97a905b4178224d00f842b93159cd428',1,'Pedal.h']]]
+  ['last_5ffire_5fus_0',['last_fire_us',['../classScheduler.html#a54ea25d2f91d490669b932aaa31bb965',1,'Scheduler']]],
+  ['last_5fmsg_5fms_1',['last_msg_ms',['../classBMS.html#a3a09cbf42ee5b787eb5366743756e7d6',1,'BMS']]],
+  ['length_2',['length',['../structminiVector.html#a4926faf69dac40fc5a00f048ef87b079',1,'miniVector']]]
 ];

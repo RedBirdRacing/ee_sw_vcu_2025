@@ -1,0 +1,7 @@
+<map id="DBGLN_THROTTLE" name="DBGLN_THROTTLE">
+<area shape="rect" id="node1" title="Prints a line to the serial console for throttle debug." alt="" coords="515,35,657,60"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="352,5,403,31"/>
+<area shape="rect" id="node3" href="$classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,55,467,95"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,63,240,88"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,63,64,88"/>
+</map>

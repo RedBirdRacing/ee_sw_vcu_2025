@@ -98,23 +98,144 @@ $(document).ready(function(){initNavTree('namespaceDebug__Serial.html',''); init
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad136936636c7b7140cb1e14c55eb5f31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31">initialize</a> ()</td></tr>
+<tr class="memdesc:ad136936636c7b7140cb1e14c55eb5f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="namespaceDebug__Serial.html">Debug_Serial</a> interface. This function sets up the serial communication for debugging purposes. It should be called before using any other <a class="el" href="namespaceDebug__Serial.html">Debug_Serial</a> functions.  <br /></td></tr>
 <tr class="separator:ad136936636c7b7140cb1e14c55eb5f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecd80296d8a3c5d2f9c51d623e11ff9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aecd80296d8a3c5d2f9c51d623e11ff9f">print</a> (const char *msg)</td></tr>
+<tr class="memdesc:aecd80296d8a3c5d2f9c51d623e11ff9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message to the serial console. This function sends a string message to the serial console for debugging.  <br /></td></tr>
 <tr class="separator:aecd80296d8a3c5d2f9c51d623e11ff9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a756fa9286151426012a6f8e178a6c550"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550">println</a> (const char *msg)</td></tr>
+<tr class="memdesc:a756fa9286151426012a6f8e178a6c550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a line to the serial console. This function sends a string message followed by a newline to the serial console for debugging.  <br /></td></tr>
 <tr class="separator:a756fa9286151426012a6f8e178a6c550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e4147de1500a91947eb142395c610bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a4e4147de1500a91947eb142395c610bf">throttle_in</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)</td></tr>
-<tr class="separator:a4e4147de1500a91947eb142395c610bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4ee971417c927bf2d5ee9f5fabf461a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aa4ee971417c927bf2d5ee9f5fabf461a">throttle_out</a> (float throttle_volt, int16_t throttle_torque_val)</td></tr>
-<tr class="separator:aa4ee971417c927bf2d5ee9f5fabf461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27250f93dafe961491a3c64d53b23e69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a27250f93dafe961491a3c64d53b23e69">throttle_fault</a> (Pedal_Fault_Status fault_status, float value)</td></tr>
-<tr class="separator:a27250f93dafe961491a3c64d53b23e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73d4db3c04ea0d60d716535f3d96721b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a73d4db3c04ea0d60d716535f3d96721b">status_car</a> (CarStatus <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>)</td></tr>
-<tr class="separator:a73d4db3c04ea0d60d716535f3d96721b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec0d67c4b280719d2a23773c3484d239"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aec0d67c4b280719d2a23773c3484d239">status_brake</a> (float brake_voltage)</td></tr>
-<tr class="separator:aec0d67c4b280719d2a23773c3484d239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e68fe4f00e7b1bf1a9c2addc2222a9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a9e68fe4f00e7b1bf1a9c2addc2222a9b">throttle_in</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final, uint16_t brake)</td></tr>
+<tr class="memdesc:a9e68fe4f00e7b1bf1a9c2addc2222a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle input message to the serial console. This function formats and sends the throttle input values to the serial console.  <br /></td></tr>
+<tr class="separator:a9e68fe4f00e7b1bf1a9c2addc2222a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75dcfc17e13215b801dd9dafa6f7c515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515">throttle_out</a> (uint16_t throttle_final, int16_t throttle_torque_val)</td></tr>
+<tr class="memdesc:a75dcfc17e13215b801dd9dafa6f7c515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle output message to the serial console. This function formats and sends the throttle output values to the serial console.  <br /></td></tr>
+<tr class="separator:a75dcfc17e13215b801dd9dafa6f7c515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa73ff8f930647f4c70741b4e50ef6a5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d">throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
+<tr class="memdesc:aa73ff8f930647f4c70741b4e50ef6a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle fault message to the serial console. This function formats and sends the throttle fault status and value to the serial console.  <br /></td></tr>
+<tr class="separator:aa73ff8f930647f4c70741b4e50ef6a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affcc90be9ba8e90b7fa2859039f276c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#affcc90be9ba8e90b7fa2859039f276c9">throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status)</td></tr>
+<tr class="memdesc:affcc90be9ba8e90b7fa2859039f276c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle fault message to the serial console without a float value. This function formats and sends the throttle fault status to the serial console.  <br /></td></tr>
+<tr class="separator:affcc90be9ba8e90b7fa2859039f276c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d828bdca10efbda9f4e147a372cbc71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a9d828bdca10efbda9f4e147a372cbc71">brake_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
+<tr class="memdesc:a9d828bdca10efbda9f4e147a372cbc71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a brake fault message to the serial console. This function formats and sends the brake fault status and value to the serial console.  <br /></td></tr>
+<tr class="separator:a9d828bdca10efbda9f4e147a372cbc71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4070c8db2109f53b11b93580bb9472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472">status_car</a> (<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> car_status)</td></tr>
+<tr class="memdesc:a0f4070c8db2109f53b11b93580bb9472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current car status to the serial console. This function formats and sends the current car status to the serial console.  <br /></td></tr>
+<tr class="separator:a0f4070c8db2109f53b11b93580bb9472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155fc400493924b3853e3d2fcc74e6b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a155fc400493924b3853e3d2fcc74e6b3">status_brake</a> (uint16_t brake_voltage)</td></tr>
+<tr class="separator:a155fc400493924b3853e3d2fcc74e6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4d64b8a917b7e18071210c43c1a98f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f">status_bms</a> (<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a> <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>)</td></tr>
+<tr class="memdesc:a6c4d64b8a917b7e18071210c43c1a98f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current <a class="el" href="classBMS.html">BMS</a> status to the serial console. This function formats and sends the current <a class="el" href="classBMS.html">BMS</a> status to the serial console.  <br /></td></tr>
+<tr class="separator:a6c4d64b8a917b7e18071210c43c1a98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace5ed08d1ebb4eae813ec98d6f6ea769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#ace5ed08d1ebb4eae813ec98d6f6ea769">hall_sensor</a> (uint16_t hall_sensor_value)</td></tr>
+<tr class="separator:ace5ed08d1ebb4eae813ec98d6f6ea769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a9d828bdca10efbda9f4e147a372cbc71" name="a9d828bdca10efbda9f4e147a372cbc71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d828bdca10efbda9f4e147a372cbc71">&#9670;&#160;</a></span>brake_fault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Debug_Serial::brake_fault </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
+          <td class="paramname"><em>fault_status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a brake fault message to the serial console. This function formats and sends the brake fault status and value to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fault_status</td><td>The status of the brake fault as defined in pedal_fault_status enum. </td></tr>
+    <tr><td class="paramname">value</td><td>brake ADC reading </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00140">140</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  141</span>{</div>
+<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">switch</span> (fault_status)</div>
+<div class="line"><span class="lineno">  143</span>    {</div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>:</div>
+<div class="line"><span class="lineno">  145</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  146</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0">BRAKE_LOW</a>:</div>
+<div class="line"><span class="lineno">  147</span>        Serial.print(<span class="stringliteral">&quot;Brake input too low. Value: &quot;</span>);</div>
+<div class="line"><span class="lineno">  148</span>        Serial.println(value);</div>
+<div class="line"><span class="lineno">  149</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0">BRAKE_HIGH</a>:</div>
+<div class="line"><span class="lineno">  151</span>        Serial.print(<span class="stringliteral">&quot;Brake too high. Value: &quot;</span>);</div>
+<div class="line"><span class="lineno">  152</span>        Serial.println(value);</div>
+<div class="line"><span class="lineno">  153</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  155</span>        Serial.println(<span class="stringliteral">&quot;Unknown fault status&quot;</span>);</div>
+<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  157</span>    }</div>
+<div class="line"><span class="lineno">  158</span>}</div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0">BRAKE_HIGH</a></div><div class="ttdeci">@ BRAKE_HIGH</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00046">Enums.h:46</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a></div><div class="ttdeci">@ NONE</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00038">Enums.h:38</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0">BRAKE_LOW</a></div><div class="ttdeci">@ BRAKE_LOW</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00045">Enums.h:45</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Enums_8h_source.html#l00046">BRAKE_HIGH</a>, <a class="el" href="Enums_8h_source.html#l00045">BRAKE_LOW</a>, and <a class="el" href="Enums_8h_source.html#l00038">NONE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00189">DBG_BRAKE_FAULT()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a9d828bdca10efbda9f4e147a372cbc71_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ace5ed08d1ebb4eae813ec98d6f6ea769" name="ace5ed08d1ebb4eae813ec98d6f6ea769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace5ed08d1ebb4eae813ec98d6f6ea769">&#9670;&#160;</a></span>hall_sensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Debug_Serial::hall_sensor </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>hall_sensor_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00246">246</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  247</span>{</div>
+<div class="line"><span class="lineno">  248</span>    void(Serial.print(<span class="stringliteral">&quot;Hall Sensor Value: &quot;</span>));</div>
+<div class="line"><span class="lineno">  249</span>    void(Serial.println(hall_sensor_value));</div>
+<div class="line"><span class="lineno">  250</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00221">DBG_HALL_SENSOR()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_ace5ed08d1ebb4eae813ec98d6f6ea769_icgraph.svg" width="350" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="ad136936636c7b7140cb1e14c55eb5f31" name="ad136936636c7b7140cb1e14c55eb5f31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad136936636c7b7140cb1e14c55eb5f31">&#9670;&#160;</a></span>initialize()</h2>
 
@@ -130,7 +251,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+<p>Initializes the <a class="el" href="namespaceDebug__Serial.html">Debug_Serial</a> interface. This function sets up the serial communication for debugging purposes. It should be called before using any other <a class="el" href="namespaceDebug__Serial.html">Debug_Serial</a> functions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00012">12</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span>    Serial.begin(115200);</div>
+<div class="line"><span class="lineno">   15</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -156,6 +291,26 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Prints a message to the serial console. This function sends a string message to the serial console for debugging. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00024">24</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>{ Serial.print(msg); }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00060">DBG_GENERAL()</a>, <a class="el" href="Debug_8h_source.html#l00082">DBG_STATUS()</a>, and <a class="el" href="Debug_8h_source.html#l00038">DBG_THROTTLE()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_aecd80296d8a3c5d2f9c51d623e11ff9f_icgraph.svg" width="332" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
 </div>
 </div>
 <a id="a756fa9286151426012a6f8e178a6c550" name="a756fa9286151426012a6f8e178a6c550"></a>
@@ -174,10 +329,98 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Prints a line to the serial console. This function sends a string message followed by a newline to the serial console for debugging. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00033">33</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>{ Serial.println(msg); }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="Debug_8h_source.html#l00093">DBGLN_STATUS()</a>, and <a class="el" href="Debug_8h_source.html#l00049">DBGLN_THROTTLE()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a756fa9286151426012a6f8e178a6c550_icgraph.svg" width="100%" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<a id="aec0d67c4b280719d2a23773c3484d239" name="aec0d67c4b280719d2a23773c3484d239"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec0d67c4b280719d2a23773c3484d239">&#9670;&#160;</a></span>status_brake()</h2>
+
+</div>
+</div>
+<a id="a6c4d64b8a917b7e18071210c43c1a98f" name="a6c4d64b8a917b7e18071210c43c1a98f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4d64b8a917b7e18071210c43c1a98f">&#9670;&#160;</a></span>status_bms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Debug_Serial::status_bms </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>&#160;</td>
+          <td class="paramname"><em>BMS_status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the current <a class="el" href="classBMS.html">BMS</a> status to the serial console. This function formats and sends the current <a class="el" href="classBMS.html">BMS</a> status to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">BMS_status</td><td>The current status of the <a class="el" href="classBMS.html">BMS</a> as defined in BMS_status enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00219">219</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  220</span>{</div>
+<div class="line"><span class="lineno">  221</span>    <span class="keywordflow">switch</span> (<a class="code hl_enumeration" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>)</div>
+<div class="line"><span class="lineno">  222</span>    {</div>
+<div class="line"><span class="lineno">  223</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff">NO_MSG</a>:</div>
+<div class="line"><span class="lineno">  224</span>        Serial.println(<span class="stringliteral">&quot;BMS Status: No message received&quot;</span>);</div>
+<div class="line"><span class="lineno">  225</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65">WRONG_ID</a>:</div>
+<div class="line"><span class="lineno">  227</span>        Serial.println(<span class="stringliteral">&quot;BMS Status: Wrong ID&quot;</span>);</div>
+<div class="line"><span class="lineno">  228</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  229</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087">WAITING</a>:</div>
+<div class="line"><span class="lineno">  230</span>        Serial.println(<span class="stringliteral">&quot;BMS Status: Waiting to start&quot;</span>);</div>
+<div class="line"><span class="lineno">  231</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  232</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec">STARTING</a>:</div>
+<div class="line"><span class="lineno">  233</span>        Serial.println(<span class="stringliteral">&quot;BMS Status: Starting&quot;</span>);</div>
+<div class="line"><span class="lineno">  234</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  235</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27">STARTED</a>:</div>
+<div class="line"><span class="lineno">  236</span>        Serial.println(<span class="stringliteral">&quot;BMS Status: Started&quot;</span>);</div>
+<div class="line"><span class="lineno">  237</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  238</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  239</span>        Serial.println(<span class="stringliteral">&quot;BMS Status: UNKNOWN&quot;</span>);</div>
+<div class="line"><span class="lineno">  240</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  241</span>    }</div>
+<div class="line"><span class="lineno">  242</span>}</div>
+<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a></div><div class="ttdeci">BMS_status</div><div class="ttdoc">BMS status.</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00054">Enums.h:55</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65">WRONG_ID</a></div><div class="ttdeci">@ WRONG_ID</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00057">Enums.h:57</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087">WAITING</a></div><div class="ttdeci">@ WAITING</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00058">Enums.h:58</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec">STARTING</a></div><div class="ttdeci">@ STARTING</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00059">Enums.h:59</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27">STARTED</a></div><div class="ttdeci">@ STARTED</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00060">Enums.h:60</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff">NO_MSG</a></div><div class="ttdeci">@ NO_MSG</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00056">Enums.h:56</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Enums_8h_source.html#l00056">NO_MSG</a>, <a class="el" href="Enums_8h_source.html#l00060">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00059">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00058">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00057">WRONG_ID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00205">DBG_BMS_STATUS()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a6c4d64b8a917b7e18071210c43c1a98f_icgraph.svg" width="560" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a155fc400493924b3853e3d2fcc74e6b3" name="a155fc400493924b3853e3d2fcc74e6b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155fc400493924b3853e3d2fcc74e6b3">&#9670;&#160;</a></span>status_brake()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +428,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::status_brake </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>brake_voltage</em></td><td>)</td>
           <td></td>
         </tr>
@@ -194,8 +437,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a73d4db3c04ea0d60d716535f3d96721b" name="a73d4db3c04ea0d60d716535f3d96721b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73d4db3c04ea0d60d716535f3d96721b">&#9670;&#160;</a></span>status_car()</h2>
+<a id="a0f4070c8db2109f53b11b93580bb9472" name="a0f4070c8db2109f53b11b93580bb9472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4070c8db2109f53b11b93580bb9472">&#9670;&#160;</a></span>status_car()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,19 +446,86 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::status_car </td>
           <td>(</td>
-          <td class="paramtype">CarStatus&#160;</td>
+          <td class="paramtype"><a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a>&#160;</td>
           <td class="paramname"><em>car_status</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>.</p>
+<p>Prints the current car status to the serial console. This function formats and sends the current car status to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">car_status</td><td>The current status of the car as defined in main_car_status enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00167">167</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  168</span>{</div>
+<div class="line"><span class="lineno">  169</span>    <span class="keyword">static</span> <a class="code hl_enumeration" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> last_status = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>;</div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">if</span> (car_status != last_status) {</div>
+<div class="line"><span class="lineno">  171</span>        Serial.print(<span class="stringliteral">&quot;Car Status: &quot;</span>);</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">switch</span> (last_status)</div>
+<div class="line"><span class="lineno">  173</span>        {</div>
+<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>:</div>
+<div class="line"><span class="lineno">  175</span>            Serial.print(<span class="stringliteral">&quot;INIT -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  176</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  177</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a>:</div>
+<div class="line"><span class="lineno">  178</span>            Serial.print(<span class="stringliteral">&quot;STARTIN -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  179</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  180</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a>:</div>
+<div class="line"><span class="lineno">  181</span>            Serial.print(<span class="stringliteral">&quot;BUSSIN -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  182</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  183</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a>:</div>
+<div class="line"><span class="lineno">  184</span>            Serial.print(<span class="stringliteral">&quot;DRIVE -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  185</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  186</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  187</span>            Serial.print(<span class="stringliteral">&quot;UNKNOWN -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  188</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  189</span>        }</div>
+<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">switch</span> (car_status)</div>
+<div class="line"><span class="lineno">  191</span>        {</div>
+<div class="line"><span class="lineno">  192</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>:</div>
+<div class="line"><span class="lineno">  193</span>            Serial.print(<span class="stringliteral">&quot;INIT -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  194</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  195</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a>:</div>
+<div class="line"><span class="lineno">  196</span>            Serial.print(<span class="stringliteral">&quot;STARTIN -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  197</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  198</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a>:</div>
+<div class="line"><span class="lineno">  199</span>            Serial.print(<span class="stringliteral">&quot;BUSSIN -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  200</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  201</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a>:</div>
+<div class="line"><span class="lineno">  202</span>            Serial.print(<span class="stringliteral">&quot;DRIVE -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  203</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  204</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  205</span>            Serial.print(<span class="stringliteral">&quot;UNKNOWN -&gt; &quot;</span>);</div>
+<div class="line"><span class="lineno">  206</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  207</span>        }</div>
+<div class="line"><span class="lineno">  208</span>        last_status = car_status;</div>
+<div class="line"><span class="lineno">  209</span>    }</div>
+<div class="line"><span class="lineno">  210</span>}</div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a></div><div class="ttdeci">main_car_status</div><div class="ttdoc">Main car status state machine.</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00023">Enums.h:24</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a></div><div class="ttdeci">@ INIT</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00025">Enums.h:25</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a></div><div class="ttdeci">@ BUSSIN</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00027">Enums.h:27</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a></div><div class="ttdeci">@ STARTIN</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00026">Enums.h:26</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a></div><div class="ttdeci">@ DRIVE</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00029">Enums.h:28</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Enums_8h_source.html#l00027">BUSSIN</a>, <a class="el" href="Enums_8h_source.html#l00028">DRIVE</a>, <a class="el" href="Enums_8h_source.html#l00025">INIT</a>, and <a class="el" href="Enums_8h_source.html#l00026">STARTIN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00171">DBG_STATUS_CAR()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a0f4070c8db2109f53b11b93580bb9472_icgraph.svg" width="490" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="a27250f93dafe961491a3c64d53b23e69" name="a27250f93dafe961491a3c64d53b23e69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27250f93dafe961491a3c64d53b23e69">&#9670;&#160;</a></span>throttle_fault()</h2>
+<a id="affcc90be9ba8e90b7fa2859039f276c9" name="affcc90be9ba8e90b7fa2859039f276c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affcc90be9ba8e90b7fa2859039f276c9">&#9670;&#160;</a></span>throttle_fault() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,13 +533,66 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::throttle_fault </td>
           <td>(</td>
-          <td class="paramtype">Pedal_Fault_Status&#160;</td>
+          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
+          <td class="paramname"><em>fault_status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a throttle fault message to the serial console without a float value. This function formats and sends the throttle fault status to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fault_status</td><td>The status of the throttle fault as defined in pedal_fault_status enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00111">111</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">switch</span> (fault_status)</div>
+<div class="line"><span class="lineno">  114</span>    {</div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>:</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d">DIFF_START</a>:</div>
+<div class="line"><span class="lineno">  118</span>        Serial.println(<span class="stringliteral">&quot;Pedal mismatch just started&quot;</span>);</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a">DIFF_EXCEED_100MS</a>:</div>
+<div class="line"><span class="lineno">  121</span>        Serial.println(<span class="stringliteral">&quot;FATAL FAULT: Pedal mismatch persisted &gt; 100ms!&quot;</span>);</div>
+<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616">DIFF_RESOLVED</a>:</div>
+<div class="line"><span class="lineno">  124</span>        Serial.println(<span class="stringliteral">&quot;Pedal mismatch resolved&quot;</span>);</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  127</span>        Serial.println(<span class="stringliteral">&quot;Unknown fault status&quot;</span>);</div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  129</span>    }</div>
+<div class="line"><span class="lineno">  130</span>}</div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d">DIFF_START</a></div><div class="ttdeci">@ DIFF_START</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00039">Enums.h:39</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a">DIFF_EXCEED_100MS</a></div><div class="ttdeci">@ DIFF_EXCEED_100MS</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00041">Enums.h:41</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616">DIFF_RESOLVED</a></div><div class="ttdeci">@ DIFF_RESOLVED</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00042">Enums.h:42</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Enums_8h_source.html#l00041">DIFF_EXCEED_100MS</a>, <a class="el" href="Enums_8h_source.html#l00042">DIFF_RESOLVED</a>, <a class="el" href="Enums_8h_source.html#l00039">DIFF_START</a>, and <a class="el" href="Enums_8h_source.html#l00038">NONE</a>.</p>
+
+</div>
+</div>
+<a id="aa73ff8f930647f4c70741b4e50ef6a5d" name="aa73ff8f930647f4c70741b4e50ef6a5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa73ff8f930647f4c70741b4e50ef6a5d">&#9670;&#160;</a></span>throttle_fault() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Debug_Serial::throttle_fault </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
           <td class="paramname"><em>fault_status</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -240,10 +603,57 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Prints a throttle fault message to the serial console. This function formats and sends the throttle fault status and value to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fault_status</td><td>The status of the throttle fault as defined in pedal_fault_status enum. </td></tr>
+    <tr><td class="paramname">value</td><td>Optional value associated with the fault </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00080">80</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>{</div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">switch</span> (fault_status)</div>
+<div class="line"><span class="lineno">   83</span>    {</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>:</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490">DIFF_CONTINUING</a>:</div>
+<div class="line"><span class="lineno">   87</span>        Serial.print(<span class="stringliteral">&quot;Pedal mismatch continuing. Difference: &quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span>        Serial.println(value);</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70">THROTTLE_LOW</a>:</div>
+<div class="line"><span class="lineno">   91</span>        Serial.print(<span class="stringliteral">&quot;Throttle input too low. Value: &quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>        Serial.println(value);</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1">THROTTLE_HIGH</a>:</div>
+<div class="line"><span class="lineno">   95</span>        Serial.print(<span class="stringliteral">&quot;Throttle too high. Value: &quot;</span>);</div>
+<div class="line"><span class="lineno">   96</span>        Serial.println(value);</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   99</span>        Serial.println(<span class="stringliteral">&quot;Unknown fault status&quot;</span>);</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span>}</div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70">THROTTLE_LOW</a></div><div class="ttdeci">@ THROTTLE_LOW</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00043">Enums.h:43</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1">THROTTLE_HIGH</a></div><div class="ttdeci">@ THROTTLE_HIGH</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00044">Enums.h:44</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490"><div class="ttname"><a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490">DIFF_CONTINUING</a></div><div class="ttdeci">@ DIFF_CONTINUING</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00040">Enums.h:40</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="Enums_8h_source.html#l00040">DIFF_CONTINUING</a>, <a class="el" href="Enums_8h_source.html#l00038">NONE</a>, <a class="el" href="Enums_8h_source.html#l00044">THROTTLE_HIGH</a>, and <a class="el" href="Enums_8h_source.html#l00043">THROTTLE_LOW</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00143">DBG_THROTTLE_FAULT()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_aa73ff8f930647f4c70741b4e50ef6a5d_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<a id="a4e4147de1500a91947eb142395c610bf" name="a4e4147de1500a91947eb142395c610bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e4147de1500a91947eb142395c610bf">&#9670;&#160;</a></span>throttle_in()</h2>
+
+</div>
+</div>
+<a id="a9e68fe4f00e7b1bf1a9c2addc2222a9b" name="a9e68fe4f00e7b1bf1a9c2addc2222a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e68fe4f00e7b1bf1a9c2addc2222a9b">&#9670;&#160;</a></span>throttle_in()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,19 +662,25 @@ Here is the caller graph for this function:</div>
           <td class="memname">void Debug_Serial::throttle_in </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_filtered_1</em>, </td>
+          <td class="paramname"><em>pedal_1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_filtered_2</em>, </td>
+          <td class="paramname"><em>pedal_2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_filtered_final</em>&#160;</td>
+          <td class="paramname"><em>pedal_2_scaled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>brake</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -274,10 +690,41 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Prints a throttle input message to the serial console. This function formats and sends the throttle input values to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pedal_1</td><td>Value from pedal sensor 1. </td></tr>
+    <tr><td class="paramname">pedal_2</td><td>Value from pedal sensor 2. </td></tr>
+    <tr><td class="paramname">pedal_2_scaled</td><td>Scaled value of pedal sensor 2. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00044">44</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
+<div class="line"><span class="lineno">   46</span>    Serial.print(<span class="stringliteral">&quot;Pedal 1: &quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>    Serial.print(pedal_1);</div>
+<div class="line"><span class="lineno">   48</span>    Serial.print(<span class="stringliteral">&quot; | Pedal 2: &quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>    Serial.print(pedal_2);</div>
+<div class="line"><span class="lineno">   50</span>    Serial.print(<span class="stringliteral">&quot; | Pedal 2 scaled: &quot;</span>);</div>
+<div class="line"><span class="lineno">   51</span>    Serial.print(pedal_2_scaled);</div>
+<div class="line"><span class="lineno">   52</span>    Serial.print(<span class="stringliteral">&quot; | Brake: &quot;</span>);</div>
+<div class="line"><span class="lineno">   53</span>    Serial.println(brake);</div>
+<div class="line"><span class="lineno">   54</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00108">DBG_THROTTLE_IN()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a9e68fe4f00e7b1bf1a9c2addc2222a9b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<a id="aa4ee971417c927bf2d5ee9f5fabf461a" name="aa4ee971417c927bf2d5ee9f5fabf461a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4ee971417c927bf2d5ee9f5fabf461a">&#9670;&#160;</a></span>throttle_out()</h2>
+
+</div>
+</div>
+<a id="a75dcfc17e13215b801dd9dafa6f7c515" name="a75dcfc17e13215b801dd9dafa6f7c515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75dcfc17e13215b801dd9dafa6f7c515">&#9670;&#160;</a></span>throttle_out()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,8 +732,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::throttle_out </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>throttle_volt</em>, </td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>throttle_final</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -301,6 +748,32 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prints a throttle output message to the serial console. This function formats and sends the throttle output values to the serial console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">throttle_final</td><td>Final value of the throttle pedal. </td></tr>
+    <tr><td class="paramname">throttle_torque_val</td><td>Calculated torque value based on the throttle input. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00064">64</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{</div>
+<div class="line"><span class="lineno">   66</span>    Serial.print(<span class="stringliteral">&quot;Throttle Final: &quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>    Serial.print(throttle_final);</div>
+<div class="line"><span class="lineno">   68</span>    Serial.print(<span class="stringliteral">&quot; | Torque Value: &quot;</span>);</div>
+<div class="line"><span class="lineno">   69</span>    Serial.println(throttle_torque_val);</div>
+<div class="line"><span class="lineno">   70</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00125">DBG_THROTTLE_OUT()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a75dcfc17e13215b801dd9dafa6f7c515_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 
 </div>
 </div>

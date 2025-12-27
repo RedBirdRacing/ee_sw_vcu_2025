@@ -1,0 +1,7 @@
+<map id="Debug_Serial::throttle_in" name="Debug_Serial::throttle_in">
+<area shape="rect" id="node1" title="Prints a throttle input message to the serial console. This function formats and sends the throttle i..." alt="" coords="696,13,879,38"/>
+<area shape="rect" id="node2" href="$Debug_8h.html#afa1e089b7149386f290d4ebb4d373bf6" title="Sends throttle pedal input debug info via CAN or serial (if enabled)." alt="" coords="501,13,648,38"/>
+<area shape="rect" id="node3" href="$classPedal.html#abdd53f9de825d4925aa7707ddaaa1fa9" title="Checks for a fault between two pedal sensor readings." alt="" coords="307,5,453,45"/>
+<area shape="rect" id="node4" href="$classPedal.html#aef9f2037f590fd4b41f3c50a7c2b3568" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="104,13,259,38"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,13,56,38"/>
+</map>

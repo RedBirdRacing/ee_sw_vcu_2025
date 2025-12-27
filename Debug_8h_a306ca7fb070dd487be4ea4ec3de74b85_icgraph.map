@@ -1,0 +1,5 @@
+<map id="DBG_STATUS_CAR" name="DBG_STATUS_CAR">
+<area shape="rect" id="node1" title="Sends car status debug info via CAN or serial (if enabled)." alt="" coords="112,31,253,56"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="9,5,60,31"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,55,64,80"/>
+</map>

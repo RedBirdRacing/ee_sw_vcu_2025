@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('Debug__can_8h.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;mcp2515.h&gt;</code><br />
-<code>#include &quot;Enums.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="Enums_8h_source.html">Enums.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Debug_can.h:</div>
 <div class="dyncontent">
@@ -121,17 +121,33 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a5c8b33000e36a19ccb285e45f666e64e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e">Debug_CAN::initialize</a> (MCP2515 *can_interface)</td></tr>
+<tr class="memdesc:a5c8b33000e36a19ccb285e45f666e64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="namespaceDebug__CAN.html">Debug_CAN</a> interface with the given MCP2515 CAN controller.  <br /></td></tr>
 <tr class="separator:a5c8b33000e36a19ccb285e45f666e64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6ec831802e4c3e2c69ab2201daa6f2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#ab6ec831802e4c3e2c69ab2201daa6f2d">Debug_CAN::throttle_in</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)</td></tr>
-<tr class="separator:ab6ec831802e4c3e2c69ab2201daa6f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8cb4087484d789e6eec53874e04537b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#ac8cb4087484d789e6eec53874e04537b">Debug_CAN::throttle_out</a> (float throttle_volt, int16_t throttle_torque_val)</td></tr>
-<tr class="separator:ac8cb4087484d789e6eec53874e04537b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0690980c8f535e896f297ed6cc49663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#ac0690980c8f535e896f297ed6cc49663">Debug_CAN::throttle_fault</a> (Pedal_Fault_Status fault_status, float value)</td></tr>
-<tr class="separator:ac0690980c8f535e896f297ed6cc49663"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9be0dbb1d5cf478a27cadf6a38c94ddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a9be0dbb1d5cf478a27cadf6a38c94ddc">Debug_CAN::status_car</a> (CarStatus <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>)</td></tr>
-<tr class="separator:a9be0dbb1d5cf478a27cadf6a38c94ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56e0c7b80f2dc9c6a5480f4586ee85b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a56e0c7b80f2dc9c6a5480f4586ee85b5">Debug_CAN::status_brake</a> (float brake_voltage)</td></tr>
-<tr class="separator:a56e0c7b80f2dc9c6a5480f4586ee85b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c26a2303b6fa92439c0a693728d760e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a5c26a2303b6fa92439c0a693728d760e">Debug_CAN::throttle_in</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled, uint16_t brake)</td></tr>
+<tr class="memdesc:a5c26a2303b6fa92439c0a693728d760e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug throttle input message over CAN. This function prepares a CAN frame with the throttle input values and sends it.  <br /></td></tr>
+<tr class="separator:a5c26a2303b6fa92439c0a693728d760e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace21ce4da40cf6ae391410d839c59cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3">Debug_CAN::throttle_out</a> (uint16_t throttle_final, int16_t throttle_torque_val)</td></tr>
+<tr class="memdesc:ace21ce4da40cf6ae391410d839c59cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug throttle output message over CAN. This function prepares a CAN frame with the throttle output values and sends it.  <br /></td></tr>
+<tr class="separator:ace21ce4da40cf6ae391410d839c59cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6443068f8aa21ba673ad7bc132e739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a8e6443068f8aa21ba673ad7bc132e739">Debug_CAN::throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
+<tr class="memdesc:a8e6443068f8aa21ba673ad7bc132e739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug throttle fault message over CAN. This function prepares a CAN frame with the throttle fault status and sends it.  <br /></td></tr>
+<tr class="separator:a8e6443068f8aa21ba673ad7bc132e739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4870545ba69489478cd58ecb31f34d3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a4870545ba69489478cd58ecb31f34d3d">Debug_CAN::throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status)</td></tr>
+<tr class="memdesc:a4870545ba69489478cd58ecb31f34d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug throttle fault message over CAN without a float value. This function prepares a CAN frame with the throttle fault status and sends it.  <br /></td></tr>
+<tr class="separator:a4870545ba69489478cd58ecb31f34d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a972189e7412acf4e4b2d36c7693a3f70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a972189e7412acf4e4b2d36c7693a3f70">Debug_CAN::brake_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
+<tr class="memdesc:a972189e7412acf4e4b2d36c7693a3f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug brake fault message over CAN. This function prepares a CAN frame with the brake fault status and sends it.  <br /></td></tr>
+<tr class="separator:a972189e7412acf4e4b2d36c7693a3f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ac5d84927aea929dc26f0820dd58c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8">Debug_CAN::status_car</a> (<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> car_status)</td></tr>
+<tr class="memdesc:a33ac5d84927aea929dc26f0820dd58c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug car status message over CAN. This function prepares a CAN frame with the current car status and sends it.  <br /></td></tr>
+<tr class="separator:a33ac5d84927aea929dc26f0820dd58c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea833160214654f8d1a3eaf1b0c6b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a3ea833160214654f8d1a3eaf1b0c6b9d">Debug_CAN::status_brake</a> (uint16_t brake_voltage)</td></tr>
+<tr class="separator:a3ea833160214654f8d1a3eaf1b0c6b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab78e4ce29a20ab1dae2db225def6b747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747">Debug_CAN::status_bms</a> (<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a> <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>)</td></tr>
+<tr class="memdesc:ab78e4ce29a20ab1dae2db225def6b747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug <a class="el" href="classBMS.html">BMS</a> status message over CAN. This function prepares a CAN frame with the current <a class="el" href="classBMS.html">BMS</a> status and sends it.  <br /></td></tr>
+<tr class="separator:ab78e4ce29a20ab1dae2db225def6b747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42414365a04c66411b629e36d4b50466"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a42414365a04c66411b629e36d4b50466">Debug_CAN::hall_sensor</a> (uint16_t hall_sensor_value)</td></tr>
+<tr class="separator:a42414365a04c66411b629e36d4b50466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>

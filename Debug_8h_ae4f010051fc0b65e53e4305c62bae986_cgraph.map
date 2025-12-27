@@ -1,0 +1,5 @@
+<map id="DBG_BRAKE_FAULT" name="DBG_BRAKE_FAULT">
+<area shape="rect" id="node1" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="5,35,153,60"/>
+<area shape="rect" id="node2" href="$namespaceDebug__CAN.html#a972189e7412acf4e4b2d36c7693a3f70" title="Sends a debug brake fault message over CAN. This function prepares a CAN frame with the brake fault s..." alt="" coords="201,5,381,31"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a9d828bdca10efbda9f4e147a372cbc71" title="Prints a brake fault message to the serial console. This function formats and sends the brake fault s..." alt="" coords="215,55,367,95"/>
+</map>

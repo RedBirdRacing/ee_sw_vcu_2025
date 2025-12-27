@@ -1,0 +1,17 @@
+<map id="Pedal::pedal_can_frame_update" name="Pedal::pedal_can_frame_update">
+<area shape="rect" id="node1" title="Updates the CAN frame with the most recent pedal value." alt="" coords="5,126,184,166"/>
+<area shape="rect" id="node2" href="$Debug_8h.html#a25f28d9aa7440ebc55a76a2b2ce878ea" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="241,55,402,80"/>
+<area shape="rect" id="node5" href="$Debug_8h.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="250,104,393,129"/>
+<area shape="rect" id="node7" href="$classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5" title="Updates the CAN frame with the current pedal values." alt="" coords="232,154,411,194"/>
+<area shape="rect" id="node8" href="$classPedal.html#a04ce7e5e20d8405f10f281d6c784e1ef" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="240,218,403,258"/>
+<area shape="rect" id="node3" href="$namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3" title="Sends a debug throttle output message over CAN. This function prepares a CAN frame with the throttle ..." alt="" coords="463,5,646,31"/>
+<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515" title="Prints a throttle output message to the serial console. This function formats and sends the throttle ..." alt="" coords="459,55,651,80"/>
+<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a line to the serial console. This function sends a string message followed by a newline to th..." alt="" coords="475,104,634,129"/>
+<area shape="rect" id="node9" href="$classPedal.html#a00f33fcd9507c62193f2ffc3570b7fba" title="Maps the brake ADC to a torque value." alt="" coords="479,189,630,229"/>
+<area shape="rect" id="node13" href="$Debug_8h.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="699,253,871,279"/>
+<area shape="rect" id="node10" href="$Debug_8h.html#ae4f010051fc0b65e53e4305c62bae986" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="711,189,859,215"/>
+<area shape="rect" id="node11" href="$namespaceDebug__CAN.html#a972189e7412acf4e4b2d36c7693a3f70" title="Sends a debug brake fault message over CAN. This function prepares a CAN frame with the brake fault s..." alt="" coords="919,132,1099,157"/>
+<area shape="rect" id="node12" href="$namespaceDebug__Serial.html#a9d828bdca10efbda9f4e147a372cbc71" title="Prints a brake fault message to the serial console. This function formats and sends the brake fault s..." alt="" coords="933,182,1085,222"/>
+<area shape="rect" id="node14" href="$namespaceDebug__CAN.html#a8e6443068f8aa21ba673ad7bc132e739" title="Sends a debug throttle fault message over CAN. This function prepares a CAN frame with the throttle f..." alt="" coords="931,246,1086,286"/>
+<area shape="rect" id="node15" href="$namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="927,310,1091,350"/>
+</map>

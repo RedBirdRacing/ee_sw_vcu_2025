@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['average_0',['average',['../Signal__Processing_8cpp.html#a7780bdc4e1118732b0bb8142188b9fb4',1,'average(T val1, T val2):&#160;Signal_Processing.cpp'],['../Signal__Processing_8h.html#a7780bdc4e1118732b0bb8142188b9fb4',1,'average(T val1, T val2):&#160;Signal_Processing.cpp']]],
-  ['avg_5ffilter_1',['AVG_filter',['../Signal__Processing_8cpp.html#aa9b728692efd1a7820e513ad78fb2ab1',1,'AVG_filter(T *buffer, int buf_size):&#160;Signal_Processing.cpp'],['../Signal__Processing_8h.html#aa9b728692efd1a7820e513ad78fb2ab1',1,'AVG_filter(T *buffer, int buf_size):&#160;Signal_Processing.cpp']]]
+  ['add_5ftask_0',['add_task',['../classScheduler.html#aa8d97e36a8169a26832affe83871f39a',1,'Scheduler']]],
+  ['average_1',['average',['../Signal__Processing_8cpp.html#a4d9072b402cbfdfd7303bd805f408f6c',1,'average(T val1, T val2):&#160;Signal_Processing.cpp'],['../Signal__Processing_8h.html#a4d9072b402cbfdfd7303bd805f408f6c',1,'average(T val1, T val2):&#160;Signal_Processing.cpp']]],
+  ['avg_5ffilter_2',['AVG_filter',['../Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08',1,'AVG_filter(T *buffer, uint8_t buf_size):&#160;Signal_Processing.cpp'],['../Signal__Processing_8h.html#aae13f76d835e3de4d61441cf4abc0f08',1,'AVG_filter(T *buffer, uint8_t buf_size):&#160;Signal_Processing.cpp']]]
 ];

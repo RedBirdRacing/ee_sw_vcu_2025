@@ -90,62 +90,105 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">main.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-<code>#include &quot;pinMap.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="boardConf_8h_source.html">boardConf.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Pedal_8h_source.html">Pedal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="BMS_8h_source.html">BMS.h</a>&quot;</code><br />
 <code>#include &lt;mcp2515.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Debug_8h_source.html">Debug.h</a>&quot;</code><br />
-<code>#include &quot;Enums.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="Enums_8h_source.html">Enums.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="car__state_8h_source.html">car_state.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp__incl.svg" width="506" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp__incl.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a781fd80765f85ec1d4f8250b59e9850e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">mcp2515_motor</a>&#160;&#160;&#160;<a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a></td></tr>
+<tr class="separator:a781fd80765f85ec1d4f8250b59e9850e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9215d3772fc8e03a4ccd56fe9c7b5fc5"><td class="memItemLeft" align="right" valign="top">MCP2515&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5">mcp2515_motor</a> (CS_CAN_MOTOR)</td></tr>
+<tr class="memitem:a9215d3772fc8e03a4ccd56fe9c7b5fc5"><td class="memItemLeft" align="right" valign="top">MCP2515&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5">mcp2515_motor</a> (<a class="el" href="boardConf_8h.html#a65b24582a92e368f91aca95b4dbe5847">CS_CAN_MOTOR</a>)</td></tr>
 <tr class="separator:a9215d3772fc8e03a4ccd56fe9c7b5fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a926cc13a4f62a65d28fd845a00bfd779"><td class="memItemLeft" align="right" valign="top">MCP2515&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">mcp2515_BMS</a> (CS_CAN_BMS)</td></tr>
+<tr class="memitem:a926cc13a4f62a65d28fd845a00bfd779"><td class="memItemLeft" align="right" valign="top">MCP2515&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">mcp2515_BMS</a> (<a class="el" href="boardConf_8h.html#ab476064511df004d8a67875afbd3521b">CS_CAN_BMS</a>)</td></tr>
 <tr class="separator:a926cc13a4f62a65d28fd845a00bfd779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95581c94a7dc4a68f61fa24f06cc90d1"><td class="memItemLeft" align="right" valign="top">MCP2515&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a> (CS_CAN_DL)</td></tr>
+<tr class="memitem:a95581c94a7dc4a68f61fa24f06cc90d1"><td class="memItemLeft" align="right" valign="top">MCP2515&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a> (<a class="el" href="boardConf_8h.html#a661f70456357c09fff639665b5e89852">CS_CAN_DL</a>)</td></tr>
 <tr class="separator:a95581c94a7dc4a68f61fa24f06cc90d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2668d80d0711f29d4507c48eb984f684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2668d80d0711f29d4507c48eb984f684">scheduler_pedal</a> (MCP2515 *mcp2515_)</td></tr>
+<tr class="separator:a2668d80d0711f29d4507c48eb984f684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea17ca2552291c88af3e9ec6804264b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1ea17ca2552291c88af3e9ec6804264b">scheduler_bms</a> (MCP2515 *mcp2515_)</td></tr>
+<tr class="separator:a1ea17ca2552291c88af3e9ec6804264b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules such as <a class="el" href="classPedal.html">Pedal</a> and Debug.  <br /></td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules.  <br /></td></tr>
 <tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abdc3361118082540c7d53e3d62c26d4e"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#abdc3361118082540c7d53e3d62c26d4e">INPUT_PINS_COUNT</a> = 2</td></tr>
-<tr class="separator:abdc3361118082540c7d53e3d62c26d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8693be6bfc3c3e88b1c6a48d24dd57"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2e8693be6bfc3c3e88b1c6a48d24dd57">pin_in</a> [<a class="el" href="main_8cpp.html#abdc3361118082540c7d53e3d62c26d4e">INPUT_PINS_COUNT</a>] = {DRIVE_MODE_BTN, BRAKE_IN}</td></tr>
-<tr class="separator:a2e8693be6bfc3c3e88b1c6a48d24dd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa9040b44dff55784b8756ed4a8344ba"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aaa9040b44dff55784b8756ed4a8344ba">OUTPUT_PINS_COUNT</a> = 3</td></tr>
-<tr class="separator:aaa9040b44dff55784b8756ed4a8344ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74ca7d9077cc901338787c473b1582f5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a74ca7d9077cc901338787c473b1582f5">pin_out</a> [<a class="el" href="main_8cpp.html#aaa9040b44dff55784b8756ed4a8344ba">OUTPUT_PINS_COUNT</a>] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT}</td></tr>
-<tr class="separator:a74ca7d9077cc901338787c473b1582f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a6ac71c9a2fc17168eb74b51e25c857"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857">INPUT_COUNT</a> = 5</td></tr>
+<tr class="separator:a7a6ac71c9a2fc17168eb74b51e25c857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81c886455652a75221096759b0b39ca"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac81c886455652a75221096759b0b39ca">pins_in</a> [<a class="el" href="main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857">INPUT_COUNT</a>] = {<a class="el" href="boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426">DRIVE_MODE_BTN</a>, <a class="el" href="boardConf_8h.html#a5526cea8555b601f99b6233f35faea83">BRAKE_IN</a>, <a class="el" href="boardConf_8h.html#a2cb80d9d4c245ea31cae786f290596c8">APPS_5V</a>, <a class="el" href="boardConf_8h.html#a5062bcc46bcd21e5984aa1bc3e932c96">APPS_3V3</a>, <a class="el" href="boardConf_8h.html#a6ff4d2630652deeecb75723f5a3fb068">HALL_SENSOR</a>}</td></tr>
+<tr class="separator:ac81c886455652a75221096759b0b39ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df142f03646c5b92649924c05eb448e"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5df142f03646c5b92649924c05eb448e">OUTPUT_COUNT</a> = 4</td></tr>
+<tr class="separator:a5df142f03646c5b92649924c05eb448e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31c3e7c8bfd2740573b89eb4a2b1d48"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48">pins_out</a> [<a class="el" href="main_8cpp.html#a5df142f03646c5b92649924c05eb448e">OUTPUT_COUNT</a>] = {<a class="el" href="boardConf_8h.html#abfa15a856e2d40258527d676c5023292">FRG</a>, <a class="el" href="boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163">BRAKE_LIGHT</a>, <a class="el" href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">BUZZER</a>, <a class="el" href="boardConf_8h.html#a1e737aebda49004244d2184945475905">BMS_FAILED_LED</a>}</td></tr>
+<tr class="separator:ab31c3e7c8bfd2740573b89eb4a2b1d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f0f6b4a2139238d24307a105c01ea8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPedal.html">Pedal</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a></td></tr>
 <tr class="separator:ad1f0f6b4a2139238d24307a105c01ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9012428675638b2523b463323f972a79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBMS.html">BMS</a> bms &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a></td></tr>
+<tr class="separator:a9012428675638b2523b463323f972a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e765c1bc284bb6ee026381fdd6e924e"><td class="memItemLeft" align="right" valign="top">MCP2515 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8e765c1bc284bb6ee026381fdd6e924e">MCPs</a> [3] = {&amp; <a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a> , &amp;<a class="el" href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a>, &amp;<a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a>}</td></tr>
+<tr class="separator:a8e765c1bc284bb6ee026381fdd6e924e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeadd5ff15bba21c8292acef541061396"><td class="memItemLeft" align="right" valign="top">struct can_frame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aeadd5ff15bba21c8292acef541061396">tx_throttle_msg</a></td></tr>
 <tr class="separator:aeadd5ff15bba21c8292acef541061396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa73959a8a4ecf596694a2e117b831ab4"><td class="memItemLeft" align="right" valign="top">struct can_frame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa73959a8a4ecf596694a2e117b831ab4">rx_msg</a></td></tr>
-<tr class="separator:aa73959a8a4ecf596694a2e117b831ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55ddc5bf2ff2ff81cb303696ebfcbe03"><td class="memItemLeft" align="right" valign="top">CarStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a> = INIT</td></tr>
-<tr class="separator:a55ddc5bf2ff2ff81cb303696ebfcbe03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86d21c557e374a4e5783adc5b611dc20"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a86d21c557e374a4e5783adc5b611dc20">car_status_millis_counter</a> = 0</td></tr>
-<tr class="separator:a86d21c557e374a4e5783adc5b611dc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae47ea13766a589d1afd13ce6416c8c31"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae47ea13766a589d1afd13ce6416c8c31">STATUS_1_TIME_MILLIS</a> = 2000</td></tr>
-<tr class="separator:ae47ea13766a589d1afd13ce6416c8c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15d2a6ef8d5c78eacf0c547e09faed40"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a15d2a6ef8d5c78eacf0c547e09faed40">BUSSIN_TIME_MILLIS</a> = 2000</td></tr>
-<tr class="separator:a15d2a6ef8d5c78eacf0c547e09faed40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e2f8002c9f61e65749409b326c642b"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a83e2f8002c9f61e65749409b326c642b">STARTING_MILLIS</a> = 2000</td></tr>
+<tr class="separator:a83e2f8002c9f61e65749409b326c642b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6977c8d9a85d7eecbf236ebc38dcd8b"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b">BUSSIN_MILLIS</a> = 2000</td></tr>
+<tr class="separator:ae6977c8d9a85d7eecbf236ebc38dcd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b210a2254e453ab1707b21a4f610222"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9b210a2254e453ab1707b21a4f610222">BMS_MILLIS</a> = 10000</td></tr>
+<tr class="separator:a9b210a2254e453ab1707b21a4f610222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a2a1ed8be72bc6e757566973698af9"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9">BRAKE_THRESHOLD</a> = 130</td></tr>
+<tr class="separator:a74a2a1ed8be72bc6e757566973698af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363e40cf047b6f6ac073c3564fcc5ee7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">brake_pressed</a> = false</td></tr>
+<tr class="separator:a363e40cf047b6f6ac073c3564fcc5ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30233bd666bfd0fe8f78b3c51c7a756b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structcar__state.html">car_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a></td></tr>
+<tr class="memdesc:a30233bd666bfd0fe8f78b3c51c7a756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global car state structure.  <br /></td></tr>
+<tr class="separator:a30233bd666bfd0fe8f78b3c51c7a756b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d7f3cc76b8167e4bb8df1ed5bf4c186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScheduler.html">Scheduler</a>&lt; 2, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186">scheduler</a> (10000, 1000, <a class="el" href="main_8cpp.html#a8e765c1bc284bb6ee026381fdd6e924e">MCPs</a>)</td></tr>
+<tr class="separator:a4d7f3cc76b8167e4bb8df1ed5bf4c186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a781fd80765f85ec1d4f8250b59e9850e" name="a781fd80765f85ec1d4f8250b59e9850e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781fd80765f85ec1d4f8250b59e9850e">&#9670;&#160;</a></span>mcp2515_motor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define mcp2515_motor&#160;&#160;&#160;<a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00042">42</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
@@ -162,11 +205,149 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="main_8cpp.html#a15d2a6ef8d5c78eacf0c547e09faed40">BUSSIN_TIME_MILLIS</a>, <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>, <a class="el" href="main_8cpp.html#a86d21c557e374a4e5783adc5b611dc20">car_status_millis_counter</a>, <a class="el" href="Debug_8h.html#af3da0ef9a34924967708df9cfee4a300">DBG_STATUS_CAR</a>, <a class="el" href="Debug_8h.html#aa1ae00c66ea6bfeee63eba46dccb528b">DBGLN_STATUS</a>, <a class="el" href="Debug_8h.html#a8e053aa392180b92d4ad1311ba41f518">DBGLN_THROTTLE</a>, <a class="el" href="classPedal.html#a427bd62d1587c4b02ccb0f7f5c07d46d">Pedal::final_pedal_value</a>, <a class="el" href="main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5">mcp2515_motor()</a>, <a class="el" href="Pedal_8h.html#a97a905b4178224d00f842b93159cd428">MIN_THROTTLE_OUT_VAL</a>, <a class="el" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a>, <a class="el" href="classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5">Pedal::pedal_can_frame_stop_motor()</a>, <a class="el" href="classPedal.html#a7ba3e35aa516afdfc47606619d16e3a2">Pedal::pedal_can_frame_update()</a>, <a class="el" href="classPedal.html#ab1c72e4ea23bb08ea320a84a6db8902b">Pedal::pedal_update()</a>, <a class="el" href="main_8cpp.html#ae47ea13766a589d1afd13ce6416c8c31">STATUS_1_TIME_MILLIS</a>, and <a class="el" href="main_8cpp.html#aeadd5ff15bba21c8292acef541061396">tx_throttle_msg</a>.</p>
+<p>Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00158">158</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>{</div>
+<div class="line"><span class="lineno">  160</span>    <span class="comment">//DBG_HALL_SENSOR(analogRead(HALL_SENSOR));</span></div>
+<div class="line"><span class="lineno">  161</span>    <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a> = millis();</div>
+<div class="line"><span class="lineno">  162</span>    <a class="code hl_variable" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a>.<a class="code hl_function" href="classPedal.html#aef9f2037f590fd4b41f3c50a7c2b3568">pedal_update</a>(&amp;<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>, analogRead(<a class="code hl_define" href="boardConf_8h.html#a2cb80d9d4c245ea31cae786f290596c8">APPS_5V</a>), analogRead(<a class="code hl_define" href="boardConf_8h.html#a5062bcc46bcd21e5984aa1bc3e932c96">APPS_3V3</a>), analogRead(<a class="code hl_define" href="boardConf_8h.html#a5526cea8555b601f99b6233f35faea83">BRAKE_IN</a>));</div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span>    <a class="code hl_variable" href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">brake_pressed</a> = <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(analogRead(<a class="code hl_define" href="boardConf_8h.html#a5526cea8555b601f99b6233f35faea83">BRAKE_IN</a>)) &gt;= <a class="code hl_variable" href="main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9">BRAKE_THRESHOLD</a>;</div>
+<div class="line"><span class="lineno">  165</span>    digitalWrite(<a class="code hl_define" href="boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163">BRAKE_LIGHT</a>, <a class="code hl_variable" href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">brake_pressed</a> ? HIGH : LOW);</div>
+<div class="line"><span class="lineno">  166</span>    <a class="code hl_variable" href="main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186">scheduler</a>.update(*micros);</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a2294e8d6180b325ce54207336ecbc939">fault_force_stop</a>)</div>
+<div class="line"><span class="lineno">  169</span>    {</div>
+<div class="line"><span class="lineno">  170</span>        <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>; <span class="comment">// safety, later change to fault status</span></div>
+<div class="line"><span class="lineno">  171</span>        digitalWrite(<a class="code hl_define" href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">BUZZER</a>, LOW);        <span class="comment">// Turn off buzzer</span></div>
+<div class="line"><span class="lineno">  172</span>        digitalWrite(<a class="code hl_define" href="boardConf_8h.html#abfa15a856e2d40258527d676c5023292">FRG</a>, LOW);           <span class="comment">// Turn off drive mode LED</span></div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">return</span>;                           <span class="comment">// If fault force stop is active, do not proceed with the rest of the loop</span></div>
+<div class="line"><span class="lineno">  174</span>        <span class="comment">// pedal is still being updated, data can still be gathered and sent through CAN/serial</span></div>
+<div class="line"><span class="lineno">  175</span>    }</div>
+<div class="line"><span class="lineno">  176</span> </div>
+<div class="line"><span class="lineno">  177</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>)</div>
+<div class="line"><span class="lineno">  178</span>    {</div>
+<div class="line"><span class="lineno">  179</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a>:</div>
+<div class="line"><span class="lineno">  180</span>        <span class="comment">// Pedal update</span></div>
+<div class="line"><span class="lineno">  181</span>        <span class="comment">// Send pedal value through canbus</span></div>
+<div class="line"><span class="lineno">  182</span>        <span class="comment">// already scheduled</span></div>
+<div class="line"><span class="lineno">  183</span>        <span class="keywordflow">return</span>; <span class="comment">// no need logic to check if pedal on, car started</span></div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>    <span class="comment">// do not return here if not in DRIVE mode, else can&#39;t detect pedal being on while starting</span></div>
+<div class="line"><span class="lineno">  186</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>:</div>
+<div class="line"><span class="lineno">  187</span>        <a class="code hl_function" href="Debug_8h.html#a9a564faad1bd32a5894d3706e38f1067">DBGLN_THROTTLE</a>(<span class="stringliteral">&quot;Stopping motor: INIT.&quot;</span>);</div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span>        <span class="keywordflow">if</span> (digitalRead(<a class="code hl_define" href="boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426">DRIVE_MODE_BTN</a>) == <a class="code hl_define" href="boardConf_8h.html#af04e20a7e5b6153ffe850b26e1fe097a">BUTTON_ACTIVE</a> &amp;&amp; <a class="code hl_variable" href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">brake_pressed</a>)</div>
+<div class="line"><span class="lineno">  190</span>        {</div>
+<div class="line"><span class="lineno">  191</span>            <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a>;</div>
+<div class="line"><span class="lineno">  192</span>            <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> = <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a>;</div>
+<div class="line"><span class="lineno">  193</span> </div>
+<div class="line"><span class="lineno">  194</span>            <span class="comment">//scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it</span></div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>            <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  197</span>        }</div>
+<div class="line"><span class="lineno">  198</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a>:</div>
+<div class="line"><span class="lineno">  201</span>        <a class="code hl_variable" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a>.<a class="code hl_function" href="classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5">pedal_can_frame_stop_motor</a>(&amp;<a class="code hl_variable" href="main_8cpp.html#aeadd5ff15bba21c8292acef541061396">tx_throttle_msg</a>);</div>
+<div class="line"><span class="lineno">  202</span>        <a class="code hl_function" href="Debug_8h.html#a9a564faad1bd32a5894d3706e38f1067">DBGLN_THROTTLE</a>(<span class="stringliteral">&quot;Stopping motor: STARTIN.&quot;</span>);</div>
+<div class="line"><span class="lineno">  203</span>        <a class="code hl_define" href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">mcp2515_motor</a>.sendMessage(&amp;<a class="code hl_variable" href="main_8cpp.html#aeadd5ff15bba21c8292acef541061396">tx_throttle_msg</a>);</div>
+<div class="line"><span class="lineno">  204</span> </div>
+<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">if</span> (digitalRead(<a class="code hl_define" href="boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426">DRIVE_MODE_BTN</a>) != <a class="code hl_define" href="boardConf_8h.html#af04e20a7e5b6153ffe850b26e1fe097a">BUTTON_ACTIVE</a> || !<a class="code hl_variable" href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">brake_pressed</a>)</div>
+<div class="line"><span class="lineno">  206</span>        {</div>
+<div class="line"><span class="lineno">  207</span>            <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>;</div>
+<div class="line"><span class="lineno">  208</span>            <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> = <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a>; <span class="comment">// safety</span></div>
+<div class="line"><span class="lineno">  209</span> </div>
+<div class="line"><span class="lineno">  210</span>            <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  211</span>        }</div>
+<div class="line"><span class="lineno">  212</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a> - <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> &gt;= <a class="code hl_variable" href="main_8cpp.html#a83e2f8002c9f61e65749409b326c642b">STARTING_MILLIS</a>)</div>
+<div class="line"><span class="lineno">  213</span>        {</div>
+<div class="line"><span class="lineno">  214</span>            <span class="comment">//scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready</span></div>
+<div class="line"><span class="lineno">  215</span>            <span class="keywordflow">if</span> (bms.hv_ready()) <span class="comment">// if HV not started, return to INIT</span></div>
+<div class="line"><span class="lineno">  216</span>            {</div>
+<div class="line"><span class="lineno">  217</span>                <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>;</div>
+<div class="line"><span class="lineno">  218</span>                <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> = <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a>; <span class="comment">// safety</span></div>
+<div class="line"><span class="lineno">  219</span> </div>
+<div class="line"><span class="lineno">  220</span>                <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  221</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  222</span>            }</div>
+<div class="line"><span class="lineno">  223</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a> - <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> &gt;= <a class="code hl_variable" href="main_8cpp.html#a9b210a2254e453ab1707b21a4f610222">BMS_MILLIS</a>)</div>
+<div class="line"><span class="lineno">  224</span>            {</div>
+<div class="line"><span class="lineno">  225</span>                <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a>;</div>
+<div class="line"><span class="lineno">  226</span>                <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> = <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a>; <span class="comment">// safety</span></div>
+<div class="line"><span class="lineno">  227</span> </div>
+<div class="line"><span class="lineno">  228</span>                <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  229</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  230</span>            }</div>
+<div class="line"><span class="lineno">  231</span>        }</div>
+<div class="line"><span class="lineno">  232</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  233</span> </div>
+<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a>:</div>
+<div class="line"><span class="lineno">  235</span>        digitalWrite(<a class="code hl_define" href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">BUZZER</a>, HIGH); <span class="comment">// Turn on buzzer</span></div>
+<div class="line"><span class="lineno">  236</span> </div>
+<div class="line"><span class="lineno">  237</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a> - <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> &gt;= <a class="code hl_variable" href="main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b">BUSSIN_MILLIS</a>)</div>
+<div class="line"><span class="lineno">  238</span>        {</div>
+<div class="line"><span class="lineno">  239</span>            digitalWrite(<a class="code hl_define" href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">BUZZER</a>, LOW);</div>
+<div class="line"><span class="lineno">  240</span>            digitalWrite(<a class="code hl_define" href="boardConf_8h.html#abfa15a856e2d40258527d676c5023292">FRG</a>, HIGH);</div>
+<div class="line"><span class="lineno">  241</span>            <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a>;</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>            <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  244</span>        }</div>
+<div class="line"><span class="lineno">  245</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  246</span> </div>
+<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  248</span>        <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  249</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  250</span>    }</div>
+<div class="line"><span class="lineno">  251</span> </div>
+<div class="line"><span class="lineno">  252</span>    <span class="comment">// DRIVE mode has already returned, if reached here, then means car isn&#39;t in DRIVE</span></div>
+<div class="line"><span class="lineno">  253</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a9f90d5728cbd7cdc3705b2b4e6d3d3fe">pedal_final</a> &gt; <a class="code hl_variable" href="Pedal_8h.html#aa9549de2cf222bb9d94cdd240ec4cebd">PEDAL_1_LU</a>)</div>
+<div class="line"><span class="lineno">  254</span>    {</div>
+<div class="line"><span class="lineno">  255</span>        <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a> = <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>;</div>
+<div class="line"><span class="lineno">  256</span>        <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_status_millis_counter</a> = <a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">millis</a>; <span class="comment">// Set to current time, in case any counter relies on this</span></div>
+<div class="line"><span class="lineno">  257</span> </div>
+<div class="line"><span class="lineno">  258</span>        <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  259</span>    }</div>
+<div class="line"><span class="lineno">  260</span>}</div>
+<div class="ttc" id="aDebug_8h_html_a306ca7fb070dd487be4ea4ec3de74b85"><div class="ttname"><a href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a></div><div class="ttdeci">void DBG_STATUS_CAR(main_car_status car_status)</div><div class="ttdoc">Sends car status debug info via CAN or serial (if enabled).</div><div class="ttdef"><b>Definition:</b> <a href="Debug_8h_source.html#l00171">Debug.h:171</a></div></div>
+<div class="ttc" id="aDebug_8h_html_a9a564faad1bd32a5894d3706e38f1067"><div class="ttname"><a href="Debug_8h.html#a9a564faad1bd32a5894d3706e38f1067">DBGLN_THROTTLE</a></div><div class="ttdeci">void DBGLN_THROTTLE(const char *x)</div><div class="ttdoc">Prints a line to the serial console for throttle debug.</div><div class="ttdef"><b>Definition:</b> <a href="Debug_8h_source.html#l00049">Debug.h:49</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a></div><div class="ttdeci">@ INIT</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00025">Enums.h:25</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a></div><div class="ttdeci">@ BUSSIN</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00027">Enums.h:27</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a></div><div class="ttdeci">@ STARTIN</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00026">Enums.h:26</a></div></div>
+<div class="ttc" id="aEnums_8h_html_aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7"><div class="ttname"><a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a></div><div class="ttdeci">@ DRIVE</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00029">Enums.h:28</a></div></div>
+<div class="ttc" id="aPedal_8h_html_aa9549de2cf222bb9d94cdd240ec4cebd"><div class="ttname"><a href="Pedal_8h.html#aa9549de2cf222bb9d94cdd240ec4cebd">PEDAL_1_LU</a></div><div class="ttdeci">constexpr uint16_t PEDAL_1_LU</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8h_source.html#l00064">Pedal.h:64</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_a145103118f6d9d1129aa4509cf214a13"><div class="ttname"><a href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">BUZZER</a></div><div class="ttdeci">#define BUZZER</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00116">boardConf.h:116</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_a2cb80d9d4c245ea31cae786f290596c8"><div class="ttname"><a href="boardConf_8h.html#a2cb80d9d4c245ea31cae786f290596c8">APPS_5V</a></div><div class="ttdeci">#define APPS_5V</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00103">boardConf.h:103</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_a42b87c6c088f09e708c88a78bdcbd163"><div class="ttname"><a href="boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163">BRAKE_LIGHT</a></div><div class="ttdeci">#define BRAKE_LIGHT</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00109">boardConf.h:109</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_a5062bcc46bcd21e5984aa1bc3e932c96"><div class="ttname"><a href="boardConf_8h.html#a5062bcc46bcd21e5984aa1bc3e932c96">APPS_3V3</a></div><div class="ttdeci">#define APPS_3V3</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00104">boardConf.h:104</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_a5526cea8555b601f99b6233f35faea83"><div class="ttname"><a href="boardConf_8h.html#a5526cea8555b601f99b6233f35faea83">BRAKE_IN</a></div><div class="ttdeci">#define BRAKE_IN</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00105">boardConf.h:105</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_ab171ccb460b2510d13ceacfacb33a426"><div class="ttname"><a href="boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426">DRIVE_MODE_BTN</a></div><div class="ttdeci">#define DRIVE_MODE_BTN</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00113">boardConf.h:113</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_abfa15a856e2d40258527d676c5023292"><div class="ttname"><a href="boardConf_8h.html#abfa15a856e2d40258527d676c5023292">FRG</a></div><div class="ttdeci">#define FRG</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00112">boardConf.h:112</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_af04e20a7e5b6153ffe850b26e1fe097a"><div class="ttname"><a href="boardConf_8h.html#af04e20a7e5b6153ffe850b26e1fe097a">BUTTON_ACTIVE</a></div><div class="ttdeci">#define BUTTON_ACTIVE</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00122">boardConf.h:122</a></div></div>
+<div class="ttc" id="aclassPedal_html_a4ff4c5cf21550badfbb93b239b6bdee5"><div class="ttname"><a href="classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5">Pedal::pedal_can_frame_stop_motor</a></div><div class="ttdeci">void pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)</div><div class="ttdoc">Updates the CAN frame with the current pedal values.</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8cpp_source.html#l00107">Pedal.cpp:107</a></div></div>
+<div class="ttc" id="aclassPedal_html_aef9f2037f590fd4b41f3c50a7c2b3568"><div class="ttname"><a href="classPedal.html#aef9f2037f590fd4b41f3c50a7c2b3568">Pedal::pedal_update</a></div><div class="ttdeci">void pedal_update(car_state *main_car_state, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)</div><div class="ttdoc">Updates pedal sensor readings, applies filtering, and checks for faults.</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8cpp_source.html#l00044">Pedal.cpp:44</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a30233bd666bfd0fe8f78b3c51c7a756b"><div class="ttname"><a href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a></div><div class="ttdeci">struct car_state main_car_state</div><div class="ttdoc">Global car state structure.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00068">main.cpp:68</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a363e40cf047b6f6ac073c3564fcc5ee7"><div class="ttname"><a href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">brake_pressed</a></div><div class="ttdeci">bool brake_pressed</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00054">main.cpp:54</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a4d7f3cc76b8167e4bb8df1ed5bf4c186"><div class="ttname"><a href="main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186">scheduler</a></div><div class="ttdeci">Scheduler&lt; 2, 3 &gt; scheduler(10000, 1000, MCPs)</div></div>
+<div class="ttc" id="amain_8cpp_html_a74a2a1ed8be72bc6e757566973698af9"><div class="ttname"><a href="main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9">BRAKE_THRESHOLD</a></div><div class="ttdeci">constexpr uint16_t BRAKE_THRESHOLD</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00052">main.cpp:52</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a781fd80765f85ec1d4f8250b59e9850e"><div class="ttname"><a href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">mcp2515_motor</a></div><div class="ttdeci">#define mcp2515_motor</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00042">main.cpp:42</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a83e2f8002c9f61e65749409b326c642b"><div class="ttname"><a href="main_8cpp.html#a83e2f8002c9f61e65749409b326c642b">STARTING_MILLIS</a></div><div class="ttdeci">constexpr uint16_t STARTING_MILLIS</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00048">main.cpp:48</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a9b210a2254e453ab1707b21a4f610222"><div class="ttname"><a href="main_8cpp.html#a9b210a2254e453ab1707b21a4f610222">BMS_MILLIS</a></div><div class="ttdeci">constexpr uint16_t BMS_MILLIS</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00050">main.cpp:50</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ad1f0f6b4a2139238d24307a105c01ea8"><div class="ttname"><a href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a></div><div class="ttdeci">Pedal pedal</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00030">main.cpp:30</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae6977c8d9a85d7eecbf236ebc38dcd8b"><div class="ttname"><a href="main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b">BUSSIN_MILLIS</a></div><div class="ttdeci">constexpr uint16_t BUSSIN_MILLIS</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00049">main.cpp:49</a></div></div>
+<div class="ttc" id="amain_8cpp_html_aeadd5ff15bba21c8292acef541061396"><div class="ttname"><a href="main_8cpp.html#aeadd5ff15bba21c8292acef541061396">tx_throttle_msg</a></div><div class="ttdeci">struct can_frame tx_throttle_msg</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00046">main.cpp:46</a></div></div>
+<div class="ttc" id="astructcar__state_html_a2294e8d6180b325ce54207336ecbc939"><div class="ttname"><a href="structcar__state.html#a2294e8d6180b325ce54207336ecbc939">car_state::fault_force_stop</a></div><div class="ttdeci">bool fault_force_stop</div><div class="ttdef"><b>Definition:</b> <a href="car__state_8h_source.html#l00027">car_state.h:27</a></div></div>
+<div class="ttc" id="astructcar__state_html_a8ccb3899efcf56f35d285ce024a19aca"><div class="ttname"><a href="structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca">car_state::car_status_millis_counter</a></div><div class="ttdeci">uint32_t car_status_millis_counter</div><div class="ttdef"><b>Definition:</b> <a href="car__state_8h_source.html#l00023">car_state.h:23</a></div></div>
+<div class="ttc" id="astructcar__state_html_a9f90d5728cbd7cdc3705b2b4e6d3d3fe"><div class="ttname"><a href="structcar__state.html#a9f90d5728cbd7cdc3705b2b4e6d3d3fe">car_state::pedal_final</a></div><div class="ttdeci">uint16_t pedal_final</div><div class="ttdef"><b>Definition:</b> <a href="car__state_8h_source.html#l00025">car_state.h:25</a></div></div>
+<div class="ttc" id="astructcar__state_html_ae00dcbb05fdfd866d31e1801c23e20f4"><div class="ttname"><a href="structcar__state.html#ae00dcbb05fdfd866d31e1801c23e20f4">car_state::millis</a></div><div class="ttdeci">uint32_t millis</div><div class="ttdef"><b>Definition:</b> <a href="car__state_8h_source.html#l00024">car_state.h:24</a></div></div>
+<div class="ttc" id="astructcar__state_html_afe439bcb95da92c8fd6532393a3ad13f"><div class="ttname"><a href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_state::car_status</a></div><div class="ttdeci">main_car_status car_status</div><div class="ttdef"><b>Definition:</b> <a href="car__state_8h_source.html#l00022">car_state.h:22</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="boardConf_8h_source.html#l00104">APPS_3V3</a>, <a class="el" href="boardConf_8h_source.html#l00103">APPS_5V</a>, <a class="el" href="main_8cpp_source.html#l00050">BMS_MILLIS</a>, <a class="el" href="boardConf_8h_source.html#l00105">BRAKE_IN</a>, <a class="el" href="boardConf_8h_source.html#l00109">BRAKE_LIGHT</a>, <a class="el" href="main_8cpp_source.html#l00054">brake_pressed</a>, <a class="el" href="main_8cpp_source.html#l00052">BRAKE_THRESHOLD</a>, <a class="el" href="Enums_8h_source.html#l00027">BUSSIN</a>, <a class="el" href="main_8cpp_source.html#l00049">BUSSIN_MILLIS</a>, <a class="el" href="boardConf_8h_source.html#l00122">BUTTON_ACTIVE</a>, <a class="el" href="boardConf_8h_source.html#l00116">BUZZER</a>, <a class="el" href="car__state_8h_source.html#l00022">car_state::car_status</a>, <a class="el" href="car__state_8h_source.html#l00023">car_state::car_status_millis_counter</a>, <a class="el" href="Debug_8h_source.html#l00171">DBG_STATUS_CAR()</a>, <a class="el" href="Debug_8h_source.html#l00049">DBGLN_THROTTLE()</a>, <a class="el" href="Enums_8h_source.html#l00028">DRIVE</a>, <a class="el" href="boardConf_8h_source.html#l00113">DRIVE_MODE_BTN</a>, <a class="el" href="car__state_8h_source.html#l00027">car_state::fault_force_stop</a>, <a class="el" href="boardConf_8h_source.html#l00112">FRG</a>, <a class="el" href="Enums_8h_source.html#l00025">INIT</a>, <a class="el" href="main_8cpp_source.html#l00068">main_car_state</a>, <a class="el" href="main_8cpp_source.html#l00042">mcp2515_motor</a>, <a class="el" href="car__state_8h_source.html#l00024">car_state::millis</a>, <a class="el" href="main_8cpp_source.html#l00030">pedal</a>, <a class="el" href="Pedal_8h_source.html#l00064">PEDAL_1_LU</a>, <a class="el" href="Pedal_8cpp_source.html#l00107">Pedal::pedal_can_frame_stop_motor()</a>, <a class="el" href="car__state_8h_source.html#l00025">car_state::pedal_final</a>, <a class="el" href="Pedal_8cpp_source.html#l00044">Pedal::pedal_update()</a>, <a class="el" href="main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186">scheduler</a>, <a class="el" href="Enums_8h_source.html#l00026">STARTIN</a>, <a class="el" href="main_8cpp_source.html#l00048">STARTING_MILLIS</a>, and <a class="el" href="main_8cpp_source.html#l00046">tx_throttle_msg</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="515" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -181,7 +362,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">MCP2515 mcp2515_BMS </td>
           <td>(</td>
-          <td class="paramtype">CS_CAN_BMS&#160;</td>
+          <td class="paramtype"><a class="el" href="boardConf_8h.html#ab476064511df004d8a67875afbd3521b">CS_CAN_BMS</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -199,12 +380,20 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">MCP2515 mcp2515_DL </td>
           <td>(</td>
-          <td class="paramtype">CS_CAN_DL&#160;</td>
+          <td class="paramtype"><a class="el" href="boardConf_8h.html#a661f70456357c09fff639665b5e89852">CS_CAN_DL</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a95581c94a7dc4a68f61fa24f06cc90d1_icgraph.svg" width="224" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -217,18 +406,75 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">MCP2515 mcp2515_motor </td>
           <td>(</td>
-          <td class="paramtype">CS_CAN_MOTOR&#160;</td>
+          <td class="paramtype"><a class="el" href="boardConf_8h.html#a65b24582a92e368f91aca95b4dbe5847">CS_CAN_MOTOR</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>, and <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+</div>
+</div>
+<a id="a1ea17ca2552291c88af3e9ec6804264b" name="a1ea17ca2552291c88af3e9ec6804264b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea17ca2552291c88af3e9ec6804264b">&#9670;&#160;</a></span>scheduler_bms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scheduler_bms </td>
+          <td>(</td>
+          <td class="paramtype">MCP2515 *&#160;</td>
+          <td class="paramname"><em>mcp2515_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00084">84</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
+<div class="line"><span class="lineno">   86</span>    bms.check_hv(mcp2515_);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2668d80d0711f29d4507c48eb984f684" name="a2668d80d0711f29d4507c48eb984f684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2668d80d0711f29d4507c48eb984f684">&#9670;&#160;</a></span>scheduler_pedal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scheduler_pedal </td>
+          <td>(</td>
+          <td class="paramtype">MCP2515 *&#160;</td>
+          <td class="paramname"><em>mcp2515_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00078">78</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>{</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keyword">static</span> can_frame tx_msg;</div>
+<div class="line"><span class="lineno">   81</span>    <a class="code hl_variable" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a>.<a class="code hl_function" href="classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495">pedal_can_frame_update</a>(&amp;tx_msg, &amp;<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>);</div>
+<div class="line"><span class="lineno">   82</span>    mcp2515_-&gt;sendMessage(&amp;tx_msg);</div>
+<div class="line"><span class="lineno">   83</span>}</div>
+<div class="ttc" id="aclassPedal_html_a2457466d32f6d9f58f8b8ab6c34cd495"><div class="ttname"><a href="classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495">Pedal::pedal_can_frame_update</a></div><div class="ttdeci">void pedal_can_frame_update(can_frame *tx_throttle_msg, const car_state *car)</div><div class="ttdoc">Updates the CAN frame with the most recent pedal value.</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8cpp_source.html#l00128">Pedal.cpp:128</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="main_8cpp_source.html#l00068">main_car_state</a>, <a class="el" href="main_8cpp_source.html#l00030">pedal</a>, and <a class="el" href="Pedal_8cpp_source.html#l00128">Pedal::pedal_can_frame_update()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a2668d80d0711f29d4507c48eb984f684_cgraph.svg" width="100%" height="567"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a9215d3772fc8e03a4ccd56fe9c7b5fc5_icgraph.svg" width="246" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a2668d80d0711f29d4507c48eb984f684_icgraph.svg" width="246" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -249,94 +495,308 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>, <a class="el" href="Debug_8h.html#af3da0ef9a34924967708df9cfee4a300">DBG_STATUS_CAR</a>, <a class="el" href="Debug_8h.html#a21888ba3998ff4089ce620ca585ec980">DBGLN_GENERAL</a>, <a class="el" href="Debug_8h.html#aa1ae00c66ea6bfeee63eba46dccb528b">DBGLN_STATUS</a>, <a class="el" href="namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31">Debug_Serial::initialize()</a>, <a class="el" href="namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e">Debug_CAN::initialize()</a>, <a class="el" href="main_8cpp.html#abdc3361118082540c7d53e3d62c26d4e">INPUT_PINS_COUNT</a>, <a class="el" href="main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5">mcp2515_motor()</a>, <a class="el" href="main_8cpp.html#aaa9040b44dff55784b8756ed4a8344ba">OUTPUT_PINS_COUNT</a>, <a class="el" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a>, <a class="el" href="main_8cpp.html#a2e8693be6bfc3c3e88b1c6a48d24dd57">pin_in</a>, and <a class="el" href="main_8cpp.html#a74ca7d9077cc901338787c473b1582f5">pin_out</a>.</p>
+<p>Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules such as <a class="el" href="classPedal.html">Pedal</a> and Debug. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00099">99</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>{</div>
+<div class="line"><span class="lineno">  101</span>    <span class="comment">// Init pedals</span></div>
+<div class="line"><span class="lineno">  102</span>    <a class="code hl_variable" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">pedal</a> = <a class="code hl_class" href="classPedal.html">Pedal</a>();</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span><span class="preprocessor">#if DEBUG_SERIAL</span></div>
+<div class="line"><span class="lineno">  105</span>    <a class="code hl_function" href="namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31">Debug_Serial::initialize</a>();</div>
+<div class="line"><span class="lineno">  106</span>    <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;Debug serial initialized&quot;</span>);</div>
+<div class="line"><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>    <span class="comment">// Init input pins</span></div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857">INPUT_COUNT</a>; i++)</div>
+<div class="line"><span class="lineno">  111</span>    {</div>
+<div class="line"><span class="lineno">  112</span>        pinMode(<a class="code hl_variable" href="main_8cpp.html#ac81c886455652a75221096759b0b39ca">pins_in</a>[i], INPUT);</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="line"><span class="lineno">  114</span>    <span class="comment">// Init output pins</span></div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="main_8cpp.html#a5df142f03646c5b92649924c05eb448e">OUTPUT_COUNT</a>; i++)</div>
+<div class="line"><span class="lineno">  116</span>    {</div>
+<div class="line"><span class="lineno">  117</span>        pinMode(<a class="code hl_variable" href="main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48">pins_out</a>[i], OUTPUT);</div>
+<div class="line"><span class="lineno">  118</span>        digitalWrite(<a class="code hl_variable" href="main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48">pins_out</a>[i], LOW); <span class="comment">// initialize output pins to LOW</span></div>
+<div class="line"><span class="lineno">  119</span>    }</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>    <span class="comment">// Init mcp2515 for motor CAN channel</span></div>
+<div class="line"><span class="lineno">  122</span>    <a class="code hl_define" href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">mcp2515_motor</a>.reset();</div>
+<div class="line"><span class="lineno">  123</span>    <a class="code hl_define" href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">mcp2515_motor</a>.setBitrate(CAN_500KBPS, <a class="code hl_define" href="boardConf_8h.html#a707e24d4b34174643260e39c3abedb45">MCP2515_CRYSTAL_FREQ</a>);</div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_define" href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">mcp2515_motor</a>.setNormalMode();</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    <span class="comment">// Init mcp2515 for BMS channel</span></div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_variable" href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a>.reset();</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_variable" href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a>.setBitrate(CAN_500KBPS, <a class="code hl_define" href="boardConf_8h.html#a707e24d4b34174643260e39c3abedb45">MCP2515_CRYSTAL_FREQ</a>);</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_variable" href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a>.setNormalMode();</div>
+<div class="line"><span class="lineno">  130</span> </div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_function" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a>.reset();</div>
+<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a>.setBitrate(CAN_500KBPS, <a class="code hl_define" href="boardConf_8h.html#a707e24d4b34174643260e39c3abedb45">MCP2515_CRYSTAL_FREQ</a>);</div>
+<div class="line"><span class="lineno">  133</span>    <a class="code hl_function" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a>.setNormalMode();</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span><span class="preprocessor">#if DEBUG_CAN</span></div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_function" href="namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e">Debug_CAN::initialize</a>(&amp;<a class="code hl_function" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a>); <span class="comment">// Currently using motor CAN for debug messages, should change to other</span></div>
+<div class="line"><span class="lineno">  137</span>    <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;Debug CAN initialized&quot;</span>);</div>
+<div class="line"><span class="lineno">  138</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  139</span> </div>
+<div class="line"><span class="lineno">  140</span>    <a class="code hl_function" href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a>(<a class="code hl_variable" href="main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b">main_car_state</a>.<a class="code hl_variable" href="structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f">car_status</a>);</div>
+<div class="line"><span class="lineno">  141</span>    <a class="code hl_function" href="Debug_8h.html#adeb16efc082a41c9b137c2fa9d8162c0">DBGLN_STATUS</a>(<span class="stringliteral">&quot;Entered INIT&quot;</span>);</div>
+<div class="line"><span class="lineno">  142</span>    <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;Setup complete, entering main loop&quot;</span>);</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>    <span class="comment">/*</span></div>
+<div class="line"><span class="lineno">  145</span><span class="comment">    For sim only</span></div>
+<div class="line"><span class="lineno">  146</span><span class="comment">    pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode</span></div>
+<div class="line"><span class="lineno">  147</span><span class="comment">    pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin</span></div>
+<div class="line"><span class="lineno">  148</span><span class="comment">    */</span></div>
+<div class="line"><span class="lineno">  149</span> </div>
+<div class="line"><span class="lineno">  150</span>    <span class="comment">// Add scheduler tasks</span></div>
+<div class="line"><span class="lineno">  151</span>    <a class="code hl_variable" href="main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186">scheduler</a>.add_task(<a class="code hl_enumvalue" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc">MCP_MOTOR</a>, <a class="code hl_function" href="main_8cpp.html#a2668d80d0711f29d4507c48eb984f684">scheduler_pedal</a>, 5); <span class="comment">// Pedal task on motor CAN MCP2515 every tick</span></div>
+<div class="line"><span class="lineno">  152</span>}</div>
+<div class="ttc" id="aDebug_8h_html_a8e8d6e3de15309922f25c12f4d7cf727"><div class="ttname"><a href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a></div><div class="ttdeci">void DBGLN_GENERAL(const char *x)</div><div class="ttdoc">Prints a line to the serial console for general debug.</div><div class="ttdef"><b>Definition:</b> <a href="Debug_8h_source.html#l00071">Debug.h:71</a></div></div>
+<div class="ttc" id="aDebug_8h_html_adeb16efc082a41c9b137c2fa9d8162c0"><div class="ttname"><a href="Debug_8h.html#adeb16efc082a41c9b137c2fa9d8162c0">DBGLN_STATUS</a></div><div class="ttdeci">void DBGLN_STATUS(const char *x)</div><div class="ttdoc">Prints a line to the serial console for status debug.</div><div class="ttdef"><b>Definition:</b> <a href="Debug_8h_source.html#l00093">Debug.h:93</a></div></div>
+<div class="ttc" id="aEnums_8h_html_a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc"><div class="ttname"><a href="Enums_8h.html#a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc">MCP_MOTOR</a></div><div class="ttdeci">@ MCP_MOTOR</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00100">Enums.h:100</a></div></div>
+<div class="ttc" id="aboardConf_8h_html_a707e24d4b34174643260e39c3abedb45"><div class="ttname"><a href="boardConf_8h.html#a707e24d4b34174643260e39c3abedb45">MCP2515_CRYSTAL_FREQ</a></div><div class="ttdeci">#define MCP2515_CRYSTAL_FREQ</div><div class="ttdef"><b>Definition:</b> <a href="boardConf_8h_source.html#l00125">boardConf.h:125</a></div></div>
+<div class="ttc" id="aclassPedal_html"><div class="ttname"><a href="classPedal.html">Pedal</a></div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8h_source.html#l00102">Pedal.h:103</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a2668d80d0711f29d4507c48eb984f684"><div class="ttname"><a href="main_8cpp.html#a2668d80d0711f29d4507c48eb984f684">scheduler_pedal</a></div><div class="ttdeci">void scheduler_pedal(MCP2515 *mcp2515_)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00078">main.cpp:78</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a5df142f03646c5b92649924c05eb448e"><div class="ttname"><a href="main_8cpp.html#a5df142f03646c5b92649924c05eb448e">OUTPUT_COUNT</a></div><div class="ttdeci">constexpr uint8_t OUTPUT_COUNT</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00026">main.cpp:26</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a7a6ac71c9a2fc17168eb74b51e25c857"><div class="ttname"><a href="main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857">INPUT_COUNT</a></div><div class="ttdeci">constexpr uint8_t INPUT_COUNT</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00024">main.cpp:24</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a9012428675638b2523b463323f972a79"><div class="ttname"><a href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a></div><div class="ttdeci">BMS bms &amp; mcp2515_BMS</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00038">main.cpp:38</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a95581c94a7dc4a68f61fa24f06cc90d1"><div class="ttname"><a href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a></div><div class="ttdeci">MCP2515 mcp2515_DL(CS_CAN_DL)</div></div>
+<div class="ttc" id="amain_8cpp_html_ab31c3e7c8bfd2740573b89eb4a2b1d48"><div class="ttname"><a href="main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48">pins_out</a></div><div class="ttdeci">constexpr uint8_t pins_out[OUTPUT_COUNT]</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00027">main.cpp:27</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ac81c886455652a75221096759b0b39ca"><div class="ttname"><a href="main_8cpp.html#ac81c886455652a75221096759b0b39ca">pins_in</a></div><div class="ttdeci">constexpr uint8_t pins_in[INPUT_COUNT]</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00025">main.cpp:25</a></div></div>
+<div class="ttc" id="anamespaceDebug__CAN_html_a5c8b33000e36a19ccb285e45f666e64e"><div class="ttname"><a href="namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e">Debug_CAN::initialize</a></div><div class="ttdeci">void initialize(MCP2515 *can_interface)</div><div class="ttdoc">Initializes the Debug_CAN interface with the given MCP2515 CAN controller.</div><div class="ttdef"><b>Definition:</b> <a href="Debug__can_8cpp_source.html#l00020">Debug_can.cpp:20</a></div></div>
+<div class="ttc" id="anamespaceDebug__Serial_html_ad136936636c7b7140cb1e14c55eb5f31"><div class="ttname"><a href="namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31">Debug_Serial::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the Debug_Serial interface. This function sets up the serial communication for debugging ...</div><div class="ttdef"><b>Definition:</b> <a href="Debug__serial_8cpp_source.html#l00012">Debug_serial.cpp:12</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="car__state_8h_source.html#l00022">car_state::car_status</a>, <a class="el" href="Debug_8h_source.html#l00171">DBG_STATUS_CAR()</a>, <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="Debug_8h_source.html#l00093">DBGLN_STATUS()</a>, <a class="el" href="Debug__serial_8cpp_source.html#l00012">Debug_Serial::initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00020">Debug_CAN::initialize()</a>, <a class="el" href="main_8cpp_source.html#l00024">INPUT_COUNT</a>, <a class="el" href="main_8cpp_source.html#l00068">main_car_state</a>, <a class="el" href="main_8cpp_source.html#l00038">mcp2515_BMS</a>, <a class="el" href="boardConf_8h_source.html#l00125">MCP2515_CRYSTAL_FREQ</a>, <a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL()</a>, <a class="el" href="main_8cpp_source.html#l00042">mcp2515_motor</a>, <a class="el" href="Enums_8h_source.html#l00100">MCP_MOTOR</a>, <a class="el" href="main_8cpp_source.html#l00026">OUTPUT_COUNT</a>, <a class="el" href="main_8cpp_source.html#l00030">pedal</a>, <a class="el" href="main_8cpp_source.html#l00025">pins_in</a>, <a class="el" href="main_8cpp_source.html#l00027">pins_out</a>, <a class="el" href="main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186">scheduler</a>, and <a class="el" href="main_8cpp_source.html#l00078">scheduler_pedal()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph.svg" width="290" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a15d2a6ef8d5c78eacf0c547e09faed40" name="a15d2a6ef8d5c78eacf0c547e09faed40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15d2a6ef8d5c78eacf0c547e09faed40">&#9670;&#160;</a></span>BUSSIN_TIME_MILLIS</h2>
+<a id="a9b210a2254e453ab1707b21a4f610222" name="a9b210a2254e453ab1707b21a4f610222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b210a2254e453ab1707b21a4f610222">&#9670;&#160;</a></span>BMS_MILLIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint16_t BMS_MILLIS = 10000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00050">50</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>.</p>
+
+</div>
+</div>
+<a id="a363e40cf047b6f6ac073c3564fcc5ee7" name="a363e40cf047b6f6ac073c3564fcc5ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363e40cf047b6f6ac073c3564fcc5ee7">&#9670;&#160;</a></span>brake_pressed</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int BUSSIN_TIME_MILLIS = 2000</td>
+          <td class="memname">bool brake_pressed = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00054">54</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>.</p>
 
 </div>
 </div>
-<a id="a55ddc5bf2ff2ff81cb303696ebfcbe03" name="a55ddc5bf2ff2ff81cb303696ebfcbe03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55ddc5bf2ff2ff81cb303696ebfcbe03">&#9670;&#160;</a></span>car_status</h2>
+<a id="a74a2a1ed8be72bc6e757566973698af9" name="a74a2a1ed8be72bc6e757566973698af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a2a1ed8be72bc6e757566973698af9">&#9670;&#160;</a></span>BRAKE_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint16_t BRAKE_THRESHOLD = 130</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00052">52</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>.</p>
+
+</div>
+</div>
+<a id="ae6977c8d9a85d7eecbf236ebc38dcd8b" name="ae6977c8d9a85d7eecbf236ebc38dcd8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6977c8d9a85d7eecbf236ebc38dcd8b">&#9670;&#160;</a></span>BUSSIN_MILLIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint16_t BUSSIN_MILLIS = 2000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00049">49</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>.</p>
+
+</div>
+</div>
+<a id="a7a6ac71c9a2fc17168eb74b51e25c857" name="a7a6ac71c9a2fc17168eb74b51e25c857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a6ac71c9a2fc17168eb74b51e25c857">&#9670;&#160;</a></span>INPUT_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t INPUT_COUNT = 5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00024">24</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
+
+</div>
+</div>
+<a id="a30233bd666bfd0fe8f78b3c51c7a756b" name="a30233bd666bfd0fe8f78b3c51c7a756b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30233bd666bfd0fe8f78b3c51c7a756b">&#9670;&#160;</a></span>main_car_state</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CarStatus car_status = INIT</td>
+          <td class="memname">struct <a class="el" href="structcar__state.html">car_state</a> main_car_state</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    <a class="code hl_enumvalue" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>,  </div>
+<div class="line">    0,     </div>
+<div class="line">    0,     </div>
+<div class="line">    0,     </div>
+<div class="line">    0,     </div>
+<div class="line">    <span class="keyword">false</span>, </div>
+<div class="line">    0      </div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Global car state structure. </p>
+<p>Holds the current state of the car, including status, timers, pedal input, fault flags, and output torque.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">car_status</td><td>Current main state of the car (e.g., INIT, DRIVE, etc.). </td></tr>
+    <tr><td class="paramname">car_status_millis_counter</td><td>Millisecond counter for state transitions. </td></tr>
+    <tr><td class="paramname">millis</td><td>Current time in milliseconds. </td></tr>
+    <tr><td class="paramname">pedal_final</td><td>Final processed pedal value. </td></tr>
+    <tr><td class="paramname">fault_force_stop</td><td>True if a fault has triggered a forced stop. </td></tr>
+    <tr><td class="paramname">torque_out</td><td>Output torque value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>, <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>, <a class="el" href="namespaceDebug__CAN.html#a9be0dbb1d5cf478a27cadf6a38c94ddc">Debug_CAN::status_car()</a>, and <a class="el" href="namespaceDebug__Serial.html#a73d4db3c04ea0d60d716535f3d96721b">Debug_Serial::status_car()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00068">68</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>, <a class="el" href="main_8cpp_source.html#l00078">scheduler_pedal()</a>, and <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
 
 </div>
 </div>
-<a id="a86d21c557e374a4e5783adc5b611dc20" name="a86d21c557e374a4e5783adc5b611dc20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86d21c557e374a4e5783adc5b611dc20">&#9670;&#160;</a></span>car_status_millis_counter</h2>
+<a id="a9012428675638b2523b463323f972a79" name="a9012428675638b2523b463323f972a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9012428675638b2523b463323f972a79">&#9670;&#160;</a></span>mcp2515_BMS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long car_status_millis_counter = 0</td>
+          <td class="memname"><a class="el" href="classBMS.html">BMS</a> bms&amp; mcp2515_BMS</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00038">38</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
 
 </div>
 </div>
-<a id="abdc3361118082540c7d53e3d62c26d4e" name="abdc3361118082540c7d53e3d62c26d4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdc3361118082540c7d53e3d62c26d4e">&#9670;&#160;</a></span>INPUT_PINS_COUNT</h2>
+<a id="a8e765c1bc284bb6ee026381fdd6e924e" name="a8e765c1bc284bb6ee026381fdd6e924e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e765c1bc284bb6ee026381fdd6e924e">&#9670;&#160;</a></span>MCPs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int INPUT_PINS_COUNT = 2</td>
+          <td class="memname">MCP2515* MCPs[3] = {&amp; <a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a> , &amp;<a class="el" href="main_8cpp.html#a9012428675638b2523b463323f972a79">mcp2515_BMS</a>, &amp;<a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL</a>}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00044">44</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aaa9040b44dff55784b8756ed4a8344ba" name="aaa9040b44dff55784b8756ed4a8344ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa9040b44dff55784b8756ed4a8344ba">&#9670;&#160;</a></span>OUTPUT_PINS_COUNT</h2>
+<a id="a5df142f03646c5b92649924c05eb448e" name="a5df142f03646c5b92649924c05eb448e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df142f03646c5b92649924c05eb448e">&#9670;&#160;</a></span>OUTPUT_COUNT</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int OUTPUT_PINS_COUNT = 3</td>
+          <td class="memname">constexpr uint8_t OUTPUT_COUNT = 4</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00026">26</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
 
 </div>
 </div>
@@ -352,69 +812,123 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>, and <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00030">30</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>, <a class="el" href="main_8cpp_source.html#l00078">scheduler_pedal()</a>, <a class="el" href="main_8cpp_source.html#l00099">setup()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::throttle_torque_mapping()</a>.</p>
 
 </div>
 </div>
-<a id="a2e8693be6bfc3c3e88b1c6a48d24dd57" name="a2e8693be6bfc3c3e88b1c6a48d24dd57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e8693be6bfc3c3e88b1c6a48d24dd57">&#9670;&#160;</a></span>pin_in</h2>
+<a id="ac81c886455652a75221096759b0b39ca" name="ac81c886455652a75221096759b0b39ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac81c886455652a75221096759b0b39ca">&#9670;&#160;</a></span>pins_in</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t pins_in[<a class="el" href="main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857">INPUT_COUNT</a>] = {<a class="el" href="boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426">DRIVE_MODE_BTN</a>, <a class="el" href="boardConf_8h.html#a5526cea8555b601f99b6233f35faea83">BRAKE_IN</a>, <a class="el" href="boardConf_8h.html#a2cb80d9d4c245ea31cae786f290596c8">APPS_5V</a>, <a class="el" href="boardConf_8h.html#a5062bcc46bcd21e5984aa1bc3e932c96">APPS_3V3</a>, <a class="el" href="boardConf_8h.html#a6ff4d2630652deeecb75723f5a3fb068">HALL_SENSOR</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00025">25</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
+
+</div>
+</div>
+<a id="ab31c3e7c8bfd2740573b89eb4a2b1d48" name="ab31c3e7c8bfd2740573b89eb4a2b1d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab31c3e7c8bfd2740573b89eb4a2b1d48">&#9670;&#160;</a></span>pins_out</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t pins_out[<a class="el" href="main_8cpp.html#a5df142f03646c5b92649924c05eb448e">OUTPUT_COUNT</a>] = {<a class="el" href="boardConf_8h.html#abfa15a856e2d40258527d676c5023292">FRG</a>, <a class="el" href="boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163">BRAKE_LIGHT</a>, <a class="el" href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">BUZZER</a>, <a class="el" href="boardConf_8h.html#a1e737aebda49004244d2184945475905">BMS_FAILED_LED</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00027">27</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
+
+</div>
+</div>
+<a id="a4d7f3cc76b8167e4bb8df1ed5bf4c186" name="a4d7f3cc76b8167e4bb8df1ed5bf4c186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7f3cc76b8167e4bb8df1ed5bf4c186">&#9670;&#160;</a></span>scheduler</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t pin_in[<a class="el" href="main_8cpp.html#abdc3361118082540c7d53e3d62c26d4e">INPUT_PINS_COUNT</a>] = {DRIVE_MODE_BTN, BRAKE_IN}</td>
+          <td class="memname"><a class="el" href="classScheduler.html">Scheduler</a>&lt; 2, 3 &gt; scheduler(10000, 1000, <a class="el" href="main_8cpp.html#a8e765c1bc284bb6ee026381fdd6e924e">MCPs</a>) </td>
+          <td>(</td>
+          <td class="paramtype">10000&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1000&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="main_8cpp.html#a8e765c1bc284bb6ee026381fdd6e924e">MCPs</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00099">setup()</a>.</p>
 
 </div>
 </div>
-<a id="a74ca7d9077cc901338787c473b1582f5" name="a74ca7d9077cc901338787c473b1582f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74ca7d9077cc901338787c473b1582f5">&#9670;&#160;</a></span>pin_out</h2>
+<a id="a83e2f8002c9f61e65749409b326c642b" name="a83e2f8002c9f61e65749409b326c642b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e2f8002c9f61e65749409b326c642b">&#9670;&#160;</a></span>STARTING_MILLIS</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t pin_out[<a class="el" href="main_8cpp.html#aaa9040b44dff55784b8756ed4a8344ba">OUTPUT_PINS_COUNT</a>] = {DRIVE_MODE_LED, BRAKE_5V_OUT, BUZZER_OUT}</td>
+          <td class="memname">constexpr uint16_t STARTING_MILLIS = 2000</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00048">48</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-</div>
-</div>
-<a id="aa73959a8a4ecf596694a2e117b831ab4" name="aa73959a8a4ecf596694a2e117b831ab4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa73959a8a4ecf596694a2e117b831ab4">&#9670;&#160;</a></span>rx_msg</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct can_frame rx_msg</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae47ea13766a589d1afd13ce6416c8c31" name="ae47ea13766a589d1afd13ce6416c8c31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae47ea13766a589d1afd13ce6416c8c31">&#9670;&#160;</a></span>STATUS_1_TIME_MILLIS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int STATUS_1_TIME_MILLIS = 2000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>.</p>
 
 </div>
 </div>
@@ -430,7 +944,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a>, <a class="el" href="classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5">Pedal::pedal_can_frame_stop_motor()</a>, and <a class="el" href="classPedal.html#a7ba3e35aa516afdfc47606619d16e3a2">Pedal::pedal_can_frame_update()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00046">46</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00158">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00107">Pedal::pedal_can_frame_stop_motor()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00128">Pedal::pedal_can_frame_update()</a>.</p>
 
 </div>
 </div>

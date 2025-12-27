@@ -1,0 +1,4 @@
+<map id="DBG_BMS_STATUS" name="DBG_BMS_STATUS">
+<area shape="rect" id="node1" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="173,5,316,31"/>
+<area shape="rect" id="node2" href="$classBMS.html#a2b5ec1ea35cac26d5defeb652f721975" title="Keep retrying to send BMS start HV command until it succeeds. First check BMS is in standby(3) state,..." alt="" coords="5,5,125,31"/>
+</map>

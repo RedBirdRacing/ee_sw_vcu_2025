@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loop_0',['loop',['../main_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]]
+  ['fir_5ffilter_0',['FIR_filter',['../Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc',1,'FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum):&#160;Signal_Processing.cpp'],['../Signal__Processing_8h.html#a2665ca55613be71683eb9e2cd6365cfc',1,'FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum):&#160;Signal_Processing.cpp']]]
 ];

@@ -96,19 +96,21 @@ $(document).ready(function(){initNavTree('Signal__Processing_8h_source.html','')
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef SIGNAL_PROCESSING_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define SIGNAL_PROCESSING_H</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>T <a class="code hl_function" href="Signal__Processing_8h.html#a1e6f78e4a958f8fd78450f0fffdb2da4">FIR_filter</a>(T *buffer, <span class="keywordtype">float</span> *kernel, <span class="keywordtype">int</span> buf_size, <span class="keywordtype">float</span> kernel_sum);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>T <a class="code hl_function" href="Signal__Processing_8h.html#a7780bdc4e1118732b0bb8142188b9fb4">average</a>(T val1, T val2);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>T <a class="code hl_function" href="Signal__Processing_8h.html#aa9b728692efd1a7820e513ad78fb2ab1">AVG_filter</a>(T *buffer, <span class="keywordtype">int</span> buf_size);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aSignal__Processing_8h_html_a1e6f78e4a958f8fd78450f0fffdb2da4"><div class="ttname"><a href="Signal__Processing_8h.html#a1e6f78e4a958f8fd78450f0fffdb2da4">FIR_filter</a></div><div class="ttdeci">T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)</div><div class="ttdef"><b>Definition:</b> Signal_Processing.cpp:7</div></div>
-<div class="ttc" id="aSignal__Processing_8h_html_a7780bdc4e1118732b0bb8142188b9fb4"><div class="ttname"><a href="Signal__Processing_8h.html#a7780bdc4e1118732b0bb8142188b9fb4">average</a></div><div class="ttdeci">T average(T val1, T val2)</div><div class="ttdef"><b>Definition:</b> Signal_Processing.cpp:21</div></div>
-<div class="ttc" id="aSignal__Processing_8h_html_aa9b728692efd1a7820e513ad78fb2ab1"><div class="ttname"><a href="Signal__Processing_8h.html#aa9b728692efd1a7820e513ad78fb2ab1">AVG_filter</a></div><div class="ttdeci">T AVG_filter(T *buffer, int buf_size)</div><div class="ttdef"><b>Definition:</b> Signal_Processing.cpp:27</div></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8h.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a>(T *buffer, <span class="keywordtype">float</span> *kernel, <span class="keywordtype">int</span> buf_size, <span class="keywordtype">float</span> kernel_sum);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8h.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a>(T val1, T val2);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8h.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a>(T *buffer, uint8_t buf_size);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aSignal__Processing_8h_html_a2665ca55613be71683eb9e2cd6365cfc"><div class="ttname"><a href="Signal__Processing_8h.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a></div><div class="ttdeci">constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00007">Signal_Processing.cpp:7</a></div></div>
+<div class="ttc" id="aSignal__Processing_8h_html_a4d9072b402cbfdfd7303bd805f408f6c"><div class="ttname"><a href="Signal__Processing_8h.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a></div><div class="ttdeci">constexpr T average(T val1, T val2)</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00026">Signal_Processing.cpp:26</a></div></div>
+<div class="ttc" id="aSignal__Processing_8h_html_aae13f76d835e3de4d61441cf4abc0f08"><div class="ttname"><a href="Signal__Processing_8h.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a></div><div class="ttdeci">constexpr T AVG_filter(T *buffer, uint8_t buf_size)</div><div class="ttdoc">Applies an average filter on the given buffer. This function calculates the average of all elements i...</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00040">Signal_Processing.cpp:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

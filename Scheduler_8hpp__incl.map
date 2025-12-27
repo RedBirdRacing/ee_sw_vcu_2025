@@ -1,0 +1,5 @@
+<map id="lib/Scheduler/Scheduler.hpp" name="lib/Scheduler/Scheduler.hpp">
+<area shape="rect" id="node1" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="5,5,207,31"/>
+<area shape="rect" id="node2" title=" " alt="" coords="12,152,107,177"/>
+<area shape="rect" id="node3" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="51,79,161,104"/>
+</map>

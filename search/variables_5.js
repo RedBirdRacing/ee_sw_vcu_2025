@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['input_5fpins_5fcount_0',['INPUT_PINS_COUNT',['../main_8cpp.html#abdc3361118082540c7d53e3d62c26d4e',1,'main.cpp']]]
+  ['input_5fcount_0',['INPUT_COUNT',['../main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857',1,'main.cpp']]]
 ];

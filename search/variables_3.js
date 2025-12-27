@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['final_5fpedal_5fvalue_0',['final_pedal_value',['../classPedal.html#a427bd62d1587c4b02ccb0f7f5c07d46d',1,'Pedal']]],
-  ['flip_5fmotor_5fdir_1',['Flip_Motor_Dir',['../Pedal_8h.html#a301156a0429acc32e491f020eeab2cfa',1,'Pedal.h']]]
+  ['fault_0',['fault',['../classPedal.html#ae32f92a6912df6b7b1fcc64a09ffa13f',1,'Pedal']]],
+  ['fault_5fforce_5fstop_1',['fault_force_stop',['../structcar__state.html#a2294e8d6180b325ce54207336ecbc939',1,'car_state']]],
+  ['fault_5fstart_5fmillis_2',['fault_start_millis',['../classPedal.html#aed35c8681adf86717b4e577058395159',1,'Pedal']]],
+  ['flip_5fmotor_5fdir_3',['FLIP_MOTOR_DIR',['../Pedal_8h.html#a2814e9aff83da9c45d2a6fadbea27309',1,'Pedal.h']]]
 ];

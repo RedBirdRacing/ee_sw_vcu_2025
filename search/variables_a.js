@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sinc_5f128_0',['SINC_128',['../Pedal_8cpp.html#a442482149f0172f66309363d37909172',1,'Pedal.cpp']]],
-  ['status_5f1_5ftime_5fmillis_1',['STATUS_1_TIME_MILLIS',['../main_8cpp.html#ae47ea13766a589d1afd13ce6416c8c31',1,'main.cpp']]]
+  ['read_5fstart_5fms_0',['read_start_ms',['../classBMS.html#aa9aa6589a3ef24c31d03e1bf4c050975',1,'BMS']]],
+  ['rx_5fbms_5fmsg_1',['rx_bms_msg',['../classBMS.html#a4b730234202c61a53e07127a7b1c6104',1,'BMS']]]
 ];
