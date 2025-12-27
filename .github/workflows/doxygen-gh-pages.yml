@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - Planeson_stable
 
 jobs:
   deploy:
@@ -13,4 +14,5 @@ jobs:
     steps:
       - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
         with:
+
           github_token: ${{ secrets.GITHUB_TOKEN }}
