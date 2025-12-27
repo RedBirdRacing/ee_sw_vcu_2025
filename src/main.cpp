@@ -167,10 +167,6 @@ void loop()
 
     if (main_car_state.fault_force_stop)
     {
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-        DBGLN_THROTTLE("Stopping motor: Fault exceeded 100ms.");
-        mcp2515_motor.sendMessage(&tx_throttle_msg);
-
         main_car_state.car_status = INIT; // safety, later change to fault status
         digitalWrite(BUZZER, LOW);        // Turn off buzzer
         digitalWrite(FRG, LOW);           // Turn off drive mode LED
@@ -183,22 +179,19 @@ void loop()
     case DRIVE:
         // Pedal update
         // Send pedal value through canbus
-        pedal.pedal_can_frame_update(&tx_throttle_msg, &main_car_state);
-        mcp2515_motor.sendMessage(&tx_throttle_msg);
+        // already scheduled
         return; // no need logic to check if pedal on, car started
 
     // do not return here if not in DRIVE mode, else can't detect pedal being on while starting
     case INIT:
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: INIT.");
-        mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (digitalRead(DRIVE_MODE_BTN) == BUTTON_ACTIVE && brake_pressed)
         {
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
 
-            scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it
+            //scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it
 
             DBG_STATUS_CAR(main_car_state.car_status);
         }
@@ -218,7 +211,7 @@ void loop()
         }
         else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
         {
-            scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready
+            //scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready
             if (bms.hv_ready()) // if HV not started, return to INIT
             {
                 main_car_state.car_status = INIT;
@@ -240,9 +233,6 @@ void loop()
 
     case BUSSIN:
         digitalWrite(BUZZER, HIGH); // Turn on buzzer
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-        DBGLN_THROTTLE("Stopping motor: BUSSIN.");
-        mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (main_car_state.millis - main_car_state.car_status_millis_counter >= BUSSIN_MILLIS)
         {
@@ -264,9 +254,6 @@ void loop()
     {
         main_car_state.car_status = INIT;
         main_car_state.car_status_millis_counter = main_car_state.millis; // Set to current time, in case any counter relies on this
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
-        DBGLN_THROTTLE("Stopping motor: throttle input while starting.");
-        mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         DBG_STATUS_CAR(main_car_state.car_status);
     }

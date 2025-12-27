@@ -135,6 +135,26 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, const car_state *
         DBGLN_THROTTLE("Stopping motor: pedal fault");
         return;
     }
+    if (car->car_status != DRIVE)
+    {
+        pedal_can_frame_stop_motor(tx_throttle_msg);
+        switch (car->car_status)
+        {
+        case INIT:
+            DBGLN_THROTTLE("Stopping motor: in INIT.");
+            break;
+        case STARTIN:
+            DBGLN_THROTTLE("Stopping motor: in STARTIN.");
+            break;
+        case BUSSIN:
+            DBGLN_THROTTLE("Stopping motor: in BUSSIN.");
+            break;
+        default:
+            DBGLN_THROTTLE("Stopping motor: in UNKNOWN STATE.");
+            break;
+        }
+        return;
+    }
 
     int16_t throttle_torque_val = throttle_torque_mapping(car->pedal_final, car->brake_final, FLIP_MOTOR_DIR);
 
