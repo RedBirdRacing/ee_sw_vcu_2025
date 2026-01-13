@@ -192,4 +192,6 @@
 
 #endif // USE_ARDUINO_PINS
 
+#define CAN_RATE CAN_500KBPS
+
 #endif // BOARDCONF_H

@@ -1,6 +1,12 @@
 #include "Pedal.h"
 #include "Signal_Processing.cpp" // for AVG_filter, move to .h later
-#include "Debug.h"
+
+// ignore -Wunused-parameter warnings for Debug.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#include "Debug.h" // DBGLN_GENERAL
+#pragma GCC diagnostic pop
+
 #include <Arduino.h> // for round() only.
 
 /**

@@ -26,9 +26,6 @@ constexpr uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APP
 constexpr uint8_t OUTPUT_COUNT = 4;
 constexpr uint8_t pins_out[OUTPUT_COUNT] = {FRG, BRAKE_LIGHT, BUZZER, BMS_FAILED_LED};
 
-// === Pedal ===
-Pedal pedal;
-
 // === even if unused, initialize ALL mcp2515 to make sure the CS pin is set up and they don't interfere with the SPI bus ===
 // === CAN (motor) ===
 MCP2515 mcp2515_motor(CS_CAN_MOTOR);
@@ -41,7 +38,8 @@ BMS bms(&mcp2515_BMS);
 MCP2515 mcp2515_DL(CS_CAN_DL);
 #define mcp2515_motor mcp2515_DL
 
-MCP2515 *MCPs[3] = {&mcp2515_motor, &mcp2515_BMS, &mcp2515_DL};
+#define NUM_MCP 3
+MCP2515 *MCPS[NUM_MCP] = {&mcp2515_motor, &mcp2515_BMS, &mcp2515_DL};
 
 struct can_frame tx_throttle_msg;
 
@@ -75,6 +73,9 @@ struct car_state main_car_state = {
     0      // torque_out
 };
 
+// === Pedal ===
+Pedal pedal;
+
 void scheduler_pedal(MCP2515 *mcp2515_)
 {
     static can_frame tx_msg;
@@ -86,10 +87,10 @@ void scheduler_bms(MCP2515 *mcp2515_)
     bms.check_hv(mcp2515_);
 }
 
-Scheduler<2, 3> scheduler(
+Scheduler<4, NUM_MCP> scheduler(
     10000, // period_us: 10ms
-    1000,   // spin_threshold_us: 1ms
-    MCPs   // MCP2515 instances
+    1000,  // spin_threshold_us: 1ms
+    MCPS   // MCP2515 instances
 );
 
 /**
@@ -98,8 +99,14 @@ Scheduler<2, 3> scheduler(
  */
 void setup()
 {
-    // Init pedals
     pedal = Pedal();
+
+    for (int i = 0; i < NUM_MCP; i++)
+    {
+        MCPS[i]->reset();
+        MCPS[i]->setBitrate(CAN_RATE, MCP2515_CRYSTAL_FREQ);
+        MCPS[i]->setNormalMode();
+    }
 
 #if DEBUG_SERIAL
     Debug_Serial::initialize();
@@ -118,20 +125,6 @@ void setup()
         digitalWrite(pins_out[i], LOW); // initialize output pins to LOW
     }
 
-    // Init mcp2515 for motor CAN channel
-    mcp2515_motor.reset();
-    mcp2515_motor.setBitrate(CAN_500KBPS, MCP2515_CRYSTAL_FREQ);
-    mcp2515_motor.setNormalMode();
-
-    // Init mcp2515 for BMS channel
-    mcp2515_BMS.reset();
-    mcp2515_BMS.setBitrate(CAN_500KBPS, MCP2515_CRYSTAL_FREQ);
-    mcp2515_BMS.setNormalMode();
-
-    mcp2515_DL.reset();
-    mcp2515_DL.setBitrate(CAN_500KBPS, MCP2515_CRYSTAL_FREQ);
-    mcp2515_DL.setNormalMode();
-
 #if DEBUG_CAN
     Debug_CAN::initialize(&mcp2515_DL); // Currently using motor CAN for debug messages, should change to other
     DBGLN_GENERAL("Debug CAN initialized");
@@ -141,14 +134,7 @@ void setup()
     DBGLN_STATUS("Entered INIT");
     DBGLN_GENERAL("Setup complete, entering main loop");
 
-    /*
-    For sim only
-    pinMode(BRAKE_IN, INPUT_PULLUP); // Set brake input pin to pull-up mode
-    pinMode(DRIVE_MODE_BTN, INPUT_PULLUP); // Set drive mode button pin
-    */
-
-    // Add scheduler tasks
-    scheduler.add_task(MCP_MOTOR, scheduler_pedal, 5); // Pedal task on motor CAN MCP2515 every tick
+    scheduler.add_task(MCP_MOTOR, scheduler_pedal, 5);
 }
 
 /**
@@ -157,7 +143,7 @@ void setup()
  */
 void loop()
 {
-    //DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
+    // DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
     main_car_state.millis = millis();
     pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
@@ -191,7 +177,7 @@ void loop()
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
 
-            //scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it
+            // scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it
 
             DBG_STATUS_CAR(main_car_state.car_status);
         }
@@ -211,7 +197,7 @@ void loop()
         }
         else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
         {
-            //scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready
+            // scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready
             if (bms.hv_ready()) // if HV not started, return to INIT
             {
                 main_car_state.car_status = INIT;

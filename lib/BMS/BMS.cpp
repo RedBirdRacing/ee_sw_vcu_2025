@@ -1,7 +1,18 @@
 #include "BMS.h"
-#include "mcp2515.h" // CAN frames, sending CAN frame, reading CAN frame
-#include "debug.h"   // DBGLN_GENERAL
+
+// ignore -Wunused-parameter warnings for Debug.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#include "Debug.h" // DBGLN_GENERAL
+#pragma GCC diagnostic pop
+
 #include <Arduino.h> // wait()
+
+// ignore -Wpedantic warnings for mcp2515.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+#include <mcp2515.h> // CAN frames, sending CAN frame, reading CAN frame
+#pragma GCC diagnostic pop
 
 // Constructor
 BMS::BMS(MCP2515 *mcp2515_BMS)
@@ -78,7 +89,7 @@ void BMS::bms_can_frame_stop_hv(can_frame *tx_bms_msg)
  * @param mcp2515_BMS Pointer to the MCP2515 CAN controller instance.
  * @return None
  */
-void BMS::check_hv(MCP2515* mcp2515_)
+void BMS::check_hv(MCP2515 *mcp2515_)
 {
     if (hv_started)
         return; // already started
@@ -127,4 +138,3 @@ void BMS::check_hv(MCP2515* mcp2515_)
     }
     hv_started = false; // guard, probably will be optimized out
 }
-

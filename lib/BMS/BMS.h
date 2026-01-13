@@ -20,7 +20,7 @@ class BMS
 public:
     BMS(MCP2515 *mcp2515_BMS);
     bool hv_ready() { return hv_started; };
-    void check_hv(MCP2515* mcp2515_BMS);
+    void check_hv(MCP2515 *mcp2515_BMS);
 
 private:
     uint32_t last_msg_ms, read_start_ms;

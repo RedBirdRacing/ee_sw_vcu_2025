@@ -2,35 +2,56 @@
  * @file Scheduler.tpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the Scheduler class template
- * @version 1.0
- * @date 2025-12-23
+ * @version 1.1
+ * @date 2026-01-13
  * @see Scheduler.hpp
  *
  */
 
-#include "mcp2515.h"     // mcp2515 objects
+#include "Enums.h"
+
+// ignore -Wpedantic warnings for mcp2515.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+#include <mcp2515.h> // mcp2515 objects
+#pragma GCC diagnostic pop
+
 #include "Scheduler.hpp" // Scheduler class template declaration
 using TaskFn = void (*)(MCP2515 *);
 
+/**
+ * @brief Construct a new Scheduler object
+ *
+ * @tparam NUM_TASKS Number of tasks per MCP2515
+ * @tparam NUM_MCP2515 Number of MCP2515 instances
+ * @param[in] period_us_ Period of the scheduler in microseconds
+ * @param[in] spin_threshold_us_ Spin-wait threshold in microseconds
+ * @param[in] mcps_ Array of MCP2515 pointers
+ */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,
                                              uint32_t spin_threshold_us_,
-                                             MCP2515 *mcps_[NUM_MCP2515])
+                                             MCP2515 *const *const mcps_)
     : tasks{nullptr},
       task_ticks{0},
       PERIOD_US(period_us_),
       SPIN_US(spin_threshold_us_),
       last_fire_us(0),
-      task_counters{0} // run on first tick
+      task_counters{0}, // run on first tick
+      MCPS{mcps_},
+      task_cnt{0}
 {
-    for (uint8_t i = 0; i < NUM_MCP2515; ++i)
-    {
-        MCPS[i] = mcps_[i];
-    }
 }
 
-    template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-    void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_time_us)())
+/**
+ * @brief Update the scheduler, checking if tasks need to be run based on the current time
+ *
+ * @tparam NUM_TASKS Number of tasks per MCP2515
+ * @tparam NUM_MCP2515 Number of MCP2515 instances
+ * @param[in] current_time_us Function pointer to a function returning the current time in microseconds
+ */
+template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
+void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_time_us)())
 {
     if (current_time_us == nullptr)
         return;
@@ -60,6 +81,15 @@ Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,
     return;
 }
 
+/**
+ * @brief Add a task to the scheduler for a specific MCP2515 index
+ *
+ * @tparam NUM_TASKS Number of tasks per MCP2515
+ * @tparam NUM_MCP2515 Number of MCP2515 instances
+ * @param[in] mcp_index Index of the MCP2515 instance
+ * @param[in] task Function pointer to the task to be added
+ * @param[in] tick_interval Number of ticks between task executions, so 0 for every tick, 9 for every 10 ticks
+ */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval)
 {
@@ -75,6 +105,14 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(const mcp_index mcp_index, cons
     ++task_cnt[mcp_index];
 }
 
+/**
+ * @brief Remove a task from the scheduler for a specific MCP2515 instance
+ *
+ * @tparam NUM_TASKS Number of tasks per MCP2515
+ * @tparam NUM_MCP2515 Number of MCP2515 instances
+ * @param[in] mcp_index Index of the MCP2515 instance
+ * @param[in] task Function pointer to the task to be removed
+ */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(const mcp_index mcp_index, const TaskFn task)
 {
@@ -104,9 +142,16 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(const mcp_index mcp_index, c
     }
 }
 
+/**
+ * @brief Helper function to run scheduled tasks
+ *
+ * @tparam NUM_TASKS Number of tasks per MCP2515
+ * @tparam NUM_MCP2515 Number of MCP2515 instances
+ */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 inline void Scheduler<NUM_TASKS, NUM_MCP2515>::run_tasks()
 {
+
     for (uint8_t task_index = 0; task_index < NUM_TASKS; ++task_index)
     {
         for (uint8_t mcp_index = 0; mcp_index < NUM_MCP2515; ++mcp_index)

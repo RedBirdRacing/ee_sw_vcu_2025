@@ -1,8 +1,15 @@
 #include "Signal_Processing.h"
 
-// Apply a FIR filter on the signal buffer
-// The buffer size must be the same as the kernel
-// Filtered output will be stored in the output_buf
+/**
+ * @brief Applies a Finite Impulse Response (FIR) filter on the given buffer.
+ * This function convolves the input buffer with the provided kernel and normalizes the result.
+ * 
+ * @param buffer Pointer to the input buffer containing signal samples.
+ * @param kernel Pointer to the FIR filter kernel.
+ * @param buf_size Size of the input buffer and kernel.
+ * @param kernel_sum Sum of all values in the kernel for normalization.
+ * @return The filtered output value.
+ */
 template <typename T>
 constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)
 {
@@ -22,6 +29,13 @@ constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)
     return static_cast<T>(sum / kernel_sum);
 }
 
+/**
+ * @brief Computes the average of two values.
+ * 
+ * @param val1 The first value.
+ * @param val2 The second value.
+ * @return The average of val1 and val2.
+ */
 template <typename T>
 constexpr T average(T val1, T val2)
 {
