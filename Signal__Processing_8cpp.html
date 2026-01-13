@@ -114,9 +114,11 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a2665ca55613be71683eb9e2cd6365cfc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2665ca55613be71683eb9e2cd6365cfc"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a> (T *buffer, float *kernel, int buf_size, float kernel_sum)</td></tr>
+<tr class="memdesc:a2665ca55613be71683eb9e2cd6365cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Finite Impulse Response (FIR) filter on the given buffer. This function convolves the input buffer with the provided kernel and normalizes the result.  <br /></td></tr>
 <tr class="separator:a2665ca55613be71683eb9e2cd6365cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9072b402cbfdfd7303bd805f408f6c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4d9072b402cbfdfd7303bd805f408f6c"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Signal__Processing_8cpp.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a> (T val1, T val2)</td></tr>
+<tr class="memdesc:a4d9072b402cbfdfd7303bd805f408f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the average of two values.  <br /></td></tr>
 <tr class="separator:a4d9072b402cbfdfd7303bd805f408f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae13f76d835e3de4d61441cf4abc0f08"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aae13f76d835e3de4d61441cf4abc0f08"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a> (T *buffer, uint8_t buf_size)</td></tr>
@@ -160,10 +162,20 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00026">26</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>{</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> (val1 + val2) / 2;</div>
-<div class="line"><span class="lineno">   29</span>}</div>
+<p>Computes the average of two values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val1</td><td>The first value. </td></tr>
+    <tr><td class="paramname">val2</td><td>The second value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The average of val1 and val2. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00040">40</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> (val1 + val2) / 2;</div>
+<div class="line"><span class="lineno">   43</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -213,19 +225,19 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The average value of the elements in the buffer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00040">40</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || buf_size == 0)</div>
-<div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
-<div class="line"><span class="lineno">   45</span>    }</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    T sum = 0;</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
-<div class="line"><span class="lineno">   50</span>        sum += buffer[i];</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">return</span> sum / buf_size;</div>
-<div class="line"><span class="lineno">   52</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00054">54</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || buf_size == 0)</div>
+<div class="line"><span class="lineno">   57</span>    {</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    T sum = 0;</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
+<div class="line"><span class="lineno">   64</span>        sum += buffer[i];</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> sum / buf_size;</div>
+<div class="line"><span class="lineno">   66</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -277,23 +289,35 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00007">7</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
-<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || kernel == <span class="keyword">nullptr</span> || buf_size &lt;= 0 || kernel_sum == 0.0f)</div>
-<div class="line"><span class="lineno">   10</span>    {</div>
-<div class="line"><span class="lineno">   11</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
-<div class="line"><span class="lineno">   12</span>    }</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>    <span class="keywordtype">float</span> sum = 0;</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
+<p>Applies a Finite Impulse Response (FIR) filter on the given buffer. This function convolves the input buffer with the provided kernel and normalizes the result. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Pointer to the input buffer containing signal samples. </td></tr>
+    <tr><td class="paramname">kernel</td><td>Pointer to the FIR filter kernel. </td></tr>
+    <tr><td class="paramname">buf_size</td><td>Size of the input buffer and kernel. </td></tr>
+    <tr><td class="paramname">kernel_sum</td><td>Sum of all values in the kernel for normalization. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The filtered output value. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00014">14</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || kernel == <span class="keyword">nullptr</span> || buf_size &lt;= 0 || kernel_sum == 0.0f)</div>
 <div class="line"><span class="lineno">   17</span>    {</div>
-<div class="line"><span class="lineno">   18</span>        sum += <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(buffer[i]) * kernel[i];</div>
+<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
 <div class="line"><span class="lineno">   19</span>    }</div>
 <div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="comment">// Kernel sum is the sum of all values in the kernel. This normalize the output value</span></div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sum / kernel_sum);</div>
-<div class="line"><span class="lineno">   23</span>}</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordtype">float</span> sum = 0;</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
+<div class="line"><span class="lineno">   24</span>    {</div>
+<div class="line"><span class="lineno">   25</span>        sum += <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(buffer[i]) * kernel[i];</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="comment">// Kernel sum is the sum of all values in the kernel. This normalize the output value</span></div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sum / kernel_sum);</div>
+<div class="line"><span class="lineno">   30</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

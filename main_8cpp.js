@@ -1,6 +1,7 @@
 var main_8cpp =
 [
     [ "mcp2515_motor", "main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e", null ],
+    [ "NUM_MCP", "main_8cpp.html#ad27dba4b9f99864de7a6e7ebbbe8df67", null ],
     [ "loop", "main_8cpp.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "mcp2515_BMS", "main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779", null ],
     [ "mcp2515_DL", "main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1", null ],
@@ -15,12 +16,12 @@ var main_8cpp =
     [ "INPUT_COUNT", "main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857", null ],
     [ "main_car_state", "main_8cpp.html#a30233bd666bfd0fe8f78b3c51c7a756b", null ],
     [ "mcp2515_BMS", "main_8cpp.html#a9012428675638b2523b463323f972a79", null ],
-    [ "MCPs", "main_8cpp.html#a8e765c1bc284bb6ee026381fdd6e924e", null ],
+    [ "MCPS", "main_8cpp.html#a75a08a9ceaacfe53f9628d7a5d8a6d5b", null ],
     [ "OUTPUT_COUNT", "main_8cpp.html#a5df142f03646c5b92649924c05eb448e", null ],
     [ "pedal", "main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8", null ],
     [ "pins_in", "main_8cpp.html#ac81c886455652a75221096759b0b39ca", null ],
     [ "pins_out", "main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48", null ],
-    [ "scheduler", "main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186", null ],
+    [ "scheduler", "main_8cpp.html#adb0b2c0571a26c56d4e908afa6b8a156", null ],
     [ "STARTING_MILLIS", "main_8cpp.html#a83e2f8002c9f61e65749409b326c642b", null ],
     [ "tx_throttle_msg", "main_8cpp.html#aeadd5ff15bba21c8292acef541061396", null ]
 ];

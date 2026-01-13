@@ -7,6 +7,7 @@ var boardConf_8h =
     [ "BRAKE_LIGHT", "boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163", null ],
     [ "BUTTON_ACTIVE", "boardConf_8h.html#af04e20a7e5b6153ffe850b26e1fe097a", null ],
     [ "BUZZER", "boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13", null ],
+    [ "CAN_RATE", "boardConf_8h.html#a5f87fe9497f62d1f0b865190cecf2c0d", null ],
     [ "CS_CAN_BMS", "boardConf_8h.html#ab476064511df004d8a67875afbd3521b", null ],
     [ "CS_CAN_DL", "boardConf_8h.html#a661f70456357c09fff639665b5e89852", null ],
     [ "CS_CAN_MOTOR", "boardConf_8h.html#a65b24582a92e368f91aca95b4dbe5847", null ],

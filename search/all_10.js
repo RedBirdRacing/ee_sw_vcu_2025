@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['scheduler_0',['Scheduler',['../classScheduler.html#a299319973d96b26de8de719dca8822fd',1,'Scheduler::Scheduler()=delete'],['../classScheduler.html#af9ffda58a6d300be77bc4d36f29e2ef9',1,'Scheduler::Scheduler(uint32_t period_us_, uint32_t spin_threshold_us_, MCP2515 *mcps_[NUM_MCP2515])']]],
-  ['scheduler_1',['scheduler',['../main_8cpp.html#a4d7f3cc76b8167e4bb8df1ed5bf4c186',1,'main.cpp']]],
+  ['scheduler_0',['Scheduler',['../classScheduler.html#a299319973d96b26de8de719dca8822fd',1,'Scheduler::Scheduler()=delete'],['../classScheduler.html#ac0a41fd3c23e1367156d058bfd8d1f9b',1,'Scheduler::Scheduler(uint32_t period_us_, uint32_t spin_threshold_us_, MCP2515 *const *const mcps_)']]],
+  ['scheduler_1',['scheduler',['../main_8cpp.html#adb0b2c0571a26c56d4e908afa6b8a156',1,'main.cpp']]],
   ['scheduler_2',['Scheduler',['../classScheduler.html',1,'']]],
   ['scheduler_2ehpp_3',['Scheduler.hpp',['../Scheduler_8hpp.html',1,'']]],
   ['scheduler_2etpp_4',['Scheduler.tpp',['../Scheduler_8tpp.html',1,'']]],
