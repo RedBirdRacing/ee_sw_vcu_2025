@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['num_5fmcp_0',['NUM_MCP',['../main_8cpp.html#ad27dba4b9f99864de7a6e7ebbbe8df67',1,'main.cpp']]]
+  ['regen_5fenabled_0',['REGEN_ENABLED',['../Pedal_8h.html#aa684b372f1706ac76c2351f3f2e638b6',1,'Pedal.h']]]
 ];

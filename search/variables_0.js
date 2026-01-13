@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['bms_5fcommand_0',['BMS_COMMAND',['../BMS_8h.html#a498a73250bf649788c7c87049454468a',1,'BMS.h']]],
-  ['bms_5finfo_1',['BMS_INFO',['../BMS_8h.html#ad5d92403aa66ff7f26223a07b5d6cb88',1,'BMS.h']]],
-  ['bms_5finfo_5fext_2',['BMS_INFO_EXT',['../BMS_8h.html#a63a06b4ea269ba668a6d337097356e93',1,'BMS.h']]],
-  ['bms_5fmillis_3',['BMS_MILLIS',['../main_8cpp.html#a9b210a2254e453ab1707b21a4f610222',1,'main.cpp']]],
-  ['bms_5fread_5fms_4',['BMS_READ_MS',['../BMS_8h.html#a53885d8f11cf0feffe22528cbfaa8ca4',1,'BMS.h']]],
+  ['bms_0',['bms',['../main_8cpp.html#aa5275dd1ded2929ad64301ef46def6e4',1,'main.cpp']]],
+  ['bms_5fcommand_1',['BMS_COMMAND',['../BMS_8h.html#a498a73250bf649788c7c87049454468a',1,'BMS.h']]],
+  ['bms_5finfo_2',['BMS_INFO',['../BMS_8h.html#ad5d92403aa66ff7f26223a07b5d6cb88',1,'BMS.h']]],
+  ['bms_5finfo_5fext_3',['BMS_INFO_EXT',['../BMS_8h.html#a63a06b4ea269ba668a6d337097356e93',1,'BMS.h']]],
+  ['bms_5fmillis_4',['BMS_MILLIS',['../main_8cpp.html#a9b210a2254e453ab1707b21a4f610222',1,'main.cpp']]],
   ['bms_5fsend_5fcmd_5',['BMS_SEND_CMD',['../BMS_8h.html#a972fa122ea3511b4618974d08967eed6',1,'BMS.h']]],
   ['brake_5ffinal_6',['brake_final',['../structcar__state.html#a0158d2a979a76e12bf438995150d3e9b',1,'car_state']]],
   ['brake_5fin_5fmax_7',['BRAKE_IN_MAX',['../Pedal_8h.html#a074dccac3f7e19bd602c554175a33eba',1,'Pedal.h']]],

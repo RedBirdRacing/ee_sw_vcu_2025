@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">
 <polygon fill="#999999" stroke="#666666" points="145.5,-74 58.5,-74 58.5,-55 145.5,-55 145.5,-74"/>
 <text text-anchor="middle" x="102" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/BMS/BMS.h</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="BMS_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="BMS_8cpp.html" target="_top" xlink:title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">
 <polygon fill="white" stroke="#666666" points="98,-19 0,-19 0,0 98,0 98,-19"/>
 <text text-anchor="middle" x="49" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">lib/BMS/BMS.cpp</text>
 </a>

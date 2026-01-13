@@ -1,11 +1,12 @@
 <map id="Debug_Serial::println" name="Debug_Serial::println">
-<area shape="rect" id="node1" title="Prints a line to the serial console. This function sends a string message followed by a newline to th..." alt="" coords="705,107,864,132"/>
-<area shape="rect" id="node2" href="$Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="518,56,654,81"/>
-<area shape="rect" id="node5" href="$Debug_8h.html#adeb16efc082a41c9b137c2fa9d8162c0" title="Prints a line to the serial console for status debug." alt="" coords="114,107,238,132"/>
-<area shape="rect" id="node6" href="$Debug_8h.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="515,157,657,183"/>
-<area shape="rect" id="node3" href="$classBMS.html#a2b5ec1ea35cac26d5defeb652f721975" title="Keep retrying to send BMS start HV command until it succeeds. First check BMS is in standby(3) state,..." alt="" coords="317,5,437,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,107,64,132"/>
-<area shape="rect" id="node7" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="352,157,403,183"/>
-<area shape="rect" id="node8" href="$classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,207,467,247"/>
-<area shape="rect" id="node9" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,185,240,211"/>
+<area shape="rect" id="node1" title="Prints a line to the serial console. This function sends a string message followed by a newline to th..." alt="" coords="705,97,864,123"/>
+<area shape="rect" id="node2" href="$Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="518,97,654,123"/>
+<area shape="rect" id="node7" href="$Debug_8h.html#adeb16efc082a41c9b137c2fa9d8162c0" title="Prints a line to the serial console for status debug." alt="" coords="524,147,648,172"/>
+<area shape="rect" id="node8" href="$Debug_8h.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="515,40,657,65"/>
+<area shape="rect" id="node3" href="$classBMS.html#a2b5ec1ea35cac26d5defeb652f721975" title="Attempt to start HV. First check BMS is in standby(3) state, then send the HV start command...." alt="" coords="317,97,437,123"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,92,64,117"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a1ea17ca2552291c88af3e9ec6804264b" title=" " alt="" coords="116,93,236,119"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="9,43,60,68"/>
+<area shape="rect" id="node9" href="$classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,33,467,73"/>
+<area shape="rect" id="node10" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,41,240,67"/>
 </map>

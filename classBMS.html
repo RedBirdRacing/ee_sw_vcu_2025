@@ -91,65 +91,48 @@ $(document).ready(function(){initNavTree('classBMS.html',''); initResizable(); }
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classBMS-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">BMS Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> class for managing the Accumulator (Kclear <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a>) via CAN bus.  
+ <a href="classBMS.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="BMS_8h_source.html">BMS.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for BMS:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS__coll__graph.svg" width="216" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS__coll__graph.svg" width="126" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a21a11290726076d856f90be705686a39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a21a11290726076d856f90be705686a39">BMS</a> (MCP2515 *<a class="el" href="classBMS.html#a2ea22cefcd2d42507466f376fefdc736">mcp2515_BMS</a>)</td></tr>
-<tr class="separator:a21a11290726076d856f90be705686a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763b5a616fd2231bf94edb4cc056a2c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a763b5a616fd2231bf94edb4cc056a2c2">BMS</a> ()</td></tr>
+<tr class="memdesc:a763b5a616fd2231bf94edb4cc056a2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> object.  <br /></td></tr>
+<tr class="separator:a763b5a616fd2231bf94edb4cc056a2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4529cdd9f90af5b41eff61d15595852"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#ac4529cdd9f90af5b41eff61d15595852">hv_ready</a> ()</td></tr>
 <tr class="separator:ac4529cdd9f90af5b41eff61d15595852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b5ec1ea35cac26d5defeb652f721975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a2b5ec1ea35cac26d5defeb652f721975">check_hv</a> (MCP2515 *<a class="el" href="classBMS.html#a2ea22cefcd2d42507466f376fefdc736">mcp2515_BMS</a>)</td></tr>
-<tr class="memdesc:a2b5ec1ea35cac26d5defeb652f721975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keep retrying to send <a class="el" href="classBMS.html">BMS</a> start HV command until it succeeds. First check <a class="el" href="classBMS.html">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html">BMS</a> state changes to run(5).  <br /></td></tr>
+<tr class="memitem:a2b5ec1ea35cac26d5defeb652f721975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a2b5ec1ea35cac26d5defeb652f721975">check_hv</a> (MCP2515 *<a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">mcp2515_BMS</a>)</td></tr>
+<tr class="memdesc:a2b5ec1ea35cac26d5defeb652f721975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5).  <br /></td></tr>
 <tr class="separator:a2b5ec1ea35cac26d5defeb652f721975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a2f3dac1e3854af5ed3bba64e4d4dd64c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a2f3dac1e3854af5ed3bba64e4d4dd64c">bms_can_frame_start_hv</a> (can_frame *tx_bms_msg)</td></tr>
-<tr class="memdesc:a2f3dac1e3854af5ed3bba64e4d4dd64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the CAN frame with the current pedal values.  <br /></td></tr>
-<tr class="separator:a2f3dac1e3854af5ed3bba64e4d4dd64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c68a22debbd749a2791a0114d1ff645"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a8c68a22debbd749a2791a0114d1ff645">bms_can_frame_stop_hv</a> (can_frame *tx_bms_msg)</td></tr>
-<tr class="memdesc:a8c68a22debbd749a2791a0114d1ff645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the CAN frame with the current pedal values.  <br /></td></tr>
-<tr class="separator:a8c68a22debbd749a2791a0114d1ff645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3a09cbf42ee5b787eb5366743756e7d6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a3a09cbf42ee5b787eb5366743756e7d6">last_msg_ms</a></td></tr>
-<tr class="separator:a3a09cbf42ee5b787eb5366743756e7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9aa6589a3ef24c31d03e1bf4c050975"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#aa9aa6589a3ef24c31d03e1bf4c050975">read_start_ms</a></td></tr>
-<tr class="separator:aa9aa6589a3ef24c31d03e1bf4c050975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39f4a9fa70398289c41ab41eb478b6c"><td class="memItemLeft" align="right" valign="top">can_frame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#ac39f4a9fa70398289c41ab41eb478b6c">tx_bms_start_msg</a></td></tr>
-<tr class="separator:ac39f4a9fa70398289c41ab41eb478b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8ef28c8dfb29df74d2cf89144ff99fd"><td class="memItemLeft" align="right" valign="top">can_frame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#af8ef28c8dfb29df74d2cf89144ff99fd">tx_bms_stop_msg</a></td></tr>
-<tr class="separator:af8ef28c8dfb29df74d2cf89144ff99fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b730234202c61a53e07127a7b1c6104"><td class="memItemLeft" align="right" valign="top">can_frame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a4b730234202c61a53e07127a7b1c6104">rx_bms_msg</a></td></tr>
 <tr class="separator:a4b730234202c61a53e07127a7b1c6104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ea22cefcd2d42507466f376fefdc736"><td class="memItemLeft" align="right" valign="top">MCP2515 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a2ea22cefcd2d42507466f376fefdc736">mcp2515_BMS</a></td></tr>
-<tr class="separator:a2ea22cefcd2d42507466f376fefdc736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a330dae159323f0f57d016bff9a002206"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = false</td></tr>
 <tr class="separator:a330dae159323f0f57d016bff9a002206"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a009d34bccd4c377ec5ce6dac7fc5c385"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a009d34bccd4c377ec5ce6dac7fc5c385">hv_send_start</a> = false</td></tr>
-<tr class="separator:a009d34bccd4c377ec5ce6dac7fc5c385"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00018">18</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<div class="textblock"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> class for managing the Accumulator (Kclear <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a>) via CAN bus. </p>
+
+<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00044">44</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a21a11290726076d856f90be705686a39" name="a21a11290726076d856f90be705686a39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21a11290726076d856f90be705686a39">&#9670;&#160;</a></span>BMS()</h2>
+<a id="a763b5a616fd2231bf94edb4cc056a2c2" name="a763b5a616fd2231bf94edb4cc056a2c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a763b5a616fd2231bf94edb4cc056a2c2">&#9670;&#160;</a></span>BMS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,147 +140,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">BMS::BMS </td>
           <td>(</td>
-          <td class="paramtype">MCP2515 *&#160;</td>
-          <td class="paramname"><em>mcp2515_BMS</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00018">18</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>    : <a class="code hl_variable" href="classBMS.html#a3a09cbf42ee5b787eb5366743756e7d6">last_msg_ms</a>(0),</div>
-<div class="line"><span class="lineno">   20</span>      <a class="code hl_variable" href="classBMS.html#aa9aa6589a3ef24c31d03e1bf4c050975">read_start_ms</a>(0),</div>
-<div class="line"><span class="lineno">   21</span>      <a class="code hl_variable" href="classBMS.html#ac39f4a9fa70398289c41ab41eb478b6c">tx_bms_start_msg</a>{</div>
-<div class="line"><span class="lineno">   22</span>          <a class="code hl_variable" href="BMS_8h.html#a972fa122ea3511b4618974d08967eed6">BMS_SEND_CMD</a>, <span class="comment">// can_id</span></div>
-<div class="line"><span class="lineno">   23</span>          2,            <span class="comment">// can_dlc</span></div>
-<div class="line"><span class="lineno">   24</span>          {0x01, 0x01}  <span class="comment">// data: MainRlyCmd = 1 (output HV), ShutDownCmd = 1 (do not shutdown)</span></div>
-<div class="line"><span class="lineno">   25</span>      },</div>
-<div class="line"><span class="lineno">   26</span>      <a class="code hl_variable" href="classBMS.html#af8ef28c8dfb29df74d2cf89144ff99fd">tx_bms_stop_msg</a>{</div>
-<div class="line"><span class="lineno">   27</span>          <a class="code hl_variable" href="BMS_8h.html#a972fa122ea3511b4618974d08967eed6">BMS_SEND_CMD</a>, <span class="comment">// can_id</span></div>
-<div class="line"><span class="lineno">   28</span>          2,            <span class="comment">// can_dlc</span></div>
-<div class="line"><span class="lineno">   29</span>          {0x00, 0x00}  <span class="comment">// data: MainRlyCmd = 0 (break open HV), ShutDownCmd = 0 (shutdown)</span></div>
-<div class="line"><span class="lineno">   30</span>      },</div>
-<div class="line"><span class="lineno">   31</span>      <a class="code hl_variable" href="classBMS.html#a4b730234202c61a53e07127a7b1c6104">rx_bms_msg</a>{</div>
-<div class="line"><span class="lineno">   32</span>          0,   <span class="comment">// can_id</span></div>
-<div class="line"><span class="lineno">   33</span>          0,   <span class="comment">// can_dlc</span></div>
-<div class="line"><span class="lineno">   34</span>          {0}, <span class="comment">// data</span></div>
-<div class="line"><span class="lineno">   35</span>      },</div>
-<div class="line"><span class="lineno">   36</span>      <a class="code hl_variable" href="classBMS.html#a2ea22cefcd2d42507466f376fefdc736">mcp2515_BMS</a>(<a class="code hl_variable" href="classBMS.html#a2ea22cefcd2d42507466f376fefdc736">mcp2515_BMS</a>)</div>
-<div class="line"><span class="lineno">   37</span>{</div>
-<div class="line"><span class="lineno">   38</span>}</div>
-<div class="ttc" id="aBMS_8h_html_a972fa122ea3511b4618974d08967eed6"><div class="ttname"><a href="BMS_8h.html#a972fa122ea3511b4618974d08967eed6">BMS_SEND_CMD</a></div><div class="ttdeci">constexpr uint32_t BMS_SEND_CMD</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00011">BMS.h:11</a></div></div>
-<div class="ttc" id="aclassBMS_html_a2ea22cefcd2d42507466f376fefdc736"><div class="ttname"><a href="classBMS.html#a2ea22cefcd2d42507466f376fefdc736">BMS::mcp2515_BMS</a></div><div class="ttdeci">MCP2515 * mcp2515_BMS</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00028">BMS.h:28</a></div></div>
-<div class="ttc" id="aclassBMS_html_a3a09cbf42ee5b787eb5366743756e7d6"><div class="ttname"><a href="classBMS.html#a3a09cbf42ee5b787eb5366743756e7d6">BMS::last_msg_ms</a></div><div class="ttdeci">uint32_t last_msg_ms</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00026">BMS.h:26</a></div></div>
-<div class="ttc" id="aclassBMS_html_a4b730234202c61a53e07127a7b1c6104"><div class="ttname"><a href="classBMS.html#a4b730234202c61a53e07127a7b1c6104">BMS::rx_bms_msg</a></div><div class="ttdeci">can_frame rx_bms_msg</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00027">BMS.h:27</a></div></div>
-<div class="ttc" id="aclassBMS_html_aa9aa6589a3ef24c31d03e1bf4c050975"><div class="ttname"><a href="classBMS.html#aa9aa6589a3ef24c31d03e1bf4c050975">BMS::read_start_ms</a></div><div class="ttdeci">uint32_t read_start_ms</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00026">BMS.h:26</a></div></div>
-<div class="ttc" id="aclassBMS_html_ac39f4a9fa70398289c41ab41eb478b6c"><div class="ttname"><a href="classBMS.html#ac39f4a9fa70398289c41ab41eb478b6c">BMS::tx_bms_start_msg</a></div><div class="ttdeci">can_frame tx_bms_start_msg</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00027">BMS.h:27</a></div></div>
-<div class="ttc" id="aclassBMS_html_af8ef28c8dfb29df74d2cf89144ff99fd"><div class="ttname"><a href="classBMS.html#af8ef28c8dfb29df74d2cf89144ff99fd">BMS::tx_bms_stop_msg</a></div><div class="ttdeci">can_frame tx_bms_stop_msg</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00027">BMS.h:27</a></div></div>
-</div><!-- fragment -->
+<p>Construct a new <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> object. </p>
+
+<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00028">28</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2f3dac1e3854af5ed3bba64e4d4dd64c" name="a2f3dac1e3854af5ed3bba64e4d4dd64c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3dac1e3854af5ed3bba64e4d4dd64c">&#9670;&#160;</a></span>bms_can_frame_start_hv()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BMS::bms_can_frame_start_hv </td>
-          <td>(</td>
-          <td class="paramtype">can_frame *&#160;</td>
-          <td class="paramname"><em>tx_bms_msg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates the CAN frame with the current pedal values. </p>
-<p>This function prepares a CAN frame to stop the <a class="el" href="classBMS.html">BMS</a> high voltage output.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tx_bms_msg</td><td>Pointer to the CAN frame to update. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00048">48</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>    tx_bms_msg-&gt;can_id = <a class="code hl_variable" href="BMS_8h.html#a972fa122ea3511b4618974d08967eed6">BMS_SEND_CMD</a>; <span class="comment">// extended already</span></div>
-<div class="line"><span class="lineno">   51</span>    tx_bms_msg-&gt;can_dlc = 2;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="comment">// MainRlyCmd</span></div>
-<div class="line"><span class="lineno">   53</span>    <span class="comment">// 1 is output HV</span></div>
-<div class="line"><span class="lineno">   54</span>    tx_bms_msg-&gt;data[0] = 0x01;</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>    <span class="comment">// ShutDownCmd</span></div>
-<div class="line"><span class="lineno">   57</span>    <span class="comment">// 1 is do not shutdown</span></div>
-<div class="line"><span class="lineno">   58</span>    tx_bms_msg-&gt;data[1] = 0x01;</div>
-<div class="line"><span class="lineno">   59</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00011">BMS_SEND_CMD</a>.</p>
-
-</div>
-</div>
-<a id="a8c68a22debbd749a2791a0114d1ff645" name="a8c68a22debbd749a2791a0114d1ff645"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c68a22debbd749a2791a0114d1ff645">&#9670;&#160;</a></span>bms_can_frame_stop_hv()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BMS::bms_can_frame_stop_hv </td>
-          <td>(</td>
-          <td class="paramtype">can_frame *&#160;</td>
-          <td class="paramname"><em>tx_bms_msg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates the CAN frame with the current pedal values. </p>
-<p>This function prepares a CAN frame to stop the <a class="el" href="classBMS.html">BMS</a> high voltage output.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tx_bms_msg</td><td>Pointer to the CAN frame to update. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00069">69</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
-<div class="line"><span class="lineno">   71</span>    tx_bms_msg-&gt;can_id = <a class="code hl_variable" href="BMS_8h.html#a972fa122ea3511b4618974d08967eed6">BMS_SEND_CMD</a>; <span class="comment">// extended already</span></div>
-<div class="line"><span class="lineno">   72</span>    tx_bms_msg-&gt;can_dlc = 2;</div>
-<div class="line"><span class="lineno">   73</span>    <span class="comment">// MainRlyCmd</span></div>
-<div class="line"><span class="lineno">   74</span>    <span class="comment">// 0 is break open HV</span></div>
-<div class="line"><span class="lineno">   75</span>    tx_bms_msg-&gt;data[0] = 0x00;</div>
-<div class="line"><span class="lineno">   76</span> </div>
-<div class="line"><span class="lineno">   77</span>    <span class="comment">// ShutDownCmd</span></div>
-<div class="line"><span class="lineno">   78</span>    <span class="comment">// 0 is shutdown</span></div>
-<div class="line"><span class="lineno">   79</span>    tx_bms_msg-&gt;data[1] = 0x00;</div>
-<div class="line"><span class="lineno">   80</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00011">BMS_SEND_CMD</a>.</p>
-
-</div>
-</div>
 <a id="a2b5ec1ea35cac26d5defeb652f721975" name="a2b5ec1ea35cac26d5defeb652f721975"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b5ec1ea35cac26d5defeb652f721975">&#9670;&#160;</a></span>check_hv()</h2>
 
@@ -314,82 +169,30 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Keep retrying to send <a class="el" href="classBMS.html">BMS</a> start HV command until it succeeds. First check <a class="el" href="classBMS.html">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html">BMS</a> state changes to run(5). </p>
+<p>Attempt to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rx_bms_msg</td><td>Pointer to the CAN frame to read the response. </td></tr>
     <tr><td class="paramname">mcp2515_BMS</td><td>Pointer to the MCP2515 CAN controller instance. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00092">92</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   93</span>{</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a>)</div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">return</span>; <span class="comment">// already started</span></div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">if</span> (mcp2515_-&gt;readMessage(&amp;<a class="code hl_variable" href="classBMS.html#a4b730234202c61a53e07127a7b1c6104">rx_bms_msg</a>) == MCP2515::ERROR_NOMSG)</div>
-<div class="line"><span class="lineno">   97</span>    {</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_function" href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a>(<a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff">NO_MSG</a>);</div>
-<div class="line"><span class="lineno">   99</span>        <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  101</span>    }</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>    <span class="comment">// Check if the BMS is in standby state (0x3 in upper 4 bits)</span></div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classBMS.html#a4b730234202c61a53e07127a7b1c6104">rx_bms_msg</a>.can_id != <a class="code hl_variable" href="BMS_8h.html#a63a06b4ea269ba668a6d337097356e93">BMS_INFO_EXT</a>)</div>
-<div class="line"><span class="lineno">  105</span>    {</div>
-<div class="line"><span class="lineno">  106</span>        <a class="code hl_function" href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a>(<a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65">WRONG_ID</a>);</div>
-<div class="line"><span class="lineno">  107</span>        <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  109</span>    } <span class="comment">// Not a BMS info frame, retry</span></div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="classBMS.html#a4b730234202c61a53e07127a7b1c6104">rx_bms_msg</a>.data[6] &amp; 0xF0)</div>
-<div class="line"><span class="lineno">  112</span>    {</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">case</span> 0x30: <span class="comment">// Standby state</span></div>
-<div class="line"><span class="lineno">  114</span>        <a class="code hl_function" href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a>(<a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087">WAITING</a>);</div>
-<div class="line"><span class="lineno">  115</span>        <a class="code hl_variable" href="classBMS.html#a009d34bccd4c377ec5ce6dac7fc5c385">hv_send_start</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  116</span>        <span class="comment">// last_msg_ms = *current_ms;</span></div>
-<div class="line"><span class="lineno">  117</span>        <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;BMS in standby state, sent start HV cmd&quot;</span>);</div>
-<div class="line"><span class="lineno">  118</span>        <span class="comment">// sent start HV cmd, wait for BMS to change state</span></div>
-<div class="line"><span class="lineno">  119</span>        <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">case</span> 0x40: <span class="comment">// Precharge state</span></div>
-<div class="line"><span class="lineno">  122</span>        <a class="code hl_function" href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a>(<a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec">STARTING</a>);</div>
-<div class="line"><span class="lineno">  123</span>        <a class="code hl_variable" href="classBMS.html#a009d34bccd4c377ec5ce6dac7fc5c385">hv_send_start</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  124</span>        <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;BMS in precharge state, HV starting&quot;</span>);</div>
-<div class="line"><span class="lineno">  125</span>        <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">return</span>; <span class="comment">// BMS is in precharge state, wait</span></div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">case</span> 0x50:  <span class="comment">// Run state</span></div>
-<div class="line"><span class="lineno">  128</span>        <a class="code hl_function" href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a>(<a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27">STARTED</a>);</div>
-<div class="line"><span class="lineno">  129</span>        <a class="code hl_variable" href="classBMS.html#a009d34bccd4c377ec5ce6dac7fc5c385">hv_send_start</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  130</span>        <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;BMS in run state, HV started&quot;</span>);</div>
-<div class="line"><span class="lineno">  131</span>        <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">true</span>; <span class="comment">// BMS is in run state</span></div>
-<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  133</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  134</span>        <a class="code hl_function" href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a>(<a class="code hl_enumvalue" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4">UNUSED</a>);</div>
-<div class="line"><span class="lineno">  135</span>        <a class="code hl_function" href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a>(<span class="stringliteral">&quot;BMS in unknown state, retrying...&quot;</span>);</div>
-<div class="line"><span class="lineno">  136</span>        <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordflow">return</span>; <span class="comment">// Unknown state, retry</span></div>
-<div class="line"><span class="lineno">  138</span>    }</div>
-<div class="line"><span class="lineno">  139</span>    <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a> = <span class="keyword">false</span>; <span class="comment">// guard, probably will be optimized out</span></div>
-<div class="line"><span class="lineno">  140</span>}</div>
-<div class="ttc" id="aBMS_8h_html_a63a06b4ea269ba668a6d337097356e93"><div class="ttname"><a href="BMS_8h.html#a63a06b4ea269ba668a6d337097356e93">BMS_INFO_EXT</a></div><div class="ttdeci">constexpr uint32_t BMS_INFO_EXT</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00014">BMS.h:14</a></div></div>
-<div class="ttc" id="aDebug_8h_html_a5811a65cdb8fc3c5255f57301cbb8481"><div class="ttname"><a href="Debug_8h.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a></div><div class="ttdeci">void DBG_BMS_STATUS(BMS_status BMS_status)</div><div class="ttdoc">Sends BMS debug info via CAN or serial (if enabled).</div><div class="ttdef"><b>Definition:</b> <a href="Debug_8h_source.html#l00205">Debug.h:205</a></div></div>
-<div class="ttc" id="aDebug_8h_html_a8e8d6e3de15309922f25c12f4d7cf727"><div class="ttname"><a href="Debug_8h.html#a8e8d6e3de15309922f25c12f4d7cf727">DBGLN_GENERAL</a></div><div class="ttdeci">void DBGLN_GENERAL(const char *x)</div><div class="ttdoc">Prints a line to the serial console for general debug.</div><div class="ttdef"><b>Definition:</b> <a href="Debug_8h_source.html#l00071">Debug.h:71</a></div></div>
-<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65">WRONG_ID</a></div><div class="ttdeci">@ WRONG_ID</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00057">Enums.h:57</a></div></div>
-<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087">WAITING</a></div><div class="ttdeci">@ WAITING</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00058">Enums.h:58</a></div></div>
-<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec">STARTING</a></div><div class="ttdeci">@ STARTING</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00059">Enums.h:59</a></div></div>
-<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27">STARTED</a></div><div class="ttdeci">@ STARTED</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00060">Enums.h:60</a></div></div>
-<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4">UNUSED</a></div><div class="ttdeci">@ UNUSED</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00062">Enums.h:61</a></div></div>
-<div class="ttc" id="aEnums_8h_html_a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff"><div class="ttname"><a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff">NO_MSG</a></div><div class="ttdeci">@ NO_MSG</div><div class="ttdef"><b>Definition:</b> <a href="Enums_8h_source.html#l00056">Enums.h:56</a></div></div>
-<div class="ttc" id="aclassBMS_html_a009d34bccd4c377ec5ce6dac7fc5c385"><div class="ttname"><a href="classBMS.html#a009d34bccd4c377ec5ce6dac7fc5c385">BMS::hv_send_start</a></div><div class="ttdeci">bool hv_send_start</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00030">BMS.h:30</a></div></div>
-<div class="ttc" id="aclassBMS_html_a330dae159323f0f57d016bff9a002206"><div class="ttname"><a href="classBMS.html#a330dae159323f0f57d016bff9a002206">BMS::hv_started</a></div><div class="ttdeci">bool hv_started</div><div class="ttdef"><b>Definition:</b> <a href="BMS_8h_source.html#l00029">BMS.h:29</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00014">BMS_INFO_EXT</a>, <a class="el" href="Debug_8h_source.html#l00205">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8h_source.html#l00030">hv_send_start</a>, <a class="el" href="BMS_8h_source.html#l00029">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00056">NO_MSG</a>, <a class="el" href="BMS_8h_source.html#l00027">rx_bms_msg</a>, <a class="el" href="Enums_8h_source.html#l00060">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00059">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00061">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00058">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00057">WRONG_ID</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00041">41</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="BMS_8h_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8h_source.html#l00205">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8h_source.html#l00057">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00056">NO_MSG</a>, <a class="el" href="BMS_8h_source.html#l00052">rx_bms_msg</a>, <a class="el" href="BMS_8h_source.html#l00028">start_hv_msg</a>, <a class="el" href="Enums_8h_source.html#l00060">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00059">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00061">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00058">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00057">WRONG_ID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00080">scheduler_bms()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_a2b5ec1ea35cac26d5defeb652f721975_cgraph.svg" width="560" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_a2b5ec1ea35cac26d5defeb652f721975_icgraph.svg" width="398" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -418,40 +221,21 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00022">22</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBMS.html#a330dae159323f0f57d016bff9a002206">hv_started</a>; };</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00029">hv_started</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00048">48</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+
+<p class="reference">References <a class="el" href="BMS_8h_source.html#l00057">hv_started</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_ac4529cdd9f90af5b41eff61d15595852_icgraph.svg" width="228" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a009d34bccd4c377ec5ce6dac7fc5c385" name="a009d34bccd4c377ec5ce6dac7fc5c385"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a009d34bccd4c377ec5ce6dac7fc5c385">&#9670;&#160;</a></span>hv_send_start</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool BMS::hv_send_start = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00030">30</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00092">check_hv()</a>.</p>
-
-</div>
-</div>
 <a id="a330dae159323f0f57d016bff9a002206" name="a330dae159323f0f57d016bff9a002206"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a330dae159323f0f57d016bff9a002206">&#9670;&#160;</a></span>hv_started</h2>
 
@@ -471,82 +255,11 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>True if HV has been started, for state machine </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00029">29</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00057">57</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00092">check_hv()</a>, and <a class="el" href="BMS_8h_source.html#l00022">hv_ready()</a>.</p>
-
-</div>
-</div>
-<a id="a3a09cbf42ee5b787eb5366743756e7d6" name="a3a09cbf42ee5b787eb5366743756e7d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a09cbf42ee5b787eb5366743756e7d6">&#9670;&#160;</a></span>last_msg_ms</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t BMS::last_msg_ms</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00026">26</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
-
-</div>
-</div>
-<a id="a2ea22cefcd2d42507466f376fefdc736" name="a2ea22cefcd2d42507466f376fefdc736"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea22cefcd2d42507466f376fefdc736">&#9670;&#160;</a></span>mcp2515_BMS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">MCP2515* BMS::mcp2515_BMS</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00028">28</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
-
-</div>
-</div>
-<a id="aa9aa6589a3ef24c31d03e1bf4c050975" name="aa9aa6589a3ef24c31d03e1bf4c050975"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9aa6589a3ef24c31d03e1bf4c050975">&#9670;&#160;</a></span>read_start_ms</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t BMS::read_start_ms</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00026">26</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00041">check_hv()</a>, and <a class="el" href="BMS_8h_source.html#l00048">hv_ready()</a>.</p>
 
 </div>
 </div>
@@ -569,58 +282,15 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= { </div>
+<div class="line">        0,   </div>
+<div class="line">        0,   </div>
+<div class="line">        {0}, </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00052">52</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00027">27</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00092">check_hv()</a>.</p>
-
-</div>
-</div>
-<a id="ac39f4a9fa70398289c41ab41eb478b6c" name="ac39f4a9fa70398289c41ab41eb478b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39f4a9fa70398289c41ab41eb478b6c">&#9670;&#160;</a></span>tx_bms_start_msg</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">can_frame BMS::tx_bms_start_msg</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00027">27</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
-
-</div>
-</div>
-<a id="af8ef28c8dfb29df74d2cf89144ff99fd" name="af8ef28c8dfb29df74d2cf89144ff99fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8ef28c8dfb29df74d2cf89144ff99fd">&#9670;&#160;</a></span>tx_bms_stop_msg</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">can_frame BMS::tx_bms_stop_msg</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00027">27</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00041">check_hv()</a>.</p>
 
 </div>
 </div>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Keep retrying to send BMS start HV command until it succeeds. First check BMS is in standby(3) state,...">
+<g id="a_node1"><a xlink:title="Attempt to start HV. First check BMS is in standby(3) state, then send the HV start command....">
 <polygon fill="#999999" stroke="#666666" points="90,-37 0,-37 0,-18 90,-18 90,-37"/>
 <text text-anchor="middle" x="45" y="-25" font-family="Helvetica,sans-Serif" font-size="10.00">BMS::check_hv</text>
 </a>

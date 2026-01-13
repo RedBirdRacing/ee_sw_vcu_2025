@@ -173,10 +173,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The average of val1 and val2. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00040">40</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> (val1 + val2) / 2;</div>
-<div class="line"><span class="lineno">   43</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="aae13f76d835e3de4d61441cf4abc0f08" name="aae13f76d835e3de4d61441cf4abc0f08"></a>
@@ -226,19 +223,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The average value of the elements in the buffer. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00054">54</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || buf_size == 0)</div>
-<div class="line"><span class="lineno">   57</span>    {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    T sum = 0;</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
-<div class="line"><span class="lineno">   64</span>        sum += buffer[i];</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> sum / buf_size;</div>
-<div class="line"><span class="lineno">   66</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a2665ca55613be71683eb9e2cd6365cfc" name="a2665ca55613be71683eb9e2cd6365cfc"></a>
@@ -302,23 +287,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The filtered output value. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00014">14</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || kernel == <span class="keyword">nullptr</span> || buf_size &lt;= 0 || kernel_sum == 0.0f)</div>
-<div class="line"><span class="lineno">   17</span>    {</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
-<div class="line"><span class="lineno">   19</span>    }</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordtype">float</span> sum = 0;</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
-<div class="line"><span class="lineno">   24</span>    {</div>
-<div class="line"><span class="lineno">   25</span>        sum += <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(buffer[i]) * kernel[i];</div>
-<div class="line"><span class="lineno">   26</span>    }</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    <span class="comment">// Kernel sum is the sum of all values in the kernel. This normalize the output value</span></div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sum / kernel_sum);</div>
-<div class="line"><span class="lineno">   30</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 </div><!-- contents -->
