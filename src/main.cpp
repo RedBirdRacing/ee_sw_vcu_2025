@@ -2,6 +2,9 @@
 #include "boardConf.h"
 #include "Pedal.h"
 #include "BMS.h"
+#include "Enums.h"
+#include "car_state.h"
+#include "Scheduler.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -15,30 +18,21 @@
 #include "Debug.h"
 #pragma GCC diagnostic pop
 
-#include "Enums.h"
-#include "car_state.h"
-#include "Scheduler.hpp"
-
 // === Pin setup ===
 // Pin setup for pedal pins are done by the constructor of Pedal object
 constexpr uint8_t INPUT_COUNT = 5;
-constexpr uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3, HALL_SENSOR};
 constexpr uint8_t OUTPUT_COUNT = 4;
+constexpr uint8_t pins_in[INPUT_COUNT] = {DRIVE_MODE_BTN, BRAKE_IN, APPS_5V, APPS_3V3, HALL_SENSOR};
 constexpr uint8_t pins_out[OUTPUT_COUNT] = {FRG, BRAKE_LIGHT, BUZZER, BMS_FAILED_LED};
 
 // === even if unused, initialize ALL mcp2515 to make sure the CS pin is set up and they don't interfere with the SPI bus ===
-// === CAN (motor) ===
-MCP2515 mcp2515_motor(CS_CAN_MOTOR);
+MCP2515 mcp2515_motor(CS_CAN_MOTOR); // motor CAN
+MCP2515 mcp2515_BMS(CS_CAN_BMS);     // BMS CAN
+MCP2515 mcp2515_DL(CS_CAN_DL);       // datalogger CAN
 
-// === CAN (BMS) ===
-MCP2515 mcp2515_BMS(CS_CAN_BMS);
-BMS bms(&mcp2515_BMS);
-
-// === CAN (Datalogger) ===
-MCP2515 mcp2515_DL(CS_CAN_DL);
 #define mcp2515_motor mcp2515_DL
 
-#define NUM_MCP 3
+constexpr uint8_t NUM_MCP = 3;
 MCP2515 *MCPS[NUM_MCP] = {&mcp2515_motor, &mcp2515_BMS, &mcp2515_DL};
 
 struct can_frame tx_throttle_msg;
@@ -73,8 +67,9 @@ struct car_state main_car_state = {
     0      // torque_out
 };
 
-// === Pedal ===
+// Global objects
 Pedal pedal;
+BMS bms;
 
 void scheduler_pedal(MCP2515 *mcp2515_)
 {
@@ -87,10 +82,10 @@ void scheduler_bms(MCP2515 *mcp2515_)
     bms.check_hv(mcp2515_);
 }
 
-Scheduler<4, NUM_MCP> scheduler(
-    10000, // period_us: 10ms
-    1000,  // spin_threshold_us: 1ms
-    MCPS   // MCP2515 instances
+Scheduler<2, NUM_MCP> scheduler(
+    10000, // period_us
+    500,   // spin_threshold_us
+    MCPS   // array of MCP2515 pointers
 );
 
 /**
@@ -99,7 +94,10 @@ Scheduler<4, NUM_MCP> scheduler(
  */
 void setup()
 {
-    pedal = Pedal();
+#if DEBUG_SERIAL
+    Debug_Serial::initialize();
+    DBGLN_GENERAL("Debug serial initialized");
+#endif
 
     for (int i = 0; i < NUM_MCP; i++)
     {
@@ -108,21 +106,15 @@ void setup()
         MCPS[i]->setNormalMode();
     }
 
-#if DEBUG_SERIAL
-    Debug_Serial::initialize();
-    DBGLN_GENERAL("Debug serial initialized");
-#endif
-
-    // Init input pins
+    // init GPIO pins (MCP2515 CS pins initialized in constructor))
     for (int i = 0; i < INPUT_COUNT; i++)
     {
         pinMode(pins_in[i], INPUT);
     }
-    // Init output pins
     for (int i = 0; i < OUTPUT_COUNT; i++)
     {
         pinMode(pins_out[i], OUTPUT);
-        digitalWrite(pins_out[i], LOW); // initialize output pins to LOW
+        digitalWrite(pins_out[i], LOW);
     }
 
 #if DEBUG_CAN
@@ -131,10 +123,10 @@ void setup()
 #endif
 
     DBG_STATUS_CAR(main_car_state.car_status);
-    DBGLN_STATUS("Entered INIT");
+    pedal = Pedal();
+    bms = BMS();
+    scheduler.add_task(MCP_MOTOR, scheduler_pedal, 1);
     DBGLN_GENERAL("Setup complete, entering main loop");
-
-    scheduler.add_task(MCP_MOTOR, scheduler_pedal, 5);
 }
 
 /**
@@ -177,7 +169,7 @@ void loop()
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
 
-            // scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready, if not start it
+            scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready in STARTIN
 
             DBG_STATUS_CAR(main_car_state.car_status);
         }
@@ -192,12 +184,13 @@ void loop()
         {
             main_car_state.car_status = INIT;
             main_car_state.car_status_millis_counter = main_car_state.millis; // safety
+            scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready since return to INIT
 
             DBG_STATUS_CAR(main_car_state.car_status);
         }
         else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
         {
-            // scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready
+            scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready, either started or return to INIT
             if (bms.hv_ready()) // if HV not started, return to INIT
             {
                 main_car_state.car_status = INIT;

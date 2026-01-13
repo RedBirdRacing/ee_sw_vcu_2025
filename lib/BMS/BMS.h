@@ -1,5 +1,16 @@
+/**
+ * @file BMS.h
+ * @author Planeson, Red Bird Racing
+ * @brief Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
+ * @version 1.1
+ * @date 2026-01-13
+ * @see BMS.cpp
+ */
+
 #ifndef BMS_H
 #define BMS_H
+
+#include "Scheduler.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -7,29 +18,42 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-constexpr uint32_t BMS_COMMAND = 0x1801F340;                  // BMS command ID
-constexpr uint32_t BMS_SEND_CMD = BMS_COMMAND | CAN_EFF_FLAG; // Extended Frame Format flag
+constexpr uint32_t BMS_COMMAND = 0x1801F340;                  /** BMS command ID */
+constexpr uint32_t BMS_SEND_CMD = BMS_COMMAND | CAN_EFF_FLAG; /** BMS command ID with Extended Frame Format flag */
 
-constexpr uint32_t BMS_INFO = 0x186040F3;                  // BMS info ID
-constexpr uint32_t BMS_INFO_EXT = BMS_INFO | CAN_EFF_FLAG; // Extended Frame Format flag
+constexpr uint32_t BMS_INFO = 0x186040F3;                  /** BMS info ID */
+constexpr uint32_t BMS_INFO_EXT = BMS_INFO | CAN_EFF_FLAG; /** BMS info ID with Extended Frame Format flag */
 
-constexpr uint16_t BMS_READ_MS = 10; // BMS reading max time
+/** Start HV command frame */
+constexpr can_frame start_hv_msg = {
+    BMS_SEND_CMD, // can_id
+    2,            // can_dlc
+    {0x01, 0x01}  // data: MainRlyCmd = 1 (output HV), ShutDownCmd = 1 (do not shutdown)
+};
 
+/** Stop HV command frame */
+constexpr can_frame stop_hv_msg = {
+    BMS_SEND_CMD, // can_id
+    2,            // can_dlc
+    {0x00, 0x00}  // data: MainRlyCmd = 0 (break open HV), ShutDownCmd = 0 (shutdown)
+};
+
+/**
+ * @brief BMS class for managing the Accumulator (Kclear BMS) via CAN bus
+ */
 class BMS
 {
 public:
-    BMS(MCP2515 *mcp2515_BMS);
+    BMS();
     bool hv_ready() { return hv_started; };
     void check_hv(MCP2515 *mcp2515_BMS);
 
 private:
-    uint32_t last_msg_ms, read_start_ms;
-    can_frame tx_bms_start_msg, tx_bms_stop_msg, rx_bms_msg;
-    MCP2515 *mcp2515_BMS;
-    bool hv_started = false;
-    bool hv_send_start = false;
-
-    void bms_can_frame_start_hv(can_frame *tx_bms_msg);
-    void bms_can_frame_stop_hv(can_frame *tx_bms_msg);
+    can_frame rx_bms_msg = { /**< Local storage for received BMS CAN frame */
+        0,   /**< can_id */
+        0,   /**< can_dlc */
+        {0}, /**< data */
+    };
+    bool hv_started = false; /**< True if HV has been started, for state machine */
 };
 #endif // BMS_H

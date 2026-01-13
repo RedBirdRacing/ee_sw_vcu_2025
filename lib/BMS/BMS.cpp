@@ -1,4 +1,14 @@
+/**
+ * @file BMS.cpp
+ * @author Planeson, Red Bird Racing
+ * @brief Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
+ * @version 1.1
+ * @date 2026-01-13
+ * @see BMS.h
+ */
+
 #include "BMS.h"
+#include <Arduino.h> // wait()
 
 // ignore -Wunused-parameter warnings for Debug.h
 #pragma GCC diagnostic push
@@ -6,86 +16,25 @@
 #include "Debug.h" // DBGLN_GENERAL
 #pragma GCC diagnostic pop
 
-#include <Arduino.h> // wait()
-
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wpedantic"
 #include <mcp2515.h> // CAN frames, sending CAN frame, reading CAN frame
 #pragma GCC diagnostic pop
 
-// Constructor
-BMS::BMS(MCP2515 *mcp2515_BMS)
-    : last_msg_ms(0),
-      read_start_ms(0),
-      tx_bms_start_msg{
-          BMS_SEND_CMD, // can_id
-          2,            // can_dlc
-          {0x01, 0x01}  // data: MainRlyCmd = 1 (output HV), ShutDownCmd = 1 (do not shutdown)
-      },
-      tx_bms_stop_msg{
-          BMS_SEND_CMD, // can_id
-          2,            // can_dlc
-          {0x00, 0x00}  // data: MainRlyCmd = 0 (break open HV), ShutDownCmd = 0 (shutdown)
-      },
-      rx_bms_msg{
-          0,   // can_id
-          0,   // can_dlc
-          {0}, // data
-      },
-      mcp2515_BMS(mcp2515_BMS)
-{
-}
-
 /**
- * @brief Updates the CAN frame with the current pedal values.
- *
- * This function prepares a CAN frame to stop the BMS high voltage output.
- *
- * @param tx_bms_msg Pointer to the CAN frame to update.
- * @return None
+ * @brief Construct a new BMS object
  */
-void BMS::bms_can_frame_start_hv(can_frame *tx_bms_msg)
+BMS::BMS()
 {
-    tx_bms_msg->can_id = BMS_SEND_CMD; // extended already
-    tx_bms_msg->can_dlc = 2;
-    // MainRlyCmd
-    // 1 is output HV
-    tx_bms_msg->data[0] = 0x01;
-
-    // ShutDownCmd
-    // 1 is do not shutdown
-    tx_bms_msg->data[1] = 0x01;
 }
 
 /**
- * @brief Updates the CAN frame with the current pedal values.
- *
- * This function prepares a CAN frame to stop the BMS high voltage output.
- *
- * @param tx_bms_msg Pointer to the CAN frame to update.
- * @return None
- */
-void BMS::bms_can_frame_stop_hv(can_frame *tx_bms_msg)
-{
-    tx_bms_msg->can_id = BMS_SEND_CMD; // extended already
-    tx_bms_msg->can_dlc = 2;
-    // MainRlyCmd
-    // 0 is break open HV
-    tx_bms_msg->data[0] = 0x00;
-
-    // ShutDownCmd
-    // 0 is shutdown
-    tx_bms_msg->data[1] = 0x00;
-}
-
-/**
- * @brief Keep retrying to send BMS start HV command until it succeeds.
+ * @brief Attempt to start HV.
  * First check BMS is in standby(3) state, then send the HV start command.
  * Keep sending the command until the BMS state changes to precharge(4).
  * Returns when BMS state changes to run(5).
  *
- * @param rx_bms_msg Pointer to the CAN frame to read the response.
  * @param mcp2515_BMS Pointer to the MCP2515 CAN controller instance.
  * @return None
  */
@@ -112,21 +61,19 @@ void BMS::check_hv(MCP2515 *mcp2515_)
     {
     case 0x30: // Standby state
         DBG_BMS_STATUS(WAITING);
-        hv_send_start = true;
-        // last_msg_ms = *current_ms;
+        mcp2515_->sendMessage(&start_hv_msg);
         DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
         // sent start HV cmd, wait for BMS to change state
         hv_started = false;
         return;
     case 0x40: // Precharge state
         DBG_BMS_STATUS(STARTING);
-        hv_send_start = false;
+        mcp2515_->sendMessage(&start_hv_msg);
         DBGLN_GENERAL("BMS in precharge state, HV starting");
         hv_started = false;
         return; // BMS is in precharge state, wait
     case 0x50:  // Run state
         DBG_BMS_STATUS(STARTED);
-        hv_send_start = false;
         DBGLN_GENERAL("BMS in run state, HV started");
         hv_started = true; // BMS is in run state
         return;

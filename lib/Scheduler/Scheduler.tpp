@@ -89,20 +89,22 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_tim
  * @param[in] mcp_index Index of the MCP2515 instance
  * @param[in] task Function pointer to the task to be added
  * @param[in] tick_interval Number of ticks between task executions, so 0 for every tick, 9 for every 10 ticks
+ * @return true if the task was added successfully, false otherwise
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval)
+bool Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval)
 {
     if (mcp_index >= NUM_MCP2515 || task == nullptr)
-        return;
+        return false;
 
     if (task_cnt[mcp_index] >= NUM_TASKS)
-        return; // no space
+        return false; // no space
 
     tasks[mcp_index][task_cnt[mcp_index]] = task;
     task_ticks[mcp_index][task_cnt[mcp_index]] = tick_interval;
     task_counters[mcp_index][task_cnt[mcp_index]] = 1; // run on first tick
     ++task_cnt[mcp_index];
+    return true;
 }
 
 /**
@@ -112,12 +114,13 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::add_task(const mcp_index mcp_index, cons
  * @tparam NUM_MCP2515 Number of MCP2515 instances
  * @param[in] mcp_index Index of the MCP2515 instance
  * @param[in] task Function pointer to the task to be removed
+ * @return true if the task was removed successfully, false otherwise
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(const mcp_index mcp_index, const TaskFn task)
+bool Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(const mcp_index mcp_index, const TaskFn task)
 {
     if (mcp_index >= NUM_MCP2515 || task == nullptr)
-        return;
+        return false;
 
     for (uint8_t i = 0; i < task_cnt[mcp_index]; ++i)
     {
@@ -137,9 +140,10 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::remove_task(const mcp_index mcp_index, c
             task_counters[mcp_index][task_cnt[mcp_index] - 1] = 0;
 
             --task_cnt[mcp_index];
-            return;
+            return true;
         }
     }
+    return false;
 }
 
 /**
