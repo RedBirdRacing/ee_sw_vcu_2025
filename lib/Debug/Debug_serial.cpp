@@ -5,9 +5,6 @@
  * @brief Initializes the Debug_Serial interface.
  * This function sets up the serial communication for debugging purposes.
  * It should be called before using any other Debug_Serial functions.
- * 
- * @param None
- * @return None
  */
 void Debug_Serial::initialize()
 {
@@ -19,7 +16,6 @@ void Debug_Serial::initialize()
  * This function sends a string message to the serial console for debugging.
  * 
  * @param msg The message to print.
- * @return None
  */
 void Debug_Serial::print(const char *msg) { Serial.print(msg); }
 
@@ -28,7 +24,6 @@ void Debug_Serial::print(const char *msg) { Serial.print(msg); }
  * This function sends a string message followed by a newline to the serial console for debugging.
  * 
  * @param msg The message to print.
- * @return None
  */
 void Debug_Serial::println(const char *msg) { Serial.println(msg); }
 
@@ -39,7 +34,7 @@ void Debug_Serial::println(const char *msg) { Serial.println(msg); }
  * @param pedal_1 Value from pedal sensor 1.
  * @param pedal_2 Value from pedal sensor 2.
  * @param pedal_2_scaled Scaled value of pedal sensor 2.
- * @return None
+ * @param brake Brake value.
  */
 void Debug_Serial::throttle_in(uint16_t pedal_1, uint16_t pedal_2, uint16_t pedal_2_scaled, uint16_t brake)
 {
@@ -59,7 +54,6 @@ void Debug_Serial::throttle_in(uint16_t pedal_1, uint16_t pedal_2, uint16_t peda
  * 
  * @param throttle_final Final value of the throttle pedal.
  * @param throttle_torque_val Calculated torque value based on the throttle input.
- * @return None
  */
 void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val)
 {
@@ -75,7 +69,6 @@ void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque
  * 
  * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
  * @param value Optional value associated with the fault
- * @return None
  */
 void Debug_Serial::throttle_fault(pedal_fault_status fault_status, uint16_t value)
 {
@@ -106,7 +99,6 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status, uint16_t valu
  * This function formats and sends the throttle fault status to the serial console.
  * 
  * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
- * @return None
  */
 void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
 {
@@ -135,7 +127,6 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
  * 
  * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
  * @param value brake ADC reading
- * @return None
  */
 void Debug_Serial::brake_fault(pedal_fault_status fault_status, uint16_t value)
 {
@@ -162,7 +153,6 @@ void Debug_Serial::brake_fault(pedal_fault_status fault_status, uint16_t value)
  * This function formats and sends the current car status to the serial console.
  * 
  * @param car_status The current status of the car as defined in main_car_status enum.
- * @return None
  */
 void Debug_Serial::status_car(main_car_status car_status)
 {
@@ -214,7 +204,6 @@ void Debug_Serial::status_car(main_car_status car_status)
  * This function formats and sends the current BMS status to the serial console.
  * 
  * @param BMS_status The current status of the BMS as defined in BMS_status enum.
- * @return None
  */
 void Debug_Serial::status_bms(BMS_status BMS_status)
 {
@@ -242,7 +231,11 @@ void Debug_Serial::status_bms(BMS_status BMS_status)
 }
 
 
-
+/**
+ * @brief Prints the current hall sensor value to the serial console.
+ * 
+ * @param hall_sensor_value 
+ */
 void Debug_Serial::hall_sensor(uint16_t hall_sensor_value)
 {
     void(Serial.print("Hall Sensor Value: "));

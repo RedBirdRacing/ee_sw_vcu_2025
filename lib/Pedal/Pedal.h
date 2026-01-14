@@ -128,7 +128,7 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
 
-    bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2, int16_t brake);
+    bool check_pedal_fault(int16_t pedal_1, int16_t pedal_2, uint16_t brake);
     int16_t throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip_dir);
     int16_t brake_torque_mapping(uint16_t brake, bool flip_dir);
 };

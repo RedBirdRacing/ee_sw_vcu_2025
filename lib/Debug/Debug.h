@@ -104,6 +104,7 @@ inline void DBGLN_STATUS(const char *x)
  * @param pedal_filtered_1 Filtered value from pedal 1.
  * @param pedal_filtered_2 Filtered value from pedal 2.
  * @param pedal_filtered_final Final filtered value.
+ * @param brake Brake value.
  */
 inline void DBG_THROTTLE_IN(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final, uint16_t brake)
 {

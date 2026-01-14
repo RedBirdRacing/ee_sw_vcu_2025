@@ -15,7 +15,6 @@ MCP2515 *Debug_CAN::can_interface = nullptr;
  * It should be called before using any other Debug_CAN functions.
  * 
  * @param can Pointer to the MCP2515 CAN controller instance.
- * @return None
  */
 void Debug_CAN::initialize(MCP2515 *can)
 {
@@ -31,7 +30,7 @@ void Debug_CAN::initialize(MCP2515 *can)
  * @param pedal_filtered_1 Filtered value from pedal sensor 1.
  * @param pedal_filtered_2 Filtered value from pedal sensor 2.
  * @param pedal_2_scaled Scaled value of pedal sensor 2.
- * @return None
+ * @param brake Brake value.
  */
 void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_2_scaled, uint16_t brake)
 {
@@ -61,7 +60,6 @@ void Debug_CAN::throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2
  * 
  * @param throttle_final Final value of the throttle pedal.
  * @param throttle_torque_val Calculated torque value based on the throttle input.
- * @return None
  */
 void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_val)
 {
@@ -87,7 +85,6 @@ void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_va
  * 
  * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
  * @param value Optional float value associated with the fault (e.g., pedal voltage).
- * @return None
  */
 void Debug_CAN::throttle_fault(pedal_fault_status fault_status, uint16_t value)
 {
@@ -111,7 +108,6 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status, uint16_t value)
  * This function prepares a CAN frame with the throttle fault status and sends it.
  * 
  * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
- * @return None
  */
 void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
 {
@@ -133,7 +129,6 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
  * 
  * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
  * @param value Optional float value associated with the fault (e.g., brake voltage).
- * @return None
  */
 void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
 {
@@ -157,7 +152,6 @@ void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
  * This function prepares a CAN frame with the current car status and sends it.
  * 
  * @param car_status The current status of the car as defined in main_car_status enum.
- * @return None
  */
 void Debug_CAN::status_car(main_car_status car_status)
 {
@@ -178,7 +172,6 @@ void Debug_CAN::status_car(main_car_status car_status)
  * This function prepares a CAN frame with the current BMS status and sends it.
  * 
  * @param BMS_status The current status of the BMS as defined in BMS_status enum.
- * @return None
  */
 void Debug_CAN::status_bms(BMS_status BMS_status)
 {

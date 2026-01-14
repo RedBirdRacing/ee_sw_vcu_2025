@@ -35,8 +35,7 @@ BMS::BMS()
  * Keep sending the command until the BMS state changes to precharge(4).
  * Returns when BMS state changes to run(5).
  *
- * @param mcp2515_BMS Pointer to the MCP2515 CAN controller instance.
- * @return None
+ * @param mcp2515_ Pointer to the MCP2515 CAN controller instance.
  */
 void BMS::check_hv(MCP2515 *mcp2515_)
 {

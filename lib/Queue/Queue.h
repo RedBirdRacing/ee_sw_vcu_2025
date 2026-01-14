@@ -17,7 +17,6 @@ public:
      * This will overwrite the oldest value if the buffer is full.
      *
      * @param val The value to be added to the buffer.
-     * @return None
      */
     void push(T val)
     {
@@ -32,7 +31,6 @@ public:
      *
      * @param out Pointer to an array where the linear buffer will be stored. This array shall be created by the caller and must have at least 'size' elements.
      * @note The order of elements in the output array will be from oldest to newest.
-     * @return None
      */
     void getLinearBuffer(T *out)
     {

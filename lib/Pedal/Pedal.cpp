@@ -21,9 +21,6 @@
  * Initializes the pedal state and sets the fault flag to true.
  * The fault flag indicates that the pedal inputs are considered faulty until proven otherwise.
  * if no non-faulty pedal inputs are received in 100ms, the fault_force_stop flag in car_state is set to true.
- *
- * @param None
- * @return None
  */
 Pedal::Pedal()
     : pedal_filtered_1(0), // initialize filtered values to 0
@@ -45,7 +42,7 @@ Pedal::Pedal()
  * @param car Pointer to car_state structure to update.
  * @param pedal_1 Raw value from pedal sensor 1.
  * @param pedal_2 Raw value from pedal sensor 2.
- * @return None
+ * @param brake Raw value from brake sensor.
  */
 void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 {
@@ -108,7 +105,6 @@ void Pedal::pedal_update(car_state *car, uint16_t pedal_1, uint16_t pedal_2, uin
  * It checks for faults and applies appropriate torque values based on pedal readings.
  *
  * @param tx_throttle_msg Pointer to the CAN frame to update.
- * @return None
  */
 void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
 {
@@ -129,7 +125,6 @@ void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
  *
  * @param tx_throttle_msg Pointer to the CAN frame to update.
  * @param car Pointer to the car_state structure containing current car state.
- * @return None
  */
 void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, const car_state *car)
 {
@@ -179,8 +174,9 @@ void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg, const car_state *
  * This function takes a pedal ADC in the range of 0-1023 and maps it to a torque value.
  * It handles deadzones, faults, and applies the mapping or returns fixed values as needed.
  *
- * @param pedal_final Pedal ADC in the range of 0-1023.
- * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
+ * @param pedal Pedal ADC in the range of 0-1023.
+ * @param brake Brake ADC in the range of 0-1023.
+ * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -32760 to 32760.
  */
 int16_t Pedal::throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip_dir)
@@ -234,7 +230,7 @@ int16_t Pedal::throttle_torque_mapping(uint16_t pedal, uint16_t brake, bool flip
  * The mapping is linear, and the result is adjusted based on the motor direction.
  *
  * @param brake Brake ADC in the range of 0-1023.
- * @param flip_motor_dir Boolean indicating whether to flip the motor direction.
+ * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -32760 to 32760.
  */
 int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
@@ -284,9 +280,10 @@ int16_t Pedal::brake_torque_mapping(uint16_t brake, bool flip_dir)
  *
  * @param pedal_1 Raw value from pedal sensor 1 (uint16_t), intentionally casted to int16_t.
  * @param pedal_2 Raw value from pedal sensor 2 (uint16_t), intentionally casted to int16_t.
+ * @param brake Raw value from brake sensor to pass to debug function
  * @return true if the difference exceeds the threshold (fault detected), false otherwise.
  */
-bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2, int16_t brake)
+bool Pedal::check_pedal_fault(int16_t pedal_1, int16_t pedal_2, uint16_t brake)
 {
 
     int16_t pedal_2_scaled = round((float)pedal_2 * 4.8 / 3.2); // round((float)pedal_2 * PEDAL_1_RANGE / PEDAL_2_RANGE);

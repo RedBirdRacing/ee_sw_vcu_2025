@@ -1,6 +1,21 @@
-#include "Pedal.h"
+/**
+ * @file test_pedal.cpp
+ * @author Planeson, Red Bird Racing
+ * @brief Tests all functions in Pedal class
+ * @version 1.0
+ * @date 2026-01-01
+ * @see Pedal.h, Pedal.cpp
+ * 
+ */
 #include <Arduino.h>
 #include <unity.h>
+
+// Make private and protected members public for testing
+#define private public
+#define protected public
+
+// Then include unit under test, note include is just copy paste, so must be after the above defines
+#include "Pedal.h"
 
 Pedal pedal;
 
