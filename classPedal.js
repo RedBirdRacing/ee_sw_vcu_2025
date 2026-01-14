@@ -2,7 +2,7 @@ var classPedal =
 [
     [ "Pedal", "classPedal.html#a7a2bd6bd3f141509e4d20ecf58b18f97", null ],
     [ "brake_torque_mapping", "classPedal.html#a00f33fcd9507c62193f2ffc3570b7fba", null ],
-    [ "check_pedal_fault", "classPedal.html#abdd53f9de825d4925aa7707ddaaa1fa9", null ],
+    [ "check_pedal_fault", "classPedal.html#ab4523086bb60bc43d692198206885f3b", null ],
     [ "pedal_can_frame_stop_motor", "classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5", null ],
     [ "pedal_can_frame_update", "classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495", null ],
     [ "pedal_update", "classPedal.html#aef9f2037f590fd4b41f3c50a7c2b3568", null ],

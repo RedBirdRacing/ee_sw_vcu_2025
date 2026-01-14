@@ -81,7 +81,7 @@ var sectionId = 'dynsection-8';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classPedal.html#abdd53f9de825d4925aa7707ddaaa1fa9" target="_top" xlink:title="Checks for a fault between two pedal sensor readings.">
+<g id="a_node3"><a xlink:href="classPedal.html#ab4523086bb60bc43d692198206885f3b" target="_top" xlink:title="Checks for a fault between two pedal sensor readings.">
 <polygon fill="white" stroke="#666666" points="336,-30 226,-30 226,0 336,0 336,-30"/>
 <text text-anchor="start" x="234" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::check_pedal</text>
 <text text-anchor="middle" x="281" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">_fault</text>

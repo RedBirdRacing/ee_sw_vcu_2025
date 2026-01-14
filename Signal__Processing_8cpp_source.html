@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +33,18 @@
    <div id="projectname">My Project
    </div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -39,17 +56,6 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -95,14 +101,14 @@ $(document).ready(function(){initNavTree('Signal__Processing_8cpp_source.html','
 <a href="Signal__Processing_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="Signal__Processing_8h.html">Signal_Processing.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"></span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Applies a Finite Impulse Response (FIR) filter on the given buffer.</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * This function convolves the input buffer with the provided kernel and normalizes the result.</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @param buffer Pointer to the input buffer containing signal samples.</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @param kernel Pointer to the FIR filter kernel.</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @param buf_size Size of the input buffer and kernel.</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @param kernel_sum Sum of all values in the kernel for normalization.</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * @return The filtered output value.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Applies a Finite Impulse Response (FIR) filter on the signal buffer.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @tparam T Type of the buffer elements</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @param buffer Pointer to the input signal buffer</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @param kernel Pointer to the FIR filter kernel</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @param buf_size Size of the buffer and kernel</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @param kernel_sum Sum of all values in the kernel for normalization</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * @return constexpr T Filtered output value</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc">   14</a></span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a>(T *buffer, <span class="keywordtype">float</span> *kernel, <span class="keywordtype">int</span> buf_size, <span class="keywordtype">float</span> kernel_sum)</div>
@@ -119,7 +125,7 @@ $(document).ready(function(){initNavTree('Signal__Processing_8cpp_source.html','
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        sum += <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(buffer[i]) * kernel[i];</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// Kernel sum is the sum of all values in the kernel. This normalize the output value</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// normalize output value</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sum / kernel_sum);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
@@ -139,28 +145,29 @@ $(document).ready(function(){initNavTree('Signal__Processing_8cpp_source.html','
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @brief Applies an average filter on the given buffer.</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * This function calculates the average of all elements in the buffer.</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @param buffer Pointer to the buffer containing elements to average.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * @param buf_size Size of the buffer.</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * @return The average value of the elements in the buffer.</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">   54</a></span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a>(T *buffer, uint8_t buf_size)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || buf_size == 0)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    T sum = 0;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        sum += buffer[i];</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> sum / buf_size;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
-<div class="ttc" id="aSignal__Processing_8cpp_html_a2665ca55613be71683eb9e2cd6365cfc"><div class="ttname"><a href="Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a></div><div class="ttdeci">constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)</div><div class="ttdoc">Applies a Finite Impulse Response (FIR) filter on the given buffer. This function convolves the input...</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00014">Signal_Processing.cpp:14</a></div></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @tparam T Type of the buffer elements.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * @param buffer Pointer to the buffer containing elements to average.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * @param buf_size Size of the buffer.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * @return The average value of the elements in the buffer.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">   55</a></span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a>(T *buffer, uint8_t buf_size)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span> || buf_size == 0)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    T sum = 0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; buf_size; ++i)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        sum += buffer[i];</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> sum / buf_size;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+<div class="ttc" id="aSignal__Processing_8cpp_html_a2665ca55613be71683eb9e2cd6365cfc"><div class="ttname"><a href="Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a></div><div class="ttdeci">constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)</div><div class="ttdoc">Applies a Finite Impulse Response (FIR) filter on the signal buffer.</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00014">Signal_Processing.cpp:14</a></div></div>
 <div class="ttc" id="aSignal__Processing_8cpp_html_a4d9072b402cbfdfd7303bd805f408f6c"><div class="ttname"><a href="Signal__Processing_8cpp.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a></div><div class="ttdeci">constexpr T average(T val1, T val2)</div><div class="ttdoc">Computes the average of two values.</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00040">Signal_Processing.cpp:40</a></div></div>
-<div class="ttc" id="aSignal__Processing_8cpp_html_aae13f76d835e3de4d61441cf4abc0f08"><div class="ttname"><a href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a></div><div class="ttdeci">constexpr T AVG_filter(T *buffer, uint8_t buf_size)</div><div class="ttdoc">Applies an average filter on the given buffer. This function calculates the average of all elements i...</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00054">Signal_Processing.cpp:54</a></div></div>
+<div class="ttc" id="aSignal__Processing_8cpp_html_aae13f76d835e3de4d61441cf4abc0f08"><div class="ttname"><a href="Signal__Processing_8cpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a></div><div class="ttdeci">constexpr T AVG_filter(T *buffer, uint8_t buf_size)</div><div class="ttdoc">Applies an average filter on the given buffer. This function calculates the average of all elements i...</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8cpp_source.html#l00055">Signal_Processing.cpp:55</a></div></div>
 <div class="ttc" id="aSignal__Processing_8h_html"><div class="ttname"><a href="Signal__Processing_8h.html">Signal_Processing.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

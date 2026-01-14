@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +33,18 @@
    <div id="projectname">My Project
    </div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -39,17 +56,6 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -172,15 +178,14 @@ Private Attributes</h2></td></tr>
 <p>Attempt to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mcp2515_BMS</td><td>Pointer to the MCP2515 CAN controller instance. </td></tr>
+    <tr><td class="paramname">mcp2515_</td><td>Pointer to the MCP2515 CAN controller instance. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00041">41</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00040">40</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8h_source.html#l00205">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8h_source.html#l00057">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00056">NO_MSG</a>, <a class="el" href="BMS_8h_source.html#l00052">rx_bms_msg</a>, <a class="el" href="BMS_8h_source.html#l00028">start_hv_msg</a>, <a class="el" href="Enums_8h_source.html#l00060">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00059">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00061">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00058">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00057">WRONG_ID</a>.</p>
+<p class="reference">References <a class="el" href="BMS_8h_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8h_source.html#l00206">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8h_source.html#l00057">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00056">NO_MSG</a>, <a class="el" href="BMS_8h_source.html#l00052">rx_bms_msg</a>, <a class="el" href="BMS_8h_source.html#l00028">start_hv_msg</a>, <a class="el" href="Enums_8h_source.html#l00060">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00059">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00061">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00058">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00057">WRONG_ID</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00080">scheduler_bms()</a>.</p>
 <div class="dynheader">
@@ -259,7 +264,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00057">57</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00041">check_hv()</a>, and <a class="el" href="BMS_8h_source.html#l00048">hv_ready()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">check_hv()</a>, and <a class="el" href="BMS_8h_source.html#l00048">hv_ready()</a>.</p>
 
 </div>
 </div>
@@ -290,7 +295,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00052">52</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00041">check_hv()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">check_hv()</a>.</p>
 
 </div>
 </div>

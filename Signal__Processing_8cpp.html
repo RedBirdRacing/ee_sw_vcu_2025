@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +33,18 @@
    <div id="projectname">My Project
    </div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -39,17 +56,6 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -114,7 +120,7 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a2665ca55613be71683eb9e2cd6365cfc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2665ca55613be71683eb9e2cd6365cfc"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Signal__Processing_8cpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a> (T *buffer, float *kernel, int buf_size, float kernel_sum)</td></tr>
-<tr class="memdesc:a2665ca55613be71683eb9e2cd6365cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Finite Impulse Response (FIR) filter on the given buffer. This function convolves the input buffer with the provided kernel and normalizes the result.  <br /></td></tr>
+<tr class="memdesc:a2665ca55613be71683eb9e2cd6365cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Finite Impulse Response (FIR) filter on the signal buffer.  <br /></td></tr>
 <tr class="separator:a2665ca55613be71683eb9e2cd6365cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9072b402cbfdfd7303bd805f408f6c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4d9072b402cbfdfd7303bd805f408f6c"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Signal__Processing_8cpp.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a> (T val1, T val2)</td></tr>
@@ -213,6 +219,12 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Applies an average filter on the given buffer. This function calculates the average of all elements in the buffer. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the buffer elements. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>Pointer to the buffer containing elements to average. </td></tr>
@@ -222,7 +234,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The average value of the elements in the buffer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00054">54</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00055">55</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,17 +286,23 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Applies a Finite Impulse Response (FIR) filter on the given buffer. This function convolves the input buffer with the provided kernel and normalizes the result. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Pointer to the input buffer containing signal samples. </td></tr>
-    <tr><td class="paramname">kernel</td><td>Pointer to the FIR filter kernel. </td></tr>
-    <tr><td class="paramname">buf_size</td><td>Size of the input buffer and kernel. </td></tr>
-    <tr><td class="paramname">kernel_sum</td><td>Sum of all values in the kernel for normalization. </td></tr>
+<p>Applies a Finite Impulse Response (FIR) filter on the signal buffer. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the buffer elements </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The filtered output value. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Pointer to the input signal buffer </td></tr>
+    <tr><td class="paramname">kernel</td><td>Pointer to the FIR filter kernel </td></tr>
+    <tr><td class="paramname">buf_size</td><td>Size of the buffer and kernel </td></tr>
+    <tr><td class="paramname">kernel_sum</td><td>Sum of all values in the kernel for normalization </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>constexpr T Filtered output value </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Signal__Processing_8cpp_source.html#l00014">14</a> of file <a class="el" href="Signal__Processing_8cpp_source.html">Signal_Processing.cpp</a>.</p>
 

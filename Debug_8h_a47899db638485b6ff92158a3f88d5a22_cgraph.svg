@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="namespaceDebug__Serial.html#ace5ed08d1ebb4eae813ec98d6f6ea769" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="namespaceDebug__Serial.html#ace5ed08d1ebb4eae813ec98d6f6ea769" target="_top" xlink:title="Prints the current hall sensor value to the serial console.">
 <polygon fill="white" stroke="#666666" points="269.5,-30 164.5,-30 164.5,0 269.5,0 269.5,-30"/>
 <text text-anchor="start" x="172.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_Serial::hall</text>
 <text text-anchor="middle" x="217" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">_sensor</text>

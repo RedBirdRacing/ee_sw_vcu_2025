@@ -7,7 +7,7 @@ var searchData=
   ['car_5fstatus_4',['car_status',['../structcar__state.html#afe439bcb95da92c8fd6532393a3ad13f',1,'car_state']]],
   ['car_5fstatus_5fmillis_5fcounter_5',['car_status_millis_counter',['../structcar__state.html#a8ccb3899efcf56f35d285ce024a19aca',1,'car_state']]],
   ['check_5fhv_6',['check_hv',['../classBMS.html#a2b5ec1ea35cac26d5defeb652f721975',1,'BMS']]],
-  ['check_5fpedal_5ffault_7',['check_pedal_fault',['../classPedal.html#abdd53f9de825d4925aa7707ddaaa1fa9',1,'Pedal']]],
+  ['check_5fpedal_5ffault_7',['check_pedal_fault',['../classPedal.html#ab4523086bb60bc43d692198206885f3b',1,'Pedal']]],
   ['count_8',['count',['../classRingBuffer.html#a375926eb439fc06803b497e1a19add6a',1,'RingBuffer']]],
   ['cs_5fcan_5fbms_9',['CS_CAN_BMS',['../boardConf_8h.html#ab476064511df004d8a67875afbd3521b',1,'boardConf.h']]],
   ['cs_5fcan_5fdl_10',['CS_CAN_DL',['../boardConf_8h.html#a661f70456357c09fff639665b5e89852',1,'boardConf.h']]],

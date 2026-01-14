@@ -9,7 +9,7 @@
 <area shape="rect" id="node3" href="$namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8" title="Sends a debug car status message over CAN. This function prepares a CAN frame with the current car st..." alt="" coords="335,55,509,80"/>
 <area shape="rect" id="node4" href="$namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472" title="Prints the current car status to the serial console. This function formats and sends the current car ..." alt="" coords="331,5,513,31"/>
 <area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a line to the serial console. This function sends a string message followed by a newline to th..." alt="" coords="797,295,956,320"/>
-<area shape="rect" id="node10" href="$classPedal.html#abdd53f9de825d4925aa7707ddaaa1fa9" title="Checks for a fault between two pedal sensor readings." alt="" coords="349,206,495,246"/>
+<area shape="rect" id="node10" href="$classPedal.html#ab4523086bb60bc43d692198206885f3b" title="Checks for a fault between two pedal sensor readings." alt="" coords="349,206,495,246"/>
 <area shape="rect" id="node11" href="$Debug_8h.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="561,115,733,140"/>
 <area shape="rect" id="node17" href="$classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c" title="Pushes a new value into the ring buffer. This will overwrite the oldest value if the buffer is full." alt="" coords="357,156,487,181"/>
 <area shape="rect" id="node14" href="$Debug_8h.html#afa1e089b7149386f290d4ebb4d373bf6" title="Sends throttle pedal input debug info via CAN or serial (if enabled)." alt="" coords="574,213,721,239"/>

@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +33,18 @@
    <div id="projectname">My Project
    </div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -39,17 +56,6 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -167,13 +173,12 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00138">138</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00133">133</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00076">THROTTLE_FAULT_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00189">DBG_BRAKE_FAULT()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00190">DBG_BRAKE_FAULT()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -199,11 +204,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00197">197</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00190">190</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00090">STATUS_HALL_SENSOR_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00221">DBG_HALL_SENSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00222">DBG_HALL_SENSOR()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -237,9 +242,8 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00020">20</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00019">19</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>.</p>
 
@@ -276,13 +280,12 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00183">183</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00176">176</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00089">STATUS_BMS_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00205">DBG_BMS_STATUS()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00206">DBG_BMS_STATUS()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -333,13 +336,12 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00162">162</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00156">156</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00086">STATUS_CAR_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00171">DBG_STATUS_CAR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00172">DBG_STATUS_CAR()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -372,9 +374,8 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00116">116</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00112">112</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00076">THROTTLE_FAULT_MSG</a>.</p>
 
@@ -414,13 +415,12 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00092">92</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00089">89</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00076">THROTTLE_FAULT_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00143">DBG_THROTTLE_FAULT()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00144">DBG_THROTTLE_FAULT()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -474,16 +474,16 @@ Here is the caller graph for this function:</div>
     <tr><td class="paramname">pedal_filtered_1</td><td>Filtered value from pedal sensor 1. </td></tr>
     <tr><td class="paramname">pedal_filtered_2</td><td>Filtered value from pedal sensor 2. </td></tr>
     <tr><td class="paramname">pedal_2_scaled</td><td>Scaled value of pedal sensor 2. </td></tr>
+    <tr><td class="paramname">brake</td><td>Brake value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00036">36</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00035">35</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00074">THROTTLE_IN_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00108">DBG_THROTTLE_IN()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00109">DBG_THROTTLE_IN()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -527,13 +527,12 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00066">66</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00064">64</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00009">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00075">THROTTLE_OUT_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00125">DBG_THROTTLE_OUT()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8h_source.html#l00126">DBG_THROTTLE_OUT()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -566,7 +565,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00009">9</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug__can_8cpp_source.html#l00138">brake_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00197">hall_sensor()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00020">initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00183">status_bms()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00162">status_car()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00092">throttle_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00036">throttle_in()</a>, and <a class="el" href="Debug__can_8cpp_source.html#l00066">throttle_out()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug__can_8cpp_source.html#l00133">brake_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00190">hall_sensor()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00019">initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00176">status_bms()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00156">status_car()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00089">throttle_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00035">throttle_in()</a>, and <a class="el" href="Debug__can_8cpp_source.html#l00064">throttle_out()</a>.</p>
 
 </div>
 </div>
