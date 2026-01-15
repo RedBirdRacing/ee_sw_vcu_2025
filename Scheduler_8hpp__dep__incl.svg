@@ -20,17 +20,17 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="BMS_8h.html" target="_top" xlink:title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">
-<polygon fill="white" stroke="#666666" points="127.5,-74 40.5,-74 40.5,-55 127.5,-55 127.5,-74"/>
-<text text-anchor="middle" x="84" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/BMS/BMS.h</text>
+<g id="a_node2"><a xlink:href="BMS_8hpp.html" target="_top" xlink:title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">
+<polygon fill="white" stroke="#666666" points="127.5,-74 28.5,-74 28.5,-55 127.5,-55 127.5,-74"/>
+<text text-anchor="middle" x="78" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/BMS/BMS.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M177.75,-105.9C155.03,-96.11 124.13,-82.79 104.12,-74.17"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="176.67,-109.24 187.24,-109.98 179.44,-102.81 176.67,-109.24"/>
+<path fill="none" stroke="#63b8ff" d="M176.96,-106.16C153.08,-96.35 120.28,-82.87 99.1,-74.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="175.69,-109.42 186.27,-109.98 178.35,-102.95 175.69,-109.42"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -74,14 +74,14 @@
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M72.7,-46.39C66.68,-37.27 59.53,-26.45 54.67,-19.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="69.79,-48.33 78.22,-54.75 75.63,-44.47 69.79,-48.33"/>
+<path fill="none" stroke="#63b8ff" d="M68.32,-45.82C63.4,-36.82 57.64,-26.29 53.7,-19.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="65.34,-47.66 73.21,-54.75 71.48,-44.3 65.34,-47.66"/>
 </g>
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="#63b8ff" d="M103.87,-48.88C116.82,-39.34 133.3,-27.21 144.22,-19.17"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="101.55,-46.24 95.57,-54.98 105.7,-51.88 101.55,-46.24"/>
+<path fill="none" stroke="#63b8ff" d="M99.12,-49.15C113.21,-39.57 131.29,-27.29 143.24,-19.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="96.84,-46.47 90.53,-54.98 100.77,-52.26 96.84,-46.47"/>
 </g>
 <!-- Node5&#45;&gt;Node1 -->
 <g id="edge5" class="edge">

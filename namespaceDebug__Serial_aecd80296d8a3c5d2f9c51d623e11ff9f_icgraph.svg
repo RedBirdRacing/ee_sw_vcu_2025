@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Prints a message to the serial console. This function sends a string message to the serial console fo...">
+<g id="a_node1"><a xlink:title="Prints a string to the serial console.">
 <polygon fill="#999999" stroke="#666666" points="241,-56 131,-56 131,-37 241,-37 241,-56"/>
 <text text-anchor="middle" x="186" y="-44" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_Serial::print</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Debug_8h.html#a9d60671317b513353287b53444954a4b" target="_top" xlink:title="Prints a general debug message to the serial console.">
+<g id="a_node2"><a xlink:href="Debug_8hpp.html#a9d60671317b513353287b53444954a4b" target="_top" xlink:title="Prints a general debug message to the serial console.">
 <polygon fill="white" stroke="#666666" points="92,-93 3,-93 3,-74 92,-74 92,-93"/>
 <text text-anchor="middle" x="47.5" y="-81" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_GENERAL</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="Debug_8h.html#a3c41dd69d26e414610765b6feb86c475" target="_top" xlink:title="Prints a status message to the serial console.">
+<g id="a_node3"><a xlink:href="Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475" target="_top" xlink:title="Prints a status message to the serial console.">
 <polygon fill="white" stroke="#666666" points="87.5,-56 7.5,-56 7.5,-37 87.5,-37 87.5,-56"/>
 <text text-anchor="middle" x="47.5" y="-44" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_STATUS</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="Debug_8h.html#a9d3888b021fa82a4c78185a961fdad84" target="_top" xlink:title="Prints a throttle debug message to the serial console.">
+<g id="a_node4"><a xlink:href="Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84" target="_top" xlink:title="Prints a throttle debug message to the serial console.">
 <polygon fill="white" stroke="#666666" points="95,-19 0,-19 0,0 95,0 95,-19"/>
 <text text-anchor="middle" x="47.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_THROTTLE</text>
 </a>

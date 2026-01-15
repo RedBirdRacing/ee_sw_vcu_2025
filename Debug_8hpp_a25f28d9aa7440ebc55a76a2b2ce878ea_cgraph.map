@@ -1,0 +1,5 @@
+<map id="DBG_THROTTLE_OUT" name="DBG_THROTTLE_OUT">
+<area shape="rect" id="node1" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="5,31,167,56"/>
+<area shape="rect" id="node2" href="$namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3" title="Sends a debug throttle output message over CAN." alt="" coords="219,5,402,31"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515" title="Prints a throttle output message to the serial console. This function formats and sends the throttle ..." alt="" coords="215,55,407,80"/>
+</map>

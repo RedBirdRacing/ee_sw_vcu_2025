@@ -1,5 +1,0 @@
-<map id="DBG_HALL_SENSOR" name="DBG_HALL_SENSOR">
-<area shape="rect" id="node1" title="Send hall sensor debug info via CAN." alt="" coords="5,35,156,60"/>
-<area shape="rect" id="node2" href="$namespaceDebug__CAN.html#a42414365a04c66411b629e36d4b50466" title=" " alt="" coords="204,5,385,31"/>
-<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#ace5ed08d1ebb4eae813ec98d6f6ea769" title="Prints the current hall sensor value to the serial console." alt="" coords="225,55,365,95"/>
-</map>

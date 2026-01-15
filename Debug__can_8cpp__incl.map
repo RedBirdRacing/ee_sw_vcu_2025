@@ -1,6 +1,6 @@
 <map id="lib/Debug/Debug_can.cpp" name="lib/Debug/Debug_can.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,192,31"/>
-<area shape="rect" id="node2" href="$Debug__can_8h.html" title=" " alt="" coords="91,79,197,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="6,152,101,177"/>
-<area shape="rect" id="node4" href="$Enums_8h.html" title=" " alt="" coords="125,152,203,177"/>
+<area shape="rect" id="node1" title="Implementation of the Debug_CAN namespace for CAN debugging functions." alt="" coords="9,5,195,31"/>
+<area shape="rect" id="node2" href="$Debug__can_8hpp.html" title="Declaration of the Debug_CAN namespace for CAN debugging functions." alt="" coords="90,79,213,104"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,152,100,177"/>
+<area shape="rect" id="node4" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="124,152,203,177"/>
 </map>

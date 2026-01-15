@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Debug_8h.html#a47899db638485b6ff92158a3f88d5a22" target="_top" xlink:title="Send hall sensor debug info via CAN.">
+<g id="a_node2"><a xlink:href="Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22" target="_top" xlink:title="Send hall sensor debug info via CAN.">
 <polygon fill="white" stroke="#666666" points="113,-24.5 0,-24.5 0,-5.5 113,-5.5 113,-24.5"/>
 <text text-anchor="middle" x="56.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_HALL_SENSOR</text>
 </a>

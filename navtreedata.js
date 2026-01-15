@@ -40,8 +40,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -62,7 +61,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BMS_8cpp.html",
-"functions.html"
+"functions_type.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

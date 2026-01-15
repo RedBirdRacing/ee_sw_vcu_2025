@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['queue_2eh_0',['Queue.h',['../Queue_8h.html',1,'']]]
+  ['pedal_2ecpp_0',['Pedal.cpp',['../Pedal_8cpp.html',1,'']]],
+  ['pedal_2ehpp_1',['Pedal.hpp',['../Pedal_8hpp.html',1,'']]]
 ];

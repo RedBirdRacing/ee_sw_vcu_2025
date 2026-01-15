@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85" target="_top" xlink:title="Sends car status debug info via CAN or serial (if enabled).">
+<g id="a_node2"><a xlink:href="Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85" target="_top" xlink:title="Sends car status debug info via CAN or serial (if enabled).">
 <polygon fill="white" stroke="#666666" points="186,-37 80,-37 80,-18 186,-18 186,-37"/>
 <text text-anchor="middle" x="133" y="-25" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_STATUS_CAR</text>
 </a>

@@ -1,9 +1,0 @@
-<map id="Pedal::check_pedal_fault" name="Pedal::check_pedal_fault">
-<area shape="rect" id="node1" title="Checks for a fault between two pedal sensor readings." alt="" coords="5,99,152,139"/>
-<area shape="rect" id="node2" href="$Debug_8h.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="200,77,372,102"/>
-<area shape="rect" id="node5" href="$Debug_8h.html#afa1e089b7149386f290d4ebb4d373bf6" title="Sends throttle pedal input debug info via CAN or serial (if enabled)." alt="" coords="213,134,359,159"/>
-<area shape="rect" id="node3" href="$namespaceDebug__CAN.html#a8e6443068f8aa21ba673ad7bc132e739" title="Sends a debug throttle fault message over CAN. This function prepares a CAN frame with the throttle f..." alt="" coords="434,5,589,45"/>
-<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="429,69,593,109"/>
-<area shape="rect" id="node6" href="$namespaceDebug__CAN.html#a5c26a2303b6fa92439c0a693728d760e" title="Sends a debug throttle input message over CAN. This function prepares a CAN frame with the throttle i..." alt="" coords="424,134,599,159"/>
-<area shape="rect" id="node7" href="$namespaceDebug__Serial.html#a9e68fe4f00e7b1bf1a9c2addc2222a9b" title="Prints a throttle input message to the serial console. This function formats and sends the throttle i..." alt="" coords="420,183,603,209"/>
-</map>

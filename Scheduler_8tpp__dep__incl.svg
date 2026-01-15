@@ -12,8 +12,8 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Implementation of the Scheduler class template.">
-<polygon fill="#999999" stroke="#666666" points="194.5,-184 45.5,-184 45.5,-165 194.5,-165 194.5,-184"/>
-<text text-anchor="middle" x="120" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Scheduler/Scheduler.tpp</text>
+<polygon fill="#999999" stroke="#666666" points="191.5,-184 42.5,-184 42.5,-165 191.5,-165 191.5,-184"/>
+<text text-anchor="middle" x="117" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Scheduler/Scheduler.tpp</text>
 </a>
 </g>
 </g>
@@ -21,37 +21,37 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="Scheduler_8hpp.html" target="_top" xlink:title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances.">
-<polygon fill="white" stroke="#666666" points="195.5,-129 44.5,-129 44.5,-110 195.5,-110 195.5,-129"/>
-<text text-anchor="middle" x="120" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Scheduler/Scheduler.hpp</text>
+<polygon fill="white" stroke="#666666" points="192.5,-129 41.5,-129 41.5,-110 192.5,-110 192.5,-129"/>
+<text text-anchor="middle" x="117" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Scheduler/Scheduler.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M113.51,-154.66C112.91,-145.93 113.36,-135.99 114.87,-129.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="110.06,-155.29 114.83,-164.75 117,-154.38 110.06,-155.29"/>
+<path fill="none" stroke="#63b8ff" d="M110.51,-154.66C109.91,-145.93 110.36,-135.99 111.87,-129.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="107.06,-155.29 111.83,-164.75 114,-154.38 107.06,-155.29"/>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge5" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#63b8ff" d="M126.48,-139.13C127.1,-147.85 126.66,-157.8 125.17,-164.75"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="129.93,-138.53 125.13,-129.09 122.99,-139.47 129.93,-138.53"/>
+<path fill="none" stroke="#63b8ff" d="M123.48,-139.13C124.1,-147.85 123.66,-157.8 122.17,-164.75"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="126.93,-138.53 122.13,-129.09 119.99,-139.47 126.93,-138.53"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="BMS_8h.html" target="_top" xlink:title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">
-<polygon fill="white" stroke="#666666" points="127.5,-74 40.5,-74 40.5,-55 127.5,-55 127.5,-74"/>
-<text text-anchor="middle" x="84" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/BMS/BMS.h</text>
+<g id="a_node3"><a xlink:href="BMS_8hpp.html" target="_top" xlink:title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">
+<polygon fill="white" stroke="#666666" points="127.5,-74 28.5,-74 28.5,-55 127.5,-55 127.5,-74"/>
+<text text-anchor="middle" x="78" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/BMS/BMS.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M108.38,-101.39C102.18,-92.27 94.83,-81.45 89.83,-74.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="105.54,-103.44 114.06,-109.75 111.33,-99.51 105.54,-103.44"/>
+<path fill="none" stroke="#63b8ff" d="M104.62,-101.67C97.86,-92.5 89.79,-81.52 84.32,-74.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="101.81,-103.77 110.56,-109.75 107.45,-99.62 101.81,-103.77"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -65,8 +65,8 @@
 <!-- Node2&#45;&gt;Node5 -->
 <g id="edge6" class="edge">
 <title>Node2&#45;&gt;Node5</title>
-<path fill="none" stroke="#63b8ff" d="M127.32,-100.26C130.44,-92.25 134.04,-82.71 137,-74 143.6,-54.61 150.2,-31.48 153.62,-19.19"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="124.01,-99.12 123.58,-109.71 130.52,-101.69 124.01,-99.12"/>
+<path fill="none" stroke="#63b8ff" d="M125.67,-100.65C129.41,-92.6 133.67,-82.93 137,-74 144.15,-54.81 150.54,-31.6 153.77,-19.25"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="122.46,-99.24 121.33,-109.78 128.79,-102.25 122.46,-99.24"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -80,14 +80,14 @@
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="#63b8ff" d="M72.7,-46.39C66.68,-37.27 59.53,-26.45 54.67,-19.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="69.79,-48.33 78.22,-54.75 75.63,-44.47 69.79,-48.33"/>
+<path fill="none" stroke="#63b8ff" d="M68.32,-45.82C63.4,-36.82 57.64,-26.29 53.7,-19.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="65.34,-47.66 73.21,-54.75 71.48,-44.3 65.34,-47.66"/>
 </g>
 <!-- Node3&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node3&#45;&gt;Node5</title>
-<path fill="none" stroke="#63b8ff" d="M103.87,-48.88C116.82,-39.34 133.3,-27.21 144.22,-19.17"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="101.55,-46.24 95.57,-54.98 105.7,-51.88 101.55,-46.24"/>
+<path fill="none" stroke="#63b8ff" d="M99.12,-49.15C113.21,-39.57 131.29,-27.29 143.24,-19.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="96.84,-46.47 90.53,-54.98 100.77,-52.26 96.84,-46.47"/>
 </g>
 </g>
 </svg>

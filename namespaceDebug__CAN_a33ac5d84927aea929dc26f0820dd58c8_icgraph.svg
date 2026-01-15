@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Sends a debug car status message over CAN. This function prepares a CAN frame with the current car st...">
+<g id="a_node1"><a xlink:title="Sends a debug car status message over CAN.">
 <polygon fill="#999999" stroke="#666666" points="353,-37 222,-37 222,-18 353,-18 353,-37"/>
 <text text-anchor="middle" x="287.5" y="-25" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_CAN::status_car</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Debug_8h.html#a306ca7fb070dd487be4ea4ec3de74b85" target="_top" xlink:title="Sends car status debug info via CAN or serial (if enabled).">
+<g id="a_node2"><a xlink:href="Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85" target="_top" xlink:title="Sends car status debug info via CAN or serial (if enabled).">
 <polygon fill="white" stroke="#666666" points="186,-37 80,-37 80,-18 186,-18 186,-37"/>
 <text text-anchor="middle" x="133" y="-25" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_STATUS_CAR</text>
 </a>

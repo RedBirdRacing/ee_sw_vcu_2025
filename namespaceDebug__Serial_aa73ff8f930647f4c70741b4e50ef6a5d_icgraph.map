@@ -1,12 +1,7 @@
 <map id="Debug_Serial::throttle_fault" name="Debug_Serial::throttle_fault">
-<area shape="rect" id="node1" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="1144,92,1308,132"/>
-<area shape="rect" id="node2" href="$Debug_8h.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="924,99,1096,125"/>
-<area shape="rect" id="node3" href="$classPedal.html#a00f33fcd9507c62193f2ffc3570b7fba" title="Maps the brake ADC to a torque value." alt="" coords="725,5,876,45"/>
-<area shape="rect" id="node4" href="$classPedal.html#a04ce7e5e20d8405f10f281d6c784e1ef" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="515,49,677,89"/>
-<area shape="rect" id="node8" href="$classPedal.html#ab4523086bb60bc43d692198206885f3b" title="Checks for a fault between two pedal sensor readings." alt="" coords="727,120,874,160"/>
-<area shape="rect" id="node9" href="$classPedal.html#aef9f2037f590fd4b41f3c50a7c2b3568" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="519,142,673,167"/>
-<area shape="rect" id="node5" href="$classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,49,467,89"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,57,240,82"/>
-<area shape="rect" id="node7" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,57,64,82"/>
-<area shape="rect" id="node10" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="352,142,403,167"/>
+<area shape="rect" id="node1" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="701,23,865,63"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="481,31,653,56"/>
+<area shape="rect" id="node3" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="263,5,433,31"/>
+<area shape="rect" id="node4" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="104,31,215,56"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,31,56,56"/>
 </map>

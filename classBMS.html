@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('classBMS.html',''); initResizable(); }
 <p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> class for managing the Accumulator (Kclear <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a>) via CAN bus.  
  <a href="classBMS.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="BMS_8h_source.html">BMS.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for BMS:</div>
 <div class="dyncontent">
@@ -119,11 +119,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a763b5a616fd2231bf94edb4cc056a2c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a763b5a616fd2231bf94edb4cc056a2c2">BMS</a> ()</td></tr>
 <tr class="memdesc:a763b5a616fd2231bf94edb4cc056a2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> object.  <br /></td></tr>
 <tr class="separator:a763b5a616fd2231bf94edb4cc056a2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4529cdd9f90af5b41eff61d15595852"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#ac4529cdd9f90af5b41eff61d15595852">hv_ready</a> ()</td></tr>
-<tr class="separator:ac4529cdd9f90af5b41eff61d15595852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b5ec1ea35cac26d5defeb652f721975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a2b5ec1ea35cac26d5defeb652f721975">check_hv</a> (MCP2515 *<a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">mcp2515_BMS</a>)</td></tr>
-<tr class="memdesc:a2b5ec1ea35cac26d5defeb652f721975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5).  <br /></td></tr>
-<tr class="separator:a2b5ec1ea35cac26d5defeb652f721975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0fbca3e0f970d2bbdaec28486b7d59"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#aef0fbca3e0f970d2bbdaec28486b7d59">hvReady</a> ()</td></tr>
+<tr class="memdesc:aef0fbca3e0f970d2bbdaec28486b7d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if HV has been started.  <br /></td></tr>
+<tr class="separator:aef0fbca3e0f970d2bbdaec28486b7d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98029edf98499c9a9505fd34462bf272"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a98029edf98499c9a9505fd34462bf272">checkHv</a> (MCP2515 *<a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">mcp2515_BMS</a>)</td></tr>
+<tr class="memdesc:a98029edf98499c9a9505fd34462bf272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5).  <br /></td></tr>
+<tr class="separator:a98029edf98499c9a9505fd34462bf272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -135,7 +136,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> class for managing the Accumulator (Kclear <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a>) via CAN bus. </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00044">44</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00044">44</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a763b5a616fd2231bf94edb4cc056a2c2" name="a763b5a616fd2231bf94edb4cc056a2c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a763b5a616fd2231bf94edb4cc056a2c2">&#9670;&#160;</a></span>BMS()</h2>
@@ -159,14 +160,14 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2b5ec1ea35cac26d5defeb652f721975" name="a2b5ec1ea35cac26d5defeb652f721975"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b5ec1ea35cac26d5defeb652f721975">&#9670;&#160;</a></span>check_hv()</h2>
+<a id="a98029edf98499c9a9505fd34462bf272" name="a98029edf98499c9a9505fd34462bf272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98029edf98499c9a9505fd34462bf272">&#9670;&#160;</a></span>checkHv()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void BMS::check_hv </td>
+          <td class="memname">void BMS::checkHv </td>
           <td>(</td>
           <td class="paramtype">MCP2515 *&#160;</td>
           <td class="paramname"><em>mcp2515_</em></td><td>)</td>
@@ -175,7 +176,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Attempt to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5). </p>
+<p>Attempts to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Returns when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mcp2515_</td><td>Pointer to the MCP2515 CAN controller instance. </td></tr>
@@ -185,26 +186,26 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00040">40</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8h_source.html#l00206">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8h_source.html#l00071">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8h_source.html#l00057">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00056">NO_MSG</a>, <a class="el" href="BMS_8h_source.html#l00052">rx_bms_msg</a>, <a class="el" href="BMS_8h_source.html#l00028">start_hv_msg</a>, <a class="el" href="Enums_8h_source.html#l00060">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00059">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00061">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00058">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00057">WRONG_ID</a>.</p>
+<p class="reference">References <a class="el" href="BMS_8hpp_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8hpp_source.html#l00221">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8hpp_source.html#l00062">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00050">NO_MSG</a>, <a class="el" href="BMS_8hpp_source.html#l00057">rx_bms_msg</a>, <a class="el" href="BMS_8hpp_source.html#l00028">start_hv_msg</a>, <a class="el" href="Enums_8h_source.html#l00054">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00053">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00055">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00052">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00051">WRONG_ID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00080">scheduler_bms()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00069">scheduler_bms()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_a2b5ec1ea35cac26d5defeb652f721975_cgraph.svg" width="560" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_a98029edf98499c9a9505fd34462bf272_cgraph.svg" width="555" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_a2b5ec1ea35cac26d5defeb652f721975_icgraph.svg" width="398" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_a98029edf98499c9a9505fd34462bf272_icgraph.svg" width="392" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="ac4529cdd9f90af5b41eff61d15595852" name="ac4529cdd9f90af5b41eff61d15595852"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4529cdd9f90af5b41eff61d15595852">&#9670;&#160;</a></span>hv_ready()</h2>
+<a id="aef0fbca3e0f970d2bbdaec28486b7d59" name="aef0fbca3e0f970d2bbdaec28486b7d59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef0fbca3e0f970d2bbdaec28486b7d59">&#9670;&#160;</a></span>hvReady()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +214,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool BMS::hv_ready </td>
+          <td class="memname">bool BMS::hvReady </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -226,15 +227,18 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00048">48</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<p>Returns true if HV has been started. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if HV started, false otherwise </dd></dl>
 
-<p class="reference">References <a class="el" href="BMS_8h_source.html#l00057">hv_started</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00052">52</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>.</p>
+<p class="reference">References <a class="el" href="BMS_8hpp_source.html#l00062">hv_started</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00123">loop()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_ac4529cdd9f90af5b41eff61d15595852_icgraph.svg" width="228" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_aef0fbca3e0f970d2bbdaec28486b7d59_icgraph.svg" width="226" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -262,9 +266,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>True if HV has been started, for state machine </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00057">57</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00062">62</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">check_hv()</a>, and <a class="el" href="BMS_8h_source.html#l00048">hv_ready()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">checkHv()</a>, and <a class="el" href="BMS_8hpp_source.html#l00052">hvReady()</a>.</p>
 
 </div>
 </div>
@@ -287,20 +291,21 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= { </div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">        0,   </div>
 <div class="line">        0,   </div>
 <div class="line">        {0}, </div>
 <div class="line">    }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="BMS_8h_source.html#l00052">52</a> of file <a class="el" href="BMS_8h_source.html">BMS.h</a>.</p>
+</div><!-- fragment --><p>Local storage for received <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> CAN frame </p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">check_hv()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00057">57</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">checkHv()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>lib/BMS/<a class="el" href="BMS_8h_source.html">BMS.h</a></li>
+<li>lib/BMS/<a class="el" href="BMS_8hpp_source.html">BMS.hpp</a></li>
 <li>lib/BMS/<a class="el" href="BMS_8cpp_source.html">BMS.cpp</a></li>
 </ul>
 </div><!-- contents -->

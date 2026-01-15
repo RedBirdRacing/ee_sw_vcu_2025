@@ -1,7 +1,0 @@
-<map id="lib/BMS/BMS.h" name="lib/BMS/BMS.h">
-<area shape="rect" id="node1" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="113,5,229,31"/>
-<area shape="rect" id="node2" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="43,79,156,104"/>
-<area shape="rect" id="node4" title=" " alt="" coords="145,225,240,251"/>
-<area shape="rect" id="node3" href="$Enums_8h.html" title=" " alt="" coords="5,225,84,251"/>
-<area shape="rect" id="node5" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="44,152,155,177"/>
-</map>

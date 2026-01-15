@@ -38,6 +38,11 @@ var Enums_8h =
       [ "STATUS_BMS_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bcaa0c59eed98c4a839ca52cd704f73ad3c", null ],
       [ "STATUS_HALL_SENSOR_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca3b8b1a3311186cacb53a059b8bb4525b", null ]
     ] ],
+    [ "telemetry_can_id", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045ae", [
+      [ "TELEMETRY_ADC_MSG", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aead676102a90cb03b7650f92b54df81449", null ],
+      [ "TELEMETRY_DIGITAL_MSG", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aea50386e0651ff308b2dba0b8c9017a0b1", null ],
+      [ "TELEMETRY_STATE_MSG", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aeab63589bd26d364490106061d47e3aeaf", null ]
+    ] ],
     [ "throttle_can_id", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8d", [
       [ "MOTOR_COMMAND", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da67c1012c1a551351e27c0235f6b44265", null ],
       [ "THROTTLE_IN_MSG", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dac0e35b4ce06327af7e63a2e352935124", null ],

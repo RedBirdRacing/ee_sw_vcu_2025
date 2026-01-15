@@ -1,24 +1,9 @@
 var searchData=
 [
-  ['bms_0',['bms',['../main_8cpp.html#aa5275dd1ded2929ad64301ef46def6e4',1,'main.cpp']]],
-  ['bms_5fcommand_1',['BMS_COMMAND',['../BMS_8h.html#a498a73250bf649788c7c87049454468a',1,'BMS.h']]],
-  ['bms_5finfo_2',['BMS_INFO',['../BMS_8h.html#ad5d92403aa66ff7f26223a07b5d6cb88',1,'BMS.h']]],
-  ['bms_5finfo_5fext_3',['BMS_INFO_EXT',['../BMS_8h.html#a63a06b4ea269ba668a6d337097356e93',1,'BMS.h']]],
-  ['bms_5fmillis_4',['BMS_MILLIS',['../main_8cpp.html#a9b210a2254e453ab1707b21a4f610222',1,'main.cpp']]],
-  ['bms_5fsend_5fcmd_5',['BMS_SEND_CMD',['../BMS_8h.html#a972fa122ea3511b4618974d08967eed6',1,'BMS.h']]],
-  ['brake_5ffinal_6',['brake_final',['../structcar__state.html#a0158d2a979a76e12bf438995150d3e9b',1,'car_state']]],
-  ['brake_5fin_5fmax_7',['BRAKE_IN_MAX',['../Pedal_8h.html#a074dccac3f7e19bd602c554175a33eba',1,'Pedal.h']]],
-  ['brake_5fin_5fmin_8',['BRAKE_IN_MIN',['../Pedal_8h.html#a8b8b5a73da847ee39e4659ad6dd64b3c',1,'Pedal.h']]],
-  ['brake_5fll_9',['BRAKE_LL',['../Pedal_8h.html#a7c8cc40ae5132c26d33fff4caf805086',1,'Pedal.h']]],
-  ['brake_5flower_5fdeadzone_5fwidth_10',['BRAKE_LOWER_DEADZONE_WIDTH',['../Pedal_8h.html#a8e828361a6a543f3ea25698683f650e3',1,'Pedal.h']]],
-  ['brake_5flu_11',['BRAKE_LU',['../Pedal_8h.html#a27b6e961cab99b64dfd6481b17e44fdb',1,'Pedal.h']]],
-  ['brake_5fpressed_12',['brake_pressed',['../main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7',1,'main.cpp']]],
-  ['brake_5frange_13',['BRAKE_RANGE',['../Pedal_8h.html#a5ec59da5dc8064d52d3659ebca4c628d',1,'Pedal.h']]],
-  ['brake_5fthreshold_14',['BRAKE_THRESHOLD',['../main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9',1,'main.cpp']]],
-  ['brake_5ful_15',['BRAKE_UL',['../Pedal_8h.html#ab54b8618d0aa5a9a030b1438cec3b21b',1,'Pedal.h']]],
-  ['brake_5fupper_5fdeadzone_5fwidth_16',['BRAKE_UPPER_DEADZONE_WIDTH',['../Pedal_8h.html#a1a9a9a14e2d4ff5e6bdf51f5dd936627',1,'Pedal.h']]],
-  ['brake_5fuu_17',['BRAKE_UU',['../Pedal_8h.html#ac00bac14c52ae9448a04d42b05287f46',1,'Pedal.h']]],
-  ['brake_5fvalue_18',['brake_value',['../classPedal.html#a9077149e161a9ae7223b6a153f7fb953',1,'Pedal']]],
-  ['buffer_19',['buffer',['../classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e',1,'RingBuffer']]],
-  ['bussin_5fmillis_20',['BUSSIN_MILLIS',['../main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b',1,'main.cpp']]]
+  ['adc_0',['adc',['../structCarState.html#a03f8c26d66c4cc6c3060beb47225579f',1,'CarState']]],
+  ['apps_5f3v3_1',['apps_3v3',['../structTelemetryFrameAdc.html#ab3c9da1f053fc042aa0d4ca6fa9ee4a6',1,'TelemetryFrameAdc']]],
+  ['apps_5f3v3_5fscaled_2',['apps_3v3_scaled',['../structTelemetryFrameDigital.html#a44d39acb8b805a04176ccaafb959cca0',1,'TelemetryFrameDigital']]],
+  ['apps_5f5v_3',['apps_5v',['../structTelemetryFrameAdc.html#a4c280adc1f9574bc7807e36986564c0b',1,'TelemetryFrameAdc']]],
+  ['apps_5fmax_4',['apps_max',['../Curves_8hpp.html#aeac3f7a162e6d0fdda8862a734e7bb4a',1,'Curves.hpp']]],
+  ['apps_5fmin_5',['apps_min',['../Curves_8hpp.html#a9f911c4cd0a9bd79b838d14c1e3fb2bb',1,'Curves.hpp']]]
 ];

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Sends a debug hall sensor message over CAN.">
 <polygon fill="#999999" stroke="#666666" points="285,-19 149,-19 149,0 285,0 285,-19"/>
 <text text-anchor="middle" x="217" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_CAN::hall_sensor</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Debug_8h.html#a47899db638485b6ff92158a3f88d5a22" target="_top" xlink:title="Send hall sensor debug info via CAN.">
+<g id="a_node2"><a xlink:href="Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22" target="_top" xlink:title="Send hall sensor debug info via CAN.">
 <polygon fill="white" stroke="#666666" points="113,-19 0,-19 0,0 113,0 113,-19"/>
 <text text-anchor="middle" x="56.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_HALL_SENSOR</text>
 </a>

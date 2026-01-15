@@ -1,9 +1,4 @@
 <map id="Debug_Serial::brake_fault" name="Debug_Serial::brake_fault">
-<area shape="rect" id="node1" title="Prints a brake fault message to the serial console. This function formats and sends the brake fault s..." alt="" coords="1120,5,1272,45"/>
-<area shape="rect" id="node2" href="$Debug_8h.html#ae4f010051fc0b65e53e4305c62bae986" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="924,13,1072,38"/>
-<area shape="rect" id="node3" href="$classPedal.html#a00f33fcd9507c62193f2ffc3570b7fba" title="Maps the brake ADC to a torque value." alt="" coords="725,5,876,45"/>
-<area shape="rect" id="node4" href="$classPedal.html#a04ce7e5e20d8405f10f281d6c784e1ef" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="515,5,677,45"/>
-<area shape="rect" id="node5" href="$classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,5,467,45"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,13,240,38"/>
-<area shape="rect" id="node7" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,13,64,38"/>
+<area shape="rect" id="node1" title="Prints a brake fault message to the serial console. This function formats and sends the brake fault s..." alt="" coords="201,5,353,45"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="5,13,153,38"/>
 </map>

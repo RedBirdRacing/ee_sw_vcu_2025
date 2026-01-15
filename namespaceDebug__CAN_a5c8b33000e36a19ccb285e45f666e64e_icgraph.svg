@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Initializes the Debug_CAN interface with the given MCP2515 CAN controller.">
+<g id="a_node1"><a xlink:title="Initializes the Debug_CAN interface. It should be called before using any other Debug_CAN functions.">
 <polygon fill="#999999" stroke="#666666" points="202,-19 80,-19 80,0 202,0 202,-19"/>
 <text text-anchor="middle" x="141" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_CAN::initialize</text>
 </a>
