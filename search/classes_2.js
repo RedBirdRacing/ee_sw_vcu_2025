@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linearinterp_0',['LinearInterp',['../classLinearInterp.html',1,'']]]
+  ['minivector_0',['miniVector',['../structminiVector.html',1,'']]]
 ];

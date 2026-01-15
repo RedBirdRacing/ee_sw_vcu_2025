@@ -1,8 +1,0 @@
-<map id="BMS::checkHv" name="BMS::checkHv">
-<area shape="rect" id="node1" title="Attempts to start HV. First check BMS is in standby(3) state, then send the HV start command...." alt="" coords="5,80,120,105"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a5811a65cdb8fc3c5255f57301cbb8481" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="168,55,311,80"/>
-<area shape="rect" id="node5" href="$Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="171,104,307,129"/>
-<area shape="rect" id="node3" href="$namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747" title="Sends a debug BMS status message over CAN." alt="" coords="363,5,545,31"/>
-<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f" title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ..." alt="" coords="359,55,549,80"/>
-<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="375,104,533,129"/>
-</map>

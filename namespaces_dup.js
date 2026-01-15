@@ -1,7 +1,6 @@
 var namespaces_dup =
 [
     [ "Debug_CAN", "namespaceDebug__CAN.html", [
-      [ "brake_fault", "namespaceDebug__CAN.html#a972189e7412acf4e4b2d36c7693a3f70", null ],
       [ "hall_sensor", "namespaceDebug__CAN.html#a42414365a04c66411b629e36d4b50466", null ],
       [ "initialize", "namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e", null ],
       [ "status_bms", "namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747", null ],

@@ -1,5 +1,5 @@
 <map id="CarState" name="CarState">
-<area shape="rect" id="node1" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct..." alt="" coords="207,336,327,428"/>
+<area shape="rect" id="node1" title="Represents the state of the car." alt="" coords="165,336,368,428"/>
 <area shape="rect" id="node2" href="$structTelemetryFrameAdc.html" title="Telemetry frame structure for ADC readings." alt="" coords="5,79,157,200"/>
 <area shape="rect" id="node3" href="$structTelemetryFrameDigital.html" title="Telemetry frame structure for digital signals." alt="" coords="181,79,352,200"/>
 <area shape="rect" id="node4" href="$structTelemetryFrameState.html" title="Telemetry frame structure for VCU states." alt="" coords="376,5,539,273"/>

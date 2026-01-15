@@ -102,10 +102,10 @@ $(document).ready(function(){initNavTree('structCarState.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Represents the state of the car. Holds telemetry data and status, used as central data sharing structure.  
+<p>Represents the state of the car.  
  <a href="structCarState.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="CarState_8h_source.html">CarState.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="car__state_8h_source.html">car_state.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for CarState:</div>
 <div class="dyncontent">
@@ -115,58 +115,47 @@ Collaboration diagram for CarState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a03f8c26d66c4cc6c3060beb47225579f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameAdc.html">TelemetryFrameAdc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a03f8c26d66c4cc6c3060beb47225579f">adc</a></td></tr>
-<tr class="separator:a03f8c26d66c4cc6c3060beb47225579f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab79e483b9567fa335ff3d13f64f9c0b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameDigital.html">TelemetryFrameDigital</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#ab79e483b9567fa335ff3d13f64f9c0b6">digital</a></td></tr>
-<tr class="separator:ab79e483b9567fa335ff3d13f64f9c0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40f60bdbcb9e45d5fab62792b090a9cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameState.html">TelemetryFrameState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a40f60bdbcb9e45d5fab62792b090a9cf">state</a></td></tr>
-<tr class="separator:a40f60bdbcb9e45d5fab62792b090a9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc863b4689f45ff6e1b21c5ca7918fa8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#abc863b4689f45ff6e1b21c5ca7918fa8">status_millis</a></td></tr>
-<tr class="separator:abc863b4689f45ff6e1b21c5ca7918fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17de880ac26bb331b1354f1f341a2cc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameAdc.html">TelemetryFrameAdc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a17de880ac26bb331b1354f1f341a2cc9">telemetry_adc</a></td></tr>
+<tr class="separator:a17de880ac26bb331b1354f1f341a2cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60f63010fc7cc0168fd2e354420e637"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameDigital.html">TelemetryFrameDigital</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#ad60f63010fc7cc0168fd2e354420e637">telemetry_digital</a></td></tr>
+<tr class="separator:ad60f63010fc7cc0168fd2e354420e637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef71defb1fbbc2579d8d60102f1b1fcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameState.html">TelemetryFrameState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#aef71defb1fbbc2579d8d60102f1b1fcd">telemetry_state</a></td></tr>
+<tr class="separator:aef71defb1fbbc2579d8d60102f1b1fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc51a17b6e6303347bf1ad1879b6293c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#afc51a17b6e6303347bf1ad1879b6293c">car_status_millis_counter</a></td></tr>
+<tr class="separator:afc51a17b6e6303347bf1ad1879b6293c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59bc9a5cc295cff217fcb342a7d02a33"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a59bc9a5cc295cff217fcb342a7d02a33">millis</a></td></tr>
 <tr class="separator:a59bc9a5cc295cff217fcb342a7d02a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents the state of the car. Holds telemetry data and status, used as central data sharing structure. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structTelemetryFrameAdc.html" title="Telemetry frame structure for ADC readings.">TelemetryFrameAdc</a>, <a class="el" href="structTelemetryFrameDigital.html" title="Telemetry frame structure for digital signals.">TelemetryFrameDigital</a>, <a class="el" href="structTelemetryFrameState.html" title="Telemetry frame structure for VCU states.">TelemetryFrameState</a> </dd></dl>
+<div class="textblock"><p>Represents the state of the car. </p>
+<p>This structure holds all relevant runtime information about the car's status, timing, pedal input, fault flags, and output torque. It is updated each loop iteration and used throughout the control logic. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">car_status</td><td>Current main state of the car (e.g., INIT, DRIVE, etc.). </td></tr>
+    <tr><td class="paramname">car_status_millis_counter</td><td>Millisecond counter for state transitions. </td></tr>
+    <tr><td class="paramname">millis</td><td>Current time in milliseconds. </td></tr>
+    <tr><td class="paramname">pedal_final</td><td>Final processed pedal value. </td></tr>
+    <tr><td class="paramname">fault_force_stop</td><td>True if a fault has triggered a forced stop. </td></tr>
+    <tr><td class="paramname">torque_out</td><td>Output torque value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00141">141</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00148">148</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a03f8c26d66c4cc6c3060beb47225579f" name="a03f8c26d66c4cc6c3060beb47225579f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03f8c26d66c4cc6c3060beb47225579f">&#9670;&#160;</a></span>adc</h2>
+<a id="afc51a17b6e6303347bf1ad1879b6293c" name="afc51a17b6e6303347bf1ad1879b6293c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc51a17b6e6303347bf1ad1879b6293c">&#9670;&#160;</a></span>car_status_millis_counter</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTelemetryFrameAdc.html">TelemetryFrameAdc</a> CarState::adc</td>
+          <td class="memname">uint32_t CarState::car_status_millis_counter</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Struct holding ADC telemetry data, ready for sending over CAN </p>
+<p>Millisecond counter for the current car status (for state transitions) </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00143">143</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00103">Pedal::canFrame()</a>, <a class="el" href="Pedal_8cpp_source.html#l00179">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00046">Pedal::update()</a>.</p>
-
-</div>
-</div>
-<a id="ab79e483b9567fa335ff3d13f64f9c0b6" name="ab79e483b9567fa335ff3d13f64f9c0b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab79e483b9567fa335ff3d13f64f9c0b6">&#9670;&#160;</a></span>digital</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structTelemetryFrameDigital.html">TelemetryFrameDigital</a> CarState::digital</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Struct holding digital telemetry data, ready for sending over CAN </p>
-
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00144">144</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00179">Pedal::checkPedalFault()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00153">153</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
 </div>
 </div>
@@ -183,52 +172,63 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Current time in milliseconds for the current loop iteration </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00147">147</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00123">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00046">Pedal::update()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00154">154</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
 </div>
 </div>
-<a id="a40f60bdbcb9e45d5fab62792b090a9cf" name="a40f60bdbcb9e45d5fab62792b090a9cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40f60bdbcb9e45d5fab62792b090a9cf">&#9670;&#160;</a></span>state</h2>
+<a id="a17de880ac26bb331b1354f1f341a2cc9" name="a17de880ac26bb331b1354f1f341a2cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17de880ac26bb331b1354f1f341a2cc9">&#9670;&#160;</a></span>telemetry_adc</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTelemetryFrameState.html">TelemetryFrameState</a> CarState::state</td>
+          <td class="memname"><a class="el" href="structTelemetryFrameAdc.html">TelemetryFrameAdc</a> CarState::telemetry_adc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Struct holding ADC telemetry data, ready for sending over CAN </p>
+
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00150">150</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
+
+</div>
+</div>
+<a id="ad60f63010fc7cc0168fd2e354420e637" name="ad60f63010fc7cc0168fd2e354420e637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60f63010fc7cc0168fd2e354420e637">&#9670;&#160;</a></span>telemetry_digital</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTelemetryFrameDigital.html">TelemetryFrameDigital</a> CarState::telemetry_digital</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Struct holding digital telemetry data, ready for sending over CAN </p>
+
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00151">151</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
+
+</div>
+</div>
+<a id="aef71defb1fbbc2579d8d60102f1b1fcd" name="aef71defb1fbbc2579d8d60102f1b1fcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef71defb1fbbc2579d8d60102f1b1fcd">&#9670;&#160;</a></span>telemetry_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTelemetryFrameState.html">TelemetryFrameState</a> CarState::telemetry_state</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Struct holding state telemetry data, ready for sending over CAN </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00145">145</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00103">Pedal::canFrame()</a>, <a class="el" href="Pedal_8cpp_source.html#l00179">Pedal::checkPedalFault()</a>, <a class="el" href="main_8cpp_source.html#l00123">loop()</a>, <a class="el" href="main_8cpp_source.html#l00084">setup()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00046">Pedal::update()</a>.</p>
-
-</div>
-</div>
-<a id="abc863b4689f45ff6e1b21c5ca7918fa8" name="abc863b4689f45ff6e1b21c5ca7918fa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc863b4689f45ff6e1b21c5ca7918fa8">&#9670;&#160;</a></span>status_millis</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t CarState::status_millis</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Millisecond counter for the current car status (for state transitions) </p>
-
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00146">146</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00123">loop()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00152">152</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/<a class="el" href="CarState_8h_source.html">CarState.h</a></li>
+<li>include/<a class="el" href="car__state_8h_source.html">car_state.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

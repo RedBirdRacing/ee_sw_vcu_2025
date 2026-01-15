@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['digital_0',['digital',['../structCarState.html#ab79e483b9567fa335ff3d13f64f9c0b6',1,'CarState']]]
+  ['data_0',['data',['../structminiVector.html#a444df439b0759d1320993a5a72063e22',1,'miniVector']]]
 ];

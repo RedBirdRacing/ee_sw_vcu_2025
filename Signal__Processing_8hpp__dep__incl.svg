@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Pedal_8cpp.html" target="_top" xlink:title="Implementation of the Pedal class for handling throttle pedal inputs.">
+<g id="a_node2"><a xlink:href="Pedal_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="109,-24.5 0,-24.5 0,-5.5 109,-5.5 109,-24.5"/>
 <text text-anchor="middle" x="54.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.cpp</text>
 </a>

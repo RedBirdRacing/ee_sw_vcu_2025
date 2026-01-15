@@ -1,0 +1,8 @@
+<map id="Pedal::brake_torque_mapping" name="Pedal::brake_torque_mapping">
+<area shape="rect" id="node1" title="Maps the brake ADC to a torque value." alt="" coords="5,45,156,85"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="216,21,364,46"/>
+<area shape="rect" id="node4" href="$Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="204,77,376,102"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a9d828bdca10efbda9f4e147a372cbc71" title="Prints a brake fault message to the serial console. This function formats and sends the brake fault s..." alt="" coords="430,5,582,45"/>
+<area shape="rect" id="node5" href="$namespaceDebug__CAN.html#a8e6443068f8aa21ba673ad7bc132e739" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="429,69,583,109"/>
+<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="424,133,588,173"/>
+</map>

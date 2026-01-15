@@ -2,7 +2,7 @@ var classScheduler =
 [
     [ "TaskFn", "classScheduler.html#aca745dad6e59546bce2e22b8d323282b", null ],
     [ "Scheduler", "classScheduler.html#a299319973d96b26de8de719dca8822fd", null ],
-    [ "Scheduler", "classScheduler.html#ab42910240d3cbc572d073c0ed911f808", null ],
+    [ "Scheduler", "classScheduler.html#ac0a41fd3c23e1367156d058bfd8d1f9b", null ],
     [ "addTask", "classScheduler.html#a2dc42aa4301e5b1022e31f4c056c984f", null ],
     [ "cyclesNeeded", "classScheduler.html#a9e44ac674f314b307d08a42456cb6c8a", null ],
     [ "getPeriodUs", "classScheduler.html#a8a3ab307c604b13baa2b03d84be9ad33", null ],
@@ -11,7 +11,7 @@ var classScheduler =
     [ "update", "classScheduler.html#a02be1adb4980fd98aafd357a973c3467", null ],
     [ "cycle_count", "classScheduler.html#abd8e19c5fc655a2069f609d3e3c6a177", null ],
     [ "last_fire_us", "classScheduler.html#a54ea25d2f91d490669b932aaa31bb965", null ],
-    [ "MCPS", "classScheduler.html#a345be549b087ebefb80af68d1f6c3d10", null ],
+    [ "MCPS", "classScheduler.html#aa11715407b751e3ac65528e81c383541", null ],
     [ "PERIOD_US", "classScheduler.html#a66d53642185bd490e5aa5390f0d7f2e9", null ],
     [ "SPIN_US", "classScheduler.html#af0ce9306430ae59a0f5ef1b2a90215db", null ],
     [ "task_cnt", "classScheduler.html#a4092fe5694931af8bef9671aafef0561", null ],

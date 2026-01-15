@@ -1,7 +1,7 @@
 <map id="Debug_Serial::throttle_out" name="Debug_Serial::throttle_out">
-<area shape="rect" id="node1" title="Prints a throttle output message to the serial console. This function formats and sends the throttle ..." alt="" coords="676,5,868,31"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="467,5,628,31"/>
-<area shape="rect" id="node3" href="$classPedal.html#affd04caf8f42a15c8942567b44e1186e" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,5,419,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,5,240,31"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+<area shape="rect" id="node1" title="Prints a throttle output message to the serial console. This function formats and sends the throttle ..." alt="" coords="724,13,916,38"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="515,13,676,38"/>
+<area shape="rect" id="node3" href="$classPedal.html#a2457466d32f6d9f58f8b8ab6c34cd495" title="Updates the CAN frame with the most recent pedal value." alt="" coords="288,5,467,45"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a2668d80d0711f29d4507c48eb984f684" title=" " alt="" coords="112,13,240,38"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,13,64,38"/>
 </map>

@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('structTelemetryFrameState.html',''); i
 <p><a class="el" href="classTelemetry.html">Telemetry</a> frame structure for VCU states.  
  <a href="structTelemetryFrameState.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="CarState_8h_source.html">CarState.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="car__state_8h_source.html">car_state.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for TelemetryFrameState:</div>
 <div class="dyncontent">
@@ -124,8 +124,8 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a571f389a69f7b3fdc0693e12c76080d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTelemetryFrameState.html#a571f389a69f7b3fdc0693e12c76080d3">car_status</a></td></tr>
 <tr class="separator:a571f389a69f7b3fdc0693e12c76080d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77025108f57cf4983712e40f9b842b6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTelemetryFrameState.html#a77025108f57cf4983712e40f9b842b6c">force_stop</a></td></tr>
-<tr class="separator:a77025108f57cf4983712e40f9b842b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a197a9bbda0dff71c4974da456e93c4ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTelemetryFrameState.html#a197a9bbda0dff71c4974da456e93c4ce">fault_force_stop</a></td></tr>
+<tr class="separator:a197a9bbda0dff71c4974da456e93c4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68cf80485fc5e26e1b371973b47a9a78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTelemetryFrameState.html#a68cf80485fc5e26e1b371973b47a9a78">hv_ready</a></td></tr>
 <tr class="separator:a68cf80485fc5e26e1b371973b47a9a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a158f7883174204da5b00effb4003d378"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTelemetryFrameState.html#a158f7883174204da5b00effb4003d378">bms_no_msg</a></td></tr>
@@ -154,7 +154,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classTelemetry.html">Telemetry</a> frame structure for VCU states. </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00080">80</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00080">80</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3c77ae091bd1912d700dbb58b2f1c68e" name="a3c77ae091bd1912d700dbb58b2f1c68e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c77ae091bd1912d700dbb58b2f1c68e">&#9670;&#160;</a></span>toCanFrame()</h2>
@@ -182,9 +182,9 @@ Public Attributes</h2></td></tr>
 <p>Converts the <a class="el" href="structTelemetryFrameState.html" title="Telemetry frame structure for VCU states.">TelemetryFrameState</a> to a CAN frame. </p>
 <dl class="section return"><dt>Returns</dt><dd>CAN frame representing the telemetry car state. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00106">106</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00106">106</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">References <a class="el" href="CarState_8h_source.html#l00100">bms_data</a>, <a class="el" href="CarState_8h_source.html#l00087">bms_no_msg</a>, <a class="el" href="CarState_8h_source.html#l00088">bms_wrong_id</a>, <a class="el" href="CarState_8h_source.html#l00096">brake_high</a>, <a class="el" href="CarState_8h_source.html#l00095">brake_low</a>, <a class="el" href="CarState_8h_source.html#l00084">car_status</a>, <a class="el" href="CarState_8h_source.html#l00091">fault_active</a>, <a class="el" href="CarState_8h_source.html#l00092">fault_exceeded</a>, <a class="el" href="CarState_8h_source.html#l00085">force_stop</a>, <a class="el" href="CarState_8h_source.html#l00086">hv_ready</a>, <a class="el" href="CarState_8h_source.html#l00097">screenshot</a>, <a class="el" href="CarState_8h_source.html#l00098">state_unknown</a>, <a class="el" href="Enums_8h_source.html#l00091">TELEMETRY_STATE_MSG</a>, <a class="el" href="CarState_8h_source.html#l00094">throttle_high</a>, and <a class="el" href="CarState_8h_source.html#l00093">throttle_low</a>.</p>
+<p class="reference">References <a class="el" href="car__state_8h_source.html#l00100">bms_data</a>, <a class="el" href="car__state_8h_source.html#l00087">bms_no_msg</a>, <a class="el" href="car__state_8h_source.html#l00088">bms_wrong_id</a>, <a class="el" href="car__state_8h_source.html#l00096">brake_high</a>, <a class="el" href="car__state_8h_source.html#l00095">brake_low</a>, <a class="el" href="car__state_8h_source.html#l00084">car_status</a>, <a class="el" href="car__state_8h_source.html#l00091">fault_active</a>, <a class="el" href="car__state_8h_source.html#l00092">fault_exceeded</a>, <a class="el" href="car__state_8h_source.html#l00085">fault_force_stop</a>, <a class="el" href="car__state_8h_source.html#l00086">hv_ready</a>, <a class="el" href="car__state_8h_source.html#l00097">screenshot</a>, <a class="el" href="car__state_8h_source.html#l00098">state_unknown</a>, <a class="el" href="Enums_8h_source.html#l00097">TELEMETRY_STATE_MSG</a>, <a class="el" href="car__state_8h_source.html#l00094">throttle_high</a>, and <a class="el" href="car__state_8h_source.html#l00093">throttle_low</a>.</p>
 
 </div>
 </div>
@@ -202,9 +202,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Raw <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> data bytes </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00100">100</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00100">100</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -221,9 +221,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> read no message </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00087">87</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00087">87</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -240,9 +240,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> read wrong ID </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00088">88</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00088">88</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -259,9 +259,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Brake higher than maximum </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00096">96</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00096">96</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -278,9 +278,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Brake lower than minimum </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00095">95</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00095">95</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -297,9 +297,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Current car status </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00084">84</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00084">84</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00103">Pedal::canFrame()</a>, <a class="el" href="main_8cpp_source.html#l00123">loop()</a>, <a class="el" href="main_8cpp_source.html#l00084">setup()</a>, and <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -314,11 +314,11 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> faulty now </p>
+<p><a class="el" href="classPedal.html">Pedal</a> faulty now </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00091">91</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00091">91</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00179">Pedal::checkPedalFault()</a>, and <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -333,30 +333,30 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Current pedal fault exceeded allowed time </p>
+<p><a class="el" href="classPedal.html">Pedal</a> fault exceeded allowed time </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00092">92</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00092">92</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00046">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
-<a id="a77025108f57cf4983712e40f9b842b6c" name="a77025108f57cf4983712e40f9b842b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77025108f57cf4983712e40f9b842b6c">&#9670;&#160;</a></span>force_stop</h2>
+<a id="a197a9bbda0dff71c4974da456e93c4ce" name="a197a9bbda0dff71c4974da456e93c4ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a197a9bbda0dff71c4974da456e93c4ce">&#9670;&#160;</a></span>fault_force_stop</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool TelemetryFrameState::force_stop</td>
+          <td class="memname">bool TelemetryFrameState::fault_force_stop</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Fault forced car to stop </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00085">85</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00085">85</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00103">Pedal::canFrame()</a>, <a class="el" href="main_8cpp_source.html#l00123">loop()</a>, <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00046">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -373,9 +373,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>High voltage ready </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00086">86</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00086">86</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -392,9 +392,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Screenshot, throttle + brake &gt; threshold </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00097">97</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00097">97</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -409,11 +409,11 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">CarState</a> unknown, consider as bit-flip </p>
+<p><a class="el" href="structCarState.html" title="Represents the state of the car.">CarState</a> unknown, consider as bit-flip </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00098">98</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00098">98</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -430,9 +430,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Throttle higher than maximum </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00094">94</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00094">94</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -449,14 +449,14 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Throttle lower than minimum </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8h_source.html#l00093">93</a> of file <a class="el" href="CarState_8h_source.html">CarState.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="car__state_8h_source.html#l00093">93</a> of file <a class="el" href="car__state_8h_source.html">car_state.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8h_source.html#l00106">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car__state_8h_source.html#l00106">toCanFrame()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/<a class="el" href="CarState_8h_source.html">CarState.h</a></li>
+<li>include/<a class="el" href="car__state_8h_source.html">car_state.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

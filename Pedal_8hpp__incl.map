@@ -1,10 +1,9 @@
 <map id="lib/Pedal/Pedal.hpp" name="lib/Pedal/Pedal.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="119,5,266,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="268,225,339,251"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,152,163,177"/>
-<area shape="rect" id="node4" href="$Queue_8hpp.html" title=" " alt="" coords="21,79,113,104"/>
-<area shape="rect" id="node5" href="$CarState_8h.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="189,79,279,104"/>
-<area shape="rect" id="node7" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="341,152,429,177"/>
-<area shape="rect" id="node8" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="355,79,449,104"/>
-<area shape="rect" id="node6" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="187,152,265,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="147,5,294,31"/>
+<area shape="rect" id="node2" title=" " alt="" coords="83,152,153,177"/>
+<area shape="rect" id="node3" href="$Queue_8hpp.html" title=" " alt="" coords="5,79,97,104"/>
+<area shape="rect" id="node4" title=" " alt="" coords="280,152,337,177"/>
+<area shape="rect" id="node5" href="$car__state_8h.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="173,79,268,104"/>
+<area shape="rect" id="node7" title=" " alt="" coords="344,79,428,104"/>
+<area shape="rect" id="node6" href="$Enums_8h.html" title=" " alt="" coords="177,152,256,177"/>
 </map>

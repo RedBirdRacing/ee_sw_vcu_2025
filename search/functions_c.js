@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scheduler_0',['Scheduler',['../classScheduler.html#a299319973d96b26de8de719dca8822fd',1,'Scheduler::Scheduler()=delete'],['../classScheduler.html#ab42910240d3cbc572d073c0ed911f808',1,'Scheduler::Scheduler(uint32_t period_us_, uint32_t spin_threshold_us_, MCP2515(&amp;mcps_)[NUM_MCP2515])']]],
+  ['scheduler_0',['Scheduler',['../classScheduler.html#a299319973d96b26de8de719dca8822fd',1,'Scheduler::Scheduler()=delete'],['../classScheduler.html#ac0a41fd3c23e1367156d058bfd8d1f9b',1,'Scheduler::Scheduler(uint32_t period_us_, uint32_t spin_threshold_us_, MCP2515 *const *const mcps_)']]],
   ['scheduler_5fadc_1',['scheduler_adc',['../classTelemetry.html#acde5e679d96cc20da55b442ddddabf58',1,'Telemetry']]],
   ['scheduler_5fbms_2',['scheduler_bms',['../main_8cpp.html#a1ea17ca2552291c88af3e9ec6804264b',1,'main.cpp']]],
   ['scheduler_5fdigital_3',['scheduler_digital',['../classTelemetry.html#a7c6430fa1d24bd9ac8a1e0d95f99fd14',1,'Telemetry']]],
