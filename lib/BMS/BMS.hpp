@@ -49,8 +49,8 @@ public:
      * @brief Returns true if HV has been started
      * @return true if HV started, false otherwise
      */
-    bool hv_ready() { return hv_started; };
-    void check_hv(MCP2515 *mcp2515_BMS);
+    bool hvReady() { return hv_started; };
+    void checkHv(MCP2515 *mcp2515_BMS);
 
 private:
     /** Local storage for received BMS CAN frame */

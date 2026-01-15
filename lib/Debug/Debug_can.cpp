@@ -127,6 +127,29 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
 }
 
 /**
+ * @brief Sends a debug brake fault message over CAN with a float value.
+ * 
+ * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
+ * @param value uint16_t value of reading
+ */
+void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
+{
+    if (!can_interface)
+        return;
+
+    can_frame tx_msg;
+    tx_msg.can_id = THROTTLE_FAULT_MSG;
+    tx_msg.can_dlc = 3;
+
+    tx_msg.data[0] = static_cast<uint8_t>(fault_status); // Convert enum to uint8_t
+
+    tx_msg.data[1] = value & 0xFF;
+    tx_msg.data[2] = (value >> 8) & 0xFF; // Upper byte
+
+    can_interface->sendMessage(&tx_msg);
+}
+
+/**
  * @brief Sends a debug car status message over CAN.
  * 
  * @param car_status The current status of the car as defined in main_car_status enum.

@@ -1,23 +1,22 @@
-#ifndef BOARDCONF_H
-#define BOARDCONF_H
-
 /**
- * Board configuration for the VCU (Vehicle Control Unit)
- *
+ * @file BoardConf.h
+ * @brief Board configuration for the VCU (Vehicle Control Unit)
  * This file defines the board configuration and pin mappings for different versions of the VCU and for Arduino Uno.
  * Define the appropriate macro to select the desired board configuration.
- * This file makes it easy to switch between boards.
- * For instance, MCP2515 crystal frequency, button active high/low, etc.
  *
- * Options:
- * - USE_ARDUINO_PINS: Use Arduino Uno pin numbers
- * - USE_VCU_V2: Use VCU V2 pin numbers
- * - USE_VCU_V3: Use VCU V3 pin numbers
- * - USE_3CH_CAN: Use 3 channel CAN dev board pin numbers
+ * @par Options
+ * - @c USE_ARDUINO_PINS: Use Arduino Uno pin numbers
+ * - @c USE_VCU_V2: Use VCU V2 pin numbers
+ * - @c USE_VCU_V3: Use VCU V3 pin numbers
+ * - @c USE_3CH_CAN: Use 3 channel CAN dev board pin numbers
+ * - @c USE_VCU_V3_2: Use VCU V3.2 pin numbers
  * - Undefined: no pins defined, intentional compilation error
  *
- * Note: Only one option should be uncommented at a time.
+ * @note Only one option should be uncommented at a time.
  */
+
+#ifndef BOARDCONF_H
+#define BOARDCONF_H
 
 // select the board configuration to use
 #define USE_3CH_CAN

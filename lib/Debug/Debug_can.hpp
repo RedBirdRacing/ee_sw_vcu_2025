@@ -31,6 +31,7 @@ namespace Debug_CAN
     void throttle_out(uint16_t throttle_final, int16_t throttle_torque_val);
     void throttle_fault(pedal_fault_status fault_status, uint16_t value);
     void throttle_fault(pedal_fault_status fault_status);
+    void brake_fault(pedal_fault_status fault_status, uint16_t value);
     void status_car(main_car_status car_status);
     void status_brake(uint16_t brake_voltage);
     void status_bms(BMS_status BMS_status);

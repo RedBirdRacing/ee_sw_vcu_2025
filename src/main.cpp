@@ -1,10 +1,11 @@
 #include <Arduino.h>
-#include "boardConf.h"
+#include "BoardConf.h"
 #include "Pedal.hpp"
 #include "BMS.hpp"
 #include "Enums.h"
-#include "car_state.h"
+#include "CarState.h"
 #include "Scheduler.hpp"
+#include "Curves.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -33,7 +34,7 @@ MCP2515 mcp2515_DL(CS_CAN_DL);       // datalogger CAN
 #define mcp2515_motor mcp2515_DL
 
 constexpr uint8_t NUM_MCP = 3;
-MCP2515 *MCPS[NUM_MCP] = {&mcp2515_motor, &mcp2515_BMS, &mcp2515_DL};
+MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
 
 struct can_frame tx_throttle_msg;
 
@@ -47,39 +48,27 @@ bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
 /**
  * @brief Global car state structure.
- *
- * Holds the current state of the car, including status, timers, pedal input, fault flags, and output torque.
- *
- * @param car_status                Current main state of the car (e.g., INIT, DRIVE, etc.).
- * @param car_status_millis_counter Millisecond counter for state transitions.
- * @param millis                    Current time in milliseconds.
- * @param pedal_final               Final processed pedal value.
- * @param fault_force_stop          True if a fault has triggered a forced stop.
- * @param torque_out                Output torque value.
+ * @see CarState
  */
-struct car_state main_car_state = {
-    INIT,  // car_status
-    0,     // car_status_millis_counter
-    0,     // millis
-    0,     // pedal_final
-    0,     // brake
-    false, // fault_force_stop
-    0      // torque_out
+struct CarState car = {
+    {}, // TelemetryFrameAdc
+    {}, // TelemetryFrameDigital
+    {}, // TelemetryFrameState
+    0,  // millis
+    0   // status_millis
 };
 
 // Global objects
-Pedal pedal;
+Pedal pedal(car);
 BMS bms;
 
 void scheduler_pedal(MCP2515 *mcp2515_)
 {
-    static can_frame tx_msg;
-    pedal.pedal_can_frame_update(&tx_msg, &main_car_state);
-    mcp2515_->sendMessage(&tx_msg);
+    mcp2515_->sendMessage(pedal.canFrame());
 }
 void scheduler_bms(MCP2515 *mcp2515_)
 {
-    bms.check_hv(mcp2515_);
+    bms.checkHv(mcp2515_);
 }
 
 Scheduler<2, NUM_MCP> scheduler(
@@ -101,9 +90,9 @@ void setup()
 
     for (int i = 0; i < NUM_MCP; i++)
     {
-        MCPS[i]->reset();
-        MCPS[i]->setBitrate(CAN_RATE, MCP2515_CRYSTAL_FREQ);
-        MCPS[i]->setNormalMode();
+        MCPS[i].reset();
+        MCPS[i].setBitrate(CAN_RATE, MCP2515_CRYSTAL_FREQ);
+        MCPS[i].setNormalMode();
     }
 
     // init GPIO pins (MCP2515 CS pins initialized in constructor))
@@ -122,9 +111,7 @@ void setup()
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    DBG_STATUS_CAR(main_car_state.car_status);
-    pedal = Pedal();
-    bms = BMS();
+    DBG_STATUS_CAR(car.state.car_status);
     scheduler.addTask(MCP_MOTOR, scheduler_pedal, 1);
     DBGLN_GENERAL("Setup complete, entering main loop");
 }
@@ -136,23 +123,23 @@ void setup()
 void loop()
 {
     // DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
-    main_car_state.millis = millis();
-    pedal.pedal_update(&main_car_state, analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
+    car.millis = millis();
+    pedal.update(analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     scheduler.update(*micros);
 
-    if (main_car_state.fault_force_stop)
+    if (car.state.force_stop)
     {
-        main_car_state.car_status = INIT; // safety, later change to fault status
-        digitalWrite(BUZZER, LOW);        // Turn off buzzer
-        digitalWrite(FRG, LOW);           // Turn off drive mode LED
-        return;                           // If fault force stop is active, do not proceed with the rest of the loop
+        car.state.car_status = INIT; // safety, later change to fault status
+        digitalWrite(BUZZER, LOW);   // Turn off buzzer
+        digitalWrite(FRG, LOW);      // Turn off drive mode LED
+        return;                      // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
 
-    switch (main_car_state.car_status)
+    switch (car.state.car_status)
     {
     case DRIVE:
         // Pedal update
@@ -166,45 +153,43 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) == BUTTON_ACTIVE && brake_pressed)
         {
-            main_car_state.car_status = STARTIN;
-            main_car_state.car_status_millis_counter = main_car_state.millis;
+            car.state.car_status = STARTIN;
+            car.status_millis = car.millis;
 
             scheduler.addTask(MCP_BMS, scheduler_bms, 5); // check for HV ready in STARTIN
 
-            DBG_STATUS_CAR(main_car_state.car_status);
+            DBG_STATUS_CAR(car.state.car_status);
         }
         break;
 
     case STARTIN:
-        pedal.pedal_can_frame_stop_motor(&tx_throttle_msg);
         DBGLN_THROTTLE("Stopping motor: STARTIN.");
-        mcp2515_motor.sendMessage(&tx_throttle_msg);
 
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
-            main_car_state.car_status = INIT;
-            main_car_state.car_status_millis_counter = main_car_state.millis; // safety
-            scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready since return to INIT
+            car.state.car_status = INIT;
+            car.status_millis = car.millis;               // safety
+            scheduler.removeTask(MCP_BMS, scheduler_bms); // stop checking BMS HV ready since return to INIT
 
-            DBG_STATUS_CAR(main_car_state.car_status);
+            DBG_STATUS_CAR(car.state.car_status);
         }
-        else if (main_car_state.millis - main_car_state.car_status_millis_counter >= STARTING_MILLIS)
+        else if (car.millis - car.status_millis >= STARTING_MILLIS)
         {
-            scheduler.remove_task(MCP_BMS, scheduler_bms); // stop checking BMS HV ready, either started or return to INIT
-            if (bms.hv_ready()) // if HV not started, return to INIT
+            scheduler.removeTask(MCP_BMS, scheduler_bms); // stop checking BMS HV ready, either started or return to INIT
+            if (bms.hvReady())                            // if HV not started, return to INIT
             {
-                main_car_state.car_status = INIT;
-                main_car_state.car_status_millis_counter = main_car_state.millis; // safety
+                car.state.car_status = INIT;
+                car.status_millis = car.millis; // safety
 
-                DBG_STATUS_CAR(main_car_state.car_status);
+                DBG_STATUS_CAR(car.state.car_status);
                 break;
             }
-            if (main_car_state.millis - main_car_state.car_status_millis_counter >= BMS_MILLIS)
+            if (car.millis - car.status_millis >= BMS_MILLIS)
             {
-                main_car_state.car_status = BUSSIN;
-                main_car_state.car_status_millis_counter = main_car_state.millis; // safety
+                car.state.car_status = BUSSIN;
+                car.status_millis = car.millis; // safety
 
-                DBG_STATUS_CAR(main_car_state.car_status);
+                DBG_STATUS_CAR(car.state.car_status);
                 break;
             }
         }
@@ -213,31 +198,30 @@ void loop()
     case BUSSIN:
         digitalWrite(BUZZER, HIGH); // Turn on buzzer
 
-        if (main_car_state.millis - main_car_state.car_status_millis_counter >= BUSSIN_MILLIS)
+        if (car.millis - car.status_millis >= BUSSIN_MILLIS)
         {
             digitalWrite(BUZZER, LOW);
             digitalWrite(FRG, HIGH);
-            main_car_state.car_status = DRIVE;
-
-            DBG_STATUS_CAR(main_car_state.car_status);
+            car.state.car_status = DRIVE;
+            DBG_STATUS_CAR(car.state.car_status);
         }
         break;
 
     default:
         // unreachable, reset to INIT
-        DBG_STATUS_CAR(main_car_state.car_status);
-        main_car_state.car_status = INIT;
-        main_car_state.car_status_millis_counter = main_car_state.millis;
-        DBG_STATUS_CAR(main_car_state.car_status);
+        DBG_STATUS_CAR(car.state.car_status);
+        car.state.car_status = INIT;
+        car.status_millis = car.millis;
+        DBG_STATUS_CAR(car.state.car_status);
         break;
     }
 
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
-    if (main_car_state.pedal_final > PEDAL_1_LU)
+    if (pedal.pedal_final > apps_min) // if pedal pressed while not in DRIVE, reset to INIT
     {
-        main_car_state.car_status = INIT;
-        main_car_state.car_status_millis_counter = main_car_state.millis; // Set to current time, in case any counter relies on this
+        car.state.car_status = INIT;
+        car.status_millis = car.millis; // Set to current time, in case any counter relies on this
 
-        DBG_STATUS_CAR(main_car_state.car_status);
+        DBG_STATUS_CAR(car.state.car_status);
     }
 }

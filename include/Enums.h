@@ -1,19 +1,13 @@
+/**
+ * @file Enums.h
+ * @author Planeson, Red Bird Racing
+ * @brief Enumeration definitions for the VCU
+ * @version 1.2
+ * @date 2026-01-15
+ */
+
 #ifndef ENUMS_H
 #define ENUMS_H
-
-/* === Car Status State Machine ===
-Meaning of different car statuses
-INIT (0):  Just started the car
-STARTIN (1):  1st Transition state -- Driver holds the "Start" button and is on full brakes, lasts for STATUS_1_TIME_MILLIS milliseconds
-BUSSIN (2):  2nd Transition state -- Buzzer bussin, driver can release "Start" button and brakes
-DRIVE (3):  Ready to drive -- Motor starts responding according to the driver pedal input. "Drive mode" LED lights up, indicating driver can press the throttle
-
-Separately, the following will be done outside the status checking part:
-1.  Before the "Drive mode" LED lights up, if the throttle pedal is pressed (Throttle input is not equal to 0), the car_status will return to 0
-2.  Before the "Drive mode" LED lights up, the canbus will keep sending "0 torque" messages to the motor
-
-Also, during status 0, 1, and 2, the VCU will keep sending "0 torque" messages to the motor via CAN
-*/
 
 /**
  * @brief Main car status state machine.

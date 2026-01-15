@@ -37,7 +37,7 @@ BMS::BMS()
  *
  * @param mcp2515_ Pointer to the MCP2515 CAN controller instance.
  */
-void BMS::check_hv(MCP2515 *mcp2515_)
+void BMS::checkHv(MCP2515 *mcp2515_)
 {
     if (hv_started)
         return; // already started

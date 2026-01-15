@@ -1,3 +1,12 @@
+/**
+ * @file Debug.hpp
+ * @author Planeson, Red Bird Racing
+ * @brief Debugging macros and functions for serial and CAN output
+ * @version 1.1
+ * @date 2026-01-15
+ * @see Debug_serial, Debug_can
+ */
+
 #ifndef DEBUG_HPP
 #define DEBUG_HPP
 
@@ -5,8 +14,8 @@
 
 // === Debug Flags ===
 #define DEBUG true                  // if false, all debug messages are ignored
-#define DEBUG_SERIAL false && DEBUG // if false, all serial debug messages are ignored
-#define DEBUG_CAN false && DEBUG    // if false, all CAN debug messages are ignored
+#define DEBUG_SERIAL true && DEBUG // if false, all serial debug messages are ignored
+#define DEBUG_CAN true && DEBUG    // if false, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
 #include <Debug_serial.hpp>

@@ -1,5 +1,5 @@
 /**
- * @file car_state.h
+ * @file CarState.h
  * @author Planeson, Red Bird Racing
  * @brief Definition of the CarState structure representing the state of the car
  * @version 1.1
@@ -82,14 +82,14 @@ struct TelemetryFrameState
     // first byte
 
     main_car_status car_status; /**< Current car status */
-    bool fault_force_stop;      /**< Fault forced car to stop */
+    bool force_stop;      /**< Fault forced car to stop */
     bool hv_ready;              /**< High voltage ready */
     bool bms_no_msg;            /**< BMS read no message */
     bool bms_wrong_id;          /**< BMS read wrong ID */
 
     // second byte
     bool fault_active;   /**< Pedal faulty now */
-    bool fault_exceeded; /**< Pedal fault exceeded allowed time */
+    bool fault_exceeded; /**< Current pedal fault exceeded allowed time */
     bool throttle_low;   /**< Throttle lower than minimum */
     bool throttle_high;  /**< Throttle higher than maximum */
     bool brake_low;      /**< Brake lower than minimum */
@@ -110,7 +110,7 @@ struct TelemetryFrameState
             8,                   // can_dlc
             static_cast<__u8>(
                 (static_cast<uint8_t>(car_status) & 0x0F) |
-                (fault_force_stop ? 0x10 : 0x00) |
+                (force_stop ? 0x10 : 0x00) |
                 (hv_ready ? 0x20 : 0x00) |
                 (bms_no_msg ? 0x40 : 0x00) |
                 (bms_wrong_id ? 0x80 : 0x00)), // data
@@ -134,23 +134,16 @@ struct TelemetryFrameState
 
 /**
  * @brief Represents the state of the car.
+ * Holds telemetry data and status, used as central data sharing structure.
  *
- * This structure holds all relevant runtime information about the car's status,
- * timing, pedal input, fault flags, and output torque. It is updated each loop
- * iteration and used throughout the control logic.
- * @param car_status                Current main state of the car (e.g., INIT, DRIVE, etc.).
- * @param car_status_millis_counter Millisecond counter for state transitions.
- * @param millis                    Current time in milliseconds.
- * @param pedal_final               Final processed pedal value.
- * @param fault_force_stop          True if a fault has triggered a forced stop.
- * @param torque_out                Output torque value.
+ * @see TelemetryFrameAdc, TelemetryFrameDigital, TelemetryFrameState
  */
 struct CarState
 {
-    TelemetryFrameAdc telemetry_adc;         /**< Struct holding ADC telemetry data, ready for sending over CAN */
-    TelemetryFrameDigital telemetry_digital; /**< Struct holding digital telemetry data, ready for sending over CAN */
-    TelemetryFrameState telemetry_state;     /**< Struct holding state telemetry data, ready for sending over CAN */
-    uint32_t car_status_millis_counter;      /**< Millisecond counter for the current car status (for state transitions) */
-    uint32_t millis;                         /**< Current time in milliseconds for the current loop iteration */
+    TelemetryFrameAdc adc;         /**< Struct holding ADC telemetry data, ready for sending over CAN */
+    TelemetryFrameDigital digital; /**< Struct holding digital telemetry data, ready for sending over CAN */
+    TelemetryFrameState state;     /**< Struct holding state telemetry data, ready for sending over CAN */
+    uint32_t status_millis;        /**< Millisecond counter for the current car status (for state transitions) */
+    uint32_t millis;               /**< Current time in milliseconds for the current loop iteration */
 };
 #endif // CAR_STATE_H

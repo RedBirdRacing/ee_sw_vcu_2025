@@ -31,15 +31,15 @@ using TaskFn = void (*)(MCP2515 *);
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,
                                              uint32_t spin_threshold_us_,
-                                             MCP2515 *const *const mcps_)
+                                             MCP2515 (&mcps_)[NUM_MCP2515])
     : tasks{nullptr},
       task_ticks{0},
+      task_counters{0}, // run on first tick
+      task_cnt{0},
       PERIOD_US(period_us_),
       SPIN_US(spin_threshold_us_),
       last_fire_us(0),
-      task_counters{0}, // run on first tick
-      MCPS{mcps_},
-      task_cnt{0}
+      MCPS{mcps_}
 {
 }
 
@@ -59,7 +59,7 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_tim
     uint32_t delta = current_time_us() - last_fire_us;
     if (delta >= PERIOD_US)
     {
-        run_tasks();
+        runTasks();
         if (delta >= 2 * PERIOD_US)
             // we missed more than one period, override last_fire_us to avoid bursts
             last_fire_us = current_time_us();
@@ -75,7 +75,7 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_tim
         while ((uint32_t)(current_time_us() - last_fire_us) < PERIOD_US)
             ;
         // now it's time, run the tasks
-        run_tasks();
+        runTasks();
         last_fire_us += PERIOD_US;
     }
     return;
@@ -160,9 +160,6 @@ inline void Scheduler<NUM_TASKS, NUM_MCP2515>::runTasks()
     {
         for (uint8_t mcp_index = 0; mcp_index < NUM_MCP2515; ++mcp_index)
         {
-            if (MCPS[mcp_index] == nullptr)
-                continue; // invalid MCP2515 pointer
-
             if (task_counters[mcp_index][task_index] == 0)
                 continue; // task slot empty
 
@@ -172,7 +169,7 @@ inline void Scheduler<NUM_TASKS, NUM_MCP2515>::runTasks()
                     continue; // no task to run
 
                 // call member function on the MCPS instance
-                (*tasks[mcp_index][task_index])(MCPS[mcp_index]);
+                (tasks[mcp_index][task_index])(MCPS[mcp_index]);
 
                 // reset counter
                 task_counters[mcp_index][task_index] = task_ticks[mcp_index][task_index];
