@@ -1,6 +1,6 @@
 // A library containing simple DSP functions, for ADC filtering, buffer comparisons and more
-#ifndef SIGNAL_PROCESSING_H
-#define SIGNAL_PROCESSING_H
+#ifndef SIGNAL_PROCESSING_HPP
+#define SIGNAL_PROCESSING_HPP
 
 #include <stdint.h>
 
@@ -13,4 +13,6 @@ constexpr T average(T val1, T val2);
 template <typename T>
 constexpr T AVG_filter(T *buffer, uint8_t buf_size);
 
-#endif
+#include "Signal_Processing.tpp" // implementation
+
+#endif // SIGNAL_PROCESSING_HPP

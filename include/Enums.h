@@ -53,12 +53,12 @@ enum pedal_fault_status
  */
 enum BMS_status
 {
-    NO_MSG = 0,     /**< No message received from BMS */
-    WRONG_ID = 1,   /**< Received message with wrong CAN ID */
-    WAITING = 2,    /**< BMS is in standby, waiting to start HV */
-    STARTING = 3,   /**< BMS is starting high voltage */
-    STARTED = 4,    /**< BMS has started high voltage */
-    UNUSED = 5      /**< Unused status code */
+    NO_MSG = 0,   /**< No message received from BMS */
+    WRONG_ID = 1, /**< Received message with wrong CAN ID */
+    WAITING = 2,  /**< BMS is in standby, waiting to start HV */
+    STARTING = 3, /**< BMS is starting high voltage */
+    STARTED = 4,  /**< BMS has started high voltage */
+    UNUSED = 5    /**< Unused status code */
 };
 
 // CAN IDs
@@ -88,6 +88,13 @@ enum status_can_id
     STATUS_BRAKE_MSG = 0x695,      /**< Debug: brake status message */
     STATUS_BMS_MSG = 0x696,        /**< Debug: BMS status message */
     STATUS_HALL_SENSOR_MSG = 0x697 /**< Debug: Hall sensor message */
+};
+
+enum telemetry_can_id
+{
+    TELEMETRY_ADC_MSG = 0x700,     /**< Telemetry: ADC readings message */
+    TELEMETRY_DIGITAL_MSG = 0x701, /**< Telemetry: Digital signals message */
+    TELEMETRY_STATE_MSG = 0x702    /**< Telemetry: Car state message */
 };
 
 /**

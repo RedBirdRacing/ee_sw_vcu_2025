@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "boardConf.h"
-#include "Pedal.h"
-#include "BMS.h"
+#include "Pedal.hpp"
+#include "BMS.hpp"
 #include "Enums.h"
 #include "car_state.h"
 #include "Scheduler.hpp"
@@ -15,7 +15,7 @@
 // ignore -Wunused-parameter warnings for Debug.h
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-#include "Debug.h"
+#include "Debug.hpp"
 #pragma GCC diagnostic pop
 
 // === Pin setup ===
@@ -125,7 +125,7 @@ void setup()
     DBG_STATUS_CAR(main_car_state.car_status);
     pedal = Pedal();
     bms = BMS();
-    scheduler.add_task(MCP_MOTOR, scheduler_pedal, 1);
+    scheduler.addTask(MCP_MOTOR, scheduler_pedal, 1);
     DBGLN_GENERAL("Setup complete, entering main loop");
 }
 
@@ -169,7 +169,7 @@ void loop()
             main_car_state.car_status = STARTIN;
             main_car_state.car_status_millis_counter = main_car_state.millis;
 
-            scheduler.add_task(MCP_BMS, scheduler_bms, 5); // check for HV ready in STARTIN
+            scheduler.addTask(MCP_BMS, scheduler_bms, 5); // check for HV ready in STARTIN
 
             DBG_STATUS_CAR(main_car_state.car_status);
         }
@@ -224,6 +224,10 @@ void loop()
         break;
 
     default:
+        // unreachable, reset to INIT
+        DBG_STATUS_CAR(main_car_state.car_status);
+        main_car_state.car_status = INIT;
+        main_car_state.car_status_millis_counter = main_car_state.millis;
         DBG_STATUS_CAR(main_car_state.car_status);
         break;
     }

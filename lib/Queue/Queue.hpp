@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef QUEUE_HPP
+#define QUEUE_HPP
 
 #include <stdint.h>
 // using uint8_t for size
@@ -48,4 +48,4 @@ public:
     uint8_t count;
 };
 
-#endif // QUEUE_H
+#endif // QUEUE_HPP

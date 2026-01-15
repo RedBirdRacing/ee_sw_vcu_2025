@@ -7,13 +7,13 @@
  * @see BMS.h
  */
 
-#include "BMS.h"
+#include "BMS.hpp"
 #include <Arduino.h> // wait()
 
 // ignore -Wunused-parameter warnings for Debug.h
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-#include "Debug.h" // DBGLN_GENERAL
+#include "Debug.hpp" // DBGLN_GENERAL
 #pragma GCC diagnostic pop
 
 // ignore -Wpedantic warnings for mcp2515.h
@@ -30,7 +30,7 @@ BMS::BMS()
 }
 
 /**
- * @brief Attempt to start HV.
+ * @brief Attempts to start HV.
  * First check BMS is in standby(3) state, then send the HV start command.
  * Keep sending the command until the BMS state changes to precharge(4).
  * Returns when BMS state changes to run(5).

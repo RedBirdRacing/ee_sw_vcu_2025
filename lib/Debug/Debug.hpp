@@ -1,19 +1,19 @@
-#ifndef DEBUG_H
-#define DEBUG_H
+#ifndef DEBUG_HPP
+#define DEBUG_HPP
 
 #include "Enums.h"
 
 // === Debug Flags ===
 #define DEBUG true                  // if false, all debug messages are ignored
 #define DEBUG_SERIAL false && DEBUG // if false, all serial debug messages are ignored
-#define DEBUG_CAN false && DEBUG     // if false, all CAN debug messages are ignored
+#define DEBUG_CAN false && DEBUG    // if false, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
-#include <Debug_serial.h>
+#include <Debug_serial.hpp>
 #endif
 
 #if DEBUG_CAN
-#include <Debug_can.h>
+#include <Debug_can.hpp>
 #endif
 
 #define DEBUG_THROTTLE true && DEBUG
@@ -34,6 +34,7 @@
 /**
  * @brief Prints a throttle debug message to the serial console.
  * @param x The message to print.
+ * @note Serial exclusive
  */
 inline void DBG_THROTTLE(const char *x)
 {
@@ -45,6 +46,7 @@ inline void DBG_THROTTLE(const char *x)
 /**
  * @brief Prints a line to the serial console for throttle debug.
  * @param x The message to print.
+ * @note Serial exclusive
  */
 inline void DBGLN_THROTTLE(const char *x)
 {
@@ -56,6 +58,7 @@ inline void DBGLN_THROTTLE(const char *x)
 /**
  * @brief Prints a general debug message to the serial console.
  * @param x The message to print.
+ * @note Serial exclusive
  */
 inline void DBG_GENERAL(const char *x)
 {
@@ -67,6 +70,7 @@ inline void DBG_GENERAL(const char *x)
 /**
  * @brief Prints a line to the serial console for general debug.
  * @param x The message to print.
+ * @note Serial exclusive
  */
 inline void DBGLN_GENERAL(const char *x)
 {
@@ -78,6 +82,7 @@ inline void DBGLN_GENERAL(const char *x)
 /**
  * @brief Prints a status message to the serial console.
  * @param x The message to print.
+ * @note Serial exclusive
  */
 inline void DBG_STATUS(const char *x)
 {
@@ -89,6 +94,7 @@ inline void DBG_STATUS(const char *x)
 /**
  * @brief Prints a line to the serial console for status debug.
  * @param x The message to print.
+ * @note Serial exclusive
  */
 inline void DBGLN_STATUS(const char *x)
 {
@@ -231,4 +237,4 @@ inline void DBG_HALL_SENSOR(uint16_t hall_sensor_value)
 #endif
 }
 
-#endif // DEBUG_H
+#endif // DEBUG_HPP

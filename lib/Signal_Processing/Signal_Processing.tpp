@@ -1,4 +1,4 @@
-#include "Signal_Processing.h"
+#include "Signal_Processing.hpp"
 
 /**
  * @brief Applies a Finite Impulse Response (FIR) filter on the signal buffer.

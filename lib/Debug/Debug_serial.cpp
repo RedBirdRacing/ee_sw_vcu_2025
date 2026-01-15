@@ -1,10 +1,19 @@
-#include "Debug_serial.h"
+/**
+ * @file Debug_serial.cpp
+ * @author Planeson, Red Bird Racing
+ * @brief Implementation of the Debug_Serial namespace for serial debugging functions
+ * @version 1.1
+ * @date 2026-01-14
+ * @see Debug_serial.h
+ */
+
+#include "Debug_serial.hpp"
 #include "Enums.h"
 
 /**
  * @brief Initializes the Debug_Serial interface.
- * This function sets up the serial communication for debugging purposes.
  * It should be called before using any other Debug_Serial functions.
+ * 
  */
 void Debug_Serial::initialize()
 {
@@ -12,18 +21,18 @@ void Debug_Serial::initialize()
 }
 
 /**
- * @brief Prints a message to the serial console.
- * This function sends a string message to the serial console for debugging.
+ * @brief Prints a string to the serial console.
  * 
  * @param msg The message to print.
+ * @note Serial exclusive
  */
 void Debug_Serial::print(const char *msg) { Serial.print(msg); }
 
 /**
- * @brief Prints a line to the serial console.
- * This function sends a string message followed by a newline to the serial console for debugging.
+ * @brief Prints a string AND a newline to the serial console.
  * 
  * @param msg The message to print.
+ * @note Serial exclusive
  */
 void Debug_Serial::println(const char *msg) { Serial.println(msg); }
 
@@ -34,7 +43,7 @@ void Debug_Serial::println(const char *msg) { Serial.println(msg); }
  * @param pedal_1 Value from pedal sensor 1.
  * @param pedal_2 Value from pedal sensor 2.
  * @param pedal_2_scaled Scaled value of pedal sensor 2.
- * @param brake Brake value.
+ * @param brake Brake pedal value.
  */
 void Debug_Serial::throttle_in(uint16_t pedal_1, uint16_t pedal_2, uint16_t pedal_2_scaled, uint16_t brake)
 {
@@ -68,7 +77,7 @@ void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque
  * This function formats and sends the throttle fault status and value to the serial console.
  * 
  * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
- * @param value Optional value associated with the fault
+ * @param value Optional uint16_t value associated with the fault
  */
 void Debug_Serial::throttle_fault(pedal_fault_status fault_status, uint16_t value)
 {

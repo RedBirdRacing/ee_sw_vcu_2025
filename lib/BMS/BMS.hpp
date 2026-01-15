@@ -1,5 +1,5 @@
 /**
- * @file BMS.h
+ * @file BMS.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
  * @version 1.1
@@ -7,8 +7,8 @@
  * @see BMS.cpp
  */
 
-#ifndef BMS_H
-#define BMS_H
+#ifndef BMS_HPP
+#define BMS_HPP
 
 #include "Scheduler.hpp"
 
@@ -45,15 +45,20 @@ class BMS
 {
 public:
     BMS();
+    /**
+     * @brief Returns true if HV has been started
+     * @return true if HV started, false otherwise
+     */
     bool hv_ready() { return hv_started; };
     void check_hv(MCP2515 *mcp2515_BMS);
 
 private:
-    can_frame rx_bms_msg = { /**< Local storage for received BMS CAN frame */
+    /** Local storage for received BMS CAN frame */
+    can_frame rx_bms_msg = {
         0,   /**< can_id */
         0,   /**< can_dlc */
         {0}, /**< data */
     };
     bool hv_started = false; /**< True if HV has been started, for state machine */
 };
-#endif // BMS_H
+#endif // BMS_HPP

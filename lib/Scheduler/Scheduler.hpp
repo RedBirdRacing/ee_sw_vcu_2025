@@ -38,8 +38,8 @@ public:
     // no need destructor, since no dynamic memory allocation, and won't destruct in the middle of the program anyway
 
     void update(unsigned long (*const current_time_us)());
-    bool add_task(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval);
-    bool remove_task(const mcp_index mcp_index, const TaskFn task);
+    bool addTask(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval);
+    bool removeTask(const mcp_index mcp_index, const TaskFn task);
 
     uint8_t cycle_count = 0; /**< counts number of scheduler cycles since start, useful for other timers */
 
@@ -47,14 +47,14 @@ public:
      * @brief Returns the period of the scheduler in microseconds
      * @return The period in microseconds
      */
-    constexpr uint32_t get_period_us() const { return PERIOD_US; }
+    constexpr uint32_t getPeriodUs() const { return PERIOD_US; }
 
     /**
      * @brief Returns the number of cycles needed for a given interval in microseconds
      * @param[in] interval_us The interval in microseconds
      * @return The number of cycles needed
      */
-    constexpr uint32_t cycle_needed(const uint32_t interval_us) const { return interval_us / PERIOD_US; }
+    constexpr uint32_t cyclesNeeded(const uint32_t interval_us) const { return interval_us / PERIOD_US; }
 
 private:
     TaskFn tasks[NUM_MCP2515][NUM_TASKS];          /**< Array of tasks, sorted by each MCP2515. */
@@ -66,7 +66,7 @@ private:
     MCP2515 *const *const MCPS;                    /**< Array of MCP2515 pointers */
     uint8_t task_cnt[NUM_MCP2515];                 /**< Array of number of tasks per MCP2515 */
 
-    inline void run_tasks();
+    inline void runTasks();
 };
 
 #include "Scheduler.tpp"

@@ -1,5 +1,5 @@
-#ifndef MINIVECTOR_H
-#define MINIVECTOR_H
+#ifndef MINIVECTOR_HPP
+#define MINIVECTOR_HPP
 #include <stdint.h>
 
 template <typename T, uint8_t N>
@@ -47,4 +47,4 @@ struct miniVector
     }
 };
 
-#endif // MINIVECTOR_H
+#endif // MINIVECTOR_HPP
