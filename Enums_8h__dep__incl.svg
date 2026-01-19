@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Enumeration definitions for the VCU.">
 <polygon fill="#999999" stroke="#666666" points="568.5,-184 471.5,-184 471.5,-165 568.5,-165 568.5,-184"/>
 <text text-anchor="middle" x="520" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">include/Enums.h</text>
 </a>
@@ -66,16 +66,16 @@ var sectionId = 'dynsection-0';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="car__state_8h.html" target="_top" xlink:title="Definition of the CarState structure representing the state of the car.">
-<polygon fill="white" stroke="#666666" points="192.5,-129 83.5,-129 83.5,-110 192.5,-110 192.5,-129"/>
-<text text-anchor="middle" x="138" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">include/car_state.h</text>
+<g id="a_node2"><a xlink:href="CarState_8h.html" target="_top" xlink:title="Definition of the CarState structure representing the state of the car.">
+<polygon fill="white" stroke="#666666" points="191,-129 85,-129 85,-110 191,-110 191,-129"/>
+<text text-anchor="middle" x="138" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">include/CarState.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M461.25,-165.35C388.03,-155.19 263.89,-137.97 192.64,-128.08"/>
+<path fill="none" stroke="#63b8ff" d="M461.18,-165.34C387.41,-155.1 262.03,-137.71 191.07,-127.86"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="460.85,-168.83 471.23,-166.73 461.81,-161.89 460.85,-168.83"/>
 </g>
 <!-- Node5 -->
@@ -96,7 +96,7 @@ var sectionId = 'dynsection-0';
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="Debug_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="Debug_8hpp.html" target="_top" xlink:title="Debugging macros and functions for serial and CAN output.">
 <polygon fill="white" stroke="#666666" points="285.5,-74 166.5,-74 166.5,-55 285.5,-55 285.5,-74"/>
 <text text-anchor="middle" x="226" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Debug/Debug.hpp</text>
 </a>
@@ -207,7 +207,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="Pedal_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="Pedal_8cpp.html" target="_top" xlink:title="Implementation of the Pedal class for handling throttle pedal inputs.">
 <polygon fill="white" stroke="#666666" points="163.5,-19 54.5,-19 54.5,0 163.5,0 163.5,-19"/>
 <text text-anchor="middle" x="109" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.cpp</text>
 </a>

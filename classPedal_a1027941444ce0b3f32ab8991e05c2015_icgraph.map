@@ -1,0 +1,5 @@
+<map id="Pedal::sendFrame" name="Pedal::sendFrame">
+<area shape="rect" id="node1" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="288,5,427,31"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,5,240,31"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+</map>

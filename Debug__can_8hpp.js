@@ -1,5 +1,6 @@
 var Debug__can_8hpp =
 [
+    [ "brake_fault", "Debug__can_8hpp.html#a972189e7412acf4e4b2d36c7693a3f70", null ],
     [ "hall_sensor", "Debug__can_8hpp.html#a42414365a04c66411b629e36d4b50466", null ],
     [ "initialize", "Debug__can_8hpp.html#a5c8b33000e36a19ccb285e45f666e64e", null ],
     [ "status_bms", "Debug__can_8hpp.html#ab78e4ce29a20ab1dae2db225def6b747", null ],

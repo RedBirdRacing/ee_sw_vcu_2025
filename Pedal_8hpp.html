@@ -104,13 +104,14 @@ $(document).ready(function(){initNavTree('Pedal_8hpp.html',''); initResizable();
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Queue_8hpp_source.html">Queue.hpp</a>&quot;</code><br />
-<code>#include &lt;can.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="car__state_8h_source.html">car_state.h</a>&quot;</code><br />
-<code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="CarState_8h_source.html">CarState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>&quot;</code><br />
+<code>#include &lt;mcp2515.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Pedal.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Pedal_8hpp__incl.svg" width="434" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Pedal_8hpp__incl.svg" width="588" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -125,75 +126,21 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPedal.html">Pedal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class for managing throttle and brake pedal inputs. Handles filtering, fault detection, and CAN frame updates.  <a href="classPedal.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aa684b372f1706ac76c2351f3f2e638b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#aa684b372f1706ac76c2351f3f2e638b6">REGEN_ENABLED</a>&#160;&#160;&#160;false</td></tr>
-<tr class="separator:aa684b372f1706ac76c2351f3f2e638b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b">APPS_RATIO</a>&#160;&#160;&#160;50 / 33</td></tr>
+<tr class="memdesc:aedcd0f18b2470e28672db5668bdb1e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO.  <br /></td></tr>
+<tr class="separator:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a602abb8ec84dcb3b6f854a738310ea46"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a602abb8ec84dcb3b6f854a738310ea46">ADC_BUFFER_SIZE</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a602abb8ec84dcb3b6f854a738310ea46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a9c4958c55e7e8a52b2e5f7613963b05b"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a> = 465</td></tr>
-<tr class="separator:a9c4958c55e7e8a52b2e5f7613963b05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a649a1e4a8671c8ac7aecf6a22bbad2e3"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> = 810</td></tr>
-<tr class="separator:a649a1e4a8671c8ac7aecf6a22bbad2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78f4ab9663da8a5095c196444dfcb07e"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a78f4ab9663da8a5095c196444dfcb07e">PEDAL_2_IN_MIN</a> = 300</td></tr>
-<tr class="separator:a78f4ab9663da8a5095c196444dfcb07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a730f43c8bec898e0b73f016df915d7bd"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a730f43c8bec898e0b73f016df915d7bd">PEDAL_2_IN_MAX</a> = 560</td></tr>
-<tr class="separator:a730f43c8bec898e0b73f016df915d7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b8b5a73da847ee39e4659ad6dd64b3c"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a> = 123</td></tr>
-<tr class="separator:a8b8b5a73da847ee39e4659ad6dd64b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a074dccac3f7e19bd602c554175a33eba"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> = 191</td></tr>
-<tr class="separator:a074dccac3f7e19bd602c554175a33eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e95487ec0c483f887ff72097ed8d13"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a> = 27</td></tr>
-<tr class="separator:aa6e95487ec0c483f887ff72097ed8d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18730f8a039167a97c23110832eaf413"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a18730f8a039167a97c23110832eaf413">PEDAL_1_UPPER_DEADZONE_WIDTH</a> = 21</td></tr>
-<tr class="separator:a18730f8a039167a97c23110832eaf413"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e828361a6a543f3ea25698683f650e3"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a> = 9</td></tr>
-<tr class="separator:a8e828361a6a543f3ea25698683f650e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a9a9a14e2d4ff5e6bdf51f5dd936627"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a1a9a9a14e2d4ff5e6bdf51f5dd936627">BRAKE_UPPER_DEADZONE_WIDTH</a> = 9</td></tr>
-<tr class="separator:a1a9a9a14e2d4ff5e6bdf51f5dd936627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6ebb99f04e433bc25b717d0a9c9e21b"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#af6ebb99f04e433bc25b717d0a9c9e21b">PEDAL_1_RANGE</a> = <a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> - <a class="el" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a></td></tr>
-<tr class="separator:af6ebb99f04e433bc25b717d0a9c9e21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd4afda838877285c1d759ac3fd0b587"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#afd4afda838877285c1d759ac3fd0b587">PEDAL_2_RANGE</a> = <a class="el" href="Pedal_8hpp.html#a730f43c8bec898e0b73f016df915d7bd">PEDAL_2_IN_MAX</a> - <a class="el" href="Pedal_8hpp.html#a78f4ab9663da8a5095c196444dfcb07e">PEDAL_2_IN_MIN</a></td></tr>
-<tr class="separator:afd4afda838877285c1d759ac3fd0b587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec59da5dc8064d52d3659ebca4c628d"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a5ec59da5dc8064d52d3659ebca4c628d">BRAKE_RANGE</a> = <a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> - <a class="el" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a></td></tr>
-<tr class="separator:a5ec59da5dc8064d52d3659ebca4c628d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5beaace1d42afd19c83af0e3961a6e63"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a5beaace1d42afd19c83af0e3961a6e63">PEDAL_1_LL</a></td></tr>
-<tr class="separator:a5beaace1d42afd19c83af0e3961a6e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9549de2cf222bb9d94cdd240ec4cebd"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#aa9549de2cf222bb9d94cdd240ec4cebd">PEDAL_1_LU</a></td></tr>
-<tr class="separator:aa9549de2cf222bb9d94cdd240ec4cebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6224981a6ade03136f9beafb97c6a3cc"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a6224981a6ade03136f9beafb97c6a3cc">PEDAL_1_UL</a> = <a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> - (<a class="el" href="Pedal_8hpp.html#a18730f8a039167a97c23110832eaf413">PEDAL_1_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td></tr>
-<tr class="separator:a6224981a6ade03136f9beafb97c6a3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6de5e6dc2fded358988af70d461a23f"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ae6de5e6dc2fded358988af70d461a23f">PEDAL_1_UU</a> = <a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> + (<a class="el" href="Pedal_8hpp.html#a18730f8a039167a97c23110832eaf413">PEDAL_1_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td></tr>
-<tr class="separator:ae6de5e6dc2fded358988af70d461a23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfbeb55b25a95f8afd9685e609dc2acc"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#acfbeb55b25a95f8afd9685e609dc2acc">PEDAL_LL</a> = <a class="el" href="Pedal_8hpp.html#a5beaace1d42afd19c83af0e3961a6e63">PEDAL_1_LL</a></td></tr>
-<tr class="separator:acfbeb55b25a95f8afd9685e609dc2acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd33993f85dd5a09ad38c33182bda0d"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a9bd33993f85dd5a09ad38c33182bda0d">PEDAL_LU</a> = <a class="el" href="Pedal_8hpp.html#aa9549de2cf222bb9d94cdd240ec4cebd">PEDAL_1_LU</a></td></tr>
-<tr class="separator:a9bd33993f85dd5a09ad38c33182bda0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c8063f19c0e44b2403fba59e5a5c86"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a55c8063f19c0e44b2403fba59e5a5c86">PEDAL_UL</a> = <a class="el" href="Pedal_8hpp.html#a6224981a6ade03136f9beafb97c6a3cc">PEDAL_1_UL</a></td></tr>
-<tr class="separator:a55c8063f19c0e44b2403fba59e5a5c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bae3901e1bd0813f023d1ada9ee79ea"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a7bae3901e1bd0813f023d1ada9ee79ea">PEDAL_UU</a> = <a class="el" href="Pedal_8hpp.html#ae6de5e6dc2fded358988af70d461a23f">PEDAL_1_UU</a></td></tr>
-<tr class="separator:a7bae3901e1bd0813f023d1ada9ee79ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c8cc40ae5132c26d33fff4caf805086"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a7c8cc40ae5132c26d33fff4caf805086">BRAKE_LL</a></td></tr>
-<tr class="separator:a7c8cc40ae5132c26d33fff4caf805086"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27b6e961cab99b64dfd6481b17e44fdb"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a27b6e961cab99b64dfd6481b17e44fdb">BRAKE_LU</a></td></tr>
-<tr class="separator:a27b6e961cab99b64dfd6481b17e44fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab54b8618d0aa5a9a030b1438cec3b21b"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ab54b8618d0aa5a9a030b1438cec3b21b">BRAKE_UL</a> = <a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> - (<a class="el" href="Pedal_8hpp.html#a1a9a9a14e2d4ff5e6bdf51f5dd936627">BRAKE_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td></tr>
-<tr class="separator:ab54b8618d0aa5a9a030b1438cec3b21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac00bac14c52ae9448a04d42b05287f46"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ac00bac14c52ae9448a04d42b05287f46">BRAKE_UU</a> = <a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> + (<a class="el" href="Pedal_8hpp.html#a1a9a9a14e2d4ff5e6bdf51f5dd936627">BRAKE_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td></tr>
-<tr class="separator:ac00bac14c52ae9448a04d42b05287f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad150b788c520c1b52bdf6770faf55005"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ad150b788c520c1b52bdf6770faf55005">MAX_THROTTLE_OUT_VAL</a> = 32430</td></tr>
-<tr class="separator:ad150b788c520c1b52bdf6770faf55005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae10a462f4c3ceb53fa9b6c543d45428a"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ae10a462f4c3ceb53fa9b6c543d45428a">MAX_REGEN</a> = 20000</td></tr>
-<tr class="separator:ae10a462f4c3ceb53fa9b6c543d45428a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecef0f58c738f975542e067b35842589"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#aecef0f58c738f975542e067b35842589">MIN_REGEN</a> = 0</td></tr>
-<tr class="separator:aecef0f58c738f975542e067b35842589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563a604c2922c5bcaf14cc99b5f8e2e6"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a563a604c2922c5bcaf14cc99b5f8e2e6">MIN_THROTTLE_OUT_VAL</a> = 0</td></tr>
-<tr class="separator:a563a604c2922c5bcaf14cc99b5f8e2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9af782d63c8bc4cfaf4a3b19d1489f3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ad9af782d63c8bc4cfaf4a3b19d1489f3">REGEN_ENABLED</a> = true</td></tr>
+<tr class="separator:ad9af782d63c8bc4cfaf4a3b19d1489f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2814e9aff83da9c45d2a6fadbea27309"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309">FLIP_MOTOR_DIR</a> = false</td></tr>
 <tr class="separator:a2814e9aff83da9c45d2a6fadbea27309"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -210,259 +157,30 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00098">98</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00033">33</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa684b372f1706ac76c2351f3f2e638b6" name="aa684b372f1706ac76c2351f3f2e638b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa684b372f1706ac76c2351f3f2e638b6">&#9670;&#160;</a></span>REGEN_ENABLED</h2>
+<a id="aedcd0f18b2470e28672db5668bdb1e8b" name="aedcd0f18b2470e28672db5668bdb1e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedcd0f18b2470e28672db5668bdb1e8b">&#9670;&#160;</a></span>APPS_RATIO</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define REGEN_ENABLED&#160;&#160;&#160;false</td>
+          <td class="memname">#define APPS_RATIO&#160;&#160;&#160;50 / 33</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00010">10</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p>Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO. </p>
+<dl class="section note"><dt>Note</dt><dd>max 64 for multiply to prevent overflow </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00031">31</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a074dccac3f7e19bd602c554175a33eba" name="a074dccac3f7e19bd602c554175a33eba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a074dccac3f7e19bd602c554175a33eba">&#9670;&#160;</a></span>BRAKE_IN_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_IN_MAX = 191</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00027">27</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8b8b5a73da847ee39e4659ad6dd64b3c" name="a8b8b5a73da847ee39e4659ad6dd64b3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b8b5a73da847ee39e4659ad6dd64b3c">&#9670;&#160;</a></span>BRAKE_IN_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_IN_MIN = 123</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00026">26</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7c8cc40ae5132c26d33fff4caf805086" name="a7c8cc40ae5132c26d33fff4caf805086"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c8cc40ae5132c26d33fff4caf805086">&#9670;&#160;</a></span>BRAKE_LL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_LL</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= (<a class="code hl_variable" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a> &lt; (<a class="code hl_variable" href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-<div class="line">                              ? 0</div>
-<div class="line">                              : (<a class="code hl_variable" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a> - (<a class="code hl_variable" href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-<div class="ttc" id="aPedal_8hpp_html_a8b8b5a73da847ee39e4659ad6dd64b3c"><div class="ttname"><a href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a></div><div class="ttdeci">constexpr uint16_t BRAKE_IN_MIN</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8hpp_source.html#l00026">Pedal.hpp:26</a></div></div>
-<div class="ttc" id="aPedal_8hpp_html_a8e828361a6a543f3ea25698683f650e3"><div class="ttname"><a href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a></div><div class="ttdeci">constexpr uint16_t BRAKE_LOWER_DEADZONE_WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8hpp_source.html#l00040">Pedal.hpp:40</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00076">76</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a8e828361a6a543f3ea25698683f650e3" name="a8e828361a6a543f3ea25698683f650e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e828361a6a543f3ea25698683f650e3">&#9670;&#160;</a></span>BRAKE_LOWER_DEADZONE_WIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_LOWER_DEADZONE_WIDTH = 9</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00040">40</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a27b6e961cab99b64dfd6481b17e44fdb" name="a27b6e961cab99b64dfd6481b17e44fdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27b6e961cab99b64dfd6481b17e44fdb">&#9670;&#160;</a></span>BRAKE_LU</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_LU</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= (<a class="code hl_variable" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a> &lt; (<a class="code hl_variable" href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-<div class="line">                              ? <a class="code hl_variable" href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a></div>
-<div class="line">                              : (<a class="code hl_variable" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a> + (<a class="code hl_variable" href="Pedal_8hpp.html#a8e828361a6a543f3ea25698683f650e3">BRAKE_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00079">79</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a5ec59da5dc8064d52d3659ebca4c628d" name="a5ec59da5dc8064d52d3659ebca4c628d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ec59da5dc8064d52d3659ebca4c628d">&#9670;&#160;</a></span>BRAKE_RANGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_RANGE = <a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> - <a class="el" href="Pedal_8hpp.html#a8b8b5a73da847ee39e4659ad6dd64b3c">BRAKE_IN_MIN</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00049">49</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab54b8618d0aa5a9a030b1438cec3b21b" name="ab54b8618d0aa5a9a030b1438cec3b21b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab54b8618d0aa5a9a030b1438cec3b21b">&#9670;&#160;</a></span>BRAKE_UL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_UL = <a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> - (<a class="el" href="Pedal_8hpp.html#a1a9a9a14e2d4ff5e6bdf51f5dd936627">BRAKE_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00082">82</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a1a9a9a14e2d4ff5e6bdf51f5dd936627" name="a1a9a9a14e2d4ff5e6bdf51f5dd936627"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a9a9a14e2d4ff5e6bdf51f5dd936627">&#9670;&#160;</a></span>BRAKE_UPPER_DEADZONE_WIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_UPPER_DEADZONE_WIDTH = 9</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00041">41</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac00bac14c52ae9448a04d42b05287f46" name="ac00bac14c52ae9448a04d42b05287f46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac00bac14c52ae9448a04d42b05287f46">&#9670;&#160;</a></span>BRAKE_UU</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t BRAKE_UU = <a class="el" href="Pedal_8hpp.html#a074dccac3f7e19bd602c554175a33eba">BRAKE_IN_MAX</a> + (<a class="el" href="Pedal_8hpp.html#a1a9a9a14e2d4ff5e6bdf51f5dd936627">BRAKE_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00083">83</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>.</p>
-
-</div>
-</div>
 <a id="a2814e9aff83da9c45d2a6fadbea27309" name="a2814e9aff83da9c45d2a6fadbea27309"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2814e9aff83da9c45d2a6fadbea27309">&#9670;&#160;</a></span>FLIP_MOTOR_DIR</h2>
 
@@ -483,390 +201,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00096">96</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00129">Pedal::pedal_can_frame_update()</a>.</p>
-
-</div>
-</div>
-<a id="ae10a462f4c3ceb53fa9b6c543d45428a" name="ae10a462f4c3ceb53fa9b6c543d45428a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae10a462f4c3ceb53fa9b6c543d45428a">&#9670;&#160;</a></span>MAX_REGEN</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t MAX_REGEN = 20000</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00088">88</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad150b788c520c1b52bdf6770faf55005" name="ad150b788c520c1b52bdf6770faf55005"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad150b788c520c1b52bdf6770faf55005">&#9670;&#160;</a></span>MAX_THROTTLE_OUT_VAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t MAX_THROTTLE_OUT_VAL = 32430</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00085">85</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="aecef0f58c738f975542e067b35842589" name="aecef0f58c738f975542e067b35842589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecef0f58c738f975542e067b35842589">&#9670;&#160;</a></span>MIN_REGEN</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t MIN_REGEN = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00089">89</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a563a604c2922c5bcaf14cc99b5f8e2e6" name="a563a604c2922c5bcaf14cc99b5f8e2e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a563a604c2922c5bcaf14cc99b5f8e2e6">&#9670;&#160;</a></span>MIN_THROTTLE_OUT_VAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t MIN_THROTTLE_OUT_VAL = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00090">90</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a649a1e4a8671c8ac7aecf6a22bbad2e3" name="a649a1e4a8671c8ac7aecf6a22bbad2e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a649a1e4a8671c8ac7aecf6a22bbad2e3">&#9670;&#160;</a></span>PEDAL_1_IN_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_IN_MAX = 810</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00023">23</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9c4958c55e7e8a52b2e5f7613963b05b" name="a9c4958c55e7e8a52b2e5f7613963b05b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c4958c55e7e8a52b2e5f7613963b05b">&#9670;&#160;</a></span>PEDAL_1_IN_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_IN_MIN = 465</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00022">22</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5beaace1d42afd19c83af0e3961a6e63" name="a5beaace1d42afd19c83af0e3961a6e63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5beaace1d42afd19c83af0e3961a6e63">&#9670;&#160;</a></span>PEDAL_1_LL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_LL</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= (<a class="code hl_variable" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a> &lt; (<a class="code hl_variable" href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-<div class="line">                                ? 0</div>
-<div class="line">                                : (<a class="code hl_variable" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a> - (<a class="code hl_variable" href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-<div class="ttc" id="aPedal_8hpp_html_a9c4958c55e7e8a52b2e5f7613963b05b"><div class="ttname"><a href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a></div><div class="ttdeci">constexpr uint16_t PEDAL_1_IN_MIN</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8hpp_source.html#l00022">Pedal.hpp:22</a></div></div>
-<div class="ttc" id="aPedal_8hpp_html_aa6e95487ec0c483f887ff72097ed8d13"><div class="ttname"><a href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a></div><div class="ttdeci">constexpr uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="Pedal_8hpp_source.html#l00036">Pedal.hpp:36</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00061">61</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa6e95487ec0c483f887ff72097ed8d13" name="aa6e95487ec0c483f887ff72097ed8d13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6e95487ec0c483f887ff72097ed8d13">&#9670;&#160;</a></span>PEDAL_1_LOWER_DEADZONE_WIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_LOWER_DEADZONE_WIDTH = 27</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00036">36</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa9549de2cf222bb9d94cdd240ec4cebd" name="aa9549de2cf222bb9d94cdd240ec4cebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9549de2cf222bb9d94cdd240ec4cebd">&#9670;&#160;</a></span>PEDAL_1_LU</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_LU</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= (<a class="code hl_variable" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a> &lt; (<a class="code hl_variable" href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-<div class="line">                                ? <a class="code hl_variable" href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a></div>
-<div class="line">                                : (<a class="code hl_variable" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a> + (<a class="code hl_variable" href="Pedal_8hpp.html#aa6e95487ec0c483f887ff72097ed8d13">PEDAL_1_LOWER_DEADZONE_WIDTH</a> - 1) / 2)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00064">64</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="af6ebb99f04e433bc25b717d0a9c9e21b" name="af6ebb99f04e433bc25b717d0a9c9e21b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6ebb99f04e433bc25b717d0a9c9e21b">&#9670;&#160;</a></span>PEDAL_1_RANGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_RANGE = <a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> - <a class="el" href="Pedal_8hpp.html#a9c4958c55e7e8a52b2e5f7613963b05b">PEDAL_1_IN_MIN</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00047">47</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6224981a6ade03136f9beafb97c6a3cc" name="a6224981a6ade03136f9beafb97c6a3cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6224981a6ade03136f9beafb97c6a3cc">&#9670;&#160;</a></span>PEDAL_1_UL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_UL = <a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> - (<a class="el" href="Pedal_8hpp.html#a18730f8a039167a97c23110832eaf413">PEDAL_1_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00067">67</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a18730f8a039167a97c23110832eaf413" name="a18730f8a039167a97c23110832eaf413"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18730f8a039167a97c23110832eaf413">&#9670;&#160;</a></span>PEDAL_1_UPPER_DEADZONE_WIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_UPPER_DEADZONE_WIDTH = 21</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00037">37</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae6de5e6dc2fded358988af70d461a23f" name="ae6de5e6dc2fded358988af70d461a23f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6de5e6dc2fded358988af70d461a23f">&#9670;&#160;</a></span>PEDAL_1_UU</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_1_UU = <a class="el" href="Pedal_8hpp.html#a649a1e4a8671c8ac7aecf6a22bbad2e3">PEDAL_1_IN_MAX</a> + (<a class="el" href="Pedal_8hpp.html#a18730f8a039167a97c23110832eaf413">PEDAL_1_UPPER_DEADZONE_WIDTH</a> - 1) / 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00068">68</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a730f43c8bec898e0b73f016df915d7bd" name="a730f43c8bec898e0b73f016df915d7bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a730f43c8bec898e0b73f016df915d7bd">&#9670;&#160;</a></span>PEDAL_2_IN_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_2_IN_MAX = 560</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00025">25</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a78f4ab9663da8a5095c196444dfcb07e" name="a78f4ab9663da8a5095c196444dfcb07e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78f4ab9663da8a5095c196444dfcb07e">&#9670;&#160;</a></span>PEDAL_2_IN_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_2_IN_MIN = 300</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00024">24</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">Pedal::sendFrame()</a>.</p>
+
 </div>
 </div>
-<a id="afd4afda838877285c1d759ac3fd0b587" name="afd4afda838877285c1d759ac3fd0b587"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd4afda838877285c1d759ac3fd0b587">&#9670;&#160;</a></span>PEDAL_2_RANGE</h2>
+<a id="ad9af782d63c8bc4cfaf4a3b19d1489f3" name="ad9af782d63c8bc4cfaf4a3b19d1489f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9af782d63c8bc4cfaf4a3b19d1489f3">&#9670;&#160;</a></span>REGEN_ENABLED</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -875,7 +217,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t PEDAL_2_RANGE = <a class="el" href="Pedal_8hpp.html#a730f43c8bec898e0b73f016df915d7bd">PEDAL_2_IN_MAX</a> - <a class="el" href="Pedal_8hpp.html#a78f4ab9663da8a5095c196444dfcb07e">PEDAL_2_IN_MIN</a></td>
+          <td class="memname">constexpr bool REGEN_ENABLED = true</td>
         </tr>
       </table>
   </td>
@@ -885,111 +227,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00048">48</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="acfbeb55b25a95f8afd9685e609dc2acc" name="acfbeb55b25a95f8afd9685e609dc2acc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfbeb55b25a95f8afd9685e609dc2acc">&#9670;&#160;</a></span>PEDAL_LL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_LL = <a class="el" href="Pedal_8hpp.html#a5beaace1d42afd19c83af0e3961a6e63">PEDAL_1_LL</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00071">71</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a9bd33993f85dd5a09ad38c33182bda0d" name="a9bd33993f85dd5a09ad38c33182bda0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bd33993f85dd5a09ad38c33182bda0d">&#9670;&#160;</a></span>PEDAL_LU</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_LU = <a class="el" href="Pedal_8hpp.html#aa9549de2cf222bb9d94cdd240ec4cebd">PEDAL_1_LU</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00072">72</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a55c8063f19c0e44b2403fba59e5a5c86" name="a55c8063f19c0e44b2403fba59e5a5c86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55c8063f19c0e44b2403fba59e5a5c86">&#9670;&#160;</a></span>PEDAL_UL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_UL = <a class="el" href="Pedal_8hpp.html#a6224981a6ade03136f9beafb97c6a3cc">PEDAL_1_UL</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00073">73</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
-
-</div>
-</div>
-<a id="a7bae3901e1bd0813f023d1ada9ee79ea" name="a7bae3901e1bd0813f023d1ada9ee79ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bae3901e1bd0813f023d1ada9ee79ea">&#9670;&#160;</a></span>PEDAL_UU</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t PEDAL_UU = <a class="el" href="Pedal_8hpp.html#ae6de5e6dc2fded358988af70d461a23f">PEDAL_1_UU</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00074">74</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00016">16</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>

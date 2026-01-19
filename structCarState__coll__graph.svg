@@ -11,13 +11,13 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Represents the state of the car.">
-<polygon fill="#999999" stroke="#666666" points="120,-0.5 120,-68.5 272,-68.5 272,-0.5 120,-0.5"/>
+<g id="a_node1"><a xlink:title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">
+<polygon fill="#999999" stroke="#666666" points="151,-0.5 151,-68.5 241,-68.5 241,-0.5 151,-0.5"/>
 <text text-anchor="middle" x="196" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">CarState</text>
-<polyline fill="none" stroke="#666666" points="120,-49.5 272,-49.5 "/>
-<text text-anchor="start" x="128" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ car_status_millis_counter</text>
-<text text-anchor="start" x="128" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ millis</text>
-<polyline fill="none" stroke="#666666" points="120,-19.5 272,-19.5 "/>
+<polyline fill="none" stroke="#666666" points="151,-49.5 241,-49.5 "/>
+<text text-anchor="start" x="159" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ status_millis</text>
+<text text-anchor="start" x="159" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ millis</text>
+<polyline fill="none" stroke="#666666" points="151,-19.5 241,-19.5 "/>
 <text text-anchor="middle" x="196" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
@@ -41,9 +41,9 @@
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M67.62,-171.25C75.77,-144.54 89.21,-111.13 110,-87 113.17,-83.32 116.67,-79.84 120.39,-76.54"/>
-<polygon fill="none" stroke="#404040" points="120.69,-76.29 122.84,-69.41 130.02,-68.75 127.87,-75.63 120.69,-76.29"/>
-<text text-anchor="middle" x="151" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00"> +telemetry_adc</text>
+<path fill="none" stroke="#404040" d="M84.21,-171.41C95.62,-153.76 109.38,-133.51 123,-116 133.06,-103.07 144.7,-89.64 155.69,-77.55"/>
+<polygon fill="none" stroke="#404040" points="155.8,-77.42 156.92,-70.3 163.92,-68.59 162.81,-75.71 155.8,-77.42"/>
+<text text-anchor="middle" x="160.5" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00"> +adc</text>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -66,7 +66,7 @@
 <title>Node3&#45;&gt;Node1</title>
 <path fill="none" stroke="#404040" d="M196,-171.47C196,-143.94 196,-108.57 196,-80.8"/>
 <polygon fill="none" stroke="#404040" points="196,-80.64 192,-74.64 196,-68.64 200,-74.64 196,-80.64"/>
-<text text-anchor="middle" x="244" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00"> +telemetry_digital</text>
+<text text-anchor="middle" x="217.5" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00"> +digital</text>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -76,7 +76,7 @@
 <text text-anchor="middle" x="339" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFrameState</text>
 <polyline fill="none" stroke="#666666" points="278,-297.5 400,-297.5 "/>
 <text text-anchor="start" x="286" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ car_status</text>
-<text text-anchor="start" x="286" y="-274.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ fault_force_stop</text>
+<text text-anchor="start" x="286" y="-274.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ force_stop</text>
 <text text-anchor="start" x="286" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ hv_ready</text>
 <text text-anchor="start" x="286" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bms_no_msg</text>
 <text text-anchor="start" x="286" y="-241.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bms_wrong_id</text>
@@ -97,9 +97,9 @@
 <!-- Node4&#45;&gt;Node1 -->
 <g id="edge3" class="edge">
 <title>Node4&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M314.85,-116.48C309.71,-105.86 303.51,-95.75 296,-87 291.89,-82.21 287.23,-77.81 282.22,-73.78"/>
-<polygon fill="none" stroke="#404040" points="281.9,-73.55 274.69,-73.24 272.2,-66.47 279.41,-66.78 281.9,-73.55"/>
-<text text-anchor="middle" x="347" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00"> +telemetry_state</text>
+<path fill="none" stroke="#404040" d="M277.91,-127.45C274.94,-123.55 271.96,-119.72 269,-116 258.22,-102.45 254.61,-99.84 243,-87 240.24,-83.95 237.38,-80.79 234.5,-77.62"/>
+<polygon fill="none" stroke="#404040" points="234.46,-77.58 227.46,-75.83 226.38,-68.7 233.38,-70.45 234.46,-77.58"/>
+<text text-anchor="middle" x="271.5" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00"> +state</text>
 </g>
 </g>
 </svg>

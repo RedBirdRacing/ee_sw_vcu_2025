@@ -1,0 +1,11 @@
+<map id="Pedal::update" name="Pedal::update">
+<area shape="rect" id="node1" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="5,127,116,153"/>
+<area shape="rect" id="node2" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="164,127,335,153"/>
+<area shape="rect" id="node3" href="$Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="383,77,555,102"/>
+<area shape="rect" id="node9" href="$classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c" title="Pushes a new value into the ring buffer. This will overwrite the oldest value if the buffer is full." alt="" coords="185,177,314,202"/>
+<area shape="rect" id="node6" href="$Debug_8hpp.html#afa1e089b7149386f290d4ebb4d373bf6" title="Sends throttle pedal input debug info via CAN or serial (if enabled)." alt="" coords="395,134,542,159"/>
+<area shape="rect" id="node4" href="$namespaceDebug__CAN.html#a8e6443068f8aa21ba673ad7bc132e739" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="617,5,771,45"/>
+<area shape="rect" id="node5" href="$namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="612,69,776,109"/>
+<area shape="rect" id="node7" href="$namespaceDebug__CAN.html#a5c26a2303b6fa92439c0a693728d760e" title="Sends a debug throttle input message over CAN." alt="" coords="607,134,781,159"/>
+<area shape="rect" id="node8" href="$namespaceDebug__Serial.html#a9e68fe4f00e7b1bf1a9c2addc2222a9b" title="Prints a throttle input message to the serial console. This function formats and sends the throttle i..." alt="" coords="603,183,785,209"/>
+</map>

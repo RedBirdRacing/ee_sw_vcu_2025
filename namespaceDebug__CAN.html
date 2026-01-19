@@ -122,6 +122,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4870545ba69489478cd58ecb31f34d3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a4870545ba69489478cd58ecb31f34d3d">throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status)</td></tr>
 <tr class="memdesc:a4870545ba69489478cd58ecb31f34d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug throttle fault message over CAN without a float value.  <br /></td></tr>
 <tr class="separator:a4870545ba69489478cd58ecb31f34d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a972189e7412acf4e4b2d36c7693a3f70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a972189e7412acf4e4b2d36c7693a3f70">brake_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
+<tr class="memdesc:a972189e7412acf4e4b2d36c7693a3f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug brake fault message over CAN with a float value.  <br /></td></tr>
+<tr class="separator:a972189e7412acf4e4b2d36c7693a3f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33ac5d84927aea929dc26f0820dd58c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8">status_car</a> (<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> car_status)</td></tr>
 <tr class="memdesc:a33ac5d84927aea929dc26f0820dd58c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a debug car status message over CAN.  <br /></td></tr>
 <tr class="separator:a33ac5d84927aea929dc26f0820dd58c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +145,55 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace for CAN debugging functions. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a972189e7412acf4e4b2d36c7693a3f70" name="a972189e7412acf4e4b2d36c7693a3f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a972189e7412acf4e4b2d36c7693a3f70">&#9670;&#160;</a></span>brake_fault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Debug_CAN::brake_fault </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
+          <td class="paramname"><em>fault_status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sends a debug brake fault message over CAN with a float value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fault_status</td><td>The status of the brake fault as defined in pedal_fault_status enum. </td></tr>
+    <tr><td class="paramname">value</td><td>uint16_t value of reading </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00135">135</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00070">THROTTLE_FAULT_MSG</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00205">DBG_BRAKE_FAULT()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__CAN_a972189e7412acf4e4b2d36c7693a3f70_icgraph.svg" width="387" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a42414365a04c66411b629e36d4b50466" name="a42414365a04c66411b629e36d4b50466"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42414365a04c66411b629e36d4b50466">&#9670;&#160;</a></span>hall_sensor()</h2>
 
@@ -166,11 +218,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00172">172</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00195">195</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00090">STATUS_HALL_SENSOR_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00084">STATUS_HALL_SENSOR_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00228">DBG_HALL_SENSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00237">DBG_HALL_SENSOR()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -208,7 +260,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00095">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -242,11 +294,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00153">153</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00176">176</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00089">STATUS_BMS_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00083">STATUS_BMS_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00212">DBG_BMS_STATUS()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00221">DBG_BMS_STATUS()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -298,11 +350,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00134">134</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00157">157</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00086">STATUS_CAR_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00080">STATUS_CAR_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00178">DBG_STATUS_CAR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00187">DBG_STATUS_CAR()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -338,7 +390,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00115">115</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00076">THROTTLE_FAULT_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00070">THROTTLE_FAULT_MSG</a>.</p>
 
 </div>
 </div>
@@ -379,13 +431,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00093">93</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00076">THROTTLE_FAULT_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00070">THROTTLE_FAULT_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00150">DBG_THROTTLE_FAULT()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00159">DBG_THROTTLE_FAULT()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__CAN_a8e6443068f8aa21ba673ad7bc132e739_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__CAN_a8e6443068f8aa21ba673ad7bc132e739_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -442,9 +494,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00041">41</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00074">THROTTLE_IN_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00068">THROTTLE_IN_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00115">DBG_THROTTLE_IN()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00124">DBG_THROTTLE_IN()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -491,9 +543,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00069">69</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00075">THROTTLE_OUT_MSG</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00018">can_interface</a>, and <a class="el" href="Enums_8h_source.html#l00069">THROTTLE_OUT_MSG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00132">DBG_THROTTLE_OUT()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00141">DBG_THROTTLE_OUT()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -527,7 +579,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Debug__can_8cpp_source.html#l00018">18</a> of file <a class="el" href="Debug__can_8cpp_source.html">Debug_can.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Debug__can_8cpp_source.html#l00172">hall_sensor()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00026">initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00153">status_bms()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00134">status_car()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00093">throttle_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00041">throttle_in()</a>, and <a class="el" href="Debug__can_8cpp_source.html#l00069">throttle_out()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Debug__can_8cpp_source.html#l00135">brake_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00195">hall_sensor()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00026">initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00176">status_bms()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00157">status_car()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00093">throttle_fault()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00041">throttle_in()</a>, and <a class="el" href="Debug__can_8cpp_source.html#l00069">throttle_out()</a>.</p>
 
 </div>
 </div>

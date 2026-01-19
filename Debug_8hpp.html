@@ -101,6 +101,9 @@ $(document).ready(function(){initNavTree('Debug_8hpp.html',''); initResizable();
   <div class="headertitle"><div class="title">Debug.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Debugging macros and functions for serial and CAN output.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Enums_8h_source.html">Enums.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Debug.hpp:</div>
@@ -121,9 +124,9 @@ This graph shows which files directly or indirectly include this file:</div>
 Macros</h2></td></tr>
 <tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;true</td></tr>
 <tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61e127df60d55ea4c8bd6b8ec1f88367"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">DEBUG_SERIAL</a>&#160;&#160;&#160;false &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:a61e127df60d55ea4c8bd6b8ec1f88367"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">DEBUG_SERIAL</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
 <tr class="separator:a61e127df60d55ea4c8bd6b8ec1f88367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9d6794979a4ec6135cc3e425777b993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">DEBUG_CAN</a>&#160;&#160;&#160;false &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:ac9d6794979a4ec6135cc3e425777b993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">DEBUG_CAN</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
 <tr class="separator:ac9d6794979a4ec6135cc3e425777b993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a161269174793744d640c3a37ee8c97d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
 <tr class="separator:a161269174793744d640c3a37ee8c97d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,7 +197,15 @@ Functions</h2></td></tr>
 <tr class="memdesc:a47899db638485b6ff92158a3f88d5a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send hall sensor debug info via CAN.  <br /></td></tr>
 <tr class="separator:a47899db638485b6ff92158a3f88d5a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Debugging macros and functions for serial and CAN output. </p>
+<dl class="section author"><dt>Author</dt><dd>Planeson, Red Bird Racing </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-01-15 </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Debug_serial, Debug_can </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ad72dbcf6d0153db1b8d8a58001feed83" name="ad72dbcf6d0153db1b8d8a58001feed83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad72dbcf6d0153db1b8d8a58001feed83">&#9670;&#160;</a></span>DEBUG</h2>
 
@@ -207,7 +218,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00007">7</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00016">16</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -223,7 +234,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00023">23</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00032">32</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +250,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00025">25</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00034">34</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +266,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00024">24</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00033">33</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -266,12 +277,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_CAN&#160;&#160;&#160;false &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_CAN&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00009">9</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00018">18</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -287,7 +298,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00026">26</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00035">35</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -303,7 +314,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00030">30</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00039">39</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -314,12 +325,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_SERIAL&#160;&#160;&#160;false &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_SERIAL&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00008">8</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00017">17</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +346,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00027">27</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00036">36</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +362,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00029">29</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00038">38</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -367,7 +378,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00028">28</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00037">37</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -383,7 +394,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00019">19</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00028">28</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +410,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00022">22</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00031">31</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -415,7 +426,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00020">20</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00029">29</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -431,7 +442,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00021">21</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00030">30</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 </div>
 </div>
@@ -468,11 +479,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00212">212</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00221">221</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00153">Debug_CAN::status_bms()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00217">Debug_Serial::status_bms()</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00176">Debug_CAN::status_bms()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00217">Debug_Serial::status_bms()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">BMS::check_hv()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">BMS::checkHv()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -482,7 +493,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a5811a65cdb8fc3c5255f57301cbb8481_icgraph.svg" width="588" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a5811a65cdb8fc3c5255f57301cbb8481_icgraph.svg" width="583" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -531,21 +542,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00196">196</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00205">205</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00140">Debug_Serial::brake_fault()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00135">Debug_CAN::brake_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00140">Debug_Serial::brake_fault()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_ae4f010051fc0b65e53e4305c62bae986_cgraph.svg" width="359" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_ae4f010051fc0b65e53e4305c62bae986_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_ae4f010051fc0b65e53e4305c62bae986_cgraph.svg" width="387" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -584,7 +587,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00063">63</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00072">72</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00029">Debug_Serial::print()</a>.</p>
 <div class="dynheader">
@@ -628,9 +631,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00228">228</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00237">237</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00172">Debug_CAN::hall_sensor()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00248">Debug_Serial::hall_sensor()</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00195">Debug_CAN::hall_sensor()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00248">Debug_Serial::hall_sensor()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -673,7 +676,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00087">87</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00096">96</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00029">Debug_Serial::print()</a>.</p>
 <div class="dynheader">
@@ -717,11 +720,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00178">178</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00187">187</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00134">Debug_CAN::status_car()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00166">Debug_Serial::status_car()</a>.</p>
+<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00157">Debug_CAN::status_car()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00166">Debug_Serial::status_car()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00095">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -770,7 +773,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00039">39</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00048">48</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00029">Debug_Serial::print()</a>.</p>
 <div class="dynheader">
@@ -806,7 +809,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00162">162</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00171">171</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00093">Debug_CAN::throttle_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00082">Debug_Serial::throttle_fault()</a>.</p>
 <div class="dynheader">
@@ -861,11 +864,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00150">150</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00159">159</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00093">Debug_CAN::throttle_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00082">Debug_Serial::throttle_fault()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00236">Pedal::brake_torque_mapping()</a>, <a class="el" href="Pedal_8cpp_source.html#l00286">Pedal::check_pedal_fault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00047">Pedal::pedal_update()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00182">Pedal::throttle_torque_mapping()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00181">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00047">Pedal::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -875,7 +878,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a27a4d84e5afbe5f46066606c2cfcd97d_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a27a4d84e5afbe5f46066606c2cfcd97d_icgraph.svg" width="659" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -938,11 +941,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00115">115</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00124">124</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00041">Debug_CAN::throttle_in()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00048">Debug_Serial::throttle_in()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00286">Pedal::check_pedal_fault()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00181">Pedal::checkPedalFault()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -952,7 +955,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_afa1e089b7149386f290d4ebb4d373bf6_icgraph.svg" width="654" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_afa1e089b7149386f290d4ebb4d373bf6_icgraph.svg" width="634" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1001,11 +1004,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00132">132</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00141">141</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00069">Debug_CAN::throttle_out()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00067">Debug_Serial::throttle_out()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00129">Pedal::pedal_can_frame_update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">Pedal::sendFrame()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1015,7 +1018,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a25f28d9aa7440ebc55a76a2b2ce878ea_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a25f28d9aa7440ebc55a76a2b2ce878ea_icgraph.svg" width="642" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1054,11 +1057,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00075">75</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00084">84</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00037">Debug_Serial::println()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">BMS::check_hv()</a>, and <a class="el" href="main_8cpp_source.html#l00095">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00040">BMS::checkHv()</a>, and <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1068,7 +1071,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a8e8d6e3de15309922f25c12f4d7cf727_icgraph.svg" width="582" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a8e8d6e3de15309922f25c12f4d7cf727_icgraph.svg" width="576" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1107,7 +1110,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00099">99</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00108">108</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00037">Debug_Serial::println()</a>.</p>
 <div class="dynheader">
@@ -1152,11 +1155,11 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00051">51</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00060">60</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00037">Debug_Serial::println()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00129">Pedal::pedal_can_frame_update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00102">Pedal::sendFrame()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1166,7 +1169,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a9a564faad1bd32a5894d3706e38f1067_icgraph.svg" width="663" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a9a564faad1bd32a5894d3706e38f1067_icgraph.svg" width="623" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

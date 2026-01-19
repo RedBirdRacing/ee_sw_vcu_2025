@@ -1,4 +1,9 @@
 <map id="Pedal" name="Pedal">
-<area shape="rect" id="node1" title=" " alt="" coords="5,248,216,472"/>
-<area shape="rect" id="node2" href="$classRingBuffer.html" title=" " alt="" coords="37,5,184,156"/>
+<area shape="rect" id="node1" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,..." alt="" coords="330,579,518,803"/>
+<area shape="rect" id="node2" href="$structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct..." alt="" coords="207,365,327,457"/>
+<area shape="rect" id="node3" href="$structTelemetryFrameAdc.html" title="Telemetry frame structure for ADC readings." alt="" coords="5,79,157,200"/>
+<area shape="rect" id="node4" href="$structTelemetryFrameDigital.html" title="Telemetry frame structure for digital signals." alt="" coords="181,79,352,200"/>
+<area shape="rect" id="node5" href="$structTelemetryFrameState.html" title="Telemetry frame structure for VCU states." alt="" coords="376,5,539,273"/>
+<area shape="rect" id="node6" href="$classRingBuffer.html" title=" " alt="" coords="351,336,497,487"/>
+<area shape="rect" id="node7" href="$classLinearInterp.html" title=" " alt="" coords="521,343,692,479"/>
 </map>

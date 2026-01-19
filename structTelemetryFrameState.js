@@ -9,7 +9,7 @@ var structTelemetryFrameState =
     [ "car_status", "structTelemetryFrameState.html#a571f389a69f7b3fdc0693e12c76080d3", null ],
     [ "fault_active", "structTelemetryFrameState.html#aa5123b85e2e18730c689d847f967aef1", null ],
     [ "fault_exceeded", "structTelemetryFrameState.html#a262f9aa833d2b8bf2790c751ff448fd2", null ],
-    [ "fault_force_stop", "structTelemetryFrameState.html#a197a9bbda0dff71c4974da456e93c4ce", null ],
+    [ "force_stop", "structTelemetryFrameState.html#a77025108f57cf4983712e40f9b842b6c", null ],
     [ "hv_ready", "structTelemetryFrameState.html#a68cf80485fc5e26e1b371973b47a9a78", null ],
     [ "screenshot", "structTelemetryFrameState.html#af34d0e46a92aebda5f00ce2ad18ab04c", null ],
     [ "state_unknown", "structTelemetryFrameState.html#a3bf3af4086cfcd418c8e6f9d0ab9a7ee", null ],

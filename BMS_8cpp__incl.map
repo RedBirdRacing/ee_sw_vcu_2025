@@ -3,8 +3,8 @@
 <area shape="rect" id="node2" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="151,79,229,104"/>
 <area shape="rect" id="node5" title=" " alt="" coords="257,299,352,324"/>
 <area shape="rect" id="node7" title=" " alt="" coords="253,79,337,104"/>
-<area shape="rect" id="node8" href="$Debug_8hpp.html" title=" " alt="" coords="5,152,97,177"/>
+<area shape="rect" id="node8" href="$Debug_8hpp.html" title="Debugging macros and functions for serial and CAN output." alt="" coords="5,152,97,177"/>
 <area shape="rect" id="node3" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="129,152,243,177"/>
-<area shape="rect" id="node4" href="$Enums_8h.html" title=" " alt="" coords="53,299,132,324"/>
+<area shape="rect" id="node4" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="53,299,132,324"/>
 <area shape="rect" id="node6" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="131,225,241,251"/>
 </map>

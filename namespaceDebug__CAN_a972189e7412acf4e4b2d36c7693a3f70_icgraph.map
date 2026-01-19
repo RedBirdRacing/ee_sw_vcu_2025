@@ -1,0 +1,4 @@
+<map id="Debug_CAN::brake_fault" name="Debug_CAN::brake_fault">
+<area shape="rect" id="node1" title="Sends a debug brake fault message over CAN with a float value." alt="" coords="201,5,381,31"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="5,5,153,31"/>
+</map>
