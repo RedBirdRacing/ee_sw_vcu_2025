@@ -30,16 +30,14 @@ using TaskFn = void (*)(MCP2515 *);
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,
-                                             uint32_t spin_threshold_us_,
-                                             MCP2515 (&mcps_)[NUM_MCP2515])
+                                             uint32_t spin_threshold_us_)
     : tasks{nullptr},
       task_ticks{0},
       task_counters{0}, // run on first tick
       task_cnt{0},
       PERIOD_US(period_us_),
       SPIN_US(spin_threshold_us_),
-      last_fire_us(0),
-      MCPS{mcps_}
+      last_fire_us(0)
 {
 }
 
@@ -169,7 +167,7 @@ inline void Scheduler<NUM_TASKS, NUM_MCP2515>::runTasks()
                     continue; // no task to run
 
                 // call member function on the MCPS instance
-                (tasks[mcp_index][task_index])(MCPS[mcp_index]);
+                (tasks[mcp_index][task_index])();
 
                 // reset counter
                 task_counters[mcp_index][task_index] = task_ticks[mcp_index][task_index];

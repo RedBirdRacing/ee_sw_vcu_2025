@@ -44,15 +44,16 @@ constexpr can_frame stop_hv_msg = {
 class BMS
 {
 public:
-    BMS();
+    BMS(MCP2515 &bms_can_);
     /**
      * @brief Returns true if HV has been started
      * @return true if HV started, false otherwise
      */
     bool hvReady() { return hv_started; };
-    void checkHv(MCP2515 *mcp2515_BMS);
+    void checkHv();
 
 private:
+    MCP2515 &bms_can; /**< Reference to MCP2515 for BMS CAN bus */
     /** Local storage for received BMS CAN frame */
     can_frame rx_bms_msg = {
         0,   /**< can_id */

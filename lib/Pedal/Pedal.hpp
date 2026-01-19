@@ -2,18 +2,20 @@
 #define PEDAL_HPP
 
 #include <stdint.h>
-#include <can.h> // for can_frame
 #include "Queue.hpp"
 #include "CarState.h"
 #include "Interp.hpp"
 #include "Curves.hpp"
 
+// ignore -Wpedantic warnings for mcp2515.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+#include <mcp2515.h>
+#pragma GCC diagnostic pop
+
 constexpr bool REGEN_ENABLED = true; // Set to true to enable regenerative braking, false to disable
 
 // Constants
-
-LinearInterp<uint16_t, int16_t, int32_t, 5> throttleMap(throttleTable);
-LinearInterp<uint16_t, int16_t, int32_t, 5> brakeMap(brakeTable);
 
 // Flips the direction of motor output
 // set to true for gen 3
@@ -37,13 +39,14 @@ constexpr bool FLIP_MOTOR_DIR = false;
 class Pedal
 {
 public:
-    Pedal(CarState &car);
+    Pedal(CarState &car, MCP2515 &motor_can_);
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
-    can_frame *canFrame();
+    void sendFrame();
     uint16_t &pedal_final = car.adc.apps_5v; /**< Final pedal value is taken directly from apps_5v */
 
 private:
-    CarState &car; /**< Reference to CarState */
+    CarState &car;      /**< Reference to CarState */
+    MCP2515 &motor_can; /**< Reference to MCP2515 for sending CAN messages */
     // If the two potentiometer inputs are too different (> 10%), the inputs are faulty
     // Definition for faulty is under FSEC 2024 Chapter 2, section 12.8, 12.9
     bool fault = true;
@@ -51,7 +54,7 @@ private:
     /**
      * @brief CAN frame to stop the motor
      */
-    can_frame stop_frame = {
+    const can_frame stop_frame = {
         MOTOR_COMMAND, /**< can_id */
         3,             /**< can_dlc */
         0x90,          /**< data, torque command */
@@ -65,6 +68,9 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
+
+    LinearInterp<uint16_t, int16_t, int32_t, 5> throttleMap{throttleTable};
+    LinearInterp<uint16_t, int16_t, int32_t, 5> brakeMap{brakeTable};
 
     bool checkPedalFault();
     int16_t throttleTorqueMapping(uint16_t pedal, uint16_t brake, bool flip_dir);
