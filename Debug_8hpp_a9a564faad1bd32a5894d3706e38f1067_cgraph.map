@@ -1,4 +1,0 @@
-<map id="DBGLN_THROTTLE" name="DBGLN_THROTTLE">
-<area shape="rect" id="node1" title="Prints a line to the serial console for throttle debug." alt="" coords="5,5,148,31"/>
-<area shape="rect" id="node2" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="196,5,355,31"/>
-</map>

@@ -16,11 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,18 +28,6 @@
    <div id="projectname">My Project
    </div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -56,6 +39,17 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -95,79 +89,19 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </div>
 
 <div class="contents">
-&#160;
-
-<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>addTask()&#160;:&#160;<a class="el" href="classScheduler.html#a2dc42aa4301e5b1022e31f4c056c984f">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>BMS()&#160;:&#160;<a class="el" href="classBMS.html#acb50e6b99cec2724704c591a266b7883">BMS</a></li>
-<li>brakeTorqueMapping()&#160;:&#160;<a class="el" href="classPedal.html#aa1247ec2956112c9664de5b54f808bc3">Pedal</a></li>
-</ul>
-
-
-<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>checkHv()&#160;:&#160;<a class="el" href="classBMS.html#a7de82f50c43e50529739213e98b9b634">BMS</a></li>
-<li>checkPedalFault()&#160;:&#160;<a class="el" href="classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7">Pedal</a></li>
-<li>cyclesNeeded()&#160;:&#160;<a class="el" href="classScheduler.html#a9e44ac674f314b307d08a42456cb6c8a">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+&#160;<ul>
+<li>getHead()&#160;:&#160;<a class="el" href="classQueue.html#a9d8c55ab95a4cc9c7d3081c770a60bd9">Queue&lt; T, size &gt;</a></li>
 <li>getLinearBuffer()&#160;:&#160;<a class="el" href="classRingBuffer.html#a8843b018a3b9f404488cb3e582353754">RingBuffer&lt; T, size &gt;</a></li>
-<li>getPeriodUs()&#160;:&#160;<a class="el" href="classScheduler.html#a8a3ab307c604b13baa2b03d84be9ad33">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>hvReady()&#160;:&#160;<a class="el" href="classBMS.html#aef0fbca3e0f970d2bbdaec28486b7d59">BMS</a></li>
-</ul>
-
-
-<h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>interp()&#160;:&#160;<a class="el" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">LinearInterp&lt; Tin, Tout, Tmid, size &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>LinearInterp()&#160;:&#160;<a class="el" href="classLinearInterp.html#a45153c62e0b76bbcb7edc6ab205cf879">LinearInterp&lt; Tin, Tout, Tmid, size &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>Pedal()&#160;:&#160;<a class="el" href="classPedal.html#a17a0df482b3c9bc5d1af6d5241d8e5ec">Pedal</a></li>
-<li>push()&#160;:&#160;<a class="el" href="classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c">RingBuffer&lt; T, size &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>removeTask()&#160;:&#160;<a class="el" href="classScheduler.html#ae7e054b0dea6562e5ad13ac752651a88">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
-<li>RingBuffer()&#160;:&#160;<a class="el" href="classRingBuffer.html#a90ee21ba482fcc7fe22942801f75c3ae">RingBuffer&lt; T, size &gt;</a></li>
-<li>runTasks()&#160;:&#160;<a class="el" href="classScheduler.html#af413dbf9319b061e919a7beb192920c4">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
-</ul>
-
-
-<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>Scheduler()&#160;:&#160;<a class="el" href="classScheduler.html#a299319973d96b26de8de719dca8822fd">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
-<li>scheduler_adc()&#160;:&#160;<a class="el" href="classTelemetry.html#acde5e679d96cc20da55b442ddddabf58">Telemetry</a></li>
-<li>scheduler_digital()&#160;:&#160;<a class="el" href="classTelemetry.html#a7c6430fa1d24bd9ac8a1e0d95f99fd14">Telemetry</a></li>
-<li>scheduler_states()&#160;:&#160;<a class="el" href="classTelemetry.html#aeff5f72366dfab7b683a20b1139ce60e">Telemetry</a></li>
-<li>sendFrame()&#160;:&#160;<a class="el" href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015">Pedal</a></li>
-</ul>
-
-
-<h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>TablePoint()&#160;:&#160;<a class="el" href="classLinearInterp.html#afc1ffe8f9bfb02768c1a719c2935fab8">LinearInterp&lt; Tin, Tout, Tmid, size &gt;</a></li>
-<li>Telemetry()&#160;:&#160;<a class="el" href="classTelemetry.html#a52f9548ef855738d450f241df5b04b96">Telemetry</a></li>
-<li>throttleTorqueMapping()&#160;:&#160;<a class="el" href="classPedal.html#abef0e8d31dc31884f9944a149c6b8e5a">Pedal</a></li>
-<li>toCanFrame()&#160;:&#160;<a class="el" href="structTelemetryFrameAdc.html#a4e7f8219ce7209b97691c2ba4df11c23">TelemetryFrameAdc</a>, <a class="el" href="structTelemetryFrameDigital.html#a854a063396c822b4d02f3897276bd611">TelemetryFrameDigital</a>, <a class="el" href="structTelemetryFrameState.html#a3c77ae091bd1912d700dbb58b2f1c68e">TelemetryFrameState</a></li>
-</ul>
-
-
-<h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
-<li>update()&#160;:&#160;<a class="el" href="classPedal.html#a0ec014fb5ce414deded33ae3db05e231">Pedal</a>, <a class="el" href="classScheduler.html#a02be1adb4980fd98aafd357a973c3467">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;</a></li>
+<li>isEmpty()&#160;:&#160;<a class="el" href="classQueue.html#adc4d4ac5b5066965b20efe67ec2b6ddf">Queue&lt; T, size &gt;</a></li>
+<li>isFull()&#160;:&#160;<a class="el" href="classQueue.html#ad2735fc146bc6a9ee42549bb781f3c6a">Queue&lt; T, size &gt;</a></li>
+<li>Pedal()&#160;:&#160;<a class="el" href="classPedal.html#a76479ec36313bba4b45a1e092c725d95">Pedal</a></li>
+<li>pedal_can_frame_stop_motor()&#160;:&#160;<a class="el" href="classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5">Pedal</a></li>
+<li>pedal_can_frame_update()&#160;:&#160;<a class="el" href="classPedal.html#a7ba3e35aa516afdfc47606619d16e3a2">Pedal</a></li>
+<li>pedal_update()&#160;:&#160;<a class="el" href="classPedal.html#ab1c72e4ea23bb08ea320a84a6db8902b">Pedal</a></li>
+<li>pop()&#160;:&#160;<a class="el" href="classQueue.html#aa5ebe2e5c261f775a625109efa7438f4">Queue&lt; T, size &gt;</a></li>
+<li>push()&#160;:&#160;<a class="el" href="classQueue.html#ad7c4c02cc808dbfa024a486ea701fad8">Queue&lt; T, size &gt;</a>, <a class="el" href="classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c">RingBuffer&lt; T, size &gt;</a></li>
+<li>Queue()&#160;:&#160;<a class="el" href="classQueue.html#a7d4a4b8cc760e17034f338dfae44b45c">Queue&lt; T, size &gt;</a></li>
+<li>RingBuffer()&#160;:&#160;<a class="el" href="classRingBuffer.html#a0904abc81da8d5b07554f7151fa3eb4a">RingBuffer&lt; T, size &gt;</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

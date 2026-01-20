@@ -1,8 +1,25 @@
 var searchData=
 [
-  ['bms_5ffailed_5fled_0',['BMS_FAILED_LED',['../boardConf_8h.html#a1e737aebda49004244d2184945475905',1,'boardConf.h']]],
-  ['brake_5fin_1',['BRAKE_IN',['../boardConf_8h.html#a5526cea8555b601f99b6233f35faea83',1,'boardConf.h']]],
-  ['brake_5flight_2',['BRAKE_LIGHT',['../boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163',1,'boardConf.h']]],
-  ['button_5factive_3',['BUTTON_ACTIVE',['../boardConf_8h.html#af04e20a7e5b6153ffe850b26e1fe097a',1,'boardConf.h']]],
-  ['buzzer_4',['BUZZER',['../boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13',1,'boardConf.h']]]
+  ['dbg_5fgeneral_0',['DBG_GENERAL',['../Debug_8h.html#a4390fbf0a7aa6cc8a17d1840649c7736',1,'Debug.h']]],
+  ['dbg_5fstatus_1',['DBG_STATUS',['../Debug_8h.html#a55a3f7afbe67e8ab32e31ba4209dbefb',1,'Debug.h']]],
+  ['dbg_5fstatus_5fbrake_2',['DBG_STATUS_BRAKE',['../Debug_8h.html#a69d6842eb69296e8fc0b3afec8f75e40',1,'Debug.h']]],
+  ['dbg_5fstatus_5fcar_3',['DBG_STATUS_CAR',['../Debug_8h.html#af3da0ef9a34924967708df9cfee4a300',1,'Debug.h']]],
+  ['dbg_5fthrottle_4',['DBG_THROTTLE',['../Debug_8h.html#ac24a238c83a302d1c3814d4c517a1788',1,'Debug.h']]],
+  ['dbg_5fthrottle_5ffault_5',['DBG_THROTTLE_FAULT',['../Debug_8h.html#a3af3b1c00d0e293626cd164687483a68',1,'Debug.h']]],
+  ['dbg_5fthrottle_5fin_6',['DBG_THROTTLE_IN',['../Debug_8h.html#a9d2989dc4e7ae79846e2ad9287ecbcfb',1,'Debug.h']]],
+  ['dbg_5fthrottle_5fout_7',['DBG_THROTTLE_OUT',['../Debug_8h.html#a0249def3ad31009d05b0620c29ec8b2d',1,'Debug.h']]],
+  ['dbgln_5fgeneral_8',['DBGLN_GENERAL',['../Debug_8h.html#a21888ba3998ff4089ce620ca585ec980',1,'Debug.h']]],
+  ['dbgln_5fstatus_9',['DBGLN_STATUS',['../Debug_8h.html#aa1ae00c66ea6bfeee63eba46dccb528b',1,'Debug.h']]],
+  ['dbgln_5fthrottle_10',['DBGLN_THROTTLE',['../Debug_8h.html#a8e053aa392180b92d4ad1311ba41f518',1,'Debug.h']]],
+  ['debug_11',['DEBUG',['../Debug_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'Debug.h']]],
+  ['debug_5fcan_12',['DEBUG_CAN',['../Debug_8h.html#ac9d6794979a4ec6135cc3e425777b993',1,'Debug.h']]],
+  ['debug_5fgeneral_13',['DEBUG_GENERAL',['../Debug_8h.html#a4c35b4c71a9fd428c47eb27bf72c2789',1,'Debug.h']]],
+  ['debug_5fserial_14',['DEBUG_SERIAL',['../Debug_8h.html#a61e127df60d55ea4c8bd6b8ec1f88367',1,'Debug.h']]],
+  ['debug_5fstatus_15',['DEBUG_STATUS',['../Debug_8h.html#a04c63ab2d82d3f4b94883e1fb75e62f4',1,'Debug.h']]],
+  ['debug_5fstatus_5fbrake_16',['DEBUG_STATUS_BRAKE',['../Debug_8h.html#a1d792f9b86b0b6e682334a8c482dcdaf',1,'Debug.h']]],
+  ['debug_5fstatus_5fcar_17',['DEBUG_STATUS_CAR',['../Debug_8h.html#a9c6a36259add4723a0e33f323bbda248',1,'Debug.h']]],
+  ['debug_5fthrottle_18',['DEBUG_THROTTLE',['../Debug_8h.html#a161269174793744d640c3a37ee8c97d1',1,'Debug.h']]],
+  ['debug_5fthrottle_5ffault_19',['DEBUG_THROTTLE_FAULT',['../Debug_8h.html#a6d43d7188ea0eeea1c490073fad87559',1,'Debug.h']]],
+  ['debug_5fthrottle_5fin_20',['DEBUG_THROTTLE_IN',['../Debug_8h.html#a10f2e3a2f2edf4c999933494557a2cf9',1,'Debug.h']]],
+  ['debug_5fthrottle_5fout_21',['DEBUG_THROTTLE_OUT',['../Debug_8h.html#ad0c4dd35d30dbc1881a09d5c339d09a3',1,'Debug.h']]]
 ];

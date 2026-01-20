@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['out_0',['out',['../structTablePoint.html#a72d272937ff127743e008674e8a7a38a',1,'TablePoint']]],
-  ['output_5fcount_1',['OUTPUT_COUNT',['../main_8cpp.html#a5df142f03646c5b92649924c05eb448e',1,'main.cpp']]]
+  ['queue_0',['Queue',['../classQueue.html',1,'Queue&lt; T, size &gt;'],['../classQueue.html#a7d4a4b8cc760e17034f338dfae44b45c',1,'Queue::Queue()']]],
+  ['queue_2ecpp_1',['Queue.cpp',['../Queue_8cpp.html',1,'']]],
+  ['queue_2eh_2',['Queue.h',['../Queue_8h.html',1,'']]]
 ];

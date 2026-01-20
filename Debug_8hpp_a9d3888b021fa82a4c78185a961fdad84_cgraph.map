@@ -1,4 +1,0 @@
-<map id="DBG_THROTTLE" name="DBG_THROTTLE">
-<area shape="rect" id="node1" title="Prints a throttle debug message to the serial console." alt="" coords="5,5,132,31"/>
-<area shape="rect" id="node2" href="$namespaceDebug__Serial.html#aecd80296d8a3c5d2f9c51d623e11ff9f" title="Prints a string to the serial console." alt="" coords="180,5,327,31"/>
-</map>

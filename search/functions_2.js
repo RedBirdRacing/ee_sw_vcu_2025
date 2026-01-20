@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['checkhv_0',['checkHv',['../classBMS.html#a7de82f50c43e50529739213e98b9b634',1,'BMS']]],
-  ['checkpedalfault_1',['checkPedalFault',['../classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7',1,'Pedal']]],
-  ['cyclesneeded_2',['cyclesNeeded',['../classScheduler.html#a9e44ac674f314b307d08a42456cb6c8a',1,'Scheduler']]]
+  ['gethead_0',['getHead',['../classQueue.html#a9d8c55ab95a4cc9c7d3081c770a60bd9',1,'Queue']]],
+  ['getlinearbuffer_1',['getLinearBuffer',['../classRingBuffer.html#a8843b018a3b9f404488cb3e582353754',1,'RingBuffer']]]
 ];

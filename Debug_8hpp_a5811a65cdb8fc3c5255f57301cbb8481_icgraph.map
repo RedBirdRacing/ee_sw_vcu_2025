@@ -1,6 +1,0 @@
-<map id="DBG_BMS_STATUS" name="DBG_BMS_STATUS">
-<area shape="rect" id="node1" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="435,5,577,31"/>
-<area shape="rect" id="node2" href="$classBMS.html#a7de82f50c43e50529739213e98b9b634" title="Attempts to start HV. First check BMS is in standby(3) state, then send the HV start command...." alt="" coords="272,5,387,31"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4" title=" " alt="" coords="104,5,224,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,5,56,31"/>
-</map>

@@ -1,25 +1,5 @@
 var searchData=
 [
-  ['bms_0',['bms',['../main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6',1,'main.cpp']]],
-  ['bms_5fcan_1',['bms_can',['../classBMS.html#a6b2d8b7b543873f35beeab64464d502b',1,'BMS']]],
-  ['bms_5fcommand_2',['BMS_COMMAND',['../BMS_8hpp.html#a498a73250bf649788c7c87049454468a',1,'BMS.hpp']]],
-  ['bms_5fdata_3',['bms_data',['../structTelemetryFrameState.html#a5006c5ed8f5ab2e2791221a95c69e64c',1,'TelemetryFrameState']]],
-  ['bms_5finfo_4',['BMS_INFO',['../BMS_8hpp.html#ad5d92403aa66ff7f26223a07b5d6cb88',1,'BMS.hpp']]],
-  ['bms_5finfo_5fext_5',['BMS_INFO_EXT',['../BMS_8hpp.html#a63a06b4ea269ba668a6d337097356e93',1,'BMS.hpp']]],
-  ['bms_5fmillis_6',['BMS_MILLIS',['../main_8cpp.html#a9b210a2254e453ab1707b21a4f610222',1,'main.cpp']]],
-  ['bms_5fno_5fmsg_7',['bms_no_msg',['../structTelemetryFrameState.html#a158f7883174204da5b00effb4003d378',1,'TelemetryFrameState']]],
-  ['bms_5fsend_5fcmd_8',['BMS_SEND_CMD',['../BMS_8hpp.html#a972fa122ea3511b4618974d08967eed6',1,'BMS.hpp']]],
-  ['bms_5fwrong_5fid_9',['bms_wrong_id',['../structTelemetryFrameState.html#a826fddc4d43f181dd8a95fe61f419474',1,'TelemetryFrameState']]],
-  ['brake_10',['brake',['../structTelemetryFrameAdc.html#aaf7ba0d72aaef96015e8b7a4eb67d580',1,'TelemetryFrameAdc']]],
-  ['brake_5fhigh_11',['brake_high',['../structTelemetryFrameState.html#a2270d920a08f798fd16faea57626c5a8',1,'TelemetryFrameState']]],
-  ['brake_5flow_12',['brake_low',['../structTelemetryFrameState.html#a1e4211f23827cf65c46e20e6b146b2b9',1,'TelemetryFrameState']]],
-  ['brake_5fmax_13',['brake_max',['../Curves_8hpp.html#ac712cba2ad3cccf9a10752cb339d45a2',1,'Curves.hpp']]],
-  ['brake_5fmin_14',['brake_min',['../Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7',1,'Curves.hpp']]],
-  ['brake_5fpressed_15',['brake_pressed',['../main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7',1,'main.cpp']]],
-  ['brake_5fthreshold_16',['BRAKE_THRESHOLD',['../main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9',1,'main.cpp']]],
-  ['brake_5fvalue_17',['brake_value',['../classPedal.html#a9077149e161a9ae7223b6a153f7fb953',1,'Pedal']]],
-  ['brakemap_18',['brakeMap',['../classPedal.html#a318aa35fdc5c7790c23379ec29eb1ce3',1,'Pedal']]],
-  ['braketable_19',['brakeTable',['../Curves_8hpp.html#aea427c401506fe72b2ff7dd4b28f27f4',1,'Curves.hpp']]],
-  ['buffer_20',['buffer',['../classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e',1,'RingBuffer']]],
-  ['bussin_5fmillis_21',['BUSSIN_MILLIS',['../main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b',1,'main.cpp']]]
+  ['buffer_0',['buffer',['../classQueue.html#a748a9821dc7cc3464a08a2fb2822f0f8',1,'Queue::buffer()'],['../classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e',1,'RingBuffer::buffer()']]],
+  ['bussin_5ftime_5fmillis_1',['BUSSIN_TIME_MILLIS',['../main_8cpp.html#a15d2a6ef8d5c78eacf0c547e09faed40',1,'main.cpp']]]
 ];

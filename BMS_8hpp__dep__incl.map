@@ -1,5 +1,0 @@
-<map id="lib/BMS/BMS.hpp" name="lib/BMS/BMS.hpp">
-<area shape="rect" id="node1" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="75,5,207,31"/>
-<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,79,136,104"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="161,79,266,104"/>
-</map>

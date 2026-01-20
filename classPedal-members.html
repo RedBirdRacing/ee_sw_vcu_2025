@@ -16,11 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,18 +28,6 @@
    <div id="projectname">My Project
    </div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -56,6 +39,17 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -101,24 +95,12 @@ $(document).ready(function(){initNavTree('classPedal.html',''); initResizable();
 
 <p>This is the complete list of members for <a class="el" href="classPedal.html">Pedal</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a9077149e161a9ae7223b6a153f7fb953">brake_value</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a318aa35fdc5c7790c23379ec29eb1ce3">brakeMap</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#aa1247ec2956112c9664de5b54f808bc3">brakeTorqueMapping</a>(uint16_t brake, bool flip_dir)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a62eed1bcc4b9bb0cc4b1419cd77472da">car</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7">checkPedalFault</a>()</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#ae32f92a6912df6b7b1fcc64a09ffa13f">fault</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#aed35c8681adf86717b4e577058395159">fault_start_millis</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a5976c83166dab08ed33d48529f10e830">motor_can</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a17a0df482b3c9bc5d1af6d5241d8e5ec">Pedal</a>(CarState &amp;car, MCP2515 &amp;motor_can_)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#abba234f23d76928f8dfa21a4330da828">pedal_final</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#ab48606ce9a0ce7d8002806bdd25d1828">pedal_value_1</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a1f847fb4c379a7d10cb2b61598e4b83f">pedal_value_2</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015">sendFrame</a>()</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a85f0168c8a81fa64e1e311f9250e9f19">stop_frame</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#acdb89dfca8e0d7ec8ef72f60428ab34e">throttleMap</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#abef0e8d31dc31884f9944a149c6b8e5a">throttleTorqueMapping</a>(uint16_t pedal, uint16_t brake, bool flip_dir)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#ae00465a23de214b9a9c5bf48f5b93587">torque_msg</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a0ec014fb5ce414deded33ae3db05e231">update</a>(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a427bd62d1587c4b02ccb0f7f5c07d46d">final_pedal_value</a></td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a76479ec36313bba4b45a1e092c725d95">Pedal</a>(int input_pin_1, int input_pin_2, unsigned long millis, unsigned short conversion_rate=1000)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a7a2bd6bd3f141509e4d20ecf58b18f97">Pedal</a>()</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#a4ff4c5cf21550badfbb93b239b6bdee5">pedal_can_frame_stop_motor</a>(can_frame *tx_throttle_msg)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPedal.html#a7ba3e35aa516afdfc47606619d16e3a2">pedal_can_frame_update</a>(can_frame *tx_throttle_msg)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classPedal.html#ab1c72e4ea23bb08ea320a84a6db8902b">pedal_update</a>(unsigned long millis)</td><td class="entry"><a class="el" href="classPedal.html">Pedal</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

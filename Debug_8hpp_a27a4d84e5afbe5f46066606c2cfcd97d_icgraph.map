@@ -1,6 +1,0 @@
-<map id="DBG_THROTTLE_FAULT" name="DBG_THROTTLE_FAULT">
-<area shape="rect" id="node1" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="481,31,653,56"/>
-<area shape="rect" id="node2" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="263,5,433,31"/>
-<area shape="rect" id="node3" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="104,31,215,56"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,31,56,56"/>
-</map>

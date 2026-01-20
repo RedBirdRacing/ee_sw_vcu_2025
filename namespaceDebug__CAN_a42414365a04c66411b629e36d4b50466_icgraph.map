@@ -1,4 +1,0 @@
-<map id="Debug_CAN::hall_sensor" name="Debug_CAN::hall_sensor">
-<area shape="rect" id="node1" title="Sends a debug hall sensor message over CAN." alt="" coords="204,5,385,31"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22" title="Send hall sensor debug info via CAN." alt="" coords="5,5,156,31"/>
-</map>

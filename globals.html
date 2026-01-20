@@ -16,11 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,18 +28,6 @@
    <div id="projectname">My Project
    </div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -56,6 +39,17 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -98,104 +92,65 @@ $(document).ready(function(){initNavTree('globals.html',''); initResizable(); })
 <div class="textblock">Here is a list of all file members with links to the files they belong to:</div>
 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>ADC_BUFFER_SIZE&#160;:&#160;<a class="el" href="Pedal_8hpp.html#a602abb8ec84dcb3b6f854a738310ea46">Pedal.hpp</a></li>
-<li>APPS_3V3&#160;:&#160;<a class="el" href="boardConf_8h.html#a5062bcc46bcd21e5984aa1bc3e932c96">boardConf.h</a></li>
-<li>APPS_5V&#160;:&#160;<a class="el" href="boardConf_8h.html#a2cb80d9d4c245ea31cae786f290596c8">boardConf.h</a></li>
-<li>apps_max&#160;:&#160;<a class="el" href="Curves_8hpp.html#aeac3f7a162e6d0fdda8862a734e7bb4a">Curves.hpp</a></li>
-<li>apps_min&#160;:&#160;<a class="el" href="Curves_8hpp.html#a9f911c4cd0a9bd79b838d14c1e3fb2bb">Curves.hpp</a></li>
-<li>APPS_RATIO&#160;:&#160;<a class="el" href="Pedal_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b">Pedal.hpp</a></li>
-<li>average()&#160;:&#160;<a class="el" href="Signal__Processing_8hpp.html#a4d9072b402cbfdfd7303bd805f408f6c">Signal_Processing.hpp</a>, <a class="el" href="Signal__Processing_8tpp.html#a4d9072b402cbfdfd7303bd805f408f6c">Signal_Processing.tpp</a></li>
-<li>AVG_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8hpp.html#aae13f76d835e3de4d61441cf4abc0f08">Signal_Processing.hpp</a>, <a class="el" href="Signal__Processing_8tpp.html#aae13f76d835e3de4d61441cf4abc0f08">Signal_Processing.tpp</a></li>
+<li>ADC_BUFFER_SIZE&#160;:&#160;<a class="el" href="Pedal_8h.html#a602abb8ec84dcb3b6f854a738310ea46">Pedal.h</a></li>
+<li>APPS_PEDAL_1_LOWER_DEADZONE_WIDTH&#160;:&#160;<a class="el" href="Pedal_8h.html#a77b04c055fbec9bab6663b65d216e69b">Pedal.h</a></li>
+<li>APPS_PEDAL_1_MAX_VOLTAGE&#160;:&#160;<a class="el" href="Pedal_8h.html#a7559c01900888601002e250c252ab50f">Pedal.h</a></li>
+<li>APPS_PEDAL_1_MIN_VOLTAGE&#160;:&#160;<a class="el" href="Pedal_8h.html#a42a3f8c2dfe5bec8872de7c70ca0bd83">Pedal.h</a></li>
+<li>APPS_PEDAL_1_RANGE&#160;:&#160;<a class="el" href="Pedal_8h.html#a2e541d896e7ea53802b3359ad5bb07f7">Pedal.h</a></li>
+<li>APPS_PEDAL_1_UPPER_DEADZONE_WIDTH&#160;:&#160;<a class="el" href="Pedal_8h.html#ae427ee417bd2d4891998ece46162b8bb">Pedal.h</a></li>
+<li>APPS_PEDAL_2_MAX_VOLTAGE&#160;:&#160;<a class="el" href="Pedal_8h.html#af214d5d6bf3679bccfce9c4f6951f416">Pedal.h</a></li>
+<li>APPS_PEDAL_2_MIN_VOLTAGE&#160;:&#160;<a class="el" href="Pedal_8h.html#a1b8b48ea37d01dcfd926b2cb67b3d1e6">Pedal.h</a></li>
+<li>APPS_PEDAL_2_RANGE&#160;:&#160;<a class="el" href="Pedal_8h.html#a3db9aeb22856f05e1681ed5644a9964b">Pedal.h</a></li>
+<li>average()&#160;:&#160;<a class="el" href="Signal__Processing_8cpp.html#a7780bdc4e1118732b0bb8142188b9fb4">Signal_Processing.cpp</a>, <a class="el" href="Signal__Processing_8h.html#a7780bdc4e1118732b0bb8142188b9fb4">Signal_Processing.h</a></li>
+<li>AVG_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8cpp.html#aa9b728692efd1a7820e513ad78fb2ab1">Signal_Processing.cpp</a>, <a class="el" href="Signal__Processing_8h.html#aa9b728692efd1a7820e513ad78fb2ab1">Signal_Processing.h</a></li>
 </ul>
 
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>bms&#160;:&#160;<a class="el" href="main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6">main.cpp</a></li>
-<li>BMS_COMMAND&#160;:&#160;<a class="el" href="BMS_8hpp.html#a498a73250bf649788c7c87049454468a">BMS.hpp</a></li>
-<li>BMS_FAILED_LED&#160;:&#160;<a class="el" href="boardConf_8h.html#a1e737aebda49004244d2184945475905">boardConf.h</a></li>
-<li>BMS_INFO&#160;:&#160;<a class="el" href="BMS_8hpp.html#ad5d92403aa66ff7f26223a07b5d6cb88">BMS.hpp</a></li>
-<li>BMS_INFO_EXT&#160;:&#160;<a class="el" href="BMS_8hpp.html#a63a06b4ea269ba668a6d337097356e93">BMS.hpp</a></li>
-<li>BMS_MILLIS&#160;:&#160;<a class="el" href="main_8cpp.html#a9b210a2254e453ab1707b21a4f610222">main.cpp</a></li>
-<li>BMS_SEND_CMD&#160;:&#160;<a class="el" href="BMS_8hpp.html#a972fa122ea3511b4618974d08967eed6">BMS.hpp</a></li>
-<li>BMS_status&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">Enums.h</a></li>
-<li>BRAKE_HIGH&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0">Enums.h</a></li>
-<li>BRAKE_IN&#160;:&#160;<a class="el" href="boardConf_8h.html#a5526cea8555b601f99b6233f35faea83">boardConf.h</a></li>
-<li>BRAKE_LIGHT&#160;:&#160;<a class="el" href="boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163">boardConf.h</a></li>
-<li>BRAKE_LOW&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0">Enums.h</a></li>
-<li>brake_max&#160;:&#160;<a class="el" href="Curves_8hpp.html#ac712cba2ad3cccf9a10752cb339d45a2">Curves.hpp</a></li>
-<li>brake_min&#160;:&#160;<a class="el" href="Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7">Curves.hpp</a></li>
-<li>brake_pressed&#160;:&#160;<a class="el" href="main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7">main.cpp</a></li>
-<li>BRAKE_THRESHOLD&#160;:&#160;<a class="el" href="main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9">main.cpp</a></li>
-<li>brakeTable&#160;:&#160;<a class="el" href="Curves_8hpp.html#aea427c401506fe72b2ff7dd4b28f27f4">Curves.hpp</a></li>
-<li>BUSSIN&#160;:&#160;<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">Enums.h</a></li>
-<li>BUSSIN_MILLIS&#160;:&#160;<a class="el" href="main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b">main.cpp</a></li>
-<li>BUTTON_ACTIVE&#160;:&#160;<a class="el" href="boardConf_8h.html#af04e20a7e5b6153ffe850b26e1fe097a">boardConf.h</a></li>
-<li>BUZZER&#160;:&#160;<a class="el" href="boardConf_8h.html#a145103118f6d9d1129aa4509cf214a13">boardConf.h</a></li>
+<li>BUSSIN_TIME_MILLIS&#160;:&#160;<a class="el" href="main_8cpp.html#a15d2a6ef8d5c78eacf0c547e09faed40">main.cpp</a></li>
 </ul>
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>CAN_RATE&#160;:&#160;<a class="el" href="boardConf_8h.html#a5f87fe9497f62d1f0b865190cecf2c0d">boardConf.h</a></li>
-<li>car&#160;:&#160;<a class="el" href="main_8cpp.html#ab5d80ba1651714c705b8b516e541d9d8">main.cpp</a></li>
-<li>CS_CAN_BMS&#160;:&#160;<a class="el" href="boardConf_8h.html#ab476064511df004d8a67875afbd3521b">boardConf.h</a></li>
-<li>CS_CAN_DL&#160;:&#160;<a class="el" href="boardConf_8h.html#a661f70456357c09fff639665b5e89852">boardConf.h</a></li>
-<li>CS_CAN_MOTOR&#160;:&#160;<a class="el" href="boardConf_8h.html#a65b24582a92e368f91aca95b4dbe5847">boardConf.h</a></li>
+<li>car_status&#160;:&#160;<a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">main.cpp</a></li>
+<li>car_status_millis_counter&#160;:&#160;<a class="el" href="main_8cpp.html#a86d21c557e374a4e5783adc5b611dc20">main.cpp</a></li>
 </ul>
 
 
 <h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>DBG_BMS_STATUS()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a5811a65cdb8fc3c5255f57301cbb8481">Debug.hpp</a></li>
-<li>DBG_BRAKE_FAULT()&#160;:&#160;<a class="el" href="Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986">Debug.hpp</a></li>
-<li>DBG_GENERAL()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9d60671317b513353287b53444954a4b">Debug.hpp</a></li>
-<li>DBG_HALL_SENSOR()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22">Debug.hpp</a></li>
-<li>DBG_STATUS()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475">Debug.hpp</a></li>
-<li>DBG_STATUS_CAR()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85">Debug.hpp</a></li>
-<li>DBG_THROTTLE()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84">Debug.hpp</a></li>
-<li>DBG_THROTTLE_FAULT()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d">Debug.hpp</a></li>
-<li>DBG_THROTTLE_IN()&#160;:&#160;<a class="el" href="Debug_8hpp.html#afa1e089b7149386f290d4ebb4d373bf6">Debug.hpp</a></li>
-<li>DBG_THROTTLE_OUT()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea">Debug.hpp</a></li>
-<li>DBGLN_GENERAL()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727">Debug.hpp</a></li>
-<li>DBGLN_STATUS()&#160;:&#160;<a class="el" href="Debug_8hpp.html#adeb16efc082a41c9b137c2fa9d8162c0">Debug.hpp</a></li>
-<li>DBGLN_THROTTLE()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067">Debug.hpp</a></li>
-<li>DEBUG&#160;:&#160;<a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">Debug.hpp</a></li>
-<li>DEBUG_BRAKE&#160;:&#160;<a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">Debug.hpp</a></li>
-<li>DEBUG_BRAKE_FAULT&#160;:&#160;<a class="el" href="Debug_8hpp.html#ae33d79f2390768d842e729727d5d5541">Debug.hpp</a></li>
-<li>DEBUG_BRAKE_IN&#160;:&#160;<a class="el" href="Debug_8hpp.html#a23581d444df2c63fda1b62e21cf6c5d0">Debug.hpp</a></li>
-<li>DEBUG_CAN&#160;:&#160;<a class="el" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">Debug.hpp</a></li>
-<li>DEBUG_GENERAL&#160;:&#160;<a class="el" href="Debug_8hpp.html#a4c35b4c71a9fd428c47eb27bf72c2789">Debug.hpp</a></li>
-<li>DEBUG_HALL_SENSOR&#160;:&#160;<a class="el" href="Debug_8hpp.html#ac880a3535e9c803915338b28c521662f">Debug.hpp</a></li>
-<li>DEBUG_SERIAL&#160;:&#160;<a class="el" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">Debug.hpp</a></li>
-<li>DEBUG_STATUS&#160;:&#160;<a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">Debug.hpp</a></li>
-<li>DEBUG_STATUS_BRAKE&#160;:&#160;<a class="el" href="Debug_8hpp.html#a1d792f9b86b0b6e682334a8c482dcdaf">Debug.hpp</a></li>
-<li>DEBUG_STATUS_CAR&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9c6a36259add4723a0e33f323bbda248">Debug.hpp</a></li>
-<li>DEBUG_THROTTLE&#160;:&#160;<a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">Debug.hpp</a></li>
-<li>DEBUG_THROTTLE_FAULT&#160;:&#160;<a class="el" href="Debug_8hpp.html#a6d43d7188ea0eeea1c490073fad87559">Debug.hpp</a></li>
-<li>DEBUG_THROTTLE_IN&#160;:&#160;<a class="el" href="Debug_8hpp.html#a10f2e3a2f2edf4c999933494557a2cf9">Debug.hpp</a></li>
-<li>DEBUG_THROTTLE_OUT&#160;:&#160;<a class="el" href="Debug_8hpp.html#ad0c4dd35d30dbc1881a09d5c339d09a3">Debug.hpp</a></li>
-<li>DIFF_CONTINUING&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490">Enums.h</a></li>
-<li>DIFF_EXCEED_100MS&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a">Enums.h</a></li>
-<li>DIFF_RESOLVED&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616">Enums.h</a></li>
-<li>DIFF_START&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d">Enums.h</a></li>
-<li>DRIVE&#160;:&#160;<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">Enums.h</a></li>
-<li>DRIVE_MODE_BTN&#160;:&#160;<a class="el" href="boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426">boardConf.h</a></li>
+<li>DBG_GENERAL&#160;:&#160;<a class="el" href="Debug_8h.html#a4390fbf0a7aa6cc8a17d1840649c7736">Debug.h</a></li>
+<li>DBG_STATUS&#160;:&#160;<a class="el" href="Debug_8h.html#a55a3f7afbe67e8ab32e31ba4209dbefb">Debug.h</a></li>
+<li>DBG_STATUS_BRAKE&#160;:&#160;<a class="el" href="Debug_8h.html#a69d6842eb69296e8fc0b3afec8f75e40">Debug.h</a></li>
+<li>DBG_STATUS_CAR&#160;:&#160;<a class="el" href="Debug_8h.html#af3da0ef9a34924967708df9cfee4a300">Debug.h</a></li>
+<li>DBG_THROTTLE&#160;:&#160;<a class="el" href="Debug_8h.html#ac24a238c83a302d1c3814d4c517a1788">Debug.h</a></li>
+<li>DBG_THROTTLE_FAULT&#160;:&#160;<a class="el" href="Debug_8h.html#a3af3b1c00d0e293626cd164687483a68">Debug.h</a></li>
+<li>DBG_THROTTLE_IN&#160;:&#160;<a class="el" href="Debug_8h.html#a9d2989dc4e7ae79846e2ad9287ecbcfb">Debug.h</a></li>
+<li>DBG_THROTTLE_OUT&#160;:&#160;<a class="el" href="Debug_8h.html#a0249def3ad31009d05b0620c29ec8b2d">Debug.h</a></li>
+<li>DBGLN_GENERAL&#160;:&#160;<a class="el" href="Debug_8h.html#a21888ba3998ff4089ce620ca585ec980">Debug.h</a></li>
+<li>DBGLN_STATUS&#160;:&#160;<a class="el" href="Debug_8h.html#aa1ae00c66ea6bfeee63eba46dccb528b">Debug.h</a></li>
+<li>DBGLN_THROTTLE&#160;:&#160;<a class="el" href="Debug_8h.html#a8e053aa392180b92d4ad1311ba41f518">Debug.h</a></li>
+<li>DEBUG&#160;:&#160;<a class="el" href="Debug_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">Debug.h</a></li>
+<li>DEBUG_CAN&#160;:&#160;<a class="el" href="Debug_8h.html#ac9d6794979a4ec6135cc3e425777b993">Debug.h</a></li>
+<li>DEBUG_GENERAL&#160;:&#160;<a class="el" href="Debug_8h.html#a4c35b4c71a9fd428c47eb27bf72c2789">Debug.h</a></li>
+<li>DEBUG_SERIAL&#160;:&#160;<a class="el" href="Debug_8h.html#a61e127df60d55ea4c8bd6b8ec1f88367">Debug.h</a></li>
+<li>DEBUG_STATUS&#160;:&#160;<a class="el" href="Debug_8h.html#a04c63ab2d82d3f4b94883e1fb75e62f4">Debug.h</a></li>
+<li>DEBUG_STATUS_BRAKE&#160;:&#160;<a class="el" href="Debug_8h.html#a1d792f9b86b0b6e682334a8c482dcdaf">Debug.h</a></li>
+<li>DEBUG_STATUS_CAR&#160;:&#160;<a class="el" href="Debug_8h.html#a9c6a36259add4723a0e33f323bbda248">Debug.h</a></li>
+<li>DEBUG_THROTTLE&#160;:&#160;<a class="el" href="Debug_8h.html#a161269174793744d640c3a37ee8c97d1">Debug.h</a></li>
+<li>DEBUG_THROTTLE_FAULT&#160;:&#160;<a class="el" href="Debug_8h.html#a6d43d7188ea0eeea1c490073fad87559">Debug.h</a></li>
+<li>DEBUG_THROTTLE_IN&#160;:&#160;<a class="el" href="Debug_8h.html#a10f2e3a2f2edf4c999933494557a2cf9">Debug.h</a></li>
+<li>DEBUG_THROTTLE_OUT&#160;:&#160;<a class="el" href="Debug_8h.html#ad0c4dd35d30dbc1881a09d5c339d09a3">Debug.h</a></li>
 </ul>
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>FIR_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8hpp.html#a2665ca55613be71683eb9e2cd6365cfc">Signal_Processing.hpp</a>, <a class="el" href="Signal__Processing_8tpp.html#a2665ca55613be71683eb9e2cd6365cfc">Signal_Processing.tpp</a></li>
-<li>FLIP_MOTOR_DIR&#160;:&#160;<a class="el" href="Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309">Pedal.hpp</a></li>
-<li>FRG&#160;:&#160;<a class="el" href="boardConf_8h.html#abfa15a856e2d40258527d676c5023292">boardConf.h</a></li>
-</ul>
-
-
-<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>HALL_SENSOR&#160;:&#160;<a class="el" href="boardConf_8h.html#a6ff4d2630652deeecb75723f5a3fb068">boardConf.h</a></li>
+<li>FIR_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8cpp.html#a1e6f78e4a958f8fd78450f0fffdb2da4">Signal_Processing.cpp</a>, <a class="el" href="Signal__Processing_8h.html#a1e6f78e4a958f8fd78450f0fffdb2da4">Signal_Processing.h</a></li>
+<li>Flip_Motor_Dir&#160;:&#160;<a class="el" href="Pedal_8h.html#a301156a0429acc32e491f020eeab2cfa">Pedal.h</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>INIT&#160;:&#160;<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">Enums.h</a></li>
-<li>INPUT_COUNT&#160;:&#160;<a class="el" href="main_8cpp.html#a7a6ac71c9a2fc17168eb74b51e25c857">main.cpp</a></li>
+<li>INPUT_PINS_COUNT&#160;:&#160;<a class="el" href="main_8cpp.html#abdc3361118082540c7d53e3d62c26d4e">main.cpp</a></li>
 </ul>
 
 
@@ -205,92 +160,44 @@ $(document).ready(function(){initNavTree('globals.html',''); initResizable(); })
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>main_car_status&#160;:&#160;<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">Enums.h</a></li>
+<li>MAX_THROTTLE_IN_VOLT&#160;:&#160;<a class="el" href="Pedal_8h.html#a9bf0ad88f3c41216e70de0f7af7e98e6">Pedal.h</a></li>
+<li>MAX_THROTTLE_OUT_VAL&#160;:&#160;<a class="el" href="Pedal_8h.html#a0777308c6d1fb87a30422d3e76f128a1">Pedal.h</a></li>
 <li>mcp2515_BMS()&#160;:&#160;<a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">main.cpp</a></li>
-<li>MCP2515_CRYSTAL_FREQ&#160;:&#160;<a class="el" href="boardConf_8h.html#a707e24d4b34174643260e39c3abedb45">boardConf.h</a></li>
 <li>mcp2515_DL()&#160;:&#160;<a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">main.cpp</a></li>
-<li>mcp2515_motor&#160;:&#160;<a class="el" href="main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e">main.cpp</a></li>
-<li>MCP_BMS&#160;:&#160;<a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a02608313d5a58eecced8ebda7fefff04">Enums.h</a></li>
-<li>MCP_DL&#160;:&#160;<a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a660cdaa580f1623e026d743febd3d581">Enums.h</a></li>
-<li>mcp_index&#160;:&#160;<a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">Enums.h</a></li>
-<li>MCP_MOTOR&#160;:&#160;<a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc">Enums.h</a></li>
-<li>MCPS&#160;:&#160;<a class="el" href="main_8cpp.html#a39f18c330e82b1bb457acf12ff206e28">main.cpp</a></li>
-<li>MOTOR_COMMAND&#160;:&#160;<a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da67c1012c1a551351e27c0235f6b44265">Enums.h</a></li>
-</ul>
-
-
-<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
-<li>NO_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff">Enums.h</a></li>
-<li>NONE&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2">Enums.h</a></li>
-<li>NUM_MCP&#160;:&#160;<a class="el" href="main_8cpp.html#aa82c7cb82034ed6919b0a66d33aaf35d">main.cpp</a></li>
+<li>mcp2515_motor()&#160;:&#160;<a class="el" href="main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5">main.cpp</a></li>
+<li>MIN_THROTTLE_IN_VOLT&#160;:&#160;<a class="el" href="Pedal_8h.html#a94846eb4c469be67c9b80cacdbf5dabe">Pedal.h</a></li>
+<li>MIN_THROTTLE_OUT_VAL&#160;:&#160;<a class="el" href="Pedal_8h.html#a97a905b4178224d00f842b93159cd428">Pedal.h</a></li>
 </ul>
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>OUTPUT_COUNT&#160;:&#160;<a class="el" href="main_8cpp.html#a5df142f03646c5b92649924c05eb448e">main.cpp</a></li>
+<li>OUTPUT_PINS_COUNT&#160;:&#160;<a class="el" href="main_8cpp.html#aaa9040b44dff55784b8756ed4a8344ba">main.cpp</a></li>
 </ul>
 
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>pedal&#160;:&#160;<a class="el" href="main_8cpp.html#a51a8f4c4445fb8d4f0c67dafadc4e4e0">main.cpp</a></li>
-<li>pedal_fault_status&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">Enums.h</a></li>
-<li>pins_in&#160;:&#160;<a class="el" href="main_8cpp.html#ac81c886455652a75221096759b0b39ca">main.cpp</a></li>
-<li>pins_out&#160;:&#160;<a class="el" href="main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48">main.cpp</a></li>
+<li>pedal&#160;:&#160;<a class="el" href="main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8">main.cpp</a></li>
+<li>pin_in&#160;:&#160;<a class="el" href="main_8cpp.html#a2e8693be6bfc3c3e88b1c6a48d24dd57">main.cpp</a></li>
+<li>pin_out&#160;:&#160;<a class="el" href="main_8cpp.html#a74ca7d9077cc901338787c473b1582f5">main.cpp</a></li>
 </ul>
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>REGEN_ENABLED&#160;:&#160;<a class="el" href="Pedal_8hpp.html#ad9af782d63c8bc4cfaf4a3b19d1489f3">Pedal.hpp</a></li>
+<li>rx_msg&#160;:&#160;<a class="el" href="main_8cpp.html#aa73959a8a4ecf596694a2e117b831ab4">main.cpp</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>scheduler&#160;:&#160;<a class="el" href="main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548">main.cpp</a></li>
-<li>scheduler_bms()&#160;:&#160;<a class="el" href="main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4">main.cpp</a></li>
-<li>scheduler_pedal()&#160;:&#160;<a class="el" href="main_8cpp.html#a1174b6795782479542559289cd623faf">main.cpp</a></li>
 <li>setup()&#160;:&#160;<a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">main.cpp</a></li>
-<li>start_hv_msg&#160;:&#160;<a class="el" href="BMS_8hpp.html#a33b9a47cfce939f8cfa0b9a4a7ccfa55">BMS.hpp</a></li>
-<li>STARTED&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27">Enums.h</a></li>
-<li>STARTIN&#160;:&#160;<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">Enums.h</a></li>
-<li>STARTING&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec">Enums.h</a></li>
-<li>STARTING_MILLIS&#160;:&#160;<a class="el" href="main_8cpp.html#a83e2f8002c9f61e65749409b326c642b">main.cpp</a></li>
-<li>STATUS_BMS_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bcaa0c59eed98c4a839ca52cd704f73ad3c">Enums.h</a></li>
-<li>STATUS_BRAKE_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca2c7b47fffc55066cb650094438487245">Enums.h</a></li>
-<li>status_can_id&#160;:&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bc">Enums.h</a></li>
-<li>STATUS_CAR_CHANGE_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca108a6a8bdac15ee4085e20ddc2b7a5c8">Enums.h</a></li>
-<li>STATUS_CAR_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca7244307d5e72f44ffdfddf17dcab6261">Enums.h</a></li>
-<li>STATUS_HALL_SENSOR_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca3b8b1a3311186cacb53a059b8bb4525b">Enums.h</a></li>
-<li>stop_hv_msg&#160;:&#160;<a class="el" href="BMS_8hpp.html#a67578567cbc8901452e6d3b277f376ca">BMS.hpp</a></li>
+<li>SINC_128&#160;:&#160;<a class="el" href="Pedal_8cpp.html#a442482149f0172f66309363d37909172">Pedal.cpp</a></li>
+<li>STATUS_1_TIME_MILLIS&#160;:&#160;<a class="el" href="main_8cpp.html#ae47ea13766a589d1afd13ce6416c8c31">main.cpp</a></li>
 </ul>
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>TaskFn&#160;:&#160;<a class="el" href="Scheduler_8tpp.html#ab23b399e0a4353c9f238169b660f56e8">Scheduler.tpp</a></li>
-<li>TELEMETRY_ADC_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aead676102a90cb03b7650f92b54df81449">Enums.h</a></li>
-<li>telemetry_can_id&#160;:&#160;<a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045ae">Enums.h</a></li>
-<li>TELEMETRY_DIGITAL_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aea50386e0651ff308b2dba0b8c9017a0b1">Enums.h</a></li>
-<li>TELEMETRY_STATE_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aeab63589bd26d364490106061d47e3aeaf">Enums.h</a></li>
-<li>throttle_can_id&#160;:&#160;<a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8d">Enums.h</a></li>
-<li>THROTTLE_FAULT_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dadf7cddf54eb45fd5c403b7f439bb1f8b">Enums.h</a></li>
-<li>THROTTLE_HIGH&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1">Enums.h</a></li>
-<li>THROTTLE_IN_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dac0e35b4ce06327af7e63a2e352935124">Enums.h</a></li>
-<li>THROTTLE_LOW&#160;:&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70">Enums.h</a></li>
-<li>THROTTLE_OUT_MSG&#160;:&#160;<a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da8a890167c2f9ca5e903e7c5aaf2f6fa8">Enums.h</a></li>
-<li>throttleTable&#160;:&#160;<a class="el" href="Curves_8hpp.html#aa76f2f36842a60149b48fb2c638e078b">Curves.hpp</a></li>
+<li>THROTTLE_LOWER_DEADZONE_MIN_IN_VOLT&#160;:&#160;<a class="el" href="Pedal_8h.html#a477f8a727036da0a8c9dab64ac20df9b">Pedal.h</a></li>
+<li>THROTTLE_UPPER_DEADZONE_MAX_IN_VOLT&#160;:&#160;<a class="el" href="Pedal_8h.html#a4ce10629e45366467fc0b3a2b6333127">Pedal.h</a></li>
 <li>tx_throttle_msg&#160;:&#160;<a class="el" href="main_8cpp.html#aeadd5ff15bba21c8292acef541061396">main.cpp</a></li>
-</ul>
-
-
-<h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
-<li>uint16_max&#160;:&#160;<a class="el" href="Enums_8h.html#a6129964b81af3862de74993fdcd0e4e8">Enums.h</a></li>
-<li>UNUSED&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4">Enums.h</a></li>
-<li>USE_3CH_CAN&#160;:&#160;<a class="el" href="boardConf_8h.html#aa07c5385b5a0d0d79dd819f1d6caf004">boardConf.h</a></li>
-</ul>
-
-
-<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>WAITING&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087">Enums.h</a></li>
-<li>WRONG_ID&#160;:&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65">Enums.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

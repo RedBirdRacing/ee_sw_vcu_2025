@@ -16,11 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,18 +28,6 @@
    <div id="projectname">My Project
    </div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -56,6 +39,17 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -100,136 +94,27 @@ $(document).ready(function(){initNavTree('namespaceDebug__Serial.html',''); init
   <div class="headertitle"><div class="title">Debug_Serial Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Namespace for serial debugging functions.  
-<a href="namespaceDebug__Serial.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad136936636c7b7140cb1e14c55eb5f31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31">initialize</a> ()</td></tr>
-<tr class="memdesc:ad136936636c7b7140cb1e14c55eb5f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="namespaceDebug__Serial.html" title="Namespace for serial debugging functions.">Debug_Serial</a> interface. It should be called before using any other <a class="el" href="namespaceDebug__Serial.html" title="Namespace for serial debugging functions.">Debug_Serial</a> functions.  <br /></td></tr>
 <tr class="separator:ad136936636c7b7140cb1e14c55eb5f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecd80296d8a3c5d2f9c51d623e11ff9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aecd80296d8a3c5d2f9c51d623e11ff9f">print</a> (const char *msg)</td></tr>
-<tr class="memdesc:aecd80296d8a3c5d2f9c51d623e11ff9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a string to the serial console.  <br /></td></tr>
 <tr class="separator:aecd80296d8a3c5d2f9c51d623e11ff9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a756fa9286151426012a6f8e178a6c550"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550">println</a> (const char *msg)</td></tr>
-<tr class="memdesc:a756fa9286151426012a6f8e178a6c550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a string AND a newline to the serial console.  <br /></td></tr>
 <tr class="separator:a756fa9286151426012a6f8e178a6c550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e68fe4f00e7b1bf1a9c2addc2222a9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a9e68fe4f00e7b1bf1a9c2addc2222a9b">throttle_in</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final, uint16_t brake)</td></tr>
-<tr class="memdesc:a9e68fe4f00e7b1bf1a9c2addc2222a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle input message to the serial console. This function formats and sends the throttle input values to the serial console.  <br /></td></tr>
-<tr class="separator:a9e68fe4f00e7b1bf1a9c2addc2222a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75dcfc17e13215b801dd9dafa6f7c515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515">throttle_out</a> (uint16_t throttle_final, int16_t throttle_torque_val)</td></tr>
-<tr class="memdesc:a75dcfc17e13215b801dd9dafa6f7c515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle output message to the serial console. This function formats and sends the throttle output values to the serial console.  <br /></td></tr>
-<tr class="separator:a75dcfc17e13215b801dd9dafa6f7c515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa73ff8f930647f4c70741b4e50ef6a5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d">throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
-<tr class="memdesc:aa73ff8f930647f4c70741b4e50ef6a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle fault message to the serial console. This function formats and sends the throttle fault status and value to the serial console.  <br /></td></tr>
-<tr class="separator:aa73ff8f930647f4c70741b4e50ef6a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affcc90be9ba8e90b7fa2859039f276c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#affcc90be9ba8e90b7fa2859039f276c9">throttle_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status)</td></tr>
-<tr class="memdesc:affcc90be9ba8e90b7fa2859039f276c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a throttle fault message to the serial console without a float value. This function formats and sends the throttle fault status to the serial console.  <br /></td></tr>
-<tr class="separator:affcc90be9ba8e90b7fa2859039f276c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d828bdca10efbda9f4e147a372cbc71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a9d828bdca10efbda9f4e147a372cbc71">brake_fault</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
-<tr class="memdesc:a9d828bdca10efbda9f4e147a372cbc71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a brake fault message to the serial console. This function formats and sends the brake fault status and value to the serial console.  <br /></td></tr>
-<tr class="separator:a9d828bdca10efbda9f4e147a372cbc71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4070c8db2109f53b11b93580bb9472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472">status_car</a> (<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> car_status)</td></tr>
-<tr class="memdesc:a0f4070c8db2109f53b11b93580bb9472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current car status to the serial console. This function formats and sends the current car status to the serial console.  <br /></td></tr>
-<tr class="separator:a0f4070c8db2109f53b11b93580bb9472"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a155fc400493924b3853e3d2fcc74e6b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a155fc400493924b3853e3d2fcc74e6b3">status_brake</a> (uint16_t brake_voltage)</td></tr>
-<tr class="separator:a155fc400493924b3853e3d2fcc74e6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c4d64b8a917b7e18071210c43c1a98f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f">status_bms</a> (<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a> <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>)</td></tr>
-<tr class="memdesc:a6c4d64b8a917b7e18071210c43c1a98f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status to the serial console. This function formats and sends the current <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status to the serial console.  <br /></td></tr>
-<tr class="separator:a6c4d64b8a917b7e18071210c43c1a98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace5ed08d1ebb4eae813ec98d6f6ea769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#ace5ed08d1ebb4eae813ec98d6f6ea769">hall_sensor</a> (uint16_t hall_sensor_value)</td></tr>
-<tr class="memdesc:ace5ed08d1ebb4eae813ec98d6f6ea769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current hall sensor value to the serial console.  <br /></td></tr>
-<tr class="separator:ace5ed08d1ebb4eae813ec98d6f6ea769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e4147de1500a91947eb142395c610bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a4e4147de1500a91947eb142395c610bf">throttle_in</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final)</td></tr>
+<tr class="separator:a4e4147de1500a91947eb142395c610bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ee971417c927bf2d5ee9f5fabf461a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aa4ee971417c927bf2d5ee9f5fabf461a">throttle_out</a> (float throttle_volt, int16_t throttle_torque_val)</td></tr>
+<tr class="separator:aa4ee971417c927bf2d5ee9f5fabf461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27250f93dafe961491a3c64d53b23e69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a27250f93dafe961491a3c64d53b23e69">throttle_fault</a> (Pedal_Fault_Status fault_status, float value)</td></tr>
+<tr class="separator:a27250f93dafe961491a3c64d53b23e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d4db3c04ea0d60d716535f3d96721b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#a73d4db3c04ea0d60d716535f3d96721b">status_car</a> (CarStatus <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>)</td></tr>
+<tr class="separator:a73d4db3c04ea0d60d716535f3d96721b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0d67c4b280719d2a23773c3484d239"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDebug__Serial.html#aec0d67c4b280719d2a23773c3484d239">status_brake</a> (float brake_voltage)</td></tr>
+<tr class="separator:aec0d67c4b280719d2a23773c3484d239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Namespace for serial debugging functions. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a9d828bdca10efbda9f4e147a372cbc71" name="a9d828bdca10efbda9f4e147a372cbc71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d828bdca10efbda9f4e147a372cbc71">&#9670;&#160;</a></span>brake_fault()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Debug_Serial::brake_fault </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
-          <td class="paramname"><em>fault_status</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints a brake fault message to the serial console. This function formats and sends the brake fault status and value to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fault_status</td><td>The status of the brake fault as defined in pedal_fault_status enum. </td></tr>
-    <tr><td class="paramname">value</td><td>brake ADC reading </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00140">140</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Enums_8h_source.html#l00040">BRAKE_HIGH</a>, <a class="el" href="Enums_8h_source.html#l00039">BRAKE_LOW</a>, and <a class="el" href="Enums_8h_source.html#l00032">NONE</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00205">DBG_BRAKE_FAULT()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a9d828bdca10efbda9f4e147a372cbc71_icgraph.svg" width="359" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="ace5ed08d1ebb4eae813ec98d6f6ea769" name="ace5ed08d1ebb4eae813ec98d6f6ea769"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace5ed08d1ebb4eae813ec98d6f6ea769">&#9670;&#160;</a></span>hall_sensor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Debug_Serial::hall_sensor </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>hall_sensor_value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints the current hall sensor value to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hall_sensor_value</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00248">248</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00237">DBG_HALL_SENSOR()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_ace5ed08d1ebb4eae813ec98d6f6ea769_icgraph.svg" width="350" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="ad136936636c7b7140cb1e14c55eb5f31" name="ad136936636c7b7140cb1e14c55eb5f31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad136936636c7b7140cb1e14c55eb5f31">&#9670;&#160;</a></span>initialize()</h2>
 
@@ -245,11 +130,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the <a class="el" href="namespaceDebug__Serial.html" title="Namespace for serial debugging functions.">Debug_Serial</a> interface. It should be called before using any other <a class="el" href="namespaceDebug__Serial.html" title="Namespace for serial debugging functions.">Debug_Serial</a> functions. </p>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00018">18</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -275,25 +156,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Prints a string to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>The message to print. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00029">29</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00072">DBG_GENERAL()</a>, <a class="el" href="Debug_8hpp_source.html#l00096">DBG_STATUS()</a>, and <a class="el" href="Debug_8hpp_source.html#l00048">DBG_THROTTLE()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_aecd80296d8a3c5d2f9c51d623e11ff9f_icgraph.svg" width="332" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
 </div>
 </div>
 <a id="a756fa9286151426012a6f8e178a6c550" name="a756fa9286151426012a6f8e178a6c550"></a>
@@ -312,67 +174,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Prints a string AND a newline to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>The message to print. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Serial exclusive </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00037">37</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="Debug_8hpp_source.html#l00108">DBGLN_STATUS()</a>, and <a class="el" href="Debug_8hpp_source.html#l00060">DBGLN_THROTTLE()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a756fa9286151426012a6f8e178a6c550_icgraph.svg" width="100%" height="421"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-
-</div>
-</div>
-<a id="a6c4d64b8a917b7e18071210c43c1a98f" name="a6c4d64b8a917b7e18071210c43c1a98f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c4d64b8a917b7e18071210c43c1a98f">&#9670;&#160;</a></span>status_bms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Debug_Serial::status_bms </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>&#160;</td>
-          <td class="paramname"><em>BMS_status</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints the current <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status to the serial console. This function formats and sends the current <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">BMS_status</td><td>The current status of the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> as defined in BMS_status enum. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00217">217</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Enums_8h_source.html#l00050">NO_MSG</a>, <a class="el" href="Enums_8h_source.html#l00054">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00053">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00052">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00051">WRONG_ID</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00221">DBG_BMS_STATUS()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a6c4d64b8a917b7e18071210c43c1a98f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a155fc400493924b3853e3d2fcc74e6b3" name="a155fc400493924b3853e3d2fcc74e6b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a155fc400493924b3853e3d2fcc74e6b3">&#9670;&#160;</a></span>status_brake()</h2>
+<a id="aec0d67c4b280719d2a23773c3484d239" name="aec0d67c4b280719d2a23773c3484d239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec0d67c4b280719d2a23773c3484d239">&#9670;&#160;</a></span>status_brake()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,7 +185,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::status_brake </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>brake_voltage</em></td><td>)</td>
           <td></td>
         </tr>
@@ -389,8 +194,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a0f4070c8db2109f53b11b93580bb9472" name="a0f4070c8db2109f53b11b93580bb9472"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f4070c8db2109f53b11b93580bb9472">&#9670;&#160;</a></span>status_car()</h2>
+<a id="a73d4db3c04ea0d60d716535f3d96721b" name="a73d4db3c04ea0d60d716535f3d96721b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d4db3c04ea0d60d716535f3d96721b">&#9670;&#160;</a></span>status_car()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,37 +203,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::status_car </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a>&#160;</td>
+          <td class="paramtype">CarStatus&#160;</td>
           <td class="paramname"><em>car_status</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prints the current car status to the serial console. This function formats and sends the current car status to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">car_status</td><td>The current status of the car as defined in main_car_status enum. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00166">166</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Enums_8h_source.html#l00021">BUSSIN</a>, <a class="el" href="Enums_8h_source.html#l00022">DRIVE</a>, <a class="el" href="Enums_8h_source.html#l00019">INIT</a>, and <a class="el" href="Enums_8h_source.html#l00020">STARTIN</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00187">DBG_STATUS_CAR()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a0f4070c8db2109f53b11b93580bb9472_icgraph.svg" width="490" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p class="reference">References <a class="el" href="main_8cpp.html#a55ddc5bf2ff2ff81cb303696ebfcbe03">car_status</a>.</p>
 
 </div>
 </div>
-<a id="affcc90be9ba8e90b7fa2859039f276c9" name="affcc90be9ba8e90b7fa2859039f276c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affcc90be9ba8e90b7fa2859039f276c9">&#9670;&#160;</a></span>throttle_fault() <span class="overload">[1/2]</span></h2>
+<a id="a27250f93dafe961491a3c64d53b23e69" name="a27250f93dafe961491a3c64d53b23e69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27250f93dafe961491a3c64d53b23e69">&#9670;&#160;</a></span>throttle_fault()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -436,43 +223,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::throttle_fault </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
-          <td class="paramname"><em>fault_status</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints a throttle fault message to the serial console without a float value. This function formats and sends the throttle fault status to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fault_status</td><td>The status of the throttle fault as defined in pedal_fault_status enum. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00112">112</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Enums_8h_source.html#l00035">DIFF_EXCEED_100MS</a>, <a class="el" href="Enums_8h_source.html#l00036">DIFF_RESOLVED</a>, <a class="el" href="Enums_8h_source.html#l00033">DIFF_START</a>, and <a class="el" href="Enums_8h_source.html#l00032">NONE</a>.</p>
-
-</div>
-</div>
-<a id="aa73ff8f930647f4c70741b4e50ef6a5d" name="aa73ff8f930647f4c70741b4e50ef6a5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa73ff8f930647f4c70741b4e50ef6a5d">&#9670;&#160;</a></span>throttle_fault() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Debug_Serial::throttle_fault </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
+          <td class="paramtype">Pedal_Fault_Status&#160;</td>
           <td class="paramname"><em>fault_status</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -483,31 +240,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Prints a throttle fault message to the serial console. This function formats and sends the throttle fault status and value to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fault_status</td><td>The status of the throttle fault as defined in pedal_fault_status enum. </td></tr>
-    <tr><td class="paramname">value</td><td>Optional uint16_t value associated with the fault </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00082">82</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Enums_8h_source.html#l00034">DIFF_CONTINUING</a>, <a class="el" href="Enums_8h_source.html#l00032">NONE</a>, <a class="el" href="Enums_8h_source.html#l00038">THROTTLE_HIGH</a>, and <a class="el" href="Enums_8h_source.html#l00037">THROTTLE_LOW</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00159">DBG_THROTTLE_FAULT()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_aa73ff8f930647f4c70741b4e50ef6a5d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-
-</div>
-</div>
-<a id="a9e68fe4f00e7b1bf1a9c2addc2222a9b" name="a9e68fe4f00e7b1bf1a9c2addc2222a9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e68fe4f00e7b1bf1a9c2addc2222a9b">&#9670;&#160;</a></span>throttle_in()</h2>
+<a id="a4e4147de1500a91947eb142395c610bf" name="a4e4147de1500a91947eb142395c610bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e4147de1500a91947eb142395c610bf">&#9670;&#160;</a></span>throttle_in()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -516,25 +252,19 @@ Here is the caller graph for this function:</div>
           <td class="memname">void Debug_Serial::throttle_in </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_1</em>, </td>
+          <td class="paramname"><em>pedal_filtered_1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_2</em>, </td>
+          <td class="paramname"><em>pedal_filtered_2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_2_scaled</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>brake</em>&#160;</td>
+          <td class="paramname"><em>pedal_filtered_final</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -544,31 +274,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Prints a throttle input message to the serial console. This function formats and sends the throttle input values to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pedal_1</td><td>Value from pedal sensor 1. </td></tr>
-    <tr><td class="paramname">pedal_2</td><td>Value from pedal sensor 2. </td></tr>
-    <tr><td class="paramname">pedal_2_scaled</td><td>Scaled value of pedal sensor 2. </td></tr>
-    <tr><td class="paramname">brake</td><td>Brake pedal value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00048">48</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00124">DBG_THROTTLE_IN()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a9e68fe4f00e7b1bf1a9c2addc2222a9b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-
-</div>
-</div>
-<a id="a75dcfc17e13215b801dd9dafa6f7c515" name="a75dcfc17e13215b801dd9dafa6f7c515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75dcfc17e13215b801dd9dafa6f7c515">&#9670;&#160;</a></span>throttle_out()</h2>
+<a id="aa4ee971417c927bf2d5ee9f5fabf461a" name="aa4ee971417c927bf2d5ee9f5fabf461a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ee971417c927bf2d5ee9f5fabf461a">&#9670;&#160;</a></span>throttle_out()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -576,8 +285,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Debug_Serial::throttle_out </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>throttle_final</em>, </td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>throttle_volt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -592,25 +301,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Prints a throttle output message to the serial console. This function formats and sends the throttle output values to the serial console. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">throttle_final</td><td>Final value of the throttle pedal. </td></tr>
-    <tr><td class="paramname">throttle_torque_val</td><td>Calculated torque value based on the throttle input. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug__serial_8cpp_source.html#l00067">67</a> of file <a class="el" href="Debug__serial_8cpp_source.html">Debug_serial.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Debug_8hpp_source.html#l00141">DBG_THROTTLE_OUT()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceDebug__Serial_a75dcfc17e13215b801dd9dafa6f7c515_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
 
 </div>
 </div>
