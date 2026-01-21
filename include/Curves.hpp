@@ -28,7 +28,7 @@ const TablePoint<uint16_t, int16_t> throttleTable[5] = {
 
 constexpr uint16_t brake_min = 30;  /**< value below which brake is considered shorted to ground */
 constexpr uint16_t brake_max = 950; /**< value above which brake is considered shorted to rail */
-/** @brief Brake mapping table, negative for regen */
+/** @brief Brake mapping table, negative values for regen */
 const TablePoint<uint16_t, int16_t> brakeTable[5] = {
     {60, 0},
     {250, -15000},

@@ -25,7 +25,8 @@
 /**
  * @brief Construct a new BMS object
  */
-BMS::BMS()
+BMS::BMS(MCP2515 &bms_can_)
+    : bms_can(bms_can_)
 {
 }
 
@@ -33,15 +34,14 @@ BMS::BMS()
  * @brief Attempts to start HV.
  * First check BMS is in standby(3) state, then send the HV start command.
  * Keep sending the command until the BMS state changes to precharge(4).
- * Returns when BMS state changes to run(5).
+ * Sets hv_started to true when BMS state changes to run(5).
  *
- * @param[in] mcp2515_ Pointer to the MCP2515 CAN controller instance.
  */
-void BMS::checkHv(MCP2515 *mcp2515_)
+void BMS::checkHv()
 {
     if (hv_started)
         return; // already started
-    if (mcp2515_->readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
+    if (bms_can.readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
     {
         DBG_BMS_STATUS(NO_MSG);
         hv_started = false;
@@ -60,14 +60,14 @@ void BMS::checkHv(MCP2515 *mcp2515_)
     {
     case 0x30: // Standby state
         DBG_BMS_STATUS(WAITING);
-        mcp2515_->sendMessage(&start_hv_msg);
+        bms_can.sendMessage(&start_hv_msg);
         DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
         // sent start HV cmd, wait for BMS to change state
         hv_started = false;
         return;
     case 0x40: // Precharge state
         DBG_BMS_STATUS(STARTING);
-        mcp2515_->sendMessage(&start_hv_msg);
+        bms_can.sendMessage(&start_hv_msg);
         DBGLN_GENERAL("BMS in precharge state, HV starting");
         hv_started = false;
         return; // BMS is in precharge state, wait

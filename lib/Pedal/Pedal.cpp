@@ -23,8 +23,9 @@
  * Initializes the pedal state. fault is set to true initially,
  * so you must send update within 100ms of starting the car to clear it.
  */
-Pedal::Pedal(CarState &car_)
+Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
     : car(car_),
+      motor_can(motor_can_),
       fault(true),
       fault_start_millis(0),
       pedal_value_1(), // RingBuffer default init 0
@@ -96,16 +97,15 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 }
 
 /**
- * @brief Updates the CAN frame with the most recent pedal value.
- *
- * @return Pointer to the CAN frame to be sent.
+ * @brief Sends the appropriate CAN frame based on pedal and car state.
  */
-can_frame* Pedal::canFrame()
+void Pedal::sendFrame()
 {
     if (car.state.force_stop)
     {
         DBGLN_THROTTLE("Stopping motor: pedal fault");
-        return &stop_frame;
+        motor_can.sendMessage(&stop_frame);
+        return;
     }
     if (car.state.car_status != DRIVE)
     {
@@ -124,7 +124,8 @@ can_frame* Pedal::canFrame()
             DBGLN_THROTTLE("Stopping motor: in UNKNOWN STATE.");
             break;
         }
-        return &stop_frame;
+        motor_can.sendMessage(&stop_frame);
+        return;
     }
 
     int16_t torque_val = throttleTorqueMapping(pedal_final, car.adc.brake, FLIP_MOTOR_DIR);
@@ -136,7 +137,8 @@ can_frame* Pedal::canFrame()
     torque_msg.data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     torque_msg.data[1] = torque_val & 0xFF;
     torque_msg.data[2] = (torque_val >> 8) & 0xFF;
-    return &torque_msg;
+    motor_can.sendMessage(&torque_msg);
+    return;
 }
 
 /**

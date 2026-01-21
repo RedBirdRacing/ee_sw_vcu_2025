@@ -59,22 +59,21 @@ struct CarState car = {
 };
 
 // Global objects
-Pedal pedal(car);
-BMS bms;
+Pedal pedal(car, mcp2515_motor);
+BMS bms(mcp2515_BMS);
 
-void scheduler_pedal(MCP2515 *mcp2515_)
+void scheduler_pedal()
 {
-    mcp2515_->sendMessage(pedal.canFrame());
+    pedal.sendFrame();
 }
-void scheduler_bms(MCP2515 *mcp2515_)
+void scheduler_bms()
 {
-    bms.checkHv(mcp2515_);
+    bms.checkHv();
 }
 
 Scheduler<2, NUM_MCP> scheduler(
     10000, // period_us
-    500,   // spin_threshold_us
-    MCPS   // array of MCP2515 pointers
+    500   // spin_threshold_us
 );
 
 /**
