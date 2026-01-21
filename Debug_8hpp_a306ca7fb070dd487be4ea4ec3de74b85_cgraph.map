@@ -1,0 +1,5 @@
+<map id="DBG_STATUS_CAR" name="DBG_STATUS_CAR">
+<area shape="rect" id="node1" title="Sends car status debug info via CAN or serial (if enabled)." alt="" coords="5,31,147,56"/>
+<area shape="rect" id="node2" href="$namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8" title="Sends a debug car status message over CAN." alt="" coords="199,5,373,31"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472" title="Prints the current car status to the serial console. This function formats and sends the current car ..." alt="" coords="195,55,377,80"/>
+</map>

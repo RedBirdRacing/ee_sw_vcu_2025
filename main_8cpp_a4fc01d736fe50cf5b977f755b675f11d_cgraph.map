@@ -1,6 +1,18 @@
 <map id="setup" name="setup">
-<area shape="rect" id="node1" title=" " alt="" coords="5,55,64,80"/>
-<area shape="rect" id="node2" href="$namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31" title=" " alt="" coords="112,5,284,31"/>
-<area shape="rect" id="node3" href="$namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e" title=" " alt="" coords="117,55,279,80"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5" title=" " alt="" coords="134,104,262,129"/>
+<area shape="rect" id="node1" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,156,64,181"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85" title="Sends car status debug info via CAN or serial (if enabled)." alt="" coords="127,29,269,55"/>
+<area shape="rect" id="node5" href="$Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="355,107,491,132"/>
+<area shape="rect" id="node7" href="$namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31" title="Initializes the Debug_Serial interface. It should be called before using any other Debug_Serial funct..." alt="" coords="112,131,284,156"/>
+<area shape="rect" id="node8" href="$namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e" title="Initializes the Debug_CAN interface. It should be called before using any other Debug_CAN functions." alt="" coords="117,180,279,205"/>
+<area shape="rect" id="node9" href="$main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1" title=" " alt="" coords="145,229,251,255"/>
+<area shape="rect" id="node10" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="134,279,262,304"/>
+<area shape="rect" id="node3" href="$namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8" title="Sends a debug car status message over CAN." alt="" coords="336,5,511,31"/>
+<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472" title="Prints the current car status to the serial console. This function formats and sends the current car ..." alt="" coords="332,55,515,80"/>
+<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="841,156,999,181"/>
+<area shape="rect" id="node11" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="354,264,493,289"/>
+<area shape="rect" id="node12" href="$Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="589,239,750,264"/>
+<area shape="rect" id="node15" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="598,177,741,203"/>
+<area shape="rect" id="node16" href="$classPedal.html#abef0e8d31dc31884f9944a149c6b8e5a" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="563,288,776,313"/>
+<area shape="rect" id="node13" href="$namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3" title="Sends a debug throttle output message over CAN." alt="" coords="829,211,1011,236"/>
+<area shape="rect" id="node14" href="$namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515" title="Prints a throttle output message to the serial console. This function formats and sends the throttle ..." alt="" coords="824,260,1016,285"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="Debug_Serial::print" name="Debug_Serial::print">
+<area shape="rect" id="node1" title="Prints a string to the serial console." alt="" coords="180,55,327,80"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a9d60671317b513353287b53444954a4b" title="Prints a general debug message to the serial console." alt="" coords="9,5,128,31"/>
+<area shape="rect" id="node3" href="$Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475" title="Prints a status message to the serial console." alt="" coords="15,55,122,80"/>
+<area shape="rect" id="node4" href="$Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84" title="Prints a throttle debug message to the serial console." alt="" coords="5,104,132,129"/>
+</map>

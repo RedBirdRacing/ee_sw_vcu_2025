@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['head_0',['head',['../classRingBuffer.html#a0fcff45ad6575c16839c68b9d7a6bd08',1,'RingBuffer']]]
+  ['getlinearbuffer_0',['getLinearBuffer',['../classRingBuffer.html#a8843b018a3b9f404488cb3e582353754',1,'RingBuffer']]],
+  ['getperiodus_1',['getPeriodUs',['../classScheduler.html#a8a3ab307c604b13baa2b03d84be9ad33',1,'Scheduler']]]
 ];

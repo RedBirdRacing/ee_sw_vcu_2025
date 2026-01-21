@@ -1,0 +1,7 @@
+<map id="Debug_CAN::throttle_out" name="Debug_CAN::throttle_out">
+<area shape="rect" id="node1" title="Sends a debug throttle output message over CAN." alt="" coords="684,5,867,31"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="475,5,636,31"/>
+<area shape="rect" id="node3" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="288,5,427,31"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,5,240,31"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+</map>

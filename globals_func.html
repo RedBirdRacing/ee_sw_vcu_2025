@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +33,18 @@
    <div id="projectname">My Project
    </div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -39,17 +56,6 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -90,13 +96,28 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <div class="contents">
 &#160;<ul>
-<li>average()&#160;:&#160;<a class="el" href="Signal__Processing_8cpp.html#a7780bdc4e1118732b0bb8142188b9fb4">Signal_Processing.cpp</a>, <a class="el" href="Signal__Processing_8h.html#a7780bdc4e1118732b0bb8142188b9fb4">Signal_Processing.h</a></li>
-<li>AVG_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8cpp.html#aa9b728692efd1a7820e513ad78fb2ab1">Signal_Processing.cpp</a>, <a class="el" href="Signal__Processing_8h.html#aa9b728692efd1a7820e513ad78fb2ab1">Signal_Processing.h</a></li>
-<li>FIR_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8cpp.html#a1e6f78e4a958f8fd78450f0fffdb2da4">Signal_Processing.cpp</a>, <a class="el" href="Signal__Processing_8h.html#a1e6f78e4a958f8fd78450f0fffdb2da4">Signal_Processing.h</a></li>
+<li>average()&#160;:&#160;<a class="el" href="Signal__Processing_8hpp.html#a4d9072b402cbfdfd7303bd805f408f6c">Signal_Processing.hpp</a>, <a class="el" href="Signal__Processing_8tpp.html#a4d9072b402cbfdfd7303bd805f408f6c">Signal_Processing.tpp</a></li>
+<li>AVG_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8hpp.html#aae13f76d835e3de4d61441cf4abc0f08">Signal_Processing.hpp</a>, <a class="el" href="Signal__Processing_8tpp.html#aae13f76d835e3de4d61441cf4abc0f08">Signal_Processing.tpp</a></li>
+<li>DBG_BMS_STATUS()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a5811a65cdb8fc3c5255f57301cbb8481">Debug.hpp</a></li>
+<li>DBG_BRAKE_FAULT()&#160;:&#160;<a class="el" href="Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986">Debug.hpp</a></li>
+<li>DBG_GENERAL()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9d60671317b513353287b53444954a4b">Debug.hpp</a></li>
+<li>DBG_HALL_SENSOR()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22">Debug.hpp</a></li>
+<li>DBG_STATUS()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475">Debug.hpp</a></li>
+<li>DBG_STATUS_CAR()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85">Debug.hpp</a></li>
+<li>DBG_THROTTLE()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84">Debug.hpp</a></li>
+<li>DBG_THROTTLE_FAULT()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d">Debug.hpp</a></li>
+<li>DBG_THROTTLE_IN()&#160;:&#160;<a class="el" href="Debug_8hpp.html#afa1e089b7149386f290d4ebb4d373bf6">Debug.hpp</a></li>
+<li>DBG_THROTTLE_OUT()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea">Debug.hpp</a></li>
+<li>DBGLN_GENERAL()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727">Debug.hpp</a></li>
+<li>DBGLN_STATUS()&#160;:&#160;<a class="el" href="Debug_8hpp.html#adeb16efc082a41c9b137c2fa9d8162c0">Debug.hpp</a></li>
+<li>DBGLN_THROTTLE()&#160;:&#160;<a class="el" href="Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067">Debug.hpp</a></li>
+<li>FIR_filter()&#160;:&#160;<a class="el" href="Signal__Processing_8hpp.html#a2665ca55613be71683eb9e2cd6365cfc">Signal_Processing.hpp</a>, <a class="el" href="Signal__Processing_8tpp.html#a2665ca55613be71683eb9e2cd6365cfc">Signal_Processing.tpp</a></li>
 <li>loop()&#160;:&#160;<a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">main.cpp</a></li>
 <li>mcp2515_BMS()&#160;:&#160;<a class="el" href="main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779">main.cpp</a></li>
 <li>mcp2515_DL()&#160;:&#160;<a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">main.cpp</a></li>
 <li>mcp2515_motor()&#160;:&#160;<a class="el" href="main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5">main.cpp</a></li>
+<li>scheduler_bms()&#160;:&#160;<a class="el" href="main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4">main.cpp</a></li>
+<li>scheduler_pedal()&#160;:&#160;<a class="el" href="main_8cpp.html#a1174b6795782479542559289cd623faf">main.cpp</a></li>
 <li>setup()&#160;:&#160;<a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">main.cpp</a></li>
 </ul>
 </div><!-- contents -->

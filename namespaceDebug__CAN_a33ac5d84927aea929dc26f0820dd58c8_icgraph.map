@@ -1,0 +1,6 @@
+<map id="Debug_CAN::status_car" name="Debug_CAN::status_car">
+<area shape="rect" id="node1" title="Sends a debug car status message over CAN." alt="" coords="301,31,476,56"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85" title="Sends car status debug info via CAN or serial (if enabled)." alt="" coords="112,31,253,56"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="9,5,60,31"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,55,64,80"/>
+</map>

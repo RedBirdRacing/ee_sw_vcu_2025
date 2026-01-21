@@ -1,0 +1,7 @@
+<map id="lib/Scheduler/Scheduler.tpp" name="lib/Scheduler/Scheduler.tpp">
+<area shape="rect" id="node1" title="Implementation of the Scheduler class template." alt="" coords="62,5,261,31"/>
+<area shape="rect" id="node2" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="61,79,262,104"/>
+<area shape="rect" id="node3" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="43,152,175,177"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title=" " alt="" coords="161,225,266,251"/>
+<area shape="rect" id="node4" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,225,136,251"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="scheduler_pedal" name="scheduler_pedal">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,133,129"/>
+<area shape="rect" id="node2" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="181,104,320,129"/>
+<area shape="rect" id="node3" href="$Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea" title="Sends throttle output debug info via CAN or serial (if enabled)." alt="" coords="394,55,555,80"/>
+<area shape="rect" id="node6" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="403,104,546,129"/>
+<area shape="rect" id="node8" href="$classPedal.html#abef0e8d31dc31884f9944a149c6b8e5a" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="368,153,581,179"/>
+<area shape="rect" id="node4" href="$namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3" title="Sends a debug throttle output message over CAN." alt="" coords="634,5,817,31"/>
+<area shape="rect" id="node5" href="$namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515" title="Prints a throttle output message to the serial console. This function formats and sends the throttle ..." alt="" coords="629,55,821,80"/>
+<area shape="rect" id="node7" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="646,104,805,129"/>
+</map>

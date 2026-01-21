@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_0',['Queue',['../classQueue.html',1,'']]]
+  ['carstate_0',['CarState',['../structCarState.html',1,'']]]
 ];

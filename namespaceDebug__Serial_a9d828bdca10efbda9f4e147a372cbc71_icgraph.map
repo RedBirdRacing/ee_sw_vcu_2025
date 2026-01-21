@@ -1,0 +1,4 @@
+<map id="Debug_Serial::brake_fault" name="Debug_Serial::brake_fault">
+<area shape="rect" id="node1" title="Prints a brake fault message to the serial console. This function formats and sends the brake fault s..." alt="" coords="201,5,353,45"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986" title="Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or witho..." alt="" coords="5,13,153,38"/>
+</map>

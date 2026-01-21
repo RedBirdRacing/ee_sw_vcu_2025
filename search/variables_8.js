@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['pedal_0',['pedal',['../main_8cpp.html#ad1f0f6b4a2139238d24307a105c01ea8',1,'main.cpp']]],
-  ['pin_5fin_1',['pin_in',['../main_8cpp.html#a2e8693be6bfc3c3e88b1c6a48d24dd57',1,'main.cpp']]],
-  ['pin_5fout_2',['pin_out',['../main_8cpp.html#a74ca7d9077cc901338787c473b1582f5',1,'main.cpp']]]
+  ['mcps_0',['MCPS',['../main_8cpp.html#a39f18c330e82b1bb457acf12ff206e28',1,'main.cpp']]],
+  ['millis_1',['millis',['../structCarState.html#a59bc9a5cc295cff217fcb342a7d02a33',1,'CarState']]],
+  ['motor_5fcan_2',['motor_can',['../classPedal.html#a5976c83166dab08ed33d48529f10e830',1,'Pedal']]],
+  ['motor_5frpm_3',['motor_rpm',['../structTelemetryFrameDigital.html#a9921bc2bda2fed1e86096ab6e32f474b',1,'TelemetryFrameDigital']]],
+  ['motor_5fspeed_4',['motor_speed',['../structTelemetryFrameDigital.html#abd6011865719e4e7c7af9ca423cfc8df',1,'TelemetryFrameDigital']]]
 ];
