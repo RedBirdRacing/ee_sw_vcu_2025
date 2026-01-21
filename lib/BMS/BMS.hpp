@@ -18,11 +18,11 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-constexpr uint32_t BMS_COMMAND = 0x1801F340;                  /** BMS command ID */
-constexpr uint32_t BMS_SEND_CMD = BMS_COMMAND | CAN_EFF_FLAG; /** BMS command ID with Extended Frame Format flag */
+constexpr uint32_t BMS_COMMAND = 0x1801F340;                  /**< BMS command ID */
+constexpr uint32_t BMS_SEND_CMD = BMS_COMMAND | CAN_EFF_FLAG; /**< BMS command ID with Extended Frame Format flag */
 
-constexpr uint32_t BMS_INFO = 0x186040F3;                  /** BMS info ID */
-constexpr uint32_t BMS_INFO_EXT = BMS_INFO | CAN_EFF_FLAG; /** BMS info ID with Extended Frame Format flag */
+constexpr uint32_t BMS_INFO = 0x186040F3;                  /**< BMS info ID */
+constexpr uint32_t BMS_INFO_EXT = BMS_INFO | CAN_EFF_FLAG; /**< BMS info ID with Extended Frame Format flag */
 
 /** Start HV command frame */
 constexpr can_frame start_hv_msg = {

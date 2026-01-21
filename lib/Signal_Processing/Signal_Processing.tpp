@@ -1,3 +1,12 @@
+/**
+ * @file Signal_Processing.tpp
+ * @author Planeson, Red Bird Racing
+ * @brief Definition of Signal Processing functions
+ * @version 1.0
+ * @date 2026-01-18
+ * @see Signal_Processing.hpp
+ */
+
 #include "Signal_Processing.hpp"
 
 /**
@@ -32,8 +41,9 @@ constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)
 /**
  * @brief Computes the average of two values.
  * 
- * @param val1 The first value.
- * @param val2 The second value.
+ * @tparam T Type of the values
+ * @param[in] val1 The first value.
+ * @param[in] val2 The second value.
  * @return The average of val1 and val2.
  */
 template <typename T>
@@ -44,7 +54,6 @@ constexpr T average(T val1, T val2)
 
 /**
  * @brief Applies an average filter on the given buffer.
- * This function calculates the average of all elements in the buffer.
  *
  * @tparam T Type of the buffer elements.
  * @param buffer Pointer to the buffer containing elements to average.

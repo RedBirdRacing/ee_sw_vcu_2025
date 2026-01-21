@@ -44,7 +44,7 @@ class Scheduler
 public:
     using TaskFn = void (*)(MCP2515 *);
 
-    Scheduler() = delete; // all arguments must be provided
+    Scheduler() = delete; /**< all arguments must be provided */
     Scheduler(uint32_t period_us_, uint32_t spin_threshold_us_, MCP2515 (&mcps_)[NUM_MCP2515]);
     // no need destructor, since no dynamic memory allocation, and won't destruct in the middle of the program anyway
 
@@ -52,30 +52,30 @@ public:
     bool addTask(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval);
     bool removeTask(const mcp_index mcp_index, const TaskFn task);
 
-    uint8_t cycle_count = 0; /**< counts number of scheduler cycles since start, useful for other timers */
+    uint8_t cycle_count = 0; /**< counts number of scheduler cycles since start, useful for other timers. */
 
     /**
-     * @brief Returns the period of the scheduler in microseconds
-     * @return The period in microseconds
+     * @brief Returns the period of the scheduler in microseconds.
+     * @return The period in microseconds.
      */
     constexpr uint32_t getPeriodUs() const { return PERIOD_US; }
 
     /**
-     * @brief Returns the number of cycles needed for a given interval in microseconds
-     * @param[in] interval_us The interval in microseconds
-     * @return The number of cycles needed
+     * @brief Returns the number of cycles needed for a given interval in microseconds.
+     * @param[in] interval_us The interval in microseconds.
+     * @return The number of cycles needed.
      */
     constexpr uint32_t cyclesNeeded(const uint32_t interval_us) const { return interval_us / PERIOD_US; }
 
 private:
     TaskFn tasks[NUM_MCP2515][NUM_TASKS];          /**< Array of tasks, sorted by each MCP2515. */
-    uint8_t task_ticks[NUM_MCP2515][NUM_TASKS];    /**< Period (in ticks) of each function, 1 is fire every tick, 0 is disabled */
-    uint8_t task_counters[NUM_MCP2515][NUM_TASKS]; /**< Counter to hold firing for n ticks, "how many ticks left before firing" */
-    uint8_t task_cnt[NUM_MCP2515];                 /**< Array of number of tasks per MCP2515 */
-    const uint32_t PERIOD_US;                      /**< Period (tick length) */
-    const uint32_t SPIN_US;                        /**< Threshold to switch from letting non-scheduler task in loop() run, to spin-locking (to ensure on time firing) */
-    uint32_t last_fire_us;                         /**< Last time scheduler fired, overridden if missed more than one period */
-    MCP2515 (&MCPS)[NUM_MCP2515]; /**< Reference to array of non-const MCP2515 objects */
+    uint8_t task_ticks[NUM_MCP2515][NUM_TASKS];    /**< Period (in ticks) of each function, 1 is fire every tick, 0 is disabled. */
+    uint8_t task_counters[NUM_MCP2515][NUM_TASKS]; /**< Counter to hold firing for n ticks, "how many ticks left before firing?". */
+    uint8_t task_cnt[NUM_MCP2515];                 /**< Array of number of tasks per MCP2515. */
+    const uint32_t PERIOD_US;                      /**< Period (tick length). */
+    const uint32_t SPIN_US;                        /**< Threshold to switch from letting non-scheduler task in loop() run, to spin-locking (to ensure on time firing). */
+    uint32_t last_fire_us;                         /**< Last time scheduler fired, overridden if missed more than one period. */
+    MCP2515 (&MCPS)[NUM_MCP2515]; /**< Reference to array of non-const MCP2515 objects. */
 
     inline void runTasks();
 };

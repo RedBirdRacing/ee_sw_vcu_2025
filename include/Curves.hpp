@@ -7,6 +7,8 @@
  * @see Interp.hpp, Pedal
  */
 
+#ifndef CURVES_HPP
+#define CURVES_HPP
 #include "Interp.hpp"
 #include <stdint.h>
 
@@ -33,3 +35,4 @@ const TablePoint<uint16_t, int16_t> brakeTable[5] = {
     {500, -26000},
     {750, -31000},
     {900, -32500}};
+#endif // CURVES_HPP

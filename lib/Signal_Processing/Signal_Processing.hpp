@@ -1,4 +1,14 @@
-// A library containing simple DSP functions, for ADC filtering, buffer comparisons and more
+/**
+ * @brief Applies a Finite Impulse Response (FIR) filter on the signal buffer.
+ *
+ * @tparam T Type of the buffer elements
+ * @param buffer Pointer to the input signal buffer
+ * @param kernel Pointer to the FIR filter kernel
+ * @param buf_size Size of the buffer and kernel
+ * @param kernel_sum Sum of all values in the kernel for normalization
+ * @return constexpr T Filtered output value
+ */
+
 #ifndef SIGNAL_PROCESSING_HPP
 #define SIGNAL_PROCESSING_HPP
 
