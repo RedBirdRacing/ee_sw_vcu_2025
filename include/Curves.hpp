@@ -2,7 +2,7 @@
  * @file Curves.hpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of throttle and brake mapping tables
- * @version 1.0
+ * @version 1.1
  * @date 2026-01-15
  * @see Interp.hpp, Pedal
  */
@@ -14,9 +14,17 @@
 
 // === APPS Limits ===
 
-constexpr uint16_t apps_min = 30;  /**< value below which apps is considered shorted to ground */
-constexpr uint16_t apps_max = 950; /**< value above which apps is considered shorted to rail */
-/** @brief Throttle mapping table */
+constexpr uint16_t apps_5v_min = 50;  /**< value below which apps_5v is considered shorted to ground */
+constexpr uint16_t apps_5v_max = 950; /**< value above which apps_5v is considered shorted to rail */
+
+constexpr uint16_t apps_3v3_min = 30;  /**< value below which apps_3v3 is considered shorted to ground */
+constexpr uint16_t apps_3v3_max = 600; /**< value above which apps_3v3 is considered shorted to rail */
+
+constexpr uint16_t apps_final_min = apps_5v_min;
+constexpr uint16_t apps_final_max = apps_5v_max;
+/**
+ * @brief Throttle mapping table
+ */
 const TablePoint<uint16_t, int16_t> throttleTable[5] = {
     {60, 0},
     {200, 2000},
@@ -28,7 +36,10 @@ const TablePoint<uint16_t, int16_t> throttleTable[5] = {
 
 constexpr uint16_t brake_min = 30;  /**< value below which brake is considered shorted to ground */
 constexpr uint16_t brake_max = 950; /**< value above which brake is considered shorted to rail */
-/** @brief Brake mapping table, negative values for regen */
+
+/**
+ * @brief Brake mapping table, negative values for regen
+ */
 const TablePoint<uint16_t, int16_t> brakeTable[5] = {
     {60, 0},
     {250, -15000},

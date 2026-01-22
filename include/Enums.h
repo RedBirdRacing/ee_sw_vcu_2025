@@ -103,6 +103,4 @@ enum mcp_index
     MCP_DL = 2     /**< Datalogger CAN MCP2515 instance */
 };
 
-#define uint16_max 65535
-
 #endif // Enums.h

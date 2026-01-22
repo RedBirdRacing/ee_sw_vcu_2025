@@ -166,7 +166,7 @@ inline void Scheduler<NUM_TASKS, NUM_MCP2515>::runTasks()
                 if (tasks[mcp_index][task_index] == nullptr)
                     continue; // no task to run
 
-                // call member function on the MCPS instance
+                // call functions
                 (tasks[mcp_index][task_index])();
 
                 // reset counter

@@ -12,5 +12,4 @@ public:
     void scheduler_adc(MCP2515 *mcp2515_);
     void scheduler_digital(MCP2515 *mcp2515_);
     void scheduler_states(MCP2515 *mcp2515_);
-
-}
+};

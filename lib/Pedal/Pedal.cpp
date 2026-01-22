@@ -2,13 +2,19 @@
  * @file Pedal.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the Pedal class for handling throttle pedal inputs
- * @version 1.2
+ * @version 1.3
  * @date 2026-01-15
  * @see Pedal.hpp
  */
 
 #include "Pedal.hpp"
 #include "Signal_Processing.hpp" // AVG_filter
+#include "CarState.hpp"
+#include <stdint.h>
+#include "Queue.hpp"
+#include "CarState.hpp"
+#include "Interp.hpp"
+#include "Curves.hpp"
 
 // ignore -Wunused-parameter warnings for Debug.h
 #pragma GCC diagnostic push
@@ -62,6 +68,19 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
     car.adc.apps_5v = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
     car.adc.apps_3v3 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
     car.adc.brake = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
+
+    if (car.adc.apps_5v < apps_5v_min)
+        car.state.apps_5v_low = true;
+    if (car.adc.apps_5v > apps_5v_max)
+        car.state.apps_5v_high = true;
+    if (car.adc.apps_3v3 < apps_3v3_min)
+        car.state.apps_3v3_low = true;
+    if (car.adc.apps_3v3 > apps_3v3_max)
+        car.state.apps_3v3_high = true;
+    if (car.adc.brake < brake_min)
+        car.state.brake_low = true;
+    if (car.adc.brake > brake_max)
+        car.state.brake_high = true;
 
     if (!checkPedalFault())
     {
@@ -130,8 +149,6 @@ void Pedal::sendFrame()
 
     int16_t torque_val = throttleTorqueMapping(pedal_final, car.adc.brake, FLIP_MOTOR_DIR);
 
-    DBG_THROTTLE_OUT(pedal_final, torque_val);
-
     torque_msg.can_id = MOTOR_COMMAND;
     torque_msg.can_dlc = 3;
     torque_msg.data[0] = 0x90; // 0x90 for torque, 0x31 for speed
@@ -181,7 +198,6 @@ int16_t Pedal::brakeTorqueMapping(uint16_t brake, bool flip_dir)
 bool Pedal::checkPedalFault()
 {
     car.digital.apps_3v3_scaled = car.adc.apps_3v3 * APPS_RATIO;
-    DBG_THROTTLE_IN(car.adc.apps_5v, car.adc.apps_3v3, car.digital.apps_3v3_scaled, car.adc.brake);
 
     int16_t delta = (int16_t)car.adc.apps_5v - (int16_t)car.digital.apps_3v3_scaled;
     // if more than 10% difference between the two pedals, consider it a fault

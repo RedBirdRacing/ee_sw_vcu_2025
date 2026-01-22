@@ -3,7 +3,7 @@
 #include "Pedal.hpp"
 #include "BMS.hpp"
 #include "Enums.h"
-#include "CarState.h"
+#include "CarState.hpp"
 #include "Scheduler.hpp"
 #include "Curves.hpp"
 
@@ -73,7 +73,7 @@ void scheduler_bms()
 
 Scheduler<2, NUM_MCP> scheduler(
     10000, // period_us
-    500   // spin_threshold_us
+    500    // spin_threshold_us
 );
 
 /**
@@ -110,7 +110,6 @@ void setup()
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    DBG_STATUS_CAR(car.state.car_status);
     scheduler.addTask(MCP_MOTOR, scheduler_pedal, 1);
     DBGLN_GENERAL("Setup complete, entering main loop");
 }
@@ -156,8 +155,6 @@ void loop()
             car.status_millis = car.millis;
 
             scheduler.addTask(MCP_BMS, scheduler_bms, 5); // check for HV ready in STARTIN
-
-            DBG_STATUS_CAR(car.state.car_status);
         }
         break;
 
@@ -169,8 +166,6 @@ void loop()
             car.state.car_status = INIT;
             car.status_millis = car.millis;               // safety
             scheduler.removeTask(MCP_BMS, scheduler_bms); // stop checking BMS HV ready since return to INIT
-
-            DBG_STATUS_CAR(car.state.car_status);
         }
         else if (car.millis - car.status_millis >= STARTING_MILLIS)
         {
@@ -179,16 +174,12 @@ void loop()
             {
                 car.state.car_status = INIT;
                 car.status_millis = car.millis; // safety
-
-                DBG_STATUS_CAR(car.state.car_status);
                 break;
             }
             if (car.millis - car.status_millis >= BMS_MILLIS)
             {
                 car.state.car_status = BUSSIN;
                 car.status_millis = car.millis; // safety
-
-                DBG_STATUS_CAR(car.state.car_status);
                 break;
             }
         }
@@ -202,25 +193,20 @@ void loop()
             digitalWrite(BUZZER, LOW);
             digitalWrite(FRG, HIGH);
             car.state.car_status = DRIVE;
-            DBG_STATUS_CAR(car.state.car_status);
         }
         break;
 
     default:
         // unreachable, reset to INIT
-        DBG_STATUS_CAR(car.state.car_status);
         car.state.car_status = INIT;
         car.status_millis = car.millis;
-        DBG_STATUS_CAR(car.state.car_status);
         break;
     }
 
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
-    if (pedal.pedal_final > apps_min) // if pedal pressed while not in DRIVE, reset to INIT
+    if (pedal.pedal_final > apps_final_min) // if pedal pressed while not in DRIVE, reset to INIT
     {
         car.state.car_status = INIT;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this
-
-        DBG_STATUS_CAR(car.state.car_status);
     }
 }
