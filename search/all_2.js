@@ -5,7 +5,7 @@ var searchData=
   ['car_2',['car',['../classPedal.html#a62eed1bcc4b9bb0cc4b1419cd77472da',1,'Pedal::car()'],['../main_8cpp.html#ab5d80ba1651714c705b8b516e541d9d8',1,'car():&#160;main.cpp']]],
   ['car_5fstatus_3',['car_status',['../structTelemetryFrameState.html#a571f389a69f7b3fdc0693e12c76080d3',1,'TelemetryFrameState']]],
   ['carstate_4',['CarState',['../structCarState.html',1,'']]],
-  ['carstate_2eh_5',['CarState.h',['../CarState_8h.html',1,'']]],
+  ['carstate_2ehpp_5',['CarState.hpp',['../CarState_8hpp.html',1,'']]],
   ['checkhv_6',['checkHv',['../classBMS.html#a7de82f50c43e50529739213e98b9b634',1,'BMS']]],
   ['checkpedalfault_7',['checkPedalFault',['../classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7',1,'Pedal']]],
   ['count_8',['count',['../classRingBuffer.html#a375926eb439fc06803b497e1a19add6a',1,'RingBuffer']]],

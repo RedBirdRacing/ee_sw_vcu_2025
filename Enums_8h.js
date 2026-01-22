@@ -1,6 +1,5 @@
 var Enums_8h =
 [
-    [ "uint16_max", "Enums_8h.html#a6129964b81af3862de74993fdcd0e4e8", null ],
     [ "BMS_status", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72", [
       [ "NO_MSG", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff", null ],
       [ "WRONG_ID", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65", null ],

@@ -99,33 +99,30 @@ $(document).ready(function(){initNavTree('Signal__Processing_8hpp_source.html','
 </div><!--header-->
 <div class="contents">
 <a href="Signal__Processing_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @brief Applies a Finite Impulse Response (FIR) filter on the signal buffer.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @tparam T Type of the buffer elements</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @param buffer Pointer to the input signal buffer</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @param kernel Pointer to the FIR filter kernel</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @param buf_size Size of the buffer and kernel</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @param kernel_sum Sum of all values in the kernel for normalization</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @return constexpr T Filtered output value</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file Signal_Processing.hpp</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author Planeson, Red Bird Racing</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Declaration of signal processing functions</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @version 1.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @date 2026-01-15</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @see Signal_Processing.tpp</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef SIGNAL_PROCESSING_HPP</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define SIGNAL_PROCESSING_HPP</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef SIGNAL_PROCESSING_HPP</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define SIGNAL_PROCESSING_HPP</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8hpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a>(T *buffer, <span class="keywordtype">float</span> *kernel, <span class="keywordtype">int</span> buf_size, <span class="keywordtype">float</span> kernel_sum);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8hpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a>(T *buffer, <span class="keywordtype">float</span> *kernel, <span class="keywordtype">int</span> buf_size, <span class="keywordtype">float</span> kernel_sum);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8hpp.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a>(T val1, T val2);</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8hpp.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a>(T val1, T val2);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8hpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a>(T *buffer, uint8_t buf_size);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">constexpr</span> T <a class="code hl_function" href="Signal__Processing_8hpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a>(T *buffer, uint8_t buf_size);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="Signal__Processing_8tpp.html">Signal_Processing.tpp</a>&quot;</span> <span class="comment">// implementation</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif </span><span class="comment">// SIGNAL_PROCESSING_HPP</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="Signal__Processing_8tpp.html">Signal_Processing.tpp</a>&quot;</span> <span class="comment">// implementation</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif </span><span class="comment">// SIGNAL_PROCESSING_HPP</span></div>
 <div class="ttc" id="aSignal__Processing_8hpp_html_a2665ca55613be71683eb9e2cd6365cfc"><div class="ttname"><a href="Signal__Processing_8hpp.html#a2665ca55613be71683eb9e2cd6365cfc">FIR_filter</a></div><div class="ttdeci">constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)</div><div class="ttdoc">Applies a Finite Impulse Response (FIR) filter on the signal buffer.</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8tpp_source.html#l00023">Signal_Processing.tpp:23</a></div></div>
 <div class="ttc" id="aSignal__Processing_8hpp_html_a4d9072b402cbfdfd7303bd805f408f6c"><div class="ttname"><a href="Signal__Processing_8hpp.html#a4d9072b402cbfdfd7303bd805f408f6c">average</a></div><div class="ttdeci">constexpr T average(T val1, T val2)</div><div class="ttdoc">Computes the average of two values.</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8tpp_source.html#l00050">Signal_Processing.tpp:50</a></div></div>
 <div class="ttc" id="aSignal__Processing_8hpp_html_aae13f76d835e3de4d61441cf4abc0f08"><div class="ttname"><a href="Signal__Processing_8hpp.html#aae13f76d835e3de4d61441cf4abc0f08">AVG_filter</a></div><div class="ttdeci">constexpr T AVG_filter(T *buffer, uint8_t buf_size)</div><div class="ttdoc">Applies an average filter on the given buffer.</div><div class="ttdef"><b>Definition:</b> <a href="Signal__Processing_8tpp_source.html#l00064">Signal_Processing.tpp:64</a></div></div>

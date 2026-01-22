@@ -204,7 +204,7 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor for the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class. Initializes the pedal state. fault is set to true initially, so you must send update within 100ms of starting the car to clear it. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00026">26</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00032">32</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +254,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Mapped torque value in the signed range of -REGEN_MAX to REGEN_MAX. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00167">167</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00184">184</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
 
 </div>
 </div>
@@ -285,15 +285,15 @@ Private Attributes</h2></td></tr>
 <p>Scales pedal_2 to match the range of pedal_1, then calculates the absolute difference. If the difference exceeds 10% of the full-scale value (i.e., &gt;102.4 for a 10-bit ADC), the function considers this a fault and returns true. Otherwise, returns false.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if the difference exceeds the threshold (fault detected), false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00181">181</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00198">198</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CarState_8h_source.html#l00143">CarState::adc</a>, <a class="el" href="CarState_8h_source.html#l00024">TelemetryFrameAdc::apps_3v3</a>, <a class="el" href="CarState_8h_source.html#l00054">TelemetryFrameDigital::apps_3v3_scaled</a>, <a class="el" href="CarState_8h_source.html#l00023">TelemetryFrameAdc::apps_5v</a>, <a class="el" href="Pedal_8hpp_source.html#l00031">APPS_RATIO</a>, <a class="el" href="CarState_8h_source.html#l00025">TelemetryFrameAdc::brake</a>, <a class="el" href="Pedal_8hpp_source.html#l00048">car</a>, <a class="el" href="Debug_8hpp_source.html#l00159">DBG_THROTTLE_FAULT()</a>, <a class="el" href="Debug_8hpp_source.html#l00124">DBG_THROTTLE_IN()</a>, <a class="el" href="Enums_8h_source.html#l00034">DIFF_CONTINUING</a>, <a class="el" href="CarState_8h_source.html#l00144">CarState::digital</a>, <a class="el" href="CarState_8h_source.html#l00091">TelemetryFrameState::fault_active</a>, and <a class="el" href="CarState_8h_source.html#l00145">CarState::state</a>.</p>
+<p class="reference">References <a class="el" href="CarState_8hpp_source.html#l00147">CarState::adc</a>, <a class="el" href="CarState_8hpp_source.html#l00024">TelemetryFrameAdc::apps_3v3</a>, <a class="el" href="CarState_8hpp_source.html#l00054">TelemetryFrameDigital::apps_3v3_scaled</a>, <a class="el" href="CarState_8hpp_source.html#l00023">TelemetryFrameAdc::apps_5v</a>, <a class="el" href="Pedal_8hpp_source.html#l00031">APPS_RATIO</a>, <a class="el" href="Pedal_8hpp_source.html#l00048">car</a>, <a class="el" href="Debug_8hpp_source.html#l00121">DBG_THROTTLE_FAULT()</a>, <a class="el" href="Enums_8h_source.html#l00034">DIFF_CONTINUING</a>, <a class="el" href="CarState_8hpp_source.html#l00148">CarState::digital</a>, <a class="el" href="CarState_8hpp_source.html#l00093">TelemetryFrameState::fault_active</a>, and <a class="el" href="CarState_8hpp_source.html#l00149">CarState::state</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPedal_a4025bb96ea422dbba6d3b604a1066bc7_cgraph.svg" width="632" height="215"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPedal_a4025bb96ea422dbba6d3b604a1066bc7_cgraph.svg" width="614" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -322,15 +322,15 @@ Here is the caller graph for this function:</div>
 
 <p>Sends the appropriate CAN frame based on pedal and car state. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00102">102</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00121">121</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CarState_8h_source.html#l00143">CarState::adc</a>, <a class="el" href="CarState_8h_source.html#l00025">TelemetryFrameAdc::brake</a>, <a class="el" href="Enums_8h_source.html#l00021">BUSSIN</a>, <a class="el" href="Pedal_8hpp_source.html#l00048">car</a>, <a class="el" href="CarState_8h_source.html#l00084">TelemetryFrameState::car_status</a>, <a class="el" href="Debug_8hpp_source.html#l00141">DBG_THROTTLE_OUT()</a>, <a class="el" href="Debug_8hpp_source.html#l00060">DBGLN_THROTTLE()</a>, <a class="el" href="Enums_8h_source.html#l00022">DRIVE</a>, <a class="el" href="Pedal_8hpp_source.html#l00024">FLIP_MOTOR_DIR</a>, <a class="el" href="CarState_8h_source.html#l00085">TelemetryFrameState::force_stop</a>, <a class="el" href="Enums_8h_source.html#l00019">INIT</a>, <a class="el" href="Pedal_8hpp_source.html#l00049">motor_can</a>, <a class="el" href="Enums_8h_source.html#l00067">MOTOR_COMMAND</a>, <a class="el" href="Pedal_8hpp_source.html#l00045">pedal_final</a>, <a class="el" href="Enums_8h_source.html#l00020">STARTIN</a>, <a class="el" href="CarState_8h_source.html#l00145">CarState::state</a>, <a class="el" href="Pedal_8hpp_source.html#l00057">stop_frame</a>, <a class="el" href="Pedal_8cpp_source.html#l00152">throttleTorqueMapping()</a>, and <a class="el" href="Pedal_8hpp_source.html#l00064">torque_msg</a>.</p>
+<p class="reference">References <a class="el" href="CarState_8hpp_source.html#l00147">CarState::adc</a>, <a class="el" href="CarState_8hpp_source.html#l00025">TelemetryFrameAdc::brake</a>, <a class="el" href="Enums_8h_source.html#l00021">BUSSIN</a>, <a class="el" href="Pedal_8hpp_source.html#l00048">car</a>, <a class="el" href="CarState_8hpp_source.html#l00084">TelemetryFrameState::car_status</a>, <a class="el" href="Debug_8hpp_source.html#l00060">DBGLN_THROTTLE()</a>, <a class="el" href="Enums_8h_source.html#l00022">DRIVE</a>, <a class="el" href="Pedal_8hpp_source.html#l00024">FLIP_MOTOR_DIR</a>, <a class="el" href="CarState_8hpp_source.html#l00089">TelemetryFrameState::force_stop</a>, <a class="el" href="Enums_8h_source.html#l00019">INIT</a>, <a class="el" href="Pedal_8hpp_source.html#l00049">motor_can</a>, <a class="el" href="Enums_8h_source.html#l00067">MOTOR_COMMAND</a>, <a class="el" href="Pedal_8hpp_source.html#l00045">pedal_final</a>, <a class="el" href="Enums_8h_source.html#l00020">STARTIN</a>, <a class="el" href="CarState_8hpp_source.html#l00149">CarState::state</a>, <a class="el" href="Pedal_8hpp_source.html#l00057">stop_frame</a>, <a class="el" href="Pedal_8cpp_source.html#l00169">throttleTorqueMapping()</a>, and <a class="el" href="Pedal_8hpp_source.html#l00064">torque_msg</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00065">scheduler_pedal()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPedal_a1027941444ce0b3f32ab8991e05c2015_cgraph.svg" width="651" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPedal_a1027941444ce0b3f32ab8991e05c2015_cgraph.svg" width="618" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -393,9 +393,9 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Mapped torque value in the signed range of -TORQUE_MAX to TORQUE_MAX. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00152">152</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00169">169</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00121">sendFrame()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -448,15 +448,15 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00047">47</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8cpp_source.html#l00053">53</a> of file <a class="el" href="Pedal_8cpp_source.html">Pedal.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CarState_8h_source.html#l00143">CarState::adc</a>, <a class="el" href="Pedal_8hpp_source.html#l00033">ADC_BUFFER_SIZE</a>, <a class="el" href="CarState_8h_source.html#l00024">TelemetryFrameAdc::apps_3v3</a>, <a class="el" href="CarState_8h_source.html#l00023">TelemetryFrameAdc::apps_5v</a>, <a class="el" href="CarState_8h_source.html#l00025">TelemetryFrameAdc::brake</a>, <a class="el" href="Pedal_8hpp_source.html#l00070">brake_value</a>, <a class="el" href="Queue_8hpp_source.html#l00046">RingBuffer&lt; T, size &gt;::buffer</a>, <a class="el" href="Pedal_8hpp_source.html#l00048">car</a>, <a class="el" href="Pedal_8cpp_source.html#l00181">checkPedalFault()</a>, <a class="el" href="Debug_8hpp_source.html#l00159">DBG_THROTTLE_FAULT()</a>, <a class="el" href="Enums_8h_source.html#l00035">DIFF_EXCEED_100MS</a>, <a class="el" href="Enums_8h_source.html#l00036">DIFF_RESOLVED</a>, <a class="el" href="Enums_8h_source.html#l00033">DIFF_START</a>, <a class="el" href="Pedal_8hpp_source.html#l00052">fault</a>, <a class="el" href="CarState_8h_source.html#l00092">TelemetryFrameState::fault_exceeded</a>, <a class="el" href="Pedal_8hpp_source.html#l00053">fault_start_millis</a>, <a class="el" href="CarState_8h_source.html#l00085">TelemetryFrameState::force_stop</a>, <a class="el" href="CarState_8h_source.html#l00147">CarState::millis</a>, <a class="el" href="Pedal_8hpp_source.html#l00068">pedal_value_1</a>, <a class="el" href="Pedal_8hpp_source.html#l00069">pedal_value_2</a>, <a class="el" href="Queue_8hpp_source.html#l00021">RingBuffer&lt; T, size &gt;::push()</a>, and <a class="el" href="CarState_8h_source.html#l00145">CarState::state</a>.</p>
+<p class="reference">References <a class="el" href="CarState_8hpp_source.html#l00147">CarState::adc</a>, <a class="el" href="Pedal_8hpp_source.html#l00033">ADC_BUFFER_SIZE</a>, <a class="el" href="CarState_8hpp_source.html#l00024">TelemetryFrameAdc::apps_3v3</a>, <a class="el" href="CarState_8hpp_source.html#l00098">TelemetryFrameState::apps_3v3_high</a>, <a class="el" href="CarState_8hpp_source.html#l00097">TelemetryFrameState::apps_3v3_low</a>, <a class="el" href="Curves_8hpp_source.html#l00021">apps_3v3_max</a>, <a class="el" href="Curves_8hpp_source.html#l00020">apps_3v3_min</a>, <a class="el" href="CarState_8hpp_source.html#l00023">TelemetryFrameAdc::apps_5v</a>, <a class="el" href="CarState_8hpp_source.html#l00096">TelemetryFrameState::apps_5v_high</a>, <a class="el" href="CarState_8hpp_source.html#l00095">TelemetryFrameState::apps_5v_low</a>, <a class="el" href="Curves_8hpp_source.html#l00018">apps_5v_max</a>, <a class="el" href="Curves_8hpp_source.html#l00017">apps_5v_min</a>, <a class="el" href="CarState_8hpp_source.html#l00025">TelemetryFrameAdc::brake</a>, <a class="el" href="CarState_8hpp_source.html#l00100">TelemetryFrameState::brake_high</a>, <a class="el" href="CarState_8hpp_source.html#l00099">TelemetryFrameState::brake_low</a>, <a class="el" href="Curves_8hpp_source.html#l00038">brake_max</a>, <a class="el" href="Curves_8hpp_source.html#l00037">brake_min</a>, <a class="el" href="Pedal_8hpp_source.html#l00070">brake_value</a>, <a class="el" href="Queue_8hpp_source.html#l00046">RingBuffer&lt; T, size &gt;::buffer</a>, <a class="el" href="Pedal_8hpp_source.html#l00048">car</a>, <a class="el" href="Pedal_8cpp_source.html#l00198">checkPedalFault()</a>, <a class="el" href="Debug_8hpp_source.html#l00121">DBG_THROTTLE_FAULT()</a>, <a class="el" href="Enums_8h_source.html#l00035">DIFF_EXCEED_100MS</a>, <a class="el" href="Enums_8h_source.html#l00036">DIFF_RESOLVED</a>, <a class="el" href="Enums_8h_source.html#l00033">DIFF_START</a>, <a class="el" href="Pedal_8hpp_source.html#l00052">fault</a>, <a class="el" href="CarState_8hpp_source.html#l00094">TelemetryFrameState::fault_exceeded</a>, <a class="el" href="Pedal_8hpp_source.html#l00053">fault_start_millis</a>, <a class="el" href="CarState_8hpp_source.html#l00089">TelemetryFrameState::force_stop</a>, <a class="el" href="CarState_8hpp_source.html#l00151">CarState::millis</a>, <a class="el" href="Pedal_8hpp_source.html#l00068">pedal_value_1</a>, <a class="el" href="Pedal_8hpp_source.html#l00069">pedal_value_2</a>, <a class="el" href="Queue_8hpp_source.html#l00021">RingBuffer&lt; T, size &gt;::push()</a>, and <a class="el" href="CarState_8hpp_source.html#l00149">CarState::state</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPedal_a0ec014fb5ce414deded33ae3db05e231_cgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPedal_a0ec014fb5ce414deded33ae3db05e231_cgraph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
@@ -491,7 +491,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00070">70</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 
 </div>
 </div>
@@ -542,7 +542,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00048">48</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00181">checkPedalFault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00102">sendFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00198">checkPedalFault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00121">sendFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 
 </div>
 </div>
@@ -568,7 +568,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00052">52</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 
 </div>
 </div>
@@ -594,7 +594,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00053">53</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 
 </div>
 </div>
@@ -621,7 +621,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00049">49</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00121">sendFrame()</a>.</p>
 
 </div>
 </div>
@@ -640,7 +640,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00045">45</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00102">sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00121">sendFrame()</a>.</p>
 
 </div>
 </div>
@@ -666,7 +666,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00068">68</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 
 </div>
 </div>
@@ -692,7 +692,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00069">69</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00047">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">update()</a>.</p>
 
 </div>
 </div>
@@ -727,7 +727,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00057">57</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00121">sendFrame()</a>.</p>
 
 </div>
 </div>
@@ -778,7 +778,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00064">64</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00121">sendFrame()</a>.</p>
 
 </div>
 </div>

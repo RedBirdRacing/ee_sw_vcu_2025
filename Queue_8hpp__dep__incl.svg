@@ -12,40 +12,46 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#999999" stroke="#666666" points="170,-129 51,-129 51,-110 170,-110 170,-129"/>
-<text text-anchor="middle" x="110.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Queue/Queue.hpp</text>
+<polygon fill="#999999" stroke="#666666" points="155,-129 36,-129 36,-110 155,-110 155,-129"/>
+<text text-anchor="middle" x="95.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Queue/Queue.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="165.5,-74 55.5,-74 55.5,-55 165.5,-55 165.5,-74"/>
-<text text-anchor="middle" x="110.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.hpp</text>
+<g id="a_node2"><a xlink:href="Pedal_8cpp.html" target="_top" xlink:title="Implementation of the Pedal class for handling throttle pedal inputs.">
+<polygon fill="white" stroke="#666666" points="109,-19 0,-19 0,0 109,0 109,-19"/>
+<text text-anchor="middle" x="54.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M110.5,-99.66C110.5,-90.93 110.5,-80.99 110.5,-74.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="107,-99.75 110.5,-109.75 114,-99.75 107,-99.75"/>
+<path fill="none" stroke="#63b8ff" d="M85.86,-100.73C81.73,-92.71 77.05,-83.02 73.5,-74 66,-54.94 59.74,-31.69 56.63,-19.28"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="82.9,-102.63 90.67,-109.83 89.09,-99.36 82.9,-102.63"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="Pedal_8cpp.html" target="_top" xlink:title="Implementation of the Pedal class for handling throttle pedal inputs.">
-<polygon fill="white" stroke="#666666" points="109,-19 0,-19 0,0 109,0 109,-19"/>
-<text text-anchor="middle" x="54.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.cpp</text>
+<g id="a_node3"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="192.5,-74 82.5,-74 82.5,-55 192.5,-55 192.5,-74"/>
+<text text-anchor="middle" x="137.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node3 -->
+<!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
-<title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M94.17,-48.04C84.24,-38.64 71.91,-26.98 63.66,-19.17"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="91.83,-50.65 101.5,-54.98 96.65,-45.57 91.83,-50.65"/>
+<title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="#63b8ff" d="M108.83,-101.67C116.11,-92.5 124.8,-81.52 130.69,-74.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="105.9,-99.74 102.44,-109.75 111.39,-104.08 105.9,-99.74"/>
+</g>
+<!-- Node3&#45;&gt;Node2 -->
+<g id="edge3" class="edge">
+<title>Node3&#45;&gt;Node2</title>
+<path fill="none" stroke="#63b8ff" d="M115.46,-49.42C100.39,-39.81 80.91,-27.37 68.08,-19.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="113.85,-52.55 124.16,-54.98 117.62,-46.65 113.85,-52.55"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -56,11 +62,11 @@
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="#63b8ff" d="M126.83,-48.04C136.76,-38.64 149.09,-26.98 157.34,-19.17"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="124.35,-45.57 119.5,-54.98 129.17,-50.65 124.35,-45.57"/>
+<!-- Node3&#45;&gt;Node4 -->
+<g id="edge4" class="edge">
+<title>Node3&#45;&gt;Node4</title>
+<path fill="none" stroke="#63b8ff" d="M147.18,-45.82C152.1,-36.82 157.86,-26.29 161.8,-19.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="144.02,-44.3 142.29,-54.75 150.16,-47.66 144.02,-44.3"/>
 </g>
 </g>
 </svg>

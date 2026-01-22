@@ -173,29 +173,14 @@ Functions</h2></td></tr>
 <tr class="memitem:adeb16efc082a41c9b137c2fa9d8162c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#adeb16efc082a41c9b137c2fa9d8162c0">DBGLN_STATUS</a> (const char *x)</td></tr>
 <tr class="memdesc:adeb16efc082a41c9b137c2fa9d8162c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a line to the serial console for status debug.  <br /></td></tr>
 <tr class="separator:adeb16efc082a41c9b137c2fa9d8162c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa1e089b7149386f290d4ebb4d373bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#afa1e089b7149386f290d4ebb4d373bf6">DBG_THROTTLE_IN</a> (uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final, uint16_t brake)</td></tr>
-<tr class="memdesc:afa1e089b7149386f290d4ebb4d373bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends throttle pedal input debug info via CAN or serial (if enabled).  <br /></td></tr>
-<tr class="separator:afa1e089b7149386f290d4ebb4d373bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25f28d9aa7440ebc55a76a2b2ce878ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a25f28d9aa7440ebc55a76a2b2ce878ea">DBG_THROTTLE_OUT</a> (uint16_t throttle_final, int16_t throttle_torque_val)</td></tr>
-<tr class="memdesc:a25f28d9aa7440ebc55a76a2b2ce878ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends throttle output debug info via CAN or serial (if enabled).  <br /></td></tr>
-<tr class="separator:a25f28d9aa7440ebc55a76a2b2ce878ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27a4d84e5afbe5f46066606c2cfcd97d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d">DBG_THROTTLE_FAULT</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
 <tr class="memdesc:a27a4d84e5afbe5f46066606c2cfcd97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or without value.  <br /></td></tr>
 <tr class="separator:a27a4d84e5afbe5f46066606c2cfcd97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1edaf914af08e55cd4294974dd5651d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#af1edaf914af08e55cd4294974dd5651d">DBG_THROTTLE_FAULT</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status)</td></tr>
 <tr class="separator:af1edaf914af08e55cd4294974dd5651d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a306ca7fb070dd487be4ea4ec3de74b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a306ca7fb070dd487be4ea4ec3de74b85">DBG_STATUS_CAR</a> (<a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> car_status)</td></tr>
-<tr class="memdesc:a306ca7fb070dd487be4ea4ec3de74b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends car status debug info via CAN or serial (if enabled).  <br /></td></tr>
-<tr class="separator:a306ca7fb070dd487be4ea4ec3de74b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f010051fc0b65e53e4305c62bae986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ae4f010051fc0b65e53e4305c62bae986">DBG_BRAKE_FAULT</a> (<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> fault_status, uint16_t value)</td></tr>
-<tr class="memdesc:ae4f010051fc0b65e53e4305c62bae986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or without value.  <br /></td></tr>
-<tr class="separator:ae4f010051fc0b65e53e4305c62bae986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5811a65cdb8fc3c5255f57301cbb8481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a5811a65cdb8fc3c5255f57301cbb8481">DBG_BMS_STATUS</a> (<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a> <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a>)</td></tr>
 <tr class="memdesc:a5811a65cdb8fc3c5255f57301cbb8481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> debug info via CAN or serial (if enabled).  <br /></td></tr>
 <tr class="separator:a5811a65cdb8fc3c5255f57301cbb8481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47899db638485b6ff92158a3f88d5a22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22">DBG_HALL_SENSOR</a> (uint16_t hall_sensor_value)</td></tr>
-<tr class="memdesc:a47899db638485b6ff92158a3f88d5a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send hall sensor debug info via CAN.  <br /></td></tr>
-<tr class="separator:a47899db638485b6ff92158a3f88d5a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Debugging macros and functions for serial and CAN output. </p>
@@ -479,7 +464,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00221">221</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00149">149</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00176">Debug_CAN::status_bms()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00217">Debug_Serial::status_bms()</a>.</p>
 
@@ -494,61 +479,6 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a5811a65cdb8fc3c5255f57301cbb8481_icgraph.svg" width="583" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="ae4f010051fc0b65e53e4305c62bae986" name="ae4f010051fc0b65e53e4305c62bae986"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4f010051fc0b65e53e4305c62bae986">&#9670;&#160;</a></span>DBG_BRAKE_FAULT()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DBG_BRAKE_FAULT </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a>&#160;</td>
-          <td class="paramname"><em>fault_status</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends brake fault debug info via CAN or serial (if enabled). Overloads for fault status with or without value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fault_status</td><td>The fault status enum. </td></tr>
-    <tr><td class="paramname">value</td><td>Optional float value for fault. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00205">205</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00135">Debug_CAN::brake_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00140">Debug_Serial::brake_fault()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_ae4f010051fc0b65e53e4305c62bae986_cgraph.svg" width="387" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -599,50 +529,6 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a47899db638485b6ff92158a3f88d5a22" name="a47899db638485b6ff92158a3f88d5a22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47899db638485b6ff92158a3f88d5a22">&#9670;&#160;</a></span>DBG_HALL_SENSOR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DBG_HALL_SENSOR </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>hall_sensor_value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Send hall sensor debug info via CAN. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hall_sensor_value</td><td>The hall sensor value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00237">237</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00195">Debug_CAN::hall_sensor()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00248">Debug_Serial::hall_sensor()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a47899db638485b6ff92158a3f88d5a22_cgraph.svg" width="391" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <a id="a3c41dd69d26e414610765b6feb86c475" name="a3c41dd69d26e414610765b6feb86c475"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c41dd69d26e414610765b6feb86c475">&#9670;&#160;</a></span>DBG_STATUS()</h2>
 
@@ -683,58 +569,6 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a3c41dd69d26e414610765b6feb86c475_cgraph.svg" width="312" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a306ca7fb070dd487be4ea4ec3de74b85" name="a306ca7fb070dd487be4ea4ec3de74b85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a306ca7fb070dd487be4ea4ec3de74b85">&#9670;&#160;</a></span>DBG_STATUS_CAR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DBG_STATUS_CAR </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a>&#160;</td>
-          <td class="paramname"><em>car_status</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends car status debug info via CAN or serial (if enabled). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">car_status</td><td>Car status enum value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00187">187</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00157">Debug_CAN::status_car()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00166">Debug_Serial::status_car()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a306ca7fb070dd487be4ea4ec3de74b85_cgraph.svg" width="383" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a306ca7fb070dd487be4ea4ec3de74b85_icgraph.svg" width="259" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -809,7 +643,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00171">171</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00133">133</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00093">Debug_CAN::throttle_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00082">Debug_Serial::throttle_fault()</a>.</p>
 <div class="dynheader">
@@ -864,11 +698,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00159">159</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00121">121</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00093">Debug_CAN::throttle_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00082">Debug_Serial::throttle_fault()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00181">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00047">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00198">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -879,146 +713,6 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a27a4d84e5afbe5f46066606c2cfcd97d_icgraph.svg" width="659" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="afa1e089b7149386f290d4ebb4d373bf6" name="afa1e089b7149386f290d4ebb4d373bf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa1e089b7149386f290d4ebb4d373bf6">&#9670;&#160;</a></span>DBG_THROTTLE_IN()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DBG_THROTTLE_IN </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_filtered_1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_filtered_2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pedal_filtered_final</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>brake</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends throttle pedal input debug info via CAN or serial (if enabled). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pedal_filtered_1</td><td>Filtered value from pedal 1. </td></tr>
-    <tr><td class="paramname">pedal_filtered_2</td><td>Filtered value from pedal 2. </td></tr>
-    <tr><td class="paramname">pedal_filtered_final</td><td>Final filtered value. </td></tr>
-    <tr><td class="paramname">brake</td><td>Brake value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00124">124</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00041">Debug_CAN::throttle_in()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00048">Debug_Serial::throttle_in()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00181">Pedal::checkPedalFault()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_afa1e089b7149386f290d4ebb4d373bf6_cgraph.svg" width="388" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_afa1e089b7149386f290d4ebb4d373bf6_icgraph.svg" width="634" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a25f28d9aa7440ebc55a76a2b2ce878ea" name="a25f28d9aa7440ebc55a76a2b2ce878ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25f28d9aa7440ebc55a76a2b2ce878ea">&#9670;&#160;</a></span>DBG_THROTTLE_OUT()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DBG_THROTTLE_OUT </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>throttle_final</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>throttle_torque_val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends throttle output debug info via CAN or serial (if enabled). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">throttle_final</td><td>Final throttle value. </td></tr>
-    <tr><td class="paramname">throttle_torque_val</td><td>Output torque value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00141">141</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00069">Debug_CAN::throttle_out()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00067">Debug_Serial::throttle_out()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00102">Pedal::sendFrame()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a25f28d9aa7440ebc55a76a2b2ce878ea_cgraph.svg" width="412" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a25f28d9aa7440ebc55a76a2b2ce878ea_icgraph.svg" width="642" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1159,7 +853,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00037">Debug_Serial::println()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00102">Pedal::sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00121">Pedal::sendFrame()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

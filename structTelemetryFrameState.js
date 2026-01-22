@@ -1,6 +1,10 @@
 var structTelemetryFrameState =
 [
     [ "toCanFrame", "structTelemetryFrameState.html#a3c77ae091bd1912d700dbb58b2f1c68e", null ],
+    [ "apps_3v3_high", "structTelemetryFrameState.html#aeb8490a581b5ab4f56fc3c45e5bc7d79", null ],
+    [ "apps_3v3_low", "structTelemetryFrameState.html#a63a1d9c3c525c8a1c2418fda8106f6e6", null ],
+    [ "apps_5v_high", "structTelemetryFrameState.html#ac52c402f43cb3b55fb8c256ef09ef974", null ],
+    [ "apps_5v_low", "structTelemetryFrameState.html#ab7ed3d7d8826d3c559e4a3920a4d1510", null ],
     [ "bms_data", "structTelemetryFrameState.html#a5006c5ed8f5ab2e2791221a95c69e64c", null ],
     [ "bms_no_msg", "structTelemetryFrameState.html#a158f7883174204da5b00effb4003d378", null ],
     [ "bms_wrong_id", "structTelemetryFrameState.html#a826fddc4d43f181dd8a95fe61f419474", null ],
@@ -12,7 +16,5 @@ var structTelemetryFrameState =
     [ "force_stop", "structTelemetryFrameState.html#a77025108f57cf4983712e40f9b842b6c", null ],
     [ "hv_ready", "structTelemetryFrameState.html#a68cf80485fc5e26e1b371973b47a9a78", null ],
     [ "screenshot", "structTelemetryFrameState.html#af34d0e46a92aebda5f00ce2ad18ab04c", null ],
-    [ "state_unknown", "structTelemetryFrameState.html#a3bf3af4086cfcd418c8e6f9d0ab9a7ee", null ],
-    [ "throttle_high", "structTelemetryFrameState.html#a3fd1d78efc0300a283c1cfc1e15a7598", null ],
-    [ "throttle_low", "structTelemetryFrameState.html#a11c1f1e251ae09ddfc8f652322439ad7", null ]
+    [ "state_unknown", "structTelemetryFrameState.html#a3bf3af4086cfcd418c8e6f9d0ab9a7ee", null ]
 ];

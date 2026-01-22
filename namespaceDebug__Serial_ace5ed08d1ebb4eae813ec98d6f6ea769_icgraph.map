@@ -1,4 +1,0 @@
-<map id="Debug_Serial::hall_sensor" name="Debug_Serial::hall_sensor">
-<area shape="rect" id="node1" title="Prints the current hall sensor value to the serial console." alt="" coords="204,5,344,45"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a47899db638485b6ff92158a3f88d5a22" title="Send hall sensor debug info via CAN." alt="" coords="5,13,156,38"/>
-</map>

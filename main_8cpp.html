@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 <code>#include &quot;<a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Enums_8h_source.html">Enums.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="CarState_8h_source.html">CarState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>&quot;</code><br />
 <code>#include &lt;mcp2515.h&gt;</code><br />
@@ -216,13 +216,13 @@ Variables</h2></td></tr>
 
 <p>Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00122">122</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00121">121</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="boardConf_8h_source.html#l00103">APPS_3V3</a>, <a class="el" href="boardConf_8h_source.html#l00102">APPS_5V</a>, <a class="el" href="Curves_8hpp_source.html#l00017">apps_min</a>, <a class="el" href="main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6">bms</a>, <a class="el" href="main_8cpp_source.html#l00043">BMS_MILLIS</a>, <a class="el" href="boardConf_8h_source.html#l00104">BRAKE_IN</a>, <a class="el" href="boardConf_8h_source.html#l00108">BRAKE_LIGHT</a>, <a class="el" href="main_8cpp_source.html#l00047">brake_pressed</a>, <a class="el" href="main_8cpp_source.html#l00045">BRAKE_THRESHOLD</a>, <a class="el" href="Enums_8h_source.html#l00021">BUSSIN</a>, <a class="el" href="main_8cpp_source.html#l00042">BUSSIN_MILLIS</a>, <a class="el" href="boardConf_8h_source.html#l00121">BUTTON_ACTIVE</a>, <a class="el" href="boardConf_8h_source.html#l00115">BUZZER</a>, <a class="el" href="main_8cpp_source.html#l00053">car</a>, <a class="el" href="CarState_8h_source.html#l00084">TelemetryFrameState::car_status</a>, <a class="el" href="Debug_8hpp_source.html#l00187">DBG_STATUS_CAR()</a>, <a class="el" href="Debug_8hpp_source.html#l00060">DBGLN_THROTTLE()</a>, <a class="el" href="Enums_8h_source.html#l00022">DRIVE</a>, <a class="el" href="boardConf_8h_source.html#l00112">DRIVE_MODE_BTN</a>, <a class="el" href="CarState_8h_source.html#l00085">TelemetryFrameState::force_stop</a>, <a class="el" href="boardConf_8h_source.html#l00111">FRG</a>, <a class="el" href="BMS_8hpp_source.html#l00052">BMS::hvReady()</a>, <a class="el" href="Enums_8h_source.html#l00019">INIT</a>, <a class="el" href="Enums_8h_source.html#l00102">MCP_BMS</a>, <a class="el" href="CarState_8h_source.html#l00147">CarState::millis</a>, <a class="el" href="main_8cpp.html#a51a8f4c4445fb8d4f0c67dafadc4e4e0">pedal</a>, <a class="el" href="Pedal_8hpp_source.html#l00045">Pedal::pedal_final</a>, <a class="el" href="main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548">scheduler</a>, <a class="el" href="main_8cpp_source.html#l00069">scheduler_bms()</a>, <a class="el" href="Enums_8h_source.html#l00020">STARTIN</a>, <a class="el" href="main_8cpp_source.html#l00041">STARTING_MILLIS</a>, <a class="el" href="CarState_8h_source.html#l00145">CarState::state</a>, <a class="el" href="CarState_8h_source.html#l00146">CarState::status_millis</a>, and <a class="el" href="Pedal_8cpp_source.html#l00047">Pedal::update()</a>.</p>
+<p class="reference">References <a class="el" href="boardConf_8h_source.html#l00103">APPS_3V3</a>, <a class="el" href="boardConf_8h_source.html#l00102">APPS_5V</a>, <a class="el" href="Curves_8hpp_source.html#l00023">apps_final_min</a>, <a class="el" href="main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6">bms</a>, <a class="el" href="main_8cpp_source.html#l00043">BMS_MILLIS</a>, <a class="el" href="boardConf_8h_source.html#l00104">BRAKE_IN</a>, <a class="el" href="boardConf_8h_source.html#l00108">BRAKE_LIGHT</a>, <a class="el" href="main_8cpp_source.html#l00047">brake_pressed</a>, <a class="el" href="main_8cpp_source.html#l00045">BRAKE_THRESHOLD</a>, <a class="el" href="Enums_8h_source.html#l00021">BUSSIN</a>, <a class="el" href="main_8cpp_source.html#l00042">BUSSIN_MILLIS</a>, <a class="el" href="boardConf_8h_source.html#l00121">BUTTON_ACTIVE</a>, <a class="el" href="boardConf_8h_source.html#l00115">BUZZER</a>, <a class="el" href="main_8cpp_source.html#l00053">car</a>, <a class="el" href="CarState_8hpp_source.html#l00084">TelemetryFrameState::car_status</a>, <a class="el" href="Debug_8hpp_source.html#l00060">DBGLN_THROTTLE()</a>, <a class="el" href="Enums_8h_source.html#l00022">DRIVE</a>, <a class="el" href="boardConf_8h_source.html#l00112">DRIVE_MODE_BTN</a>, <a class="el" href="CarState_8hpp_source.html#l00089">TelemetryFrameState::force_stop</a>, <a class="el" href="boardConf_8h_source.html#l00111">FRG</a>, <a class="el" href="BMS_8hpp_source.html#l00052">BMS::hvReady()</a>, <a class="el" href="Enums_8h_source.html#l00019">INIT</a>, <a class="el" href="Enums_8h_source.html#l00102">MCP_BMS</a>, <a class="el" href="CarState_8hpp_source.html#l00151">CarState::millis</a>, <a class="el" href="main_8cpp.html#a51a8f4c4445fb8d4f0c67dafadc4e4e0">pedal</a>, <a class="el" href="Pedal_8hpp_source.html#l00045">Pedal::pedal_final</a>, <a class="el" href="main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548">scheduler</a>, <a class="el" href="main_8cpp_source.html#l00069">scheduler_bms()</a>, <a class="el" href="Enums_8h_source.html#l00020">STARTIN</a>, <a class="el" href="main_8cpp_source.html#l00041">STARTING_MILLIS</a>, <a class="el" href="CarState_8hpp_source.html#l00149">CarState::state</a>, <a class="el" href="CarState_8hpp_source.html#l00150">CarState::status_millis</a>, and <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="513"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -309,7 +309,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6">bms</a>, and <a class="el" href="BMS_8cpp_source.html#l00040">BMS::checkHv()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -342,13 +342,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00065">65</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="main_8cpp.html#a51a8f4c4445fb8d4f0c67dafadc4e4e0">pedal</a>, and <a class="el" href="Pedal_8cpp_source.html#l00102">Pedal::sendFrame()</a>.</p>
+<p class="reference">References <a class="el" href="main_8cpp.html#a51a8f4c4445fb8d4f0c67dafadc4e4e0">pedal</a>, and <a class="el" href="Pedal_8cpp_source.html#l00121">Pedal::sendFrame()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a1174b6795782479542559289cd623faf_cgraph.svg" width="100%" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a1174b6795782479542559289cd623faf_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
@@ -379,11 +379,11 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00083">83</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="boardConf_8h_source.html#l00194">CAN_RATE</a>, <a class="el" href="main_8cpp_source.html#l00053">car</a>, <a class="el" href="CarState_8h_source.html#l00084">TelemetryFrameState::car_status</a>, <a class="el" href="Debug_8hpp_source.html#l00187">DBG_STATUS_CAR()</a>, <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="Debug__serial_8cpp_source.html#l00018">Debug_Serial::initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00026">Debug_CAN::initialize()</a>, <a class="el" href="main_8cpp_source.html#l00024">INPUT_COUNT</a>, <a class="el" href="boardConf_8h_source.html#l00124">MCP2515_CRYSTAL_FREQ</a>, <a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL()</a>, <a class="el" href="Enums_8h_source.html#l00101">MCP_MOTOR</a>, <a class="el" href="main_8cpp_source.html#l00037">MCPS</a>, <a class="el" href="main_8cpp_source.html#l00036">NUM_MCP</a>, <a class="el" href="main_8cpp_source.html#l00025">OUTPUT_COUNT</a>, <a class="el" href="main_8cpp_source.html#l00026">pins_in</a>, <a class="el" href="main_8cpp_source.html#l00027">pins_out</a>, <a class="el" href="main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548">scheduler</a>, <a class="el" href="main_8cpp_source.html#l00065">scheduler_pedal()</a>, and <a class="el" href="CarState_8h_source.html#l00145">CarState::state</a>.</p>
+<p class="reference">References <a class="el" href="boardConf_8h_source.html#l00194">CAN_RATE</a>, <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="Debug__serial_8cpp_source.html#l00018">Debug_Serial::initialize()</a>, <a class="el" href="Debug__can_8cpp_source.html#l00026">Debug_CAN::initialize()</a>, <a class="el" href="main_8cpp_source.html#l00024">INPUT_COUNT</a>, <a class="el" href="boardConf_8h_source.html#l00124">MCP2515_CRYSTAL_FREQ</a>, <a class="el" href="main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1">mcp2515_DL()</a>, <a class="el" href="Enums_8h_source.html#l00101">MCP_MOTOR</a>, <a class="el" href="main_8cpp_source.html#l00037">MCPS</a>, <a class="el" href="main_8cpp_source.html#l00036">NUM_MCP</a>, <a class="el" href="main_8cpp_source.html#l00025">OUTPUT_COUNT</a>, <a class="el" href="main_8cpp_source.html#l00026">pins_in</a>, <a class="el" href="main_8cpp_source.html#l00027">pins_out</a>, <a class="el" href="main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548">scheduler</a>, and <a class="el" href="main_8cpp_source.html#l00065">scheduler_pedal()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph.svg" width="100%" height="539"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph.svg" width="100%" height="471"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -406,7 +406,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00069">scheduler_bms()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00069">scheduler_bms()</a>.</p>
 
 </div>
 </div>
@@ -432,7 +432,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00043">43</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 
 </div>
 </div>
@@ -450,7 +450,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00047">47</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 
 </div>
 </div>
@@ -476,7 +476,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00045">45</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 
 </div>
 </div>
@@ -502,7 +502,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00042">42</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 
 </div>
 </div>
@@ -530,7 +530,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00053">53</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 
 </div>
 </div>
@@ -656,7 +656,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00065">scheduler_pedal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00065">scheduler_pedal()</a>.</p>
 
 </div>
 </div>
@@ -738,7 +738,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>, and <a class="el" href="main_8cpp_source.html#l00083">setup()</a>.</p>
 
 </div>
 </div>
@@ -764,7 +764,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00041">41</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00122">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
 
 </div>
 </div>

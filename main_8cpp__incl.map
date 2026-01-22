@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" title=" " alt="" coords="28,79,112,104"/>
 <area shape="rect" id="node3" title=" " alt="" coords="137,79,238,104"/>
 <area shape="rect" id="node4" href="$Pedal_8hpp.html" title=" " alt="" coords="313,79,400,104"/>
-<area shape="rect" id="node7" href="$CarState_8h.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="343,152,434,177"/>
+<area shape="rect" id="node7" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="343,152,450,177"/>
 <area shape="rect" id="node8" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="551,299,629,324"/>
 <area shape="rect" id="node11" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="5,152,100,177"/>
 <area shape="rect" id="node12" title=" " alt="" coords="831,299,925,324"/>

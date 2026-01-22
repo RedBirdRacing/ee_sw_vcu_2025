@@ -1,4 +1,4 @@
-var CarState_8h =
+var CarState_8hpp =
 [
     [ "TelemetryFrameAdc", "structTelemetryFrameAdc.html", "structTelemetryFrameAdc" ],
     [ "TelemetryFrameDigital", "structTelemetryFrameDigital.html", "structTelemetryFrameDigital" ],
