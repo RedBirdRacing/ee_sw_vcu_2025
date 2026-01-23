@@ -70,25 +70,36 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
     car.adc.brake = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
 
     if (car.adc.apps_5v < apps_5v_min)
-        car.state.apps_5v_low = true;
+        car.state.faults.bits.apps_5v_low = true;
     if (car.adc.apps_5v > apps_5v_max)
-        car.state.apps_5v_high = true;
+        car.state.faults.bits.apps_5v_high = true;
     if (car.adc.apps_3v3 < apps_3v3_min)
-        car.state.apps_3v3_low = true;
+        car.state.faults.bits.apps_3v3_low = true;
     if (car.adc.apps_3v3 > apps_3v3_max)
-        car.state.apps_3v3_high = true;
+        car.state.faults.bits.apps_3v3_high = true;
     if (car.adc.brake < brake_min)
-        car.state.brake_low = true;
+        car.state.faults.bits.brake_low = true;
     if (car.adc.brake > brake_max)
-        car.state.brake_high = true;
+        car.state.faults.bits.brake_high = true;
 
+    bool result = checkPedalFault();
+    if (result)
+    {
+        if (fault && car.millis - fault_start_millis > 100)
+        {
+            car.state.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
+
+            DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
+            return;
+        }
+    }
+    
     if (!checkPedalFault())
     {
         if (fault)
         {
-            DBG_THROTTLE_FAULT(DIFF_RESOLVED);
+            DBG_THROTTLE_FAULT(PedalFault::DiffResolved);
             fault = false;
-            car.state.fault_exceeded = false; // exceed flag can show multiple instances of fault exceed, so need reset
         }
         return;
     }
@@ -98,17 +109,17 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
     {                                               // Previous scan is already faulty
         if (car.millis - fault_start_millis > 100) // Faulty for more than 100 ms
         {
-            car.state.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
-            car.state.force_stop = true; // this force stop flag can only be reset by a power cycle
+            car.state.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
+            car.state.status.bits.force_stop = true; // this force stop flag can only be reset by a power cycle
 
-            DBG_THROTTLE_FAULT(DIFF_EXCEED_100MS);
+            DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
             return;
         }
     }
     else // new fault detected
     {
         fault_start_millis = car.millis;
-        DBG_THROTTLE_FAULT(DIFF_START);
+        DBG_THROTTLE_FAULT(PedalFault::DiffStart);
     }
 
     fault = true;
@@ -120,23 +131,23 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
  */
 void Pedal::sendFrame()
 {
-    if (car.state.force_stop)
+    if (car.state.status.bits.force_stop)
     {
         DBGLN_THROTTLE("Stopping motor: pedal fault");
         motor_can.sendMessage(&stop_frame);
         return;
     }
-    if (car.state.car_status != DRIVE)
+    if (car.state.status.bits.car_status != CarStatus::Drive)
     {
-        switch (car.state.car_status)
+        switch (car.state.status.bits.car_status)
         {
-        case INIT:
+        case CarStatus::Init:
             DBGLN_THROTTLE("Stopping motor: in INIT.");
             break;
-        case STARTIN:
+        case CarStatus::Startin:
             DBGLN_THROTTLE("Stopping motor: in STARTIN.");
             break;
-        case BUSSIN:
+        case CarStatus::Bussin:
             DBGLN_THROTTLE("Stopping motor: in BUSSIN.");
             break;
         default:
@@ -166,9 +177,21 @@ void Pedal::sendFrame()
  * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -TORQUE_MAX to TORQUE_MAX.
  */
-int16_t Pedal::throttleTorqueMapping(uint16_t pedal, uint16_t brake, bool flip_dir)
+constexpr int16_t Pedal::throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const bool flip_dir)
 {
-    
+    if (brake > brake_map.start())
+    {
+        if (pedal > throttle_map.start())
+        {
+            car.state.status.bits.screenshot = true;
+        }
+        return brakeTorqueMapping(brake, flip_dir);
+    }
+    if (flip_dir)
+    {
+        return -throttle_map.interp(pedal);
+    }
+    return throttle_map.interp(pedal);
 }
 
 /**
@@ -181,9 +204,13 @@ int16_t Pedal::throttleTorqueMapping(uint16_t pedal, uint16_t brake, bool flip_d
  * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -REGEN_MAX to REGEN_MAX.
  */
-int16_t Pedal::brakeTorqueMapping(uint16_t brake, bool flip_dir)
+constexpr int16_t Pedal::brakeTorqueMapping(const uint16_t brake, const bool flip_dir)
 {
-    
+    if (flip_dir)
+    {
+        return -brake_map.interp(brake);
+    }
+    return brake_map.interp(brake);
 }
 
 /**
@@ -199,14 +226,14 @@ bool Pedal::checkPedalFault()
 {
     car.digital.apps_3v3_scaled = car.adc.apps_3v3 * APPS_RATIO;
 
-    int16_t delta = (int16_t)car.adc.apps_5v - (int16_t)car.digital.apps_3v3_scaled;
+    const int16_t delta = (int16_t)car.adc.apps_5v - (int16_t)car.digital.apps_3v3_scaled;
     // if more than 10% difference between the two pedals, consider it a fault
     if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
     {
-        car.state.fault_active = true;
-        DBG_THROTTLE_FAULT(DIFF_CONTINUING, delta);
+        car.state.faults.bits.fault_active = true;
+        DBG_THROTTLE_FAULT(PedalFault::DiffContinuing, delta);
         return true;
     }
-    car.state.fault_active = false;
+    car.state.faults.bits.fault_active = false;
     return false;
 }

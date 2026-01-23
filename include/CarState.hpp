@@ -15,6 +15,10 @@
 #include <can.h>
 #include <stdint.h>
 
+constexpr canid_t TELEMETRY_ADC_MSG = 0x700;     /**< Telemetry: ADC readings message */
+constexpr canid_t TELEMETRY_DIGITAL_MSG = 0x701; /**< Telemetry: Digital signals message */
+constexpr canid_t TELEMETRY_STATE_MSG = 0x702;   /**< Telemetry: Car state message */
+
 /**
  * @brief Telemetry frame structure for ADC readings.
  */
@@ -31,7 +35,7 @@ struct TelemetryFrameAdc
     constexpr can_frame toCanFrame() const
     {
         return can_frame{
-            TELEMETRY_ADC_MSG,                 // can_id
+            TELEMETRY_ADC_MSG,   // can_id
             8,                                 // can_dlc
             static_cast<__u8>(apps_5v & 0xFF), // data
             static_cast<__u8>((apps_5v >> 8) & 0xFF),
@@ -79,25 +83,42 @@ struct TelemetryFrameDigital
  */
 struct TelemetryFrameState
 {
-    // first byte
+    union StateByte0
+    {
+        uint8_t byte;
+        struct
+        {
+            CarStatus car_status : 2; /**< Current car status */
+            bool state_unknown : 1;   /**< Unknown car state */
+            bool hv_ready : 1;        /**< High voltage ready */
+            bool bms_no_msg : 1;      /**< BMS read no message */
+            bool bms_wrong_id : 1;    /**< BMS read wrong ID */
+            bool force_stop : 1;      /**< Fault forced car to stop */
+            bool screenshot : 1;      /**< Screenshot, throttle + brake > threshold */
+        } bits;
+    };
 
-    main_car_status car_status; /**< Current car status */
-    bool state_unknown = false; /**< Unknown car state */
-    bool hv_ready = false;      /**< High voltage ready */
-    bool bms_no_msg = false;    /**< BMS read no message */
-    bool bms_wrong_id = false;  /**< BMS read wrong ID */
-    bool force_stop = false;    /**< Fault forced car to stop */
-    bool screenshot = false;    /**< Screenshot, throttle + brake > threshold */
+    union StateByte1
+    {
+        uint8_t byte;
+        struct
+        {
+            bool fault_active : 1;   /**< Pedal faulty now */
+            bool fault_exceeded : 1; /**< Current pedal fault exceeded allowed time */
+            bool apps_5v_low : 1;    /**< APPS 5V considered shorted to ground*/
+            bool apps_5v_high : 1;   /**< APPS 5V considered shorted to rail */
+            bool apps_3v3_low : 1;   /**< APPS 3V3 considered shorted to ground */
+            bool apps_3v3_high : 1;  /**< APPS 3V3 considered shorted to rail */
+            bool brake_low : 1;      /**< Brake considered shorted to ground */
+            bool brake_high : 1;     /**< Brake considered shorted to rail */
+        } bits;
+    };
 
-    // second byte
-    bool fault_active = false;   /**< Pedal faulty now */
-    bool fault_exceeded = false; /**< Current pedal fault exceeded allowed time */
-    bool apps_5v_low = false;    /**< APPS 5V considered shorted to ground*/
-    bool apps_5v_high = false;   /**< APPS 5V considered shorted to rail */
-    bool apps_3v3_low = false;   /**< APPS 3V3 considered shorted to ground */
-    bool apps_3v3_high = false;  /**< APPS 3V3 considered shorted to rail */
-    bool brake_low = false;      /**< Brake considered shorted to ground */
-    bool brake_high = false;     /**< Brake considered shorted to rail */
+    static_assert(sizeof(StateByte0) == 1, "TelemetryStateByte0 must be 1 byte"); // ensure compile is shoving the bits as expected
+    static_assert(sizeof(StateByte1) == 1, "TelemetryStateByte1 must be 1 byte");
+
+    StateByte0 status; /**< First status byte */
+    StateByte1 faults; /**< Second status byte */
 
     uint8_t bms_data[6]; /**< Raw BMS data bytes */
 
@@ -110,23 +131,8 @@ struct TelemetryFrameState
         return can_frame{
             TELEMETRY_STATE_MSG, // can_id
             8,                   // can_dlc
-            static_cast<__u8>(
-                (static_cast<uint8_t>(car_status) & 0x03) |
-                (state_unknown ? 0x04 : 0x00) |
-                (hv_ready ? 0x08 : 0x00) |
-                (bms_no_msg ? 0x10 : 0x00) |
-                (bms_wrong_id ? 0x20 : 0x00) |
-                (force_stop ? 0x40 : 0x00) |
-                (screenshot ? 0x80 : 0x00)),
-            static_cast<__u8>(
-                (fault_active ? 0x01 : 0x00) |
-                (fault_exceeded ? 0x02 : 0x00) |
-                (apps_5v_low ? 0x04 : 0x00) |
-                (apps_5v_high ? 0x08 : 0x00) |
-                (apps_3v3_low ? 0x10 : 0x00) |
-                (apps_3v3_high ? 0x20 : 0x00) |
-                (brake_low ? 0x40 : 0x00) |
-                (brake_high ? 0x80 : 0x00)),
+            status.byte,
+            faults.byte,
             bms_data[0],
             bms_data[1],
             bms_data[2],

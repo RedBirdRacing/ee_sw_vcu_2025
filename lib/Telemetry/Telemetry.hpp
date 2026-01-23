@@ -6,10 +6,16 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-class Telemetry{
+class Telemetry
+{
 public:
     Telemetry();
     void scheduler_adc(MCP2515 *mcp2515_);
     void scheduler_digital(MCP2515 *mcp2515_);
     void scheduler_states(MCP2515 *mcp2515_);
+
+private:
+    static constexpr canid_t TelemetryAdcMsg = 0x700;     /**< Telemetry: ADC readings message */
+    static constexpr canid_t TelemetryDigitalMsg = 0x701; /**< Telemetry: Digital signals message */
+    static constexpr canid_t TelemetryStateMsg = 0x702;   /**< Telemetry: Car state message */
 };

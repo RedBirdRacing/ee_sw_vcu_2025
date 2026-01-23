@@ -2,24 +2,27 @@
  * @file Enums.h
  * @author Planeson, Red Bird Racing
  * @brief Enumeration definitions for the VCU
- * @version 1.2
- * @date 2026-01-15
+ * @version 1.3
+ * @date 2026-01-22
  */
 
 #ifndef ENUMS_H
 #define ENUMS_H
+
+#include <stdint.h>
+#include <can.h> // canid_t
 
 /**
  * @brief Main car status state machine.
  *
  * Represents the current state of the car in the startup and drive sequence.
  */
-enum main_car_status
+enum class CarStatus : uint8_t
 {
-    INIT = 0,    /**< Just started the car */
-    STARTIN = 1, /**< Driver holds "Start" button and full brakes (transition state) */
-    BUSSIN = 2,  /**< Buzzer active, driver can release "Start" and brakes (transition state) */
-    DRIVE = 3    /**< Ready to drive, Drive mode LED on, throttle enabled */
+    Init = 0,    /**< Just started the car */
+    Startin = 1, /**< Driver holds "Start" button and full brakes (transition state) */
+    Bussin = 2,  /**< Buzzer active, driver can release "Start" and brakes (transition state) */
+    Drive = 3    /**< Ready to drive, Drive mode LED on, throttle enabled */
 };
 
 /**
@@ -27,17 +30,17 @@ enum main_car_status
  *
  * Represents the current fault status related to pedal input.
  */
-enum pedal_fault_status
+enum class PedalFault : uint8_t
 {
-    NONE = 0x00,              /**< No fault detected */
-    DIFF_START = 0x10,        /**< >10% difference fault just started */
-    DIFF_CONTINUING = 0x11,   /**< >10% difference fault is ongoing */
-    DIFF_EXCEED_100MS = 0x12, /**< >10% difference fault exceeded 100ms */
-    DIFF_RESOLVED = 0x19,     /**< Difference fault resolved */
-    THROTTLE_LOW = 0x20,      /**< Throttle pedal below lower threshold */
-    THROTTLE_HIGH = 0x29,     /**< Throttle pedal above upper threshold */
-    BRAKE_LOW = 0x30,         /**< Brake pedal below lower threshold */
-    BRAKE_HIGH = 0x39,        /**< Brake pedal above upper threshold */
+    None = 0x00,              /**< No fault detected */
+    DiffStart = 0x10,        /**< >10% difference fault just started */
+    DiffContinuing = 0x11,   /**< >10% difference fault is ongoing */
+    DiffExceed100ms = 0x12, /**< >10% difference fault exceeded 100ms */
+    DiffResolved = 0x19,     /**< Difference fault resolved */
+    ThrottleLow = 0x20,      /**< Throttle pedal below lower threshold */
+    ThrottleHigh = 0x29,     /**< Throttle pedal above upper threshold */
+    BrakeLow = 0x30,         /**< Brake pedal below lower threshold */
+    BrakeHigh = 0x39,        /**< Brake pedal above upper threshold */
 };
 
 /**
@@ -45,14 +48,26 @@ enum pedal_fault_status
  *
  * Represents the current state of the Battery Management System (BMS).
  */
-enum BMS_status
+enum class BmsStatus : uint8_t
 {
-    NO_MSG = 0,   /**< No message received from BMS */
-    WRONG_ID = 1, /**< Received message with wrong CAN ID */
-    WAITING = 2,  /**< BMS is in standby, waiting to start HV */
-    STARTING = 3, /**< BMS is starting high voltage */
-    STARTED = 4,  /**< BMS has started high voltage */
-    UNUSED = 5    /**< Unused status code */
+    NoMsg = 0,   /**< No message received from BMS */
+    WrongId = 1, /**< Received message with wrong CAN ID */
+    Waiting = 2,  /**< BMS is in standby, waiting to start HV */
+    Starting = 3, /**< BMS is starting high voltage */
+    Started = 4,  /**< BMS has started high voltage */
+    Unused = 5    /**< Unused status code */
+};
+
+/**
+ * @brief MCP2515 instance indices.
+ *
+ * Used to identify different MCP2515 CAN controller instances.
+ */
+enum class McpIndex : uint8_t
+{
+    Motor = 0, /**< Motor CAN MCP2515 instance */
+    Bms = 1,   /**< BMS CAN MCP2515 instance */
+    Datalogger = 2     /**< Datalogger CAN MCP2515 instance */
 };
 
 // CAN IDs
@@ -62,12 +77,11 @@ enum BMS_status
  *
  * Used for sending throttle and debug messages over CAN bus.
  */
-enum throttle_can_id
+enum class ThrottleCanId : canid_t
 {
-    MOTOR_COMMAND = 0x201,     /**< Main motor command message */
-    THROTTLE_IN_MSG = 0x690,   /**< Debug: throttle input message */
-    THROTTLE_OUT_MSG = 0x691,  /**< Debug: throttle output message */
-    THROTTLE_FAULT_MSG = 0x692 /**< Debug: throttle fault message */
+    InMsg = 0x690,   /**< Debug: throttle input message */
+    OutMsg = 0x691,  /**< Debug: throttle output message */
+    FaultMsg = 0x692 /**< Debug: throttle fault message */
 };
 
 /**
@@ -75,32 +89,13 @@ enum throttle_can_id
  *
  * Used for sending car status and brake messages over CAN bus.
  */
-enum status_can_id
+enum class StatusCanId : canid_t
 {
-    STATUS_CAR_MSG = 0x693,        /**< Debug: car status message */
-    STATUS_CAR_CHANGE_MSG = 0x694, /**< Debug: car status change message */
-    STATUS_BRAKE_MSG = 0x695,      /**< Debug: brake status message */
-    STATUS_BMS_MSG = 0x696,        /**< Debug: BMS status message */
-    STATUS_HALL_SENSOR_MSG = 0x697 /**< Debug: Hall sensor message */
+    CarMsg = 0x693,        /**< Debug: car status message */
+    StaCarChangeMsg = 0x694, /**< Debug: car status change message */
+    BrakeMsg = 0x695,      /**< Debug: brake status message */
+    BmsMsg = 0x696,        /**< Debug: BMS status message */
+    HallSensorMsg = 0x697 /**< Debug: Hall sensor message */
 };
 
-enum telemetry_can_id
-{
-    TELEMETRY_ADC_MSG = 0x700,     /**< Telemetry: ADC readings message */
-    TELEMETRY_DIGITAL_MSG = 0x701, /**< Telemetry: Digital signals message */
-    TELEMETRY_STATE_MSG = 0x702    /**< Telemetry: Car state message */
-};
-
-/**
- * @brief MCP2515 instance indices.
- *
- * Used to identify different MCP2515 CAN controller instances.
- */
-enum mcp_index
-{
-    MCP_MOTOR = 0, /**< Motor CAN MCP2515 instance */
-    MCP_BMS = 1,   /**< BMS CAN MCP2515 instance */
-    MCP_DL = 2     /**< Datalogger CAN MCP2515 instance */
-};
-
-#endif // Enums.h
+#endif // ENUMS_H

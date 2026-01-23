@@ -69,12 +69,14 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
 
-    LinearInterp<uint16_t, int16_t, int32_t, 5> throttleMap{throttleTable};
-    LinearInterp<uint16_t, int16_t, int32_t, 5> brakeMap{brakeTable};
+    LinearInterp<uint16_t, int16_t, int32_t, 5> throttle_map{throttle_table};
+    LinearInterp<uint16_t, int16_t, int32_t, 5> brake_map{brake_table};
+
+    static constexpr canid_t MOTOR_COMMAND = 0x201; /**< Motor command CAN ID */
 
     bool checkPedalFault();
-    int16_t throttleTorqueMapping(uint16_t pedal, uint16_t brake, bool flip_dir);
-    int16_t brakeTorqueMapping(uint16_t brake, bool flip_dir);
+    constexpr int16_t throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const bool flip_dir);
+    constexpr int16_t brakeTorqueMapping(const uint16_t brake, const bool flip_dir);
 };
 
 #endif // PEDAL_HPP

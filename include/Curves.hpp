@@ -25,12 +25,12 @@ constexpr uint16_t apps_final_max = apps_5v_max;
 /**
  * @brief Throttle mapping table
  */
-const TablePoint<uint16_t, int16_t> throttleTable[5] = {
+const TablePoint<uint16_t, int16_t> throttle_table[5] = {
     {60, 0},
     {200, 2000},
     {450, 10000},
     {700, 25000},
-    {900, 32500}};
+    {900, 32500}}; // make sure this point doesn't exceed +-32767
 
 // === Brake Limits ===
 
@@ -40,10 +40,10 @@ constexpr uint16_t brake_max = 950; /**< value above which brake is considered s
 /**
  * @brief Brake mapping table, negative values for regen
  */
-const TablePoint<uint16_t, int16_t> brakeTable[5] = {
+const TablePoint<uint16_t, int16_t> brake_table[5] = {
     {60, 0},
     {250, -15000},
     {500, -26000},
     {750, -31000},
-    {900, -32500}};
+    {900, -32500}}; // make sure this point doesn't exceed +-32767
 #endif // CURVES_HPP

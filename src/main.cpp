@@ -128,16 +128,16 @@ void loop()
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     scheduler.update(*micros);
 
-    if (car.state.force_stop)
+    if (car.state.status.bits.force_stop)
     {
-        car.state.car_status = INIT; // safety, later change to fault status
+        car.state.status.bits.car_status = INIT; // safety, later change to fault status
         digitalWrite(BUZZER, LOW);   // Turn off buzzer
         digitalWrite(FRG, LOW);      // Turn off drive mode LED
         return;                      // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
 
-    switch (car.state.car_status)
+    switch (car.state.status.bits.car_status)
     {
     case DRIVE:
         // Pedal update
@@ -151,7 +151,7 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) == BUTTON_ACTIVE && brake_pressed)
         {
-            car.state.car_status = STARTIN;
+            car.state.status.bits.car_status = STARTIN;
             car.status_millis = car.millis;
 
             scheduler.addTask(MCP_BMS, scheduler_bms, 5); // check for HV ready in STARTIN
@@ -163,7 +163,7 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
-            car.state.car_status = INIT;
+            car.state.status.bits.car_status = INIT;
             car.status_millis = car.millis;               // safety
             scheduler.removeTask(MCP_BMS, scheduler_bms); // stop checking BMS HV ready since return to INIT
         }
@@ -172,13 +172,13 @@ void loop()
             scheduler.removeTask(MCP_BMS, scheduler_bms); // stop checking BMS HV ready, either started or return to INIT
             if (bms.hvReady())                            // if HV not started, return to INIT
             {
-                car.state.car_status = INIT;
+                car.state.status.bits.car_status = INIT;
                 car.status_millis = car.millis; // safety
                 break;
             }
             if (car.millis - car.status_millis >= BMS_MILLIS)
             {
-                car.state.car_status = BUSSIN;
+                car.state.status.bits.car_status = BUSSIN;
                 car.status_millis = car.millis; // safety
                 break;
             }
@@ -192,13 +192,13 @@ void loop()
         {
             digitalWrite(BUZZER, LOW);
             digitalWrite(FRG, HIGH);
-            car.state.car_status = DRIVE;
+            car.state.status.bits.car_status = DRIVE;
         }
         break;
 
     default:
         // unreachable, reset to INIT
-        car.state.car_status = INIT;
+        car.state.status.bits.car_status = INIT;
         car.status_millis = car.millis;
         break;
     }
@@ -206,7 +206,7 @@ void loop()
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
     if (pedal.pedal_final > apps_final_min) // if pedal pressed while not in DRIVE, reset to INIT
     {
-        car.state.car_status = INIT;
+        car.state.status.bits.car_status = INIT;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this
     }
 }

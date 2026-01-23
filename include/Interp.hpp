@@ -62,6 +62,10 @@ public:
         // Should never reach here
         return table[size - 1].out;
     }
+    constexpr Tin start() const
+    {
+        return table[0].in;
+    }
 
 private:
     const TablePoint<Tin, Tout> (&table)[size];

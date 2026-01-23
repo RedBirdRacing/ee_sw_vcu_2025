@@ -49,7 +49,7 @@ public:
      * @brief Returns true if HV has been started
      * @return true if HV started, false otherwise
      */
-    bool hvReady() { return hv_started; };
+    bool hvReady() const { return hv_started; };
     void checkHv();
 
 private:
