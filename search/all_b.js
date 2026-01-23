@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['no_5fmsg_0',['NO_MSG',['../Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff',1,'Enums.h']]],
-  ['none_1',['NONE',['../Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'Enums.h']]],
+  ['nomsg_0',['NoMsg',['../Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f',1,'Enums.h']]],
+  ['none_1',['None',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6adf97f83acf6453d4a6a4b1070f3754',1,'Enums.h']]],
   ['num_5fmcp_2',['NUM_MCP',['../main_8cpp.html#aa82c7cb82034ed6919b0a66d33aaf35d',1,'main.cpp']]]
 ];

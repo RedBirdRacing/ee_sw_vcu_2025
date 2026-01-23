@@ -1,6 +1,8 @@
 <map id="lib/Scheduler/Scheduler.tpp" name="lib/Scheduler/Scheduler.tpp">
-<area shape="rect" id="node1" title="Implementation of the Scheduler class template." alt="" coords="5,5,204,31"/>
-<area shape="rect" id="node2" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="9,152,88,177"/>
-<area shape="rect" id="node3" title=" " alt="" coords="132,152,227,177"/>
-<area shape="rect" id="node4" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="48,79,161,104"/>
+<area shape="rect" id="node1" title="Implementation of the Scheduler class template." alt="" coords="41,5,240,31"/>
+<area shape="rect" id="node2" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="45,152,124,177"/>
+<area shape="rect" id="node5" title=" " alt="" coords="168,152,263,177"/>
+<area shape="rect" id="node6" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="84,79,197,104"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,225,76,251"/>
+<area shape="rect" id="node4" title=" " alt="" coords="100,225,157,251"/>
 </map>

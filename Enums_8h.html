@@ -103,7 +103,15 @@ $(document).ready(function(){initNavTree('Enums_8h.html',''); initResizable(); }
 
 <p>Enumeration definitions for the VCU.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;can.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Enums.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="Enums_8h__incl.svg" width="163" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Enums_8h__dep__incl.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -114,288 +122,304 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aea89566f39b4f7734fde4024fd09c2e4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a> { <a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> = 0
-, <a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa">STARTIN</a> = 1
-, <a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4">BUSSIN</a> = 2
-, <a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7">DRIVE</a> = 3
+<tr class="memitem:a58f8cbaf767061986ce7afe35238e4be"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4be">CarStatus</a> : uint8_t { <a class="el" href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4bea95b19f7739b0b7ea7d6b07586be54f36">Init</a> = 0
+, <a class="el" href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4bea2db90abd5f808b6532d43373f1759f84">Startin</a> = 1
+, <a class="el" href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4beaa32bd7680a27710456129ab432b0b637">Bussin</a> = 2
+, <a class="el" href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4beaf2c6151d6c0d99f3666129b97e2100f5">Drive</a> = 3
  }</td></tr>
-<tr class="memdesc:aea89566f39b4f7734fde4024fd09c2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main car status state machine.  <a href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">More...</a><br /></td></tr>
-<tr class="separator:aea89566f39b4f7734fde4024fd09c2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e8d89571696e6a04e7032fa568496a2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a> { <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a> = 0x00
-, <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d">DIFF_START</a> = 0x10
-, <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490">DIFF_CONTINUING</a> = 0x11
-, <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a">DIFF_EXCEED_100MS</a> = 0x12
+<tr class="memdesc:a58f8cbaf767061986ce7afe35238e4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main car status state machine.  <a href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4be">More...</a><br /></td></tr>
+<tr class="separator:a58f8cbaf767061986ce7afe35238e4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad084009f7e1f2139381bc18bb5bc210f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210f">PedalFault</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0x00
+, <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa2588fd08af2e55b4efb12fafff1ce6d0">DiffStart</a> = 0x10
+, <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa5e1501142618f2a864cff5644a849349">DiffContinuing</a> = 0x11
+, <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210faeb191d18758606692c9b519dd49aed6e">DiffExceed100ms</a> = 0x12
 , <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616">DIFF_RESOLVED</a> = 0x19
-, <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70">THROTTLE_LOW</a> = 0x20
-, <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1">THROTTLE_HIGH</a> = 0x29
-, <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0">BRAKE_LOW</a> = 0x30
+&#160;&#160;<a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6bb29587fdfabd5ff1eb0796ae552a69">DiffResolved</a> = 0x19
+, <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28">ThrottleLow</a> = 0x20
+, <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa3df290eaa94bd4e5615fb5765ba10973">ThrottleHigh</a> = 0x29
+, <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa4763d1b2b78f0b3e695fef013b4af11c">BrakeLow</a> = 0x30
 , <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0">BRAKE_HIGH</a> = 0x39
+&#160;&#160;<a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa797e1bc7e6c6bacb454e503e61ba8ea6">BrakeHigh</a> = 0x39
 <br />
  }</td></tr>
-<tr class="memdesc:a6e8d89571696e6a04e7032fa568496a2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> fault status codes.  <a href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">More...</a><br /></td></tr>
-<tr class="separator:a6e8d89571696e6a04e7032fa568496a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a4c509651fdc1013fe7e8d3fd956e72"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a> { <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff">NO_MSG</a> = 0
-, <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65">WRONG_ID</a> = 1
-, <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087">WAITING</a> = 2
-, <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec">STARTING</a> = 3
+<tr class="memdesc:ad084009f7e1f2139381bc18bb5bc210f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> fault status codes.  <a href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210f">More...</a><br /></td></tr>
+<tr class="separator:ad084009f7e1f2139381bc18bb5bc210f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f10f99b9e1fe09756feb57c6520cd8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8">BmsStatus</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f">NoMsg</a> = 0
+, <a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8ade7d3a7c5530b161c412a84e47ee2755">WrongId</a> = 1
+, <a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a5706de961fb376d701be6e7762d8b09c">Waiting</a> = 2
+, <a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8ac2efe4bbd13e6cb0db293e72884273c0">Starting</a> = 3
 , <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27">STARTED</a> = 4
-, <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4">UNUSED</a> = 5
+&#160;&#160;<a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a8428552d86c0d262a542a528af490afa">Started</a> = 4
+, <a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a92e592d90b9548016776a6fb68dccded">Unused</a> = 5
 <br />
  }</td></tr>
-<tr class="memdesc:a3a4c509651fdc1013fe7e8d3fd956e72"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status.  <a href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">More...</a><br /></td></tr>
-<tr class="separator:a3a4c509651fdc1013fe7e8d3fd956e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64dd8c2cff582e339c56b7b75a3cee8d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8d">throttle_can_id</a> { <a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da67c1012c1a551351e27c0235f6b44265">MOTOR_COMMAND</a> = 0x201
-, <a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dac0e35b4ce06327af7e63a2e352935124">THROTTLE_IN_MSG</a> = 0x690
-, <a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da8a890167c2f9ca5e903e7c5aaf2f6fa8">THROTTLE_OUT_MSG</a> = 0x691
-, <a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dadf7cddf54eb45fd5c403b7f439bb1f8b">THROTTLE_FAULT_MSG</a> = 0x692
+<tr class="memdesc:af9f10f99b9e1fe09756feb57c6520cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status.  <a href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8">More...</a><br /></td></tr>
+<tr class="separator:af9f10f99b9e1fe09756feb57c6520cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a098a5b38d959b3584152e8c220708721"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a098a5b38d959b3584152e8c220708721">McpIndex</a> : uint8_t { <a class="el" href="Enums_8h.html#a098a5b38d959b3584152e8c220708721ab33538179f5661a86cbe327a1793e199">Motor</a> = 0
+, <a class="el" href="Enums_8h.html#a098a5b38d959b3584152e8c220708721add6062746674eeca66ba94025ef8b36a">Bms</a> = 1
+, <a class="el" href="Enums_8h.html#a098a5b38d959b3584152e8c220708721a0bdd69d9652961d7e30c4c13d1418a4e">Datalogger</a> = 2
  }</td></tr>
-<tr class="memdesc:a64dd8c2cff582e339c56b7b75a3cee8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN message IDs for throttle and debug.  <a href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8d">More...</a><br /></td></tr>
-<tr class="separator:a64dd8c2cff582e339c56b7b75a3cee8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae81f0008f754d189c965b4831a2a54bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bc">status_can_id</a> { <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca7244307d5e72f44ffdfddf17dcab6261">STATUS_CAR_MSG</a> = 0x693
-, <a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca108a6a8bdac15ee4085e20ddc2b7a5c8">STATUS_CAR_CHANGE_MSG</a> = 0x694
-, <a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca2c7b47fffc55066cb650094438487245">STATUS_BRAKE_MSG</a> = 0x695
-, <a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bcaa0c59eed98c4a839ca52cd704f73ad3c">STATUS_BMS_MSG</a> = 0x696
+<tr class="memdesc:a098a5b38d959b3584152e8c220708721"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCP2515 instance indices.  <a href="Enums_8h.html#a098a5b38d959b3584152e8c220708721">More...</a><br /></td></tr>
+<tr class="separator:a098a5b38d959b3584152e8c220708721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bf7558b8b9b236c82b49c546a06ff31"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31">ThrottleCanId</a> : canid_t { <a class="el" href="Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a5473dba1f5a0ee60c181eb26a3033a92">InMsg</a> = 0x690
+, <a class="el" href="Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a0e8d2b0a0510ea3d22d019a7556235c0">OutMsg</a> = 0x691
+, <a class="el" href="Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a575e451640ef86d3abc9ef2844e8ce13">FaultMsg</a> = 0x692
+ }</td></tr>
+<tr class="memdesc:a9bf7558b8b9b236c82b49c546a06ff31"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN message IDs for throttle and debug.  <a href="Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31">More...</a><br /></td></tr>
+<tr class="separator:a9bf7558b8b9b236c82b49c546a06ff31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b191ababec6777bcc2b83f8dae93629"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629">StatusCanId</a> : canid_t { <br />
+&#160;&#160;<a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a40ae1b1be635206c536bf8bd547f522a">CarMsg</a> = 0x693
+, <a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a548849b295cbe86aa2cd37908fb51b4e">StaCarChangeMsg</a> = 0x694
+, <a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629ab31217c9b0543dde01e18dd97e9be608">BrakeMsg</a> = 0x695
+, <a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a509d9b9468f1598396060e4e495502f0">BmsMsg</a> = 0x696
 , <br />
-&#160;&#160;<a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca3b8b1a3311186cacb53a059b8bb4525b">STATUS_HALL_SENSOR_MSG</a> = 0x697
+&#160;&#160;<a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629abdfdcbfd73bfe53710664cc39c1b62fe">HallSensorMsg</a> = 0x697
 <br />
  }</td></tr>
-<tr class="memdesc:ae81f0008f754d189c965b4831a2a54bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN message IDs for status and brake debug.  <a href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bc">More...</a><br /></td></tr>
-<tr class="separator:ae81f0008f754d189c965b4831a2a54bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0cc361d470a486c15b86a0f2f8045ae"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045ae">telemetry_can_id</a> { <a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aead676102a90cb03b7650f92b54df81449">TELEMETRY_ADC_MSG</a> = 0x700
-, <a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aea50386e0651ff308b2dba0b8c9017a0b1">TELEMETRY_DIGITAL_MSG</a> = 0x701
-, <a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aeab63589bd26d364490106061d47e3aeaf">TELEMETRY_STATE_MSG</a> = 0x702
- }</td></tr>
-<tr class="separator:ab0cc361d470a486c15b86a0f2f8045ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a175c51eb421553206c1519db76816d94"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a> { <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc">MCP_MOTOR</a> = 0
-, <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a02608313d5a58eecced8ebda7fefff04">MCP_BMS</a> = 1
-, <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94a660cdaa580f1623e026d743febd3d581">MCP_DL</a> = 2
- }</td></tr>
-<tr class="memdesc:a175c51eb421553206c1519db76816d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCP2515 instance indices.  <a href="Enums_8h.html#a175c51eb421553206c1519db76816d94">More...</a><br /></td></tr>
-<tr class="separator:a175c51eb421553206c1519db76816d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a6b191ababec6777bcc2b83f8dae93629"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN message IDs for status and brake debug.  <a href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629">More...</a><br /></td></tr>
+<tr class="separator:a6b191ababec6777bcc2b83f8dae93629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Enumeration definitions for the VCU. </p>
 <dl class="section author"><dt>Author</dt><dd>Planeson, Red Bird Racing </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-01-15 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.3 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-01-22 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a3a4c509651fdc1013fe7e8d3fd956e72" name="a3a4c509651fdc1013fe7e8d3fd956e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a4c509651fdc1013fe7e8d3fd956e72">&#9670;&#160;</a></span>BMS_status</h2>
+<a id="af9f10f99b9e1fe09756feb57c6520cd8" name="af9f10f99b9e1fe09756feb57c6520cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f10f99b9e1fe09756feb57c6520cd8">&#9670;&#160;</a></span>BmsStatus</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72">BMS_status</a></td>
+          <td class="memname">enum class <a class="el" href="Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8">BmsStatus</a> : uint8_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status. </p>
 <p>Represents the current state of the Battery Management System (<a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a>). </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff" name="a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff"></a>NO_MSG&#160;</td><td class="fielddoc"><p>No message received from <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f" name="af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f"></a>NoMsg&#160;</td><td class="fielddoc"><p>No message received from <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65" name="a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65"></a>WRONG_ID&#160;</td><td class="fielddoc"><p>Received message with wrong CAN ID </p>
+<tr><td class="fieldname"><a id="af9f10f99b9e1fe09756feb57c6520cd8ade7d3a7c5530b161c412a84e47ee2755" name="af9f10f99b9e1fe09756feb57c6520cd8ade7d3a7c5530b161c412a84e47ee2755"></a>WrongId&#160;</td><td class="fielddoc"><p>Received message with wrong CAN ID </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087" name="a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087"></a>WAITING&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby, waiting to start HV </p>
+<tr><td class="fieldname"><a id="af9f10f99b9e1fe09756feb57c6520cd8a5706de961fb376d701be6e7762d8b09c" name="af9f10f99b9e1fe09756feb57c6520cd8a5706de961fb376d701be6e7762d8b09c"></a>Waiting&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby, waiting to start HV </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec" name="a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec"></a>STARTING&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is starting high voltage </p>
+<tr><td class="fieldname"><a id="af9f10f99b9e1fe09756feb57c6520cd8ac2efe4bbd13e6cb0db293e72884273c0" name="af9f10f99b9e1fe09756feb57c6520cd8ac2efe4bbd13e6cb0db293e72884273c0"></a>Starting&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is starting high voltage </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27" name="a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27"></a>STARTED&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> has started high voltage </p>
+<tr><td class="fieldname"><a id="af9f10f99b9e1fe09756feb57c6520cd8a8428552d86c0d262a542a528af490afa" name="af9f10f99b9e1fe09756feb57c6520cd8a8428552d86c0d262a542a528af490afa"></a>Started&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> has started high voltage </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4" name="a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4"></a>UNUSED&#160;</td><td class="fielddoc"><p>Unused status code </p>
+<tr><td class="fieldname"><a id="af9f10f99b9e1fe09756feb57c6520cd8a92e592d90b9548016776a6fb68dccded" name="af9f10f99b9e1fe09756feb57c6520cd8a92e592d90b9548016776a6fb68dccded"></a>Unused&#160;</td><td class="fielddoc"><p>Unused status code </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00048">48</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00051">51</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 
 </div>
 </div>
-<a id="aea89566f39b4f7734fde4024fd09c2e4" name="aea89566f39b4f7734fde4024fd09c2e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea89566f39b4f7734fde4024fd09c2e4">&#9670;&#160;</a></span>main_car_status</h2>
+<a id="a58f8cbaf767061986ce7afe35238e4be" name="a58f8cbaf767061986ce7afe35238e4be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58f8cbaf767061986ce7afe35238e4be">&#9670;&#160;</a></span>CarStatus</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4">main_car_status</a></td>
+          <td class="memname">enum class <a class="el" href="Enums_8h.html#a58f8cbaf767061986ce7afe35238e4be">CarStatus</a> : uint8_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Main car status state machine. </p>
 <p>Represents the current state of the car in the startup and drive sequence. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36" name="aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"><p>Just started the car </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a58f8cbaf767061986ce7afe35238e4bea95b19f7739b0b7ea7d6b07586be54f36" name="a58f8cbaf767061986ce7afe35238e4bea95b19f7739b0b7ea7d6b07586be54f36"></a>Init&#160;</td><td class="fielddoc"><p>Just started the car </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa" name="aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa"></a>STARTIN&#160;</td><td class="fielddoc"><p>Driver holds "Start" button and full brakes (transition state) </p>
+<tr><td class="fieldname"><a id="a58f8cbaf767061986ce7afe35238e4bea2db90abd5f808b6532d43373f1759f84" name="a58f8cbaf767061986ce7afe35238e4bea2db90abd5f808b6532d43373f1759f84"></a>Startin&#160;</td><td class="fielddoc"><p>Driver holds "Start" button and full brakes (transition state) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4" name="aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4"></a>BUSSIN&#160;</td><td class="fielddoc"><p>Buzzer active, driver can release "Start" and brakes (transition state) </p>
+<tr><td class="fieldname"><a id="a58f8cbaf767061986ce7afe35238e4beaa32bd7680a27710456129ab432b0b637" name="a58f8cbaf767061986ce7afe35238e4beaa32bd7680a27710456129ab432b0b637"></a>Bussin&#160;</td><td class="fielddoc"><p>Buzzer active, driver can release "Start" and brakes (transition state) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7" name="aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7"></a>DRIVE&#160;</td><td class="fielddoc"><p>Ready to drive, Drive mode LED on, throttle enabled </p>
+<tr><td class="fieldname"><a id="a58f8cbaf767061986ce7afe35238e4beaf2c6151d6c0d99f3666129b97e2100f5" name="a58f8cbaf767061986ce7afe35238e4beaf2c6151d6c0d99f3666129b97e2100f5"></a>Drive&#160;</td><td class="fielddoc"><p>Ready to drive, Drive mode LED on, throttle enabled </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00017">17</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00020">20</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 
 </div>
 </div>
-<a id="a175c51eb421553206c1519db76816d94" name="a175c51eb421553206c1519db76816d94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a175c51eb421553206c1519db76816d94">&#9670;&#160;</a></span>mcp_index</h2>
+<a id="a098a5b38d959b3584152e8c220708721" name="a098a5b38d959b3584152e8c220708721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a098a5b38d959b3584152e8c220708721">&#9670;&#160;</a></span>McpIndex</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a></td>
+          <td class="memname">enum class <a class="el" href="Enums_8h.html#a098a5b38d959b3584152e8c220708721">McpIndex</a> : uint8_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>MCP2515 instance indices. </p>
 <p>Used to identify different MCP2515 CAN controller instances. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc" name="a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc"></a>MCP_MOTOR&#160;</td><td class="fielddoc"><p>Motor CAN MCP2515 instance </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a098a5b38d959b3584152e8c220708721ab33538179f5661a86cbe327a1793e199" name="a098a5b38d959b3584152e8c220708721ab33538179f5661a86cbe327a1793e199"></a>Motor&#160;</td><td class="fielddoc"><p>Motor CAN MCP2515 instance </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a175c51eb421553206c1519db76816d94a02608313d5a58eecced8ebda7fefff04" name="a175c51eb421553206c1519db76816d94a02608313d5a58eecced8ebda7fefff04"></a>MCP_BMS&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> CAN MCP2515 instance </p>
+<tr><td class="fieldname"><a id="a098a5b38d959b3584152e8c220708721add6062746674eeca66ba94025ef8b36a" name="a098a5b38d959b3584152e8c220708721add6062746674eeca66ba94025ef8b36a"></a>Bms&#160;</td><td class="fielddoc"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> CAN MCP2515 instance </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a175c51eb421553206c1519db76816d94a660cdaa580f1623e026d743febd3d581" name="a175c51eb421553206c1519db76816d94a660cdaa580f1623e026d743febd3d581"></a>MCP_DL&#160;</td><td class="fielddoc"><p>Datalogger CAN MCP2515 instance </p>
+<tr><td class="fieldname"><a id="a098a5b38d959b3584152e8c220708721a0bdd69d9652961d7e30c4c13d1418a4e" name="a098a5b38d959b3584152e8c220708721a0bdd69d9652961d7e30c4c13d1418a4e"></a>Datalogger&#160;</td><td class="fielddoc"><p>Datalogger CAN MCP2515 instance </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00099">99</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00066">66</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 
 </div>
 </div>
-<a id="a6e8d89571696e6a04e7032fa568496a2" name="a6e8d89571696e6a04e7032fa568496a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e8d89571696e6a04e7032fa568496a2">&#9670;&#160;</a></span>pedal_fault_status</h2>
+<a id="ad084009f7e1f2139381bc18bb5bc210f" name="ad084009f7e1f2139381bc18bb5bc210f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad084009f7e1f2139381bc18bb5bc210f">&#9670;&#160;</a></span>PedalFault</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2">pedal_fault_status</a></td>
+          <td class="memname">enum class <a class="el" href="Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210f">PedalFault</a> : uint8_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> fault status codes. </p>
 <p>Represents the current fault status related to pedal input. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2" name="a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2"></a>NONE&#160;</td><td class="fielddoc"><p>No fault detected </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa6adf97f83acf6453d4a6a4b1070f3754" name="ad084009f7e1f2139381bc18bb5bc210fa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>No fault detected </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d" name="a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d"></a>DIFF_START&#160;</td><td class="fielddoc"><p>&gt;10% difference fault just started </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa2588fd08af2e55b4efb12fafff1ce6d0" name="ad084009f7e1f2139381bc18bb5bc210fa2588fd08af2e55b4efb12fafff1ce6d0"></a>DiffStart&#160;</td><td class="fielddoc"><p>&gt;10% difference fault just started </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490" name="a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490"></a>DIFF_CONTINUING&#160;</td><td class="fielddoc"><p>&gt;10% difference fault is ongoing </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa5e1501142618f2a864cff5644a849349" name="ad084009f7e1f2139381bc18bb5bc210fa5e1501142618f2a864cff5644a849349"></a>DiffContinuing&#160;</td><td class="fielddoc"><p>&gt;10% difference fault is ongoing </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a" name="a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a"></a>DIFF_EXCEED_100MS&#160;</td><td class="fielddoc"><p>&gt;10% difference fault exceeded 100ms </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210faeb191d18758606692c9b519dd49aed6e" name="ad084009f7e1f2139381bc18bb5bc210faeb191d18758606692c9b519dd49aed6e"></a>DiffExceed100ms&#160;</td><td class="fielddoc"><p>&gt;10% difference fault exceeded 100ms </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616" name="a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616"></a>DIFF_RESOLVED&#160;</td><td class="fielddoc"><p>Difference fault resolved </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa6bb29587fdfabd5ff1eb0796ae552a69" name="ad084009f7e1f2139381bc18bb5bc210fa6bb29587fdfabd5ff1eb0796ae552a69"></a>DiffResolved&#160;</td><td class="fielddoc"><p>Difference fault resolved </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70" name="a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70"></a>THROTTLE_LOW&#160;</td><td class="fielddoc"><p>Throttle pedal below lower threshold </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28" name="ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28"></a>ThrottleLow&#160;</td><td class="fielddoc"><p>Throttle pedal below lower threshold </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1" name="a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1"></a>THROTTLE_HIGH&#160;</td><td class="fielddoc"><p>Throttle pedal above upper threshold </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa3df290eaa94bd4e5615fb5765ba10973" name="ad084009f7e1f2139381bc18bb5bc210fa3df290eaa94bd4e5615fb5765ba10973"></a>ThrottleHigh&#160;</td><td class="fielddoc"><p>Throttle pedal above upper threshold </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0" name="a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0"></a>BRAKE_LOW&#160;</td><td class="fielddoc"><p>Brake pedal below lower threshold </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa4763d1b2b78f0b3e695fef013b4af11c" name="ad084009f7e1f2139381bc18bb5bc210fa4763d1b2b78f0b3e695fef013b4af11c"></a>BrakeLow&#160;</td><td class="fielddoc"><p>Brake pedal below lower threshold </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0" name="a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0"></a>BRAKE_HIGH&#160;</td><td class="fielddoc"><p>Brake pedal above upper threshold </p>
+<tr><td class="fieldname"><a id="ad084009f7e1f2139381bc18bb5bc210fa797e1bc7e6c6bacb454e503e61ba8ea6" name="ad084009f7e1f2139381bc18bb5bc210fa797e1bc7e6c6bacb454e503e61ba8ea6"></a>BrakeHigh&#160;</td><td class="fielddoc"><p>Brake pedal above upper threshold </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00030">30</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00033">33</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 
 </div>
 </div>
-<a id="ae81f0008f754d189c965b4831a2a54bc" name="ae81f0008f754d189c965b4831a2a54bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae81f0008f754d189c965b4831a2a54bc">&#9670;&#160;</a></span>status_can_id</h2>
+<a id="a6b191ababec6777bcc2b83f8dae93629" name="a6b191ababec6777bcc2b83f8dae93629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b191ababec6777bcc2b83f8dae93629">&#9670;&#160;</a></span>StatusCanId</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#ae81f0008f754d189c965b4831a2a54bc">status_can_id</a></td>
+          <td class="memname">enum class <a class="el" href="Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629">StatusCanId</a> : canid_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>CAN message IDs for status and brake debug. </p>
 <p>Used for sending car status and brake messages over CAN bus. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae81f0008f754d189c965b4831a2a54bca7244307d5e72f44ffdfddf17dcab6261" name="ae81f0008f754d189c965b4831a2a54bca7244307d5e72f44ffdfddf17dcab6261"></a>STATUS_CAR_MSG&#160;</td><td class="fielddoc"><p>Debug: car status message </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b191ababec6777bcc2b83f8dae93629a40ae1b1be635206c536bf8bd547f522a" name="a6b191ababec6777bcc2b83f8dae93629a40ae1b1be635206c536bf8bd547f522a"></a>CarMsg&#160;</td><td class="fielddoc"><p>Debug: car status message </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae81f0008f754d189c965b4831a2a54bca108a6a8bdac15ee4085e20ddc2b7a5c8" name="ae81f0008f754d189c965b4831a2a54bca108a6a8bdac15ee4085e20ddc2b7a5c8"></a>STATUS_CAR_CHANGE_MSG&#160;</td><td class="fielddoc"><p>Debug: car status change message </p>
+<tr><td class="fieldname"><a id="a6b191ababec6777bcc2b83f8dae93629a548849b295cbe86aa2cd37908fb51b4e" name="a6b191ababec6777bcc2b83f8dae93629a548849b295cbe86aa2cd37908fb51b4e"></a>StaCarChangeMsg&#160;</td><td class="fielddoc"><p>Debug: car status change message </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae81f0008f754d189c965b4831a2a54bca2c7b47fffc55066cb650094438487245" name="ae81f0008f754d189c965b4831a2a54bca2c7b47fffc55066cb650094438487245"></a>STATUS_BRAKE_MSG&#160;</td><td class="fielddoc"><p>Debug: brake status message </p>
+<tr><td class="fieldname"><a id="a6b191ababec6777bcc2b83f8dae93629ab31217c9b0543dde01e18dd97e9be608" name="a6b191ababec6777bcc2b83f8dae93629ab31217c9b0543dde01e18dd97e9be608"></a>BrakeMsg&#160;</td><td class="fielddoc"><p>Debug: brake status message </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae81f0008f754d189c965b4831a2a54bcaa0c59eed98c4a839ca52cd704f73ad3c" name="ae81f0008f754d189c965b4831a2a54bcaa0c59eed98c4a839ca52cd704f73ad3c"></a>STATUS_BMS_MSG&#160;</td><td class="fielddoc"><p>Debug: <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status message </p>
+<tr><td class="fieldname"><a id="a6b191ababec6777bcc2b83f8dae93629a509d9b9468f1598396060e4e495502f0" name="a6b191ababec6777bcc2b83f8dae93629a509d9b9468f1598396060e4e495502f0"></a>BmsMsg&#160;</td><td class="fielddoc"><p>Debug: <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> status message </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae81f0008f754d189c965b4831a2a54bca3b8b1a3311186cacb53a059b8bb4525b" name="ae81f0008f754d189c965b4831a2a54bca3b8b1a3311186cacb53a059b8bb4525b"></a>STATUS_HALL_SENSOR_MSG&#160;</td><td class="fielddoc"><p>Debug: Hall sensor message </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00078">78</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
-
-</div>
-</div>
-<a id="ab0cc361d470a486c15b86a0f2f8045ae" name="ab0cc361d470a486c15b86a0f2f8045ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0cc361d470a486c15b86a0f2f8045ae">&#9670;&#160;</a></span>telemetry_can_id</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045ae">telemetry_can_id</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab0cc361d470a486c15b86a0f2f8045aead676102a90cb03b7650f92b54df81449" name="ab0cc361d470a486c15b86a0f2f8045aead676102a90cb03b7650f92b54df81449"></a>TELEMETRY_ADC_MSG&#160;</td><td class="fielddoc"><p><a class="el" href="classTelemetry.html">Telemetry</a>: ADC readings message </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab0cc361d470a486c15b86a0f2f8045aea50386e0651ff308b2dba0b8c9017a0b1" name="ab0cc361d470a486c15b86a0f2f8045aea50386e0651ff308b2dba0b8c9017a0b1"></a>TELEMETRY_DIGITAL_MSG&#160;</td><td class="fielddoc"><p><a class="el" href="classTelemetry.html">Telemetry</a>: Digital signals message </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab0cc361d470a486c15b86a0f2f8045aeab63589bd26d364490106061d47e3aeaf" name="ab0cc361d470a486c15b86a0f2f8045aeab63589bd26d364490106061d47e3aeaf"></a>TELEMETRY_STATE_MSG&#160;</td><td class="fielddoc"><p><a class="el" href="classTelemetry.html">Telemetry</a>: Car state message </p>
+<tr><td class="fieldname"><a id="a6b191ababec6777bcc2b83f8dae93629abdfdcbfd73bfe53710664cc39c1b62fe" name="a6b191ababec6777bcc2b83f8dae93629abdfdcbfd73bfe53710664cc39c1b62fe"></a>HallSensorMsg&#160;</td><td class="fielddoc"><p>Debug: Hall sensor message </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00087">87</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00092">92</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 
 </div>
 </div>
-<a id="a64dd8c2cff582e339c56b7b75a3cee8d" name="a64dd8c2cff582e339c56b7b75a3cee8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64dd8c2cff582e339c56b7b75a3cee8d">&#9670;&#160;</a></span>throttle_can_id</h2>
+<a id="a9bf7558b8b9b236c82b49c546a06ff31" name="a9bf7558b8b9b236c82b49c546a06ff31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bf7558b8b9b236c82b49c546a06ff31">&#9670;&#160;</a></span>ThrottleCanId</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8d">throttle_can_id</a></td>
+          <td class="memname">enum class <a class="el" href="Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31">ThrottleCanId</a> : canid_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>CAN message IDs for throttle and debug. </p>
 <p>Used for sending throttle and debug messages over CAN bus. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a64dd8c2cff582e339c56b7b75a3cee8da67c1012c1a551351e27c0235f6b44265" name="a64dd8c2cff582e339c56b7b75a3cee8da67c1012c1a551351e27c0235f6b44265"></a>MOTOR_COMMAND&#160;</td><td class="fielddoc"><p>Main motor command message </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9bf7558b8b9b236c82b49c546a06ff31a5473dba1f5a0ee60c181eb26a3033a92" name="a9bf7558b8b9b236c82b49c546a06ff31a5473dba1f5a0ee60c181eb26a3033a92"></a>InMsg&#160;</td><td class="fielddoc"><p>Debug: throttle input message </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a64dd8c2cff582e339c56b7b75a3cee8dac0e35b4ce06327af7e63a2e352935124" name="a64dd8c2cff582e339c56b7b75a3cee8dac0e35b4ce06327af7e63a2e352935124"></a>THROTTLE_IN_MSG&#160;</td><td class="fielddoc"><p>Debug: throttle input message </p>
+<tr><td class="fieldname"><a id="a9bf7558b8b9b236c82b49c546a06ff31a0e8d2b0a0510ea3d22d019a7556235c0" name="a9bf7558b8b9b236c82b49c546a06ff31a0e8d2b0a0510ea3d22d019a7556235c0"></a>OutMsg&#160;</td><td class="fielddoc"><p>Debug: throttle output message </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a64dd8c2cff582e339c56b7b75a3cee8da8a890167c2f9ca5e903e7c5aaf2f6fa8" name="a64dd8c2cff582e339c56b7b75a3cee8da8a890167c2f9ca5e903e7c5aaf2f6fa8"></a>THROTTLE_OUT_MSG&#160;</td><td class="fielddoc"><p>Debug: throttle output message </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a64dd8c2cff582e339c56b7b75a3cee8dadf7cddf54eb45fd5c403b7f439bb1f8b" name="a64dd8c2cff582e339c56b7b75a3cee8dadf7cddf54eb45fd5c403b7f439bb1f8b"></a>THROTTLE_FAULT_MSG&#160;</td><td class="fielddoc"><p>Debug: throttle fault message </p>
+<tr><td class="fieldname"><a id="a9bf7558b8b9b236c82b49c546a06ff31a575e451640ef86d3abc9ef2844e8ce13" name="a9bf7558b8b9b236c82b49c546a06ff31a575e451640ef86d3abc9ef2844e8ce13"></a>FaultMsg&#160;</td><td class="fielddoc"><p>Debug: throttle fault message </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00065">65</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enums_8h_source.html#l00080">80</a> of file <a class="el" href="Enums_8h_source.html">Enums.h</a>.</p>
 
 </div>
 </div>

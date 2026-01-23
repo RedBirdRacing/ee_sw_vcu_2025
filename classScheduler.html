@@ -132,10 +132,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a02be1adb4980fd98aafd357a973c3467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a02be1adb4980fd98aafd357a973c3467">update</a> (unsigned long(*const current_time_us)())</td></tr>
 <tr class="memdesc:a02be1adb4980fd98aafd357a973c3467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the scheduler, checking if tasks need to be run based on the current time.  <br /></td></tr>
 <tr class="separator:a02be1adb4980fd98aafd357a973c3467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dc42aa4301e5b1022e31f4c056c984f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a2dc42aa4301e5b1022e31f4c056c984f">addTask</a> (const <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a> <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a>, const <a class="el" href="classScheduler.html#aef38c5dff1035cdf967ee737322daefe">TaskFn</a> task, const uint8_t tick_interval)</td></tr>
+<tr class="memitem:a2dc42aa4301e5b1022e31f4c056c984f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a2dc42aa4301e5b1022e31f4c056c984f">addTask</a> (const mcp_index mcp_index, const <a class="el" href="classScheduler.html#aef38c5dff1035cdf967ee737322daefe">TaskFn</a> task, const uint8_t tick_interval)</td></tr>
 <tr class="memdesc:a2dc42aa4301e5b1022e31f4c056c984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a task to the scheduler for a specific MCP2515 index.  <br /></td></tr>
 <tr class="separator:a2dc42aa4301e5b1022e31f4c056c984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7e054b0dea6562e5ad13ac752651a88"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#ae7e054b0dea6562e5ad13ac752651a88">removeTask</a> (const <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a> <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a>, const <a class="el" href="classScheduler.html#aef38c5dff1035cdf967ee737322daefe">TaskFn</a> task)</td></tr>
+<tr class="memitem:ae7e054b0dea6562e5ad13ac752651a88"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#ae7e054b0dea6562e5ad13ac752651a88">removeTask</a> (const mcp_index mcp_index, const <a class="el" href="classScheduler.html#aef38c5dff1035cdf967ee737322daefe">TaskFn</a> task)</td></tr>
 <tr class="memdesc:ae7e054b0dea6562e5ad13ac752651a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a task from the scheduler for a specific MCP2515 instance.  <br /></td></tr>
 <tr class="separator:ae7e054b0dea6562e5ad13ac752651a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a3ab307c604b13baa2b03d84be9ad33"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a8a3ab307c604b13baa2b03d84be9ad33">getPeriodUs</a> () const</td></tr>
@@ -298,7 +298,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classScheduler.html">Scheduler</a>&lt; NUM_TASKS, NUM_MCP2515 &gt;::addTask </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a>&#160;</td>
+          <td class="paramtype">const mcp_index&#160;</td>
           <td class="paramname"><em>mcp_index</em>, </td>
         </tr>
         <tr>
@@ -429,7 +429,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classScheduler.html">Scheduler</a>&lt; NUM_TASKS, NUM_MCP2515 &gt;::removeTask </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="Enums_8h.html#a175c51eb421553206c1519db76816d94">mcp_index</a>&#160;</td>
+          <td class="paramtype">const mcp_index&#160;</td>
           <td class="paramname"><em>mcp_index</em>, </td>
         </tr>
         <tr>

@@ -1,6 +1,6 @@
 <map id="include/CarState.hpp" name="include/CarState.hpp">
-<area shape="rect" id="node1" title="Definition of the CarState structure representing the state of the car." alt="" coords="58,5,215,31"/>
-<area shape="rect" id="node2" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="5,79,84,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,79,165,104"/>
-<area shape="rect" id="node4" title=" " alt="" coords="189,79,260,104"/>
+<area shape="rect" id="node1" title="Definition of the CarState structure representing the state of the car." alt="" coords="6,5,163,31"/>
+<area shape="rect" id="node2" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="45,79,124,104"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,152,76,177"/>
+<area shape="rect" id="node4" title=" " alt="" coords="116,152,173,177"/>
 </map>

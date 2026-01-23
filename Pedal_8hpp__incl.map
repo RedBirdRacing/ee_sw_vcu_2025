@@ -1,11 +1,11 @@
 <map id="lib/Pedal/Pedal.hpp" name="lib/Pedal/Pedal.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="204,5,350,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="118,225,188,251"/>
-<area shape="rect" id="node3" href="$Queue_8hpp.html" title=" " alt="" coords="23,152,115,177"/>
-<area shape="rect" id="node4" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="178,79,285,104"/>
-<area shape="rect" id="node7" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="376,152,464,177"/>
-<area shape="rect" id="node8" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="370,79,464,104"/>
-<area shape="rect" id="node9" title=" " alt="" coords="488,79,583,104"/>
-<area shape="rect" id="node5" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="191,152,270,177"/>
-<area shape="rect" id="node6" title=" " alt="" coords="294,152,351,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="247,5,394,31"/>
+<area shape="rect" id="node2" title=" " alt="" coords="236,225,307,251"/>
+<area shape="rect" id="node3" href="$Queue_8hpp.html" title=" " alt="" coords="401,152,493,177"/>
+<area shape="rect" id="node4" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="34,79,141,104"/>
+<area shape="rect" id="node7" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="187,152,275,177"/>
+<area shape="rect" id="node8" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="231,79,325,104"/>
+<area shape="rect" id="node9" title=" " alt="" coords="452,79,547,104"/>
+<area shape="rect" id="node5" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="33,152,112,177"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,225,63,251"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="loop" name="loop">
 <area shape="rect" id="node1" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,81,56,107"/>
 <area shape="rect" id="node2" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="286,5,429,31"/>
-<area shape="rect" id="node4" href="$classBMS.html#aef0fbca3e0f970d2bbdaec28486b7d59" title="Returns true if HV has been started." alt="" coords="106,56,222,81"/>
+<area shape="rect" id="node4" href="$classBMS.html#aeaf842d8a4bdd879d45b75dc6dc05599" title="Returns true if HV has been started." alt="" coords="106,56,222,81"/>
 <area shape="rect" id="node5" href="$main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4" title=" " alt="" coords="104,105,224,131"/>
 <area shape="rect" id="node11" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="109,177,219,203"/>
 <area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="727,5,885,31"/>

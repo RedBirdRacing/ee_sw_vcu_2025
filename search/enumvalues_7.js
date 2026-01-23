@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unused_0',['UNUSED',['../Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4',1,'Enums.h']]]
+  ['nomsg_0',['NoMsg',['../Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f',1,'Enums.h']]],
+  ['none_1',['None',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6adf97f83acf6453d4a6a4b1070f3754',1,'Enums.h']]]
 ];

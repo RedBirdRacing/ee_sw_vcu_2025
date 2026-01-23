@@ -1,6 +1,9 @@
 <map id="Pedal::sendFrame" name="Pedal::sendFrame">
-<area shape="rect" id="node1" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="5,31,144,56"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="227,5,370,31"/>
-<area shape="rect" id="node4" href="$classPedal.html#abef0e8d31dc31884f9944a149c6b8e5a" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="192,55,405,80"/>
-<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="453,5,612,31"/>
+<area shape="rect" id="node1" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="5,56,144,81"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="227,19,370,44"/>
+<area shape="rect" id="node4" href="$classPedal.html#a79e52120f8539d9e847fd0498cc47754" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="192,80,405,105"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="475,5,633,31"/>
+<area shape="rect" id="node5" href="$classPedal.html#a1dab9adf93f55a5d4477a840a794c0a1" title="Maps the brake ADC to a torque value." alt="" coords="453,55,655,80"/>
+<area shape="rect" id="node6" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title=" " alt="" coords="703,80,849,105"/>
+<area shape="rect" id="node7" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title=" " alt="" coords="485,156,623,181"/>
 </map>

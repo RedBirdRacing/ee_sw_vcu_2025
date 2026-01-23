@@ -8,6 +8,6 @@ var Curves_8hpp =
     [ "apps_final_min", "Curves_8hpp.html#a8d24b20bf97c2191490215239c6e7b49", null ],
     [ "brake_max", "Curves_8hpp.html#ac712cba2ad3cccf9a10752cb339d45a2", null ],
     [ "brake_min", "Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7", null ],
-    [ "brakeTable", "Curves_8hpp.html#aea427c401506fe72b2ff7dd4b28f27f4", null ],
-    [ "throttleTable", "Curves_8hpp.html#aa76f2f36842a60149b48fb2c638e078b", null ]
+    [ "brake_table", "Curves_8hpp.html#a732591dcf025b096c7cb695be1af55dd", null ],
+    [ "throttle_table", "Curves_8hpp.html#af77189cb00b8f72aebe6fe965ff126e1", null ]
 ];

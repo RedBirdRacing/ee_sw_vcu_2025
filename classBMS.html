@@ -119,9 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acb50e6b99cec2724704c591a266b7883"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#acb50e6b99cec2724704c591a266b7883">BMS</a> (MCP2515 &amp;bms_can_)</td></tr>
 <tr class="memdesc:acb50e6b99cec2724704c591a266b7883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> object.  <br /></td></tr>
 <tr class="separator:acb50e6b99cec2724704c591a266b7883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef0fbca3e0f970d2bbdaec28486b7d59"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#aef0fbca3e0f970d2bbdaec28486b7d59">hvReady</a> ()</td></tr>
-<tr class="memdesc:aef0fbca3e0f970d2bbdaec28486b7d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if HV has been started.  <br /></td></tr>
-<tr class="separator:aef0fbca3e0f970d2bbdaec28486b7d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf842d8a4bdd879d45b75dc6dc05599"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#aeaf842d8a4bdd879d45b75dc6dc05599">hvReady</a> () const</td></tr>
+<tr class="memdesc:aeaf842d8a4bdd879d45b75dc6dc05599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if HV has been started.  <br /></td></tr>
+<tr class="separator:aeaf842d8a4bdd879d45b75dc6dc05599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7de82f50c43e50529739213e98b9b634"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBMS.html#a7de82f50c43e50529739213e98b9b634">checkHv</a> ()</td></tr>
 <tr class="memdesc:a7de82f50c43e50529739213e98b9b634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to start HV. First check <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> is in standby(3) state, then send the HV start command. Keep sending the command until the <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to precharge(4). Sets hv_started to true when <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> state changes to run(5).  <br /></td></tr>
 <tr class="separator:a7de82f50c43e50529739213e98b9b634"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,7 +182,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00040">40</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="BMS_8hpp_source.html#l00056">bms_can</a>, <a class="el" href="BMS_8hpp_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8hpp_source.html#l00149">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8hpp_source.html#l00063">hv_started</a>, <a class="el" href="Enums_8h_source.html#l00050">NO_MSG</a>, <a class="el" href="BMS_8hpp_source.html#l00058">rx_bms_msg</a>, <a class="el" href="BMS_8hpp_source.html#l00028">start_hv_msg</a>, <a class="el" href="Enums_8h_source.html#l00054">STARTED</a>, <a class="el" href="Enums_8h_source.html#l00053">STARTING</a>, <a class="el" href="Enums_8h_source.html#l00055">UNUSED</a>, <a class="el" href="Enums_8h_source.html#l00052">WAITING</a>, and <a class="el" href="Enums_8h_source.html#l00051">WRONG_ID</a>.</p>
+<p class="reference">References <a class="el" href="BMS_8hpp_source.html#l00056">bms_can</a>, <a class="el" href="BMS_8hpp_source.html#l00025">BMS_INFO_EXT</a>, <a class="el" href="Debug_8hpp_source.html#l00149">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="BMS_8hpp_source.html#l00063">hv_started</a>, <a class="el" href="BMS_8hpp_source.html#l00058">rx_bms_msg</a>, and <a class="el" href="BMS_8hpp_source.html#l00028">start_hv_msg</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00069">scheduler_bms()</a>.</p>
 <div class="dynheader">
@@ -200,8 +200,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aef0fbca3e0f970d2bbdaec28486b7d59" name="aef0fbca3e0f970d2bbdaec28486b7d59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef0fbca3e0f970d2bbdaec28486b7d59">&#9670;&#160;</a></span>hvReady()</h2>
+<a id="aeaf842d8a4bdd879d45b75dc6dc05599" name="aeaf842d8a4bdd879d45b75dc6dc05599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf842d8a4bdd879d45b75dc6dc05599">&#9670;&#160;</a></span>hvReady()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +213,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool BMS::hvReady </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -234,7 +234,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_aef0fbca3e0f970d2bbdaec28486b7d59_icgraph.svg" width="226" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBMS_aeaf842d8a4bdd879d45b75dc6dc05599_icgraph.svg" width="226" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

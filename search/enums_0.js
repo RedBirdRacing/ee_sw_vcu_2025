@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bms_5fstatus_0',['BMS_status',['../Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72',1,'Enums.h']]]
+  ['bmsstatus_0',['BmsStatus',['../Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8',1,'Enums.h']]]
 ];

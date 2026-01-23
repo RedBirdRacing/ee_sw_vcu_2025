@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['no_5fmsg_0',['NO_MSG',['../Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff',1,'Enums.h']]],
-  ['none_1',['NONE',['../Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'Enums.h']]]
+  ['hallsensormsg_0',['HallSensorMsg',['../Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629abdfdcbfd73bfe53710664cc39c1b62fe',1,'Enums.h']]]
 ];

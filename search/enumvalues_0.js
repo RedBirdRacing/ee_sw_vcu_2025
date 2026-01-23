@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['brake_5fhigh_0',['BRAKE_HIGH',['../Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0',1,'Enums.h']]],
-  ['brake_5flow_1',['BRAKE_LOW',['../Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0',1,'Enums.h']]],
-  ['bussin_2',['BUSSIN',['../Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4',1,'Enums.h']]]
+  ['bms_0',['Bms',['../Enums_8h.html#a098a5b38d959b3584152e8c220708721add6062746674eeca66ba94025ef8b36a',1,'Enums.h']]],
+  ['bmsmsg_1',['BmsMsg',['../Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a509d9b9468f1598396060e4e495502f0',1,'Enums.h']]],
+  ['brakehigh_2',['BrakeHigh',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa797e1bc7e6c6bacb454e503e61ba8ea6',1,'Enums.h']]],
+  ['brakelow_3',['BrakeLow',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa4763d1b2b78f0b3e695fef013b4af11c',1,'Enums.h']]],
+  ['brakemsg_4',['BrakeMsg',['../Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629ab31217c9b0543dde01e18dd97e9be608',1,'Enums.h']]],
+  ['bussin_5',['Bussin',['../Enums_8h.html#a58f8cbaf767061986ce7afe35238e4beaa32bd7680a27710456129ab432b0b637',1,'Enums.h']]]
 ];

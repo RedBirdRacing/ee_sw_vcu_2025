@@ -8,7 +8,8 @@ var searchData=
   ['scheduler_5fstates_5',['scheduler_states',['../classTelemetry.html#aeff5f72366dfab7b683a20b1139ce60e',1,'Telemetry']]],
   ['sendframe_6',['sendFrame',['../classPedal.html#a1027941444ce0b3f32ab8991e05c2015',1,'Pedal']]],
   ['setup_7',['setup',['../main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'main.cpp']]],
-  ['status_5fbms_8',['status_bms',['../namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747',1,'Debug_CAN::status_bms()'],['../namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f',1,'Debug_Serial::status_bms()']]],
-  ['status_5fbrake_9',['status_brake',['../namespaceDebug__CAN.html#a3ea833160214654f8d1a3eaf1b0c6b9d',1,'Debug_CAN::status_brake()'],['../namespaceDebug__Serial.html#a155fc400493924b3853e3d2fcc74e6b3',1,'Debug_Serial::status_brake()']]],
-  ['status_5fcar_10',['status_car',['../namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8',1,'Debug_CAN::status_car()'],['../namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472',1,'Debug_Serial::status_car()']]]
+  ['start_8',['start',['../classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b',1,'LinearInterp']]],
+  ['status_5fbms_9',['status_bms',['../namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747',1,'Debug_CAN::status_bms()'],['../namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f',1,'Debug_Serial::status_bms()']]],
+  ['status_5fbrake_10',['status_brake',['../namespaceDebug__CAN.html#a3ea833160214654f8d1a3eaf1b0c6b9d',1,'Debug_CAN::status_brake()'],['../namespaceDebug__Serial.html#a155fc400493924b3853e3d2fcc74e6b3',1,'Debug_Serial::status_brake()']]],
+  ['status_5fcar_11',['status_car',['../namespaceDebug__CAN.html#a33ac5d84927aea929dc26f0820dd58c8',1,'Debug_CAN::status_car()'],['../namespaceDebug__Serial.html#a0f4070c8db2109f53b11b93580bb9472',1,'Debug_Serial::status_car()']]]
 ];

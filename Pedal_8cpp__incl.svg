@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 784;
+var viewWidth = 779;
 var viewHeight = 247;
 var sectionId = 'dynsection-0';
 </script>
@@ -58,8 +58,8 @@ var sectionId = 'dynsection-0';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Implementation of the Pedal class for handling throttle pedal inputs.">
-<polygon fill="#999999" stroke="#666666" points="495,-239 386,-239 386,-220 495,-220 495,-239"/>
-<text text-anchor="middle" x="440.5" y="-227" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.cpp</text>
+<polygon fill="#999999" stroke="#666666" points="490,-239 381,-239 381,-220 490,-220 490,-239"/>
+<text text-anchor="middle" x="435.5" y="-227" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.cpp</text>
 </a>
 </g>
 </g>
@@ -67,274 +67,286 @@ var sectionId = 'dynsection-0';
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="321,-184 256,-184 256,-165 321,-165 321,-184"/>
-<text text-anchor="middle" x="288.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal.hpp</text>
+<polygon fill="white" stroke="#666666" points="341,-184 276,-184 276,-165 341,-165 341,-184"/>
+<text text-anchor="middle" x="308.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M416.08,-219.98C390.78,-211.16 351.05,-197.31 322.64,-187.41"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="323.71,-184.07 313.11,-184.08 321.4,-190.68 323.71,-184.07"/>
+<path fill="none" stroke="#63b8ff" d="M415.1,-219.98C394.48,-211.38 362.39,-197.99 338.81,-188.15"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="339.85,-184.79 329.28,-184.17 337.16,-191.25 339.85,-184.79"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="338,-19 285,-19 285,0 338,0 338,-19"/>
-<text text-anchor="middle" x="311.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">stdint.h</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="318,-19 265,-19 265,0 318,0 318,-19"/>
+<text text-anchor="middle" x="291.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">stdint.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
-<g id="edge20" class="edge">
+<g id="edge22" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M456.88,-219.9C469.65,-212.27 486.65,-199.88 495.5,-184 511.59,-155.15 519.63,-138.25 502.5,-110 468.95,-54.69 393.5,-28.69 348.12,-17.65"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="348.62,-14.18 338.09,-15.34 347.05,-21 348.62,-14.18"/>
+<path fill="none" stroke="#63b8ff" d="M451.96,-219.94C464.77,-212.34 481.79,-199.96 490.5,-184 506.31,-155.04 512.71,-138.74 496.5,-110 462.11,-49.04 377.35,-24.82 328.26,-15.67"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="328.81,-12.21 318.36,-13.94 327.6,-19.11 328.81,-12.21"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="Queue_8hpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="475,-129 406,-129 406,-110 475,-110 475,-129"/>
-<text text-anchor="middle" x="440.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Queue.hpp</text>
+<polygon fill="white" stroke="#666666" points="470,-129 401,-129 401,-110 470,-110 470,-129"/>
+<text text-anchor="middle" x="435.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Queue.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
-<g id="edge21" class="edge">
+<g id="edge23" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="#63b8ff" d="M440.5,-219.66C440.5,-202.17 440.5,-162.8 440.5,-139.27"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="444,-139.16 440.5,-129.16 437,-139.16 444,-139.16"/>
+<path fill="none" stroke="#63b8ff" d="M435.5,-219.66C435.5,-202.17 435.5,-162.8 435.5,-139.27"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="439,-139.16 435.5,-129.16 432,-139.16 439,-139.16"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="CarState_8hpp.html" target="_top" xlink:title="Definition of the CarState structure representing the state of the car.">
-<polygon fill="white" stroke="#666666" points="132.5,-129 52.5,-129 52.5,-110 132.5,-110 132.5,-129"/>
-<text text-anchor="middle" x="92.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">CarState.hpp</text>
+<polygon fill="white" stroke="#666666" points="126.5,-129 46.5,-129 46.5,-110 126.5,-110 126.5,-129"/>
+<text text-anchor="middle" x="86.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">CarState.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
-<g id="edge19" class="edge">
+<g id="edge21" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="#63b8ff" d="M385.59,-221.69C339.99,-215.05 273.86,-203.11 218.5,-184 180.68,-170.95 139.83,-148.7 115.22,-134.31"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="116.7,-131.12 106.31,-129.03 113.13,-137.14 116.7,-131.12"/>
+<path fill="none" stroke="#63b8ff" d="M383.45,-219.97C342,-212.5 282.79,-200.28 232.5,-184 189.22,-169.99 141.24,-147.75 112.49,-133.65"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="113.68,-130.33 103.17,-129.03 110.57,-136.6 113.68,-130.33"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
 <g id="a_node8"><a xlink:href="Interp_8hpp.html" target="_top" xlink:title="Declaration and definition of the LinearInterp class template for linear interpolation.">
-<polygon fill="white" stroke="#666666" points="344.5,-74 278.5,-74 278.5,-55 344.5,-55 344.5,-74"/>
-<text text-anchor="middle" x="311.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Interp.hpp</text>
+<polygon fill="white" stroke="#666666" points="372.5,-74 306.5,-74 306.5,-55 372.5,-55 372.5,-74"/>
+<text text-anchor="middle" x="339.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Interp.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node8 -->
-<g id="edge22" class="edge">
+<g id="edge24" class="edge">
 <title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="#63b8ff" d="M448.76,-219.88C467.72,-199.06 510.7,-145.13 483.5,-110 467.83,-89.76 400.2,-77.06 354.56,-70.63"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="354.99,-67.16 344.61,-69.28 354.05,-74.1 354.99,-67.16"/>
+<path fill="none" stroke="#63b8ff" d="M443.63,-219.98C462.31,-199.37 504.69,-145.89 478.5,-110 456.8,-80.27 414.96,-69.95 382.84,-66.59"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="383.05,-63.09 372.78,-65.72 382.45,-70.07 383.05,-63.09"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="Curves_8hpp.html" target="_top" xlink:title="Definition of throttle and brake mapping tables.">
-<polygon fill="white" stroke="#666666" points="222,-129 151,-129 151,-110 222,-110 222,-129"/>
-<text text-anchor="middle" x="186.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Curves.hpp</text>
+<polygon fill="white" stroke="#666666" points="216,-129 145,-129 145,-110 216,-110 216,-129"/>
+<text text-anchor="middle" x="180.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Curves.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node9 -->
-<g id="edge23" class="edge">
+<g id="edge25" class="edge">
 <title>Node1&#45;&gt;Node9</title>
-<path fill="none" stroke="#63b8ff" d="M385.97,-224.54C345.29,-219.62 289.54,-208.62 246.5,-184 226.22,-172.4 208.62,-151.77 197.82,-137.18"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="200.66,-135.13 192.01,-129 194.95,-139.18 200.66,-135.13"/>
+<path fill="none" stroke="#63b8ff" d="M382.68,-219.93C348.42,-213.1 303.44,-201.7 266.5,-184 240.27,-171.44 213.93,-150.46 197.45,-136.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="199.57,-133.28 189.77,-129.24 194.91,-138.51 199.57,-133.28"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="Signal__Processing_8hpp.html" target="_top" xlink:title="Declaration of signal processing functions.">
-<polygon fill="white" stroke="#666666" points="695,-184 570,-184 570,-165 695,-165 695,-184"/>
-<text text-anchor="middle" x="632.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Signal_Processing.hpp</text>
+<polygon fill="white" stroke="#666666" points="690,-184 565,-184 565,-165 690,-165 690,-184"/>
+<text text-anchor="middle" x="627.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Signal_Processing.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node11 -->
-<g id="edge15" class="edge">
+<g id="edge17" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="#63b8ff" d="M471.35,-219.98C504,-210.97 555.7,-196.7 591.7,-186.76"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="592.7,-190.12 601.41,-184.08 590.84,-183.37 592.7,-190.12"/>
+<path fill="none" stroke="#63b8ff" d="M466.35,-219.98C499,-210.97 550.7,-196.7 586.7,-186.76"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="587.7,-190.12 596.41,-184.08 585.84,-183.37 587.7,-190.12"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
 <g id="a_node13"><a xlink:href="Debug_8hpp.html" target="_top" xlink:title="Debugging macros and functions for serial and CAN output.">
-<polygon fill="white" stroke="#666666" points="72,-184 3,-184 3,-165 72,-165 72,-184"/>
-<text text-anchor="middle" x="37.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Debug.hpp</text>
+<polygon fill="white" stroke="#666666" points="69,-184 0,-184 0,-165 69,-165 69,-184"/>
+<text text-anchor="middle" x="34.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Debug.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node13 -->
-<g id="edge24" class="edge">
+<g id="edge26" class="edge">
 <title>Node1&#45;&gt;Node13</title>
-<path fill="none" stroke="#63b8ff" d="M385.73,-221.3C305.16,-210.7 156.22,-191.11 81.98,-181.35"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="82.39,-177.87 72.02,-180.04 81.48,-184.81 82.39,-177.87"/>
+<path fill="none" stroke="#63b8ff" d="M380.58,-221.24C300.54,-210.66 153.35,-191.21 79.39,-181.43"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="79.4,-177.9 69.03,-180.06 78.49,-184.84 79.4,-177.9"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
 <g id="a_node14"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="776,-184 713,-184 713,-165 776,-165 776,-184"/>
-<text text-anchor="middle" x="744.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Arduino.h</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="771,-184 708,-184 708,-165 771,-165 771,-184"/>
+<text text-anchor="middle" x="739.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Arduino.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node14 -->
-<g id="edge26" class="edge">
+<g id="edge28" class="edge">
 <title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="#63b8ff" d="M495.23,-219.97C546.51,-211.82 625.55,-198.86 702.75,-184.28"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="703.48,-187.7 712.65,-182.4 702.17,-180.82 703.48,-187.7"/>
+<path fill="none" stroke="#63b8ff" d="M490.23,-219.97C541.51,-211.82 620.55,-198.86 697.75,-184.28"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="698.48,-187.7 707.65,-182.4 697.17,-180.82 698.48,-187.7"/>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M284.1,-164.83C274.57,-144.77 254.03,-93.92 269.5,-55 274.02,-43.63 282.97,-33.48 291.46,-25.76"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="293.91,-28.27 299.29,-19.14 289.39,-22.92 293.91,-28.27"/>
+<path fill="none" stroke="#63b8ff" d="M295.01,-164.75C284.21,-156.87 269.85,-144.21 263.5,-129 249.18,-94.69 267.75,-51.59 280.78,-27.98"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="283.92,-29.54 285.91,-19.13 277.87,-26.02 283.92,-29.54"/>
 </g>
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="#63b8ff" d="M312.92,-164.98C338.22,-156.16 377.95,-142.31 406.36,-132.41"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="407.6,-135.68 415.89,-129.08 405.29,-129.07 407.6,-135.68"/>
+<path fill="none" stroke="#63b8ff" d="M328.9,-164.98C349.52,-156.38 381.61,-142.99 405.19,-133.15"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="406.84,-136.25 414.72,-129.17 404.15,-129.79 406.84,-136.25"/>
 </g>
 <!-- Node2&#45;&gt;Node5 -->
 <g id="edge5" class="edge">
 <title>Node2&#45;&gt;Node5</title>
-<path fill="none" stroke="#63b8ff" d="M257.01,-164.98C223.68,-155.97 170.9,-141.7 134.15,-131.76"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="134.8,-128.31 124.24,-129.08 132.98,-135.07 134.8,-128.31"/>
+<path fill="none" stroke="#63b8ff" d="M275.74,-165.68C237.78,-156.62 174.97,-141.62 132.21,-131.41"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="132.88,-127.97 122.34,-129.06 131.25,-134.78 132.88,-127.97"/>
 </g>
 <!-- Node2&#45;&gt;Node8 -->
-<g id="edge9" class="edge">
+<g id="edge11" class="edge">
 <title>Node2&#45;&gt;Node8</title>
-<path fill="none" stroke="#63b8ff" d="M290.38,-164.66C294.12,-147.09 302.57,-107.45 307.57,-83.95"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="311,-84.67 309.66,-74.16 304.15,-83.21 311,-84.67"/>
+<path fill="none" stroke="#63b8ff" d="M321.28,-165C331.89,-157.1 346.22,-144.27 352.5,-129 358.57,-114.22 353.91,-96.29 348.55,-83.26"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="351.65,-81.63 344.29,-74.01 345.29,-84.56 351.65,-81.63"/>
 </g>
 <!-- Node2&#45;&gt;Node9 -->
-<g id="edge11" class="edge">
+<g id="edge13" class="edge">
 <title>Node2&#45;&gt;Node9</title>
-<path fill="none" stroke="#63b8ff" d="M272.11,-164.98C255.93,-156.57 230.93,-143.59 212.12,-133.81"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="213.67,-130.68 203.19,-129.17 210.45,-136.89 213.67,-130.68"/>
+<path fill="none" stroke="#63b8ff" d="M287.93,-164.98C267.07,-156.34 234.53,-142.87 210.73,-133.02"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="212.02,-129.76 201.44,-129.17 209.34,-136.23 212.02,-129.76"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
 <g id="a_node10"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="388,-129 317,-129 317,-110 388,-110 388,-129"/>
-<text text-anchor="middle" x="352.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">mcp2515.h</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="344,-129 273,-129 273,-110 344,-110 344,-129"/>
+<text text-anchor="middle" x="308.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">mcp2515.h</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node10 -->
-<g id="edge14" class="edge">
+<g id="edge16" class="edge">
 <title>Node2&#45;&gt;Node10</title>
-<path fill="none" stroke="#63b8ff" d="M298.78,-164.98C308.34,-157.07 322.78,-145.11 334.28,-135.58"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="336.56,-138.24 342.03,-129.17 332.1,-132.85 336.56,-138.24"/>
+<path fill="none" stroke="#63b8ff" d="M308.5,-164.75C308.5,-157.8 308.5,-147.85 308.5,-139.13"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="312,-139.09 308.5,-129.09 305,-139.09 312,-139.09"/>
 </g>
 <!-- Node4&#45;&gt;Node3 -->
 <g id="edge4" class="edge">
 <title>Node4&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M429.94,-109.66C408.01,-91.3 357.26,-48.81 329.85,-25.87"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="331.76,-22.89 321.84,-19.16 327.26,-28.26 331.76,-22.89"/>
+<path fill="none" stroke="#63b8ff" d="M429.78,-109.71C420.8,-96.46 402.26,-71.2 381.5,-55 364.34,-41.61 342.51,-30.69 324.64,-23.03"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="325.76,-19.7 315.18,-19.1 323.08,-26.17 325.76,-19.7"/>
 </g>
 <!-- Node5&#45;&gt;Node3 -->
-<g id="edge8" class="edge">
+<g id="edge10" class="edge">
 <title>Node5&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M92.49,-109.68C92.97,-95.92 96,-69.42 111.5,-55 134.89,-33.24 223.92,-20.1 274.96,-14.21"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="275.39,-17.68 284.94,-13.09 274.61,-10.73 275.39,-17.68"/>
+<path fill="none" stroke="#63b8ff" d="M102.93,-109.84C138.7,-91 223.84,-46.14 266.39,-23.73"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="268.06,-26.8 275.28,-19.05 264.8,-20.61 268.06,-26.8"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="Enums_8h.html" target="_top" xlink:title="Enumeration definitions for the VCU.">
-<polygon fill="white" stroke="#666666" points="59,-74 0,-74 0,-55 59,-55 59,-74"/>
-<text text-anchor="middle" x="29.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Enums.h</text>
+<polygon fill="white" stroke="#666666" points="64,-74 5,-74 5,-55 64,-55 64,-74"/>
+<text text-anchor="middle" x="34.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Enums.h</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge6" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="#63b8ff" d="M82.38,-109.98C73.06,-102.15 59.03,-90.34 47.76,-80.86"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="49.71,-77.93 39.81,-74.17 45.21,-83.29 49.71,-77.93"/>
+<path fill="none" stroke="#63b8ff" d="M77.91,-109.75C70.34,-102.03 59.12,-90.6 49.99,-81.28"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="52.43,-78.78 42.93,-74.09 47.43,-83.68 52.43,-78.78"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="164,-74 121,-74 121,-55 164,-55 164,-74"/>
-<text text-anchor="middle" x="142.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">can.h</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="85,-19 42,-19 42,0 85,0 85,-19"/>
+<text text-anchor="middle" x="63.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">can.h</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node7 -->
-<g id="edge7" class="edge">
+<g id="edge9" class="edge">
 <title>Node5&#45;&gt;Node7</title>
-<path fill="none" stroke="#63b8ff" d="M100.76,-109.75C107.96,-102.11 118.61,-90.82 127.35,-81.56"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="130.08,-83.76 134.4,-74.09 124.99,-78.96 130.08,-83.76"/>
+<path fill="none" stroke="#63b8ff" d="M84.62,-109.66C80.88,-92.09 72.43,-52.45 67.43,-28.95"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="70.85,-28.21 65.34,-19.16 64,-29.67 70.85,-28.21"/>
+</g>
+<!-- Node6&#45;&gt;Node3 -->
+<g id="edge7" class="edge">
+<title>Node6&#45;&gt;Node3</title>
+<path fill="none" stroke="#63b8ff" d="M64.23,-57.37C111.45,-47.63 203.48,-28.65 254.76,-18.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="255.66,-21.46 264.75,-16.02 254.25,-14.61 255.66,-21.46"/>
+</g>
+<!-- Node6&#45;&gt;Node7 -->
+<g id="edge8" class="edge">
+<title>Node6&#45;&gt;Node7</title>
+<path fill="none" stroke="#63b8ff" d="M39.29,-54.75C43.26,-47.49 49.03,-36.95 53.93,-27.98"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="57.07,-29.54 58.8,-19.09 50.93,-26.18 57.07,-29.54"/>
 </g>
 <!-- Node8&#45;&gt;Node3 -->
-<g id="edge10" class="edge">
+<g id="edge12" class="edge">
 <title>Node8&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M311.5,-54.75C311.5,-47.8 311.5,-37.85 311.5,-29.13"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="315,-29.09 311.5,-19.09 308,-29.09 315,-29.09"/>
+<path fill="none" stroke="#63b8ff" d="M331.57,-54.75C324.65,-47.11 314.43,-35.82 306.05,-26.56"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="308.59,-24.15 299.28,-19.09 303.4,-28.85 308.59,-24.15"/>
 </g>
 <!-- Node9&#45;&gt;Node3 -->
-<g id="edge13" class="edge">
+<g id="edge15" class="edge">
 <title>Node9&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M191.8,-109.87C200.13,-96.83 217.29,-71.83 236.5,-55 250.7,-42.56 268.86,-31.68 283.75,-23.79"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="285.69,-26.73 292.99,-19.06 282.5,-20.5 285.69,-26.73"/>
+<path fill="none" stroke="#63b8ff" d="M186.3,-109.67C194.98,-96.8 212.32,-72.53 230.5,-55 242.23,-43.69 256.95,-32.87 269,-24.73"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="271.17,-27.5 277.59,-19.07 267.31,-21.65 271.17,-27.5"/>
 </g>
 <!-- Node9&#45;&gt;Node8 -->
-<g id="edge12" class="edge">
+<g id="edge14" class="edge">
 <title>Node9&#45;&gt;Node8</title>
-<path fill="none" stroke="#63b8ff" d="M206.58,-109.98C226.87,-101.38 258.46,-87.99 281.67,-78.15"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="283.21,-81.3 291.05,-74.17 280.48,-74.85 283.21,-81.3"/>
+<path fill="none" stroke="#63b8ff" d="M206.05,-109.98C232.62,-101.13 274.44,-87.19 304.17,-77.28"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="305.37,-80.56 313.75,-74.08 303.16,-73.92 305.37,-80.56"/>
 </g>
 <!-- Node11&#45;&gt;Node3 -->
-<g id="edge16" class="edge">
+<g id="edge18" class="edge">
 <title>Node11&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M656.12,-164.83C682.54,-153.75 719.64,-133.22 703.5,-110 662.59,-51.15 437.6,-22.88 348.17,-13.85"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="348.5,-10.36 338.21,-12.86 347.81,-17.33 348.5,-10.36"/>
+<path fill="none" stroke="#63b8ff" d="M651.12,-164.83C677.54,-153.75 714.64,-133.22 698.5,-110 655.91,-48.74 420.26,-21.77 328.28,-13.47"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="328.32,-9.96 318.05,-12.57 327.71,-16.93 328.32,-9.96"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
 <g id="a_node12"><a xlink:href="Signal__Processing_8tpp.html" target="_top" xlink:title="Definition of Signal Processing functions.">
-<polygon fill="white" stroke="#666666" points="694,-129 571,-129 571,-110 694,-110 694,-129"/>
-<text text-anchor="middle" x="632.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Signal_Processing.tpp</text>
+<polygon fill="white" stroke="#666666" points="689,-129 566,-129 566,-110 689,-110 689,-129"/>
+<text text-anchor="middle" x="627.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Signal_Processing.tpp</text>
 </a>
 </g>
 </g>
 <!-- Node11&#45;&gt;Node12 -->
-<g id="edge17" class="edge">
+<g id="edge19" class="edge">
 <title>Node11&#45;&gt;Node12</title>
-<path fill="none" stroke="#63b8ff" d="M627.33,-164.75C625.84,-157.8 625.4,-147.85 626.02,-139.13"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="629.51,-139.47 627.37,-129.09 622.57,-138.53 629.51,-139.47"/>
+<path fill="none" stroke="#63b8ff" d="M622.33,-164.75C620.84,-157.8 620.4,-147.85 621.02,-139.13"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="624.51,-139.47 622.37,-129.09 617.57,-138.53 624.51,-139.47"/>
 </g>
 <!-- Node12&#45;&gt;Node11 -->
-<g id="edge18" class="edge">
+<g id="edge20" class="edge">
 <title>Node12&#45;&gt;Node11</title>
-<path fill="none" stroke="#63b8ff" d="M637.63,-129.09C639.14,-135.99 639.59,-145.93 638.99,-154.66"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="635.5,-154.38 637.67,-164.75 642.44,-155.29 635.5,-154.38"/>
+<path fill="none" stroke="#63b8ff" d="M632.63,-129.09C634.14,-135.99 634.59,-145.93 633.99,-154.66"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="630.5,-154.38 632.67,-164.75 637.44,-155.29 630.5,-154.38"/>
 </g>
 <!-- Node13&#45;&gt;Node6 -->
-<g id="edge25" class="edge">
+<g id="edge27" class="edge">
 <title>Node13&#45;&gt;Node6</title>
-<path fill="none" stroke="#63b8ff" d="M36.85,-164.66C35.55,-147.17 32.63,-107.8 30.89,-84.27"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="34.37,-83.87 30.14,-74.16 27.39,-84.39 34.37,-83.87"/>
+<path fill="none" stroke="#63b8ff" d="M34.5,-164.66C34.5,-147.17 34.5,-107.8 34.5,-84.27"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="38,-84.16 34.5,-74.16 31,-84.16 38,-84.16"/>
 </g>
 </g>
 </svg>

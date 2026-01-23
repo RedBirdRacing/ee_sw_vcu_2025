@@ -35,7 +35,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classBMS.html#aef0fbca3e0f970d2bbdaec28486b7d59" target="_top" xlink:title="Returns true if HV has been started.">
+<g id="a_node4"><a xlink:href="classBMS.html#aeaf842d8a4bdd879d45b75dc6dc05599" target="_top" xlink:title="Returns true if HV has been started.">
 <polygon fill="white" stroke="#666666" points="162.5,-167 75.5,-167 75.5,-148 162.5,-148 162.5,-167"/>
 <text text-anchor="middle" x="119" y="-155" font-family="Helvetica,sans-Serif" font-size="10.00">BMS::hvReady</text>
 </a>

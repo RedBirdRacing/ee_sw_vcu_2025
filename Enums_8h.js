@@ -1,51 +1,45 @@
 var Enums_8h =
 [
-    [ "BMS_status", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72", [
-      [ "NO_MSG", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72af38533e7f205c6baa7332a3f4493b0ff", null ],
-      [ "WRONG_ID", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a55a15bbf3944e533c55bb615bb773f65", null ],
-      [ "WAITING", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a757971c0bc5a1972d5f1b1be2c0e2087", null ],
-      [ "STARTING", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a88bb48a005cb978e429b9dc98d2480ec", null ],
-      [ "STARTED", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72a9671ef15a84681350d508f66e1fc1e27", null ],
-      [ "UNUSED", "Enums_8h.html#a3a4c509651fdc1013fe7e8d3fd956e72aa09b651ef326a9d8efcee5cc5b720ab4", null ]
+    [ "BmsStatus", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8", [
+      [ "NoMsg", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f", null ],
+      [ "WrongId", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8ade7d3a7c5530b161c412a84e47ee2755", null ],
+      [ "Waiting", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a5706de961fb376d701be6e7762d8b09c", null ],
+      [ "Starting", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8ac2efe4bbd13e6cb0db293e72884273c0", null ],
+      [ "Started", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a8428552d86c0d262a542a528af490afa", null ],
+      [ "Unused", "Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a92e592d90b9548016776a6fb68dccded", null ]
     ] ],
-    [ "main_car_status", "Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4", [
-      [ "INIT", "Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a0cb1b2c6a7db1f1084886c98909a3f36", null ],
-      [ "STARTIN", "Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a5c2da5396d0fff8519688e3fc9e6affa", null ],
-      [ "BUSSIN", "Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4a56642f99471493e32bc11b20b34a12f4", null ],
-      [ "DRIVE", "Enums_8h.html#aea89566f39b4f7734fde4024fd09c2e4af7b6d6d8e5e14633d388ef9cc7a941b7", null ]
+    [ "CarStatus", "Enums_8h.html#a58f8cbaf767061986ce7afe35238e4be", [
+      [ "Init", "Enums_8h.html#a58f8cbaf767061986ce7afe35238e4bea95b19f7739b0b7ea7d6b07586be54f36", null ],
+      [ "Startin", "Enums_8h.html#a58f8cbaf767061986ce7afe35238e4bea2db90abd5f808b6532d43373f1759f84", null ],
+      [ "Bussin", "Enums_8h.html#a58f8cbaf767061986ce7afe35238e4beaa32bd7680a27710456129ab432b0b637", null ],
+      [ "Drive", "Enums_8h.html#a58f8cbaf767061986ce7afe35238e4beaf2c6151d6c0d99f3666129b97e2100f5", null ]
     ] ],
-    [ "mcp_index", "Enums_8h.html#a175c51eb421553206c1519db76816d94", [
-      [ "MCP_MOTOR", "Enums_8h.html#a175c51eb421553206c1519db76816d94a9633062102256373dbbc4d75f773aecc", null ],
-      [ "MCP_BMS", "Enums_8h.html#a175c51eb421553206c1519db76816d94a02608313d5a58eecced8ebda7fefff04", null ],
-      [ "MCP_DL", "Enums_8h.html#a175c51eb421553206c1519db76816d94a660cdaa580f1623e026d743febd3d581", null ]
+    [ "McpIndex", "Enums_8h.html#a098a5b38d959b3584152e8c220708721", [
+      [ "Motor", "Enums_8h.html#a098a5b38d959b3584152e8c220708721ab33538179f5661a86cbe327a1793e199", null ],
+      [ "Bms", "Enums_8h.html#a098a5b38d959b3584152e8c220708721add6062746674eeca66ba94025ef8b36a", null ],
+      [ "Datalogger", "Enums_8h.html#a098a5b38d959b3584152e8c220708721a0bdd69d9652961d7e30c4c13d1418a4e", null ]
     ] ],
-    [ "pedal_fault_status", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2", [
-      [ "NONE", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac157bdf0b85a40d2619cbc8bc1ae5fe2", null ],
-      [ "DIFF_START", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a11977bab89a55cfcd50faa0b5c64975d", null ],
-      [ "DIFF_CONTINUING", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ae752e4d33fa7b9a3eb6870387796b490", null ],
-      [ "DIFF_EXCEED_100MS", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac133b52104ae013f56a48b02ebe6ca5a", null ],
-      [ "DIFF_RESOLVED", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ad27dfb43d13421a3a9a0114c52ab9616", null ],
-      [ "THROTTLE_LOW", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a162d4671dfe0b313bdd332ffe473cd70", null ],
-      [ "THROTTLE_HIGH", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2ac7ab3460df3a00d7509ec2030b650fa1", null ],
-      [ "BRAKE_LOW", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2af8dae27a328963a841105651b984f9a0", null ],
-      [ "BRAKE_HIGH", "Enums_8h.html#a6e8d89571696e6a04e7032fa568496a2a481c809a40b6959b409a8e31d67195f0", null ]
+    [ "PedalFault", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210f", [
+      [ "None", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "DiffStart", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa2588fd08af2e55b4efb12fafff1ce6d0", null ],
+      [ "DiffContinuing", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa5e1501142618f2a864cff5644a849349", null ],
+      [ "DiffExceed100ms", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210faeb191d18758606692c9b519dd49aed6e", null ],
+      [ "DiffResolved", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6bb29587fdfabd5ff1eb0796ae552a69", null ],
+      [ "ThrottleLow", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28", null ],
+      [ "ThrottleHigh", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa3df290eaa94bd4e5615fb5765ba10973", null ],
+      [ "BrakeLow", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa4763d1b2b78f0b3e695fef013b4af11c", null ],
+      [ "BrakeHigh", "Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa797e1bc7e6c6bacb454e503e61ba8ea6", null ]
     ] ],
-    [ "status_can_id", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bc", [
-      [ "STATUS_CAR_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca7244307d5e72f44ffdfddf17dcab6261", null ],
-      [ "STATUS_CAR_CHANGE_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca108a6a8bdac15ee4085e20ddc2b7a5c8", null ],
-      [ "STATUS_BRAKE_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca2c7b47fffc55066cb650094438487245", null ],
-      [ "STATUS_BMS_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bcaa0c59eed98c4a839ca52cd704f73ad3c", null ],
-      [ "STATUS_HALL_SENSOR_MSG", "Enums_8h.html#ae81f0008f754d189c965b4831a2a54bca3b8b1a3311186cacb53a059b8bb4525b", null ]
+    [ "StatusCanId", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629", [
+      [ "CarMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a40ae1b1be635206c536bf8bd547f522a", null ],
+      [ "StaCarChangeMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a548849b295cbe86aa2cd37908fb51b4e", null ],
+      [ "BrakeMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629ab31217c9b0543dde01e18dd97e9be608", null ],
+      [ "BmsMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a509d9b9468f1598396060e4e495502f0", null ],
+      [ "HallSensorMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629abdfdcbfd73bfe53710664cc39c1b62fe", null ]
     ] ],
-    [ "telemetry_can_id", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045ae", [
-      [ "TELEMETRY_ADC_MSG", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aead676102a90cb03b7650f92b54df81449", null ],
-      [ "TELEMETRY_DIGITAL_MSG", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aea50386e0651ff308b2dba0b8c9017a0b1", null ],
-      [ "TELEMETRY_STATE_MSG", "Enums_8h.html#ab0cc361d470a486c15b86a0f2f8045aeab63589bd26d364490106061d47e3aeaf", null ]
-    ] ],
-    [ "throttle_can_id", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8d", [
-      [ "MOTOR_COMMAND", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da67c1012c1a551351e27c0235f6b44265", null ],
-      [ "THROTTLE_IN_MSG", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dac0e35b4ce06327af7e63a2e352935124", null ],
-      [ "THROTTLE_OUT_MSG", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8da8a890167c2f9ca5e903e7c5aaf2f6fa8", null ],
-      [ "THROTTLE_FAULT_MSG", "Enums_8h.html#a64dd8c2cff582e339c56b7b75a3cee8dadf7cddf54eb45fd5c403b7f439bb1f8b", null ]
+    [ "ThrottleCanId", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31", [
+      [ "InMsg", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a5473dba1f5a0ee60c181eb26a3033a92", null ],
+      [ "OutMsg", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a0e8d2b0a0510ea3d22d019a7556235c0", null ],
+      [ "FaultMsg", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a575e451640ef86d3abc9ef2844e8ce13", null ]
     ] ]
 ];
