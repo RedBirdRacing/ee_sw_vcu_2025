@@ -1,0 +1,4 @@
+<map id="Telemetry::schedulerAdc" name="Telemetry::schedulerAdc">
+<area shape="rect" id="node1" title="Internal helper to get and send the ADC telemetry frame." alt="" coords="5,13,187,38"/>
+<area shape="rect" id="node2" href="$structTelemetryFrameAdc.html#a4e7f8219ce7209b97691c2ba4df11c23" title="Converts the TelemetryFrameAdc to a CAN frame." alt="" coords="235,5,395,45"/>
+</map>

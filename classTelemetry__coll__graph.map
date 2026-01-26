@@ -1,3 +1,9 @@
 <map id="Telemetry" name="Telemetry">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,172,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="174,631,359,884"/>
+<area shape="rect" id="node2" href="$structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct..." alt="" coords="207,476,327,568"/>
+<area shape="rect" id="node3" href="$structTelemetryFrameAdc.html" title="Telemetry frame structure for ADC readings." alt="" coords="5,292,157,413"/>
+<area shape="rect" id="node4" href="$structTelemetryFrameDigital.html" title="Telemetry frame structure for digital signals." alt="" coords="181,292,352,413"/>
+<area shape="rect" id="node5" href="$structTelemetryFrameState.html" title="Telemetry frame structure for VCU states." alt="" coords="376,314,539,391"/>
+<area shape="rect" id="node6" href="$unionTelemetryFrameState_1_1StateByte0.html" title=" " alt="" coords="283,13,445,222"/>
+<area shape="rect" id="node7" href="$unionTelemetryFrameState_1_1StateByte1.html" title=" " alt="" coords="469,5,632,229"/>
 </map>

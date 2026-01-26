@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Declaration of the Pedal class for handling throttle and brake pedal inputs.">
 <polygon fill="#999999" stroke="#666666" points="291.5,-184 181.5,-184 181.5,-165 291.5,-165 291.5,-184"/>
 <text text-anchor="middle" x="236.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.hpp</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="Queue_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="Queue_8hpp.html" target="_top" xlink:title="Declaration of a simple RingBuffer (circular buffer) template class.">
 <polygon fill="white" stroke="#666666" points="366,-74 297,-74 297,-55 366,-55 366,-74"/>
 <text text-anchor="middle" x="331.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Queue.hpp</text>
 </a>

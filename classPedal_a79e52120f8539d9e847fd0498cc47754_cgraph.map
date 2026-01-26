@@ -1,6 +1,6 @@
 <map id="Pedal::throttleTorqueMapping" name="Pedal::throttleTorqueMapping">
 <area shape="rect" id="node1" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="5,56,219,81"/>
 <area shape="rect" id="node2" href="$classPedal.html#a1dab9adf93f55a5d4477a840a794c0a1" title="Maps the brake ADC to a torque value." alt="" coords="267,5,468,31"/>
-<area shape="rect" id="node3" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title=" " alt="" coords="516,31,663,56"/>
-<area shape="rect" id="node4" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title=" " alt="" coords="298,107,437,132"/>
+<area shape="rect" id="node3" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="516,31,663,56"/>
+<area shape="rect" id="node4" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title="Returns the starting input value of the interpolation table." alt="" coords="298,107,437,132"/>
 </map>

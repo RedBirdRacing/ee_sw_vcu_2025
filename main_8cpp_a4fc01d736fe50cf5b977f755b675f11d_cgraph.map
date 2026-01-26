@@ -1,15 +1,23 @@
 <map id="setup" name="setup">
-<area shape="rect" id="node1" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,99,64,124"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="333,5,469,31"/>
-<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31" title="Initializes the Debug_Serial interface. It should be called before using any other Debug_Serial funct..." alt="" coords="112,49,284,75"/>
-<area shape="rect" id="node5" href="$namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e" title="Initializes the Debug_CAN interface. It should be called before using any other Debug_CAN functions." alt="" coords="117,99,279,124"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1" title=" " alt="" coords="145,148,251,173"/>
-<area shape="rect" id="node7" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="134,197,262,223"/>
-<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="801,24,960,49"/>
-<area shape="rect" id="node8" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="332,148,471,173"/>
-<area shape="rect" id="node9" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="554,80,697,105"/>
-<area shape="rect" id="node10" href="$classPedal.html#a79e52120f8539d9e847fd0498cc47754" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="519,148,732,173"/>
-<area shape="rect" id="node11" href="$classPedal.html#a1dab9adf93f55a5d4477a840a794c0a1" title="Maps the brake ADC to a torque value." alt="" coords="780,97,981,123"/>
-<area shape="rect" id="node12" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title=" " alt="" coords="1029,123,1176,148"/>
-<area shape="rect" id="node13" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title=" " alt="" coords="811,199,950,224"/>
+<area shape="rect" id="node1" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,131,64,156"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="359,6,495,31"/>
+<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#ad136936636c7b7140cb1e14c55eb5f31" title="Initializes the Debug_Serial interface. It should be called before using any other Debug_Serial funct..." alt="" coords="112,56,284,82"/>
+<area shape="rect" id="node5" href="$namespaceDebug__CAN.html#a5c8b33000e36a19ccb285e45f666e64e" title="Initializes the Debug_CAN interface. It should be called before using any other Debug_CAN functions." alt="" coords="117,106,279,131"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1" title=" " alt="" coords="145,155,251,180"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="134,204,262,230"/>
+<area shape="rect" id="node14" href="$main_8cpp.html#a18a2a13352158a1c448c163c58e2b486" title=" " alt="" coords="123,258,273,283"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="853,6,1012,31"/>
+<area shape="rect" id="node8" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="358,106,497,131"/>
+<area shape="rect" id="node9" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="606,56,749,82"/>
+<area shape="rect" id="node10" href="$classPedal.html#a79e52120f8539d9e847fd0498cc47754" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="571,106,784,131"/>
+<area shape="rect" id="node11" href="$classPedal.html#a1dab9adf93f55a5d4477a840a794c0a1" title="Maps the brake ADC to a torque value." alt="" coords="832,55,1033,80"/>
+<area shape="rect" id="node12" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="1081,80,1228,106"/>
+<area shape="rect" id="node13" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title="Returns the starting input value of the interpolation table." alt="" coords="863,156,1002,182"/>
+<area shape="rect" id="node15" href="$classTelemetry.html#a892ba1df53bea0797e63b8e7a0030d91" title="Sends telemetry data based on the scheduling logic." alt="" coords="332,271,523,296"/>
+<area shape="rect" id="node16" href="$classTelemetry.html#aeed89696476accb74fb8807b92fbdcd8" title="Internal helper to get and send the ADC telemetry frame." alt="" coords="587,218,768,243"/>
+<area shape="rect" id="node18" href="$classTelemetry.html#a50074891c9ce48296fe72f159befd488" title="Internal helper to get and send the digital telemetry frame." alt="" coords="577,274,777,299"/>
+<area shape="rect" id="node20" href="$classTelemetry.html#a22bea2cd68922773581b1d460bea6709" title="Internal helper to get and send the state telemetry frame." alt="" coords="578,338,777,363"/>
+<area shape="rect" id="node17" href="$structTelemetryFrameAdc.html#a4e7f8219ce7209b97691c2ba4df11c23" title="Converts the TelemetryFrameAdc to a CAN frame." alt="" coords="853,206,1013,246"/>
+<area shape="rect" id="node19" href="$structTelemetryFrameDigital.html#a854a063396c822b4d02f3897276bd611" title="Converts the TelemetryFrameDigital to a CAN frame." alt="" coords="847,270,1018,310"/>
+<area shape="rect" id="node21" href="$structTelemetryFrameState.html#a3c77ae091bd1912d700dbb58b2f1c68e" title="Converts the TelemetryFrameState to a CAN frame." alt="" coords="851,334,1014,374"/>
 </map>

@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title="Declaration of the Pedal class for handling throttle and brake pedal inputs.">
 <polygon fill="white" stroke="#666666" points="179.5,-74 69.5,-74 69.5,-55 179.5,-55 179.5,-74"/>
 <text text-anchor="middle" x="124.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lib/Pedal/Pedal.hpp</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="main_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="main_8cpp.html" target="_top" xlink:title="Main VCU program entry point.">
 <polygon fill="white" stroke="#666666" points="233,-19 154,-19 154,0 233,0 233,-19"/>
 <text text-anchor="middle" x="193.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">src/main.cpp</text>
 </a>

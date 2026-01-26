@@ -36,10 +36,5 @@ var Enums_8h =
       [ "BrakeMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629ab31217c9b0543dde01e18dd97e9be608", null ],
       [ "BmsMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a509d9b9468f1598396060e4e495502f0", null ],
       [ "HallSensorMsg", "Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629abdfdcbfd73bfe53710664cc39c1b62fe", null ]
-    ] ],
-    [ "ThrottleCanId", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31", [
-      [ "InMsg", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a5473dba1f5a0ee60c181eb26a3033a92", null ],
-      [ "OutMsg", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a0e8d2b0a0510ea3d22d019a7556235c0", null ],
-      [ "FaultMsg", "Enums_8h.html#a9bf7558b8b9b236c82b49c546a06ff31a575e451640ef86d3abc9ef2844e8ce13", null ]
     ] ]
 ];

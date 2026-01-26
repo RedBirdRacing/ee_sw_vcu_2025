@@ -1,5 +1,6 @@
 var Curves_8hpp =
 [
+    [ "APPS_RATIO", "Curves_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b", null ],
     [ "apps_3v3_max", "Curves_8hpp.html#abf4fad97fd915a68bd47d660c2d68e15", null ],
     [ "apps_3v3_min", "Curves_8hpp.html#a992ffa31bf4d7e77427fe6a0dfc14ed2", null ],
     [ "apps_5v_max", "Curves_8hpp.html#aa929f06ea12ce11952e729913cba8212", null ],

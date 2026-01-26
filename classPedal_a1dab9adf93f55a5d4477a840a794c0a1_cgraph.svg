@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" target="_top" xlink:title="Performs linear interpolation for the given input value, using the table.">
 <polygon fill="white" stroke="#666666" points="297,-19 187,-19 187,0 297,0 297,-19"/>
 <text text-anchor="middle" x="242" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">LinearInterp::interp</text>
 </a>

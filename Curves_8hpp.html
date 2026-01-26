@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('Curves_8hpp.html',''); initResizable()
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Curves.hpp File Reference</div></div>
 </div><!--header-->
@@ -120,6 +121,12 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="Curves_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b">APPS_RATIO</a>&#160;&#160;&#160;50 / 33</td></tr>
+<tr class="memdesc:aedcd0f18b2470e28672db5668bdb1e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO.  <br /></td></tr>
+<tr class="separator:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ac1bd4776a2981d5e3c072be1d239d2eb"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#ac1bd4776a2981d5e3c072be1d239d2eb">apps_5v_min</a> = 50</td></tr>
@@ -153,7 +160,27 @@ Variables</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation.">Interp.hpp</a>, <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
-</div><h2 class="groupheader">Variable Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aedcd0f18b2470e28672db5668bdb1e8b" name="aedcd0f18b2470e28672db5668bdb1e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedcd0f18b2470e28672db5668bdb1e8b">&#9670;&#160;</a></span>APPS_RATIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APPS_RATIO&#160;&#160;&#160;50 / 33</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO. </p>
+<dl class="section note"><dt>Note</dt><dd>max 64 for multiply to prevent overflow </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00031">31</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a id="abf4fad97fd915a68bd47d660c2d68e15" name="abf4fad97fd915a68bd47d660c2d68e15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf4fad97fd915a68bd47d660c2d68e15">&#9670;&#160;</a></span>apps_3v3_max</h2>
 
@@ -281,6 +308,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>final apps maximum value </p>
 
 <p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00024">24</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
@@ -305,10 +333,11 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>final apps minimum value </p>
 
 <p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00023">23</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00121">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>.</p>
 
 </div>
 </div>
@@ -333,7 +362,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>value above which brake is considered shorted to rail </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00038">38</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00046">46</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
 
@@ -360,7 +389,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>value below which brake is considered shorted to ground </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00037">37</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00045">45</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
 
@@ -386,7 +415,7 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 <p>Brake mapping table, negative values for regen. </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00043">43</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00051">51</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +439,7 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 <p>Throttle mapping table. </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00028">28</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00036">36</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>

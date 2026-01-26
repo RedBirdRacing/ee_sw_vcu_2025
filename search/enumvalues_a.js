@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['throttlehigh_0',['ThrottleHigh',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa3df290eaa94bd4e5615fb5765ba10973',1,'Enums.h']]],
-  ['throttlelow_1',['ThrottleLow',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28',1,'Enums.h']]]
+  ['waiting_0',['Waiting',['../Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8a5706de961fb376d701be6e7762d8b09c',1,'Enums.h']]],
+  ['wrongid_1',['WrongId',['../Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8ade7d3a7c5530b161c412a84e47ee2755',1,'Enums.h']]]
 ];

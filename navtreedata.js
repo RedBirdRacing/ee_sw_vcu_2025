@@ -60,7 +60,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BMS_8cpp.html",
-"functions.html"
+"classes.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

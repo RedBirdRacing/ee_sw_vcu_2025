@@ -1,0 +1,5 @@
+<map id="DBG_THROTTLE_FAULT" name="DBG_THROTTLE_FAULT">
+<area shape="rect" id="node1" title=" " alt="" coords="5,45,177,70"/>
+<area shape="rect" id="node2" href="$namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="230,5,385,45"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="225,69,389,109"/>
+</map>

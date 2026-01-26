@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="Debug_8hpp.html#a5811a65cdb8fc3c5255f57301cbb8481" target="_top" xlink:title="Sends BMS debug info via CAN or serial (if enabled).">
+<g id="a_node3"><a xlink:href="Debug_8hpp.html#a460f71d79003b7e0c37275d93f7d5c53" target="_top" xlink:title="Sends BMS debug info via CAN or serial (if enabled).">
 <polygon fill="white" stroke="#666666" points="355,-56 248,-56 248,-37 355,-37 355,-56"/>
 <text text-anchor="middle" x="301.5" y="-44" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_BMS_STATUS</text>
 </a>
@@ -65,7 +65,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747" target="_top" xlink:title="Sends a debug BMS status message over CAN.">
+<g id="a_node4"><a xlink:href="namespaceDebug__CAN.html#a0514cc9d56b82f8a3b586aee6f4c97b0" target="_top" xlink:title="Sends a debug BMS status message over CAN.">
 <polygon fill="white" stroke="#666666" points="531,-93 394,-93 394,-74 531,-74 531,-93"/>
 <text text-anchor="middle" x="462.5" y="-81" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_CAN::status_bms</text>
 </a>
@@ -80,7 +80,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f" target="_top" xlink:title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ...">
+<g id="a_node5"><a xlink:href="namespaceDebug__Serial.html#a1a39bd8c1cd5d475881b10a3a5deeb03" target="_top" xlink:title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ...">
 <polygon fill="white" stroke="#666666" points="534,-56 391,-56 391,-37 534,-37 534,-56"/>
 <text text-anchor="middle" x="462.5" y="-44" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_Serial::status_bms</text>
 </a>

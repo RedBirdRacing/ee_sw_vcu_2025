@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="Pedal_8hpp.html" target="_top" xlink:title="Declaration of the Pedal class for handling throttle and brake pedal inputs.">
 <polygon fill="white" stroke="#666666" points="341,-184 276,-184 276,-165 341,-165 341,-184"/>
 <text text-anchor="middle" x="308.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal.hpp</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="Queue_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="Queue_8hpp.html" target="_top" xlink:title="Declaration of a simple RingBuffer (circular buffer) template class.">
 <polygon fill="white" stroke="#666666" points="470,-129 401,-129 401,-110 470,-110 470,-129"/>
 <text text-anchor="middle" x="435.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Queue.hpp</text>
 </a>

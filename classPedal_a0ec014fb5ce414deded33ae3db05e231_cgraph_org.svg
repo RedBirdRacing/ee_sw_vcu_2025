@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="Debug_8hpp.html#a27a4d84e5afbe5f46066606c2cfcd97d" target="_top" xlink:title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi...">
+<g id="a_node3"><a xlink:href="Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8" target="_top" xlink:title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi...">
 <polygon fill="white" stroke="#666666" points="412,-76 283,-76 283,-57 412,-57 412,-76"/>
 <text text-anchor="middle" x="347.5" y="-64" font-family="Helvetica,sans-Serif" font-size="10.00">DBG_THROTTLE_FAULT</text>
 </a>
@@ -71,7 +71,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="namespaceDebug__CAN.html#a8e6443068f8aa21ba673ad7bc132e739" target="_top" xlink:title="Sends a debug throttle fault message over CAN with a float value.">
+<g id="a_node4"><a xlink:href="namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522" target="_top" xlink:title="Sends a debug throttle fault message over CAN with a float value.">
 <polygon fill="white" stroke="#666666" points="567.5,-105.5 451.5,-105.5 451.5,-75.5 567.5,-75.5 567.5,-105.5"/>
 <text text-anchor="start" x="459.5" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_CAN::throttle</text>
 <text text-anchor="middle" x="509.5" y="-82.5" font-family="Helvetica,sans-Serif" font-size="10.00">_fault</text>
@@ -87,7 +87,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="namespaceDebug__Serial.html#aa73ff8f930647f4c70741b4e50ef6a5d" target="_top" xlink:title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f...">
+<g id="a_node5"><a xlink:href="namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2" target="_top" xlink:title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f...">
 <polygon fill="white" stroke="#666666" points="571,-57.5 448,-57.5 448,-27.5 571,-27.5 571,-57.5"/>
 <text text-anchor="start" x="456" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">Debug_Serial::throttle</text>
 <text text-anchor="middle" x="509.5" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">_fault</text>

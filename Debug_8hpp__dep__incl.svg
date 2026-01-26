@@ -50,7 +50,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="main_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="main_8cpp.html" target="_top" xlink:title="Main VCU program entry point.">
 <polygon fill="white" stroke="#666666" points="322.5,-19 243.5,-19 243.5,0 322.5,0 322.5,-19"/>
 <text text-anchor="middle" x="283" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">src/main.cpp</text>
 </a>

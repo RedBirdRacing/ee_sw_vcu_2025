@@ -97,6 +97,8 @@ $(document).ready(function(){initNavTree('classTelemetry.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classTelemetry-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Telemetry Class Reference</div></div>
@@ -107,23 +109,50 @@ $(document).ready(function(){initNavTree('classTelemetry.html',''); initResizabl
 <div class="dynheader">
 Collaboration diagram for Telemetry:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTelemetry__coll__graph.svg" width="178" height="162"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTelemetry__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a52f9548ef855738d450f241df5b04b96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a52f9548ef855738d450f241df5b04b96">Telemetry</a> ()</td></tr>
-<tr class="separator:a52f9548ef855738d450f241df5b04b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acde5e679d96cc20da55b442ddddabf58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#acde5e679d96cc20da55b442ddddabf58">scheduler_adc</a> (MCP2515 *mcp2515_)</td></tr>
-<tr class="separator:acde5e679d96cc20da55b442ddddabf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c6430fa1d24bd9ac8a1e0d95f99fd14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a7c6430fa1d24bd9ac8a1e0d95f99fd14">scheduler_digital</a> (MCP2515 *mcp2515_)</td></tr>
-<tr class="separator:a7c6430fa1d24bd9ac8a1e0d95f99fd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeff5f72366dfab7b683a20b1139ce60e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#aeff5f72366dfab7b683a20b1139ce60e">scheduler_states</a> (MCP2515 *mcp2515_)</td></tr>
-<tr class="separator:aeff5f72366dfab7b683a20b1139ce60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59bdac66ecc2c1e415229a2855144c4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a59bdac66ecc2c1e415229a2855144c4c">Telemetry</a> (MCP2515 &amp;mcp2515_, <a class="el" href="structCarState.html">CarState</a> &amp;car_)</td></tr>
+<tr class="memdesc:a59bdac66ecc2c1e415229a2855144c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classTelemetry.html">Telemetry</a> object.  <br /></td></tr>
+<tr class="separator:a59bdac66ecc2c1e415229a2855144c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a892ba1df53bea0797e63b8e7a0030d91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a892ba1df53bea0797e63b8e7a0030d91">sendTelemetry</a> ()</td></tr>
+<tr class="memdesc:a892ba1df53bea0797e63b8e7a0030d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends telemetry data based on the scheduling logic.  <br /></td></tr>
+<tr class="separator:a892ba1df53bea0797e63b8e7a0030d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aeed89696476accb74fb8807b92fbdcd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#aeed89696476accb74fb8807b92fbdcd8">schedulerAdc</a> ()</td></tr>
+<tr class="memdesc:aeed89696476accb74fb8807b92fbdcd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper to get and send the ADC telemetry frame.  <br /></td></tr>
+<tr class="separator:aeed89696476accb74fb8807b92fbdcd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50074891c9ce48296fe72f159befd488"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a50074891c9ce48296fe72f159befd488">schedulerDigital</a> ()</td></tr>
+<tr class="memdesc:a50074891c9ce48296fe72f159befd488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper to get and send the digital telemetry frame.  <br /></td></tr>
+<tr class="separator:a50074891c9ce48296fe72f159befd488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22bea2cd68922773581b1d460bea6709"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a22bea2cd68922773581b1d460bea6709">schedulerStates</a> ()</td></tr>
+<tr class="memdesc:a22bea2cd68922773581b1d460bea6709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper to get and send the state telemetry frame.  <br /></td></tr>
+<tr class="separator:a22bea2cd68922773581b1d460bea6709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ade142dcc49cf5242a92cc82cc0845bb1"><td class="memItemLeft" align="right" valign="top">MCP2515 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#ade142dcc49cf5242a92cc82cc0845bb1">mcp2515</a></td></tr>
+<tr class="separator:ade142dcc49cf5242a92cc82cc0845bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a7e2d6b4cde6809039c55ae127160ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCarState.html">CarState</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a5a7e2d6b4cde6809039c55ae127160ef">car</a></td></tr>
+<tr class="separator:a5a7e2d6b4cde6809039c55ae127160ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254dec4fa5e5049f863d8da53d8d5a25"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a254dec4fa5e5049f863d8da53d8d5a25">count</a></td></tr>
+<tr class="separator:a254dec4fa5e5049f863d8da53d8d5a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
+<tr class="memitem:abb02fc62b4d237ff9768257848795d36"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#abb02fc62b4d237ff9768257848795d36">NUM_FREQ_FRAMES</a> = 2</td></tr>
+<tr class="separator:abb02fc62b4d237ff9768257848795d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec40308028b113d5dbb2ff42deee9b2"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a1ec40308028b113d5dbb2ff42deee9b2">NUM_INFREQ_FRAMES</a> = 1</td></tr>
+<tr class="separator:a1ec40308028b113d5dbb2ff42deee9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76e86a10e559c8365049c7fea1084827"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a76e86a10e559c8365049c7fea1084827">FRAMES_FREQ_RATIO</a> = 10</td></tr>
+<tr class="separator:a76e86a10e559c8365049c7fea1084827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47013f41e5648dae8e9e31e2be20e8dd"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a47013f41e5648dae8e9e31e2be20e8dd">MAX_FRAME_COUNTER</a> = <a class="el" href="classTelemetry.html#abb02fc62b4d237ff9768257848795d36">NUM_FREQ_FRAMES</a> * <a class="el" href="classTelemetry.html#a76e86a10e559c8365049c7fea1084827">FRAMES_FREQ_RATIO</a> + <a class="el" href="classTelemetry.html#a1ec40308028b113d5dbb2ff42deee9b2">NUM_INFREQ_FRAMES</a> - 1</td></tr>
+<tr class="separator:a47013f41e5648dae8e9e31e2be20e8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98444ba14c1174140a29d31bb10312db"><td class="memItemLeft" align="right" valign="top">static constexpr canid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a98444ba14c1174140a29d31bb10312db">TelemetryAdcMsg</a> = 0x700</td></tr>
 <tr class="separator:a98444ba14c1174140a29d31bb10312db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a434eb901b55358d5e3d78bb08218f1c5"><td class="memItemLeft" align="right" valign="top">static constexpr canid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelemetry.html#a434eb901b55358d5e3d78bb08218f1c5">TelemetryDigitalMsg</a> = 0x701</td></tr>
@@ -133,10 +162,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00009">9</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00021">21</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a52f9548ef855738d450f241df5b04b96" name="a52f9548ef855738d450f241df5b04b96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52f9548ef855738d450f241df5b04b96">&#9670;&#160;</a></span>Telemetry()</h2>
+<a id="a59bdac66ecc2c1e415229a2855144c4c" name="a59bdac66ecc2c1e415229a2855144c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59bdac66ecc2c1e415229a2855144c4c">&#9670;&#160;</a></span>Telemetry()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,74 +173,395 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Telemetry::Telemetry </td>
           <td>(</td>
+          <td class="paramtype">MCP2515 &amp;&#160;</td>
+          <td class="paramname"><em>mcp2515_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structCarState.html">CarState</a> &amp;&#160;</td>
+          <td class="paramname"><em>car_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classTelemetry.html">Telemetry</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mcp2515_</td><td>Reference to MCP2515 for sending CAN messages </td></tr>
+    <tr><td class="paramname">car_</td><td>Reference to <a class="el" href="structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">CarState</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00017">17</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aeed89696476accb74fb8807b92fbdcd8" name="aeed89696476accb74fb8807b92fbdcd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed89696476accb74fb8807b92fbdcd8">&#9670;&#160;</a></span>schedulerAdc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Telemetry::schedulerAdc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal helper to get and send the ADC telemetry frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00025">25</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="CarState_8hpp_source.html#l00153">CarState::adc</a>, <a class="el" href="Telemetry_8hpp_source.html#l00029">car</a>, <a class="el" href="Telemetry_8hpp_source.html#l00028">mcp2515</a>, and <a class="el" href="CarState_8hpp_source.html#l00035">TelemetryFrameAdc::toCanFrame()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00052">sendTelemetry()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTelemetry_aeed89696476accb74fb8807b92fbdcd8_cgraph.svg" width="400" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTelemetry_aeed89696476accb74fb8807b92fbdcd8_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a50074891c9ce48296fe72f159befd488" name="a50074891c9ce48296fe72f159befd488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50074891c9ce48296fe72f159befd488">&#9670;&#160;</a></span>schedulerDigital()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Telemetry::schedulerDigital </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal helper to get and send the digital telemetry frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00034">34</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Telemetry_8hpp_source.html#l00029">car</a>, <a class="el" href="CarState_8hpp_source.html#l00154">CarState::digital</a>, <a class="el" href="Telemetry_8hpp_source.html#l00028">mcp2515</a>, and <a class="el" href="CarState_8hpp_source.html#l00065">TelemetryFrameDigital::toCanFrame()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00052">sendTelemetry()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTelemetry_a50074891c9ce48296fe72f159befd488_cgraph.svg" width="430" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTelemetry_a50074891c9ce48296fe72f159befd488_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a22bea2cd68922773581b1d460bea6709" name="a22bea2cd68922773581b1d460bea6709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22bea2cd68922773581b1d460bea6709">&#9670;&#160;</a></span>schedulerStates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Telemetry::schedulerStates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal helper to get and send the state telemetry frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00043">43</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Telemetry_8hpp_source.html#l00029">car</a>, <a class="el" href="Telemetry_8hpp_source.html#l00028">mcp2515</a>, <a class="el" href="CarState_8hpp_source.html#l00155">CarState::state</a>, and <a class="el" href="CarState_8hpp_source.html#l00129">TelemetryFrameState::toCanFrame()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00052">sendTelemetry()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTelemetry_a22bea2cd68922773581b1d460bea6709_cgraph.svg" width="420" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTelemetry_a22bea2cd68922773581b1d460bea6709_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a892ba1df53bea0797e63b8e7a0030d91" name="a892ba1df53bea0797e63b8e7a0030d91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a892ba1df53bea0797e63b8e7a0030d91">&#9670;&#160;</a></span>sendTelemetry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Telemetry::sendTelemetry </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00003">3</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
+<p>Sends telemetry data based on the scheduling logic. </p>
 
+<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00052">52</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Telemetry_8hpp_source.html#l00031">count</a>, <a class="el" href="Telemetry_8hpp_source.html#l00039">FRAMES_FREQ_RATIO</a>, <a class="el" href="Telemetry_8hpp_source.html#l00040">MAX_FRAME_COUNTER</a>, <a class="el" href="Telemtry_8cpp_source.html#l00025">schedulerAdc()</a>, <a class="el" href="Telemtry_8cpp_source.html#l00034">schedulerDigital()</a>, and <a class="el" href="Telemtry_8cpp_source.html#l00043">schedulerStates()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00083">schedulerTelemetry()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTelemetry_a892ba1df53bea0797e63b8e7a0030d91_cgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="acde5e679d96cc20da55b442ddddabf58" name="acde5e679d96cc20da55b442ddddabf58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acde5e679d96cc20da55b442ddddabf58">&#9670;&#160;</a></span>scheduler_adc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Telemetry::scheduler_adc </td>
-          <td>(</td>
-          <td class="paramtype">MCP2515 *&#160;</td>
-          <td class="paramname"><em>mcp2515_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Telemtry_8cpp_source.html#l00007">7</a> of file <a class="el" href="Telemtry_8cpp_source.html">Telemtry.cpp</a>.</p>
-
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTelemetry_a892ba1df53bea0797e63b8e7a0030d91_icgraph.svg" width="507" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<a id="a7c6430fa1d24bd9ac8a1e0d95f99fd14" name="a7c6430fa1d24bd9ac8a1e0d95f99fd14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c6430fa1d24bd9ac8a1e0d95f99fd14">&#9670;&#160;</a></span>scheduler_digital()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Telemetry::scheduler_digital </td>
-          <td>(</td>
-          <td class="paramtype">MCP2515 *&#160;</td>
-          <td class="paramname"><em>mcp2515_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aeff5f72366dfab7b683a20b1139ce60e" name="aeff5f72366dfab7b683a20b1139ce60e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeff5f72366dfab7b683a20b1139ce60e">&#9670;&#160;</a></span>scheduler_states()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Telemetry::scheduler_states </td>
-          <td>(</td>
-          <td class="paramtype">MCP2515 *&#160;</td>
-          <td class="paramname"><em>mcp2515_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5a7e2d6b4cde6809039c55ae127160ef" name="a5a7e2d6b4cde6809039c55ae127160ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a7e2d6b4cde6809039c55ae127160ef">&#9670;&#160;</a></span>car</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCarState.html">CarState</a>&amp; Telemetry::car</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reference to <a class="el" href="structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">CarState</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00029">29</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00025">schedulerAdc()</a>, <a class="el" href="Telemtry_8cpp_source.html#l00034">schedulerDigital()</a>, and <a class="el" href="Telemtry_8cpp_source.html#l00043">schedulerStates()</a>.</p>
+
+</div>
+</div>
+<a id="a254dec4fa5e5049f863d8da53d8d5a25" name="a254dec4fa5e5049f863d8da53d8d5a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a254dec4fa5e5049f863d8da53d8d5a25">&#9670;&#160;</a></span>count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Telemetry::count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Counter number of times message sent </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00031">31</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00052">sendTelemetry()</a>.</p>
+
+</div>
+</div>
+<a id="a76e86a10e559c8365049c7fea1084827" name="a76e86a10e559c8365049c7fea1084827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e86a10e559c8365049c7fea1084827">&#9670;&#160;</a></span>FRAMES_FREQ_RATIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t Telemetry::FRAMES_FREQ_RATIO = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ratio of frame frequencies </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00039">39</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00052">sendTelemetry()</a>.</p>
+
+</div>
+</div>
+<a id="a47013f41e5648dae8e9e31e2be20e8dd" name="a47013f41e5648dae8e9e31e2be20e8dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47013f41e5648dae8e9e31e2be20e8dd">&#9670;&#160;</a></span>MAX_FRAME_COUNTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t Telemetry::MAX_FRAME_COUNTER = <a class="el" href="classTelemetry.html#abb02fc62b4d237ff9768257848795d36">NUM_FREQ_FRAMES</a> * <a class="el" href="classTelemetry.html#a76e86a10e559c8365049c7fea1084827">FRAMES_FREQ_RATIO</a> + <a class="el" href="classTelemetry.html#a1ec40308028b113d5dbb2ff42deee9b2">NUM_INFREQ_FRAMES</a> - 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Count resets at this value, total frames per cycle - 1 because tree planting </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00040">40</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00052">sendTelemetry()</a>.</p>
+
+</div>
+</div>
+<a id="ade142dcc49cf5242a92cc82cc0845bb1" name="ade142dcc49cf5242a92cc82cc0845bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade142dcc49cf5242a92cc82cc0845bb1">&#9670;&#160;</a></span>mcp2515</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MCP2515&amp; Telemetry::mcp2515</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reference to MCP2515 for sending CAN messages </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00028">28</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Telemtry_8cpp_source.html#l00025">schedulerAdc()</a>, <a class="el" href="Telemtry_8cpp_source.html#l00034">schedulerDigital()</a>, and <a class="el" href="Telemtry_8cpp_source.html#l00043">schedulerStates()</a>.</p>
+
+</div>
+</div>
+<a id="abb02fc62b4d237ff9768257848795d36" name="abb02fc62b4d237ff9768257848795d36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb02fc62b4d237ff9768257848795d36">&#9670;&#160;</a></span>NUM_FREQ_FRAMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t Telemetry::NUM_FREQ_FRAMES = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of frequent telemetry frames to send </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00037">37</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1ec40308028b113d5dbb2ff42deee9b2" name="a1ec40308028b113d5dbb2ff42deee9b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec40308028b113d5dbb2ff42deee9b2">&#9670;&#160;</a></span>NUM_INFREQ_FRAMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t Telemetry::NUM_INFREQ_FRAMES = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of infrequent telemetry frames to send, must be 1 because of how the fast modulo logic works </p>
+
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00038">38</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a98444ba14c1174140a29d31bb10312db" name="a98444ba14c1174140a29d31bb10312db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98444ba14c1174140a29d31bb10312db">&#9670;&#160;</a></span>TelemetryAdcMsg</h2>
 
@@ -233,7 +583,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="classTelemetry.html">Telemetry</a>: ADC readings message </p>
 
-<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00018">18</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00046">46</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +608,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="classTelemetry.html">Telemetry</a>: Digital signals message </p>
 
-<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00019">19</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00047">47</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +633,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="classTelemetry.html">Telemetry</a>: Car state message </p>
 
-<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00020">20</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Telemetry_8hpp_source.html#l00048">48</a> of file <a class="el" href="Telemetry_8hpp_source.html">Telemetry.hpp</a>.</p>
 
 </div>
 </div>

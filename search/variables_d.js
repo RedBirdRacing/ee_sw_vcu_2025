@@ -8,7 +8,12 @@ var searchData=
   ['state_5',['state',['../structCarState.html#a40f60bdbcb9e45d5fab62792b090a9cf',1,'CarState']]],
   ['state_5funknown_6',['state_unknown',['../unionTelemetryFrameState_1_1StateByte0.html#aeb61d0264285a4451d117651168b01be',1,'TelemetryFrameState::StateByte0']]],
   ['status_7',['status',['../structTelemetryFrameState.html#a99ce0fa7225447b4e7620db6ea173931',1,'TelemetryFrameState']]],
-  ['status_5fmillis_8',['status_millis',['../structCarState.html#abc863b4689f45ff6e1b21c5ca7918fa8',1,'CarState']]],
-  ['stop_5fframe_9',['stop_frame',['../classPedal.html#a85f0168c8a81fa64e1e311f9250e9f19',1,'Pedal']]],
-  ['stop_5fhv_5fmsg_10',['stop_hv_msg',['../BMS_8hpp.html#a67578567cbc8901452e6d3b277f376ca',1,'BMS.hpp']]]
+  ['status_5fbms_5fmsg_8',['STATUS_BMS_MSG',['../namespaceDebug__CAN.html#ae3a0771a0daa4118a076d04cd3571f02',1,'Debug_CAN']]],
+  ['status_5fbrake_5fmsg_9',['STATUS_BRAKE_MSG',['../namespaceDebug__CAN.html#ad1bfeb9aafd26668d99f1f371b79850e',1,'Debug_CAN']]],
+  ['status_5fcar_5fchange_5fmsg_10',['STATUS_CAR_CHANGE_MSG',['../namespaceDebug__CAN.html#a4c3940b0008387d73a48b06100ce2178',1,'Debug_CAN']]],
+  ['status_5fcar_5fmsg_11',['STATUS_CAR_MSG',['../namespaceDebug__CAN.html#a30ea598e19d816673afecb5a06ac2396',1,'Debug_CAN']]],
+  ['status_5fhall_5fsensor_5fmsg_12',['STATUS_HALL_SENSOR_MSG',['../namespaceDebug__CAN.html#a6f7b1b326ce46fb95252f675b8178a3d',1,'Debug_CAN']]],
+  ['status_5fmillis_13',['status_millis',['../structCarState.html#abc863b4689f45ff6e1b21c5ca7918fa8',1,'CarState']]],
+  ['stop_5fframe_14',['stop_frame',['../classPedal.html#a85f0168c8a81fa64e1e311f9250e9f19',1,'Pedal']]],
+  ['stop_5fhv_5fmsg_15',['stop_hv_msg',['../BMS_8hpp.html#a67578567cbc8901452e6d3b277f376ca',1,'BMS.hpp']]]
 ];

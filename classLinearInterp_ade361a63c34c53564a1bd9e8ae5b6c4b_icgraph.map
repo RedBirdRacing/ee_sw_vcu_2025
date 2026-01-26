@@ -1,5 +1,5 @@
 <map id="LinearInterp::start" name="LinearInterp::start">
-<area shape="rect" id="node1" title=" " alt="" coords="736,5,875,31"/>
+<area shape="rect" id="node1" title="Returns the starting input value of the interpolation table." alt="" coords="736,5,875,31"/>
 <area shape="rect" id="node2" href="$classPedal.html#a79e52120f8539d9e847fd0498cc47754" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="475,5,688,31"/>
 <area shape="rect" id="node3" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="288,5,427,31"/>
 <area shape="rect" id="node4" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,5,240,31"/>

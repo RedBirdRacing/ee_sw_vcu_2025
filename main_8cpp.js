@@ -7,6 +7,7 @@ var main_8cpp =
     [ "mcp2515_motor", "main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5", null ],
     [ "scheduler_bms", "main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4", null ],
     [ "scheduler_pedal", "main_8cpp.html#a1174b6795782479542559289cd623faf", null ],
+    [ "schedulerTelemetry", "main_8cpp.html#a18a2a13352158a1c448c163c58e2b486", null ],
     [ "setup", "main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
     [ "bms", "main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6", null ],
     [ "BMS_MILLIS", "main_8cpp.html#a9b210a2254e453ab1707b21a4f610222", null ],
@@ -23,5 +24,6 @@ var main_8cpp =
     [ "pins_out", "main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48", null ],
     [ "scheduler", "main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548", null ],
     [ "STARTING_MILLIS", "main_8cpp.html#a83e2f8002c9f61e65749409b326c642b", null ],
+    [ "telem", "main_8cpp.html#a195436960f942e58a1499aa0434267fd", null ],
     [ "tx_throttle_msg", "main_8cpp.html#aeadd5ff15bba21c8292acef541061396", null ]
 ];

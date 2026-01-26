@@ -1,0 +1,5 @@
+<map id="DBG_BMS_STATUS" name="DBG_BMS_STATUS">
+<area shape="rect" id="node1" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="5,31,148,56"/>
+<area shape="rect" id="node2" href="$namespaceDebug__CAN.html#a0514cc9d56b82f8a3b586aee6f4c97b0" title="Sends a debug BMS status message over CAN." alt="" coords="200,5,383,31"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a1a39bd8c1cd5d475881b10a3a5deeb03" title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ..." alt="" coords="196,55,387,80"/>
+</map>

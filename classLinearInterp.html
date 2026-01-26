@@ -121,8 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af72b5de83caf0b632acbde7231c81abf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#af72b5de83caf0b632acbde7231c81abf">LinearInterp</a> (const <a class="el" href="structTablePoint.html">TablePoint</a>&lt; Tin, Tout &gt;(&amp;table_)[size])</td></tr>
 <tr class="separator:af72b5de83caf0b632acbde7231c81abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c1654f4a47bb4db5386e38a8bdd6bc1"><td class="memItemLeft" align="right" valign="top">constexpr Tout&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a> (Tin input) const</td></tr>
+<tr class="memdesc:a3c1654f4a47bb4db5386e38a8bdd6bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs linear interpolation for the given input value, using the table.  <br /></td></tr>
 <tr class="separator:a3c1654f4a47bb4db5386e38a8bdd6bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade361a63c34c53564a1bd9e8ae5b6c4b"><td class="memItemLeft" align="right" valign="top">constexpr Tin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b">start</a> () const</td></tr>
+<tr class="memdesc:ade361a63c34c53564a1bd9e8ae5b6c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the starting input value of the interpolation table.  <br /></td></tr>
 <tr class="separator:ade361a63c34c53564a1bd9e8ae5b6c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -169,6 +171,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Default constructor deleted to prevent instantiation without a table </p>
 
 </div>
 </div>
@@ -197,6 +200,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Normal constructor </p>
 
 <p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00040">40</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
 
@@ -229,7 +233,16 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00041">41</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
+<p>Performs linear interpolation for the given input value, using the table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The input value to interpolate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interpolated output value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00047">47</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Interp_8hpp_source.html#l00023">TablePoint&lt; Tin, Tout &gt;::in</a>, and <a class="el" href="Interp_8hpp_source.html#l00024">TablePoint&lt; Tin, Tout &gt;::out</a>.</p>
 
@@ -268,7 +281,10 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00065">65</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
+<p>Returns the starting input value of the interpolation table. </p>
+<dl class="section return"><dt>Returns</dt><dd>The starting input value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00076">76</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::throttleTorqueMapping()</a>.</p>
 <div class="dynheader">
@@ -305,6 +321,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Reference to the interpolation table </p>
 
 </div>
 </div>

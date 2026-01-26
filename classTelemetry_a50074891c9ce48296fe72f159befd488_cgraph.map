@@ -1,0 +1,4 @@
+<map id="Telemetry::schedulerDigital" name="Telemetry::schedulerDigital">
+<area shape="rect" id="node1" title="Internal helper to get and send the digital telemetry frame." alt="" coords="5,13,205,38"/>
+<area shape="rect" id="node2" href="$structTelemetryFrameDigital.html#a854a063396c822b4d02f3897276bd611" title="Converts the TelemetryFrameDigital to a CAN frame." alt="" coords="253,5,424,45"/>
+</map>

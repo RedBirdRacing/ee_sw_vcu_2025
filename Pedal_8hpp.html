@@ -102,6 +102,9 @@ $(document).ready(function(){initNavTree('Pedal_8hpp.html',''); initResizable();
   <div class="headertitle"><div class="title">Pedal.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Declaration of the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class for handling throttle and brake pedal inputs.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Queue_8hpp_source.html">Queue.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>&quot;</code><br />
@@ -131,9 +134,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b">APPS_RATIO</a>&#160;&#160;&#160;50 / 33</td></tr>
-<tr class="memdesc:aedcd0f18b2470e28672db5668bdb1e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO.  <br /></td></tr>
-<tr class="separator:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a602abb8ec84dcb3b6f854a738310ea46"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a602abb8ec84dcb3b6f854a738310ea46">ADC_BUFFER_SIZE</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a602abb8ec84dcb3b6f854a738310ea46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -144,7 +144,15 @@ Variables</h2></td></tr>
 <tr class="memitem:a2814e9aff83da9c45d2a6fadbea27309"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309">FLIP_MOTOR_DIR</a> = false</td></tr>
 <tr class="separator:a2814e9aff83da9c45d2a6fadbea27309"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Declaration of the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class for handling throttle and brake pedal inputs. </p>
+<dl class="section author"><dt>Author</dt><dd>Planeson, Red Bird Racing </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.4 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-01-26 </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs.">Pedal.cpp</a> </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a602abb8ec84dcb3b6f854a738310ea46" name="a602abb8ec84dcb3b6f854a738310ea46"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a602abb8ec84dcb3b6f854a738310ea46">&#9670;&#160;</a></span>ADC_BUFFER_SIZE</h2>
 
@@ -157,26 +165,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00033">33</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aedcd0f18b2470e28672db5668bdb1e8b" name="aedcd0f18b2470e28672db5668bdb1e8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedcd0f18b2470e28672db5668bdb1e8b">&#9670;&#160;</a></span>APPS_RATIO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define APPS_RATIO&#160;&#160;&#160;50 / 33</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO. </p>
-<dl class="section note"><dt>Note</dt><dd>max 64 for multiply to prevent overflow </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00031">31</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00036">36</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>
@@ -201,7 +190,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00024">24</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00034">34</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00132">Pedal::sendFrame()</a>.</p>
 
@@ -226,8 +215,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Boolean toggle for regenerative braking; false disables reverse torque. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00016">16</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00028">28</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>

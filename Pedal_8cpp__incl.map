@@ -1,8 +1,8 @@
 <map id="lib/Pedal/Pedal.cpp" name="lib/Pedal/Pedal.cpp">
 <area shape="rect" id="node1" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="513,5,659,31"/>
-<area shape="rect" id="node2" href="$Pedal_8hpp.html" title=" " alt="" coords="373,79,460,104"/>
+<area shape="rect" id="node2" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="373,79,460,104"/>
 <area shape="rect" id="node3" title=" " alt="" coords="359,299,429,324"/>
-<area shape="rect" id="node4" href="$Queue_8hpp.html" title=" " alt="" coords="540,152,632,177"/>
+<area shape="rect" id="node4" href="$Queue_8hpp.html" title="Declaration of a simple RingBuffer (circular buffer) template class." alt="" coords="540,152,632,177"/>
 <area shape="rect" id="node5" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="67,152,174,177"/>
 <area shape="rect" id="node8" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="414,225,502,251"/>
 <area shape="rect" id="node9" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="199,152,293,177"/>

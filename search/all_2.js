@@ -2,7 +2,7 @@ var searchData=
 [
   ['can_5finterface_0',['can_interface',['../namespaceDebug__CAN.html#af09d4c579d34dfa0f5fb18114f304203',1,'Debug_CAN']]],
   ['can_5frate_1',['CAN_RATE',['../boardConf_8h.html#a5f87fe9497f62d1f0b865190cecf2c0d',1,'boardConf.h']]],
-  ['car_2',['car',['../classPedal.html#a62eed1bcc4b9bb0cc4b1419cd77472da',1,'Pedal::car()'],['../main_8cpp.html#ab5d80ba1651714c705b8b516e541d9d8',1,'car():&#160;main.cpp']]],
+  ['car_2',['car',['../classPedal.html#a62eed1bcc4b9bb0cc4b1419cd77472da',1,'Pedal::car()'],['../classTelemetry.html#a5a7e2d6b4cde6809039c55ae127160ef',1,'Telemetry::car()'],['../main_8cpp.html#ab5d80ba1651714c705b8b516e541d9d8',1,'car():&#160;main.cpp']]],
   ['car_5fstatus_3',['car_status',['../unionTelemetryFrameState_1_1StateByte0.html#a40c3a3c84ef0bed65863942e20dce98f',1,'TelemetryFrameState::StateByte0']]],
   ['carmsg_4',['CarMsg',['../Enums_8h.html#a6b191ababec6777bcc2b83f8dae93629a40ae1b1be635206c536bf8bd547f522a',1,'Enums.h']]],
   ['carstate_5',['CarState',['../structCarState.html',1,'']]],
@@ -10,7 +10,7 @@ var searchData=
   ['carstatus_7',['CarStatus',['../Enums_8h.html#a58f8cbaf767061986ce7afe35238e4be',1,'Enums.h']]],
   ['checkhv_8',['checkHv',['../classBMS.html#a7de82f50c43e50529739213e98b9b634',1,'BMS']]],
   ['checkpedalfault_9',['checkPedalFault',['../classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7',1,'Pedal']]],
-  ['count_10',['count',['../classRingBuffer.html#a375926eb439fc06803b497e1a19add6a',1,'RingBuffer']]],
+  ['count_10',['count',['../classTelemetry.html#a254dec4fa5e5049f863d8da53d8d5a25',1,'Telemetry::count()'],['../classRingBuffer.html#a375926eb439fc06803b497e1a19add6a',1,'RingBuffer::count()']]],
   ['cs_5fcan_5fbms_11',['CS_CAN_BMS',['../boardConf_8h.html#ab476064511df004d8a67875afbd3521b',1,'boardConf.h']]],
   ['cs_5fcan_5fdl_12',['CS_CAN_DL',['../boardConf_8h.html#a661f70456357c09fff639665b5e89852',1,'boardConf.h']]],
   ['cs_5fcan_5fmotor_13',['CS_CAN_MOTOR',['../boardConf_8h.html#a65b24582a92e368f91aca95b4dbe5847',1,'boardConf.h']]],

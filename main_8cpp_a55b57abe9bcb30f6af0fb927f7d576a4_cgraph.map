@@ -1,9 +1,9 @@
 <map id="scheduler_bms" name="scheduler_bms">
 <area shape="rect" id="node1" title=" " alt="" coords="5,80,125,105"/>
 <area shape="rect" id="node2" href="$classBMS.html#a7de82f50c43e50529739213e98b9b634" title="Attempts to start HV. First check BMS is in standby(3) state, then send the HV start command...." alt="" coords="173,80,288,105"/>
-<area shape="rect" id="node3" href="$Debug_8hpp.html#a5811a65cdb8fc3c5255f57301cbb8481" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="336,55,479,80"/>
+<area shape="rect" id="node3" href="$Debug_8hpp.html#a460f71d79003b7e0c37275d93f7d5c53" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="336,55,479,80"/>
 <area shape="rect" id="node6" href="$Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="339,104,475,129"/>
-<area shape="rect" id="node4" href="$namespaceDebug__CAN.html#ab78e4ce29a20ab1dae2db225def6b747" title="Sends a debug BMS status message over CAN." alt="" coords="531,5,713,31"/>
-<area shape="rect" id="node5" href="$namespaceDebug__Serial.html#a6c4d64b8a917b7e18071210c43c1a98f" title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ..." alt="" coords="527,55,717,80"/>
+<area shape="rect" id="node4" href="$namespaceDebug__CAN.html#a0514cc9d56b82f8a3b586aee6f4c97b0" title="Sends a debug BMS status message over CAN." alt="" coords="531,5,713,31"/>
+<area shape="rect" id="node5" href="$namespaceDebug__Serial.html#a1a39bd8c1cd5d475881b10a3a5deeb03" title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ..." alt="" coords="527,55,717,80"/>
 <area shape="rect" id="node7" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="543,104,701,129"/>
 </map>

@@ -21,7 +21,7 @@ var searchData=
   ['bmsstatus_18',['BmsStatus',['../Enums_8h.html#af9f10f99b9e1fe09756feb57c6520cd8',1,'Enums.h']]],
   ['boardconf_2eh_19',['boardConf.h',['../boardConf_8h.html',1,'']]],
   ['brake_20',['brake',['../structTelemetryFrameAdc.html#aaf7ba0d72aaef96015e8b7a4eb67d580',1,'TelemetryFrameAdc']]],
-  ['brake_5ffault_21',['brake_fault',['../namespaceDebug__CAN.html#a972189e7412acf4e4b2d36c7693a3f70',1,'Debug_CAN::brake_fault()'],['../namespaceDebug__Serial.html#a9d828bdca10efbda9f4e147a372cbc71',1,'Debug_Serial::brake_fault()']]],
+  ['brake_5ffault_21',['brake_fault',['../namespaceDebug__CAN.html#ae04c7a1d3ee6130c72494d100be7e675',1,'Debug_CAN::brake_fault()'],['../namespaceDebug__Serial.html#aca2c256a4cb9f669f5a452b4a9f62757',1,'Debug_Serial::brake_fault()']]],
   ['brake_5fhigh_22',['brake_high',['../unionTelemetryFrameState_1_1StateByte1.html#ad825fc0519d769840e7e7e99c41d5d1f',1,'TelemetryFrameState::StateByte1']]],
   ['brake_5fin_23',['BRAKE_IN',['../boardConf_8h.html#a5526cea8555b601f99b6233f35faea83',1,'boardConf.h']]],
   ['brake_5flight_24',['BRAKE_LIGHT',['../boardConf_8h.html#a42b87c6c088f09e708c88a78bdcbd163',1,'boardConf.h']]],
