@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - Planeson_stable
 
 jobs:
   deploy:
