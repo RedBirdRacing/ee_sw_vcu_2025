@@ -83,7 +83,7 @@ struct TelemetryFrameDigital
  */
 struct TelemetryFrameState
 {
-    union StateByte0
+    union StateByte0 /**< Union of bits for car status besides Pedal */
     {
         uint8_t byte;
         struct
@@ -98,7 +98,7 @@ struct TelemetryFrameState
         } bits;
     };
 
-    union StateByte1
+    union StateByte1 /**< Union of bits for pedal faults */
     {
         uint8_t byte;
         struct
@@ -117,8 +117,8 @@ struct TelemetryFrameState
     static_assert(sizeof(StateByte0) == 1, "TelemetryStateByte0 must be 1 byte"); // ensure compile is shoving the bits as expected
     static_assert(sizeof(StateByte1) == 1, "TelemetryStateByte1 must be 1 byte");
 
-    StateByte0 status; /**< First status byte */
-    StateByte1 faults; /**< Second status byte */
+    StateByte0 status; /**< Car Status */
+    StateByte1 faults; /**< Pedal Faults */
 
     uint8_t bms_data[6]; /**< Raw BMS data bytes */
 

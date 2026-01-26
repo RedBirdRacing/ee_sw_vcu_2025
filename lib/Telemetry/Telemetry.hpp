@@ -18,6 +18,10 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
+/**
+ * @brief Telemetry class for managing telemetry data transmission over CAN bus
+ * Grabs and sends telemetry frames in fixed order based on scheduling logic
+ */
 class Telemetry
 {
 public:

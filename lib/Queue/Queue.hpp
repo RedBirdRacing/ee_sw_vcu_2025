@@ -12,6 +12,13 @@
 #include <stdint.h>
 // using uint8_t for size
 // highest capacity is 255
+
+/**
+ * @brief RingBuffer (circular buffer) template class
+ * A small circular queue to hold a fixed number of elements.
+ * @tparam T Type of elements stored in the buffer
+ * @tparam size Capacity of the buffer
+ */
 template <typename T, uint8_t size>
 class RingBuffer
 {
