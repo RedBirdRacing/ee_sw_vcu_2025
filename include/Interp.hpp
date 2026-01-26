@@ -36,8 +36,14 @@ template <typename Tin, typename Tout, typename Tmid, uint8_t size>
 class LinearInterp
 {
 public:
-    LinearInterp() = delete;
-    LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {}
+    LinearInterp() = delete; /**< Default constructor deleted to prevent instantiation without a table */
+    LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
+
+    /**
+     * @brief Performs linear interpolation for the given input value, using the table
+     * @param input The input value to interpolate
+     * @return The interpolated output value
+     */
     constexpr Tout interp(Tin input) const
     {
         // Clamp below first point
@@ -62,13 +68,18 @@ public:
         // Should never reach here
         return table[size - 1].out;
     }
+
+    /**
+     * @brief Returns the starting input value of the interpolation table
+     * @return The starting input value
+     */
     constexpr Tin start() const
     {
         return table[0].in;
     }
 
 private:
-    const TablePoint<Tin, Tout> (&table)[size];
+    const TablePoint<Tin, Tout> (&table)[size]; /**< Reference to the interpolation table */
 };
 
 #endif // INTERP_HPP

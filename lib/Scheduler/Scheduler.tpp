@@ -90,18 +90,19 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_tim
  * @return true if the task was added successfully, false otherwise
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-bool Scheduler<NUM_TASKS, NUM_MCP2515>::addTask(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval)
+bool Scheduler<NUM_TASKS, NUM_MCP2515>::addTask(const McpIndex mcp_index, const TaskFn task, const uint8_t tick_interval)
 {
-    if (mcp_index >= NUM_MCP2515 || task == nullptr)
+    uint8_t mcp_idx = static_cast<uint8_t>(mcp_index);
+    if (mcp_idx >= NUM_MCP2515 || task == nullptr)
         return false;
 
-    if (task_cnt[mcp_index] >= NUM_TASKS)
+    if (task_cnt[mcp_idx] >= NUM_TASKS)
         return false; // no space
 
-    tasks[mcp_index][task_cnt[mcp_index]] = task;
-    task_ticks[mcp_index][task_cnt[mcp_index]] = tick_interval;
-    task_counters[mcp_index][task_cnt[mcp_index]] = 1; // run on first tick
-    ++task_cnt[mcp_index];
+    tasks[mcp_idx][task_cnt[mcp_idx]] = task;
+    task_ticks[mcp_idx][task_cnt[mcp_idx]] = tick_interval;
+    task_counters[mcp_idx][task_cnt[mcp_idx]] = 1; // run on first tick
+    ++task_cnt[mcp_idx];
     return true;
 }
 
@@ -115,29 +116,30 @@ bool Scheduler<NUM_TASKS, NUM_MCP2515>::addTask(const mcp_index mcp_index, const
  * @return true if the task was removed successfully, false otherwise
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
-bool Scheduler<NUM_TASKS, NUM_MCP2515>::removeTask(const mcp_index mcp_index, const TaskFn task)
+bool Scheduler<NUM_TASKS, NUM_MCP2515>::removeTask(const McpIndex mcp_index, const TaskFn task)
 {
-    if (mcp_index >= NUM_MCP2515 || task == nullptr)
+    uint8_t mcp_idx = static_cast<uint8_t>(mcp_index);
+    if (mcp_idx >= NUM_MCP2515 || task == nullptr)
         return false;
 
-    for (uint8_t i = 0; i < task_cnt[mcp_index]; ++i)
+    for (uint8_t i = 0; i < task_cnt[mcp_idx]; ++i)
     {
-        if (tasks[mcp_index][i] == task)
+        if (tasks[mcp_idx][i] == task)
         {
             // shift left remaining tasks
-            for (uint8_t j = i; j < task_cnt[mcp_index] - 1; ++j)
+            for (uint8_t j = i; j < task_cnt[mcp_idx] - 1; ++j)
             {
-                tasks[mcp_index][j] = tasks[mcp_index][j + 1];
-                task_ticks[mcp_index][j] = task_ticks[mcp_index][j + 1];
-                task_counters[mcp_index][j] = task_counters[mcp_index][j + 1];
+                tasks[mcp_idx][j] = tasks[mcp_idx][j + 1];
+                task_ticks[mcp_idx][j] = task_ticks[mcp_idx][j + 1];
+                task_counters[mcp_idx][j] = task_counters[mcp_idx][j + 1];
             }
 
             // clean last slot
-            tasks[mcp_index][task_cnt[mcp_index] - 1] = nullptr;
-            task_ticks[mcp_index][task_cnt[mcp_index] - 1] = 0;
-            task_counters[mcp_index][task_cnt[mcp_index] - 1] = 0;
+            tasks[mcp_idx][task_cnt[mcp_idx] - 1] = nullptr;
+            task_ticks[mcp_idx][task_cnt[mcp_idx] - 1] = 0;
+            task_counters[mcp_idx][task_cnt[mcp_idx] - 1] = 0;
 
-            --task_cnt[mcp_index];
+            --task_cnt[mcp_idx];
             return true;
         }
     }

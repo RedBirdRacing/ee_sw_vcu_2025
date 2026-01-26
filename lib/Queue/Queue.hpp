@@ -1,3 +1,11 @@
+/**
+ * @file Queue.hpp
+ * @author Planeson, Red Bird Racing
+ * @brief Declaration of a simple RingBuffer (circular buffer) template class
+ * @version 1.0
+ * @date 2026-01-26
+ */
+
 #ifndef QUEUE_HPP
 #define QUEUE_HPP
 

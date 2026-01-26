@@ -56,8 +56,8 @@ public:
     // no need destructor, since no dynamic memory allocation, and won't destruct in the middle of the program anyway
 
     void update(unsigned long (*const current_time_us)());
-    bool addTask(const mcp_index mcp_index, const TaskFn task, const uint8_t tick_interval);
-    bool removeTask(const mcp_index mcp_index, const TaskFn task);
+    bool addTask(const McpIndex mcp_index, const TaskFn task, const uint8_t tick_interval);
+    bool removeTask(const McpIndex mcp_index, const TaskFn task);
 
     uint8_t cycle_count = 0; /**< counts number of scheduler cycles since start, useful for other timers. */
 

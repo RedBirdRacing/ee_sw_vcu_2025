@@ -32,15 +32,15 @@ enum class CarStatus : uint8_t
  */
 enum class PedalFault : uint8_t
 {
-    None = 0x00,              /**< No fault detected */
-    DiffStart = 0x10,        /**< >10% difference fault just started */
-    DiffContinuing = 0x11,   /**< >10% difference fault is ongoing */
+    None = 0x00,            /**< No fault detected */
+    DiffStart = 0x10,       /**< >10% difference fault just started */
+    DiffContinuing = 0x11,  /**< >10% difference fault is ongoing */
     DiffExceed100ms = 0x12, /**< >10% difference fault exceeded 100ms */
-    DiffResolved = 0x19,     /**< Difference fault resolved */
-    ThrottleLow = 0x20,      /**< Throttle pedal below lower threshold */
-    ThrottleHigh = 0x29,     /**< Throttle pedal above upper threshold */
-    BrakeLow = 0x30,         /**< Brake pedal below lower threshold */
-    BrakeHigh = 0x39,        /**< Brake pedal above upper threshold */
+    DiffResolved = 0x19,    /**< Difference fault resolved */
+    ThrottleLow = 0x20,     /**< Throttle pedal below lower threshold */
+    ThrottleHigh = 0x29,    /**< Throttle pedal above upper threshold */
+    BrakeLow = 0x30,        /**< Brake pedal below lower threshold */
+    BrakeHigh = 0x39,       /**< Brake pedal above upper threshold */
 };
 
 /**
@@ -50,8 +50,8 @@ enum class PedalFault : uint8_t
  */
 enum class BmsStatus : uint8_t
 {
-    NoMsg = 0,   /**< No message received from BMS */
-    WrongId = 1, /**< Received message with wrong CAN ID */
+    NoMsg = 0,    /**< No message received from BMS */
+    WrongId = 1,  /**< Received message with wrong CAN ID */
     Waiting = 2,  /**< BMS is in standby, waiting to start HV */
     Starting = 3, /**< BMS is starting high voltage */
     Started = 4,  /**< BMS has started high voltage */
@@ -65,24 +65,12 @@ enum class BmsStatus : uint8_t
  */
 enum class McpIndex : uint8_t
 {
-    Motor = 0, /**< Motor CAN MCP2515 instance */
-    Bms = 1,   /**< BMS CAN MCP2515 instance */
-    Datalogger = 2     /**< Datalogger CAN MCP2515 instance */
+    Motor = 0,     /**< Motor CAN MCP2515 instance */
+    Bms = 1,       /**< BMS CAN MCP2515 instance */
+    Datalogger = 2 /**< Datalogger CAN MCP2515 instance */
 };
 
-// CAN IDs
-
-/**
- * @brief CAN message IDs for throttle and debug.
- *
- * Used for sending throttle and debug messages over CAN bus.
- */
-enum class ThrottleCanId : canid_t
-{
-    InMsg = 0x690,   /**< Debug: throttle input message */
-    OutMsg = 0x691,  /**< Debug: throttle output message */
-    FaultMsg = 0x692 /**< Debug: throttle fault message */
-};
+// === CAN IDs ===
 
 /**
  * @brief CAN message IDs for status and brake debug.
@@ -91,11 +79,11 @@ enum class ThrottleCanId : canid_t
  */
 enum class StatusCanId : canid_t
 {
-    CarMsg = 0x693,        /**< Debug: car status message */
+    CarMsg = 0x693,          /**< Debug: car status message */
     StaCarChangeMsg = 0x694, /**< Debug: car status change message */
-    BrakeMsg = 0x695,      /**< Debug: brake status message */
-    BmsMsg = 0x696,        /**< Debug: BMS status message */
-    HallSensorMsg = 0x697 /**< Debug: Hall sensor message */
+    BrakeMsg = 0x695,        /**< Debug: brake status message */
+    BmsMsg = 0x696,          /**< Debug: BMS status message */
+    HallSensorMsg = 0x697    /**< Debug: Hall sensor message */
 };
 
 #endif // ENUMS_H

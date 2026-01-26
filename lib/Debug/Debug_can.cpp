@@ -87,10 +87,10 @@ void Debug_CAN::throttle_out(uint16_t throttle_final, int16_t throttle_torque_va
 /**
  * @brief Sends a debug throttle fault message over CAN with a float value.
  * 
- * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @param fault_status The status of the throttle fault as defined in PedalFault enum.
  * @param value Optional uint16_t value associated with the fault (e.g., pedal voltage).
  */
-void Debug_CAN::throttle_fault(pedal_fault_status fault_status, uint16_t value)
+void Debug_CAN::throttle_fault(PedalFault fault_status, uint16_t value)
 {
     if (!can_interface)
         return;
@@ -110,9 +110,9 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status, uint16_t value)
 /**
  * @brief Sends a debug throttle fault message over CAN without a float value.
  * 
- * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @param fault_status The status of the throttle fault as defined in PedalFault enum.
  */
-void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
+void Debug_CAN::throttle_fault(PedalFault fault_status)
 {
     if (!can_interface)
         return;
@@ -129,10 +129,10 @@ void Debug_CAN::throttle_fault(pedal_fault_status fault_status)
 /**
  * @brief Sends a debug brake fault message over CAN with a float value.
  * 
- * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
+ * @param fault_status The status of the brake fault as defined in PedalFault enum.
  * @param value uint16_t value of reading
  */
-void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
+void Debug_CAN::brake_fault(PedalFault fault_status, uint16_t value)
 {
     if (!can_interface)
         return;
@@ -152,9 +152,9 @@ void Debug_CAN::brake_fault(pedal_fault_status fault_status, uint16_t value)
 /**
  * @brief Sends a debug car status message over CAN.
  * 
- * @param car_status The current status of the car as defined in main_car_status enum.
+ * @param car_status The current status of the car as defined in CarStatus enum.
  */
-void Debug_CAN::status_car(main_car_status car_status)
+void Debug_CAN::status_car(CarStatus car_status)
 {
     if (!can_interface)
         return;
@@ -171,9 +171,9 @@ void Debug_CAN::status_car(main_car_status car_status)
 /**
  * @brief Sends a debug BMS status message over CAN.
  * 
- * @param BMS_status The current status of the BMS as defined in BMS_status enum.
+ * @param BMS_status The current status of the BMS as defined in BmsStatus enum.
  */
-void Debug_CAN::status_bms(BMS_status BMS_status)
+void Debug_CAN::status_bms(BmsStatus BMS_status)
 {
     if (!can_interface)
         return;

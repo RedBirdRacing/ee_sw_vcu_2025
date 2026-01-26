@@ -24,12 +24,12 @@ namespace Debug_Serial {
     
     void throttle_in(uint16_t pedal_filtered_1, uint16_t pedal_filtered_2, uint16_t pedal_filtered_final, uint16_t brake);
     void throttle_out(uint16_t throttle_final, int16_t throttle_torque_val);
-    void throttle_fault(pedal_fault_status fault_status, uint16_t value);
-    void throttle_fault(pedal_fault_status fault_status);
-    void brake_fault(pedal_fault_status fault_status, uint16_t value);
-    void status_car(main_car_status car_status);
+    void throttle_fault(PedalFault fault_status, uint16_t value);
+    void throttle_fault(PedalFault fault_status);
+    void brake_fault(PedalFault fault_status, uint16_t value);
+    void status_car(CarStatus car_status);
     void status_brake(uint16_t brake_voltage);
-    void status_bms(BMS_status BMS_status);
+    void status_bms(BmsStatus BMS_status);
     void hall_sensor(uint16_t hall_sensor_value);
 }
 

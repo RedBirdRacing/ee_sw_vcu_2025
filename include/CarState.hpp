@@ -88,7 +88,7 @@ struct TelemetryFrameState
         uint8_t byte;
         struct
         {
-            CarStatus car_status : 2; /**< Current car status */
+            CarStatus car_status : 2; /**< Current car status, produces compiler warning before GCC 9.3 due to bug */
             bool state_unknown : 1;   /**< Unknown car state */
             bool hv_ready : 1;        /**< High voltage ready */
             bool bms_no_msg : 1;      /**< BMS read no message */

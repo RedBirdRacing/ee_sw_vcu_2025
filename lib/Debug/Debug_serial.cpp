@@ -76,24 +76,24 @@ void Debug_Serial::throttle_out(uint16_t throttle_final, int16_t throttle_torque
  * @brief Prints a throttle fault message to the serial console.
  * This function formats and sends the throttle fault status and value to the serial console.
  * 
- * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @param fault_status The status of the throttle fault as defined in PedalFault enum.
  * @param value Optional uint16_t value associated with the fault
  */
-void Debug_Serial::throttle_fault(pedal_fault_status fault_status, uint16_t value)
+void Debug_Serial::throttle_fault(PedalFault fault_status, uint16_t value)
 {
     switch (fault_status)
     {
-    case NONE:
+    case PedalFault::None:
         break;
-    case DIFF_CONTINUING:
+    case PedalFault::DiffContinuing:
         Serial.print("Pedal mismatch continuing. Difference: ");
         Serial.println(value);
         break;
-    case THROTTLE_LOW:
+    case PedalFault::ThrottleLow:
         Serial.print("Throttle input too low. Value: ");
         Serial.println(value);
         break;
-    case THROTTLE_HIGH:
+    case PedalFault::ThrottleHigh:
         Serial.print("Throttle too high. Value: ");
         Serial.println(value);
         break;
@@ -107,21 +107,21 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status, uint16_t valu
  * @brief Prints a throttle fault message to the serial console without a float value.
  * This function formats and sends the throttle fault status to the serial console.
  * 
- * @param fault_status The status of the throttle fault as defined in pedal_fault_status enum.
+ * @param fault_status The status of the throttle fault as defined in PedalFault enum.
  */
-void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
+void Debug_Serial::throttle_fault(PedalFault fault_status)
 {
     switch (fault_status)
     {
-    case NONE:
+    case PedalFault::None:
         break;
-    case DIFF_START:
+    case PedalFault::DiffStart:
         Serial.println("Pedal mismatch just started");
         break;
-    case DIFF_EXCEED_100MS:
+    case PedalFault::DiffExceed100ms:
         Serial.println("FATAL FAULT: Pedal mismatch persisted > 100ms!");
         break;
-    case DIFF_RESOLVED:
+    case PedalFault::DiffResolved:
         Serial.println("Pedal mismatch resolved");
         break;
     default:
@@ -134,20 +134,20 @@ void Debug_Serial::throttle_fault(pedal_fault_status fault_status)
  * @brief Prints a brake fault message to the serial console.
  * This function formats and sends the brake fault status and value to the serial console.
  * 
- * @param fault_status The status of the brake fault as defined in pedal_fault_status enum.
+ * @param fault_status The status of the brake fault as defined in PedalFault enum.
  * @param value brake ADC reading
  */
-void Debug_Serial::brake_fault(pedal_fault_status fault_status, uint16_t value)
+void Debug_Serial::brake_fault(PedalFault fault_status, uint16_t value)
 {
     switch (fault_status)
     {
-    case NONE:
+    case PedalFault::None:
         break;
-    case BRAKE_LOW:
+    case PedalFault::BrakeLow:
         Serial.print("Brake input too low. Value: ");
         Serial.println(value);
         break;
-    case BRAKE_HIGH:
+    case PedalFault::BrakeHigh:
         Serial.print("Brake too high. Value: ");
         Serial.println(value);
         break;
@@ -161,25 +161,25 @@ void Debug_Serial::brake_fault(pedal_fault_status fault_status, uint16_t value)
  * @brief Prints the current car status to the serial console.
  * This function formats and sends the current car status to the serial console.
  * 
- * @param car_status The current status of the car as defined in main_car_status enum.
+ * @param car_status The current status of the car as defined in CarStatus enum.
  */
-void Debug_Serial::status_car(main_car_status car_status)
+void Debug_Serial::status_car(CarStatus car_status)
 {
-    static main_car_status last_status = INIT;
+    static CarStatus last_status = CarStatus::Init;
     if (car_status != last_status) {
         Serial.print("Car Status: ");
         switch (last_status)
         {
-        case INIT:
+        case CarStatus::Init:
             Serial.print("INIT -> ");
             break;
-        case STARTIN:
+        case CarStatus::Startin:
             Serial.print("STARTIN -> ");
             break;
-        case BUSSIN:
+        case CarStatus::Bussin:
             Serial.print("BUSSIN -> ");
             break;
-        case DRIVE:
+        case CarStatus::Drive:
             Serial.print("DRIVE -> ");
             break;
         default:
@@ -188,20 +188,20 @@ void Debug_Serial::status_car(main_car_status car_status)
         }
         switch (car_status)
         {
-        case INIT:
-            Serial.print("INIT -> ");
+        case CarStatus::Init:
+            Serial.print("INIT");
             break;
-        case STARTIN:
-            Serial.print("STARTIN -> ");
+        case CarStatus::Startin:
+            Serial.print("STARTIN");
             break;
-        case BUSSIN:
-            Serial.print("BUSSIN -> ");
+        case CarStatus::Bussin:
+            Serial.print("BUSSIN");
             break;
-        case DRIVE:
-            Serial.print("DRIVE -> ");
+        case CarStatus::Drive:
+            Serial.print("DRIVE");
             break;
         default:
-            Serial.print("UNKNOWN -> ");
+            Serial.print("UNKNOWN");
             break;
         }
         last_status = car_status;
@@ -212,25 +212,25 @@ void Debug_Serial::status_car(main_car_status car_status)
  * @brief Prints the current BMS status to the serial console.
  * This function formats and sends the current BMS status to the serial console.
  * 
- * @param BMS_status The current status of the BMS as defined in BMS_status enum.
+ * @param BMS_status The current status of the BMS as defined in BmsStatus enum.
  */
-void Debug_Serial::status_bms(BMS_status BMS_status)
+void Debug_Serial::status_bms(BmsStatus BMS_status)
 {
     switch (BMS_status)
     {
-    case NO_MSG:
+    case BmsStatus::NoMsg:
         Serial.println("BMS Status: No message received");
         break;
-    case WRONG_ID:
+    case BmsStatus::WrongId:
         Serial.println("BMS Status: Wrong ID");
         break;
-    case WAITING:
+    case BmsStatus::Waiting:
         Serial.println("BMS Status: Waiting to start");
         break;
-    case STARTING:
+    case BmsStatus::Starting:
         Serial.println("BMS Status: Starting");
         break;
-    case STARTED:
+    case BmsStatus::Started:
         Serial.println("BMS Status: Started");
         break;
     default:

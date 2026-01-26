@@ -1,3 +1,12 @@
+/**
+ * @file Pedal.hpp
+ * @author Planeson, Red Bird Racing
+ * @brief Declaration of the Pedal class for handling throttle and brake pedal inputs
+ * @version 1.4
+ * @date 2026-01-26
+ * @see Pedal.cpp
+ */
+
 #ifndef PEDAL_HPP
 #define PEDAL_HPP
 
@@ -13,22 +22,16 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-constexpr bool REGEN_ENABLED = true; // Set to true to enable regenerative braking, false to disable
 
 // Constants
+
+constexpr bool REGEN_ENABLED = true; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
 
 // Flips the direction of motor output
 // set to true for gen 3
 // false for gen 5
 // later make class member for future dev
 constexpr bool FLIP_MOTOR_DIR = false;
-
-/**
- * @brief Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations.
- * Expanded to apps_scaled = apps_3v3 * APPS_RATIO
- * @note max 64 for multiply to prevent overflow
- */
-#define APPS_RATIO 50 / 33
 
 #define ADC_BUFFER_SIZE 16
 
@@ -65,12 +68,13 @@ private:
 
     // Cyclic queues for storing the pedal values
     // Used for filtering, right now average of the last values
-    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1;
-    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2;
-    RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;
 
-    LinearInterp<uint16_t, int16_t, int32_t, 5> throttle_map{throttle_table};
-    LinearInterp<uint16_t, int16_t, int32_t, 5> brake_map{brake_table};
+    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1; /**< Ring buffer for APPS 5V values */
+    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2; /**< Ring buffer for APPS 3.3V values */
+    RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;   /**< Ring buffer for brake pedal values */
+
+    LinearInterp<uint16_t, int16_t, int32_t, 5> throttle_map{throttle_table}; /**< Interpolation map for throttle torque */
+    LinearInterp<uint16_t, int16_t, int32_t, 5> brake_map{brake_table};       /**< Interpolation map for brake torque */
 
     static constexpr canid_t MOTOR_COMMAND = 0x201; /**< Motor command CAN ID */
 

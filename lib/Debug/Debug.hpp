@@ -118,7 +118,7 @@ inline void DBGLN_STATUS(const char *x)
  * @param fault_status The fault status enum.
  * @param value Optional float value for fault.
  */
-inline void DBG_THROTTLE_FAULT(pedal_fault_status fault_status, uint16_t value)
+inline void DBG_THROTTLE_FAULT(PedalFault fault_status, uint16_t value)
 {
 #if DEBUG_THROTTLE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
 #if DEBUG_SERIAL
@@ -130,7 +130,7 @@ inline void DBG_THROTTLE_FAULT(pedal_fault_status fault_status, uint16_t value)
 #endif
 }
 
-inline void DBG_THROTTLE_FAULT(pedal_fault_status fault_status)
+inline void DBG_THROTTLE_FAULT(PedalFault fault_status)
 {
 #if DEBUG_THROTTLE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
 #if DEBUG_SERIAL
@@ -146,7 +146,7 @@ inline void DBG_THROTTLE_FAULT(pedal_fault_status fault_status)
  * @brief Sends BMS debug info via CAN or serial (if enabled).
  * @param BMS_status The BMS status enum.
  */
-inline void DBG_BMS_STATUS(BMS_status BMS_status)
+inline void DBG_BMS_STATUS(BmsStatus BMS_status)
 {
 #if DEBUG_BRAKE_FAULT && (DEBUG_SERIAL || DEBUG_CAN)
 #if DEBUG_SERIAL

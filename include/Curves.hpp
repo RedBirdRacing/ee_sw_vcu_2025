@@ -20,8 +20,16 @@ constexpr uint16_t apps_5v_max = 950; /**< value above which apps_5v is consider
 constexpr uint16_t apps_3v3_min = 30;  /**< value below which apps_3v3 is considered shorted to ground */
 constexpr uint16_t apps_3v3_max = 600; /**< value above which apps_3v3 is considered shorted to rail */
 
-constexpr uint16_t apps_final_min = apps_5v_min;
-constexpr uint16_t apps_final_max = apps_5v_max;
+constexpr uint16_t apps_final_min = apps_5v_min; /**< final apps minimum value */
+constexpr uint16_t apps_final_max = apps_5v_max; /**< final apps maximum value */
+
+/**
+ * @brief Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations.
+ * Expanded to apps_scaled = apps_3v3 * APPS_RATIO
+ * @note max 64 for multiply to prevent overflow
+ */
+#define APPS_RATIO 50 / 33
+
 /**
  * @brief Throttle mapping table
  */
@@ -46,4 +54,4 @@ const TablePoint<uint16_t, int16_t> brake_table[5] = {
     {500, -26000},
     {750, -31000},
     {900, -32500}}; // make sure this point doesn't exceed +-32767
-#endif // CURVES_HPP
+#endif              // CURVES_HPP

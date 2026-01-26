@@ -2,8 +2,8 @@
  * @file Pedal.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the Pedal class for handling throttle pedal inputs
- * @version 1.3
- * @date 2026-01-15
+ * @version 1.4
+ * @date 2026-01-26
  * @see Pedal.hpp
  */
 
@@ -82,47 +82,47 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
     if (car.adc.brake > brake_max)
         car.state.faults.bits.brake_high = true;
 
-    bool result = checkPedalFault();
-    if (result)
+    if (checkPedalFault())
     {
-        if (fault && car.millis - fault_start_millis > 100)
+        // fault now
+        if (car.state.faults.bits.fault_active)
         {
-            car.state.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
+            // was faulty already, check time
+            if (car.millis - fault_start_millis > 100)
+            {
+                car.state.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
 
-            DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
-            return;
+                DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
+                return;
+            }
+            else
+            {
+                DBG_THROTTLE_FAULT(PedalFault::DiffContinuing); // will be optimized out if the debug macro is off
+            }
         }
+        else
+        {
+            // new fault
+            fault_start_millis = car.millis;
+            DBG_THROTTLE_FAULT(PedalFault::DiffStart);
+        }
+        car.state.faults.bits.fault_active = true;
     }
-    
-    if (!checkPedalFault())
+    else
     {
-        if (fault)
+        // no fault
+        if (car.state.faults.bits.fault_active)
         {
             DBG_THROTTLE_FAULT(PedalFault::DiffResolved);
-            fault = false;
         }
-        return;
+        car.state.faults.bits.fault_active = false;
     }
 
-    // Pedal fault detected
-    if (fault)                                      // if previously faulty
-    {                                               // Previous scan is already faulty
-        if (car.millis - fault_start_millis > 100) // Faulty for more than 100 ms
-        {
-            car.state.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
-            car.state.status.bits.force_stop = true; // this force stop flag can only be reset by a power cycle
-
-            DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
-            return;
-        }
-    }
-    else // new fault detected
+    if (car.state.faults.byte & 0xFE) // any fault bits other than active *** double check this is correct with real board ***
     {
-        fault_start_millis = car.millis;
-        DBG_THROTTLE_FAULT(PedalFault::DiffStart);
+        car.state.status.bits.force_stop = true; // set force stop if any fault other than active
     }
 
-    fault = true;
     return;
 }
 
@@ -230,10 +230,8 @@ bool Pedal::checkPedalFault()
     // if more than 10% difference between the two pedals, consider it a fault
     if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
     {
-        car.state.faults.bits.fault_active = true;
         DBG_THROTTLE_FAULT(PedalFault::DiffContinuing, delta);
         return true;
     }
-    car.state.faults.bits.fault_active = false;
     return false;
 }
