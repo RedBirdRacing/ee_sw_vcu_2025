@@ -15,75 +15,24 @@
 #include <can.h>
 #include <stdint.h>
 
-constexpr canid_t TELEMETRY_ADC_MSG = 0x700;     /**< Telemetry: ADC readings message */
-constexpr canid_t TELEMETRY_DIGITAL_MSG = 0x701; /**< Telemetry: Digital signals message */
-constexpr canid_t TELEMETRY_STATE_MSG = 0x702;   /**< Telemetry: Car state message */
+constexpr canid_t TELEMETRY_PEDAL_MSG = 0x700; /**< Telemetry: Pedal readings message */
+constexpr canid_t TELEMETRY_MOTOR_MSG = 0x701; /**< Telemetry: Digital signals message */
+constexpr canid_t TELEMETRY_BMS_MSG = 0x702;   /**< Telemetry: Car state message */
 
 /**
- * @brief Telemetry frame structure for ADC readings.
+ * @brief Telemetry frame structure for the Pedals.
  */
-struct TelemetryFrameAdc
+struct TelemetryFramePedal
 {
-    uint16_t apps_5v;     /**< ADC reading for 5V APPS */
-    uint16_t apps_3v3;    /**< ADC reading for 3.3V APPS */
+    uint16_t apps_5v;  /**< ADC reading for 5V APPS */
+    uint16_t apps_3v3; /**< ADC reading for 3.3V APPS */
+
+    uint16_t apps_3v3_scaled; /**< Scaled 3.3V APPS value (not sent over CAN) */
+
     uint16_t brake;       /**< ADC reading for brake pedal */
     uint16_t hall_sensor; /**< ADC reading for hall sensor */
-    /**
-     * @brief Converts the TelemetryFrameAdc to a CAN frame.
-     * @return CAN frame representing the telemetry ADC readings.
-     */
-    constexpr can_frame toCanFrame() const
-    {
-        return can_frame{
-            TELEMETRY_ADC_MSG,   // can_id
-            8,                                 // can_dlc
-            static_cast<__u8>(apps_5v & 0xFF), // data
-            static_cast<__u8>((apps_5v >> 8) & 0xFF),
-            static_cast<__u8>(apps_3v3 & 0xFF),
-            static_cast<__u8>((apps_3v3 >> 8) & 0xFF),
-            static_cast<__u8>(brake & 0xFF),
-            static_cast<__u8>((brake >> 8) & 0xFF),
-            static_cast<__u8>(hall_sensor & 0xFF),
-            static_cast<__u8>((hall_sensor >> 8) & 0xFF)};
-    }
-};
 
-/**
- * @brief Telemetry frame structure for digital signals.
- */
-struct TelemetryFrameDigital
-{
-    uint16_t motor_rpm;       /**< Motor RPM */
-    uint16_t motor_speed;     /**< Motor speed, can be found from RPM directly, only here because have space, thus calculate on VCU to lighten load on receiving end */
-    uint16_t apps_3v3_scaled; /**< Scaled 3.3V APPS value, can be found from ADC readings directly, only here because have space, lighten load on receiving end / as debug */
-    uint16_t torque_val;      /**< Torque value sent to motor controller*/
-
-    /**
-     * @brief Converts the TelemetryFrameDigital to a CAN frame.
-     * @return CAN frame representing the telemetry digital signals.
-     */
-    constexpr can_frame toCanFrame() const
-    {
-        return can_frame{
-            TELEMETRY_DIGITAL_MSG,               // can_id
-            8,                                   // can_dlc
-            static_cast<__u8>(motor_rpm & 0xFF), // data
-            static_cast<__u8>((motor_rpm >> 8) & 0xFF),
-            static_cast<__u8>(motor_speed & 0xFF),
-            static_cast<__u8>((motor_speed >> 8) & 0xFF),
-            static_cast<__u8>(apps_3v3_scaled & 0xFF),
-            static_cast<__u8>((apps_3v3_scaled >> 8) & 0xFF),
-            static_cast<__u8>(torque_val & 0xFF),
-            static_cast<__u8>((torque_val >> 8) & 0xFF)};
-    }
-};
-
-/**
- * @brief Telemetry frame structure for VCU states.
- */
-struct TelemetryFrameState
-{
-    union StateByte0 /**< Union of bits for car status besides Pedal */
+    union StateByteStatus /**< Union of bits for car status besides Pedal */
     {
         uint8_t byte;
         struct
@@ -93,12 +42,11 @@ struct TelemetryFrameState
             bool hv_ready : 1;        /**< High voltage ready */
             bool bms_no_msg : 1;      /**< BMS read no message */
             bool bms_wrong_id : 1;    /**< BMS read wrong ID */
-            bool force_stop : 1;      /**< Fault forced car to stop */
             bool screenshot : 1;      /**< Screenshot, throttle + brake > threshold */
+            bool force_stop : 1;      /**< Fault forced car to stop */
         } bits;
     };
-
-    union StateByte1 /**< Union of bits for pedal faults */
+    union StateByteFaults /**< Union of bits for pedal faults */
     {
         uint8_t byte;
         struct
@@ -114,31 +62,86 @@ struct TelemetryFrameState
         } bits;
     };
 
-    static_assert(sizeof(StateByte0) == 1, "TelemetryStateByte0 must be 1 byte"); // ensure compile is shoving the bits as expected
-    static_assert(sizeof(StateByte1) == 1, "TelemetryStateByte1 must be 1 byte");
+    static_assert(sizeof(StateByteStatus) == 1, "TelemetryStateByte0 must be 1 byte"); // ensure compile is shoving the bits as expected
+    static_assert(sizeof(StateByteFaults) == 1, "TelemetryStateByte1 must be 1 byte");
 
-    StateByte0 status; /**< Car Status */
-    StateByte1 faults; /**< Pedal Faults */
-
-    uint8_t bms_data[6]; /**< Raw BMS data bytes */
+    StateByteStatus status; /**< Car Status */
+    StateByteFaults faults; /**< Pedal Faults */
 
     /**
-     * @brief Converts the TelemetryFrameState to a CAN frame.
-     * @return CAN frame representing the telemetry car state.
+     * @brief Converts the TelemetryFramePedal to a CAN frame.
+     * @return CAN frame representing the Pedal telemetry signals.
      */
     constexpr can_frame toCanFrame() const
     {
         return can_frame{
-            TELEMETRY_STATE_MSG, // can_id
-            8,                   // can_dlc
+            TELEMETRY_PEDAL_MSG,               // can_id
+            8,                                 // can_dlc
+            static_cast<__u8>(apps_5v & 0xFF), // data
+            static_cast<__u8>(((apps_5v >> 8) & 0x03) | ((apps_3v3 & 0x3F) << 2)),
+            static_cast<__u8>(((apps_3v3 >> 6) & 0x0F) | ((brake & 0x0F) << 4)),
+            static_cast<__u8>(((brake >> 4) & 0x3F) | ((hall_sensor & 0x03) << 6)),
+            static_cast<__u8>((hall_sensor >> 2) & 0xFF),
             status.byte,
-            faults.byte,
+            faults.byte};
+    }
+};
+
+/**
+ * @brief Telemetry frame structure for motor signals.
+ */
+struct TelemetryFrameMotor
+{
+    uint16_t torque_val;  /**< Torque value sent to motor controller*/
+    uint16_t motor_rpm;   /**< Motor RPM */
+    uint16_t motor_error; /**< Motor status byte */
+    uint16_t motor_warn;  /**< Motor error/warning byte */
+
+    /**
+     * @brief Converts the TelemetryFrameMotor to a CAN frame.
+     * @return CAN frame representing the telemetry motor signals.
+     */
+    constexpr can_frame toCanFrame() const
+    {
+        return can_frame{
+            TELEMETRY_MOTOR_MSG, // can_id
+            8,                   // can_dlc
+            static_cast<__u8>(torque_val & 0xFF),
+            static_cast<__u8>((torque_val >> 8) & 0xFF),
+            static_cast<__u8>(motor_rpm & 0xFF),
+            static_cast<__u8>((motor_rpm >> 8) & 0xFF),
+            static_cast<__u8>(motor_error & 0xFF),
+            static_cast<__u8>((motor_error >> 8) & 0xFF),
+            static_cast<__u8>(motor_warn & 0xFF),
+            static_cast<__u8>((motor_warn >> 8) & 0xFF)};
+    }
+};
+
+/**
+ * @brief Telemetry frame structure for the BMS data.
+ */
+struct TelemetryFrameBms
+{
+
+    uint8_t bms_data[8]; /**< Raw BMS data bytes */
+
+    /**
+     * @brief Converts the TelemetryFrameBms to a CAN frame.
+     * @return CAN frame representing the telemetry BMS data.
+     */
+    constexpr can_frame toCanFrame() const
+    {
+        return can_frame{
+            TELEMETRY_BMS_MSG, // can_id
+            8,                 // can_dlc
             bms_data[0],
             bms_data[1],
             bms_data[2],
             bms_data[3],
             bms_data[4],
-            bms_data[5]};
+            bms_data[5],
+            bms_data[6],
+            bms_data[7]};
     }
 };
 
@@ -146,14 +149,14 @@ struct TelemetryFrameState
  * @brief Represents the state of the car.
  * Holds telemetry data and status, used as central data sharing structure.
  *
- * @see TelemetryFrameAdc, TelemetryFrameDigital, TelemetryFrameState
+ * @see TelemetryFramePedal, TelemetryFrameMotor, TelemetryFrameBms
  */
 struct CarState
 {
-    TelemetryFrameAdc adc;         /**< Struct holding ADC telemetry data, ready for sending over CAN */
-    TelemetryFrameDigital digital; /**< Struct holding digital telemetry data, ready for sending over CAN */
-    TelemetryFrameState state;     /**< Struct holding state telemetry data, ready for sending over CAN */
-    uint32_t status_millis;        /**< Millisecond counter for the current car status (for state transitions) */
-    uint32_t millis;               /**< Current time in milliseconds for the current loop iteration */
+    TelemetryFramePedal pedal; /**< Struct holding pedal telemetry data, ready for sending over CAN */
+    TelemetryFrameMotor motor; /**< Struct holding motor telemetry data, ready for sending over CAN */
+    TelemetryFrameBms bms;     /**< Struct holding BMS telemetry data, ready for sending over CAN */
+    uint32_t status_millis;    /**< Millisecond counter for the current car status (for state transitions) */
+    uint32_t millis;           /**< Current time in milliseconds for the current loop iteration */
 };
 #endif // CAR_STATE_HPP

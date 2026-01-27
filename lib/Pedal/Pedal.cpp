@@ -38,6 +38,12 @@ Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
       pedal_value_2(),
       brake_value()
 {
+    while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)
+    {
+    }
+    while (sendCyclicRead(WARN_ERR, ERR_PERIOD) != MCP2515::ERROR_OK)
+    {
+    }
 }
 
 /**
@@ -65,32 +71,32 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
     // depends on the hardware filter, reduce software filtering as much as possible
 
     // currently a small average filter is good enough
-    car.adc.apps_5v = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
-    car.adc.apps_3v3 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
-    car.adc.brake = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
+    car.pedal.apps_5v = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
+    car.pedal.apps_3v3 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
+    car.pedal.brake = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
 
-    if (car.adc.apps_5v < apps_5v_min)
-        car.state.faults.bits.apps_5v_low = true;
-    if (car.adc.apps_5v > apps_5v_max)
-        car.state.faults.bits.apps_5v_high = true;
-    if (car.adc.apps_3v3 < apps_3v3_min)
-        car.state.faults.bits.apps_3v3_low = true;
-    if (car.adc.apps_3v3 > apps_3v3_max)
-        car.state.faults.bits.apps_3v3_high = true;
-    if (car.adc.brake < brake_min)
-        car.state.faults.bits.brake_low = true;
-    if (car.adc.brake > brake_max)
-        car.state.faults.bits.brake_high = true;
+    if (car.pedal.apps_5v < apps_5v_min)
+        car.pedal.faults.bits.apps_5v_low = true;
+    if (car.pedal.apps_5v > apps_5v_max)
+        car.pedal.faults.bits.apps_5v_high = true;
+    if (car.pedal.apps_3v3 < apps_3v3_min)
+        car.pedal.faults.bits.apps_3v3_low = true;
+    if (car.pedal.apps_3v3 > apps_3v3_max)
+        car.pedal.faults.bits.apps_3v3_high = true;
+    if (car.pedal.brake < brake_min)
+        car.pedal.faults.bits.brake_low = true;
+    if (car.pedal.brake > brake_max)
+        car.pedal.faults.bits.brake_high = true;
 
     if (checkPedalFault())
     {
         // fault now
-        if (car.state.faults.bits.fault_active)
+        if (car.pedal.faults.bits.fault_active)
         {
             // was faulty already, check time
             if (car.millis - fault_start_millis > 100)
             {
-                car.state.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
+                car.pedal.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
 
                 DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
                 return;
@@ -106,21 +112,21 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
             fault_start_millis = car.millis;
             DBG_THROTTLE_FAULT(PedalFault::DiffStart);
         }
-        car.state.faults.bits.fault_active = true;
+        car.pedal.faults.bits.fault_active = true;
     }
     else
     {
         // no fault
-        if (car.state.faults.bits.fault_active)
+        if (car.pedal.faults.bits.fault_active)
         {
             DBG_THROTTLE_FAULT(PedalFault::DiffResolved);
         }
-        car.state.faults.bits.fault_active = false;
+        car.pedal.faults.bits.fault_active = false;
     }
 
-    if (car.state.faults.byte & 0xFE) // any fault bits other than active *** double check this is correct with real board ***
+    if (car.pedal.faults.byte & 0xFE) // any fault bits other than active *** double check this is correct with real board ***
     {
-        car.state.status.bits.force_stop = true; // set force stop if any fault other than active
+        car.pedal.status.bits.force_stop = true; // set force stop if any fault other than active
     }
 
     return;
@@ -131,15 +137,15 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
  */
 void Pedal::sendFrame()
 {
-    if (car.state.status.bits.force_stop)
+    if (car.pedal.status.bits.force_stop)
     {
         DBGLN_THROTTLE("Stopping motor: pedal fault");
         motor_can.sendMessage(&stop_frame);
         return;
     }
-    if (car.state.status.bits.car_status != CarStatus::Drive)
+    if (car.pedal.status.bits.car_status != CarStatus::Drive)
     {
-        switch (car.state.status.bits.car_status)
+        switch (car.pedal.status.bits.car_status)
         {
         case CarStatus::Init:
             DBGLN_THROTTLE("Stopping motor: in INIT.");
@@ -158,9 +164,9 @@ void Pedal::sendFrame()
         return;
     }
 
-    int16_t torque_val = throttleTorqueMapping(pedal_final, car.adc.brake, FLIP_MOTOR_DIR);
+    int16_t torque_val = throttleTorqueMapping(pedal_final, car.pedal.brake, FLIP_MOTOR_DIR);
 
-    torque_msg.can_id = MOTOR_COMMAND;
+    torque_msg.can_id = MOTOR_SEND;
     torque_msg.can_dlc = 3;
     torque_msg.data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     torque_msg.data[1] = torque_val & 0xFF;
@@ -183,7 +189,7 @@ constexpr int16_t Pedal::throttleTorqueMapping(const uint16_t pedal, const uint1
     {
         if (pedal > throttle_map.start())
         {
-            car.state.status.bits.screenshot = true;
+            car.pedal.status.bits.screenshot = true;
         }
         return brakeTorqueMapping(brake, flip_dir);
     }
@@ -224,9 +230,9 @@ constexpr int16_t Pedal::brakeTorqueMapping(const uint16_t brake, const bool fli
  */
 bool Pedal::checkPedalFault()
 {
-    car.digital.apps_3v3_scaled = car.adc.apps_3v3 * APPS_RATIO;
+    car.pedal.apps_3v3_scaled = car.pedal.apps_3v3 * APPS_RATIO;
 
-    const int16_t delta = (int16_t)car.adc.apps_5v - (int16_t)car.digital.apps_3v3_scaled;
+    const int16_t delta = (int16_t)car.pedal.apps_5v - (int16_t)car.pedal.apps_3v3_scaled;
     // if more than 10% difference between the two pedals, consider it a fault
     if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
     {
@@ -234,4 +240,48 @@ bool Pedal::checkPedalFault()
         return true;
     }
     return false;
+}
+
+/**
+ * @brief Sends a cyclic read request to the motor controller for speed (rpm).
+ * @param reg_id Register ID to read from the motor controller.
+ * @param read_period Period of reading motor data in ms.
+ * @return MCP2515::ERROR indicating success or failure of sending the message.
+ */
+MCP2515::ERROR Pedal::sendCyclicRead(uint8_t reg_id, uint8_t read_period)
+{
+    can_frame cyclic_request = {
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        REGID_READ, /**< data, register ID */
+        reg_id,     /**< data, sub ID */
+        read_period /**< data, read period in ms */
+    };
+    return motor_can.sendMessage(&cyclic_request);
+}
+
+/**
+ * @brief Reads motor data from the CAN bus and updates the CarState.
+ */
+void Pedal::readMotor()
+{
+    can_frame rx_frame;
+    if (motor_can.readMessage(&rx_frame) == MCP2515::ERROR_OK)
+    {
+        if (rx_frame.can_id == MOTOR_READ && rx_frame.can_dlc > 3)
+        {
+            if (rx_frame.data[0] == SPEED_IST)
+            {
+                car.motor.motor_rpm = static_cast<int16_t>(rx_frame.data[1] | (rx_frame.data[2] << 8));
+                return;
+            }
+            else if (rx_frame.data[0] == WARN_ERR)
+            {
+                car.motor.motor_error = static_cast<uint16_t>(rx_frame.data[1] | (rx_frame.data[2] << 8));
+                car.motor.motor_warn = static_cast<uint16_t>(rx_frame.data[3] | (rx_frame.data[4] << 8));
+                return;
+            }
+        }
+    }
+    return;
 }

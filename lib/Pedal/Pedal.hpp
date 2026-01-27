@@ -22,7 +22,6 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-
 // Constants
 
 constexpr bool REGEN_ENABLED = true; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
@@ -45,7 +44,8 @@ public:
     Pedal(CarState &car, MCP2515 &motor_can_);
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void sendFrame();
-    uint16_t &pedal_final = car.adc.apps_5v; /**< Final pedal value is taken directly from apps_5v */
+    void readMotor();
+    uint16_t &pedal_final = car.pedal.apps_5v; /**< Final pedal value is taken directly from apps_5v */
 
 private:
     CarState &car;      /**< Reference to CarState */
@@ -58,10 +58,10 @@ private:
      * @brief CAN frame to stop the motor
      */
     const can_frame stop_frame = {
-        MOTOR_COMMAND, /**< can_id */
-        3,             /**< can_dlc */
-        0x90,          /**< data, torque command */
-        0x00,          /**< data, 0 torque * 2 */
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        0x90,       /**< data, torque command */
+        0x00,       /**< data, 0 torque * 2 */
         0x00};
 
     can_frame torque_msg; /**< CAN frame for torque command */
@@ -76,11 +76,22 @@ private:
     LinearInterp<uint16_t, int16_t, int32_t, 5> throttle_map{throttle_table}; /**< Interpolation map for throttle torque */
     LinearInterp<uint16_t, int16_t, int32_t, 5> brake_map{brake_table};       /**< Interpolation map for brake torque */
 
-    static constexpr canid_t MOTOR_COMMAND = 0x201; /**< Motor command CAN ID */
+    static constexpr canid_t MOTOR_SEND = 0x201; /**< Motor send CAN ID */
+    static constexpr canid_t MOTOR_READ = 0x181; /**< Motor read CAN ID */
+
+    static constexpr uint8_t REGID_READ = 0x3D; /**< Register ID for reading motor data */
+
+    static constexpr uint8_t SPEED_IST = 0x30; /**< Register ID for "actual speed value" */
+    static constexpr uint8_t WARN_ERR = 0x8F;  /**< Register ID for warnings and errors */
+
+    static constexpr uint8_t RPM_PERIOD = 20; /**< Period of reading motor data in ms, set to 20ms to get 10ms reads alongside errors */
+    static constexpr uint8_t ERR_PERIOD = 20; /**< Period of reading motor errors in ms, set to 20ms to get 10ms reads alongside rpm */
 
     bool checkPedalFault();
     constexpr int16_t throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const bool flip_dir);
     constexpr int16_t brakeTorqueMapping(const uint16_t brake, const bool flip_dir);
+
+    MCP2515::ERROR sendCyclicRead(uint8_t reg_id, uint8_t read_period);
 };
 
 #endif // PEDAL_HPP

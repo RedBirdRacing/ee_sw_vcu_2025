@@ -20,30 +20,30 @@ Telemetry::Telemetry(MCP2515 &mcp2515_, CarState &car_)
 }
 
 /**
- * @brief Internal helper to get and send the ADC telemetry frame
+ * @brief Internal helper to get and send the Pedal telemetry frame
  */
-void Telemetry::schedulerAdc()
+void Telemetry::schedulerPedal()
 {
-    can_frame adc_frame = car.adc.toCanFrame();
-    mcp2515.sendMessage(&adc_frame);
+    can_frame pedal_frame = car.pedal.toCanFrame();
+    mcp2515.sendMessage(&pedal_frame);
 }
 
 /**
- * @brief Internal helper to get and send the digital telemetry frame
+ * @brief Internal helper to get and send the motor telemetry frame
  */
-void Telemetry::schedulerDigital()
+void Telemetry::schedulerMotor()
 {
-    can_frame digital_frame = car.digital.toCanFrame();
-    mcp2515.sendMessage(&digital_frame);
+    can_frame motor_frame = car.motor.toCanFrame();
+    mcp2515.sendMessage(&motor_frame);
 }
 
 /**
- * @brief Internal helper to get and send the state telemetry frame
+ * @brief Internal helper to get and send the BMS telemetry frame
  */
-void Telemetry::schedulerStates()
+void Telemetry::schedulerBms()
 {
-    can_frame state_frame = car.state.toCanFrame();
-    mcp2515.sendMessage(&state_frame);
+    can_frame bms_frame = car.bms.toCanFrame();
+    mcp2515.sendMessage(&bms_frame);
 }
 
 /**
@@ -53,18 +53,18 @@ void Telemetry::sendTelemetry()
 {
     if (count >= MAX_FRAME_COUNTER)
     {
-        schedulerStates();
+        schedulerBms();
         count = 0;
         return;
     }
     
     if (count % FRAMES_FREQ_RATIO == 0)
     {
-        schedulerAdc();
+        schedulerPedal();
     }
     else
     {
-        schedulerDigital();
+        schedulerMotor();
     }
     ++count;
 }

@@ -143,16 +143,16 @@ void loop()
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     scheduler.update(*micros);
 
-    if (car.state.status.bits.force_stop)
+    if (car.pedal.status.bits.force_stop)
     {
-        car.state.status.bits.car_status = CarStatus::Init; // safety, later change to fault status
+        car.pedal.status.bits.car_status = CarStatus::Init; // safety, later change to fault status
         digitalWrite(BUZZER, LOW);   // Turn off buzzer
         digitalWrite(FRG, LOW);      // Turn off drive mode LED
         return;                      // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
 
-    switch (car.state.status.bits.car_status)
+    switch (car.pedal.status.bits.car_status)
     {
     case CarStatus::Drive:
         // Pedal update
@@ -166,7 +166,7 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) == BUTTON_ACTIVE && brake_pressed)
         {
-            car.state.status.bits.car_status = CarStatus::Startin;
+            car.pedal.status.bits.car_status = CarStatus::Startin;
             car.status_millis = car.millis;
 
             scheduler.addTask(McpIndex::Bms, scheduler_bms, 5); // check for HV ready in STARTIN
@@ -178,7 +178,7 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
-            car.state.status.bits.car_status = CarStatus::Init;
+            car.pedal.status.bits.car_status = CarStatus::Init;
             car.status_millis = car.millis;               // safety
             scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready since return to INIT
         }
@@ -187,13 +187,13 @@ void loop()
             scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready, either started or return to INIT
             if (bms.hvReady())                            // if HV not started, return to INIT
             {
-                car.state.status.bits.car_status = CarStatus::Init;
+                car.pedal.status.bits.car_status = CarStatus::Init;
                 car.status_millis = car.millis; // safety
                 break;
             }
             if (car.millis - car.status_millis >= BMS_MILLIS)
             {
-                car.state.status.bits.car_status = CarStatus::Bussin;
+                car.pedal.status.bits.car_status = CarStatus::Bussin;
                 car.status_millis = car.millis; // safety
                 break;
             }
@@ -207,13 +207,13 @@ void loop()
         {
             digitalWrite(BUZZER, LOW);
             digitalWrite(FRG, HIGH);
-            car.state.status.bits.car_status = CarStatus::Drive;
+            car.pedal.status.bits.car_status = CarStatus::Drive;
         }
         break;
 
     default:
         // unreachable, reset to INIT
-        car.state.status.bits.car_status = CarStatus::Init;
+        car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis;
         break;
     }
@@ -221,7 +221,7 @@ void loop()
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
     if (pedal.pedal_final > apps_final_min) // if pedal pressed while not in DRIVE, reset to INIT
     {
-        car.state.status.bits.car_status = CarStatus::Init;
+        car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this
     }
 }

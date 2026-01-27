@@ -43,12 +43,8 @@ private:
     static constexpr uint8_t FRAMES_FREQ_RATIO = 10; /**< Ratio of frame frequencies */
     static constexpr uint8_t MAX_FRAME_COUNTER = NUM_FREQ_FRAMES * FRAMES_FREQ_RATIO + NUM_INFREQ_FRAMES - 1; /**< Count resets at this value, total frames per cycle - 1 because tree planting */
 
-    void schedulerAdc();
-    void schedulerDigital();
-    void schedulerStates();
-
-    static constexpr canid_t TelemetryAdcMsg = 0x700;     /**< Telemetry: ADC readings message */
-    static constexpr canid_t TelemetryDigitalMsg = 0x701; /**< Telemetry: Digital signals message */
-    static constexpr canid_t TelemetryStateMsg = 0x702;   /**< Telemetry: Car state message */
+    void schedulerPedal();
+    void schedulerMotor();
+    void schedulerBms();
 };
 #endif // TELEMETRY_HPP
