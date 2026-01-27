@@ -133,7 +133,7 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 }
 
 /**
- * @brief Sends the appropriate CAN frame based on pedal and car state.
+ * @brief Sends the appropriate CAN frame to the motor based on pedal and car state.
  */
 void Pedal::sendFrame()
 {
@@ -164,7 +164,7 @@ void Pedal::sendFrame()
         return;
     }
 
-    int16_t torque_val = throttleTorqueMapping(pedal_final, car.pedal.brake, FLIP_MOTOR_DIR);
+    int16_t torque_val = throttleTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
 
     torque_msg.can_id = MOTOR_SEND;
     torque_msg.can_dlc = 3;
@@ -176,22 +176,42 @@ void Pedal::sendFrame()
 }
 
 /**
- * @brief Maps the pedal ADC to a torque value, handling deadzones and faults.
+ * @brief Maps the pedal ADC to a torque value.
+ * If no braking requested, maps throttle normally.
+ * If braking requested and regen enabled,
+ *      applies regen if motor RPM larger than minimum regen RPM,
+ *      preventing reverse torque at low speeds.
  *
  * @param pedal Pedal ADC in the range of 0-1023.
  * @param brake Brake ADC in the range of 0-1023.
+ * @param motor_rpm Current motor RPM for regen logic.
  * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -TORQUE_MAX to TORQUE_MAX.
  */
-constexpr int16_t Pedal::throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const bool flip_dir)
+constexpr int16_t Pedal::throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir)
 {
-    if (brake > brake_map.start())
+    if (REGEN_ENABLED && brake > brake_map.start())
     {
         if (pedal > throttle_map.start())
         {
             car.pedal.status.bits.screenshot = true;
         }
-        return brakeTorqueMapping(brake, flip_dir);
+        if (flip_dir)
+        {
+            if (motor_rpm < PedalConstants::MIN_REGEN_RPM_VAL)
+            {
+                return 0;
+            }
+            return brakeTorqueMapping(brake, flip_dir);
+        }
+        else
+        {
+            if (motor_rpm > -PedalConstants::MIN_REGEN_RPM_VAL)
+            {
+                return 0;
+            }
+            return brakeTorqueMapping(brake, flip_dir);
+        }
     }
     if (flip_dir)
     {
