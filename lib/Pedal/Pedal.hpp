@@ -92,8 +92,8 @@ private:
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2; /**< Ring buffer for APPS 3.3V values */
     RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;   /**< Ring buffer for brake pedal values */
 
-    LinearInterp<uint16_t, int16_t, int32_t, 5> throttle_map{throttle_table}; /**< Interpolation map for throttle torque */
-    LinearInterp<uint16_t, int16_t, int32_t, 5> brake_map{brake_table};       /**< Interpolation map for brake torque */
+    const LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE}; /**< Interpolation map for throttle torque */
+    const LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};       /**< Interpolation map for brake torque */
 
     static constexpr canid_t MOTOR_SEND = 0x201; /**< Motor send CAN ID */
     static constexpr canid_t MOTOR_READ = 0x181; /**< Motor read CAN ID */
@@ -107,8 +107,7 @@ private:
     static constexpr uint8_t ERR_PERIOD = 20; /**< Period of reading motor errors in ms, set to 20ms to get 10ms reads alongside rpm */
 
     bool checkPedalFault();
-    constexpr int16_t throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir);
-    constexpr int16_t brakeTorqueMapping(const uint16_t brake, const bool flip_dir);
+    constexpr int16_t pedalTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir);
 
     MCP2515::ERROR sendCyclicRead(uint8_t reg_id, uint8_t read_period);
 };

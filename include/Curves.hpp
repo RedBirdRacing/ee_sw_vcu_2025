@@ -14,14 +14,13 @@
 
 // === APPS Limits ===
 
-constexpr uint16_t apps_5v_min = 50;  /**< value below which apps_5v is considered shorted to ground */
-constexpr uint16_t apps_5v_max = 950; /**< value above which apps_5v is considered shorted to rail */
+constexpr uint16_t APPS_5V_MIN = 50;  /**< value below which apps_5v is considered shorted to ground */
+constexpr uint16_t APPS_5V_MAX = 950; /**< value above which apps_5v is considered shorted to rail */
 
-constexpr uint16_t apps_3v3_min = 30;  /**< value below which apps_3v3 is considered shorted to ground */
-constexpr uint16_t apps_3v3_max = 600; /**< value above which apps_3v3 is considered shorted to rail */
-
-constexpr uint16_t apps_final_min = apps_5v_min; /**< final apps minimum value */
-constexpr uint16_t apps_final_max = apps_5v_max; /**< final apps maximum value */
+constexpr uint16_t APPS_3V3_MIN = 30;  /**< value below which apps_3v3 is considered shorted to ground */
+constexpr uint16_t APPS_3V3_MAX = 600; /**< value above which apps_3v3 is considered shorted to rail */
+constexpr uint16_t APPS_FINAL_MIN = APPS_5V_MIN; /**< final apps minimum value */
+constexpr uint16_t APPS_FINAL_MAX = APPS_5V_MAX; /**< final apps maximum value */
 
 /**
  * @brief Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations.
@@ -33,7 +32,7 @@ constexpr uint16_t apps_final_max = apps_5v_max; /**< final apps maximum value *
 /**
  * @brief Throttle mapping table
  */
-const TablePoint<uint16_t, int16_t> throttle_table[5] = {
+const TablePoint<uint16_t, int16_t> THROTTLE_TABLE[5] = {
     {60, 0},
     {200, 2000},
     {450, 10000},
@@ -48,7 +47,7 @@ constexpr uint16_t brake_max = 950; /**< value above which brake is considered s
 /**
  * @brief Brake mapping table, negative values for regen
  */
-const TablePoint<uint16_t, int16_t> brake_table[5] = {
+const TablePoint<uint16_t, int16_t> BRAKE_TABLE[5] = {
     {60, 0},
     {250, -15000},
     {500, -26000},

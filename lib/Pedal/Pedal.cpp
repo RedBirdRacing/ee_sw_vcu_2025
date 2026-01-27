@@ -75,13 +75,13 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
     car.pedal.apps_3v3 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
     car.pedal.brake = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
 
-    if (car.pedal.apps_5v < apps_5v_min)
+    if (car.pedal.apps_5v < APPS_5V_MIN)
         car.pedal.faults.bits.apps_5v_low = true;
-    if (car.pedal.apps_5v > apps_5v_max)
+    if (car.pedal.apps_5v > APPS_5V_MAX)
         car.pedal.faults.bits.apps_5v_high = true;
-    if (car.pedal.apps_3v3 < apps_3v3_min)
+    if (car.pedal.apps_3v3 < APPS_3V3_MIN)
         car.pedal.faults.bits.apps_3v3_low = true;
-    if (car.pedal.apps_3v3 > apps_3v3_max)
+    if (car.pedal.apps_3v3 > APPS_3V3_MAX)
         car.pedal.faults.bits.apps_3v3_high = true;
     if (car.pedal.brake < brake_min)
         car.pedal.faults.bits.brake_low = true;
@@ -164,7 +164,7 @@ void Pedal::sendFrame()
         return;
     }
 
-    int16_t torque_val = throttleTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
+    int16_t torque_val = pedalTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
 
     torque_msg.can_id = MOTOR_SEND;
     torque_msg.can_dlc = 3;
@@ -188,55 +188,32 @@ void Pedal::sendFrame()
  * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -TORQUE_MAX to TORQUE_MAX.
  */
-constexpr int16_t Pedal::throttleTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir)
+constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir)
 {
-    if (REGEN_ENABLED && brake > brake_map.start())
+    if (REGEN_ENABLED && brake > BRAKE_MAP.start())
     {
-        if (pedal > throttle_map.start())
-        {
+        if (pedal > THROTTLE_MAP.start())
             car.pedal.status.bits.screenshot = true;
-        }
         if (flip_dir)
         {
             if (motor_rpm < PedalConstants::MIN_REGEN_RPM_VAL)
-            {
                 return 0;
-            }
-            return brakeTorqueMapping(brake, flip_dir);
+            else
+                return -BRAKE_MAP.interp(brake);
         }
         else
         {
             if (motor_rpm > -PedalConstants::MIN_REGEN_RPM_VAL)
-            {
                 return 0;
-            }
-            return brakeTorqueMapping(brake, flip_dir);
+            else
+                return BRAKE_MAP.interp(brake);
         }
     }
-    if (flip_dir)
-    {
-        return -throttle_map.interp(pedal);
-    }
-    return throttle_map.interp(pedal);
-}
 
-/**
- * @brief Maps the brake ADC to a torque value.
- *
- * This function takes a brake ADC in the range of 0-1023 and maps it to a torque value.
- * The mapping is linear, and the result is adjusted based on the motor direction.
- *
- * @param brake Brake ADC in the range of 0-1023.
- * @param flip_dir Boolean indicating whether to flip the motor direction.
- * @return Mapped torque value in the signed range of -REGEN_MAX to REGEN_MAX.
- */
-constexpr int16_t Pedal::brakeTorqueMapping(const uint16_t brake, const bool flip_dir)
-{
     if (flip_dir)
-    {
-        return -brake_map.interp(brake);
-    }
-    return brake_map.interp(brake);
+        return -THROTTLE_MAP.interp(pedal);
+    else
+        return THROTTLE_MAP.interp(pedal);
 }
 
 /**

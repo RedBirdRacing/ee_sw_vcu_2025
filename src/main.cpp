@@ -219,7 +219,7 @@ void loop()
     }
 
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
-    if (pedal.pedal_final > apps_final_min) // if pedal pressed while not in DRIVE, reset to INIT
+    if (pedal.pedal_final > APPS_FINAL_MIN) // if pedal pressed while not in DRIVE, reset to INIT
     {
         car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this
