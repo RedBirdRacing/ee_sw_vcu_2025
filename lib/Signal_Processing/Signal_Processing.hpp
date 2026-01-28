@@ -2,8 +2,8 @@
  * @file Signal_Processing.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of signal processing functions
- * @version 1.0
- * @date 2026-01-15
+ * @version 2.0
+ * @date 2026-01-28
  * @see Signal_Processing.tpp
  */
 #ifndef SIGNAL_PROCESSING_HPP
@@ -11,14 +11,26 @@
 
 #include <stdint.h>
 
-template <typename T>
-constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum);
+template <typename TypeInput, typename TypeMid, uint16_t Size>
+class Filter
+{
+public:
+    virtual void addSample(TypeInput sample) = 0;
+    virtual TypeInput getFiltered() const = 0;
+};
 
-template <typename T>
-constexpr T average(T val1, T val2);
+template <typename TypeInput, typename TypeMid, uint16_t Size>
+class AverageFilter : public Filter<TypeInput, TypeMid, Size>
+{
+public:
+    AverageFilter();
+    void addSample(TypeInput sample) override;
+    TypeInput getFiltered() const override;
 
-template <typename T>
-constexpr T AVG_filter(T *buffer, uint8_t buf_size);
+private:
+    TypeInput buffer[Size];
+    uint16_t index = 0;
+};
 
 #include "Signal_Processing.tpp" // implementation
 

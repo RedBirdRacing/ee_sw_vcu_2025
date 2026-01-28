@@ -11,10 +11,10 @@
 #define PEDAL_HPP
 
 #include <stdint.h>
-#include "Queue.hpp"
 #include "CarState.hpp"
 #include "Interp.hpp"
 #include "Curves.hpp"
+#include "Signal_Processing.hpp" // AVG_filter
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -64,7 +64,7 @@ public:
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void sendFrame();
     void readMotor();
-    uint16_t &pedal_final = car.pedal.apps_5v; /**< Final pedal value is taken directly from apps_5v */
+    uint16_t &pedal_final; /**< Final pedal value is taken directly from apps_5v */
 
 private:
     CarState &car;      /**< Reference to CarState */
@@ -77,20 +77,18 @@ private:
      * @brief CAN frame to stop the motor
      */
     const can_frame stop_frame = {
-        MOTOR_SEND, /**< can_id */
-        3,          /**< can_dlc */
-        0x90,       /**< data, torque command */
-        0x00,       /**< data, 0 torque * 2 */
+        0x201, /**< can_id */
+        3,     /**< can_dlc */
+        0x90,  /**< data, torque command */
+        0x00,  /**< data, 0 torque * 2 */
         0x00};
 
     can_frame torque_msg; /**< CAN frame for torque command */
 
-    // Cyclic queues for storing the pedal values
-    // Used for filtering, right now average of the last values
-
-    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_1; /**< Ring buffer for APPS 5V values */
-    RingBuffer<uint16_t, ADC_BUFFER_SIZE> pedal_value_2; /**< Ring buffer for APPS 3.3V values */
-    RingBuffer<uint16_t, ADC_BUFFER_SIZE> brake_value;   /**< Ring buffer for brake pedal values */
+    // Average filters for pedal and brake inputs
+    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal1_filter;
+    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal2_filter;
+    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> brake_filter;
 
     const LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE}; /**< Interpolation map for throttle torque */
     const LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};       /**< Interpolation map for brake torque */

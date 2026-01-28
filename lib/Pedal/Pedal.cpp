@@ -33,10 +33,7 @@ Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
     : car(car_),
       motor_can(motor_can_),
       fault(true),
-      fault_start_millis(0),
-      pedal_value_1(), // RingBuffer default init 0
-      pedal_value_2(),
-      brake_value()
+      fault_start_millis(0)
 {
     while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)
     {
@@ -58,34 +55,22 @@ Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
  */
 void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 {
-    // Record readings in buffer
-    pedal_value_1.push(pedal_1);
-    pedal_value_2.push(pedal_2);
-    brake_value.push(brake);
+    // Add new samples to the filters
+    pedal1_filter.addSample(pedal_1);
+    pedal2_filter.addSample(pedal_2);
+    brake_filter.addSample(brake);
 
-    // Range of pedal 1 is APPS_PEDAL_1_RANGE, pedal 2 is APPS_PEDAL_2_RANGE;
-
-    // this is current taking the direct array the circular queue writes into. Bad idea to do anything other than a simple average
-    // if not using a linear filter, pass the pedalValue_1.getLinearBuffer() to the filter function to ensure the ordering is correct.
-    // can also consider injecting the filter into the queue if need
-    // depends on the hardware filter, reduce software filtering as much as possible
-
-    // currently a small average filter is good enough
-    car.pedal.apps_5v = AVG_filter<uint16_t>(pedal_value_1.buffer, ADC_BUFFER_SIZE);
-    car.pedal.apps_3v3 = AVG_filter<uint16_t>(pedal_value_2.buffer, ADC_BUFFER_SIZE);
-    car.pedal.brake = AVG_filter<uint16_t>(brake_value.buffer, ADC_BUFFER_SIZE);
-
-    if (car.pedal.apps_5v < APPS_5V_MIN)
+    if (pedal_1 < APPS_5V_MIN)
         car.pedal.faults.bits.apps_5v_low = true;
-    if (car.pedal.apps_5v > APPS_5V_MAX)
+    if (pedal_1 > APPS_5V_MAX)
         car.pedal.faults.bits.apps_5v_high = true;
-    if (car.pedal.apps_3v3 < APPS_3V3_MIN)
+    if (pedal_2 < APPS_3V3_MIN)
         car.pedal.faults.bits.apps_3v3_low = true;
-    if (car.pedal.apps_3v3 > APPS_3V3_MAX)
+    if (pedal_2 > APPS_3V3_MAX)
         car.pedal.faults.bits.apps_3v3_high = true;
-    if (car.pedal.brake < brake_min)
+    if (brake < brake_min)
         car.pedal.faults.bits.brake_low = true;
-    if (car.pedal.brake > brake_max)
+    if (brake > brake_max)
         car.pedal.faults.bits.brake_high = true;
 
     if (checkPedalFault())
@@ -137,6 +122,11 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
  */
 void Pedal::sendFrame()
 {
+    // Update Telemetry struct
+    car.pedal.apps_5v = pedal1_filter.getFiltered();
+    car.pedal.apps_3v3 = pedal2_filter.getFiltered();
+    car.pedal.brake = brake_filter.getFiltered();
+
     if (car.pedal.status.bits.force_stop)
     {
         DBGLN_THROTTLE("Stopping motor: pedal fault");

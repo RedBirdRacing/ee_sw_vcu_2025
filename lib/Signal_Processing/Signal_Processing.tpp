@@ -2,75 +2,32 @@
  * @file Signal_Processing.tpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of Signal Processing functions
- * @version 1.0
- * @date 2026-01-18
+ * @version 2.0
+ * @date 2026-01-28
  * @see Signal_Processing.hpp
  */
 
 #include "Signal_Processing.hpp"
 
-/**
- * @brief Applies a Finite Impulse Response (FIR) filter on the signal buffer.
- *
- * @tparam T Type of the buffer elements
- * @param buffer Pointer to the input signal buffer
- * @param kernel Pointer to the FIR filter kernel
- * @param buf_size Size of the buffer and kernel
- * @param kernel_sum Sum of all values in the kernel for normalization
- * @return constexpr T Filtered output value
- */
-template <typename T>
-constexpr T FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum)
+// === AverageFilter ===
+template <typename TypeInput, typename TypeMid, uint16_t Size>
+AverageFilter<TypeInput, TypeMid, Size>::AverageFilter() = default;
+
+template <typename TypeInput, typename TypeMid, uint16_t Size>
+void AverageFilter<TypeInput, TypeMid, Size>::addSample(TypeInput sample)
 {
-    if (buffer == nullptr || kernel == nullptr || buf_size <= 0 || kernel_sum == 0.0f)
-    {
-        return static_cast<T>(0);
-    }
-
-    float sum = 0;
-
-    for (int i = 0; i < buf_size; ++i)
-    {
-        sum += static_cast<float>(buffer[i]) * kernel[i];
-    }
-
-    // normalize output value
-    return static_cast<T>(sum / kernel_sum);
+    buffer[index] = sample;
+    index = (index + 1) % Size;
 }
 
-/**
- * @brief Computes the average of two values.
- * 
- * @tparam T Type of the values
- * @param[in] val1 The first value.
- * @param[in] val2 The second value.
- * @return The average of val1 and val2.
- */
-template <typename T>
-constexpr T average(T val1, T val2)
+template <typename TypeInput, typename TypeMid, uint16_t Size>
+TypeInput AverageFilter<TypeInput, TypeMid, Size>::getFiltered() const
 {
-    return (val1 + val2) / 2;
-}
-
-/**
- * @brief Applies an average filter on the given buffer.
- *
- * @tparam T Type of the buffer elements.
- * @param buffer Pointer to the buffer containing elements to average.
- * @param buf_size Size of the buffer.
- * @return The average value of the elements in the buffer.
- */
-template <typename T>
-constexpr T AVG_filter(T *buffer, uint8_t buf_size)
-{
-    if (buffer == nullptr || buf_size == 0)
+    TypeMid sum = 0;
+    for (uint16_t i = 0; i < Size; ++i)
     {
-        return static_cast<T>(0);
-    }
-
-    T sum = 0;
-
-    for (int i = 0; i < buf_size; ++i)
         sum += buffer[i];
-    return sum / buf_size;
+    }
+    return static_cast<TypeInput>(sum / static_cast<TypeMid>(Size));
 }
+
