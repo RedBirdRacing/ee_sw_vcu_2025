@@ -1,47 +1,89 @@
+/**
+ * @file Enums.h
+ * @author Planeson, Red Bird Racing
+ * @brief Enumeration definitions for the VCU
+ * @version 1.3
+ * @date 2026-01-22
+ */
+
 #ifndef ENUMS_H
-#define ENUMS_H 
+#define ENUMS_H
 
-/* === Car Status State Machine ===
-Meaning of different car statuses
-INIT (0):  Just started the car
-IN_STARTING_SEQUENCE (1):  1st Transition state -- Driver holds the "Start" button and is on full brakes, lasts for STATUS_1_TIME_MILLIS milliseconds
-BUZZING (2):  2nd Transition state -- Buzzer bussin, driver can release "Start" button and brakes
-DRIVE_MODE (3):  Ready to drive -- Motor starts responding according to the driver pedal input. "Drive mode" LED lights up, indicating driver can press the throttle
+#include <stdint.h>
+#include <can.h> // canid_t
 
-Separately, the following will be done outside the status checking part:
-1.  Before the "Drive mode" LED lights up, if the throttle pedal is pressed (Throttle input is not euqal to 0), the car_status will return to 0
-2.  Before the "Drive mode" LED lights up, the canbus will keep sending "0 torque" messages to the motor
-
-Also, during status 0, 1, and 2, the VCU will keep sending "0 torque" messages to the motor via CAN
-*/
-enum CarStatus
+/**
+ * @brief Main car status state machine.
+ *
+ * Represents the current state of the car in the startup and drive sequence.
+ */
+enum class CarStatus : uint8_t
 {
-    INIT = 0,
-    IN_STARTING_SEQUENCE = 1,
-    BUZZING = 2,
-    DRIVE_MODE = 3
+    Init = 0,    /**< Just started the car */
+    Startin = 1, /**< Driver holds "Start" button and full brakes (transition state) */
+    Bussin = 2,  /**< Buzzer active, driver can release "Start" and brakes (transition state) */
+    Drive = 3    /**< Ready to drive, Drive mode LED on, throttle enabled */
 };
 
-enum Pedal_Fault_Status
+/**
+ * @brief Pedal fault status codes.
+ *
+ * Represents the current fault status related to pedal input.
+ */
+enum class PedalFault : uint8_t
 {
-    NO_FAULT = 0,
-    DIFF_FAULT_JUST_STARTED = 1, // DIFF mean "Difference", as in the >10% difference fault
-    DIFF_FAULT_CONTINUING = 2,
-    DIFF_FAULT_EXCEED_100MS = 3,
-    DIFF_FAULT_RESOLVED = 4,
-    THROTTLE_TOO_LOW = 5,
-    THROTTLE_TOO_HIGH = 6
+    None = 0x00,            /**< No fault detected */
+    DiffStart = 0x10,       /**< >10% difference fault just started */
+    DiffContinuing = 0x11,  /**< >10% difference fault is ongoing */
+    DiffExceed100ms = 0x12, /**< >10% difference fault exceeded 100ms */
+    DiffResolved = 0x19,    /**< Difference fault resolved */
+    ThrottleLow = 0x20,     /**< Throttle pedal below lower threshold */
+    ThrottleHigh = 0x29,    /**< Throttle pedal above upper threshold */
+    BrakeLow = 0x30,        /**< Brake pedal below lower threshold */
+    BrakeHigh = 0x39,       /**< Brake pedal above upper threshold */
 };
 
-// CAN message IDs -- Should start from 0x690
-enum Throttle_CAN_Ids {
-    THROTTLE_IN_MSG     = 0x690,
-    THROTTLE_OUT_MSG    = 0x691,
-    THROTTLE_FAULT_MSG  = 0x692
-};
-enum Status_CAN_Ids {
-    STATUS_CAR_MSG    = 0x693,
-    STATUS_BRAKE_MSG  = 0x694,
+/**
+ * @brief BMS status
+ *
+ * Represents the current state of the Battery Management System (BMS).
+ */
+enum class BmsStatus : uint8_t
+{
+    NoMsg = 0,    /**< No message received from BMS */
+    WrongId = 1,  /**< Received message with wrong CAN ID */
+    Waiting = 2,  /**< BMS is in standby, waiting to start HV */
+    Starting = 3, /**< BMS is starting high voltage */
+    Started = 4,  /**< BMS has started high voltage */
+    Unused = 5    /**< Unused status code */
 };
 
-#endif // Enums.h
+/**
+ * @brief MCP2515 instance indices.
+ *
+ * Used to identify different MCP2515 CAN controller instances.
+ */
+enum class McpIndex : uint8_t
+{
+    Motor = 0,     /**< Motor CAN MCP2515 instance */
+    Bms = 1,       /**< BMS CAN MCP2515 instance */
+    Datalogger = 2 /**< Datalogger CAN MCP2515 instance */
+};
+
+// === CAN IDs ===
+
+/**
+ * @brief CAN message IDs for status and brake debug.
+ *
+ * Used for sending car status and brake messages over CAN bus.
+ */
+enum class StatusCanId : canid_t
+{
+    CarMsg = 0x693,          /**< Debug: car status message */
+    StaCarChangeMsg = 0x694, /**< Debug: car status change message */
+    BrakeMsg = 0x695,        /**< Debug: brake status message */
+    BmsMsg = 0x696,          /**< Debug: BMS status message */
+    HallSensorMsg = 0x697    /**< Debug: Hall sensor message */
+};
+
+#endif // ENUMS_H
