@@ -64,7 +64,7 @@ public:
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void sendFrame();
     void readMotor();
-    uint16_t &pedal_final; /**< Final pedal value is taken directly from apps_5v */
+    uint16_t &pedal_final = car.pedal.apps_5v; /**< Final pedal value is taken directly from apps_5v */
 
 private:
     CarState &car;      /**< Reference to CarState */
@@ -85,10 +85,10 @@ private:
 
     can_frame torque_msg; /**< CAN frame for torque command */
 
-    // Average filters for pedal and brake inputs
-    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal1_filter;
-    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal2_filter;
-    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> brake_filter;
+    // Filters for pedal and brake inputs, see Signal_Processing.hpp
+    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal1_filter; /**< Filter for first pedal sensor input */
+    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal2_filter; /**< Filter for second pedal sensor input */
+    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> brake_filter;  /**< Filter for brake sensor input */
 
     const LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE}; /**< Interpolation map for throttle torque */
     const LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};       /**< Interpolation map for brake torque */
