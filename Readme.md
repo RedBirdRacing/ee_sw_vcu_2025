@@ -1,44 +1,71 @@
-# Red Bird Racing Vehicle Control Unit (VCU) 2025
+# Red Bird Racing VCU 2025
 
-## Files:
-vcu_firmware.ino: Main file
+Vehicle Control Unit (VCU) firmware for Red Bird Racing.
+As of current, this codebase is ready for Gen 5 (2025) and Gen 6 (2026).
 
-Pedal.cpp, Pedal.h: Pedal object encapsulating functionality for reading pedal signal and constructing CAN frames
+---
 
-Queue.cpp, Queue.h, Signal_Processing.cpp, Signal_Processing.h: For filtering pedal input
+## Overview
+This repository contains the embedded firmware for the VCU, responsible for pedal input processing, CAN communication, and vehicle state management. The codebase is modular, with a focus on reliability, maintainability, and real-time performance for electric race vehicles.
 
-pinMap.h: Pin mapping
+## Documentation
+- [**Doxygen Documentation**](https://hkust-red-bird-racing-evrt.github.io/ee_sw_vcu_2025/)
+- [**External System/Design Documentation**]()
 
-Debug.h: Debugging
+## Key Components
+- **Pedal:** Handles throttle and brake pedal input, filtering, and CAN frame construction.
+- **Signal Processing:** Provides filtering algorithms (average, exponential, etc.) for sensor data.
+- **CarState:** Maintains the current state of the vehicle, including pedal, motor, and error status.
+- **CAN Communication:** Interfaces with MCP2515 for sending/receiving CAN messages.
+- **Debug:** Configurable debug output via Serial and CAN.
+- **Scheduler:** Allow tasks to be run at set intervals. A mix of spinlock and yielding ensures accurate timing and maximum speeds.
 
-## Set-up and tuning:
-1. Choose appropiate values for pedal input constants in pedal.h
-2. Flash the vcu, make sure the car is jacked up and shut off during the process
-3. Clear people around the car (esp. around the rear)
-4. Test minimum and maximum values by probing the input voltage for APPS sensor (Input voltage for both 5v and 3.3v) Adjust the values (Including deadzones)
+## Getting Started
+1. **Configure Car Constants:**
+    - Edit `BoardConf.h` to choose the correct pin-mappings for a particular board.
+    - Edit `Pedal.hpp` to edit Drivetrain and reverse parameters.
+2. **Configure Pedal Input Constants:**
+	- Edit `Curves.hpp` to set appropriate min/max values, as well as the torque curve.
+3. **Build and Flash:**
+	- Use PlatformIO or your preferred toolchain to build and upload the firmware.
+	- Ensure the vehicle is safely jacked up and powered off during flashing.
+4. **Sensor Calibration:**
+	- Probe APPS sensor voltages (5V and 3.3V rails) to determine min/max values and scale the curve correctly.
+	- Adjust configuration (step 2) as needed for reliable and desirable operation.
 
-## Debugging:
-Currently, debugging is done through Serial (CAN debugging is under developement).
+## Debugging
+- Enable/disable debug messages by setting flags in `Debug.hpp`.
+- Significantly slows down the VCU due to the extra work
+- Should not affect motor/BMS/Telemetry frame timings majorly, though the Scheduler can handle missed frames correctly.
+- Debug is centred around showing what Telemetry would show, so there's more focus on tracing the car's states before Telemetry starts communicating, or if the CAN don't work.
+- **Serial Debugging:**
+  - Connect the VCU to a serial monitor.
+- **CAN Debugging:**
+  - Connect the VCU's MCP2515 outputs to a USB PCAN.
+  - Use the provided .dbc to interpret the frames.
+  - Check the external doc for full references to the messages.
 
-For Serial debugging:
-1. Connect VCU to a serial monitor.
-2. Select which debug messages are needed by setting the respective debug flags under debug.h to true 
-
-For CAN debugging, documentation for CAN frame data is listed in this [Google Docs](https://docs.google.com/document/d/1HoxZtfamggUB-1Y0bmg7lDl-tivFk5IBgUMXbC67wG0/edit?tab=t.0)
-
-### If debug is set to true, expect large delays between pedal input and motor output due to Serial being slow af
-
-## Future development:
-- More CANBUS channels for BMS, datalogger and other components
-- Better torque curve
-
-## Folder structure
+## Project Structure
 ```
-include
-| headers
-lib
-| libraries (folders)
-| | library.json (e.g. in Pedal)  --> link with other files in include/lib
-src
-| main.cpp
+include/         # Header files
+lib/             # Modular libraries (Pedal, Signal_Processing, etc.)
+src/             # Main application entry point (main.cpp)
+scripts/         # Static analysis, formatting, and utility scripts
+test/            # Unit and integration tests
+Doxyfile         # Doxygen configuration
+platformio.ini   # PlatformIO project config
 ```
+
+## Development Status
+- Modular filter framework for pedal/brake inputs (compile-time selection, interface consistency)
+- Improved state management and error handling
+- CAN communication for motor and diagnostics
+- Debug awaiting cleanup
+
+## Future Plans
+- Continuous maintenance
+- No significant development planned / expected.
+
+---
+
+For questions or contributions, please refer to the documentation links above or contact the Red Bird Racing Software subteam.
