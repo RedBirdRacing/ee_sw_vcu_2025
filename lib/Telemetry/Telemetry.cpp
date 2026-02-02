@@ -58,7 +58,7 @@ void Telemetry::sendTelemetry()
         return;
     }
     
-    if (count % FRAMES_FREQ_RATIO == 0)
+    if (count % NUM_FREQ_FRAMES == 0)
     {
         schedulerPedal();
     }

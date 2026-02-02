@@ -14,11 +14,11 @@
 
 // === APPS Limits ===
 
-constexpr uint16_t APPS_5V_MIN = 50;  /**< value below which apps_5v is considered shorted to ground */
-constexpr uint16_t APPS_5V_MAX = 950; /**< value above which apps_5v is considered shorted to rail */
+constexpr uint16_t APPS_5V_MIN = 290;  /**< value below which apps_5v is considered shorted to ground */
+constexpr uint16_t APPS_5V_MAX = 680; /**< value above which apps_5v is considered shorted to rail */
 
-constexpr uint16_t APPS_3V3_MIN = 30;  /**< value below which apps_3v3 is considered shorted to ground */
-constexpr uint16_t APPS_3V3_MAX = 600; /**< value above which apps_3v3 is considered shorted to rail */
+constexpr uint16_t APPS_3V3_MIN = 135;  /**< value below which apps_3v3 is considered shorted to ground */
+constexpr uint16_t APPS_3V3_MAX = 470; /**< value above which apps_3v3 is considered shorted to rail */
 constexpr uint16_t APPS_FINAL_MIN = APPS_5V_MIN; /**< final apps minimum value */
 constexpr uint16_t APPS_FINAL_MAX = APPS_5V_MAX; /**< final apps maximum value */
 
@@ -33,11 +33,11 @@ constexpr uint16_t APPS_FINAL_MAX = APPS_5V_MAX; /**< final apps maximum value *
  * @brief Throttle mapping table
  */
 const TablePoint<uint16_t, int16_t> THROTTLE_TABLE[5] = {
-    {60, 0},
-    {200, 2000},
-    {450, 10000},
-    {700, 25000},
-    {900, 32500}}; // make sure this point doesn't exceed +-32767
+    {320, 0},
+    {405, 2000},
+    {490, 10000},
+    {570, 25000},
+    {650, 32500}}; // make sure this point doesn't exceed +-32767
 
 // === Brake Limits ===
 
@@ -48,7 +48,7 @@ constexpr uint16_t brake_max = 950; /**< value above which brake is considered s
  * @brief Brake mapping table, negative values for regen
  */
 const TablePoint<uint16_t, int16_t> BRAKE_TABLE[5] = {
-    {60, 0},
+    {120, 0},
     {250, -15000},
     {500, -26000},
     {750, -31000},

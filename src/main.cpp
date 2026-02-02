@@ -41,6 +41,7 @@ MCP2515 mcp2515_BMS(CS_CAN_BMS);     // BMS CAN
 MCP2515 mcp2515_DL(CS_CAN_DL);       // datalogger CAN
 
 #define mcp2515_motor mcp2515_DL
+#define mcp2515_BMS mcp2515_DL
 
 constexpr uint8_t NUM_MCP = 3;
 MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
@@ -51,7 +52,7 @@ constexpr uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver
 constexpr uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
 constexpr uint16_t BMS_MILLIS = 10000;     // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 
-constexpr uint16_t BRAKE_THRESHOLD = 130; // The threshold for the brake pedal to be considered pressed
+constexpr uint16_t BRAKE_THRESHOLD = 50; // The threshold for the brake pedal to be considered pressed
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
