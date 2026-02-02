@@ -26,11 +26,11 @@
 
 constexpr bool REGEN_ENABLED = true; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
 
-// Flips the direction of motor output
-// set to true for gen 3
-// false for gen 5
-// later make class member for future dev
-constexpr bool FLIP_MOTOR_DIR = false;
+constexpr bool FLIP_MOTOR_DIR = false; /**< Boolean toggle to flip motor direction; true inverts torque commands. */
+
+constexpr bool BRAKE_RELIABLE = true; /**< brake assumed reliable; enable checking of min/max (narrow range); set to false compromises safety! */
+
+constexpr uint16_t FAULT_CHECK_HEX = BRAKE_RELIABLE ? 0xFE : 0x3E; /**< Hex mask for fault checking based on brake reliability. */
 
 namespace PedalConstants
 {
@@ -67,12 +67,9 @@ public:
     uint16_t &pedal_final = car.pedal.apps_5v; /**< Final pedal value is taken directly from apps_5v */
 
 private:
-    CarState &car;      /**< Reference to CarState */
-    MCP2515 &motor_can; /**< Reference to MCP2515 for sending CAN messages */
-    // If the two potentiometer inputs are too different (> 10%), the inputs are faulty
-    // Definition for faulty is under FSEC 2024 Chapter 2, section 12.8, 12.9
-    bool fault = true;
-    uint32_t fault_start_millis; // rollover in 49.7 days
+    CarState &car;               /**< Reference to CarState */
+    MCP2515 &motor_can;          /**< Reference to MCP2515 for sending CAN messages */
+    uint32_t fault_start_millis; /**< Timestamp for when a fault started */
     /**
      * @brief CAN frame to stop the motor
      */
@@ -85,10 +82,10 @@ private:
 
     can_frame torque_msg; /**< CAN frame for torque command */
 
-    // Filters for pedal and brake inputs, see Signal_Processing.hpp
-    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal1_filter; /**< Filter for first pedal sensor input */
-    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> pedal2_filter; /**< Filter for second pedal sensor input */
-    AverageFilter<uint16_t, uint16_t, ADC_BUFFER_SIZE> brake_filter;  /**< Filter for brake sensor input */
+    // Filters for pedal and brake inputs, see Signal_Processing.hpp for options
+    ExponentialFilter<uint16_t, uint16_t> pedal1_filter; /**< Filter for first pedal sensor input */
+    ExponentialFilter<uint16_t, uint16_t> pedal2_filter; /**< Filter for second pedal sensor input */
+    ExponentialFilter<uint16_t, uint16_t> brake_filter;  /**< Filter for brake sensor input */
 
     const LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE}; /**< Interpolation map for throttle torque */
     const LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};       /**< Interpolation map for brake torque */

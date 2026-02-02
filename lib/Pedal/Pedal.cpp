@@ -28,19 +28,19 @@
  * @brief Constructor for the Pedal class.
  * Initializes the pedal state. fault is set to true initially,
  * so you must send update within 100ms of starting the car to clear it.
+ * Sends request to motor controller for cyclic RPM and error reads.
+ * @param car_ Reference to the CarState structure.
+ * @param motor_can_ Reference to the MCP2515 instance for motor CAN communication.
  */
 Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
     : car(car_),
       motor_can(motor_can_),
-      fault(true),
       fault_start_millis(0)
 {
     while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)
-    {
-    }
+        ;
     while (sendCyclicRead(WARN_ERR, ERR_PERIOD) != MCP2515::ERROR_OK)
-    {
-    }
+        ;
 }
 
 /**
@@ -81,8 +81,8 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
             // was faulty already, check time
             if (car.millis - fault_start_millis > 100)
             {
-                car.pedal.faults.bits.fault_exceeded = true; // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can frames
-
+                car.pedal.faults.bits.fault_exceeded = true;
+                car.pedal.status.bits.force_stop = true; // critical fault, force stop; since early return, need set here
                 DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
                 return;
             }
@@ -109,9 +109,9 @@ void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
         car.pedal.faults.bits.fault_active = false;
     }
 
-    if (car.pedal.faults.byte & 0xFE) // any fault bits other than active *** double check this is correct with real board ***
+    if (car.pedal.faults.byte & FAULT_CHECK_HEX)
     {
-        car.pedal.status.bits.force_stop = true; // set force stop if any fault other than active
+        car.pedal.status.bits.force_stop = true; // critical fault, force stop
     }
 
     return;
@@ -174,7 +174,7 @@ void Pedal::sendFrame()
  *
  * @param pedal Pedal ADC in the range of 0-1023.
  * @param brake Brake ADC in the range of 0-1023.
- * @param motor_rpm Current motor RPM for regen logic.
+ * @param motor_rpm Current motor RPM for regen logic, scaled to 0-32767.
  * @param flip_dir Boolean indicating whether to flip the motor direction.
  * @return Mapped torque value in the signed range of -TORQUE_MAX to TORQUE_MAX.
  */

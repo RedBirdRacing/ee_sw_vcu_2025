@@ -155,9 +155,7 @@ void loop()
     switch (car.pedal.status.bits.car_status)
     {
     case CarStatus::Drive:
-        // Pedal update
-        // Send pedal value through canbus
-        // already scheduled
+        // send pedal update, done via Scheduler (always on)
         return; // no need logic to check if pedal on, car started
 
     // do not return here if not in DRIVE mode, else can't detect pedal being on while starting

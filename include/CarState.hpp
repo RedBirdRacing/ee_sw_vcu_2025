@@ -35,7 +35,7 @@ struct TelemetryFramePedal
     union StateByteStatus /**< Union of bits for car status besides Pedal */
     {
         uint8_t byte;
-        struct
+        struct Bits
         {
             CarStatus car_status : 2; /**< Current car status, produces compiler warning before GCC 9.3 due to bug */
             bool state_unknown : 1;   /**< Unknown car state */
@@ -49,9 +49,9 @@ struct TelemetryFramePedal
     union StateByteFaults /**< Union of bits for pedal faults */
     {
         uint8_t byte;
-        struct
+        struct Bits
         {
-            bool fault_active : 1;   /**< Pedal faulty now */
+            bool fault_active : 1;   /**< Pedal faulty now, only one resetable */
             bool fault_exceeded : 1; /**< Current pedal fault exceeded allowed time */
             bool apps_5v_low : 1;    /**< APPS 5V considered shorted to ground*/
             bool apps_5v_high : 1;   /**< APPS 5V considered shorted to rail */
