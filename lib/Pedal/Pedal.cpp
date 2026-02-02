@@ -157,9 +157,6 @@ void Pedal::sendFrame()
 
     car.motor.torque_val = pedalTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
 
-    torque_msg.can_id = MOTOR_SEND;
-    torque_msg.can_dlc = 3;
-    torque_msg.data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     torque_msg.data[1] = car.motor.torque_val & 0xFF;
     torque_msg.data[2] = (car.motor.torque_val >> 8) & 0xFF;
     motor_can.sendMessage(&torque_msg);

@@ -9,7 +9,7 @@
 
 #include "BMS.hpp"
 #include "Debug.hpp"
-#include "Enums.h"
+#include "Enums.hpp"
 
 // ignore -Wunused-parameter warnings for Debug.h
 #pragma GCC diagnostic push

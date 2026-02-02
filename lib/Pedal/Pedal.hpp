@@ -74,13 +74,21 @@ private:
      * @brief CAN frame to stop the motor
      */
     const can_frame stop_frame = {
-        0x201, /**< can_id */
-        3,     /**< can_dlc */
-        0x90,  /**< data, torque command */
-        0x00,  /**< data, 0 torque * 2 */
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        0x90,       /**< data, torque command */
+        0x00,       /**< data, 0 torque * 2 */
         0x00};
 
-    can_frame torque_msg; /**< CAN frame for torque command */
+    /**
+     * @brief CAN frame for torque command
+     */
+    can_frame torque_msg = {
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        0x90,       /**< data, torque command */
+        0x00,       /**< data, init as 0 torque * 2 */
+        0x00};
 
     // Filters for pedal and brake inputs, see Signal_Processing.hpp for options
     ExponentialFilter<uint16_t, uint16_t> pedal1_filter; /**< Filter for first pedal sensor input */

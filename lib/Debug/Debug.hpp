@@ -10,7 +10,7 @@
 #ifndef DEBUG_HPP
 #define DEBUG_HPP
 
-#include "Enums.h"
+#include "Enums.hpp"
 
 // === Debug Flags ===
 #define DEBUG true                  // if false, all debug messages are ignored

@@ -11,7 +11,7 @@
 #define DEBUG_SERIAL_HPP
 
 #include <Arduino.h>
-#include "Enums.h"
+#include "Enums.hpp"
 
 /**
  * @brief Namespace for serial debugging functions

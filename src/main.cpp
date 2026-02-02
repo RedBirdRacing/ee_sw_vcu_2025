@@ -10,7 +10,7 @@
 #include "BoardConf.h"
 #include "Pedal.hpp"
 #include "BMS.hpp"
-#include "Enums.h"
+#include "Enums.hpp"
 #include "CarState.hpp"
 #include "Scheduler.hpp"
 #include "Curves.hpp"

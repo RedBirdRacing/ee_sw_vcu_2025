@@ -44,7 +44,7 @@ constexpr can_frame stop_hv_msg = {
 class BMS
 {
 public:
-    BMS(MCP2515 &bms_can_);
+    explicit BMS(MCP2515 &bms_can_);
     /**
      * @brief Returns true if HV has been started
      * @return true if HV started, false otherwise

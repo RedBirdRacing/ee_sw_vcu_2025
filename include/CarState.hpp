@@ -11,7 +11,7 @@
 #ifndef CAR_STATE_HPP
 #define CAR_STATE_HPP
 
-#include "Enums.h"
+#include "Enums.hpp"
 #include <can.h>
 #include <stdint.h>
 

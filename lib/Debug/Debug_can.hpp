@@ -16,7 +16,7 @@
 #include <mcp2515.h>
 #pragma GCC diagnostic pop
 
-#include "Enums.h"
+#include "Enums.hpp"
 
 /**
  * @brief Namespace for CAN debugging functions
