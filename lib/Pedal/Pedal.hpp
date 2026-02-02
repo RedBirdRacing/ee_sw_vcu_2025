@@ -64,7 +64,7 @@ public:
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void sendFrame();
     void readMotor();
-    uint16_t &pedal_final = car.pedal.apps_5v; /**< Final pedal value is taken directly from apps_5v */
+    uint16_t &pedal_final; /**< Final pedal value is taken directly from apps_5v, see initializer */
 
 private:
     CarState &car;               /**< Reference to CarState */

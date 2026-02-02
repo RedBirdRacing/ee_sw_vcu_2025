@@ -83,7 +83,8 @@ struct TelemetryFramePedal
             static_cast<__u8>(((brake >> 4) & 0x3F) | ((hall_sensor & 0x03) << 6)),
             static_cast<__u8>((hall_sensor >> 2) & 0xFF),
             status.byte,
-            faults.byte};
+            faults.byte,
+            0x00};
     }
 };
 

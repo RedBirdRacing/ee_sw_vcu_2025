@@ -14,11 +14,11 @@
 
 // === APPS Limits ===
 
-constexpr uint16_t APPS_5V_MIN = 290;  /**< value below which apps_5v is considered shorted to ground */
-constexpr uint16_t APPS_5V_MAX = 680; /**< value above which apps_5v is considered shorted to rail */
+constexpr uint16_t APPS_5V_MIN = 250;  /**< value below which apps_5v is considered shorted to ground */
+constexpr uint16_t APPS_5V_MAX = 700; /**< value above which apps_5v is considered shorted to rail */
 
 constexpr uint16_t APPS_3V3_MIN = 135;  /**< value below which apps_3v3 is considered shorted to ground */
-constexpr uint16_t APPS_3V3_MAX = 470; /**< value above which apps_3v3 is considered shorted to rail */
+constexpr uint16_t APPS_3V3_MAX = 500; /**< value above which apps_3v3 is considered shorted to rail */
 constexpr uint16_t APPS_FINAL_MIN = APPS_5V_MIN; /**< final apps minimum value */
 constexpr uint16_t APPS_FINAL_MAX = APPS_5V_MAX; /**< final apps maximum value */
 

@@ -76,6 +76,7 @@ Telemetry telem(mcp2515_DL, car);
 void scheduler_pedal()
 {
     pedal.sendFrame();
+    pedal.readMotor();
 }
 void scheduler_bms()
 {
