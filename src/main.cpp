@@ -76,6 +76,7 @@ Telemetry telem(mcp2515_DL, car);
 void scheduler_pedal()
 {
     pedal.sendFrame();
+    pedal.readMotor();
 }
 void scheduler_bms()
 {
@@ -138,7 +139,7 @@ void loop()
 {
     // DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
     car.millis = millis();
-    pedal.update(analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
+    pedal.update(analogRead(APPS_5V), analogRead(APPS_5V)*2/3, analogRead(BRAKE_IN));
 
     brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
@@ -218,7 +219,7 @@ void loop()
     }
 
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
-    if (pedal.pedal_final > APPS_FINAL_MIN) // if pedal pressed while not in DRIVE, reset to INIT
+    if (false && pedal.pedal_final > APPS_FINAL_MIN) // if pedal pressed while not in DRIVE, reset to INIT
     {
         car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this

@@ -33,7 +33,8 @@
  * @param motor_can_ Reference to the MCP2515 instance for motor CAN communication.
  */
 Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
-    : car(car_),
+    : pedal_final(car_.pedal.apps_5v),
+      car(car_),
       motor_can(motor_can_),
       fault_start_millis(0)
 {
@@ -154,13 +155,13 @@ void Pedal::sendFrame()
         return;
     }
 
-    int16_t torque_val = pedalTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
+    car.motor.torque_val = pedalTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
 
     torque_msg.can_id = MOTOR_SEND;
     torque_msg.can_dlc = 3;
     torque_msg.data[0] = 0x90; // 0x90 for torque, 0x31 for speed
-    torque_msg.data[1] = torque_val & 0xFF;
-    torque_msg.data[2] = (torque_val >> 8) & 0xFF;
+    torque_msg.data[1] = car.motor.torque_val & 0xFF;
+    torque_msg.data[2] = (car.motor.torque_val >> 8) & 0xFF;
     motor_can.sendMessage(&torque_msg);
     return;
 }
@@ -183,8 +184,10 @@ constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t
     if (REGEN_ENABLED && brake > BRAKE_MAP.start())
     {
         if (pedal > THROTTLE_MAP.start())
+        {
             car.pedal.status.bits.screenshot = true;
-        if (flip_dir)
+        }
+        else if (flip_dir)
         {
             if (motor_rpm < PedalConstants::MIN_REGEN_RPM_VAL)
                 return 0;
