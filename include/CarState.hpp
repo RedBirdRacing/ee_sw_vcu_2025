@@ -17,7 +17,7 @@
 
 constexpr canid_t TELEMETRY_PEDAL_MSG = 0x700; /**< Telemetry: Pedal readings message */
 constexpr canid_t TELEMETRY_MOTOR_MSG = 0x701; /**< Telemetry: Digital signals message */
-constexpr canid_t TELEMETRY_BMS_MSG = 0x702;   /**< Telemetry: Car state message */
+constexpr canid_t TELEMETRY_BMS_MSG = 0x710;   /**< Telemetry: Car state message */
 
 /**
  * @brief Telemetry frame structure for the Pedals.

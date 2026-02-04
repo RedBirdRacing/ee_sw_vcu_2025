@@ -60,7 +60,7 @@ constexpr uint8_t ADC_BUFFER_SIZE = 16; /**< Size of the ADC reading buffer for 
 class Pedal
 {
 public:
-    Pedal(CarState &car, MCP2515 &motor_can_, uint16_t &pedal_final_);
+    Pedal(MCP2515 &motor_can_, CarState &car, uint16_t &pedal_final_);
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void sendFrame();
     void readMotor();

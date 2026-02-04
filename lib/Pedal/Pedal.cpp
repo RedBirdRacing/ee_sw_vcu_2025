@@ -29,11 +29,11 @@
  * Initializes the pedal state. fault is set to true initially,
  * so you must send update within 100ms of starting the car to clear it.
  * Sends request to motor controller for cyclic RPM and error reads.
- * @param car_ Reference to the CarState structure.
  * @param motor_can_ Reference to the MCP2515 instance for motor CAN communication.
+ * @param car_ Reference to the CarState structure.
  * @param pedal_final_ Reference to the pedal used as the final pedal value. Although not recommended, you can set another uint16 outside Pedal to be something like 0.3 APPS_1 + 0.7 APPS_2, then reference that here. If in future, this become a sustained need, should consider adding a function pointer to find the final pedal value to let Pedal class call it itself.
  */
-Pedal::Pedal(CarState &car_, MCP2515 &motor_can_, uint16_t &pedal_final_)
+Pedal::Pedal(MCP2515 &motor_can_, CarState &car_, uint16_t &pedal_final_)
     : pedal_final(pedal_final_),
       car(car_),
       motor_can(motor_can_),
