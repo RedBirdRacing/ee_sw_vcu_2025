@@ -69,7 +69,7 @@ struct CarState car = {
 };
 
 // Global objects
-Pedal pedal(car, mcp2515_motor);
+Pedal pedal(car, mcp2515_motor, car.pedal.apps_5v);
 BMS bms(mcp2515_BMS);
 Telemetry telem(mcp2515_DL, car);
 
