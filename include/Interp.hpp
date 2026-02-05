@@ -11,20 +11,17 @@
 
 #include <stdint.h>
 
-template <typename Tin, typename Tout>
-
 /**
  * @brief Structure representing a point in the interpolation table
  * @tparam Tin Type of the input value
  * @tparam Tout Type of the output value
  */
+template <typename Tin, typename Tout>
 struct TablePoint
 {
     Tin in;   /**< Input (x) value */
     Tout out; /**< Output (y) value */
 };
-
-template <typename Tin, typename Tout, typename Tmid, uint8_t size>
 
 /**
  * @brief Class template for performing linear interpolation using a lookup table
@@ -33,6 +30,7 @@ template <typename Tin, typename Tout, typename Tmid, uint8_t size>
  * @tparam Tmid Intermediate type for calculations to prevent overflow
  * @tparam size Number of points in the interpolation table
  */
+template <typename Tin, typename Tout, typename Tmid, uint8_t size>
 class LinearInterp
 {
 public:

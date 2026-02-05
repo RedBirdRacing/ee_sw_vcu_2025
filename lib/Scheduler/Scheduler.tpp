@@ -86,7 +86,7 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_tim
  * @tparam NUM_MCP2515 Number of MCP2515 instances
  * @param[in] mcp_index Index of the MCP2515 instance
  * @param[in] task Function pointer to the task to be added
- * @param[in] tick_interval Number of ticks between task executions, so 0 for every tick, 9 for every 10 ticks
+ * @param[in] tick_interval Number of ticks between task executions, so 1 for every tick, 10 for every 10 ticks
  * @return true if the task was added successfully, false otherwise
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
