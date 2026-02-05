@@ -1,203 +1,276 @@
-#include "Pedal.h"
-#include "Arduino.h"
-#include "Signal_Processing.cpp"
-#include "Debug.h"
+/**
+ * @file Pedal.cpp
+ * @author Planeson, Red Bird Racing
+ * @brief Implementation of the Pedal class for handling throttle pedal inputs
+ * @version 1.4
+ * @date 2026-01-26
+ * @see Pedal.hpp
+ */
 
-// Sinc function of size 128
-float SINC_128[128] = {0.017232, 0.002666, -0.013033, -0.026004, -0.032934, -0.031899, -0.022884, -0.007851, 0.009675, 0.025427,
-                       0.035421, 0.036957, 0.029329, 0.014081, -0.005294, -0.024137, -0.037732, -0.042472, -0.036792, -0.021652,
-                       -0.000402, 0.021937, 0.039841, 0.048626, 0.045647, 0.031053, 0.007888, -0.018512, -0.041722, -0.055750,
-                       -0.056553, -0.043139, -0.017994, 0.013320, 0.043353, 0.064476, 0.070758, 0.059540, 0.032321, -0.005306,
-                       -0.044714, -0.076126, -0.090908, -0.083781, -0.054402, -0.007911, 0.045791, 0.093940, 0.123670, 0.125067,
-                       0.093855, 0.033095, -0.046569, -0.128280, -0.191785, -0.217229, -0.189201, -0.100224, 0.047040, 0.239389,
-                       0.454649, 0.664997, 0.841471, 0.958851, 1, 0.958851, 0.841471, 0.664997, 0.454649, 0.239389, 0.047040,
-                       -0.100224, -0.189201, -0.217229, -0.191785, -0.128280, -0.046569, 0.033095, 0.093855, 0.125067, 0.123670,
-                       0.093940, 0.045791, -0.007911, -0.054402, -0.083781, -0.090908, -0.076126, -0.044714, -0.005306, 0.032321,
-                       0.059540, 0.070758, 0.064476, 0.043353, 0.013320, -0.017994, -0.043139, -0.056553, -0.055750, -0.041722,
-                       -0.018512, 0.007888, 0.031053, 0.045647, 0.048626, 0.039841, 0.021937, -0.000402, -0.021652, -0.036792,
-                       -0.042472, -0.037732, -0.024137, -0.005294, 0.014081, 0.029329, 0.036957, 0.035421, 0.025427, 0.009675,
-                       -0.007851, -0.022884, -0.031899, -0.032934, -0.026004, -0.013033};
+#include "Pedal.hpp"
+#include "Signal_Processing.hpp" // AVG_filter
+#include "CarState.hpp"
+#include <stdint.h>
+#include "Queue.hpp"
+#include "CarState.hpp"
+#include "Interp.hpp"
+#include "Curves.hpp"
 
-Pedal::Pedal()
-    : input_pin_1(-1), input_pin_2(-1), previous_millis(0), conversion_rate(0), fault(true), fault_force_stop(false) {}
+// ignore -Wunused-parameter warnings for Debug.h
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#include "Debug.hpp" // DBGLN_GENERAL
+#pragma GCC diagnostic pop
 
-Pedal::Pedal(int input_pin_1, int input_pin_2, unsigned long millis, unsigned short conversion_rate)
-    : input_pin_1(input_pin_1), input_pin_2(input_pin_2), previous_millis(millis), conversion_rate(conversion_rate), fault(false), fault_force_stop(false)
+#include <Arduino.h> // round()
+
+/**
+ * @brief Constructor for the Pedal class.
+ * Initializes the pedal state. fault is set to true initially,
+ * so you must send update within 100ms of starting the car to clear it.
+ * Sends request to motor controller for cyclic RPM and error reads.
+ * @param motor_can_ Reference to the MCP2515 instance for motor CAN communication.
+ * @param car_ Reference to the CarState structure.
+ * @param pedal_final_ Reference to the pedal used as the final pedal value. Although not recommended, you can set another uint16 outside Pedal to be something like 0.3 APPS_1 + 0.7 APPS_2, then reference that here. If in future, this become a sustained need, should consider adding a function pointer to find the final pedal value to let Pedal class call it itself.
+ */
+Pedal::Pedal(MCP2515 &motor_can_, CarState &car_, uint16_t &pedal_final_)
+    : pedal_final(pedal_final_),
+      car(car_),
+      motor_can(motor_can_),
+      fault_start_millis(0)
 {
-    // Init pins
-    pinMode(input_pin_1, INPUT);
-    pinMode(input_pin_2, INPUT);
-    conversion_period = 1000 / conversion_rate;
-
-    // Init ADC buffers
-    for (int i = 0; i < ADC_BUFFER_SIZE; ++i)
-    {
-        pedalValue_1.buffer[i] = 0;
-        pedalValue_2.buffer[i] = 0;
-    }
-    
-    // -- Debug: Pedal initialized
-    DBGLN_THROTTLE("Throttle Pedal initialized");
-    DBGLN_GENERAL("Throttle Pedal initialized");
+    while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)
+        ;
+    while (sendCyclicRead(WARN_ERR, ERR_PERIOD) != MCP2515::ERROR_OK)
+        ;
 }
 
-void Pedal::pedal_update(unsigned long millis)
+/**
+ * @brief Updates pedal sensor readings, applies filtering, and checks for faults.
+ *
+ * Stores new pedal readings, applies an average filter, and updates car state.
+ * If a fault is detected between pedal sensors, sets fault flags and logs status.
+ *
+ * @param pedal_1 Raw value from pedal sensor 1.
+ * @param pedal_2 Raw value from pedal sensor 2.
+ * @param brake Raw value from brake sensor.
+ */
+void Pedal::update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake)
 {
-    // If is time to update
-    if (millis - previous_millis > conversion_period)
+    // Add new samples to the filters
+    pedal1_filter.addSample(pedal_1);
+    pedal2_filter.addSample(pedal_2);
+    brake_filter.addSample(brake);
+
+    if (pedal_1 < APPS_5V_MIN)
+        car.pedal.faults.bits.apps_5v_low = true;
+    if (pedal_1 > APPS_5V_MAX)
+        car.pedal.faults.bits.apps_5v_high = true;
+    if (pedal_2 < APPS_3V3_MIN)
+        car.pedal.faults.bits.apps_3v3_low = true;
+    if (pedal_2 > APPS_3V3_MAX)
+        car.pedal.faults.bits.apps_3v3_high = true;
+    if (brake < brake_min)
+        car.pedal.faults.bits.brake_low = true;
+    if (brake > brake_max)
+        car.pedal.faults.bits.brake_high = true;
+
+    if (checkPedalFault())
     {
-        // Updating the previous millis
-        previous_millis = millis;
-        // Record readings in buffer
-        pedalValue_1.push(analogRead(input_pin_1));
-        pedalValue_2.push(analogRead(input_pin_2));
-
-        // By default range of pedal 1 is APPS_PEDAL_1_RANGE, pedal 2 is APPS_PEDAL_2_RANGE;
-
-        // this is current taking the direct array the circular queue writes into. Bad idea to do anything other than a simple average
-        // if not using a linear filter, pass the pedalValue_1.getLinearBuffer() to the filter function to ensure the ordering is correct.
-        // can also consider injecting the filter into the queue if need
-        // depends on the hardware filter, reduce software filtering as much as possible
-        uint16_t pedal_filtered_1 = round(AVG_filter<float>(pedalValue_1.buffer, ADC_BUFFER_SIZE));
-        uint16_t pedal_filtered_2 = round(AVG_filter<float>(pedalValue_2.buffer, ADC_BUFFER_SIZE));
-
-        // int pedal_filtered_1 = round(FIR_filter<float>(pedalValue_1.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
-        // int pedal_filtered_2 = round(FIR_filter<float>(pedalValue_2.buffer, SINC_128, ADC_BUFFER_SIZE, 6.176445));
-        final_pedal_value = pedal_filtered_1; // Only take in pedal 1 value
-
-        DBG_THROTTLE_IN(pedal_filtered_1, pedal_filtered_2, final_pedal_value); 
-
-        // Debug: Pedal input values, filtered values
-
-        if (check_pedal_fault(pedal_filtered_1, pedal_filtered_2))
+        // fault now
+        if (car.pedal.faults.bits.fault_active)
         {
-            if (fault)
-            { // Previous scan is already faulty
-                if (millis - fault_start_millis > 100)
-                { // Faulty for more than 100 ms
-                    // TODO: Add code for alerting the faulty pedal, and whatever else mandated in rules Ch.2 Section 12.8, 12.9
-
-                    // Turning off the motor is achieved using another digital pin, not via canbus, but will still send 0 torque can signals
-                    fault_force_stop = true;
-
-                    DBG_THROTTLE_FAULT(DIFF_FAULT_EXCEED_100MS, 0);
-                    // DBGLN_THROTTLE("FAULT: Pedal mismatch persisted > 100ms!");
-
-                    // -- Debug: Pedal faulty too long
-
-                    return;
-                }
+            // was faulty already, check time
+            if (car.millis - fault_start_millis > 100)
+            {
+                car.pedal.faults.bits.fault_exceeded = true;
+                car.pedal.status.bits.force_stop = true; // critical fault, force stop; since early return, need set here
+                DBG_THROTTLE_FAULT(PedalFault::DiffExceed100ms);
+                return;
             }
             else
             {
-                fault_start_millis = millis;
-                DBG_THROTTLE_FAULT(DIFF_FAULT_JUST_STARTED, 0);
-                // DBGLN_THROTTLE("FAULT: Pedal mismatch started");
+                DBG_THROTTLE_FAULT(PedalFault::DiffContinuing); // will be optimized out if the debug macro is off
             }
-
-            fault = true;
-            return;
         }
         else
         {
-            if (fault)
-            {
-                DBG_THROTTLE_FAULT(DIFF_FAULT_RESOLVED, 0);
-                // DBGLN_THROTTLE("Pedal mismatch resolved");
-            }
-            fault = false;
-            // by rules, car should be reset after a fault to continue driving
-            // fault_force_stop = false; // Reset the force stop flag
+            // new fault
+            fault_start_millis = car.millis;
+            DBG_THROTTLE_FAULT(PedalFault::DiffStart);
         }
-    }
-}
-
-void Pedal::pedal_can_frame_stop_motor(can_frame *tx_throttle_msg)
-{
-    tx_throttle_msg->can_id = 0x201;
-    tx_throttle_msg->can_dlc = 3;
-    tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
-    tx_throttle_msg->data[1] = 0;
-    tx_throttle_msg->data[2] = 0;
-
-    DBGLN_THROTTLE("Stopping motor");
-}
-
-void Pedal::pedal_can_frame_update(can_frame *tx_throttle_msg)
-{
-    if (fault_force_stop)
-    {
-        pedal_can_frame_stop_motor(tx_throttle_msg);
-
-        DBGLN_THROTTLE("Forced motor to stop due to pedal fault");
-        return;
-    }
-    float throttle_volt = (float)final_pedal_value * APPS_PEDAL_1_RANGE / 1024; // Converts most update pedal value to a float between 0V and 5V
-
-    int16_t throttle_torque_val = 0;
-    /*
-    Between 0V and THROTTLE_LOWER_DEADZONE_MAX_IN_VOLT: Error for open circuit
-    Between THROTTLE_LOWER_DEADZONE_MAX_IN_VOLT and MIN_THROTTLE_IN_VOLT: 0% Torque
-    Between MIN_THROTTLE_IN_VOLT and MAX_THROTTLE_IN_VOLT: Linear relationship
-    Between MAX_THROTTLE_IN_VOLT and THORTTLE_UPPER_DEADZONE_MIN_IN_VOLT: 100% Torque
-    Between THORTTLE_UPPER_DEADZONE_MIN_IN_VOLT and 5V: Error for short circuit
-    */
-    if (throttle_volt < THROTTLE_LOWER_DEADZONE_MIN_IN_VOLT)
-    {
-        DBG_THROTTLE_FAULT(THROTTLE_TOO_LOW, throttle_volt);
-        // DBG_THROTTLE_FAULT(THROTTLE_TOO_LOW "Throttle voltage too low");
-        throttle_torque_val = 0;
-    }
-    else if (throttle_volt < MIN_THROTTLE_IN_VOLT)
-    {
-        throttle_torque_val = MIN_THROTTLE_OUT_VAL;
-    }
-    else if (throttle_volt < MAX_THROTTLE_IN_VOLT)
-    {
-        // Scale up the value for canbus
-        throttle_torque_val = (throttle_volt - MIN_THROTTLE_IN_VOLT) * MAX_THROTTLE_OUT_VAL / (MAX_THROTTLE_IN_VOLT - MIN_THROTTLE_IN_VOLT);
-    }
-    else if (throttle_volt < THROTTLE_UPPER_DEADZONE_MAX_IN_VOLT)
-    {
-        throttle_torque_val = MAX_THROTTLE_OUT_VAL;
+        car.pedal.faults.bits.fault_active = true;
     }
     else
     {
-        // DBG_THROTTLE("Throttle voltage too high");
-        DBG_THROTTLE_FAULT(THROTTLE_TOO_HIGH, throttle_volt);
-        // For safety, this should not be set to other values
-        throttle_torque_val = 0;
+        // no fault
+        if (car.pedal.faults.bits.fault_active)
+        {
+            DBG_THROTTLE_FAULT(PedalFault::DiffResolved);
+        }
+        car.pedal.faults.bits.fault_active = false;
     }
 
-    // motor reverse is car forward
-    if (Flip_Motor_Dir)
+    if (car.pedal.faults.byte & FAULT_CHECK_HEX)
     {
-        throttle_torque_val = -throttle_torque_val;
+        car.pedal.status.bits.force_stop = true; // critical fault, force stop
     }
 
-    DBG_THROTTLE_OUT(throttle_volt, throttle_torque_val);
-    // DBG_THROTTLE("CAN UPDATE: Throttle = ");
-
-    tx_throttle_msg->can_id = 0x201;
-    tx_throttle_msg->can_dlc = 3;
-    tx_throttle_msg->data[0] = 0x90; // 0x90 for torque, 0x31 for speed
-    tx_throttle_msg->data[1] = throttle_torque_val & 0xFF;
-    tx_throttle_msg->data[2] = (throttle_torque_val >> 8) & 0xFF;
+    return;
 }
 
-bool Pedal::check_pedal_fault(int pedal_1, int pedal_2)
+/**
+ * @brief Sends the appropriate CAN frame to the motor based on pedal and car state.
+ */
+void Pedal::sendFrame()
 {
-    float pedal_1_percentage = (float)pedal_1 / 1024;
-    float pedal_2_percentage = (float)pedal_2 * (APPS_PEDAL_1_RANGE / APPS_PEDAL_2_RANGE) / 1024;
+    // Update Telemetry struct
+    car.pedal.apps_5v = pedal1_filter.getFiltered();
+    car.pedal.apps_3v3 = pedal2_filter.getFiltered();
+    car.pedal.brake = brake_filter.getFiltered();
 
-    float pedal_percentage_diff = abs(pedal_1_percentage - pedal_2_percentage);
-    // Currently the only indication for faulty pedal is just 2 pedal values are more than 10% different
-
-    if (pedal_percentage_diff > 0.1)
+    if (car.pedal.status.bits.force_stop)
     {
-        DBG_THROTTLE_FAULT(DIFF_FAULT_CONTINUING, pedal_percentage_diff);
-        // DBGLN_THROTTLE("WARNING: Pedal mismatch > 10%");
+        DBGLN_THROTTLE("Stopping motor: pedal fault");
+        motor_can.sendMessage(&stop_frame);
+        return;
+    }
+    if (car.pedal.status.bits.car_status != CarStatus::Drive)
+    {
+        switch (car.pedal.status.bits.car_status)
+        {
+        case CarStatus::Init:
+            DBGLN_THROTTLE("Stopping motor: in INIT.");
+            break;
+        case CarStatus::Startin:
+            DBGLN_THROTTLE("Stopping motor: in STARTIN.");
+            break;
+        case CarStatus::Bussin:
+            DBGLN_THROTTLE("Stopping motor: in BUSSIN.");
+            break;
+        default:
+            DBGLN_THROTTLE("Stopping motor: in UNKNOWN STATE.");
+            break;
+        }
+        motor_can.sendMessage(&stop_frame);
+        return;
+    }
+
+    car.motor.torque_val = pedalTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
+
+    torque_msg.data[1] = car.motor.torque_val & 0xFF;
+    torque_msg.data[2] = (car.motor.torque_val >> 8) & 0xFF;
+    motor_can.sendMessage(&torque_msg);
+    return;
+}
+
+/**
+ * @brief Maps the pedal ADC to a torque value.
+ * If no braking requested, maps throttle normally.
+ * If braking requested and regen enabled,
+ *      applies regen if motor RPM larger than minimum regen RPM,
+ *      preventing reverse torque at low speeds.
+ *
+ * @param pedal Pedal ADC in the range of 0-1023.
+ * @param brake Brake ADC in the range of 0-1023.
+ * @param motor_rpm Current motor RPM for regen logic, scaled to 0-32767.
+ * @param flip_dir Boolean indicating whether to flip the motor direction.
+ * @return Mapped torque value in the signed range of -TORQUE_MAX to TORQUE_MAX.
+ */
+constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir)
+{
+    if (REGEN_ENABLED && brake > BRAKE_MAP.start())
+    {
+        if (pedal > THROTTLE_MAP.start())
+        {
+            car.pedal.status.bits.screenshot = true;
+            // to ensure BSPD can be tested, skip regen if both throttle and brake pressed
+        }
+        else if (flip_dir)
+        {
+            if (motor_rpm < PedalConstants::MIN_REGEN_RPM_VAL)
+                return 0;
+            else
+                return -BRAKE_MAP.interp(brake);
+        }
+        else
+        {
+            if (motor_rpm > -PedalConstants::MIN_REGEN_RPM_VAL)
+                return 0;
+            else
+                return BRAKE_MAP.interp(brake);
+        }
+    }
+
+    if (flip_dir)
+        return -THROTTLE_MAP.interp(pedal);
+    else
+        return THROTTLE_MAP.interp(pedal);
+}
+
+/**
+ * @brief Checks for a fault between two pedal sensor readings.
+ *
+ * Scales pedal_2 to match the range of pedal_1, then calculates the absolute difference.
+ * If the difference exceeds 10% of the full-scale value (i.e., >102.4 for a 10-bit ADC),
+ * the function considers this a fault and returns true. Otherwise, returns false.
+ *
+ * @return true if the difference exceeds the threshold (fault detected), false otherwise.
+ */
+bool Pedal::checkPedalFault()
+{
+    car.pedal.apps_3v3_scaled = car.pedal.apps_3v3 * APPS_RATIO;
+
+    const int16_t delta = (int16_t)car.pedal.apps_5v - (int16_t)car.pedal.apps_3v3_scaled;
+    // if more than 10% difference between the two pedals, consider it a fault
+    if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
+    {
+        DBG_THROTTLE_FAULT(PedalFault::DiffContinuing, delta);
         return true;
     }
     return false;
+}
+
+/**
+ * @brief Sends a cyclic read request to the motor controller for speed (rpm).
+ * @param reg_id Register ID to read from the motor controller.
+ * @param read_period Period of reading motor data in ms.
+ * @return MCP2515::ERROR indicating success or failure of sending the message.
+ */
+MCP2515::ERROR Pedal::sendCyclicRead(uint8_t reg_id, uint8_t read_period)
+{
+    can_frame cyclic_request = {
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        REGID_READ, /**< data, register ID */
+        reg_id,     /**< data, sub ID */
+        read_period /**< data, read period in ms */
+    };
+    return motor_can.sendMessage(&cyclic_request);
+}
+
+/**
+ * @brief Reads motor data from the CAN bus and updates the CarState.
+ */
+void Pedal::readMotor()
+{
+    can_frame rx_frame;
+    if (motor_can.readMessage(&rx_frame) == MCP2515::ERROR_OK)
+    {
+        if (rx_frame.can_id == MOTOR_READ && rx_frame.can_dlc > 3)
+        {
+            if (rx_frame.data[0] == SPEED_IST)
+            {
+                car.motor.motor_rpm = static_cast<int16_t>(rx_frame.data[1] | (rx_frame.data[2] << 8));
+                return;
+            }
+            else if (rx_frame.data[0] == WARN_ERR)
+            {
+                car.motor.motor_error = static_cast<uint16_t>(rx_frame.data[1] | (rx_frame.data[2] << 8));
+                car.motor.motor_warn = static_cast<uint16_t>(rx_frame.data[3] | (rx_frame.data[4] << 8));
+                return;
+            }
+        }
+    }
+    return;
 }
