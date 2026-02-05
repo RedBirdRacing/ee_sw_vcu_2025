@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 660;
+var viewWidth = 651;
 var viewHeight = 27;
 var sectionId = 'dynsection-2';
 </script>
@@ -58,30 +58,30 @@ var sectionId = 'dynsection-2';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Returns the starting input value of the interpolation table.">
-<polygon fill="#999999" stroke="#666666" points="652,-19 548,-19 548,0 652,0 652,-19"/>
-<text text-anchor="middle" x="600" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">LinearInterp::start</text>
+<polygon fill="#999999" stroke="#666666" points="643,-19 539,-19 539,0 643,0 643,-19"/>
+<text text-anchor="middle" x="591" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">LinearInterp::start</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classPedal.html#a79e52120f8539d9e847fd0498cc47754" target="_top" xlink:title="Maps the pedal ADC to a torque value, handling deadzones and faults.">
-<polygon fill="white" stroke="#666666" points="512,-19 352,-19 352,0 512,0 512,-19"/>
-<text text-anchor="middle" x="432" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::throttleTorqueMapping</text>
+<g id="a_node2"><a xlink:href="classPedal.html#ae82e0ae8a1a0c6918d43fb27bf8d9d0d" target="_top" xlink:title="Maps the pedal ADC to a torque value. If no braking requested, maps throttle normally....">
+<polygon fill="white" stroke="#666666" points="503,-19 352,-19 352,0 503,0 503,-19"/>
+<text text-anchor="middle" x="427.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::pedalTorqueMapping</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M537.8,-9.5C529.42,-9.5 520.72,-9.5 512.08,-9.5"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="537.84,-13 547.84,-9.5 537.84,-6 537.84,-13"/>
+<path fill="none" stroke="#63b8ff" d="M528.84,-9.5C520.45,-9.5 511.76,-9.5 503.16,-9.5"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="528.9,-13 538.9,-9.5 528.9,-6 528.9,-13"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015" target="_top" xlink:title="Sends the appropriate CAN frame based on pedal and car state.">
+<g id="a_node3"><a xlink:href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015" target="_top" xlink:title="Sends the appropriate CAN frame to the motor based on pedal and car state.">
 <polygon fill="white" stroke="#666666" points="316,-19 212,-19 212,0 316,0 316,-19"/>
 <text text-anchor="middle" x="264" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::sendFrame</text>
 </a>
@@ -90,8 +90,8 @@ var sectionId = 'dynsection-2';
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M341.88,-9.5C333.04,-9.5 324.29,-9.5 316.03,-9.5"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="341.89,-13 351.89,-9.5 341.89,-6 341.89,-13"/>
+<path fill="none" stroke="#63b8ff" d="M341.69,-9.5C333.01,-9.5 324.39,-9.5 316.23,-9.5"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="341.9,-13 351.9,-9.5 341.9,-6 341.9,-13"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">

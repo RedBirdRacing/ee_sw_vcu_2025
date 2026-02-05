@@ -7,6 +7,6 @@
 <area shape="rect" id="node6" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,82,64,107"/>
 <area shape="rect" id="node4" href="$main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4" title=" " alt="" coords="116,82,236,107"/>
 <area shape="rect" id="node5" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="9,32,60,58"/>
-<area shape="rect" id="node9" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="288,32,427,58"/>
+<area shape="rect" id="node9" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame to the motor based on pedal and car state." alt="" coords="288,32,427,58"/>
 <area shape="rect" id="node10" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,32,240,58"/>
 </map>

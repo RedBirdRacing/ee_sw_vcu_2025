@@ -1,9 +1,9 @@
 <map id="Telemetry::sendTelemetry" name="Telemetry::sendTelemetry">
 <area shape="rect" id="node1" title="Sends telemetry data based on the scheduling logic." alt="" coords="5,77,196,102"/>
-<area shape="rect" id="node2" href="$classTelemetry.html#aeed89696476accb74fb8807b92fbdcd8" title="Internal helper to get and send the ADC telemetry frame." alt="" coords="253,21,435,46"/>
-<area shape="rect" id="node4" href="$classTelemetry.html#a50074891c9ce48296fe72f159befd488" title="Internal helper to get and send the digital telemetry frame." alt="" coords="244,77,444,102"/>
-<area shape="rect" id="node6" href="$classTelemetry.html#a22bea2cd68922773581b1d460bea6709" title="Internal helper to get and send the state telemetry frame." alt="" coords="245,133,443,158"/>
-<area shape="rect" id="node3" href="$structTelemetryFrameAdc.html#a4e7f8219ce7209b97691c2ba4df11c23" title="Converts the TelemetryFrameAdc to a CAN frame." alt="" coords="497,5,657,45"/>
-<area shape="rect" id="node5" href="$structTelemetryFrameDigital.html#a854a063396c822b4d02f3897276bd611" title="Converts the TelemetryFrameDigital to a CAN frame." alt="" coords="492,69,663,109"/>
-<area shape="rect" id="node7" href="$structTelemetryFrameState.html#a3c77ae091bd1912d700dbb58b2f1c68e" title="Converts the TelemetryFrameState to a CAN frame." alt="" coords="496,133,659,173"/>
+<area shape="rect" id="node2" href="$classTelemetry.html#a25e2add208dc38e8a1f4e453db89d7f6" title="Internal helper to get and send the BMS telemetry frame." alt="" coords="248,21,435,46"/>
+<area shape="rect" id="node4" href="$classTelemetry.html#a92acf8de276b3b8ded45d44b97ddd13c" title="Internal helper to get and send the motor telemetry frame." alt="" coords="244,77,439,102"/>
+<area shape="rect" id="node6" href="$classTelemetry.html#ae0589db13eb47fa620f8fc8d9fd0f8be" title="Internal helper to get and send the Pedal telemetry frame." alt="" coords="245,133,438,158"/>
+<area shape="rect" id="node3" href="$structTelemetryFrameBms.html#a6b03b160b930c3a40a06e99f6e6cb175" title="Converts the TelemetryFrameBms to a CAN frame." alt="" coords="487,5,653,45"/>
+<area shape="rect" id="node5" href="$structTelemetryFrameMotor.html#a34bcb5a8f27caa3a1098c35c051236aa" title="Converts the TelemetryFrameMotor to a CAN frame." alt="" coords="487,69,653,109"/>
+<area shape="rect" id="node7" href="$structTelemetryFramePedal.html#af36459761c019b01b84e3844f8c38f49" title="Converts the TelemetryFramePedal to a CAN frame." alt="" coords="488,133,652,173"/>
 </map>

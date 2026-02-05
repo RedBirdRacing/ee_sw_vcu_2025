@@ -1,0 +1,4 @@
+<map id="Pedal::sendCyclicRead" name="Pedal::sendCyclicRead">
+<area shape="rect" id="node1" title="Sends a cyclic read request to the motor controller for speed (rpm)." alt="" coords="156,5,325,31"/>
+<area shape="rect" id="node2" href="$classPedal.html#a195d92af52ee4f61993c5192302ea454" title="Constructor for the Pedal class. Initializes the pedal state. fault is set to true initially,..." alt="" coords="5,5,108,31"/>
+</map>

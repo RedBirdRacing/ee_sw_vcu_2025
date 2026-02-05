@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bms_0',['BMS',['../classBMS.html',1,'']]]
+  ['averagefilter_0',['AverageFilter',['../classAverageFilter.html',1,'']]]
 ];

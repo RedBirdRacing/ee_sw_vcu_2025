@@ -1,0 +1,7 @@
+<map id="TelemetryFramePedal" name="TelemetryFramePedal">
+<area shape="rect" id="node1" title="Telemetry frame structure for the Pedals." alt="" coords="102,417,266,553"/>
+<area shape="rect" id="node2" href="$unionTelemetryFramePedal_1_1StateByteStatus.html" title=" " alt="" coords="9,263,173,355"/>
+<area shape="rect" id="node3" href="$structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" title=" " alt="" coords="5,13,173,193"/>
+<area shape="rect" id="node4" href="$unionTelemetryFramePedal_1_1StateByteFaults.html" title=" " alt="" coords="198,263,362,355"/>
+<area shape="rect" id="node5" href="$structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html" title=" " alt="" coords="197,5,363,200"/>
+</map>

@@ -34,5 +34,17 @@ var namespaces_dup =
       [ "throttle_fault", "namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2", null ],
       [ "throttle_in", "namespaceDebug__Serial.html#a9e68fe4f00e7b1bf1a9c2addc2222a9b", null ],
       [ "throttle_out", "namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515", null ]
+    ] ],
+    [ "PedalConstants", "namespacePedalConstants.html", [
+      [ "GEAR_RATIO_DENOMINATOR", "namespacePedalConstants.html#a82f81fd8e64d2bce334fc7a46a7ddd17", null ],
+      [ "GEAR_RATIO_NUMERATOR", "namespacePedalConstants.html#a884d0592b281835f7e176a4a5aa64708", null ],
+      [ "INCH_PER_KM", "namespacePedalConstants.html#a2bfc8809accc37d88e49aa0177a99d09", null ],
+      [ "MAX_MOTOR_RPM", "namespacePedalConstants.html#a5a2ba2e8dd4cb873c7515da5f10a593d", null ],
+      [ "MAX_TORQUE_VAL", "namespacePedalConstants.html#ac07d4fd37acc735345f8a99d2d463213", null ],
+      [ "MIN_REGEN_KMH", "namespacePedalConstants.html#aade589de825faaaa5f05b7c94e1a3e86", null ],
+      [ "MIN_REGEN_RPM_VAL", "namespacePedalConstants.html#af35c5b9ff44bd2ce192481bf5ed7af41", null ],
+      [ "MINUTES_PER_HOUR", "namespacePedalConstants.html#adea822342f42756fb1d80a936d04b264", null ],
+      [ "PI_", "namespacePedalConstants.html#a14591ee2675c95a84e8df523316c3656", null ],
+      [ "WHEEL_DIAMETER_INCH", "namespacePedalConstants.html#a9ddc55aba9a9dd9d7a34e8aa3150df90", null ]
     ] ]
 ];

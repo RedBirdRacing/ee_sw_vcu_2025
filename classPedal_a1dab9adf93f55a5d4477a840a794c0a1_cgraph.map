@@ -1,4 +1,0 @@
-<map id="Pedal::brakeTorqueMapping" name="Pedal::brakeTorqueMapping">
-<area shape="rect" id="node1" title="Maps the brake ADC to a torque value." alt="" coords="5,5,207,31"/>
-<area shape="rect" id="node2" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="255,5,401,31"/>
-</map>

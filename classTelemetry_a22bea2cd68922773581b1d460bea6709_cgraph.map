@@ -1,4 +1,0 @@
-<map id="Telemetry::schedulerStates" name="Telemetry::schedulerStates">
-<area shape="rect" id="node1" title="Internal helper to get and send the state telemetry frame." alt="" coords="5,13,204,38"/>
-<area shape="rect" id="node2" href="$structTelemetryFrameState.html#a3c77ae091bd1912d700dbb58b2f1c68e" title="Converts the TelemetryFrameState to a CAN frame." alt="" coords="252,5,415,45"/>
-</map>

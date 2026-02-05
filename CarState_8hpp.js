@@ -1,12 +1,14 @@
 var CarState_8hpp =
 [
-    [ "TelemetryFrameAdc", "structTelemetryFrameAdc.html", "structTelemetryFrameAdc" ],
-    [ "TelemetryFrameDigital", "structTelemetryFrameDigital.html", "structTelemetryFrameDigital" ],
-    [ "TelemetryFrameState", "structTelemetryFrameState.html", "structTelemetryFrameState" ],
-    [ "TelemetryFrameState::StateByte0", "unionTelemetryFrameState_1_1StateByte0.html", "unionTelemetryFrameState_1_1StateByte0" ],
-    [ "TelemetryFrameState::StateByte1", "unionTelemetryFrameState_1_1StateByte1.html", "unionTelemetryFrameState_1_1StateByte1" ],
+    [ "TelemetryFramePedal", "structTelemetryFramePedal.html", "structTelemetryFramePedal" ],
+    [ "TelemetryFramePedal::StateByteStatus", "unionTelemetryFramePedal_1_1StateByteStatus.html", "unionTelemetryFramePedal_1_1StateByteStatus" ],
+    [ "TelemetryFramePedal::StateByteStatus::Bits", "structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html", "structTelemetryFramePedal_1_1StateByteStatus_1_1Bits" ],
+    [ "TelemetryFramePedal::StateByteFaults", "unionTelemetryFramePedal_1_1StateByteFaults.html", "unionTelemetryFramePedal_1_1StateByteFaults" ],
+    [ "TelemetryFramePedal::StateByteFaults::Bits", "structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html", "structTelemetryFramePedal_1_1StateByteFaults_1_1Bits" ],
+    [ "TelemetryFrameMotor", "structTelemetryFrameMotor.html", "structTelemetryFrameMotor" ],
+    [ "TelemetryFrameBms", "structTelemetryFrameBms.html", "structTelemetryFrameBms" ],
     [ "CarState", "structCarState.html", "structCarState" ],
-    [ "TELEMETRY_ADC_MSG", "CarState_8hpp.html#a54be617123221b1e5eadc765120e543d", null ],
-    [ "TELEMETRY_DIGITAL_MSG", "CarState_8hpp.html#a9e1e6c19130229e45f9e50569be4e09a", null ],
-    [ "TELEMETRY_STATE_MSG", "CarState_8hpp.html#a08d32360ab50d406903642d4a7f69b75", null ]
+    [ "TELEMETRY_BMS_MSG", "CarState_8hpp.html#aaf5c87ec2586cde937c51756d9a50025", null ],
+    [ "TELEMETRY_MOTOR_MSG", "CarState_8hpp.html#a68020dda3bb0a0cbf219e904f283859c", null ],
+    [ "TELEMETRY_PEDAL_MSG", "CarState_8hpp.html#a3b73ee9ec3bd3255bd5472e6561b0f1e", null ]
 ];

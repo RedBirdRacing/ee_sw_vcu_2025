@@ -1,10 +1,12 @@
 <map id="scheduler_pedal" name="scheduler_pedal">
 <area shape="rect" id="node1" title=" " alt="" coords="5,56,133,81"/>
-<area shape="rect" id="node2" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame based on pedal and car state." alt="" coords="181,56,320,81"/>
-<area shape="rect" id="node3" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="403,19,546,44"/>
-<area shape="rect" id="node5" href="$classPedal.html#a79e52120f8539d9e847fd0498cc47754" title="Maps the pedal ADC to a torque value, handling deadzones and faults." alt="" coords="368,80,581,105"/>
-<area shape="rect" id="node4" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="651,5,809,31"/>
-<area shape="rect" id="node6" href="$classPedal.html#a1dab9adf93f55a5d4477a840a794c0a1" title="Maps the brake ADC to a torque value." alt="" coords="629,55,831,80"/>
-<area shape="rect" id="node7" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="879,80,1025,105"/>
-<area shape="rect" id="node8" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title="Returns the starting input value of the interpolation table." alt="" coords="661,156,799,181"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a22decc8e5af13f6021fb6ad2aaa765be" title=" " alt="" coords="667,5,726,31"/>
+<area shape="rect" id="node3" href="$classPedal.html#aa66167fb494c00db7b8a0b8140e85973" title="Reads motor data from the CAN bus and updates the CarState." alt="" coords="184,56,317,81"/>
+<area shape="rect" id="node4" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame to the motor based on pedal and car state." alt="" coords="181,105,320,131"/>
+<area shape="rect" id="node5" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="397,105,540,131"/>
+<area shape="rect" id="node7" href="$classExponentialFilter.html#a598576f308881ed4adeb618e0bf1f75a" title="Retrieves the filtered value from the ExponentialFilter." alt="" coords="399,155,539,195"/>
+<area shape="rect" id="node8" href="$classPedal.html#ae82e0ae8a1a0c6918d43fb27bf8d9d0d" title="Maps the pedal ADC to a torque value. If no braking requested, maps throttle normally...." alt="" coords="368,56,569,81"/>
+<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="617,153,776,179"/>
+<area shape="rect" id="node9" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="623,55,770,80"/>
+<area shape="rect" id="node10" href="$classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b" title="Returns the starting input value of the interpolation table." alt="" coords="627,104,766,129"/>
 </map>

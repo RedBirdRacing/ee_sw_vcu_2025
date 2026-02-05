@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['digital_0',['digital',['../structCarState.html#ab79e483b9567fa335ff3d13f64f9c0b6',1,'CarState']]]
+  ['err_5fperiod_0',['ERR_PERIOD',['../classPedal.html#ae972bf9614c8a1998b661e5c6830ba98',1,'Pedal']]]
 ];

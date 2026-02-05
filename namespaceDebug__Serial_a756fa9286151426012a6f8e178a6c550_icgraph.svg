@@ -177,7 +177,7 @@ var sectionId = 'dynsection-2';
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015" target="_top" xlink:title="Sends the appropriate CAN frame based on pedal and car state.">
+<g id="a_node9"><a xlink:href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015" target="_top" xlink:title="Sends the appropriate CAN frame to the motor based on pedal and car state.">
 <polygon fill="white" stroke="#666666" points="316,-93 212,-93 212,-74 316,-74 316,-93"/>
 <text text-anchor="middle" x="264" y="-81" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::sendFrame</text>
 </a>

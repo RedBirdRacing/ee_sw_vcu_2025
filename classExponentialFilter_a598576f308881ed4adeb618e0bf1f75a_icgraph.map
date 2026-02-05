@@ -1,0 +1,6 @@
+<map id="ExponentialFilter::getFiltered" name="ExponentialFilter::getFiltered">
+<area shape="rect" id="node1" title="Retrieves the filtered value from the ExponentialFilter." alt="" coords="475,5,615,45"/>
+<area shape="rect" id="node2" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame to the motor based on pedal and car state." alt="" coords="288,13,427,38"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,13,240,38"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,13,64,38"/>
+</map>

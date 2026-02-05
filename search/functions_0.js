@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['addtask_0',['addTask',['../classScheduler.html#a97fa8261d31149edae09155ab7393280',1,'Scheduler']]],
-  ['average_1',['average',['../Signal__Processing_8hpp.html#a4d9072b402cbfdfd7303bd805f408f6c',1,'average(T val1, T val2):&#160;Signal_Processing.tpp'],['../Signal__Processing_8tpp.html#a4d9072b402cbfdfd7303bd805f408f6c',1,'average(T val1, T val2):&#160;Signal_Processing.tpp']]],
-  ['avg_5ffilter_2',['AVG_filter',['../Signal__Processing_8hpp.html#aae13f76d835e3de4d61441cf4abc0f08',1,'AVG_filter(T *buffer, uint8_t buf_size):&#160;Signal_Processing.tpp'],['../Signal__Processing_8tpp.html#aae13f76d835e3de4d61441cf4abc0f08',1,'AVG_filter(T *buffer, uint8_t buf_size):&#160;Signal_Processing.tpp']]]
+  ['addsample_0',['addSample',['../classFilter.html#a5436212053d54b64672317ff4391234d',1,'Filter::addSample()'],['../classAverageFilter.html#a759502d39cecddc79e924df60ce4e7fb',1,'AverageFilter::addSample()'],['../classExponentialFilter.html#a4128176cf6dbe847a521df4dba8d962d',1,'ExponentialFilter::addSample()']]],
+  ['addtask_1',['addTask',['../classScheduler.html#a97fa8261d31149edae09155ab7393280',1,'Scheduler']]],
+  ['averagefilter_2',['AverageFilter',['../classAverageFilter.html#ac832fa2f81ff8ad76c188bb1542050f4',1,'AverageFilter']]]
 ];

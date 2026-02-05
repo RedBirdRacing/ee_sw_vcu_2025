@@ -1,5 +1,0 @@
-<map id="TelemetryFrameState" name="TelemetryFrameState">
-<area shape="rect" id="node1" title="Telemetry frame structure for VCU states." alt="" coords="99,292,261,369"/>
-<area shape="rect" id="node2" href="$unionTelemetryFrameState_1_1StateByte0.html" title=" " alt="" coords="5,13,168,222"/>
-<area shape="rect" id="node3" href="$unionTelemetryFrameState_1_1StateByte1.html" title=" " alt="" coords="192,5,355,229"/>
-</map>

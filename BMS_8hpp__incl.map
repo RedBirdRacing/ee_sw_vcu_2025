@@ -1,9 +1,10 @@
 <map id="lib/BMS/BMS.hpp" name="lib/BMS/BMS.hpp">
-<area shape="rect" id="node1" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="145,5,277,31"/>
-<area shape="rect" id="node2" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="83,79,196,104"/>
-<area shape="rect" id="node6" title=" " alt="" coords="185,225,280,251"/>
-<area shape="rect" id="node3" href="$Enums_8h.html" title="Enumeration definitions for the VCU." alt="" coords="45,225,124,251"/>
-<area shape="rect" id="node7" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="84,152,195,177"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,299,76,324"/>
-<area shape="rect" id="node5" title=" " alt="" coords="100,299,157,324"/>
+<area shape="rect" id="node1" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="80,5,212,31"/>
+<area shape="rect" id="node2" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="89,79,203,104"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,225,100,251"/>
+<area shape="rect" id="node8" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="277,152,383,177"/>
+<area shape="rect" id="node3" href="$Enums_8hpp.html" title=" " alt="" coords="192,225,287,251"/>
+<area shape="rect" id="node7" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="91,152,201,177"/>
+<area shape="rect" id="node4" title=" " alt="" coords="228,299,299,324"/>
+<area shape="rect" id="node5" title=" " alt="" coords="335,299,392,324"/>
 </map>

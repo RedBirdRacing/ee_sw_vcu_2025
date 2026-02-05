@@ -1,16 +1,18 @@
 var main_8cpp =
 [
+    [ "mcp2515_BMS", "main_8cpp.html#a682e31b8dba40df5e2e5e291dd4ec33b", null ],
     [ "mcp2515_motor", "main_8cpp.html#a781fd80765f85ec1d4f8250b59e9850e", null ],
     [ "loop", "main_8cpp.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "mcp2515_BMS", "main_8cpp.html#a926cc13a4f62a65d28fd845a00bfd779", null ],
     [ "mcp2515_DL", "main_8cpp.html#a95581c94a7dc4a68f61fa24f06cc90d1", null ],
     [ "mcp2515_motor", "main_8cpp.html#a9215d3772fc8e03a4ccd56fe9c7b5fc5", null ],
+    [ "pedal", "main_8cpp.html#a22decc8e5af13f6021fb6ad2aaa765be", null ],
     [ "scheduler_bms", "main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4", null ],
     [ "scheduler_pedal", "main_8cpp.html#a1174b6795782479542559289cd623faf", null ],
     [ "schedulerTelemetry", "main_8cpp.html#a18a2a13352158a1c448c163c58e2b486", null ],
     [ "setup", "main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
-    [ "bms", "main_8cpp.html#a54a07b0e5fcf6693c6d23cd3c19501b6", null ],
-    [ "BMS_MILLIS", "main_8cpp.html#a9b210a2254e453ab1707b21a4f610222", null ],
+    [ "bms", "main_8cpp.html#ac77c8df52a00079a8991b07c5b1c23b5", null ],
+    [ "BMS_OVERRIDE_MILLIS", "main_8cpp.html#aa91c7d6cc540d6a614fe9936ba08b4dd", null ],
     [ "brake_pressed", "main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7", null ],
     [ "BRAKE_THRESHOLD", "main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9", null ],
     [ "BUSSIN_MILLIS", "main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b", null ],
@@ -19,11 +21,9 @@ var main_8cpp =
     [ "MCPS", "main_8cpp.html#a39f18c330e82b1bb457acf12ff206e28", null ],
     [ "NUM_MCP", "main_8cpp.html#aa82c7cb82034ed6919b0a66d33aaf35d", null ],
     [ "OUTPUT_COUNT", "main_8cpp.html#a5df142f03646c5b92649924c05eb448e", null ],
-    [ "pedal", "main_8cpp.html#a51a8f4c4445fb8d4f0c67dafadc4e4e0", null ],
     [ "pins_in", "main_8cpp.html#ac81c886455652a75221096759b0b39ca", null ],
     [ "pins_out", "main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48", null ],
     [ "scheduler", "main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548", null ],
-    [ "STARTING_MILLIS", "main_8cpp.html#a83e2f8002c9f61e65749409b326c642b", null ],
     [ "telem", "main_8cpp.html#a195436960f942e58a1499aa0434267fd", null ],
     [ "tx_throttle_msg", "main_8cpp.html#aeadd5ff15bba21c8292acef541061396", null ]
 ];

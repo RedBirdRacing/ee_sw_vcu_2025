@@ -1,6 +1,4 @@
 <map id="lib/Queue/Queue.hpp" name="lib/Queue/Queue.hpp">
-<area shape="rect" id="node1" title="Declaration of a simple RingBuffer (circular buffer) template class." alt="" coords="53,5,212,31"/>
-<area shape="rect" id="node2" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="5,152,151,177"/>
-<area shape="rect" id="node3" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="115,79,262,104"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="175,152,280,177"/>
+<area shape="rect" id="node1" title="Declaration of a simple RingBuffer (circular buffer) template class." alt="" coords="5,5,164,31"/>
+<area shape="rect" id="node2" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="12,79,157,104"/>
 </map>

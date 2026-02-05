@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['fault_0',['fault',['../classPedal.html#ae32f92a6912df6b7b1fcc64a09ffa13f',1,'Pedal']]],
-  ['fault_5factive_1',['fault_active',['../unionTelemetryFrameState_1_1StateByte1.html#a592136fc76b73c4955b74298f7634089',1,'TelemetryFrameState::StateByte1']]],
-  ['fault_5fexceeded_2',['fault_exceeded',['../unionTelemetryFrameState_1_1StateByte1.html#a291d9bb8e319b9f31ef63e515757d17b',1,'TelemetryFrameState::StateByte1']]],
+  ['fault_5factive_0',['fault_active',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#ae0c8df15efb800f7192ec491fab494cf',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['fault_5fcheck_5fhex_1',['FAULT_CHECK_HEX',['../Pedal_8hpp.html#a0f676082bc7fd63bc8fe2e624e9f5ef4',1,'Pedal.hpp']]],
+  ['fault_5fexceeded_2',['fault_exceeded',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a0698f4c173d3cb65e8ac31970223faa8',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
   ['fault_5fstart_5fmillis_3',['fault_start_millis',['../classPedal.html#aed35c8681adf86717b4e577058395159',1,'Pedal']]],
-  ['faults_4',['faults',['../structTelemetryFrameState.html#a355d432b723bfdc321ac2fde71e3edd6',1,'TelemetryFrameState']]],
-  ['fir_5ffilter_5',['FIR_filter',['../Signal__Processing_8hpp.html#a2665ca55613be71683eb9e2cd6365cfc',1,'FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum):&#160;Signal_Processing.tpp'],['../Signal__Processing_8tpp.html#a2665ca55613be71683eb9e2cd6365cfc',1,'FIR_filter(T *buffer, float *kernel, int buf_size, float kernel_sum):&#160;Signal_Processing.tpp']]],
-  ['flip_5fmotor_5fdir_6',['FLIP_MOTOR_DIR',['../Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309',1,'Pedal.hpp']]],
-  ['force_5fstop_7',['force_stop',['../unionTelemetryFrameState_1_1StateByte0.html#a3482261d2ac72e05ad07b903c53a6f2a',1,'TelemetryFrameState::StateByte0']]],
-  ['frames_5ffreq_5fratio_8',['FRAMES_FREQ_RATIO',['../classTelemetry.html#a76e86a10e559c8365049c7fea1084827',1,'Telemetry']]],
-  ['frg_9',['FRG',['../boardConf_8h.html#abfa15a856e2d40258527d676c5023292',1,'boardConf.h']]]
+  ['faults_4',['faults',['../structTelemetryFramePedal.html#ae6a33e2ec22793db8ed9e4e2517c065b',1,'TelemetryFramePedal']]],
+  ['filter_5',['Filter',['../classFilter.html',1,'']]],
+  ['filter_3c_20uint16_5ft_2c_20uint16_5ft_20_3e_6',['Filter&lt; uint16_t, uint16_t &gt;',['../classFilter.html',1,'']]],
+  ['flip_5fmotor_5fdir_7',['FLIP_MOTOR_DIR',['../Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309',1,'Pedal.hpp']]],
+  ['force_5fstop_8',['force_stop',['../structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html#ae0bb98c2e1538ca0aaeb07d4d0e2b9d0',1,'TelemetryFramePedal::StateByteStatus::Bits']]],
+  ['frames_5ffreq_5fratio_9',['FRAMES_FREQ_RATIO',['../classTelemetry.html#a76e86a10e559c8365049c7fea1084827',1,'Telemetry']]],
+  ['frg_10',['FRG',['../boardConf_8h.html#abfa15a856e2d40258527d676c5023292',1,'boardConf.h']]]
 ];

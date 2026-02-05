@@ -1,18 +1,18 @@
 <map id="loop" name="loop">
 <area shape="rect" id="node1" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,81,56,107"/>
 <area shape="rect" id="node2" href="$Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067" title="Prints a line to the serial console for throttle debug." alt="" coords="286,5,429,31"/>
-<area shape="rect" id="node4" href="$classBMS.html#aeaf842d8a4bdd879d45b75dc6dc05599" title="Returns true if HV has been started." alt="" coords="106,56,222,81"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a22decc8e5af13f6021fb6ad2aaa765be" title=" " alt="" coords="135,56,193,81"/>
 <area shape="rect" id="node5" href="$main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4" title=" " alt="" coords="104,105,224,131"/>
-<area shape="rect" id="node11" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="109,177,219,203"/>
+<area shape="rect" id="node11" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="109,163,219,188"/>
 <area shape="rect" id="node3" href="$namespaceDebug__Serial.html#a756fa9286151426012a6f8e178a6c550" title="Prints a string AND a newline to the serial console." alt="" coords="727,5,885,31"/>
-<area shape="rect" id="node6" href="$classBMS.html#a7de82f50c43e50529739213e98b9b634" title="Attempts to start HV. First check BMS is in standby(3) state, then send the HV start command...." alt="" coords="300,103,415,128"/>
+<area shape="rect" id="node6" href="$classBMS.html#a7de82f50c43e50529739213e98b9b634" title="Attempts to start HV. First check BMS is in standby(3) state, then send the HV start command...." alt="" coords="300,79,415,104"/>
 <area shape="rect" id="node7" href="$Debug_8hpp.html#a460f71d79003b7e0c37275d93f7d5c53" title="Sends BMS debug info via CAN or serial (if enabled)." alt="" coords="505,105,648,131"/>
 <area shape="rect" id="node10" href="$Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727" title="Prints a line to the serial console for general debug." alt="" coords="509,56,645,81"/>
-<area shape="rect" id="node8" href="$namespaceDebug__CAN.html#a0514cc9d56b82f8a3b586aee6f4c97b0" title="Sends a debug BMS status message over CAN." alt="" coords="715,59,897,84"/>
-<area shape="rect" id="node9" href="$namespaceDebug__Serial.html#a1a39bd8c1cd5d475881b10a3a5deeb03" title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ..." alt="" coords="711,108,901,133"/>
-<area shape="rect" id="node12" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="272,152,443,177"/>
-<area shape="rect" id="node13" href="$Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="491,181,663,207"/>
-<area shape="rect" id="node16" href="$classRingBuffer.html#ad30671837bc9ec407735ecedaeabf36c" title="Pushes a new value into the ring buffer. This will overwrite the oldest value if the buffer is full." alt="" coords="293,253,422,279"/>
-<area shape="rect" id="node14" href="$namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="729,163,883,203"/>
-<area shape="rect" id="node15" href="$namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="724,227,888,267"/>
+<area shape="rect" id="node8" href="$namespaceDebug__CAN.html#a0514cc9d56b82f8a3b586aee6f4c97b0" title="Sends a debug BMS status message over CAN." alt="" coords="715,76,897,101"/>
+<area shape="rect" id="node9" href="$namespaceDebug__Serial.html#a1a39bd8c1cd5d475881b10a3a5deeb03" title="Prints the current BMS status to the serial console. This function formats and sends the current BMS ..." alt="" coords="711,125,901,151"/>
+<area shape="rect" id="node12" href="$classExponentialFilter.html#a4128176cf6dbe847a521df4dba8d962d" title="Adds a new sample to the ExponentialFilter. Updates the filtered value using the exponential moving a..." alt="" coords="287,129,427,169"/>
+<area shape="rect" id="node13" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="272,193,443,219"/>
+<area shape="rect" id="node14" href="$Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="491,219,663,244"/>
+<area shape="rect" id="node15" href="$namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="729,191,883,231"/>
+<area shape="rect" id="node16" href="$namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="724,255,888,295"/>
 </map>

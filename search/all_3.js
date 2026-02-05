@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['datalogger_0',['Datalogger',['../Enums_8h.html#a098a5b38d959b3584152e8c220708721a0bdd69d9652961d7e30c4c13d1418a4e',1,'Enums.h']]],
+  ['datalogger_0',['Datalogger',['../Enums_8hpp.html#a098a5b38d959b3584152e8c220708721a0bdd69d9652961d7e30c4c13d1418a4e',1,'Enums.hpp']]],
   ['dbg_5fbms_5fstatus_1',['DBG_BMS_STATUS',['../Debug_8hpp.html#a460f71d79003b7e0c37275d93f7d5c53',1,'Debug.hpp']]],
   ['dbg_5fgeneral_2',['DBG_GENERAL',['../Debug_8hpp.html#a9d60671317b513353287b53444954a4b',1,'Debug.hpp']]],
   ['dbg_5fstatus_3',['DBG_STATUS',['../Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475',1,'Debug.hpp']]],
   ['dbg_5fthrottle_4',['DBG_THROTTLE',['../Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84',1,'Debug.hpp']]],
-  ['dbg_5fthrottle_5ffault_5',['DBG_THROTTLE_FAULT',['../Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8',1,'DBG_THROTTLE_FAULT(PedalFault fault_status, uint16_t value):&#160;Debug.hpp'],['../Debug_8hpp.html#a55738d079053775022675f7d2e1cabcf',1,'DBG_THROTTLE_FAULT(PedalFault fault_status):&#160;Debug.hpp']]],
+  ['dbg_5fthrottle_5ffault_5',['DBG_THROTTLE_FAULT',['../Debug_8hpp.html#a55738d079053775022675f7d2e1cabcf',1,'DBG_THROTTLE_FAULT(PedalFault fault_status):&#160;Debug.hpp'],['../Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8',1,'DBG_THROTTLE_FAULT(PedalFault fault_status, uint16_t value):&#160;Debug.hpp']]],
   ['dbgln_5fgeneral_6',['DBGLN_GENERAL',['../Debug_8hpp.html#a8e8d6e3de15309922f25c12f4d7cf727',1,'Debug.hpp']]],
   ['dbgln_5fstatus_7',['DBGLN_STATUS',['../Debug_8hpp.html#adeb16efc082a41c9b137c2fa9d8162c0',1,'Debug.hpp']]],
   ['dbgln_5fthrottle_8',['DBGLN_THROTTLE',['../Debug_8hpp.html#a9a564faad1bd32a5894d3706e38f1067',1,'Debug.hpp']]],
@@ -31,11 +31,10 @@ var searchData=
   ['debug_5fthrottle_5ffault_28',['DEBUG_THROTTLE_FAULT',['../Debug_8hpp.html#a6d43d7188ea0eeea1c490073fad87559',1,'Debug.hpp']]],
   ['debug_5fthrottle_5fin_29',['DEBUG_THROTTLE_IN',['../Debug_8hpp.html#a10f2e3a2f2edf4c999933494557a2cf9',1,'Debug.hpp']]],
   ['debug_5fthrottle_5fout_30',['DEBUG_THROTTLE_OUT',['../Debug_8hpp.html#ad0c4dd35d30dbc1881a09d5c339d09a3',1,'Debug.hpp']]],
-  ['diffcontinuing_31',['DiffContinuing',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa5e1501142618f2a864cff5644a849349',1,'Enums.h']]],
-  ['diffexceed100ms_32',['DiffExceed100ms',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210faeb191d18758606692c9b519dd49aed6e',1,'Enums.h']]],
-  ['diffresolved_33',['DiffResolved',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa6bb29587fdfabd5ff1eb0796ae552a69',1,'Enums.h']]],
-  ['diffstart_34',['DiffStart',['../Enums_8h.html#ad084009f7e1f2139381bc18bb5bc210fa2588fd08af2e55b4efb12fafff1ce6d0',1,'Enums.h']]],
-  ['digital_35',['digital',['../structCarState.html#ab79e483b9567fa335ff3d13f64f9c0b6',1,'CarState']]],
-  ['drive_36',['Drive',['../Enums_8h.html#a58f8cbaf767061986ce7afe35238e4beaf2c6151d6c0d99f3666129b97e2100f5',1,'Enums.h']]],
-  ['drive_5fmode_5fbtn_37',['DRIVE_MODE_BTN',['../boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426',1,'boardConf.h']]]
+  ['diffcontinuing_31',['DiffContinuing',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210fa5e1501142618f2a864cff5644a849349',1,'Enums.hpp']]],
+  ['diffexceed100ms_32',['DiffExceed100ms',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210faeb191d18758606692c9b519dd49aed6e',1,'Enums.hpp']]],
+  ['diffresolved_33',['DiffResolved',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210fa6bb29587fdfabd5ff1eb0796ae552a69',1,'Enums.hpp']]],
+  ['diffstart_34',['DiffStart',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210fa2588fd08af2e55b4efb12fafff1ce6d0',1,'Enums.hpp']]],
+  ['drive_35',['Drive',['../Enums_8hpp.html#a58f8cbaf767061986ce7afe35238e4beaf2c6151d6c0d99f3666129b97e2100f5',1,'Enums.hpp']]],
+  ['drive_5fmode_5fbtn_36',['DRIVE_MODE_BTN',['../boardConf_8h.html#ab171ccb460b2510d13ceacfacb33a426',1,'boardConf.h']]]
 ];

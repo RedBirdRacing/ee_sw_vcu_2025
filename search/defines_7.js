@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['use_5f3ch_5fcan_0',['USE_3CH_CAN',['../boardConf_8h.html#aa07c5385b5a0d0d79dd819f1d6caf004',1,'boardConf.h']]]
+  ['use_5fvcu_5fv3_5f2_0',['USE_VCU_V3_2',['../boardConf_8h.html#ab5f01e60435bf450fa7ba7072cd25e9d',1,'boardConf.h']]]
 ];

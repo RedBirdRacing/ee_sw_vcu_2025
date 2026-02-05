@@ -109,18 +109,18 @@ $(document).ready(function(){initNavTree('structCarState.html',''); initResizabl
 <div class="dynheader">
 Collaboration diagram for CarState:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structCarState__coll__graph.svg" width="638" height="574"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structCarState__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a03f8c26d66c4cc6c3060beb47225579f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameAdc.html">TelemetryFrameAdc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a03f8c26d66c4cc6c3060beb47225579f">adc</a></td></tr>
-<tr class="separator:a03f8c26d66c4cc6c3060beb47225579f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab79e483b9567fa335ff3d13f64f9c0b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameDigital.html">TelemetryFrameDigital</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#ab79e483b9567fa335ff3d13f64f9c0b6">digital</a></td></tr>
-<tr class="separator:ab79e483b9567fa335ff3d13f64f9c0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40f60bdbcb9e45d5fab62792b090a9cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameState.html">TelemetryFrameState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a40f60bdbcb9e45d5fab62792b090a9cf">state</a></td></tr>
-<tr class="separator:a40f60bdbcb9e45d5fab62792b090a9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8111d36f3d3ab259a1c03143adfb62e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFramePedal.html">TelemetryFramePedal</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a8111d36f3d3ab259a1c03143adfb62e3">pedal</a></td></tr>
+<tr class="separator:a8111d36f3d3ab259a1c03143adfb62e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a815a8f9dcd8dd8a295a8c790b771ea7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameMotor.html">TelemetryFrameMotor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a815a8f9dcd8dd8a295a8c790b771ea7a">motor</a></td></tr>
+<tr class="separator:a815a8f9dcd8dd8a295a8c790b771ea7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb066fac2b22928f9cfd65c423e07a03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTelemetryFrameBms.html">TelemetryFrameBms</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#acb066fac2b22928f9cfd65c423e07a03">bms</a></td></tr>
+<tr class="separator:acb066fac2b22928f9cfd65c423e07a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc863b4689f45ff6e1b21c5ca7918fa8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#abc863b4689f45ff6e1b21c5ca7918fa8">status_millis</a></td></tr>
 <tr class="separator:abc863b4689f45ff6e1b21c5ca7918fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59bc9a5cc295cff217fcb342a7d02a33"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCarState.html#a59bc9a5cc295cff217fcb342a7d02a33">millis</a></td></tr>
@@ -128,45 +128,26 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the state of the car. Holds telemetry data and status, used as central data sharing structure. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structTelemetryFrameAdc.html" title="Telemetry frame structure for ADC readings.">TelemetryFrameAdc</a>, <a class="el" href="structTelemetryFrameDigital.html" title="Telemetry frame structure for digital signals.">TelemetryFrameDigital</a>, <a class="el" href="structTelemetryFrameState.html" title="Telemetry frame structure for VCU states.">TelemetryFrameState</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structTelemetryFramePedal.html" title="Telemetry frame structure for the Pedals.">TelemetryFramePedal</a>, <a class="el" href="structTelemetryFrameMotor.html" title="Telemetry frame structure for motor signals.">TelemetryFrameMotor</a>, <a class="el" href="structTelemetryFrameBms.html" title="Telemetry frame structure for the BMS data.">TelemetryFrameBms</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00151">151</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00155">155</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a03f8c26d66c4cc6c3060beb47225579f" name="a03f8c26d66c4cc6c3060beb47225579f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03f8c26d66c4cc6c3060beb47225579f">&#9670;&#160;</a></span>adc</h2>
+<a id="acb066fac2b22928f9cfd65c423e07a03" name="acb066fac2b22928f9cfd65c423e07a03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb066fac2b22928f9cfd65c423e07a03">&#9670;&#160;</a></span>bms</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTelemetryFrameAdc.html">TelemetryFrameAdc</a> CarState::adc</td>
+          <td class="memname"><a class="el" href="structTelemetryFrameBms.html">TelemetryFrameBms</a> CarState::bms</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Struct holding ADC telemetry data, ready for sending over CAN </p>
+<p>Struct holding <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> telemetry data, ready for sending over CAN </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00153">153</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00159">159</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00225">Pedal::checkPedalFault()</a>, <a class="el" href="Telemtry_8cpp_source.html#l00025">Telemetry::schedulerAdc()</a>, <a class="el" href="Pedal_8cpp_source.html#l00132">Pedal::sendFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
-
-</div>
-</div>
-<a id="ab79e483b9567fa335ff3d13f64f9c0b6" name="ab79e483b9567fa335ff3d13f64f9c0b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab79e483b9567fa335ff3d13f64f9c0b6">&#9670;&#160;</a></span>digital</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structTelemetryFrameDigital.html">TelemetryFrameDigital</a> CarState::digital</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Struct holding digital telemetry data, ready for sending over CAN </p>
-
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00154">154</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00225">Pedal::checkPedalFault()</a>, and <a class="el" href="Telemtry_8cpp_source.html#l00034">Telemetry::schedulerDigital()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Telemetry_8cpp_source.html#l00043">Telemetry::schedulerBms()</a>.</p>
 
 </div>
 </div>
@@ -183,28 +164,47 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Current time in milliseconds for the current loop iteration </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00157">157</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00161">161</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00137">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 
 </div>
 </div>
-<a id="a40f60bdbcb9e45d5fab62792b090a9cf" name="a40f60bdbcb9e45d5fab62792b090a9cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40f60bdbcb9e45d5fab62792b090a9cf">&#9670;&#160;</a></span>state</h2>
+<a id="a815a8f9dcd8dd8a295a8c790b771ea7a" name="a815a8f9dcd8dd8a295a8c790b771ea7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a815a8f9dcd8dd8a295a8c790b771ea7a">&#9670;&#160;</a></span>motor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTelemetryFrameState.html">TelemetryFrameState</a> CarState::state</td>
+          <td class="memname"><a class="el" href="structTelemetryFrameMotor.html">TelemetryFrameMotor</a> CarState::motor</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Struct holding state telemetry data, ready for sending over CAN </p>
+<p>Struct holding motor telemetry data, ready for sending over CAN </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00155">155</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00158">158</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>, <a class="el" href="Telemtry_8cpp_source.html#l00043">Telemetry::schedulerStates()</a>, <a class="el" href="Pedal_8cpp_source.html#l00132">Pedal::sendFrame()</a>, <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::throttleTorqueMapping()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00053">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00255">Pedal::readMotor()</a>, <a class="el" href="Telemetry_8cpp_source.html#l00034">Telemetry::schedulerMotor()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a8111d36f3d3ab259a1c03143adfb62e3" name="a8111d36f3d3ab259a1c03143adfb62e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8111d36f3d3ab259a1c03143adfb62e3">&#9670;&#160;</a></span>pedal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTelemetryFramePedal.html">TelemetryFramePedal</a> CarState::pedal</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Struct holding pedal telemetry data, ready for sending over CAN </p>
+
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00157">157</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS::BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>, <a class="el" href="Pedal_8cpp_source.html#l00220">Pedal::checkPedalFault()</a>, <a class="el" href="BMS_8hpp_source.html#l00053">BMS::hvReady()</a>, <a class="el" href="main_8cpp_source.html#l00137">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>, <a class="el" href="Telemetry_8cpp_source.html#l00025">Telemetry::schedulerPedal()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -221,9 +221,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Millisecond counter for the current car status (for state transitions) </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00156">156</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00160">160</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00136">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00137">loop()</a>.</p>
 
 </div>
 </div>

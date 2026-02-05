@@ -1,0 +1,4 @@
+<map id="ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt;" name="ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt;">
+<area shape="rect" id="node1" title="Filter with exponential moving average algorithm. f(t) = (f(t&#45;1) * OLD_RATIO + sample * NEW_RATIO + (..." alt="" coords="5,160,204,296"/>
+<area shape="rect" id="node2" href="$classFilter.html" title="Abstract Base Class for signal filters. Defines the interface for adding samples and retrieving filte..." alt="" coords="36,5,173,112"/>
+</map>

@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['adc_0',['adc',['../structCarState.html#a03f8c26d66c4cc6c3060beb47225579f',1,'CarState']]],
-  ['apps_5f3v3_1',['apps_3v3',['../structTelemetryFrameAdc.html#ab3c9da1f053fc042aa0d4ca6fa9ee4a6',1,'TelemetryFrameAdc']]],
-  ['apps_5f3v3_5fhigh_2',['apps_3v3_high',['../unionTelemetryFrameState_1_1StateByte1.html#a992012127cd6c8a0d95bb4358a137dd6',1,'TelemetryFrameState::StateByte1']]],
-  ['apps_5f3v3_5flow_3',['apps_3v3_low',['../unionTelemetryFrameState_1_1StateByte1.html#a48883a4194883c0ff8ba6e3e97ed689e',1,'TelemetryFrameState::StateByte1']]],
-  ['apps_5f3v3_5fmax_4',['apps_3v3_max',['../Curves_8hpp.html#abf4fad97fd915a68bd47d660c2d68e15',1,'Curves.hpp']]],
-  ['apps_5f3v3_5fmin_5',['apps_3v3_min',['../Curves_8hpp.html#a992ffa31bf4d7e77427fe6a0dfc14ed2',1,'Curves.hpp']]],
-  ['apps_5f3v3_5fscaled_6',['apps_3v3_scaled',['../structTelemetryFrameDigital.html#a44d39acb8b805a04176ccaafb959cca0',1,'TelemetryFrameDigital']]],
-  ['apps_5f5v_7',['apps_5v',['../structTelemetryFrameAdc.html#a4c280adc1f9574bc7807e36986564c0b',1,'TelemetryFrameAdc']]],
-  ['apps_5f5v_5fhigh_8',['apps_5v_high',['../unionTelemetryFrameState_1_1StateByte1.html#a303b89bac195237f6bf7128d1e29d1c0',1,'TelemetryFrameState::StateByte1']]],
-  ['apps_5f5v_5flow_9',['apps_5v_low',['../unionTelemetryFrameState_1_1StateByte1.html#a5400eee1448e916883eb2f0ae8d496f9',1,'TelemetryFrameState::StateByte1']]],
-  ['apps_5f5v_5fmax_10',['apps_5v_max',['../Curves_8hpp.html#aa929f06ea12ce11952e729913cba8212',1,'Curves.hpp']]],
-  ['apps_5f5v_5fmin_11',['apps_5v_min',['../Curves_8hpp.html#ac1bd4776a2981d5e3c072be1d239d2eb',1,'Curves.hpp']]],
-  ['apps_5ffinal_5fmax_12',['apps_final_max',['../Curves_8hpp.html#adce9205701fd8a3e885c1ea6fd45bed4',1,'Curves.hpp']]],
-  ['apps_5ffinal_5fmin_13',['apps_final_min',['../Curves_8hpp.html#a8d24b20bf97c2191490215239c6e7b49',1,'Curves.hpp']]]
+  ['adc_5fbuffer_5fsize_0',['ADC_BUFFER_SIZE',['../Pedal_8hpp.html#a6ac5ec768cb7a75003528d85b70fb112',1,'Pedal.hpp']]],
+  ['apps_5f3v3_1',['apps_3v3',['../structTelemetryFramePedal.html#a9551fce14b1db701aafc022ca9cbe5f6',1,'TelemetryFramePedal']]],
+  ['apps_5f3v3_5fhigh_2',['apps_3v3_high',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a6bb5dd945927cec18d54ccc4db04f18c',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['apps_5f3v3_5flow_3',['apps_3v3_low',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#aec393b5cc6c91d4d980f791c4bbd13fa',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['apps_5f3v3_5fmax_4',['APPS_3V3_MAX',['../Curves_8hpp.html#abf9aa96004a0358d0a8caceb05d31e62',1,'Curves.hpp']]],
+  ['apps_5f3v3_5fmin_5',['APPS_3V3_MIN',['../Curves_8hpp.html#a15bc3e3092556f8a92bb9b0ec187d3ee',1,'Curves.hpp']]],
+  ['apps_5f3v3_5fscaled_6',['apps_3v3_scaled',['../structTelemetryFramePedal.html#a1d0b7e126e91ec089371d007c8878fd7',1,'TelemetryFramePedal']]],
+  ['apps_5f5v_7',['apps_5v',['../structTelemetryFramePedal.html#aa66abfcefed201f950dfcb8c62f8c29e',1,'TelemetryFramePedal']]],
+  ['apps_5f5v_5fhigh_8',['apps_5v_high',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a4c7ff0401f6f7e75279f1cc6f2dc26d3',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['apps_5f5v_5flow_9',['apps_5v_low',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a1d92bac4819980a949a19f9f42c1f9c2',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['apps_5f5v_5fmax_10',['APPS_5V_MAX',['../Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753',1,'Curves.hpp']]],
+  ['apps_5f5v_5fmin_11',['APPS_5V_MIN',['../Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db',1,'Curves.hpp']]],
+  ['apps_5ffinal_5fmax_12',['APPS_FINAL_MAX',['../Curves_8hpp.html#aa0e06b3cb6e2848cf1974301e0cdbd13',1,'Curves.hpp']]],
+  ['apps_5ffinal_5fmin_13',['APPS_FINAL_MIN',['../Curves_8hpp.html#a54ef37a723911176988c201d77472fbd',1,'Curves.hpp']]]
 ];

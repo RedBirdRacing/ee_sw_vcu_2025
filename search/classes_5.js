@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['scheduler_0',['Scheduler',['../classScheduler.html',1,'']]],
-  ['statebyte0_1',['StateByte0',['../unionTelemetryFrameState_1_1StateByte0.html',1,'TelemetryFrameState']]],
-  ['statebyte1_2',['StateByte1',['../unionTelemetryFrameState_1_1StateByte1.html',1,'TelemetryFrameState']]]
+  ['linearinterp_0',['LinearInterp',['../classLinearInterp.html',1,'']]],
+  ['linearinterp_3c_20uint16_5ft_2c_20int16_5ft_2c_20int32_5ft_2c_205_20_3e_1',['LinearInterp&lt; uint16_t, int16_t, int32_t, 5 &gt;',['../classLinearInterp.html',1,'']]]
 ];

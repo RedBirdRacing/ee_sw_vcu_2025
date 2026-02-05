@@ -35,7 +35,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015" target="_top" xlink:title="Sends the appropriate CAN frame based on pedal and car state.">
+<g id="a_node3"><a xlink:href="classPedal.html#a1027941444ce0b3f32ab8991e05c2015" target="_top" xlink:title="Sends the appropriate CAN frame to the motor based on pedal and car state.">
 <polygon fill="white" stroke="#666666" points="316,-19 212,-19 212,0 316,0 316,-19"/>
 <text text-anchor="middle" x="264" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Pedal::sendFrame</text>
 </a>

@@ -15,5 +15,5 @@ var boardConf_8h =
     [ "FRG", "boardConf_8h.html#abfa15a856e2d40258527d676c5023292", null ],
     [ "HALL_SENSOR", "boardConf_8h.html#a6ff4d2630652deeecb75723f5a3fb068", null ],
     [ "MCP2515_CRYSTAL_FREQ", "boardConf_8h.html#a707e24d4b34174643260e39c3abedb45", null ],
-    [ "USE_3CH_CAN", "boardConf_8h.html#aa07c5385b5a0d0d79dd819f1d6caf004", null ]
+    [ "USE_VCU_V3_2", "boardConf_8h.html#ab5f01e60435bf450fa7ba7072cd25e9d", null ]
 ];

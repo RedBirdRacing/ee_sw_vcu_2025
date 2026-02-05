@@ -1,0 +1,5 @@
+<map id="ExponentialFilter::addSample" name="ExponentialFilter::addSample">
+<area shape="rect" id="node1" title="Adds a new sample to the ExponentialFilter. Updates the filtered value using the exponential moving a..." alt="" coords="263,5,403,45"/>
+<area shape="rect" id="node2" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="104,13,215,38"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="5,13,56,38"/>
+</map>
