@@ -27,7 +27,7 @@
 /**
  * @brief Construct a new BMS object, initing car.pedal.status.bits.hv_ready to false
  * @param bms_can_ Reference to MCP2515 for BMS CAN bus
- * @param car.pedal.status.bits.hv_ready_ Reference to boolean, prefer use CarState member. True if HV has been started, for state machine
+ * @param car_ Reference to boolean, prefer use CarState member. True if HV has been started, for state machine
  */
 BMS::BMS(MCP2515 &bms_can_, CarState &car_)
     : bms_can(bms_can_), car(car_)

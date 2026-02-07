@@ -5,6 +5,7 @@
  * @version 1.4.1
  * @date 2026-02-07
  * @see Pedal.cpp
+ * @dir Pedal @brief The Pedal library contains the Pedal class to manage throttle and brake pedal inputs, including filtering, fault detection, and CAN communication.
  */
 
 #ifndef PEDAL_HPP
@@ -32,6 +33,10 @@ constexpr bool BRAKE_RELIABLE = true; /**< brake assumed reliable; enable checki
 
 constexpr uint16_t FAULT_CHECK_HEX = BRAKE_RELIABLE ? 0xFE : 0x3E; /**< Hex mask for fault checking based on brake reliability. */
 
+/**
+ * @brief Namespace for pedal-related constants, such as thresholds and calculation parameters.
+ * This is to avoid polluting the Pedal class with intermediate results.
+ */
 namespace PedalConstants
 {
     constexpr uint8_t MIN_REGEN_KMH = 10;          /**< Minimum speed (km/h) for regenerative braking to be active. */

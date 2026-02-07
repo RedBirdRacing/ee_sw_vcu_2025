@@ -5,7 +5,6 @@
  * @version 1.1
  * @date 2026-01-13
  * @see Scheduler.hpp
- *
  */
 
 #include "Enums.hpp"
@@ -26,7 +25,6 @@ using TaskFn = void (*)(MCP2515 *);
  * @tparam NUM_MCP2515 Number of MCP2515 instances
  * @param[in] period_us_ Period of the scheduler in microseconds
  * @param[in] spin_threshold_us_ Spin-wait threshold in microseconds
- * @param[in] mcps_ Array of MCP2515 pointers
  */
 template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
 Scheduler<NUM_TASKS, NUM_MCP2515>::Scheduler(uint32_t period_us_,

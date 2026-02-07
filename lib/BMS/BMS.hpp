@@ -5,6 +5,7 @@
  * @version 1.2
  * @date 2026-02-04
  * @see BMS.cpp
+ * @dir BMS @brief The BMS library contains the BMS class for managing the Accumulator (Kclear BMS) via CAN bus, including starting HV and checking BMS status.
  */
 
 #ifndef BMS_HPP

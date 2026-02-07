@@ -4,9 +4,9 @@
  * @brief Main VCU program entry point
  * @version 2.0
  * @date 2026-02-07
- * @dir include include contains all header-only files.
- * @dir lib lib contains all libraries. Each library is in its own folder of the same name.
- * @dir src src contains the main.cpp file, the main file of the program.
+ * @dir include @brief Contains all header-only files.
+ * @dir lib @brief Contains all the libraries. Each library is in its own folder of the same name.
+ * @dir src @brief Contains the main.cpp file, the main file of the program.
  */
 
 #include <Arduino.h>
