@@ -24,7 +24,7 @@
 
 // Constants
 
-constexpr bool REGEN_ENABLED = true; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
+constexpr bool REGEN_ENABLED = false; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
 
 constexpr bool FLIP_MOTOR_DIR = false; /**< Boolean toggle to flip motor direction; true inverts torque commands. */
 
