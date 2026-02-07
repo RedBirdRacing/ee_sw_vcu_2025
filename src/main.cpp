@@ -141,7 +141,7 @@ void loop()
 {
     // DBG_HALL_SENSOR(analogRead(HALL_SENSOR));
     car.millis = millis();
-    pedal.update(analogRead(APPS_5V), analogRead(APPS_5V) * 2 / 3, analogRead(BRAKE_IN));
+    pedal.update(analogRead(APPS_5V), analogRead(APPS_3V3), analogRead(BRAKE_IN));
 
     brake_pressed = (car.pedal.brake >= BRAKE_THRESHOLD);
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
