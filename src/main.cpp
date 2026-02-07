@@ -49,9 +49,9 @@ MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
 struct can_frame tx_throttle_msg;
 
 constexpr uint16_t BUSSIN_MILLIS = 2000;        // The amount of time that the buzzer will buzz for
-constexpr uint16_t BMS_OVERRIDE_MILLIS = 15000; // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
+constexpr uint16_t BMS_OVERRIDE_MILLIS = 1000; // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 
-constexpr uint16_t BRAKE_THRESHOLD = 50; // The threshold for the brake pedal to be considered pressed
+constexpr uint16_t BRAKE_THRESHOLD = BRAKE_TABLE[0].in; // The threshold for the brake pedal to be considered pressed
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
@@ -218,7 +218,7 @@ void loop()
     }
 
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
-    if (pedal.pedal_final > APPS_FINAL_MIN) // if pedal pressed while not in DRIVE, reset to INIT
+    if (pedal.pedal_final > THROTTLE_TABLE[0].in) // if pedal pressed while not in DRIVE, reset to INIT
     {
         car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this
