@@ -60,7 +60,7 @@ constexpr uint8_t ADC_BUFFER_SIZE = 16; /**< Size of the ADC reading buffer for 
 class Pedal
 {
 public:
-    Pedal(CarState &car, MCP2515 &motor_can_);
+    Pedal(MCP2515 &motor_can_, CarState &car, uint16_t &pedal_final_);
     void update(uint16_t pedal_1, uint16_t pedal_2, uint16_t brake);
     void sendFrame();
     void readMotor();
@@ -74,13 +74,21 @@ private:
      * @brief CAN frame to stop the motor
      */
     const can_frame stop_frame = {
-        0x201, /**< can_id */
-        3,     /**< can_dlc */
-        0x90,  /**< data, torque command */
-        0x00,  /**< data, 0 torque * 2 */
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        0x90,       /**< data, torque command */
+        0x00,       /**< data, 0 torque * 2 */
         0x00};
 
-    can_frame torque_msg; /**< CAN frame for torque command */
+    /**
+     * @brief CAN frame for torque command
+     */
+    can_frame torque_msg = {
+        MOTOR_SEND, /**< can_id */
+        3,          /**< can_dlc */
+        0x90,       /**< data, torque command */
+        0x00,       /**< data, init as 0 torque * 2 */
+        0x00};
 
     // Filters for pedal and brake inputs, see Signal_Processing.hpp for options
     ExponentialFilter<uint16_t, uint16_t> pedal1_filter; /**< Filter for first pedal sensor input */

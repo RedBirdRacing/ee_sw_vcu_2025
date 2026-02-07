@@ -29,11 +29,12 @@
  * Initializes the pedal state. fault is set to true initially,
  * so you must send update within 100ms of starting the car to clear it.
  * Sends request to motor controller for cyclic RPM and error reads.
- * @param car_ Reference to the CarState structure.
  * @param motor_can_ Reference to the MCP2515 instance for motor CAN communication.
+ * @param car_ Reference to the CarState structure.
+ * @param pedal_final_ Reference to the pedal used as the final pedal value. Although not recommended, you can set another uint16 outside Pedal to be something like 0.3 APPS_1 + 0.7 APPS_2, then reference that here. If in future, this become a sustained need, should consider adding a function pointer to find the final pedal value to let Pedal class call it itself.
  */
-Pedal::Pedal(CarState &car_, MCP2515 &motor_can_)
-    : pedal_final(car_.pedal.apps_5v),
+Pedal::Pedal(MCP2515 &motor_can_, CarState &car_, uint16_t &pedal_final_)
+    : pedal_final(pedal_final_),
       car(car_),
       motor_can(motor_can_),
       fault_start_millis(0)
@@ -157,9 +158,6 @@ void Pedal::sendFrame()
 
     car.motor.torque_val = pedalTorqueMapping(pedal_final, car.pedal.brake, car.motor.motor_rpm, FLIP_MOTOR_DIR);
 
-    torque_msg.can_id = MOTOR_SEND;
-    torque_msg.can_dlc = 3;
-    torque_msg.data[0] = 0x90; // 0x90 for torque, 0x31 for speed
     torque_msg.data[1] = car.motor.torque_val & 0xFF;
     torque_msg.data[2] = (car.motor.torque_val >> 8) & 0xFF;
     motor_can.sendMessage(&torque_msg);
@@ -186,6 +184,7 @@ constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t
         if (pedal > THROTTLE_MAP.start())
         {
             car.pedal.status.bits.screenshot = true;
+            // to ensure BSPD can be tested, skip regen if both throttle and brake pressed
         }
         else if (flip_dir)
         {

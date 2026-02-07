@@ -10,7 +10,7 @@
 #include "BoardConf.h"
 #include "Pedal.hpp"
 #include "BMS.hpp"
-#include "Enums.h"
+#include "Enums.hpp"
 #include "CarState.hpp"
 #include "Scheduler.hpp"
 #include "Curves.hpp"
@@ -48,11 +48,10 @@ MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
 
 struct can_frame tx_throttle_msg;
 
-constexpr uint16_t STARTING_MILLIS = 2000; // The amount of time that the driver needs to hold the "Start" button and full brakes in order to activate driving mode
-constexpr uint16_t BUSSIN_MILLIS = 2000;   // The amount of time that the buzzer will buzz for
-constexpr uint16_t BMS_MILLIS = 10000;     // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
+constexpr uint16_t BUSSIN_MILLIS = 2000;        // The amount of time that the buzzer will buzz for
+constexpr uint16_t BMS_OVERRIDE_MILLIS = 1000; // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 
-constexpr uint16_t BRAKE_THRESHOLD = 50; // The threshold for the brake pedal to be considered pressed
+constexpr uint16_t BRAKE_THRESHOLD = BRAKE_TABLE[0].in; // The threshold for the brake pedal to be considered pressed
 
 bool brake_pressed = false; // boolean for brake light on VCU (for ignition)
 
@@ -69,8 +68,8 @@ struct CarState car = {
 };
 
 // Global objects
-Pedal pedal(car, mcp2515_motor);
-BMS bms(mcp2515_BMS);
+Pedal pedal(mcp2515_motor, car, car.pedal.apps_5v);
+BMS bms(mcp2515_BMS, car);
 Telemetry telem(mcp2515_DL, car);
 
 void scheduler_pedal()
@@ -141,16 +140,16 @@ void loop()
     car.millis = millis();
     pedal.update(analogRead(APPS_5V), analogRead(APPS_5V)*2/3, analogRead(BRAKE_IN));
 
-    brake_pressed = static_cast<uint16_t>(analogRead(BRAKE_IN)) >= BRAKE_THRESHOLD;
+    brake_pressed = (car.pedal.brake >= BRAKE_THRESHOLD);
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     scheduler.update(*micros);
 
     if (car.pedal.status.bits.force_stop)
     {
         car.pedal.status.bits.car_status = CarStatus::Init; // safety, later change to fault status
-        digitalWrite(BUZZER, LOW);   // Turn off buzzer
-        digitalWrite(FRG, LOW);      // Turn off drive mode LED
-        return;                      // If fault force stop is active, do not proceed with the rest of the loop
+        digitalWrite(BUZZER, LOW);                          // Turn off buzzer
+        digitalWrite(FRG, LOW);                             // Turn off drive mode LED
+        return;                                             // If fault force stop is active, do not proceed with the rest of the loop
         // pedal is still being updated, data can still be gathered and sent through CAN/serial
     }
 
@@ -179,30 +178,29 @@ void loop()
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
             car.pedal.status.bits.car_status = CarStatus::Init;
-            car.status_millis = car.millis;               // safety
+            car.status_millis = car.millis;
             scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready since return to INIT
+            break;
         }
-        else if (car.millis - car.status_millis >= STARTING_MILLIS)
+        if (car.pedal.status.bits.hv_ready)
         {
-            scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready, either started or return to INIT
-            if (bms.hvReady())                            // if HV not started, return to INIT
-            {
-                car.pedal.status.bits.car_status = CarStatus::Init;
-                car.status_millis = car.millis; // safety
-                break;
-            }
-            if (car.millis - car.status_millis >= BMS_MILLIS)
-            {
-                car.pedal.status.bits.car_status = CarStatus::Bussin;
-                car.status_millis = car.millis; // safety
-                break;
-            }
+            car.pedal.status.bits.car_status = CarStatus::Bussin;
+            car.status_millis = car.millis;
+            digitalWrite(BUZZER, HIGH);
+            scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready since is already ready
+            break;
+        }
+        if (car.millis - car.status_millis >= BMS_OVERRIDE_MILLIS)
+        {
+            car.pedal.status.bits.car_status = CarStatus::Bussin;
+            car.status_millis = car.millis;
+            digitalWrite(BUZZER, HIGH);
+            scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready since override to BUSSIN
+            break;
         }
         break;
 
     case CarStatus::Bussin:
-        digitalWrite(BUZZER, HIGH); // Turn on buzzer
-
         if (car.millis - car.status_millis >= BUSSIN_MILLIS)
         {
             digitalWrite(BUZZER, LOW);
@@ -213,13 +211,14 @@ void loop()
 
     default:
         // unreachable, reset to INIT
+        car.pedal.status.bits.state_unknown = true;
         car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis;
         break;
     }
 
     // DRIVE mode has already returned, if reached here, then means car isn't in DRIVE
-    if (false && pedal.pedal_final > APPS_FINAL_MIN) // if pedal pressed while not in DRIVE, reset to INIT
+    if (pedal.pedal_final > THROTTLE_TABLE[0].in) // if pedal pressed while not in DRIVE, reset to INIT
     {
         car.pedal.status.bits.car_status = CarStatus::Init;
         car.status_millis = car.millis; // Set to current time, in case any counter relies on this

@@ -37,7 +37,7 @@ class LinearInterp
 {
 public:
     LinearInterp() = delete; /**< Default constructor deleted to prevent instantiation without a table */
-    LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
+    explicit LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
 
     /**
      * @brief Performs linear interpolation for the given input value, using the table

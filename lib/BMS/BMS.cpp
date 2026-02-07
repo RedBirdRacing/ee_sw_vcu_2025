@@ -2,14 +2,15 @@
  * @file BMS.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
- * @version 1.1
- * @date 2026-01-13
- * @see BMS.h
+ * @version 1.2
+ * @date 2026-02-04
+ * @see BMS.hpp
  */
 
 #include "BMS.hpp"
 #include "Debug.hpp"
-#include "Enums.h"
+#include "Enums.hpp"
+#include "CarState.hpp"
 
 // ignore -Wunused-parameter warnings for Debug.h
 #pragma GCC diagnostic push
@@ -24,28 +25,34 @@
 #pragma GCC diagnostic pop
 
 /**
- * @brief Construct a new BMS object
+ * @brief Construct a new BMS object, initing car.pedal.status.bits.hv_ready to false
+ * @param bms_can_ Reference to MCP2515 for BMS CAN bus
+ * @param car.pedal.status.bits.hv_ready_ Reference to boolean, prefer use CarState member. True if HV has been started, for state machine
  */
-BMS::BMS(MCP2515 &bms_can_)
-    : bms_can(bms_can_)
+BMS::BMS(MCP2515 &bms_can_, CarState &car_)
+    : bms_can(bms_can_), car(car_)
 {
+    car.pedal.status.bits.hv_ready = false;
 }
 
 /**
  * @brief Attempts to start HV.
  * First check BMS is in standby(3) state, then send the HV start command.
  * Keep sending the command until the BMS state changes to precharge(4).
- * Sets hv_started to true when BMS state changes to run(5).
+ * Sets car.pedal.status.bits.hv_ready to true when BMS state changes to run(5).
  *
  */
 void BMS::checkHv()
 {
-    if (hv_started)
+    if (car.pedal.status.bits.hv_ready)
         return; // already started
+    car.pedal.status.bits.hv_ready = false;
+    car.pedal.status.bits.bms_no_msg = false;
+    car.pedal.status.bits.bms_wrong_id = false;
     if (bms_can.readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
     {
         DBG_BMS_STATUS(BmsStatus::NoMsg);
-        hv_started = false;
+        car.pedal.status.bits.bms_no_msg = true;
         return;
     }
 
@@ -53,7 +60,7 @@ void BMS::checkHv()
     if (rx_bms_msg.can_id != BMS_INFO_EXT)
     {
         DBG_BMS_STATUS(BmsStatus::WrongId);
-        hv_started = false;
+        car.pedal.status.bits.bms_wrong_id = true;
         return;
     } // Not a BMS info frame, retry
 
@@ -64,24 +71,20 @@ void BMS::checkHv()
         bms_can.sendMessage(&start_hv_msg);
         DBGLN_GENERAL("BMS in standby state, sent start HV cmd");
         // sent start HV cmd, wait for BMS to change state
-        hv_started = false;
         return;
     case 0x40: // Precharge state
         DBG_BMS_STATUS(BmsStatus::Starting);
         bms_can.sendMessage(&start_hv_msg);
         DBGLN_GENERAL("BMS in precharge state, HV starting");
-        hv_started = false;
         return; // BMS is in precharge state, wait
     case 0x50:  // Run state
         DBG_BMS_STATUS(BmsStatus::Started);
         DBGLN_GENERAL("BMS in run state, HV started");
-        hv_started = true; // BMS is in run state
+        car.pedal.status.bits.hv_ready = true; // BMS is in run state
         return;
     default:
         DBG_BMS_STATUS(BmsStatus::Unused);
         DBGLN_GENERAL("BMS in unknown state, retrying...");
-        hv_started = false;
         return; // Unknown state, retry
     }
-    hv_started = false; // guard, probably will be optimized out
 }

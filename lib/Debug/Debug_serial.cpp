@@ -8,7 +8,7 @@
  */
 
 #include "Debug_serial.hpp"
-#include "Enums.h"
+#include "Enums.hpp"
 
 /**
  * @brief Initializes the Debug_Serial interface.

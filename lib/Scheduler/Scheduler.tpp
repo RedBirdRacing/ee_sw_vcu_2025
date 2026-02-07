@@ -8,7 +8,7 @@
  *
  */
 
-#include "Enums.h"
+#include "Enums.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
