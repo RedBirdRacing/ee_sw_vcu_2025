@@ -8,7 +8,7 @@
  */
 
 #include "Pedal.hpp"
-#include "Signal_Processing.hpp" // AVG_filter
+#include "SignalProcessing.hpp"
 #include "CarState.hpp"
 #include <stdint.h>
 #include "Queue.hpp"

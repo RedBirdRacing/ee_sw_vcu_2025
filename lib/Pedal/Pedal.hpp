@@ -2,8 +2,8 @@
  * @file Pedal.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of the Pedal class for handling throttle and brake pedal inputs
- * @version 1.4
- * @date 2026-01-26
+ * @version 1.4.1
+ * @date 2026-02-07
  * @see Pedal.cpp
  */
 
@@ -14,7 +14,7 @@
 #include "CarState.hpp"
 #include "Interp.hpp"
 #include "Curves.hpp"
-#include "Signal_Processing.hpp" // AVG_filter
+#include "SignalProcessing.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -24,7 +24,7 @@
 
 // Constants
 
-constexpr bool REGEN_ENABLED = true; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
+constexpr bool REGEN_ENABLED = false; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
 
 constexpr bool FLIP_MOTOR_DIR = false; /**< Boolean toggle to flip motor direction; true inverts torque commands. */
 

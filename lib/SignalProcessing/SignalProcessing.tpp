@@ -1,5 +1,5 @@
 /**
- * @file Signal_Processing.tpp
+ * @file SignalProcessing.tpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of Signal Processing functions
  * @version 2.1
@@ -7,7 +7,7 @@
  * @see Signal_Processing.hpp
  */
 
-#include "Signal_Processing.hpp"
+#include "SignalProcessing.hpp"
 
 // === AverageFilter ===
 

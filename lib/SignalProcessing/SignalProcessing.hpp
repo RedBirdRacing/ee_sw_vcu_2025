@@ -1,10 +1,10 @@
 /**
- * @file Signal_Processing.hpp
+ * @file SignalProcessing.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of signal processing functions
  * @version 2.1
  * @date 2026-01-28
- * @see Signal_Processing.tpp
+ * @see SignalProcessing.tpp
  */
 #ifndef SIGNAL_PROCESSING_HPP
 #define SIGNAL_PROCESSING_HPP
@@ -65,6 +65,6 @@ private:
     TypeInput last_out = 0; /**< Last output value for exponential filter, input for next calculation */
 };
 
-#include "Signal_Processing.tpp" // implementation
+#include "SignalProcessing.tpp" // implementation
 
 #endif // SIGNAL_PROCESSING_HPP
