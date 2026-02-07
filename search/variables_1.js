@@ -20,7 +20,7 @@ var searchData=
   ['brake_5fmin_17',['brake_min',['../Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7',1,'Curves.hpp']]],
   ['brake_5fpressed_18',['brake_pressed',['../main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7',1,'main.cpp']]],
   ['brake_5freliable_19',['BRAKE_RELIABLE',['../Pedal_8hpp.html#abe6462cc59bc27f9ee242502b2ae7a94',1,'Pedal.hpp']]],
-  ['brake_5ftable_20',['BRAKE_TABLE',['../Curves_8hpp.html#a2b3efd2e744ce5a17cb93bf0d69fd7de',1,'Curves.hpp']]],
+  ['brake_5ftable_20',['BRAKE_TABLE',['../Curves_8hpp.html#aa9235baa5785862eb452871ed359355a',1,'Curves.hpp']]],
   ['brake_5fthreshold_21',['BRAKE_THRESHOLD',['../main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9',1,'main.cpp']]],
   ['buffer_22',['buffer',['../classAverageFilter.html#a2382f7703e93058c3bdb349dc9689c53',1,'AverageFilter::buffer()'],['../classRingBuffer.html#a43ac88b34cda0c89602ff6038ca3912e',1,'RingBuffer::buffer()']]],
   ['bussin_5fmillis_23',['BUSSIN_MILLIS',['../main_8cpp.html#ae6977c8d9a85d7eecbf236ebc38dcd8b',1,'main.cpp']]],

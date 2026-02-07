@@ -34,7 +34,7 @@ var searchData=
   ['brake_5fmin_31',['brake_min',['../Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7',1,'Curves.hpp']]],
   ['brake_5fpressed_32',['brake_pressed',['../main_8cpp.html#a363e40cf047b6f6ac073c3564fcc5ee7',1,'main.cpp']]],
   ['brake_5freliable_33',['BRAKE_RELIABLE',['../Pedal_8hpp.html#abe6462cc59bc27f9ee242502b2ae7a94',1,'Pedal.hpp']]],
-  ['brake_5ftable_34',['BRAKE_TABLE',['../Curves_8hpp.html#a2b3efd2e744ce5a17cb93bf0d69fd7de',1,'Curves.hpp']]],
+  ['brake_5ftable_34',['BRAKE_TABLE',['../Curves_8hpp.html#aa9235baa5785862eb452871ed359355a',1,'Curves.hpp']]],
   ['brake_5fthreshold_35',['BRAKE_THRESHOLD',['../main_8cpp.html#a74a2a1ed8be72bc6e757566973698af9',1,'main.cpp']]],
   ['brakehigh_36',['BrakeHigh',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210fa797e1bc7e6c6bacb454e503e61ba8ea6',1,'Enums.hpp']]],
   ['brakelow_37',['BrakeLow',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210fa4763d1b2b78f0b3e695fef013b4af11c',1,'Enums.hpp']]],

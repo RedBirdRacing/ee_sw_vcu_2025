@@ -1,7 +1,7 @@
 <map id="lib/BMS/BMS.cpp" name="lib/BMS/BMS.cpp">
 <area shape="rect" id="node1" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="149,5,280,31"/>
 <area shape="rect" id="node2" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="306,79,385,104"/>
-<area shape="rect" id="node4" href="$Enums_8hpp.html" title=" " alt="" coords="147,299,242,324"/>
+<area shape="rect" id="node4" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="147,299,242,324"/>
 <area shape="rect" id="node7" title=" " alt="" coords="415,299,510,324"/>
 <area shape="rect" id="node9" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="5,225,112,251"/>
 <area shape="rect" id="node10" href="$Debug_8hpp.html" title="Debugging macros and functions for serial and CAN output." alt="" coords="169,152,261,177"/>

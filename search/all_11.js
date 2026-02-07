@@ -23,7 +23,7 @@ var searchData=
   ['throttle_5fmap_20',['THROTTLE_MAP',['../classPedal.html#a00a561a684cde0825561fa6606fd062c',1,'Pedal']]],
   ['throttle_5fout_21',['throttle_out',['../namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3',1,'Debug_CAN::throttle_out()'],['../namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515',1,'Debug_Serial::throttle_out()']]],
   ['throttle_5fout_5fmsg_22',['THROTTLE_OUT_MSG',['../namespaceDebug__CAN.html#a397dd1cd5b54162c75f21ea841573cf6',1,'Debug_CAN']]],
-  ['throttle_5ftable_23',['THROTTLE_TABLE',['../Curves_8hpp.html#a7528718bddc7346f55698e48d709a74c',1,'Curves.hpp']]],
+  ['throttle_5ftable_23',['THROTTLE_TABLE',['../Curves_8hpp.html#a5f35ab827c7c75990e4f28729b8fd04f',1,'Curves.hpp']]],
   ['throttlehigh_24',['ThrottleHigh',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210fa3df290eaa94bd4e5615fb5765ba10973',1,'Enums.hpp']]],
   ['throttlelow_25',['ThrottleLow',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28',1,'Enums.hpp']]],
   ['tocanframe_26',['toCanFrame',['../structTelemetryFrameBms.html#a6b03b160b930c3a40a06e99f6e6cb175',1,'TelemetryFrameBms::toCanFrame()'],['../structTelemetryFrameMotor.html#a34bcb5a8f27caa3a1098c35c051236aa',1,'TelemetryFrameMotor::toCanFrame()'],['../structTelemetryFramePedal.html#af36459761c019b01b84e3844f8c38f49',1,'TelemetryFramePedal::toCanFrame()']]],

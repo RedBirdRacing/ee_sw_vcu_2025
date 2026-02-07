@@ -4,7 +4,7 @@
 <area shape="rect" id="node3" title=" " alt="" coords="215,79,317,104"/>
 <area shape="rect" id="node4" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="280,152,367,177"/>
 <area shape="rect" id="node6" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="567,225,674,251"/>
-<area shape="rect" id="node7" href="$Enums_8hpp.html" title=" " alt="" coords="509,299,604,324"/>
+<area shape="rect" id="node7" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="509,299,604,324"/>
 <area shape="rect" id="node10" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="347,225,441,251"/>
 <area shape="rect" id="node13" title=" " alt="" coords="905,299,1000,324"/>
 <area shape="rect" id="node14" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="741,79,820,104"/>

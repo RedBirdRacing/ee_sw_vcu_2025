@@ -252,7 +252,7 @@ var sectionId = 'dynsection-0';
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="Enums_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="Enums_8hpp.html" target="_top" xlink:title="Enumeration definitions for the VCU.">
 <polygon fill="white" stroke="#666666" points="71,-74 0,-74 0,-55 71,-55 71,-74"/>
 <text text-anchor="middle" x="35.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Enums.hpp</text>
 </a>
