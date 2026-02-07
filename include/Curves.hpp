@@ -2,8 +2,8 @@
  * @file Curves.hpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of throttle and brake mapping tables
- * @version 1.1
- * @date 2026-01-15
+ * @version 1.2
+ * @date 2026-02-07
  * @see Interp.hpp, Pedal
  */
 
