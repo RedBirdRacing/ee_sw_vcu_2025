@@ -53,7 +53,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="classExponentialFilter.html" target="_top" xlink:title="Filter with exponential moving average algorithm. f(t) = (f(t&#45;1) * OLD_RATIO + sample * NEW_RATIO + (...">
+<g id="a_node4"><a xlink:href="classExponentialFilter.html" target="_top" xlink:title="Filter with exponential moving average algorithm.">
 <polygon fill="white" stroke="#666666" points="288,-41 139,-41 139,0 288,0 288,-41"/>
 <text text-anchor="start" x="147" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">ExponentialFilter&lt;</text>
 <text text-anchor="start" x="147" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00"> TypeInput, TypeMid,</text>

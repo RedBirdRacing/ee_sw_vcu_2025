@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt; Class Template Reference</title>
+<title>Red Bird Racing VCU: ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Red Bird Racing VCU<span id="projectnumber">&#160;v2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -103,10 +103,10 @@ $(document).ready(function(){initNavTree('classExponentialFilter.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classFilter.html" title="Abstract Base Class for signal filters. Defines the interface for adding samples and retrieving filte...">Filter</a> with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (OLD_RATIO + NEW_RATIO) / 2) / (OLD_RATIO + NEW_RATIO) Due to round down, won't ever reach maximum, especially if OLD_RATIO &gt;&gt; NEW_RATIO, so use of curve important.  
+<p><a class="el" href="classFilter.html" title="Abstract Base Class for signal filters. Defines the interface for adding samples and retrieving filte...">Filter</a> with exponential moving average algorithm.  
  <a href="classExponentialFilter.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="Signal__Processing_8hpp_source.html">Signal_Processing.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="SignalProcessing_8hpp_source.html">SignalProcessing.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt;:</div>
 <div class="dyncontent">
@@ -123,13 +123,13 @@ Collaboration diagram for ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, N
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a518def89be0985244ed33d5007781d8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExponentialFilter.html#a518def89be0985244ed33d5007781d8f">ExponentialFilter</a> ()</td></tr>
-<tr class="memdesc:a518def89be0985244ed33d5007781d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (...">ExponentialFilter</a>. Initializes the last output value to zero.  <br /></td></tr>
+<tr class="memdesc:a518def89be0985244ed33d5007781d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm.">ExponentialFilter</a>. Initializes the last output value to zero.  <br /></td></tr>
 <tr class="separator:a518def89be0985244ed33d5007781d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4128176cf6dbe847a521df4dba8d962d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExponentialFilter.html#a4128176cf6dbe847a521df4dba8d962d">addSample</a> (TypeInput sample) override</td></tr>
-<tr class="memdesc:a4128176cf6dbe847a521df4dba8d962d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new sample to the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (...">ExponentialFilter</a>. Updates the filtered value using the exponential moving average formula.  <br /></td></tr>
+<tr class="memdesc:a4128176cf6dbe847a521df4dba8d962d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new sample to the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm.">ExponentialFilter</a>. Updates the filtered value using the exponential moving average formula.  <br /></td></tr>
 <tr class="separator:a4128176cf6dbe847a521df4dba8d962d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a598576f308881ed4adeb618e0bf1f75a"><td class="memItemLeft" align="right" valign="top">TypeInput&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExponentialFilter.html#a598576f308881ed4adeb618e0bf1f75a">getFiltered</a> () const override</td></tr>
-<tr class="memdesc:a598576f308881ed4adeb618e0bf1f75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the filtered value from the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (...">ExponentialFilter</a>.  <br /></td></tr>
+<tr class="memdesc:a598576f308881ed4adeb618e0bf1f75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the filtered value from the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm.">ExponentialFilter</a>.  <br /></td></tr>
 <tr class="separator:a598576f308881ed4adeb618e0bf1f75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5436212053d54b64672317ff4391234d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFilter.html#a5436212053d54b64672317ff4391234d">addSample</a> (TypeInput sample)=0</td></tr>
 <tr class="separator:a5436212053d54b64672317ff4391234d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,8 +143,8 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename TypeInput, typename TypeMid, uint8_t OLD_RATIO = 31, uint8_t NEW_RATIO = 1&gt;<br />
-class ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt;</div><p><a class="el" href="classFilter.html" title="Abstract Base Class for signal filters. Defines the interface for adding samples and retrieving filte...">Filter</a> with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (OLD_RATIO + NEW_RATIO) / 2) / (OLD_RATIO + NEW_RATIO) Due to round down, won't ever reach maximum, especially if OLD_RATIO &gt;&gt; NEW_RATIO, so use of curve important. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+class ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt;</div><p><a class="el" href="classFilter.html" title="Abstract Base Class for signal filters. Defines the interface for adding samples and retrieving filte...">Filter</a> with exponential moving average algorithm. </p>
+<p>Old samples "decay" naturally. The formula used is: f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (OLD_RATIO + NEW_RATIO) / 2) / (OLD_RATIO + NEW_RATIO) Due to round down, the results won't ever reach maximum, especially if OLD_RATIO &gt;&gt; NEW_RATIO, so the use of curve is important. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TypeInput</td><td>Type of the input samples. </td></tr>
     <tr><td class="paramname">TypeMid</td><td>Type used for intermediate calculations. </td></tr>
@@ -154,7 +154,7 @@ class ExponentialFilter&lt; TypeInput, TypeMid, OLD_RATIO, NEW_RATIO &gt;</div><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8hpp_source.html#l00057">57</a> of file <a class="el" href="Signal__Processing_8hpp_source.html">Signal_Processing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalProcessing_8hpp_source.html#l00059">59</a> of file <a class="el" href="SignalProcessing_8hpp_source.html">SignalProcessing.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a518def89be0985244ed33d5007781d8f" name="a518def89be0985244ed33d5007781d8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a518def89be0985244ed33d5007781d8f">&#9670;&#160;</a></span>ExponentialFilter()</h2>
@@ -181,7 +181,7 @@ template&lt;typename TypeInput , typename TypeMid , uint8_t OLD_RATIO, uint8_t N
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (...">ExponentialFilter</a>. Initializes the last output value to zero. </p>
+<p>Constructor for <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm.">ExponentialFilter</a>. Initializes the last output value to zero. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TypeInput</td><td>Type of the input samples. </td></tr>
@@ -221,7 +221,7 @@ template&lt;typename TypeInput , typename TypeMid , uint8_t OLD_RATIO, uint8_t N
 </table>
 </div><div class="memdoc">
 
-<p>Adds a new sample to the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (...">ExponentialFilter</a>. Updates the filtered value using the exponential moving average formula. </p>
+<p>Adds a new sample to the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm.">ExponentialFilter</a>. Updates the filtered value using the exponential moving average formula. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TypeInput</td><td>Type of the input samples. </td></tr>
@@ -240,7 +240,7 @@ template&lt;typename TypeInput , typename TypeMid , uint8_t OLD_RATIO, uint8_t N
 
 <p>Implements <a class="el" href="classFilter.html#a5436212053d54b64672317ff4391234d">Filter&lt; TypeInput, TypeMid &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8tpp_source.html#l00081">81</a> of file <a class="el" href="Signal__Processing_8tpp_source.html">Signal_Processing.tpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalProcessing_8tpp_source.html#l00081">81</a> of file <a class="el" href="SignalProcessing_8tpp_source.html">SignalProcessing.tpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 <div class="dynheader">
@@ -274,7 +274,7 @@ template&lt;typename TypeInput , typename TypeMid , uint8_t OLD_RATIO, uint8_t N
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the filtered value from the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (...">ExponentialFilter</a>. </p>
+<p>Retrieves the filtered value from the <a class="el" href="classExponentialFilter.html" title="Filter with exponential moving average algorithm.">ExponentialFilter</a>. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TypeInput</td><td>Type of the input samples. </td></tr>
@@ -288,7 +288,7 @@ template&lt;typename TypeInput , typename TypeMid , uint8_t OLD_RATIO, uint8_t N
 
 <p>Implements <a class="el" href="classFilter.html#a8911711e0ba1e76202f636f66504afa1">Filter&lt; TypeInput, TypeMid &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8tpp_source.html#l00095">95</a> of file <a class="el" href="Signal__Processing_8tpp_source.html">Signal_Processing.tpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalProcessing_8tpp_source.html#l00095">95</a> of file <a class="el" href="SignalProcessing_8tpp_source.html">SignalProcessing.tpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>.</p>
 <div class="dynheader">
@@ -324,13 +324,13 @@ template&lt;typename TypeInput , typename TypeMid , uint8_t OLD_RATIO = 31, uint
 </div><div class="memdoc">
 <p>Last output value for exponential filter, input for next calculation </p>
 
-<p class="definition">Definition at line <a class="el" href="Signal__Processing_8hpp_source.html#l00065">65</a> of file <a class="el" href="Signal__Processing_8hpp_source.html">Signal_Processing.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SignalProcessing_8hpp_source.html#l00067">67</a> of file <a class="el" href="SignalProcessing_8hpp_source.html">SignalProcessing.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>lib/Signal_Processing/<a class="el" href="Signal__Processing_8hpp_source.html">Signal_Processing.hpp</a></li>
-<li>lib/Signal_Processing/<a class="el" href="Signal__Processing_8tpp_source.html">Signal_Processing.tpp</a></li>
+<li>ee_sw_vcu_2025/lib/SignalProcessing/<a class="el" href="SignalProcessing_8hpp_source.html">SignalProcessing.hpp</a></li>
+<li>ee_sw_vcu_2025/lib/SignalProcessing/<a class="el" href="SignalProcessing_8tpp_source.html">SignalProcessing.tpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

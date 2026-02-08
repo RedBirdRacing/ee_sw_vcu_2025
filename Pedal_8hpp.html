@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: lib/Pedal/Pedal.hpp File Reference</title>
+<title>Red Bird Racing VCU: ee_sw_vcu_2025/lib/Pedal/Pedal.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Red Bird Racing VCU<span id="projectnumber">&#160;v2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -109,18 +109,18 @@ $(document).ready(function(){initNavTree('Pedal_8hpp.html',''); initResizable();
 <code>#include &quot;<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Signal__Processing_8hpp_source.html">Signal_Processing.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SignalProcessing_8hpp_source.html">SignalProcessing.hpp</a>&quot;</code><br />
 <code>#include &lt;mcp2515.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Pedal.hpp:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Pedal_8hpp__incl.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Pedal_8hpp__incl.svg" width="100%" height="503"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Pedal_8hpp__dep__incl.svg" width="286" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Pedal_8hpp__dep__incl.svg" width="342" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -135,11 +135,12 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacePedalConstants"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePedalConstants.html">PedalConstants</a></td></tr>
+<tr class="memdesc:namespacePedalConstants"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for pedal-related constants, such as thresholds and calculation parameters. This is to avoid polluting the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class with intermediate results. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ad9af782d63c8bc4cfaf4a3b19d1489f3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ad9af782d63c8bc4cfaf4a3b19d1489f3">REGEN_ENABLED</a> = true</td></tr>
+<tr class="memitem:ad9af782d63c8bc4cfaf4a3b19d1489f3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ad9af782d63c8bc4cfaf4a3b19d1489f3">REGEN_ENABLED</a> = false</td></tr>
 <tr class="separator:ad9af782d63c8bc4cfaf4a3b19d1489f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2814e9aff83da9c45d2a6fadbea27309"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309">FLIP_MOTOR_DIR</a> = false</td></tr>
 <tr class="separator:a2814e9aff83da9c45d2a6fadbea27309"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,8 +174,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Declaration of the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class for handling throttle and brake pedal inputs. </p>
 <dl class="section author"><dt>Author</dt><dd>Planeson, Red Bird Racing </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.4 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-01-26 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.4.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-02-07 </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs.">Pedal.cpp</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
@@ -200,7 +201,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Size of the ADC reading buffer for filtering. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00054">54</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00059">59</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>
@@ -225,7 +226,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>brake assumed reliable; enable checking of min/max (narrow range); set to false compromises safety! </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00031">31</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00032">32</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>
@@ -250,7 +251,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Hex mask for fault checking based on brake reliability. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00033">33</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00034">34</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 
@@ -277,7 +278,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean toggle to flip motor direction; true inverts torque commands. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00029">29</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00030">30</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>.</p>
 
@@ -293,7 +294,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool REGEN_ENABLED = true</td>
+          <td class="memname">constexpr bool REGEN_ENABLED = false</td>
         </tr>
       </table>
   </td>
@@ -304,7 +305,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Boolean toggle for regenerative braking; false disables reverse torque. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00027">27</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00028">28</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>.</p>
 
@@ -315,7 +316,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_8456cc6ee1be6760a905e5b58e691ed8.html">Pedal</a></li><li class="navelem"><a class="el" href="Pedal_8hpp.html">Pedal.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_878c97e183bae1c6712242243e36474e.html">ee_sw_vcu_2025</a></li><li class="navelem"><a class="el" href="dir_d6c487d3697a32a5301425d1373bccad.html">lib</a></li><li class="navelem"><a class="el" href="dir_521993b07a58bc5a1ed6c4cf7cb851a5.html">Pedal</a></li><li class="navelem"><a class="el" href="Pedal_8hpp.html">Pedal.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

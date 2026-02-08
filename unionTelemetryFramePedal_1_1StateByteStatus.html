@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: TelemetryFramePedal::StateByteStatus Union Reference</title>
+<title>Red Bird Racing VCU: TelemetryFramePedal::StateByteStatus Union Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Red Bird Racing VCU<span id="projectnumber">&#160;v2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('unionTelemetryFramePedal_1_1StateByteS
 </div><!--header-->
 <div class="contents">
 
+<p>Union of bits for car status besides <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a>.  
+ <a href="unionTelemetryFramePedal_1_1StateByteStatus.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for TelemetryFramePedal::StateByteStatus:</div>
@@ -114,6 +117,7 @@ Collaboration diagram for TelemetryFramePedal::StateByteStatus:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html">Bits</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitfield representation of the status bits.  <a href="structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -124,9 +128,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a93af34efbc86fc96ba1bb69fad21bf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>&lt; Union of bits for car status besides <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> </p>
+<div class="textblock"><p>Union of bits for car status besides <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00035">35</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00036">36</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a93af34efbc86fc96ba1bb69fad21bf13" name="a93af34efbc86fc96ba1bb69fad21bf13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93af34efbc86fc96ba1bb69fad21bf13">&#9670;&#160;</a></span>bits</h2>
@@ -140,7 +144,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS::BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>, <a class="el" href="BMS_8hpp_source.html#l00053">BMS::hvReady()</a>, <a class="el" href="main_8cpp_source.html#l00137">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS::BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>, <a class="el" href="BMS_8hpp_source.html#l00054">BMS::hvReady()</a>, <a class="el" href="main_8cpp_source.html#l00140">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -155,15 +159,16 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Byte representation of the status bits </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00037">37</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00038">38</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8hpp_source.html#l00075">TelemetryFramePedal::toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CarState_8hpp_source.html#l00081">TelemetryFramePedal::toCanFrame()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this union was generated from the following file:<ul>
-<li>include/<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a></li>
+<li>ee_sw_vcu_2025/include/<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

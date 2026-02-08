@@ -1,8 +1,8 @@
-<map id="lib/Debug/Debug_can.cpp" name="lib/Debug/Debug_can.cpp">
-<area shape="rect" id="node1" title="Implementation of the Debug_CAN namespace for CAN debugging functions." alt="" coords="9,5,195,31"/>
-<area shape="rect" id="node2" href="$Debug__can_8hpp.html" title="Declaration of the Debug_CAN namespace for CAN debugging functions." alt="" coords="90,79,213,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,152,100,177"/>
-<area shape="rect" id="node4" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="124,152,219,177"/>
-<area shape="rect" id="node5" title=" " alt="" coords="92,225,163,251"/>
-<area shape="rect" id="node6" title=" " alt="" coords="187,225,244,251"/>
+<map id="ee_sw_vcu_2025/lib/Debug/Debug_can.cpp" name="ee_sw_vcu_2025/lib/Debug/Debug_can.cpp">
+<area shape="rect" id="node1" title="Implementation of the Debug_CAN namespace for CAN debugging functions." alt="" coords="17,5,187,45"/>
+<area shape="rect" id="node2" href="$Debug__can_8hpp.html" title="Declaration of the Debug_CAN namespace for CAN debugging functions." alt="" coords="90,93,213,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,167,100,192"/>
+<area shape="rect" id="node4" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="124,167,219,192"/>
+<area shape="rect" id="node5" title=" " alt="" coords="92,240,163,265"/>
+<area shape="rect" id="node6" title=" " alt="" coords="187,240,244,265"/>
 </map>

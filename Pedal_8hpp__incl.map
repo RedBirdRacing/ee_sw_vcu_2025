@@ -1,12 +1,12 @@
-<map id="lib/Pedal/Pedal.hpp" name="lib/Pedal/Pedal.hpp">
-<area shape="rect" id="node1" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="267,5,414,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="203,225,273,251"/>
-<area shape="rect" id="node3" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="46,79,153,104"/>
-<area shape="rect" id="node6" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="301,152,389,177"/>
-<area shape="rect" id="node7" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="251,79,345,104"/>
-<area shape="rect" id="node8" href="$Signal__Processing_8hpp.html" title="Declaration of signal processing functions." alt="" coords="421,79,588,104"/>
-<area shape="rect" id="node10" title=" " alt="" coords="612,79,707,104"/>
-<area shape="rect" id="node4" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="29,152,124,177"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,225,63,251"/>
-<area shape="rect" id="node9" href="$Signal__Processing_8tpp.html" title="Definition of Signal Processing functions." alt="" coords="464,152,628,177"/>
+<map id="ee_sw_vcu_2025/lib/Pedal/Pedal.hpp" name="ee_sw_vcu_2025/lib/Pedal/Pedal.hpp">
+<area shape="rect" id="node1" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="265,5,417,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="203,240,273,265"/>
+<area shape="rect" id="node3" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="46,93,153,119"/>
+<area shape="rect" id="node6" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="301,167,389,192"/>
+<area shape="rect" id="node7" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="251,93,345,119"/>
+<area shape="rect" id="node8" href="$SignalProcessing_8hpp.html" title="Declaration of signal processing functions." alt="" coords="421,93,581,119"/>
+<area shape="rect" id="node10" title=" " alt="" coords="605,93,700,119"/>
+<area shape="rect" id="node4" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="29,167,124,192"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,240,63,265"/>
+<area shape="rect" id="node9" href="$SignalProcessing_8tpp.html" title="Definition of Signal Processing functions." alt="" coords="463,167,621,192"/>
 </map>

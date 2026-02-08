@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>Red Bird Racing VCU: Red Bird Racing VCU 2025</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Red Bird Racing VCU<span id="projectnumber">&#160;v2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -94,26 +94,92 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">My Project Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Red Bird Racing VCU 2025 </div></div>
 </div><!--header-->
 <div class="contents">
-<ul><li><a href="index.html"><span>Main&#160;Page</span></a>
-</li><li><a href="namespaces.html"><span>Namespaces</span></a>
-<ul><li><a href="namespaces.html"><span>Namespace&#160;List</span></a>
-</li><li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a>
-</li></ul>
-</li><li><a href="annotated.html"><span>Classes</span></a>
-<ul><li><a href="annotated.html"><span>Class&#160;List</span></a>
-</li><li><a href="classes.html"><span>Class&#160;Index</span></a>
-</li><li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a>
-</li><li><a href="functions.html"><span>Class&#160;Members</span></a>
-</li></ul>
-</li><li><a href="files.html"><span>Files</span></a>
-<ul><li><a href="files.html"><span>File&#160;List</span></a>
-</li><li><a href="globals.html"><span>File&#160;Members</span></a>
-</li></ul>
-</li></ul>
+<div class="textblock"><p><a class="anchor" id="md_ee_sw_vcu_2025_Readme"></a> Vehicle Control Unit (VCU) firmware for Red Bird Racing. As of current, this codebase is ready for Gen 5 (2025) and Gen 6 (2026).</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md2"></a>
+Overview</h1>
+<p>This repository contains the embedded firmware for the VCU, responsible for pedal input processing, CAN communication, and vehicle state management. The codebase is modular, with a focus on reliability, maintainability, and real-time performance for electric race vehicles.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Documentation</h1>
+<ul>
+<li><a href="https://hkust-red-bird-racing-evrt.github.io/ee_sw_vcu_2025/"><b>Doxygen Documentation</b></a></li>
+<li><a href="https://drive.google.com/drive/folders/1Ny3oZfMf1QJ1frPJsuiHh42v5gLH2OJs?usp=drive_link"><b>External System/Design Documentation</b></a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Key Components</h1>
+<ul>
+<li><b><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a>:</b> Handles throttle and brake pedal input, producing output torque.</li>
+<li><b><a class="el" href="classTelemetry.html" title="Telemetry class for managing telemetry data transmission over CAN bus Grabs and sends telemetry frame...">Telemetry</a>:</b> Produces extra CAN frames for telemetry and debugging.</li>
+<li><b><a class="el" href="classScheduler.html" title="Scheduler class template for scheduling tasks on multiple MCP2515 instances Takes in function pointer...">Scheduler</a>:</b> Allow tasks to be run at set intervals. A mix of spinlock and yielding ensures accurate timing and maximum speeds.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Getting Started</h1>
+<ol type="1">
+<li><b>Configure Car Constants:</b><ul>
+<li>Edit <code>BoardConf.h</code> to choose the correct pin-mappings for a particular board.</li>
+<li>Edit <code><a class="el" href="Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs.">Pedal.hpp</a></code> to edit Drivetrain and reverse parameters.</li>
+</ul>
+</li>
+<li><b>Configure <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> Input Constants:</b><ul>
+<li>Edit <code><a class="el" href="Curves_8hpp.html" title="Definition of throttle and brake mapping tables.">Curves.hpp</a></code> to set appropriate min/max values, as well as the torque curve.</li>
+</ul>
+</li>
+<li><b>Build and Flash:</b><ul>
+<li>Use PlatformIO or your preferred toolchain to build and upload the firmware.</li>
+<li>Ensure the vehicle is safely jacked up and powered off during flashing.</li>
+</ul>
+</li>
+<li><b>Sensor Calibration:</b><ul>
+<li>Probe APPS sensor voltages (5V and 3.3V rails) to determine min/max values and scale the curve correctly.</li>
+<li>Adjust configuration (step 2) as needed for reliable and desirable operation.</li>
+</ul>
+</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Debugging</h1>
+<ul>
+<li>Enable/disable debug messages by setting flags in <code><a class="el" href="Debug_8hpp.html" title="Debugging macros and functions for serial and CAN output.">Debug.hpp</a></code>.</li>
+<li>Significantly slows down the VCU due to the extra work</li>
+<li>Should not affect motor/BMS/Telemetry frame timings majorly, though the <a class="el" href="classScheduler.html" title="Scheduler class template for scheduling tasks on multiple MCP2515 instances Takes in function pointer...">Scheduler</a> can handle missed frames correctly.</li>
+<li>Debug is centred around showing what <a class="el" href="classTelemetry.html" title="Telemetry class for managing telemetry data transmission over CAN bus Grabs and sends telemetry frame...">Telemetry</a> would show, so there's more focus on tracing the car's states before <a class="el" href="classTelemetry.html" title="Telemetry class for managing telemetry data transmission over CAN bus Grabs and sends telemetry frame...">Telemetry</a> starts communicating, or if the CAN don't work.</li>
+<li><b>Serial Debugging:</b><ul>
+<li>Connect the VCU to a serial monitor.</li>
+</ul>
+</li>
+<li><b>CAN Debugging:</b><ul>
+<li>Connect the VCU's MCP2515 outputs to a USB PCAN.</li>
+<li>Use the provided .dbc to interpret the frames.</li>
+<li>Check the external doc for full references to the messages.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Project Structure</h1>
+<div class="fragment"><div class="line">include/         # Header files</div>
+<div class="line">lib/             # Modular libraries (Pedal, Signal_Processing, etc.)</div>
+<div class="line">src/             # Main application entry point (main.cpp)</div>
+<div class="line">scripts/         # Static analysis, formatting, and utility scripts</div>
+<div class="line">test/            # Unit and integration tests</div>
+<div class="line">Doxyfile         # Doxygen configuration</div>
+<div class="line">platformio.ini   # PlatformIO project config</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
+Current Development</h1>
+<ul>
+<li>Debug awaiting cleanup</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Future Plans</h1>
+<ul>
+<li>Continuous maintenance</li>
+<li>No significant development planned / expected.</li>
+</ul>
+<hr  />
+<p>For questions or contributions, please refer to the documentation links above or contact the Red Bird Racing Software subteam. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

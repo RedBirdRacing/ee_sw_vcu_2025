@@ -28,7 +28,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="unionTelemetryFramePedal_1_1StateByteStatus.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="unionTelemetryFramePedal_1_1StateByteStatus.html" target="_top" xlink:title="Union of bits for car status besides Pedal.">
 <polygon fill="white" stroke="#666666" points="2.5,-149.5 2.5,-217.5 125.5,-217.5 125.5,-149.5 2.5,-149.5"/>
 <text text-anchor="start" x="10.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFramePedal</text>
 <text text-anchor="middle" x="64" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">::StateByteStatus</text>
@@ -49,7 +49,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" target="_top" xlink:title="Bitfield representation of the status bits.">
 <polygon fill="white" stroke="#666666" points="0,-271 0,-405 126,-405 126,-271 0,-271"/>
 <text text-anchor="start" x="8" y="-393" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFramePedal</text>
 <text text-anchor="middle" x="63" y="-382" font-family="Helvetica,sans-Serif" font-size="10.00">::StateByteStatus::Bits</text>
@@ -76,7 +76,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="unionTelemetryFramePedal_1_1StateByteFaults.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="unionTelemetryFramePedal_1_1StateByteFaults.html" target="_top" xlink:title="Union of bits for pedal faults.">
 <polygon fill="white" stroke="#666666" points="144.5,-149.5 144.5,-217.5 267.5,-217.5 267.5,-149.5 144.5,-149.5"/>
 <text text-anchor="start" x="152.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFramePedal</text>
 <text text-anchor="middle" x="206" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">::StateByteFaults</text>
@@ -97,7 +97,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html" target="_top" xlink:title="Bitfield representation of the fault bits.">
 <polygon fill="white" stroke="#666666" points="144,-265.5 144,-410.5 268,-410.5 268,-265.5 144,-265.5"/>
 <text text-anchor="start" x="152" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFramePedal</text>
 <text text-anchor="middle" x="206" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">::StateByteFaults::Bits</text>

@@ -1,8 +1,8 @@
-<map id="lib/Telemetry/Telemetry.hpp" name="lib/Telemetry/Telemetry.hpp">
-<area shape="rect" id="node1" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="46,5,249,31"/>
-<area shape="rect" id="node2" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="31,79,138,104"/>
-<area shape="rect" id="node6" title=" " alt="" coords="163,79,257,104"/>
-<area shape="rect" id="node3" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="37,152,132,177"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,225,76,251"/>
-<area shape="rect" id="node5" title=" " alt="" coords="120,225,177,251"/>
+<map id="ee_sw_vcu_2025/lib/Telemetry/Telemetry.hpp" name="ee_sw_vcu_2025/lib/Telemetry/Telemetry.hpp">
+<area shape="rect" id="node1" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="54,5,241,45"/>
+<area shape="rect" id="node2" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="31,93,138,119"/>
+<area shape="rect" id="node6" title=" " alt="" coords="163,93,257,119"/>
+<area shape="rect" id="node3" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="37,167,132,192"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,240,76,265"/>
+<area shape="rect" id="node5" title=" " alt="" coords="120,240,177,265"/>
 </map>

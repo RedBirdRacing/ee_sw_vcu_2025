@@ -1,6 +1,6 @@
-<map id="lib/Debug/Debug.hpp" name="lib/Debug/Debug.hpp">
-<area shape="rect" id="node1" title="Debugging macros and functions for serial and CAN output." alt="" coords="154,5,313,31"/>
-<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,79,136,104"/>
-<area shape="rect" id="node3" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="161,79,306,104"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="330,79,435,104"/>
+<map id="ee_sw_vcu_2025/lib/Debug/Debug.hpp" name="ee_sw_vcu_2025/lib/Debug/Debug.hpp">
+<area shape="rect" id="node1" title="Debugging macros and functions for serial and CAN output." alt="" coords="181,5,333,45"/>
+<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,93,157,133"/>
+<area shape="rect" id="node3" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="181,93,333,133"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="357,93,512,133"/>
 </map>

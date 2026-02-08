@@ -1,5 +1,5 @@
-<map id="include/Curves.hpp" name="include/Curves.hpp">
-<area shape="rect" id="node1" title="Definition of throttle and brake mapping tables." alt="" coords="16,5,163,31"/>
-<area shape="rect" id="node2" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="5,79,93,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="54,152,125,177"/>
+<map id="ee_sw_vcu_2025/include/Curves.hpp" name="ee_sw_vcu_2025/include/Curves.hpp">
+<area shape="rect" id="node1" title="Definition of throttle and brake mapping tables." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="node2" href="$Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="13,93,101,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="61,167,132,192"/>
 </map>

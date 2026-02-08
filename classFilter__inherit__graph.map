@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Abstract Base Class for signal filters. Defines the interface for adding samples and retrieving filte..." alt="" coords="214,5,351,112"/>
 <area shape="rect" id="node2" href="$classExponentialFilter.html" title=" " alt="" coords="5,167,163,289"/>
 <area shape="rect" id="node3" href="$classAverageFilter.html" title="Filter with simple moving average algorithm." alt="" coords="187,160,378,296"/>
-<area shape="rect" id="node4" href="$classExponentialFilter.html" title="Filter with exponential moving average algorithm. f(t) = (f(t&#45;1) * OLD_RATIO + sample * NEW_RATIO + (..." alt="" coords="402,160,601,296"/>
+<area shape="rect" id="node4" href="$classExponentialFilter.html" title="Filter with exponential moving average algorithm." alt="" coords="402,160,601,296"/>
 </map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Union of bits for car status besides Pedal.">
 <polygon fill="#999999" stroke="#666666" points="1.5,-0.5 1.5,-68.5 124.5,-68.5 124.5,-0.5 1.5,-0.5"/>
 <text text-anchor="start" x="9.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFramePedal</text>
 <text text-anchor="middle" x="63" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">::StateByteStatus</text>
@@ -25,7 +25,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" target="_top" xlink:title="Bitfield representation of the status bits.">
 <polygon fill="white" stroke="#666666" points="0,-116.5 0,-250.5 126,-250.5 126,-116.5 0,-116.5"/>
 <text text-anchor="start" x="8" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFramePedal</text>
 <text text-anchor="middle" x="63" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">::StateByteStatus::Bits</text>

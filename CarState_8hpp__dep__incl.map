@@ -1,10 +1,10 @@
-<map id="include/CarState.hpp" name="include/CarState.hpp">
-<area shape="rect" id="node1" title="Definition of the CarState structure representing the state of the car." alt="" coords="236,5,393,31"/>
-<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,152,136,177"/>
-<area shape="rect" id="node3" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="75,79,207,104"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="193,152,298,177"/>
-<area shape="rect" id="node5" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="583,152,729,177"/>
-<area shape="rect" id="node6" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="509,79,656,104"/>
-<area shape="rect" id="node7" href="$Telemetry_8hpp.html" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="283,79,485,104"/>
-<area shape="rect" id="node8" href="$Telemetry_8cpp.html" title="Implementation of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="322,152,523,177"/>
+<map id="ee_sw_vcu_2025/include/CarState.hpp" name="ee_sw_vcu_2025/include/CarState.hpp">
+<area shape="rect" id="node1" title="Definition of the CarState structure representing the state of the car." alt="" coords="257,5,439,45"/>
+<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,181,157,221"/>
+<area shape="rect" id="node3" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="93,93,245,133"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="205,181,360,221"/>
+<area shape="rect" id="node5" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="619,181,771,221"/>
+<area shape="rect" id="node6" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="531,93,683,133"/>
+<area shape="rect" id="node7" href="$Telemetry_8hpp.html" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="320,93,507,133"/>
+<area shape="rect" id="node8" href="$Telemetry_8cpp.html" title="Implementation of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="385,181,570,221"/>
 </map>

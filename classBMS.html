@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: BMS Class Reference</title>
+<title>Red Bird Racing VCU: BMS Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Red Bird Racing VCU<span id="projectnumber">&#160;v2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -138,7 +138,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> class for managing the Accumulator (Kclear <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a>) via CAN bus. </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00045">45</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00046">46</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa99522adb71f8d39ea8cb4c6a55f1415" name="aa99522adb71f8d39ea8cb4c6a55f1415"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa99522adb71f8d39ea8cb4c6a55f1415">&#9670;&#160;</a></span>BMS()</h2>
@@ -170,14 +170,14 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bms_can_</td><td>Reference to MCP2515 for <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> CAN bus </td></tr>
-    <tr><td class="paramname">car.pedal.status.bits.hv_ready_</td><td>Reference to boolean, prefer use <a class="el" href="structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">CarState</a> member. True if HV has been started, for state machine </td></tr>
+    <tr><td class="paramname">car_</td><td>Reference to boolean, prefer use <a class="el" href="structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">CarState</a> member. True if HV has been started, for state machine </td></tr>
   </table>
   </dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00032">32</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html#a93af34efbc86fc96ba1bb69fad21bf13">TelemetryFramePedal::StateByteStatus::bits</a>, <a class="el" href="BMS_8hpp_source.html#l00064">car</a>, <a class="el" href="CarState_8hpp_source.html#l00042">TelemetryFramePedal::StateByteStatus::Bits::hv_ready</a>, <a class="el" href="CarState_8hpp_source.html#l00157">CarState::pedal</a>, and <a class="el" href="CarState_8hpp_source.html#l00068">TelemetryFramePedal::status</a>.</p>
+<p class="reference">References <a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html#a93af34efbc86fc96ba1bb69fad21bf13">TelemetryFramePedal::StateByteStatus::bits</a>, <a class="el" href="BMS_8hpp_source.html#l00065">car</a>, <a class="el" href="CarState_8hpp_source.html#l00045">TelemetryFramePedal::StateByteStatus::Bits::hv_ready</a>, <a class="el" href="CarState_8hpp_source.html#l00163">CarState::pedal</a>, and <a class="el" href="CarState_8hpp_source.html#l00074">TelemetryFramePedal::status</a>.</p>
 
 </div>
 </div>
@@ -201,9 +201,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="BMS_8cpp_source.html#l00045">45</a> of file <a class="el" href="BMS_8cpp_source.html">BMS.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html#a93af34efbc86fc96ba1bb69fad21bf13">TelemetryFramePedal::StateByteStatus::bits</a>, <a class="el" href="BMS_8hpp_source.html#l00057">bms_can</a>, <a class="el" href="BMS_8hpp_source.html#l00026">BMS_INFO_EXT</a>, <a class="el" href="CarState_8hpp_source.html#l00043">TelemetryFramePedal::StateByteStatus::Bits::bms_no_msg</a>, <a class="el" href="CarState_8hpp_source.html#l00044">TelemetryFramePedal::StateByteStatus::Bits::bms_wrong_id</a>, <a class="el" href="BMS_8hpp_source.html#l00064">car</a>, <a class="el" href="Debug_8hpp_source.html#l00149">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8hpp_source.html#l00084">DBGLN_GENERAL()</a>, <a class="el" href="CarState_8hpp_source.html#l00042">TelemetryFramePedal::StateByteStatus::Bits::hv_ready</a>, <a class="el" href="CarState_8hpp_source.html#l00157">CarState::pedal</a>, <a class="el" href="BMS_8hpp_source.html#l00059">rx_bms_msg</a>, <a class="el" href="BMS_8hpp_source.html#l00029">start_hv_msg</a>, and <a class="el" href="CarState_8hpp_source.html#l00068">TelemetryFramePedal::status</a>.</p>
+<p class="reference">References <a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html#a93af34efbc86fc96ba1bb69fad21bf13">TelemetryFramePedal::StateByteStatus::bits</a>, <a class="el" href="BMS_8hpp_source.html#l00058">bms_can</a>, <a class="el" href="BMS_8hpp_source.html#l00027">BMS_INFO_EXT</a>, <a class="el" href="CarState_8hpp_source.html#l00046">TelemetryFramePedal::StateByteStatus::Bits::bms_no_msg</a>, <a class="el" href="CarState_8hpp_source.html#l00047">TelemetryFramePedal::StateByteStatus::Bits::bms_wrong_id</a>, <a class="el" href="BMS_8hpp_source.html#l00065">car</a>, <a class="el" href="Debug_8hpp_source.html#l00150">DBG_BMS_STATUS()</a>, <a class="el" href="Debug_8hpp_source.html#l00085">DBGLN_GENERAL()</a>, <a class="el" href="CarState_8hpp_source.html#l00045">TelemetryFramePedal::StateByteStatus::Bits::hv_ready</a>, <a class="el" href="CarState_8hpp_source.html#l00163">CarState::pedal</a>, <a class="el" href="BMS_8hpp_source.html#l00060">rx_bms_msg</a>, <a class="el" href="BMS_8hpp_source.html#l00030">start_hv_msg</a>, and <a class="el" href="CarState_8hpp_source.html#l00074">TelemetryFramePedal::status</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00080">scheduler_bms()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00083">scheduler_bms()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -245,9 +245,9 @@ Here is the caller graph for this function:</div>
 <p>Returns true if HV has been started. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if HV started, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00053">53</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00054">54</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html#a93af34efbc86fc96ba1bb69fad21bf13">TelemetryFramePedal::StateByteStatus::bits</a>, <a class="el" href="BMS_8hpp_source.html#l00064">car</a>, <a class="el" href="CarState_8hpp_source.html#l00042">TelemetryFramePedal::StateByteStatus::Bits::hv_ready</a>, <a class="el" href="CarState_8hpp_source.html#l00157">CarState::pedal</a>, and <a class="el" href="CarState_8hpp_source.html#l00068">TelemetryFramePedal::status</a>.</p>
+<p class="reference">References <a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html#a93af34efbc86fc96ba1bb69fad21bf13">TelemetryFramePedal::StateByteStatus::bits</a>, <a class="el" href="BMS_8hpp_source.html#l00065">car</a>, <a class="el" href="CarState_8hpp_source.html#l00045">TelemetryFramePedal::StateByteStatus::Bits::hv_ready</a>, <a class="el" href="CarState_8hpp_source.html#l00163">CarState::pedal</a>, and <a class="el" href="CarState_8hpp_source.html#l00074">TelemetryFramePedal::status</a>.</p>
 
 </div>
 </div>
@@ -273,7 +273,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Reference to MCP2515 for <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> CAN bus </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00057">57</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00058">58</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00045">checkHv()</a>.</p>
 
@@ -300,9 +300,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Reference to <a class="el" href="structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct...">CarState</a>, for the status flags and setting <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> data </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00064">64</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00065">65</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">checkHv()</a>, and <a class="el" href="BMS_8hpp_source.html#l00053">hvReady()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">checkHv()</a>, and <a class="el" href="BMS_8hpp_source.html#l00054">hvReady()</a>.</p>
 
 </div>
 </div>
@@ -332,15 +332,15 @@ Here is the caller graph for this function:</div>
 <div class="line">    }</div>
 </div><!-- fragment --><p>Local storage for received <a class="el" href="classBMS.html" title="BMS class for managing the Accumulator (Kclear BMS) via CAN bus.">BMS</a> CAN frame </p>
 
-<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00059">59</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BMS_8hpp_source.html#l00060">60</a> of file <a class="el" href="BMS_8hpp_source.html">BMS.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00045">checkHv()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>lib/BMS/<a class="el" href="BMS_8hpp_source.html">BMS.hpp</a></li>
-<li>lib/BMS/<a class="el" href="BMS_8cpp_source.html">BMS.cpp</a></li>
+<li>ee_sw_vcu_2025/lib/BMS/<a class="el" href="BMS_8hpp_source.html">BMS.hpp</a></li>
+<li>ee_sw_vcu_2025/lib/BMS/<a class="el" href="BMS_8cpp_source.html">BMS.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

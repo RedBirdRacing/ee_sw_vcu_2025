@@ -1,7 +1,0 @@
-<map id="lib/Signal_Processing/Signal_Processing.hpp" name="lib/Signal_Processing/Signal_Processing.hpp">
-<area shape="rect" id="node1" title="Declaration of signal processing functions." alt="" coords="194,5,365,45"/>
-<area shape="rect" id="node2" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="5,181,151,207"/>
-<area shape="rect" id="node3" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="115,101,262,126"/>
-<area shape="rect" id="node5" href="$Signal__Processing_8tpp.html" title="Definition of Signal Processing functions." alt="" coords="286,93,454,133"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="175,181,280,207"/>
-</map>

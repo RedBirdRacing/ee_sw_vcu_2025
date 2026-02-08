@@ -2,10 +2,10 @@
 <area shape="rect" id="node1" title="Telemetry class for managing telemetry data transmission over CAN bus Grabs and sends telemetry frame..." alt="" coords="281,771,466,980"/>
 <area shape="rect" id="node2" href="$structCarState.html" title="Represents the state of the car. Holds telemetry data and status, used as central data sharing struct..." alt="" coords="313,616,433,708"/>
 <area shape="rect" id="node3" href="$structTelemetryFramePedal.html" title="Telemetry frame structure for the Pedals." alt="" coords="102,417,266,553"/>
-<area shape="rect" id="node4" href="$unionTelemetryFramePedal_1_1StateByteStatus.html" title=" " alt="" coords="9,263,173,355"/>
-<area shape="rect" id="node5" href="$structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" title=" " alt="" coords="5,13,173,193"/>
-<area shape="rect" id="node6" href="$unionTelemetryFramePedal_1_1StateByteFaults.html" title=" " alt="" coords="198,263,362,355"/>
-<area shape="rect" id="node7" href="$structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html" title=" " alt="" coords="197,5,363,200"/>
+<area shape="rect" id="node4" href="$unionTelemetryFramePedal_1_1StateByteStatus.html" title="Union of bits for car status besides Pedal." alt="" coords="9,263,173,355"/>
+<area shape="rect" id="node5" href="$structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html" title="Bitfield representation of the status bits." alt="" coords="5,13,173,193"/>
+<area shape="rect" id="node6" href="$unionTelemetryFramePedal_1_1StateByteFaults.html" title="Union of bits for pedal faults." alt="" coords="198,263,362,355"/>
+<area shape="rect" id="node7" href="$structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html" title="Bitfield representation of the fault bits." alt="" coords="197,5,363,200"/>
 <area shape="rect" id="node8" href="$structTelemetryFrameMotor.html" title="Telemetry frame structure for motor signals." alt="" coords="290,425,457,546"/>
 <area shape="rect" id="node9" href="$structTelemetryFrameBms.html" title="Telemetry frame structure for the BMS data." alt="" coords="481,447,639,524"/>
 </map>

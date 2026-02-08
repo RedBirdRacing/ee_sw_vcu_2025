@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: TelemetryFramePedal Struct Reference</title>
+<title>Red Bird Racing VCU: TelemetryFramePedal Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Red Bird Racing VCU<span id="projectnumber">&#160;v2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -118,8 +118,10 @@ Collaboration diagram for TelemetryFramePedal:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionTelemetryFramePedal_1_1StateByteFaults.html">StateByteFaults</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Union of bits for pedal faults.  <a href="unionTelemetryFramePedal_1_1StateByteFaults.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionTelemetryFramePedal_1_1StateByteStatus.html">StateByteStatus</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Union of bits for car status besides <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a>.  <a href="unionTelemetryFramePedal_1_1StateByteStatus.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -176,9 +178,9 @@ Public Attributes</h2></td></tr>
 <p>Converts the <a class="el" href="structTelemetryFramePedal.html" title="Telemetry frame structure for the Pedals.">TelemetryFramePedal</a> to a CAN frame. </p>
 <dl class="section return"><dt>Returns</dt><dd>CAN frame representing the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> telemetry signals. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00075">75</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00081">81</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CarState_8hpp_source.html#l00028">apps_3v3</a>, <a class="el" href="CarState_8hpp_source.html#l00027">apps_5v</a>, <a class="el" href="CarState_8hpp_source.html#l00032">brake</a>, <a class="el" href="CarState_8hpp_source.html#l00037">TelemetryFramePedal::StateByteStatus::byte</a>, <a class="el" href="CarState_8hpp_source.html#l00051">TelemetryFramePedal::StateByteFaults::byte</a>, <a class="el" href="CarState_8hpp_source.html#l00069">faults</a>, <a class="el" href="CarState_8hpp_source.html#l00033">hall_sensor</a>, <a class="el" href="CarState_8hpp_source.html#l00068">status</a>, and <a class="el" href="CarState_8hpp_source.html#l00018">TELEMETRY_PEDAL_MSG</a>.</p>
+<p class="reference">References <a class="el" href="CarState_8hpp_source.html#l00028">apps_3v3</a>, <a class="el" href="CarState_8hpp_source.html#l00027">apps_5v</a>, <a class="el" href="CarState_8hpp_source.html#l00032">brake</a>, <a class="el" href="CarState_8hpp_source.html#l00038">TelemetryFramePedal::StateByteStatus::byte</a>, <a class="el" href="CarState_8hpp_source.html#l00055">TelemetryFramePedal::StateByteFaults::byte</a>, <a class="el" href="CarState_8hpp_source.html#l00075">faults</a>, <a class="el" href="CarState_8hpp_source.html#l00033">hall_sensor</a>, <a class="el" href="CarState_8hpp_source.html#l00074">status</a>, and <a class="el" href="CarState_8hpp_source.html#l00018">TELEMETRY_PEDAL_MSG</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Telemetry_8cpp_source.html#l00025">Telemetry::schedulerPedal()</a>.</p>
 <div class="dynheader">
@@ -206,7 +208,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00028">28</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00220">Pedal::checkPedalFault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="CarState_8hpp_source.html#l00075">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00220">Pedal::checkPedalFault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="CarState_8hpp_source.html#l00081">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -244,7 +246,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00027">27</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00220">Pedal::checkPedalFault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="CarState_8hpp_source.html#l00075">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00220">Pedal::checkPedalFault()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="CarState_8hpp_source.html#l00081">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -263,7 +265,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00032">32</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00137">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="CarState_8hpp_source.html#l00075">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00140">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, and <a class="el" href="CarState_8hpp_source.html#l00081">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -280,9 +282,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p><a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> Faults </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00069">69</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00075">75</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8hpp_source.html#l00075">toCanFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CarState_8hpp_source.html#l00081">toCanFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -301,7 +303,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00033">33</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CarState_8hpp_source.html#l00075">toCanFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CarState_8hpp_source.html#l00081">toCanFrame()</a>.</p>
 
 </div>
 </div>
@@ -318,14 +320,14 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Car Status </p>
 
-<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00068">68</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CarState_8hpp_source.html#l00074">74</a> of file <a class="el" href="CarState_8hpp_source.html">CarState.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS::BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>, <a class="el" href="BMS_8hpp_source.html#l00053">BMS::hvReady()</a>, <a class="el" href="main_8cpp_source.html#l00137">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, <a class="el" href="CarState_8hpp_source.html#l00075">toCanFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00032">BMS::BMS()</a>, <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>, <a class="el" href="BMS_8hpp_source.html#l00054">BMS::hvReady()</a>, <a class="el" href="main_8cpp_source.html#l00140">loop()</a>, <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>, <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>, <a class="el" href="CarState_8hpp_source.html#l00081">toCanFrame()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a></li>
+<li>ee_sw_vcu_2025/include/<a class="el" href="CarState_8hpp_source.html">CarState.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
