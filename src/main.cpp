@@ -3,7 +3,10 @@
  * @author Planeson, Red Bird Racing
  * @brief Main VCU program entry point
  * @version 2.0
- * @date 2026-01-26
+ * @date 2026-02-07
+ * @dir include @brief Contains all header-only files.
+ * @dir lib @brief Contains all the libraries. Each library is in its own folder of the same name.
+ * @dir src @brief Contains the main.cpp file, the main file of the program.
  */
 
 #include <Arduino.h>
@@ -48,7 +51,7 @@ MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
 
 struct can_frame tx_throttle_msg;
 
-constexpr uint16_t BUSSIN_MILLIS = 2000;        // The amount of time that the buzzer will buzz for
+constexpr uint16_t BUSSIN_MILLIS = 2000;       // The amount of time that the buzzer will buzz for
 constexpr uint16_t BMS_OVERRIDE_MILLIS = 1000; // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 
 constexpr uint16_t BRAKE_THRESHOLD = BRAKE_TABLE[0].in; // The threshold for the brake pedal to be considered pressed
