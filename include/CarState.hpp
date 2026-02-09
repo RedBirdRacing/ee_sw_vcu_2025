@@ -2,10 +2,9 @@
  * @file CarState.hpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of the CarState structure representing the state of the car
- * @version 1.2.1
- * @date 2026-01-14
- * @see can.h
- * @see Enums.h
+ * @version 1.4.1
+ * @date 2026-02-09
+ * @see can.h, Enums.h
  */
 
 #ifndef CAR_STATE_HPP
@@ -26,15 +25,15 @@ struct TelemetryFramePedal
 {
     uint16_t apps_5v;  /**< ADC reading for 5V APPS */
     uint16_t apps_3v3; /**< ADC reading for 3.3V APPS */
-
-    uint16_t apps_3v3_scaled; /**< Scaled 3.3V APPS value (not sent over CAN) */
-
     uint16_t brake;       /**< ADC reading for brake pedal */
     uint16_t hall_sensor; /**< ADC reading for hall sensor */
 
-    union StateByteStatus /**< Union of bits for car status besides Pedal */
+    /** @brief Union of bits for car status besides Pedal */
+    union StateByteStatus
     {
-        uint8_t byte;
+        uint8_t byte; /**< Byte representation of the status bits */
+        
+        /** @brief Bitfield representation of the status bits */
         struct Bits
         {
             CarStatus car_status : 2; /**< Current car status, produces compiler warning before GCC 9.3 due to bug */
@@ -46,9 +45,12 @@ struct TelemetryFramePedal
             bool force_stop : 1;      /**< Fault forced car to stop */
         } bits;
     };
-    union StateByteFaults /**< Union of bits for pedal faults */
+    /** @brief Union of bits for pedal faults */
+    union StateByteFaults
     {
-        uint8_t byte;
+        uint8_t byte; /**< Byte representation of the fault bits */
+
+        /** @brief Bitfield representation of the fault bits */
         struct Bits
         {
             bool fault_active : 1;   /**< Pedal faulty now, only one resetable */

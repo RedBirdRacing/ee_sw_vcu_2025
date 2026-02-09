@@ -2,9 +2,10 @@
  * @file Pedal.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of the Pedal class for handling throttle and brake pedal inputs
- * @version 1.4
- * @date 2026-01-26
+ * @version 1.5
+ * @date 2026-02-09
  * @see Pedal.cpp
+ * @dir Pedal @brief The Pedal library contains the Pedal class to manage throttle and brake pedal inputs, including filtering, fault detection, and CAN communication.
  */
 
 #ifndef PEDAL_HPP
@@ -14,7 +15,7 @@
 #include "CarState.hpp"
 #include "Interp.hpp"
 #include "Curves.hpp"
-#include "Signal_Processing.hpp" // AVG_filter
+#include "SignalProcessing.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -32,6 +33,10 @@ constexpr bool BRAKE_RELIABLE = true; /**< brake assumed reliable; enable checki
 
 constexpr uint16_t FAULT_CHECK_HEX = BRAKE_RELIABLE ? 0xFE : 0x3E; /**< Hex mask for fault checking based on brake reliability. */
 
+/**
+ * @brief Namespace for pedal-related constants, such as thresholds and calculation parameters.
+ * This is to avoid polluting the Pedal class with intermediate results.
+ */
 namespace PedalConstants
 {
     constexpr uint8_t MIN_REGEN_KMH = 10;          /**< Minimum speed (km/h) for regenerative braking to be active. */
@@ -95,8 +100,9 @@ private:
     ExponentialFilter<uint16_t, uint16_t> pedal2_filter; /**< Filter for second pedal sensor input */
     ExponentialFilter<uint16_t, uint16_t> brake_filter;  /**< Filter for brake sensor input */
 
-    const LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE}; /**< Interpolation map for throttle torque */
-    const LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};       /**< Interpolation map for brake torque */
+    static constexpr LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE};               /**< Interpolation map for throttle torque */
+    static constexpr LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};                     /**< Interpolation map for brake torque */
+    static constexpr LinearInterp<uint16_t, uint16_t, uint32_t, 2> APPS_3V3_SCALE_MAP{APPS_3V3_SCALE_TABLE}; /**< Interpolation map for APPS_3V3->APPS_5V */
 
     static constexpr canid_t MOTOR_SEND = 0x201; /**< Motor send CAN ID */
     static constexpr canid_t MOTOR_READ = 0x181; /**< Motor read CAN ID */

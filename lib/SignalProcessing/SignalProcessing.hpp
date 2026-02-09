@@ -1,10 +1,11 @@
 /**
- * @file Signal_Processing.hpp
+ * @file SignalProcessing.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of signal processing functions
  * @version 2.1
  * @date 2026-01-28
- * @see Signal_Processing.tpp
+ * @see SignalProcessing.tpp
+ * @dir SignalProcessing @brief The SignalProcessing library contains signal processing functions, including the AverageFilter and ExponentialFilter class templates for filtering ADC readings from the pedals.
  */
 #ifndef SIGNAL_PROCESSING_HPP
 #define SIGNAL_PROCESSING_HPP
@@ -46,8 +47,9 @@ private:
 
 /**
  * @brief Filter with exponential moving average algorithm.
+ * @details Old samples "decay" naturally. The formula used is:
  * f(t) = (f(t-1) * OLD_RATIO + sample * NEW_RATIO + (OLD_RATIO + NEW_RATIO) / 2) / (OLD_RATIO + NEW_RATIO)
- * Due to round down, won't ever reach maximum, especially if OLD_RATIO >> NEW_RATIO, so use of curve important.
+ * Due to round down, the results won't ever reach maximum, especially if OLD_RATIO >> NEW_RATIO, so the use of curve is important.
  * @tparam TypeInput Type of the input samples.
  * @tparam TypeMid Type used for intermediate calculations.
  * @tparam OLD_RATIO Weighting ratio for the old value.
@@ -65,6 +67,6 @@ private:
     TypeInput last_out = 0; /**< Last output value for exponential filter, input for next calculation */
 };
 
-#include "Signal_Processing.tpp" // implementation
+#include "SignalProcessing.tpp" // implementation
 
 #endif // SIGNAL_PROCESSING_HPP

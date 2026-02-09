@@ -2,13 +2,13 @@
  * @file Pedal.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the Pedal class for handling throttle pedal inputs
- * @version 1.4
- * @date 2026-01-26
+ * @version 1.5
+ * @date 2026-02-09
  * @see Pedal.hpp
  */
 
 #include "Pedal.hpp"
-#include "Signal_Processing.hpp" // AVG_filter
+#include "SignalProcessing.hpp"
 #include "CarState.hpp"
 #include <stdint.h>
 #include "Queue.hpp"
@@ -21,8 +21,6 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #include "Debug.hpp" // DBGLN_GENERAL
 #pragma GCC diagnostic pop
-
-#include <Arduino.h> // round()
 
 /**
  * @brief Constructor for the Pedal class.
@@ -42,6 +40,8 @@ Pedal::Pedal(MCP2515 &motor_can_, CarState &car_, uint16_t &pedal_final_)
     while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)
         ;
     while (sendCyclicRead(WARN_ERR, ERR_PERIOD) != MCP2515::ERROR_OK)
+        ;
+    while (motor_can.setFilter(MCP2515::RXF0,false,MOTOR_READ) != MCP2515::ERROR_OK)
         ;
 }
 
@@ -219,11 +219,10 @@ constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t
  */
 bool Pedal::checkPedalFault()
 {
-    car.pedal.apps_3v3_scaled = car.pedal.apps_3v3 * APPS_RATIO;
-
-    const int16_t delta = (int16_t)car.pedal.apps_5v - (int16_t)car.pedal.apps_3v3_scaled;
+    const int16_t delta = (int16_t)car.pedal.apps_5v - (int16_t)APPS_3V3_SCALE_MAP.interp(car.pedal.apps_3v3);
+    constexpr int16_t MAX_DELTA = THROTTLE_MAP.range() / 10; /**< MAX_DELTA is floor of 10% of APPS_5V valid range, later comparison will give rounding room */
     // if more than 10% difference between the two pedals, consider it a fault
-    if (delta > 102.4 || delta < -102.4) // 10% of 1024, rounded down to 102
+    if (delta > MAX_DELTA || delta < -MAX_DELTA)
     {
         DBG_THROTTLE_FAULT(PedalFault::DiffContinuing, delta);
         return true;

@@ -5,6 +5,7 @@
  * @version 1.1
  * @date 2026-01-15
  * @see Debug_serial, Debug_can
+ * @dir Debug @brief The Debug library contains debugging macros and functions for serial and CAN output, allowing for easy toggling of debug messages and separation of concerns between different types of debug information.
  */
 
 #ifndef DEBUG_HPP

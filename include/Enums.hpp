@@ -2,8 +2,8 @@
  * @file Enums.hpp
  * @author Planeson, Red Bird Racing
  * @brief Enumeration definitions for the VCU
- * @version 1.3
- * @date 2026-01-22
+ * @version 1.3.1
+ * @date 2026-02-09
  */
 
 #ifndef ENUMS_HPP
@@ -50,11 +50,11 @@ enum class PedalFault : uint8_t
 enum class BmsStatus : uint8_t
 {
     NoMsg = 0,    /**< No message received from BMS */
-    WrongId = 1,  /**< Received message with wrong CAN ID */
-    Waiting = 2,  /**< BMS is in standby, waiting to start HV */
-    Starting = 3, /**< BMS is starting high voltage */
-    Started = 4,  /**< BMS has started high voltage */
-    Unused = 5    /**< Unused status code */
+    //WrongId = 1,  /**< Received message with wrong CAN ID */
+    Waiting = 1,  /**< BMS is in standby, waiting to start HV */
+    Starting = 2, /**< BMS is starting high voltage */
+    Started = 3,  /**< BMS has started high voltage */
+    Unused = 4    /**< Unused status code */
 };
 
 /**

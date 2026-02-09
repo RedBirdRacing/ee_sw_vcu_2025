@@ -2,8 +2,8 @@
  * @file Interp.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration and definition of the LinearInterp class template for linear interpolation
- * @version 1.0
- * @date 2026-01-15
+ * @version 1.2.3
+ * @date 2026-02-09
  */
 
 #ifndef INTERP_HPP
@@ -11,20 +11,17 @@
 
 #include <stdint.h>
 
-template <typename Tin, typename Tout>
-
 /**
  * @brief Structure representing a point in the interpolation table
  * @tparam Tin Type of the input value
  * @tparam Tout Type of the output value
  */
+template <typename Tin, typename Tout>
 struct TablePoint
 {
     Tin in;   /**< Input (x) value */
     Tout out; /**< Output (y) value */
 };
-
-template <typename Tin, typename Tout, typename Tmid, uint8_t size>
 
 /**
  * @brief Class template for performing linear interpolation using a lookup table
@@ -33,11 +30,12 @@ template <typename Tin, typename Tout, typename Tmid, uint8_t size>
  * @tparam Tmid Intermediate type for calculations to prevent overflow
  * @tparam size Number of points in the interpolation table
  */
+template <typename Tin, typename Tout, typename Tmid, uint8_t size>
 class LinearInterp
 {
 public:
     LinearInterp() = delete; /**< Default constructor deleted to prevent instantiation without a table */
-    explicit LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
+    explicit constexpr LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
 
     /**
      * @brief Performs linear interpolation for the given input value, using the table
@@ -76,6 +74,15 @@ public:
     constexpr Tin start() const
     {
         return table[0].in;
+    }
+
+    /**
+     * @brief Returns the input range of the interpolation table (last input - first input)
+     * @return The input range of the table
+     */
+    constexpr Tin range() const
+    {
+        return table[size - 1].in - table[0].in;
     }
 
 private:
