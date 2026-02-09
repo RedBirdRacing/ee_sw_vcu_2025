@@ -2,8 +2,8 @@
  * @file CarState.hpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of the CarState structure representing the state of the car
- * @version 1.4
- * @date 2026-02-04
+ * @version 1.4.1
+ * @date 2026-02-09
  * @see can.h, Enums.h
  */
 
@@ -25,9 +25,6 @@ struct TelemetryFramePedal
 {
     uint16_t apps_5v;  /**< ADC reading for 5V APPS */
     uint16_t apps_3v3; /**< ADC reading for 3.3V APPS */
-
-    uint16_t apps_3v3_scaled; /**< Scaled 3.3V APPS value (not sent over CAN) */
-
     uint16_t brake;       /**< ADC reading for brake pedal */
     uint16_t hall_sensor; /**< ADC reading for hall sensor */
 

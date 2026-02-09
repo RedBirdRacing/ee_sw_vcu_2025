@@ -2,8 +2,8 @@
  * @file Debug_serial.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the Debug_Serial namespace for serial debugging functions
- * @version 1.1
- * @date 2026-01-14
+ * @version 1.1.1
+ * @date 2026-02-09
  * @see Debug_serial.h
  */
 
@@ -221,9 +221,11 @@ void Debug_Serial::status_bms(BmsStatus BMS_status)
     case BmsStatus::NoMsg:
         Serial.println("BMS Status: No message received");
         break;
+/*
     case BmsStatus::WrongId:
         Serial.println("BMS Status: Wrong ID");
         break;
+*/
     case BmsStatus::Waiting:
         Serial.println("BMS Status: Waiting to start");
         break;

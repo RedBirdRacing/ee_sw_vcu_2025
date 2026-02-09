@@ -2,8 +2,8 @@
  * @file BMS.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
- * @version 1.2
- * @date 2026-02-04
+ * @version 1.3
+ * @date 2026-02-09
  * @see BMS.hpp
  */
 
@@ -33,6 +33,8 @@ BMS::BMS(MCP2515 &bms_can_, CarState &car_)
     : bms_can(bms_can_), car(car_)
 {
     car.pedal.status.bits.hv_ready = false;
+    while (bms_can.setFilter(MCP2515::RXF0,true,BMS_INFO_EXT) != MCP2515::ERROR_OK)
+        ;
 }
 
 /**
@@ -56,6 +58,7 @@ void BMS::checkHv()
         return;
     }
 
+    /* now that we set filter on MCP2515, it's impossible to get wrong ID
     // Check if the BMS is in standby state (0x3 in upper 4 bits)
     if (rx_bms_msg.can_id != BMS_INFO_EXT)
     {
@@ -63,6 +66,7 @@ void BMS::checkHv()
         car.pedal.status.bits.bms_wrong_id = true;
         return;
     } // Not a BMS info frame, retry
+    */
 
     switch (rx_bms_msg.data[6] & 0xF0)
     {
