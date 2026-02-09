@@ -10,14 +10,11 @@ This repository contains the embedded firmware for the VCU, responsible for peda
 
 ## Documentation
 - [**Doxygen Documentation**](https://hkust-red-bird-racing-evrt.github.io/ee_sw_vcu_2025/)
-- [**External System/Design Documentation**]()
+- [**External System/Design Documentation**](https://drive.google.com/drive/folders/1Ny3oZfMf1QJ1frPJsuiHh42v5gLH2OJs?usp=drive_link)
 
 ## Key Components
-- **Pedal:** Handles throttle and brake pedal input, filtering, and CAN frame construction.
-- **Signal Processing:** Provides filtering algorithms (average, exponential, etc.) for sensor data.
-- **CarState:** Maintains the current state of the vehicle, including pedal, motor, and error status.
-- **CAN Communication:** Interfaces with MCP2515 for sending/receiving CAN messages.
-- **Debug:** Configurable debug output via Serial and CAN.
+- **Pedal:** Handles throttle and brake pedal input, producing output torque.
+- **Telemetry:** Produces extra CAN frames for telemetry and debugging.
 - **Scheduler:** Allow tasks to be run at set intervals. A mix of spinlock and yielding ensures accurate timing and maximum speeds.
 
 ## Getting Started
@@ -56,10 +53,7 @@ Doxyfile         # Doxygen configuration
 platformio.ini   # PlatformIO project config
 ```
 
-## Development Status
-- Modular filter framework for pedal/brake inputs (compile-time selection, interface consistency)
-- Improved state management and error handling
-- CAN communication for motor and diagnostics
+## Current Development
 - Debug awaiting cleanup
 
 ## Future Plans

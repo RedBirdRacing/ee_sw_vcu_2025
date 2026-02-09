@@ -2,9 +2,10 @@
  * @file Pedal.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of the Pedal class for handling throttle and brake pedal inputs
- * @version 1.4
- * @date 2026-01-26
+ * @version 1.4.1
+ * @date 2026-02-07
  * @see Pedal.cpp
+ * @dir Pedal @brief The Pedal library contains the Pedal class to manage throttle and brake pedal inputs, including filtering, fault detection, and CAN communication.
  */
 
 #ifndef PEDAL_HPP
@@ -14,7 +15,7 @@
 #include "CarState.hpp"
 #include "Interp.hpp"
 #include "Curves.hpp"
-#include "Signal_Processing.hpp" // AVG_filter
+#include "SignalProcessing.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -24,7 +25,7 @@
 
 // Constants
 
-constexpr bool REGEN_ENABLED = true; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
+constexpr bool REGEN_ENABLED = false; /**< Boolean toggle for regenerative braking; false disables reverse torque. */
 
 constexpr bool FLIP_MOTOR_DIR = false; /**< Boolean toggle to flip motor direction; true inverts torque commands. */
 
@@ -32,6 +33,10 @@ constexpr bool BRAKE_RELIABLE = true; /**< brake assumed reliable; enable checki
 
 constexpr uint16_t FAULT_CHECK_HEX = BRAKE_RELIABLE ? 0xFE : 0x3E; /**< Hex mask for fault checking based on brake reliability. */
 
+/**
+ * @brief Namespace for pedal-related constants, such as thresholds and calculation parameters.
+ * This is to avoid polluting the Pedal class with intermediate results.
+ */
 namespace PedalConstants
 {
     constexpr uint8_t MIN_REGEN_KMH = 10;          /**< Minimum speed (km/h) for regenerative braking to be active. */

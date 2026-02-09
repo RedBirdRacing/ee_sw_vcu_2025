@@ -5,6 +5,7 @@
  * @version 1.0
  * @date 2026-01-26
  * @see Telemetry.cpp
+ * @dir lib/Telemetry @brief The Telemetry library contains the Telemetry class for managing telemetry data transmission over CAN bus, including grabbing and sending telemetry frames in fixed order based on scheduling logic.
  */
 
 #ifndef TELEMETRY_HPP

@@ -4,6 +4,7 @@
  * @brief Declaration of a simple RingBuffer (circular buffer) template class
  * @version 1.0
  * @date 2026-01-26
+ * @dir Queue @brief The Queue library contains a simple RingBuffer (circular buffer) template class, used for buffering ADC readings for filtering.
  */
 
 #ifndef QUEUE_HPP

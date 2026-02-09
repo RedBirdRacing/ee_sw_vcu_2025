@@ -5,6 +5,7 @@
  * @version 1.1
  * @date 2026-01-13
  * @see Scheduler.tpp
+ * @dir Scheduler @brief The Scheduler library contains the Scheduler class template, which manages the scheduling of tasks for multiple MCP2515 instances, allowing for periodic execution of functions based on a specified time interval and spin-wait threshold.
  */
 
 #ifndef SCHEDULER_HPP

@@ -2,8 +2,8 @@
  * @file Curves.hpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of throttle and brake mapping tables
- * @version 1.3
- * @date 2026-02-04
+ * @version 1.4
+ * @date 2026-02-09
  * @see Interp.hpp, Pedal
  */
 
@@ -17,7 +17,7 @@
 constexpr uint16_t APPS_5V_MIN = 250; /**< value below which apps_5v is considered shorted to ground */
 constexpr uint16_t APPS_5V_MAX = 700; /**< value above which apps_5v is considered shorted to rail */
 
-constexpr uint16_t APPS_3V3_MIN = 135;           /**< value below which apps_3v3 is considered shorted to ground */
+constexpr uint16_t APPS_3V3_MIN = 100;           /**< value below which apps_3v3 is considered shorted to ground */
 constexpr uint16_t APPS_3V3_MAX = 500;           /**< value above which apps_3v3 is considered shorted to rail */
 constexpr uint16_t APPS_FINAL_MIN = APPS_5V_MIN; /**< final apps minimum value */
 constexpr uint16_t APPS_FINAL_MAX = APPS_5V_MAX; /**< final apps maximum value */
@@ -32,7 +32,7 @@ constexpr uint16_t APPS_FINAL_MAX = APPS_5V_MAX; /**< final apps maximum value *
 /**
  * @brief Throttle mapping table
  */
-const TablePoint<uint16_t, int16_t> THROTTLE_TABLE[5] = {
+constexpr TablePoint<uint16_t, int16_t> THROTTLE_TABLE[5] = {
     {320, 0},
     {405, 2000},
     {490, 10000},
@@ -41,18 +41,18 @@ const TablePoint<uint16_t, int16_t> THROTTLE_TABLE[5] = {
 
 // === Brake Limits ===
 
-constexpr uint16_t brake_min = 30;  /**< value below which brake is considered shorted to ground */
-constexpr uint16_t brake_max = 950; /**< value above which brake is considered shorted to rail */
+constexpr uint16_t brake_min = 80;  /**< value below which brake is considered shorted to ground */
+constexpr uint16_t brake_max = 340; /**< value above which brake is considered shorted to rail */
 
 /**
  * @brief Brake mapping table, negative values for regen
  */
-const TablePoint<uint16_t, int16_t> BRAKE_TABLE[5] = {
+constexpr TablePoint<uint16_t, int16_t> BRAKE_TABLE[5] = {
     {120, 0},
-    {250, -15000},
-    {500, -26000},
-    {750, -31000},
-    {900, -32500}}; // make sure this point doesn't exceed +-32767
+    {150, -15000},
+    {180, -26000},
+    {210, -31000},
+    {240, -32500}}; // make sure this point doesn't exceed +-32767
 
 const TablePoint<uint16_t, int16_t> APPS_TABLE[5] = {
     {100, 200},

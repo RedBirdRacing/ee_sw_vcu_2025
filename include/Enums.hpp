@@ -1,14 +1,13 @@
 /**
- * @file Enums.h
+ * @file Enums.hpp
  * @author Planeson, Red Bird Racing
  * @brief Enumeration definitions for the VCU
  * @version 1.3
  * @date 2026-01-22
  */
 
-#ifndef ENUMS_H
-#define ENUMS_H
-
+#ifndef ENUMS_HPP
+#define ENUMS_HPP
 #include <stdint.h>
 #include <can.h> // canid_t
 
@@ -86,4 +85,4 @@ enum class StatusCanId : canid_t
     HallSensorMsg = 0x697    /**< Debug: Hall sensor message */
 };
 
-#endif // ENUMS_H
+#endif // ENUMS_HPP
