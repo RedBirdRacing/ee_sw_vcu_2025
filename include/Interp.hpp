@@ -2,8 +2,8 @@
  * @file Interp.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration and definition of the LinearInterp class template for linear interpolation
- * @version 1.0
- * @date 2026-01-15
+ * @version 1.2.2
+ * @date 2026-02-04
  */
 
 #ifndef INTERP_HPP

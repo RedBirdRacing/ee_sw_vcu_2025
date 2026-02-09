@@ -2,10 +2,9 @@
  * @file CarState.hpp
  * @author Planeson, Red Bird Racing
  * @brief Definition of the CarState structure representing the state of the car
- * @version 1.2.1
- * @date 2026-01-14
- * @see can.h
- * @see Enums.h
+ * @version 1.4
+ * @date 2026-02-04
+ * @see can.h, Enums.h
  */
 
 #ifndef CAR_STATE_HPP

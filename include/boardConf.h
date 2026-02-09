@@ -1,7 +1,10 @@
 /**
  * @file BoardConf.h
+ * @author Planeson, Red Bird Racing
+ * @date 2026-01-15
+ * @version 2.0
  * @brief Board configuration for the VCU (Vehicle Control Unit)
- * This file defines the board configuration and pin mappings for different versions of the VCU and for Arduino Uno.
+ * @details This file defines the board configuration and pin mappings for different versions of the VCU and for Arduino Uno.
  * Define the appropriate macro to select the desired board configuration.
  *
  * @par Options

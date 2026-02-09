@@ -41,7 +41,7 @@ private:
     static constexpr uint8_t NUM_FREQ_FRAMES = 2;   /**< Number of frequent telemetry frames to send */
     static constexpr uint8_t NUM_INFREQ_FRAMES = 1; /**< Number of infrequent telemetry frames to send, must be 1 because of how the fast modulo logic works */
     static constexpr uint8_t FRAMES_FREQ_RATIO = 10; /**< Ratio of frame frequencies */
-    static constexpr uint8_t MAX_FRAME_COUNTER = NUM_FREQ_FRAMES * FRAMES_FREQ_RATIO + NUM_INFREQ_FRAMES - 2; /**< Count resets at this value, total frames per cycle - 2 because tree planting */
+    static constexpr uint8_t MAX_FRAME_COUNTER = NUM_FREQ_FRAMES * FRAMES_FREQ_RATIO + NUM_INFREQ_FRAMES - 1; /**< Count resets at this value, total frames per cycle - 1 because tree planting */
 
     void schedulerPedal();
     void schedulerMotor();
