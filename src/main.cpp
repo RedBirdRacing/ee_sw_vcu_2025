@@ -103,6 +103,7 @@ void setup()
 #if DEBUG_SERIAL
     Debug_Serial::initialize();
     DBGLN_GENERAL("Debug serial initialized");
+    DBGLN_GENERAL("VCU startup - initializing peripherals...");
 #endif
 
     for (int i = 0; i < NUM_MCP; i++)
@@ -111,6 +112,8 @@ void setup()
         MCPS[i].setBitrate(CAN_RATE, MCP2515_CRYSTAL_FREQ);
         MCPS[i].setNormalMode();
     }
+
+    DBGLN_GENERAL("CAN controllers initialized");
 
     // init GPIO pins (MCP2515 CS pins initialized in constructor))
     for (int i = 0; i < INPUT_COUNT; i++)
@@ -126,11 +129,13 @@ void setup()
 #if DEBUG_CAN
     Debug_CAN::initialize(&mcp2515_DL); // Currently using motor CAN for debug messages, should change to other
     DBGLN_GENERAL("Debug CAN initialized");
+    DBGLN_GENERAL("Scheduler configured");
 #endif
 
     scheduler.addTask(McpIndex::Motor, scheduler_pedal, 1);
     scheduler.addTask(McpIndex::Datalogger, schedulerTelemetry, 1);
     DBGLN_GENERAL("Setup complete, entering main loop");
+    DBGLN_GENERAL("Initial state: Init");
 }
 
 /**
@@ -168,6 +173,7 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) == BUTTON_ACTIVE && brake_pressed)
         {
+            DBGLN_GENERAL("Drive button + brake → STARTIN");
             car.pedal.status.bits.car_status = CarStatus::Startin;
             car.status_millis = car.millis;
 
@@ -180,6 +186,7 @@ void loop()
 
         if (digitalRead(DRIVE_MODE_BTN) != BUTTON_ACTIVE || !brake_pressed)
         {
+            DBGLN_GENERAL("Button or brake released → back to INIT");
             car.pedal.status.bits.car_status = CarStatus::Init;
             car.status_millis = car.millis;
             scheduler.removeTask(McpIndex::Bms, scheduler_bms); // stop checking BMS HV ready since return to INIT
@@ -187,6 +194,7 @@ void loop()
         }
         if (car.pedal.status.bits.hv_ready)
         {
+            DBGLN_GENERAL("HV ready → BUSSIN");
             car.pedal.status.bits.car_status = CarStatus::Bussin;
             car.status_millis = car.millis;
             digitalWrite(BUZZER, HIGH);
@@ -195,6 +203,7 @@ void loop()
         }
         if (car.millis - car.status_millis >= BMS_OVERRIDE_MILLIS)
         {
+            DBGLN_GENERAL("BMS timeout override → BUSSIN");
             car.pedal.status.bits.car_status = CarStatus::Bussin;
             car.status_millis = car.millis;
             digitalWrite(BUZZER, HIGH);
@@ -206,6 +215,7 @@ void loop()
     case CarStatus::Bussin:
         if (car.millis - car.status_millis >= BUSSIN_MILLIS)
         {
+            DBGLN_GENERAL("Bussin complete → DRIVE");
             digitalWrite(BUZZER, LOW);
             digitalWrite(FRG, HIGH);
             car.pedal.status.bits.car_status = CarStatus::Drive;
