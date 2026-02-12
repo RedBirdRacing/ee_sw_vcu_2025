@@ -40,7 +40,7 @@ struct TelemetryFramePedal
             bool state_unknown : 1;   /**< Unknown car state */
             bool hv_ready : 1;        /**< High voltage ready */
             bool bms_no_msg : 1;      /**< BMS read no message */
-            bool bms_wrong_id : 1;    /**< BMS read wrong ID */
+            bool motor_no_read : 1;    /**< MCU read no message */
             bool screenshot : 1;      /**< Screenshot, throttle + brake > threshold */
             bool force_stop : 1;      /**< Fault forced car to stop */
         } bits;
