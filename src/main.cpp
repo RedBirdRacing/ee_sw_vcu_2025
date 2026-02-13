@@ -49,8 +49,6 @@ MCP2515 mcp2515_DL(CS_CAN_DL);       // datalogger CAN
 constexpr uint8_t NUM_MCP = 3;
 MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
 
-struct can_frame tx_throttle_msg;
-
 constexpr uint16_t BUSSIN_MILLIS = 2000;       // The amount of time that the buzzer will buzz for
 constexpr uint16_t BMS_OVERRIDE_MILLIS = 1000; // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
 

@@ -15,7 +15,7 @@
  * @param car_ Reference to CarState
  */
 Telemetry::Telemetry(MCP2515 &mcp2515_, CarState &car_)
-    : mcp2515(mcp2515_), car(car_)
+    : mcp2515(mcp2515_), car(car_), count(0)
 {
 }
 
