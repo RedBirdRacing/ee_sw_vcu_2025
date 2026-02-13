@@ -78,6 +78,29 @@ void Scheduler<NUM_TASKS, NUM_MCP2515>::update(unsigned long (*const current_tim
 }
 
 /**
+ * @brief Synchonize the scheduler to the current time, resetting all task counters, used when starting multiple Schedulers across different boards together
+ * 
+ * @tparam NUM_TASKS Number of tasks per MCP2515
+ * @tparam NUM_MCP2515 Number of MCP2515 instances
+ * @param[in] current_time_us Function pointer to a function returning the current time in microseconds
+ */
+template <uint8_t NUM_TASKS, uint8_t NUM_MCP2515>
+void Scheduler<NUM_TASKS, NUM_MCP2515>::synchronize(unsigned long (*const current_time_us)())
+{
+    if (current_time_us == nullptr)
+        return;
+
+    last_fire_us = current_time_us();
+    for (uint8_t mcp_index = 0; mcp_index < NUM_MCP2515; ++mcp_index)
+    {
+        for (uint8_t task_index = 0; task_index < NUM_TASKS; ++task_index)
+        {
+            task_counters[mcp_index][task_index] = task_ticks[mcp_index][task_index];
+        }
+    }
+}
+
+/**
  * @brief Add a task to the scheduler for a specific MCP2515 index
  *
  * @tparam NUM_TASKS Number of tasks per MCP2515

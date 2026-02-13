@@ -83,9 +83,17 @@ void scheduler_bms()
 {
     bms.checkHv();
 }
-void schedulerTelemetry()
+void schedulerTelemetryPedal()
 {
-    telem.sendTelemetry();
+    telem.sendPedal();
+}
+void schedulerTelemetryMotor()
+{
+    telem.sendMotor();
+}
+void schedulerTelemetryBms()
+{
+    telem.sendBms();
 }
 
 Scheduler<2, NUM_MCP> scheduler(
@@ -128,7 +136,9 @@ void setup()
 #endif
 
     scheduler.addTask(McpIndex::Motor, scheduler_pedal, 1);
-    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetry, 1);
+    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryPedal, 1);
+    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryMotor, 1);
+    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryBms, 10);
     DBGLN_GENERAL("Setup complete, entering main loop");
 }
 
