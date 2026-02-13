@@ -49,9 +49,6 @@
 // === Buzzer for car status ===
 #define BUZZER PIN_PD6 // P=Out2
 
-// === BMS HV start failed LED ===
-#define BMS_FAILED_LED PIN_PD7 // P=Out2
-
 // === Button active state ===
 #define BUTTON_ACTIVE HIGH
 
