@@ -2,8 +2,8 @@
  * @file main.cpp
  * @author Planeson, Red Bird Racing
  * @brief Main VCU program entry point
- * @version 2.0
- * @date 2026-02-07
+ * @version 2.1
+ * @date 2026-02-09
  * @dir include @brief Contains all header-only files.
  * @dir lib @brief Contains all the libraries. Each library is in its own folder of the same name.
  * @dir src @brief Contains the main.cpp file, the main file of the program.
@@ -18,6 +18,7 @@
 #include "Scheduler.hpp"
 #include "Curves.hpp"
 #include "Telemetry.hpp"
+#include "Debug.hpp"
 
 // ignore -Wpedantic warnings for mcp2515.h
 #pragma GCC diagnostic push
@@ -48,8 +49,6 @@ MCP2515 mcp2515_DL(CS_CAN_DL);       // datalogger CAN
 
 constexpr uint8_t NUM_MCP = 3;
 MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
-
-struct can_frame tx_throttle_msg;
 
 constexpr uint16_t BUSSIN_MILLIS = 2000;       // The amount of time that the buzzer will buzz for
 constexpr uint16_t BMS_OVERRIDE_MILLIS = 1000; // The maximum amount of time to wait for the BMS to start HV, if passed, assume started but not reading response
@@ -84,9 +83,17 @@ void scheduler_bms()
 {
     bms.checkHv();
 }
-void schedulerTelemetry()
+void schedulerTelemetryPedal()
 {
-    telem.sendTelemetry();
+    telem.sendPedal();
+}
+void schedulerTelemetryMotor()
+{
+    telem.sendMotor();
+}
+void schedulerTelemetryBms()
+{
+    telem.sendBms();
 }
 
 Scheduler<2, NUM_MCP> scheduler(
@@ -105,7 +112,7 @@ void setup()
     DBGLN_GENERAL("Debug serial initialized");
 #endif
 
-    for (int i = 0; i < NUM_MCP; i++)
+    for (uint8_t i = 0; i < NUM_MCP; ++i)
     {
         MCPS[i].reset();
         MCPS[i].setBitrate(CAN_RATE, MCP2515_CRYSTAL_FREQ);
@@ -113,11 +120,11 @@ void setup()
     }
 
     // init GPIO pins (MCP2515 CS pins initialized in constructor))
-    for (int i = 0; i < INPUT_COUNT; i++)
+    for (uint8_t i = 0; i < INPUT_COUNT; ++i)
     {
         pinMode(pins_in[i], INPUT);
     }
-    for (int i = 0; i < OUTPUT_COUNT; i++)
+    for (uint8_t i = 0; i < OUTPUT_COUNT; ++i)
     {
         pinMode(pins_out[i], OUTPUT);
         digitalWrite(pins_out[i], LOW);
@@ -129,7 +136,9 @@ void setup()
 #endif
 
     scheduler.addTask(McpIndex::Motor, scheduler_pedal, 1);
-    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetry, 1);
+    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryPedal, 1);
+    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryMotor, 1);
+    scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryBms, 10);
     DBGLN_GENERAL("Setup complete, entering main loop");
 }
 
@@ -146,6 +155,8 @@ void loop()
     brake_pressed = (car.pedal.brake >= BRAKE_THRESHOLD);
     digitalWrite(BRAKE_LIGHT, brake_pressed ? HIGH : LOW);
     scheduler.update(*micros);
+
+    car.pedal.hall_sensor = analogRead(HALL_SENSOR);
 
     if (car.pedal.status.bits.force_stop)
     {

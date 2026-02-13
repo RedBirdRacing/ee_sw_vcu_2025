@@ -22,7 +22,7 @@ Telemetry::Telemetry(MCP2515 &mcp2515_, CarState &car_)
 /**
  * @brief Internal helper to get and send the Pedal telemetry frame
  */
-void Telemetry::schedulerPedal()
+void Telemetry::sendPedal()
 {
     can_frame pedal_frame = car.pedal.toCanFrame();
     mcp2515.sendMessage(&pedal_frame);
@@ -31,7 +31,7 @@ void Telemetry::schedulerPedal()
 /**
  * @brief Internal helper to get and send the motor telemetry frame
  */
-void Telemetry::schedulerMotor()
+void Telemetry::sendMotor()
 {
     can_frame motor_frame = car.motor.toCanFrame();
     mcp2515.sendMessage(&motor_frame);
@@ -40,31 +40,8 @@ void Telemetry::schedulerMotor()
 /**
  * @brief Internal helper to get and send the BMS telemetry frame
  */
-void Telemetry::schedulerBms()
+void Telemetry::sendBms()
 {
     can_frame bms_frame = car.bms.toCanFrame();
     mcp2515.sendMessage(&bms_frame);
-}
-
-/**
- * @brief Sends telemetry data based on the scheduling logic
- */
-void Telemetry::sendTelemetry()
-{
-    if (count >= MAX_FRAME_COUNTER)
-    {
-        schedulerBms();
-        count = 0;
-        return;
-    }
-    
-    if (count % NUM_FREQ_FRAMES == 0)
-    {
-        schedulerPedal();
-    }
-    else
-    {
-        schedulerMotor();
-    }
-    ++count;
 }

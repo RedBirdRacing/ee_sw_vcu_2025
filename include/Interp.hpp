@@ -2,8 +2,8 @@
  * @file Interp.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration and definition of the LinearInterp class template for linear interpolation
- * @version 1.0
- * @date 2026-01-15
+ * @version 1.2.3
+ * @date 2026-02-09
  */
 
 #ifndef INTERP_HPP
@@ -35,7 +35,7 @@ class LinearInterp
 {
 public:
     LinearInterp() = delete; /**< Default constructor deleted to prevent instantiation without a table */
-    explicit LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
+    explicit constexpr LinearInterp(const TablePoint<Tin, Tout> (&table_)[size]) : table(table_) {} /**< Normal constructor */
 
     /**
      * @brief Performs linear interpolation for the given input value, using the table
@@ -74,6 +74,15 @@ public:
     constexpr Tin start() const
     {
         return table[0].in;
+    }
+
+    /**
+     * @brief Returns the input range of the interpolation table (last input - first input)
+     * @return The input range of the table
+     */
+    constexpr Tin range() const
+    {
+        return table[size - 1].in - table[0].in;
     }
 
 private:

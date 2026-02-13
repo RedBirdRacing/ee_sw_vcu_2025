@@ -2,8 +2,8 @@
  * @file Pedal.hpp
  * @author Planeson, Red Bird Racing
  * @brief Declaration of the Pedal class for handling throttle and brake pedal inputs
- * @version 1.4.1
- * @date 2026-02-07
+ * @version 1.6
+ * @date 2026-02-12
  * @see Pedal.cpp
  * @dir Pedal @brief The Pedal library contains the Pedal class to manage throttle and brake pedal inputs, including filtering, fault detection, and CAN communication.
  */
@@ -32,6 +32,8 @@ constexpr bool FLIP_MOTOR_DIR = false; /**< Boolean toggle to flip motor directi
 constexpr bool BRAKE_RELIABLE = true; /**< brake assumed reliable; enable checking of min/max (narrow range); set to false compromises safety! */
 
 constexpr uint16_t FAULT_CHECK_HEX = BRAKE_RELIABLE ? 0xFE : 0x3E; /**< Hex mask for fault checking based on brake reliability. */
+
+constexpr uint32_t MAX_MOTOR_READ_MILLIS = 100; /**< Maximum time in milliseconds between motor data reads before disabling regen. */
 
 /**
  * @brief Namespace for pedal-related constants, such as thresholds and calculation parameters.
@@ -72,9 +74,11 @@ public:
     uint16_t &pedal_final; /**< Final pedal value is taken directly from apps_5v, see initializer */
 
 private:
-    CarState &car;               /**< Reference to CarState */
-    MCP2515 &motor_can;          /**< Reference to MCP2515 for sending CAN messages */
-    uint32_t fault_start_millis; /**< Timestamp for when a fault started */
+    CarState &car;                   /**< Reference to CarState */
+    MCP2515 &motor_can;              /**< Reference to MCP2515 for sending CAN messages */
+    uint32_t fault_start_millis;     /**< Timestamp for when a fault started */
+    uint32_t last_motor_read_millis; /**< Timestamp for the last motor data read */
+
     /**
      * @brief CAN frame to stop the motor
      */
@@ -100,8 +104,9 @@ private:
     ExponentialFilter<uint16_t, uint16_t> pedal2_filter; /**< Filter for second pedal sensor input */
     ExponentialFilter<uint16_t, uint16_t> brake_filter;  /**< Filter for brake sensor input */
 
-    const LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE}; /**< Interpolation map for throttle torque */
-    const LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};       /**< Interpolation map for brake torque */
+    static constexpr LinearInterp<uint16_t, int16_t, int32_t, 5> THROTTLE_MAP{THROTTLE_TABLE};               /**< Interpolation map for throttle torque */
+    static constexpr LinearInterp<uint16_t, int16_t, int32_t, 5> BRAKE_MAP{BRAKE_TABLE};                     /**< Interpolation map for brake torque */
+    static constexpr LinearInterp<uint16_t, uint16_t, uint32_t, 2> APPS_3V3_SCALE_MAP{APPS_3V3_SCALE_TABLE}; /**< Interpolation map for APPS_3V3->APPS_5V */
 
     static constexpr canid_t MOTOR_SEND = 0x201; /**< Motor send CAN ID */
     static constexpr canid_t MOTOR_READ = 0x181; /**< Motor read CAN ID */

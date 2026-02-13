@@ -2,8 +2,8 @@
  * @file BMS.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
- * @version 1.2
- * @date 2026-02-04
+ * @version 1.3.1
+ * @date 2026-02-12
  * @see BMS.hpp
  */
 
@@ -27,12 +27,14 @@
 /**
  * @brief Construct a new BMS object, initing car.pedal.status.bits.hv_ready to false
  * @param bms_can_ Reference to MCP2515 for BMS CAN bus
- * @param car_ Reference to boolean, prefer use CarState member. True if HV has been started, for state machine
+ * @param car_ Reference to CarState, for the status flags and setting BMS data
  */
 BMS::BMS(MCP2515 &bms_can_, CarState &car_)
     : bms_can(bms_can_), car(car_)
 {
     car.pedal.status.bits.hv_ready = false;
+    while (bms_can.setFilter(MCP2515::RXF0,true,BMS_INFO_EXT) != MCP2515::ERROR_OK)
+        ;
 }
 
 /**
@@ -44,11 +46,10 @@ BMS::BMS(MCP2515 &bms_can_, CarState &car_)
  */
 void BMS::checkHv()
 {
-    if (car.pedal.status.bits.hv_ready)
-        return; // already started
-    car.pedal.status.bits.hv_ready = false;
     car.pedal.status.bits.bms_no_msg = false;
-    car.pedal.status.bits.bms_wrong_id = false;
+    if (car.pedal.status.bits.hv_ready)
+    return; // already started
+    car.pedal.status.bits.hv_ready = false;
     if (bms_can.readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
     {
         DBG_BMS_STATUS(BmsStatus::NoMsg);
@@ -56,6 +57,7 @@ void BMS::checkHv()
         return;
     }
 
+    /* now that we set filter on MCP2515, it's impossible to get wrong ID
     // Check if the BMS is in standby state (0x3 in upper 4 bits)
     if (rx_bms_msg.can_id != BMS_INFO_EXT)
     {
@@ -63,6 +65,7 @@ void BMS::checkHv()
         car.pedal.status.bits.bms_wrong_id = true;
         return;
     } // Not a BMS info frame, retry
+    */
 
     switch (rx_bms_msg.data[6] & 0xF0)
     {
