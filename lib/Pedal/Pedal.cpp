@@ -35,7 +35,8 @@ Pedal::Pedal(MCP2515 &motor_can_, CarState &car_, uint16_t &pedal_final_)
     : pedal_final(pedal_final_),
       car(car_),
       motor_can(motor_can_),
-      fault_start_millis(0)
+      fault_start_millis(0),
+      last_motor_read_millis(0)
 {
     // ask MCU to send motor rpm and error/warn signals
     while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)

@@ -103,7 +103,7 @@ void setup()
     DBGLN_GENERAL("Debug serial initialized");
 #endif
 
-    for (int i = 0; i < NUM_MCP; i++)
+    for (uint8_t i = 0; i < NUM_MCP; ++i)
     {
         MCPS[i].reset();
         MCPS[i].setBitrate(CAN_RATE, MCP2515_CRYSTAL_FREQ);
@@ -111,11 +111,11 @@ void setup()
     }
 
     // init GPIO pins (MCP2515 CS pins initialized in constructor))
-    for (int i = 0; i < INPUT_COUNT; i++)
+    for (uint8_t i = 0; i < INPUT_COUNT; ++i)
     {
         pinMode(pins_in[i], INPUT);
     }
-    for (int i = 0; i < OUTPUT_COUNT; i++)
+    for (uint8_t i = 0; i < OUTPUT_COUNT; ++i)
     {
         pinMode(pins_out[i], OUTPUT);
         digitalWrite(pins_out[i], LOW);
