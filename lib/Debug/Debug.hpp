@@ -14,9 +14,9 @@
 #include "Enums.hpp"
 
 // === Debug Flags ===
-#define DEBUG true                  // if false, all debug messages are ignored
-#define DEBUG_SERIAL true && DEBUG // if false, all serial debug messages are ignored
-#define DEBUG_CAN true && DEBUG    // if false, all CAN debug messages are ignored
+#define DEBUG 1                  // if 0, all debug messages are ignored
+#define DEBUG_SERIAL (1 && DEBUG) // if 0, all serial debug messages are ignored
+#define DEBUG_CAN (1 && DEBUG)    // if 0, all CAN debug messages are ignored
 
 #if DEBUG_SERIAL
 #include <Debug_serial.hpp>
@@ -26,18 +26,18 @@
 #include <Debug_can.hpp>
 #endif
 
-#define DEBUG_THROTTLE true && DEBUG
-#define DEBUG_THROTTLE_IN true && DEBUG_THROTTLE
-#define DEBUG_THROTTLE_OUT true && DEBUG_THROTTLE
-#define DEBUG_THROTTLE_FAULT true && DEBUG_THROTTLE
-#define DEBUG_BRAKE true && DEBUG
-#define DEBUG_BRAKE_IN true && DEBUG_BRAKE
-#define DEBUG_BRAKE_FAULT true && DEBUG_BRAKE
-#define DEBUG_GENERAL true
-#define DEBUG_STATUS true // Serial only
-#define DEBUG_STATUS_CAR true && DEBUG_STATUS
-#define DEBUG_STATUS_BRAKE true && DEBUG_STATUS
-#define DEBUG_HALL_SENSOR true && DEBUG
+#define DEBUG_THROTTLE (1 && DEBUG)
+#define DEBUG_THROTTLE_IN (1 && DEBUG_THROTTLE)
+#define DEBUG_THROTTLE_OUT (1 && DEBUG_THROTTLE)
+#define DEBUG_THROTTLE_FAULT (1 && DEBUG_THROTTLE)
+#define DEBUG_BRAKE (1 && DEBUG)
+#define DEBUG_BRAKE_IN (1 && DEBUG_BRAKE)
+#define DEBUG_BRAKE_FAULT (1 && DEBUG_BRAKE)
+#define DEBUG_GENERAL 1
+#define DEBUG_STATUS 1 // Serial only
+#define DEBUG_STATUS_CAR (1 && DEBUG_STATUS)
+#define DEBUG_STATUS_BRAKE (1 && DEBUG_STATUS)
+#define DEBUG_HALL_SENSOR (1 && DEBUG)
 
 // ===== Simple Serial-Only Debug Functions =====
 
