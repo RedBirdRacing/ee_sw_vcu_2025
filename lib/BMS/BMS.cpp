@@ -2,8 +2,8 @@
  * @file BMS.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus
- * @version 1.3
- * @date 2026-02-09
+ * @version 1.3.1
+ * @date 2026-02-12
  * @see BMS.hpp
  */
 
@@ -46,11 +46,10 @@ BMS::BMS(MCP2515 &bms_can_, CarState &car_)
  */
 void BMS::checkHv()
 {
-    if (car.pedal.status.bits.hv_ready)
-        return; // already started
-    car.pedal.status.bits.hv_ready = false;
     car.pedal.status.bits.bms_no_msg = false;
-    car.pedal.status.bits.bms_wrong_id = false;
+    if (car.pedal.status.bits.hv_ready)
+    return; // already started
+    car.pedal.status.bits.hv_ready = false;
     if (bms_can.readMessage(&rx_bms_msg) == MCP2515::ERROR_NOMSG)
     {
         DBG_BMS_STATUS(BmsStatus::NoMsg);

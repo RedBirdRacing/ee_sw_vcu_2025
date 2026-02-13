@@ -2,8 +2,8 @@
  * @file Pedal.cpp
  * @author Planeson, Red Bird Racing
  * @brief Implementation of the Pedal class for handling throttle pedal inputs
- * @version 1.5
- * @date 2026-02-09
+ * @version 1.6
+ * @date 2026-02-12
  * @see Pedal.hpp
  */
 
@@ -37,11 +37,13 @@ Pedal::Pedal(MCP2515 &motor_can_, CarState &car_, uint16_t &pedal_final_)
       motor_can(motor_can_),
       fault_start_millis(0)
 {
+    // ask MCU to send motor rpm and error/warn signals
     while (sendCyclicRead(SPEED_IST, RPM_PERIOD) != MCP2515::ERROR_OK)
         ;
     while (sendCyclicRead(WARN_ERR, ERR_PERIOD) != MCP2515::ERROR_OK)
         ;
-    while (motor_can.setFilter(MCP2515::RXF0,false,MOTOR_READ) != MCP2515::ERROR_OK)
+    // set MCU CAN filter
+    while (motor_can.setFilter(MCP2515::RXF0, false, MOTOR_READ) != MCP2515::ERROR_OK)
         ;
 }
 
@@ -170,6 +172,7 @@ void Pedal::sendFrame()
  * If braking requested and regen enabled,
  *      applies regen if motor RPM larger than minimum regen RPM,
  *      preventing reverse torque at low speeds.
+ *      Regen is also disabled if motor rpm isn't read recently to prevent reverse power.
  *
  * @param pedal Pedal ADC in the range of 0-1023.
  * @param brake Brake ADC in the range of 0-1023.
@@ -179,7 +182,7 @@ void Pedal::sendFrame()
  */
 constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t brake, const int16_t motor_rpm, const bool flip_dir)
 {
-    if (REGEN_ENABLED && brake > BRAKE_MAP.start())
+    if (REGEN_ENABLED && brake > BRAKE_MAP.start() && !car.pedal.status.bits.motor_no_read)
     {
         if (pedal > THROTTLE_MAP.start())
         {
@@ -260,6 +263,8 @@ void Pedal::readMotor()
         {
             if (rx_frame.data[0] == SPEED_IST)
             {
+                last_motor_read_millis = car.millis;
+                car.pedal.status.bits.motor_no_read = false;
                 car.motor.motor_rpm = static_cast<int16_t>(rx_frame.data[1] | (rx_frame.data[2] << 8));
                 return;
             }
@@ -270,6 +275,11 @@ void Pedal::readMotor()
                 return;
             }
         }
+    }
+    if (car.millis - last_motor_read_millis > MAX_MOTOR_READ_MILLIS)
+    {
+        car.pedal.status.bits.motor_no_read = true;
+        DBG_THROTTLE("No motor read for over 100 ms, disabling regen");
     }
     return;
 }
