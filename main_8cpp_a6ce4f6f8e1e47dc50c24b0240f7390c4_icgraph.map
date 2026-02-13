@@ -1,0 +1,4 @@
+<map id="schedulerTelemetryBms" name="schedulerTelemetryBms">
+<area shape="rect" id="node1" title=" " alt="" coords="112,5,291,31"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+</map>

@@ -1,4 +1,8 @@
-<map id="ee_sw_vcu_2025/lib/Debug/Debug_serial.hpp" name="ee_sw_vcu_2025/lib/Debug/Debug_serial.hpp">
-<area shape="rect" id="node1" title="Declaration of the Debug_Serial namespace for serial debugging functions." alt="" coords="5,5,191,45"/>
-<area shape="rect" id="node2" href="$Debug__serial_8cpp.html" title="Implementation of the Debug_Serial namespace for serial debugging functions." alt="" coords="6,93,190,133"/>
+<map id="vehicle_control_unit/lib/Debug/Debug_serial.hpp" name="vehicle_control_unit/lib/Debug/Debug_serial.hpp">
+<area shape="rect" id="node1" title="Declaration of the Debug_Serial namespace for serial debugging functions." alt="" coords="261,5,466,45"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html" title="Debugging macros and functions for serial and CAN output." alt="" coords="178,93,341,133"/>
+<area shape="rect" id="node6" href="$Debug__serial_8cpp.html" title="Implementation of the Debug_Serial namespace for serial debugging functions." alt="" coords="365,93,569,133"/>
+<area shape="rect" id="node3" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,181,159,221"/>
+<area shape="rect" id="node4" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="183,181,336,221"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="360,181,513,221"/>
 </map>

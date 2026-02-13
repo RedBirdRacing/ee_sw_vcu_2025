@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Bird Racing VCU: ee_sw_vcu_2025/lib/Debug/Debug.hpp File Reference</title>
+<title>Red Bird Racing VCU: vehicle_control_unit/lib/Debug/Debug.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,16 +105,18 @@ $(document).ready(function(){initNavTree('Debug_8hpp.html',''); initResizable();
 <p>Debugging macros and functions for serial and CAN output.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Enums_8hpp_source.html">Enums.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="Debug__serial_8hpp_source.html">Debug_serial.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Debug__can_8hpp_source.html">Debug_can.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Debug.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp__incl.svg" width="167" height="198"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp__incl.svg" width="350" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp__dep__incl.svg" width="518" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp__dep__incl.svg" width="519" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -122,35 +124,35 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61e127df60d55ea4c8bd6b8ec1f88367"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">DEBUG_SERIAL</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:a61e127df60d55ea4c8bd6b8ec1f88367"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">DEBUG_SERIAL</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td></tr>
 <tr class="separator:a61e127df60d55ea4c8bd6b8ec1f88367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9d6794979a4ec6135cc3e425777b993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">DEBUG_CAN</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:ac9d6794979a4ec6135cc3e425777b993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">DEBUG_CAN</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td></tr>
 <tr class="separator:ac9d6794979a4ec6135cc3e425777b993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a161269174793744d640c3a37ee8c97d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:a161269174793744d640c3a37ee8c97d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td></tr>
 <tr class="separator:a161269174793744d640c3a37ee8c97d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10f2e3a2f2edf4c999933494557a2cf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a10f2e3a2f2edf4c999933494557a2cf9">DEBUG_THROTTLE_IN</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a></td></tr>
+<tr class="memitem:a10f2e3a2f2edf4c999933494557a2cf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a10f2e3a2f2edf4c999933494557a2cf9">DEBUG_THROTTLE_IN</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>)</td></tr>
 <tr class="separator:a10f2e3a2f2edf4c999933494557a2cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c4dd35d30dbc1881a09d5c339d09a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ad0c4dd35d30dbc1881a09d5c339d09a3">DEBUG_THROTTLE_OUT</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a></td></tr>
+<tr class="memitem:ad0c4dd35d30dbc1881a09d5c339d09a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ad0c4dd35d30dbc1881a09d5c339d09a3">DEBUG_THROTTLE_OUT</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>)</td></tr>
 <tr class="separator:ad0c4dd35d30dbc1881a09d5c339d09a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d43d7188ea0eeea1c490073fad87559"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a6d43d7188ea0eeea1c490073fad87559">DEBUG_THROTTLE_FAULT</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a></td></tr>
+<tr class="memitem:a6d43d7188ea0eeea1c490073fad87559"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a6d43d7188ea0eeea1c490073fad87559">DEBUG_THROTTLE_FAULT</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>)</td></tr>
 <tr class="separator:a6d43d7188ea0eeea1c490073fad87559"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e6cc793a9f4137bb348c93184e66fc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:a8e6cc793a9f4137bb348c93184e66fc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td></tr>
 <tr class="separator:a8e6cc793a9f4137bb348c93184e66fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23581d444df2c63fda1b62e21cf6c5d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a23581d444df2c63fda1b62e21cf6c5d0">DEBUG_BRAKE_IN</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a></td></tr>
+<tr class="memitem:a23581d444df2c63fda1b62e21cf6c5d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a23581d444df2c63fda1b62e21cf6c5d0">DEBUG_BRAKE_IN</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a>)</td></tr>
 <tr class="separator:a23581d444df2c63fda1b62e21cf6c5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae33d79f2390768d842e729727d5d5541"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ae33d79f2390768d842e729727d5d5541">DEBUG_BRAKE_FAULT</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a></td></tr>
+<tr class="memitem:ae33d79f2390768d842e729727d5d5541"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ae33d79f2390768d842e729727d5d5541">DEBUG_BRAKE_FAULT</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a>)</td></tr>
 <tr class="separator:ae33d79f2390768d842e729727d5d5541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c35b4c71a9fd428c47eb27bf72c2789"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a4c35b4c71a9fd428c47eb27bf72c2789">DEBUG_GENERAL</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memitem:a4c35b4c71a9fd428c47eb27bf72c2789"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a4c35b4c71a9fd428c47eb27bf72c2789">DEBUG_GENERAL</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a4c35b4c71a9fd428c47eb27bf72c2789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04c63ab2d82d3f4b94883e1fb75e62f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memitem:a04c63ab2d82d3f4b94883e1fb75e62f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a04c63ab2d82d3f4b94883e1fb75e62f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c6a36259add4723a0e33f323bbda248"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a9c6a36259add4723a0e33f323bbda248">DEBUG_STATUS_CAR</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a></td></tr>
+<tr class="memitem:a9c6a36259add4723a0e33f323bbda248"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a9c6a36259add4723a0e33f323bbda248">DEBUG_STATUS_CAR</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a>)</td></tr>
 <tr class="separator:a9c6a36259add4723a0e33f323bbda248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d792f9b86b0b6e682334a8c482dcdaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a1d792f9b86b0b6e682334a8c482dcdaf">DEBUG_STATUS_BRAKE</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a></td></tr>
+<tr class="memitem:a1d792f9b86b0b6e682334a8c482dcdaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#a1d792f9b86b0b6e682334a8c482dcdaf">DEBUG_STATUS_BRAKE</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a>)</td></tr>
 <tr class="separator:a1d792f9b86b0b6e682334a8c482dcdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac880a3535e9c803915338b28c521662f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ac880a3535e9c803915338b28c521662f">DEBUG_HALL_SENSOR</a>&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr class="memitem:ac880a3535e9c803915338b28c521662f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Debug_8hpp.html#ac880a3535e9c803915338b28c521662f">DEBUG_HALL_SENSOR</a>&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td></tr>
 <tr class="separator:ac880a3535e9c803915338b28c521662f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -198,7 +200,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG&#160;&#160;&#160;true</td>
+          <td class="memname">#define DEBUG&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -214,7 +216,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_BRAKE&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_BRAKE&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -230,7 +232,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_BRAKE_FAULT&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a></td>
+          <td class="memname">#define DEBUG_BRAKE_FAULT&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -246,7 +248,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_BRAKE_IN&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a></td>
+          <td class="memname">#define DEBUG_BRAKE_IN&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">DEBUG_BRAKE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -262,7 +264,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_CAN&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_CAN&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -278,7 +280,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_GENERAL&#160;&#160;&#160;true</td>
+          <td class="memname">#define DEBUG_GENERAL&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -294,7 +296,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_HALL_SENSOR&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_HALL_SENSOR&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -310,7 +312,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_SERIAL&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_SERIAL&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -326,7 +328,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_STATUS&#160;&#160;&#160;true</td>
+          <td class="memname">#define DEBUG_STATUS&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -342,7 +344,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_STATUS_BRAKE&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a></td>
+          <td class="memname">#define DEBUG_STATUS_BRAKE&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -358,7 +360,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_STATUS_CAR&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a></td>
+          <td class="memname">#define DEBUG_STATUS_CAR&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">DEBUG_STATUS</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -374,7 +376,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_THROTTLE&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td>
+          <td class="memname">#define DEBUG_THROTTLE&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -390,7 +392,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_THROTTLE_FAULT&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a></td>
+          <td class="memname">#define DEBUG_THROTTLE_FAULT&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -406,7 +408,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_THROTTLE_IN&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a></td>
+          <td class="memname">#define DEBUG_THROTTLE_IN&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -422,7 +424,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_THROTTLE_OUT&#160;&#160;&#160;true &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a></td>
+          <td class="memname">#define DEBUG_THROTTLE_OUT&#160;&#160;&#160;(1 &amp;&amp; <a class="el" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">DEBUG_THROTTLE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -468,7 +470,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00176">Debug_CAN::status_bms()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00217">Debug_Serial::status_bms()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00047">BMS::checkHv()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -610,10 +612,18 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="Debug_8hpp_source.html#l00049">49</a> of file <a class="el" href="Debug_8hpp_source.html">Debug.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00029">Debug_Serial::print()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00258">Pedal::readMotor()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a9d3888b021fa82a4c78185a961fdad84_cgraph.svg" width="332" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="Debug_8hpp_a9d3888b021fa82a4c78185a961fdad84_icgraph.svg" width="602" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -702,7 +712,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="Debug__can_8cpp_source.html#l00093">Debug_CAN::throttle_fault()</a>, and <a class="el" href="Debug__serial_8cpp_source.html#l00082">Debug_Serial::throttle_fault()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00220">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00224">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -755,7 +765,7 @@ Here is the caller graph for this function:</div>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00037">Debug_Serial::println()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00045">BMS::checkHv()</a>, and <a class="el" href="main_8cpp_source.html#l00101">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="BMS_8cpp_source.html#l00047">BMS::checkHv()</a>, and <a class="el" href="main_8cpp_source.html#l00108">setup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -853,7 +863,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="Debug__serial_8cpp_source.html#l00037">Debug_Serial::println()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00140">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00149">loop()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00128">Pedal::sendFrame()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -874,7 +884,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_878c97e183bae1c6712242243e36474e.html">ee_sw_vcu_2025</a></li><li class="navelem"><a class="el" href="dir_d6c487d3697a32a5301425d1373bccad.html">lib</a></li><li class="navelem"><a class="el" href="dir_01f4d799a8cedbb13a150c3acff96752.html">Debug</a></li><li class="navelem"><a class="el" href="Debug_8hpp.html">Debug.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_912669a89c5ad31930a81ceabf9e60c2.html">vehicle_control_unit</a></li><li class="navelem"><a class="el" href="dir_52d0e02f24663f586f5c4084165e2919.html">lib</a></li><li class="navelem"><a class="el" href="dir_f6d9364198a163704575b5bbec1250d9.html">Debug</a></li><li class="navelem"><a class="el" href="Debug_8hpp.html">Debug.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

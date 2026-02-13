@@ -1,5 +1,5 @@
-<map id="ee_sw_vcu_2025/lib/BMS/BMS.hpp" name="ee_sw_vcu_2025/lib/BMS/BMS.hpp">
-<area shape="rect" id="node1" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="93,5,245,45"/>
-<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,93,157,133"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="181,93,336,133"/>
+<map id="vehicle_control_unit/lib/BMS/BMS.hpp" name="vehicle_control_unit/lib/BMS/BMS.hpp">
+<area shape="rect" id="node1" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="93,5,247,45"/>
+<area shape="rect" id="node2" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,93,159,133"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="183,93,336,133"/>
 </map>

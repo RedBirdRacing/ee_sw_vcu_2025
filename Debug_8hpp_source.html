@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Bird Racing VCU: ee_sw_vcu_2025/lib/Debug/Debug.hpp Source File</title>
+<title>Red Bird Racing VCU: vehicle_control_unit/lib/Debug/Debug.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,9 +114,9 @@ $(document).ready(function(){initNavTree('Debug_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="Enums_8hpp.html">Enums.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// === Debug Flags ===</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">   17</a></span><span class="preprocessor">#define DEBUG true                  </span><span class="comment">// if false, all debug messages are ignored</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">   18</a></span><span class="preprocessor">#define DEBUG_SERIAL true &amp;&amp; DEBUG </span><span class="comment">// if false, all serial debug messages are ignored</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">   19</a></span><span class="preprocessor">#define DEBUG_CAN true &amp;&amp; DEBUG    </span><span class="comment">// if false, all CAN debug messages are ignored</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ad72dbcf6d0153db1b8d8a58001feed83">   17</a></span><span class="preprocessor">#define DEBUG 1                  </span><span class="comment">// if 0, all debug messages are ignored</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a61e127df60d55ea4c8bd6b8ec1f88367">   18</a></span><span class="preprocessor">#define DEBUG_SERIAL (1 &amp;&amp; DEBUG) </span><span class="comment">// if 0, all serial debug messages are ignored</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ac9d6794979a4ec6135cc3e425777b993">   19</a></span><span class="preprocessor">#define DEBUG_CAN (1 &amp;&amp; DEBUG)    </span><span class="comment">// if 0, all CAN debug messages are ignored</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#if DEBUG_SERIAL</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="Debug__serial_8hpp.html">Debug_serial.hpp</a>&gt;</span></div>
@@ -126,18 +126,18 @@ $(document).ready(function(){initNavTree('Debug_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="Debug__can_8hpp.html">Debug_can.hpp</a>&gt;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">   29</a></span><span class="preprocessor">#define DEBUG_THROTTLE true &amp;&amp; DEBUG</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a10f2e3a2f2edf4c999933494557a2cf9">   30</a></span><span class="preprocessor">#define DEBUG_THROTTLE_IN true &amp;&amp; DEBUG_THROTTLE</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ad0c4dd35d30dbc1881a09d5c339d09a3">   31</a></span><span class="preprocessor">#define DEBUG_THROTTLE_OUT true &amp;&amp; DEBUG_THROTTLE</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a6d43d7188ea0eeea1c490073fad87559">   32</a></span><span class="preprocessor">#define DEBUG_THROTTLE_FAULT true &amp;&amp; DEBUG_THROTTLE</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">   33</a></span><span class="preprocessor">#define DEBUG_BRAKE true &amp;&amp; DEBUG</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a23581d444df2c63fda1b62e21cf6c5d0">   34</a></span><span class="preprocessor">#define DEBUG_BRAKE_IN true &amp;&amp; DEBUG_BRAKE</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ae33d79f2390768d842e729727d5d5541">   35</a></span><span class="preprocessor">#define DEBUG_BRAKE_FAULT true &amp;&amp; DEBUG_BRAKE</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a4c35b4c71a9fd428c47eb27bf72c2789">   36</a></span><span class="preprocessor">#define DEBUG_GENERAL true</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">   37</a></span><span class="preprocessor">#define DEBUG_STATUS true </span><span class="comment">// Serial only</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a9c6a36259add4723a0e33f323bbda248">   38</a></span><span class="preprocessor">#define DEBUG_STATUS_CAR true &amp;&amp; DEBUG_STATUS</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a1d792f9b86b0b6e682334a8c482dcdaf">   39</a></span><span class="preprocessor">#define DEBUG_STATUS_BRAKE true &amp;&amp; DEBUG_STATUS</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ac880a3535e9c803915338b28c521662f">   40</a></span><span class="preprocessor">#define DEBUG_HALL_SENSOR true &amp;&amp; DEBUG</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a161269174793744d640c3a37ee8c97d1">   29</a></span><span class="preprocessor">#define DEBUG_THROTTLE (1 &amp;&amp; DEBUG)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a10f2e3a2f2edf4c999933494557a2cf9">   30</a></span><span class="preprocessor">#define DEBUG_THROTTLE_IN (1 &amp;&amp; DEBUG_THROTTLE)</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ad0c4dd35d30dbc1881a09d5c339d09a3">   31</a></span><span class="preprocessor">#define DEBUG_THROTTLE_OUT (1 &amp;&amp; DEBUG_THROTTLE)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a6d43d7188ea0eeea1c490073fad87559">   32</a></span><span class="preprocessor">#define DEBUG_THROTTLE_FAULT (1 &amp;&amp; DEBUG_THROTTLE)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a8e6cc793a9f4137bb348c93184e66fc9">   33</a></span><span class="preprocessor">#define DEBUG_BRAKE (1 &amp;&amp; DEBUG)</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a23581d444df2c63fda1b62e21cf6c5d0">   34</a></span><span class="preprocessor">#define DEBUG_BRAKE_IN (1 &amp;&amp; DEBUG_BRAKE)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ae33d79f2390768d842e729727d5d5541">   35</a></span><span class="preprocessor">#define DEBUG_BRAKE_FAULT (1 &amp;&amp; DEBUG_BRAKE)</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a4c35b4c71a9fd428c47eb27bf72c2789">   36</a></span><span class="preprocessor">#define DEBUG_GENERAL 1</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a04c63ab2d82d3f4b94883e1fb75e62f4">   37</a></span><span class="preprocessor">#define DEBUG_STATUS 1 </span><span class="comment">// Serial only</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a9c6a36259add4723a0e33f323bbda248">   38</a></span><span class="preprocessor">#define DEBUG_STATUS_CAR (1 &amp;&amp; DEBUG_STATUS)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#a1d792f9b86b0b6e682334a8c482dcdaf">   39</a></span><span class="preprocessor">#define DEBUG_STATUS_BRAKE (1 &amp;&amp; DEBUG_STATUS)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="Debug_8hpp.html#ac880a3535e9c803915338b28c521662f">   40</a></span><span class="preprocessor">#define DEBUG_HALL_SENSOR (1 &amp;&amp; DEBUG)</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// ===== Simple Serial-Only Debug Functions =====</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"></span> </div>
@@ -284,7 +284,7 @@ $(document).ready(function(){initNavTree('Debug_8hpp_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_878c97e183bae1c6712242243e36474e.html">ee_sw_vcu_2025</a></li><li class="navelem"><a class="el" href="dir_d6c487d3697a32a5301425d1373bccad.html">lib</a></li><li class="navelem"><a class="el" href="dir_01f4d799a8cedbb13a150c3acff96752.html">Debug</a></li><li class="navelem"><a class="el" href="Debug_8hpp.html">Debug.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_912669a89c5ad31930a81ceabf9e60c2.html">vehicle_control_unit</a></li><li class="navelem"><a class="el" href="dir_52d0e02f24663f586f5c4084165e2919.html">lib</a></li><li class="navelem"><a class="el" href="dir_f6d9364198a163704575b5bbec1250d9.html">Debug</a></li><li class="navelem"><a class="el" href="Debug_8hpp.html">Debug.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

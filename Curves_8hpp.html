@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Bird Racing VCU: ee_sw_vcu_2025/include/Curves.hpp File Reference</title>
+<title>Red Bird Racing VCU: vehicle_control_unit/include/Curves.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -109,13 +109,13 @@ $(document).ready(function(){initNavTree('Curves_8hpp.html',''); initResizable()
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Curves.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Curves_8hpp__incl.svg" width="194" height="198"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Curves_8hpp__incl.svg" width="172" height="198"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Curves_8hpp__dep__incl.svg" width="366" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Curves_8hpp__dep__incl.svg" width="355" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -123,40 +123,51 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b">APPS_RATIO</a>&#160;&#160;&#160;50 / 33</td></tr>
+<tr class="memitem:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#aedcd0f18b2470e28672db5668bdb1e8b">APPS_RATIO</a>&#160;&#160;&#160;53 / 34</td></tr>
 <tr class="memdesc:aedcd0f18b2470e28672db5668bdb1e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO.  <br /></td></tr>
 <tr class="separator:aedcd0f18b2470e28672db5668bdb1e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac78f73e16d168cd0a220ffd18f8ff9db"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db">APPS_5V_MIN</a> = 250</td></tr>
+<tr class="memitem:ac78f73e16d168cd0a220ffd18f8ff9db"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db">APPS_5V_MIN</a> = 50</td></tr>
 <tr class="separator:ac78f73e16d168cd0a220ffd18f8ff9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbdd46bf9fad2de4083425d25cd3a753"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753">APPS_5V_MAX</a> = 700</td></tr>
+<tr class="memitem:afbdd46bf9fad2de4083425d25cd3a753"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753">APPS_5V_MAX</a> = 950</td></tr>
 <tr class="separator:afbdd46bf9fad2de4083425d25cd3a753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15bc3e3092556f8a92bb9b0ec187d3ee"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a15bc3e3092556f8a92bb9b0ec187d3ee">APPS_3V3_MIN</a> = 100</td></tr>
+<tr class="memitem:a15bc3e3092556f8a92bb9b0ec187d3ee"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a15bc3e3092556f8a92bb9b0ec187d3ee">APPS_3V3_MIN</a> = 50</td></tr>
 <tr class="separator:a15bc3e3092556f8a92bb9b0ec187d3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9aa96004a0358d0a8caceb05d31e62"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#abf9aa96004a0358d0a8caceb05d31e62">APPS_3V3_MAX</a> = 500</td></tr>
+<tr class="memitem:abf9aa96004a0358d0a8caceb05d31e62"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#abf9aa96004a0358d0a8caceb05d31e62">APPS_3V3_MAX</a> = 950</td></tr>
 <tr class="separator:abf9aa96004a0358d0a8caceb05d31e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54ef37a723911176988c201d77472fbd"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a54ef37a723911176988c201d77472fbd">APPS_FINAL_MIN</a> = <a class="el" href="Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db">APPS_5V_MIN</a></td></tr>
-<tr class="separator:a54ef37a723911176988c201d77472fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0e06b3cb6e2848cf1974301e0cdbd13"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#aa0e06b3cb6e2848cf1974301e0cdbd13">APPS_FINAL_MAX</a> = <a class="el" href="Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753">APPS_5V_MAX</a></td></tr>
-<tr class="separator:aa0e06b3cb6e2848cf1974301e0cdbd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f35ab827c7c75990e4f28729b8fd04f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, int16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a5f35ab827c7c75990e4f28729b8fd04f">THROTTLE_TABLE</a> [5]</td></tr>
-<tr class="memdesc:a5f35ab827c7c75990e4f28729b8fd04f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throttle mapping table.  <br /></td></tr>
-<tr class="separator:a5f35ab827c7c75990e4f28729b8fd04f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f28e94ee251aee0fc7f0a6579c7f2f7"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7">brake_min</a> = 80</td></tr>
+<tr class="memitem:a258f6b8060168f42914191e7539ef5ef"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, int16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a> [5]</td></tr>
+<tr class="memdesc:a258f6b8060168f42914191e7539ef5ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throttle mapping table.  <br /></td></tr>
+<tr class="separator:a258f6b8060168f42914191e7539ef5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f28e94ee251aee0fc7f0a6579c7f2f7"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a5f28e94ee251aee0fc7f0a6579c7f2f7">brake_min</a> = 50</td></tr>
 <tr class="separator:a5f28e94ee251aee0fc7f0a6579c7f2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac712cba2ad3cccf9a10752cb339d45a2"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#ac712cba2ad3cccf9a10752cb339d45a2">brake_max</a> = 340</td></tr>
+<tr class="memitem:ac712cba2ad3cccf9a10752cb339d45a2"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#ac712cba2ad3cccf9a10752cb339d45a2">brake_max</a> = 950</td></tr>
 <tr class="separator:ac712cba2ad3cccf9a10752cb339d45a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9235baa5785862eb452871ed359355a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, int16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#aa9235baa5785862eb452871ed359355a">BRAKE_TABLE</a> [5]</td></tr>
 <tr class="memdesc:aa9235baa5785862eb452871ed359355a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brake mapping table, negative values for regen.  <br /></td></tr>
 <tr class="separator:aa9235baa5785862eb452871ed359355a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7319b955b5bc8bd900d393f63c05c11f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a7319b955b5bc8bd900d393f63c05c11f">APPS_3V3_SCALE_TABLE</a> [2]</td></tr>
+<tr class="memdesc:a7319b955b5bc8bd900d393f63c05c11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">APPS_3V3 mapping table, maps 3V3 readings to 5V readings.  <br /></td></tr>
+<tr class="separator:a7319b955b5bc8bd900d393f63c05c11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abea8d96694cbce83613206c8dc606658"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658">APPS_5V_PERCENT_TABLE</a> [2]</td></tr>
+<tr class="memdesc:abea8d96694cbce83613206c8dc606658"><td class="mdescLeft">&#160;</td><td class="mdescRight">APPS_5V to percent mapping table, maps 5V readings to percent throttle (0-60000)  <br /></td></tr>
+<tr class="separator:abea8d96694cbce83613206c8dc606658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0105e161a69aa07d6aa47ca1a9d9742"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#ad0105e161a69aa07d6aa47ca1a9d9742">APPS_5V_TABLE_INVERTED</a> [2]</td></tr>
+<tr class="memdesc:ad0105e161a69aa07d6aa47ca1a9d9742"><td class="mdescLeft">&#160;</td><td class="mdescRight">APPS percent mapping table, maps APPS percentage to 5V readings.  <br /></td></tr>
+<tr class="separator:ad0105e161a69aa07d6aa47ca1a9d9742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bea7404d01575dd3620323c59b6bdf5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classLinearInterp.html">LinearInterp</a>&lt; uint16_t, uint16_t, uint32_t, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a> {<a class="el" href="Curves_8hpp.html#ad0105e161a69aa07d6aa47ca1a9d9742">APPS_5V_TABLE_INVERTED</a>}</td></tr>
+<tr class="memdesc:a2bea7404d01575dd3620323c59b6bdf5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classLinearInterp.html" title="Class template for performing linear interpolation using a lookup table.">LinearInterp</a> for APPS_5V_TABLE_INVERTED, used to get APPS reading from a desired percentage.  <br /></td></tr>
+<tr class="separator:a2bea7404d01575dd3620323c59b6bdf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f35ab827c7c75990e4f28729b8fd04f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt; uint16_t, int16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Curves_8hpp.html#a5f35ab827c7c75990e4f28729b8fd04f">THROTTLE_TABLE</a> [5]</td></tr>
+<tr class="memdesc:a5f35ab827c7c75990e4f28729b8fd04f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throttle mapping table (calculated), maps APPS_5V readings to torque values.  <br /></td></tr>
+<tr class="separator:a5f35ab827c7c75990e4f28729b8fd04f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definition of throttle and brake mapping tables. </p>
 <dl class="section author"><dt>Author</dt><dd>Planeson, Red Bird Racing </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-02-07 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.5 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-02-09 </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="Interp_8hpp.html" title="Declaration and definition of the LinearInterp class template for linear interpolation.">Interp.hpp</a>, <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
@@ -168,7 +179,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define APPS_RATIO&#160;&#160;&#160;50 / 33</td>
+          <td class="memname">#define APPS_RATIO&#160;&#160;&#160;53 / 34</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -176,7 +187,7 @@ Variables</h2></td></tr>
 <p>Ratio between 5V APPS and 3.3V APPS, use integer math to avoid float operations. Expanded to apps_scaled = apps_3v3 * APPS_RATIO. </p>
 <dl class="section note"><dt>Note</dt><dd>max 64 for multiply to prevent overflow </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00030">30</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00028">28</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>
@@ -191,7 +202,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t APPS_3V3_MAX = 500</td>
+          <td class="memname">constexpr uint16_t APPS_3V3_MAX = 950</td>
         </tr>
       </table>
   </td>
@@ -204,7 +215,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00021">21</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -218,7 +229,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t APPS_3V3_MIN = 100</td>
+          <td class="memname">constexpr uint16_t APPS_3V3_MIN = 50</td>
         </tr>
       </table>
   </td>
@@ -231,7 +242,36 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00020">20</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
+
+</div>
+</div>
+<a id="a7319b955b5bc8bd900d393f63c05c11f" name="a7319b955b5bc8bd900d393f63c05c11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7319b955b5bc8bd900d393f63c05c11f">&#9670;&#160;</a></span>APPS_3V3_SCALE_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt;uint16_t, uint16_t&gt; APPS_3V3_SCALE_TABLE[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {220, 325},</div>
+<div class="line">    {410, 621}}</div>
+</div><!-- fragment -->
+<p>APPS_3V3 mapping table, maps 3V3 readings to 5V readings. </p>
+
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00058">58</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +285,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t APPS_5V_MAX = 700</td>
+          <td class="memname">constexpr uint16_t APPS_5V_MAX = 950</td>
         </tr>
       </table>
   </td>
@@ -258,7 +298,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00018">18</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -272,7 +312,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t APPS_5V_MIN = 250</td>
+          <td class="memname">constexpr uint16_t APPS_5V_MIN = 50</td>
         </tr>
       </table>
   </td>
@@ -285,12 +325,12 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00017">17</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 
 </div>
 </div>
-<a id="aa0e06b3cb6e2848cf1974301e0cdbd13" name="aa0e06b3cb6e2848cf1974301e0cdbd13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0e06b3cb6e2848cf1974301e0cdbd13">&#9670;&#160;</a></span>APPS_FINAL_MAX</h2>
+<a id="abea8d96694cbce83613206c8dc606658" name="abea8d96694cbce83613206c8dc606658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abea8d96694cbce83613206c8dc606658">&#9670;&#160;</a></span>APPS_5V_PERCENT_TABLE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -299,7 +339,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t APPS_FINAL_MAX = <a class="el" href="Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753">APPS_5V_MAX</a></td>
+          <td class="memname">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt;uint16_t, uint16_t&gt; APPS_5V_PERCENT_TABLE[2]</td>
         </tr>
       </table>
   </td>
@@ -308,14 +348,18 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>final apps maximum value </p>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {325, 0},</div>
+<div class="line">    {621, 60000}}</div>
+</div><!-- fragment -->
+<p>APPS_5V to percent mapping table, maps 5V readings to percent throttle (0-60000) </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00023">23</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00065">65</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a54ef37a723911176988c201d77472fbd" name="a54ef37a723911176988c201d77472fbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54ef37a723911176988c201d77472fbd">&#9670;&#160;</a></span>APPS_FINAL_MIN</h2>
+<a id="ad0105e161a69aa07d6aa47ca1a9d9742" name="ad0105e161a69aa07d6aa47ca1a9d9742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0105e161a69aa07d6aa47ca1a9d9742">&#9670;&#160;</a></span>APPS_5V_TABLE_INVERTED</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,7 +368,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t APPS_FINAL_MIN = <a class="el" href="Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db">APPS_5V_MIN</a></td>
+          <td class="memname">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt;uint16_t, uint16_t&gt; APPS_5V_TABLE_INVERTED[2]</td>
         </tr>
       </table>
   </td>
@@ -333,9 +377,42 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>final apps minimum value </p>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658">APPS_5V_PERCENT_TABLE</a>[0].out, <a class="code hl_variable" href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658">APPS_5V_PERCENT_TABLE</a>[0].in},</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658">APPS_5V_PERCENT_TABLE</a>[1].out, <a class="code hl_variable" href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658">APPS_5V_PERCENT_TABLE</a>[1].in}}</div>
+<div class="ttc" id="aCurves_8hpp_html_abea8d96694cbce83613206c8dc606658"><div class="ttname"><a href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658">APPS_5V_PERCENT_TABLE</a></div><div class="ttdeci">constexpr TablePoint&lt; uint16_t, uint16_t &gt; APPS_5V_PERCENT_TABLE[2]</div><div class="ttdoc">APPS_5V to percent mapping table, maps 5V readings to percent throttle (0-60000)</div><div class="ttdef"><b>Definition:</b> <a href="Curves_8hpp_source.html#l00065">Curves.hpp:65</a></div></div>
+</div><!-- fragment -->
+<p>APPS percent mapping table, maps APPS percentage to 5V readings. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Curves_8hpp.html#a5f35ab827c7c75990e4f28729b8fd04f" title="Throttle mapping table (calculated), maps APPS_5V readings to torque values.">THROTTLE_TABLE</a>, <a class="el" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5" title="LinearInterp for APPS_5V_TABLE_INVERTED, used to get APPS reading from a desired percentage.">APPS_5V_TABLE_INVERTED_MAP</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00022">22</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00074">74</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2bea7404d01575dd3620323c59b6bdf5" name="a2bea7404d01575dd3620323c59b6bdf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bea7404d01575dd3620323c59b6bdf5">&#9670;&#160;</a></span>APPS_5V_TABLE_INVERTED_MAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classLinearInterp.html">LinearInterp</a>&lt;uint16_t, uint16_t, uint32_t, 2&gt; APPS_5V_TABLE_INVERTED_MAP {<a class="el" href="Curves_8hpp.html#ad0105e161a69aa07d6aa47ca1a9d9742">APPS_5V_TABLE_INVERTED</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classLinearInterp.html" title="Class template for performing linear interpolation using a lookup table.">LinearInterp</a> for APPS_5V_TABLE_INVERTED, used to get APPS reading from a desired percentage. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Curves_8hpp.html#a5f35ab827c7c75990e4f28729b8fd04f" title="Throttle mapping table (calculated), maps APPS_5V readings to torque values.">THROTTLE_TABLE</a>, <a class="el" href="Curves_8hpp.html#ad0105e161a69aa07d6aa47ca1a9d9742" title="APPS percent mapping table, maps APPS percentage to 5V readings.">APPS_5V_TABLE_INVERTED</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00082">82</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>
@@ -349,7 +426,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t brake_max = 340</td>
+          <td class="memname">constexpr uint16_t brake_max = 950</td>
         </tr>
       </table>
   </td>
@@ -360,9 +437,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>value above which brake is considered shorted to rail </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00045">45</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00043">43</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -376,7 +453,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t brake_min = 80</td>
+          <td class="memname">constexpr uint16_t brake_min = 50</td>
         </tr>
       </table>
   </td>
@@ -387,9 +464,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>value below which brake is considered shorted to ground </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00044">44</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00042">42</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -421,7 +498,39 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 <p>Brake mapping table, negative values for regen. </p>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00050">50</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00048">48</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a258f6b8060168f42914191e7539ef5ef" name="a258f6b8060168f42914191e7539ef5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258f6b8060168f42914191e7539ef5ef">&#9670;&#160;</a></span>CURVE_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structTablePoint.html">TablePoint</a>&lt;uint16_t, int16_t&gt; CURVE_TABLE[5]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {0, 0},</div>
+<div class="line">    {15000, 2000},</div>
+<div class="line">    {30000, 10000},</div>
+<div class="line">    {45000, 25000},</div>
+<div class="line">    {60000, 32500}}</div>
+</div><!-- fragment -->
+<p>Throttle mapping table. </p>
+
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00033">33</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
 </div>
 </div>
@@ -445,17 +554,21 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    {320, 0},</div>
-<div class="line">    {405, 2000},</div>
-<div class="line">    {490, 10000},</div>
-<div class="line">    {570, 25000},</div>
-<div class="line">    {650, 32500}}</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a>.<a class="code hl_function" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a>(<a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[0].in), <a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[0].out},</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a>.<a class="code hl_function" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a>(<a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[1].in), <a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[1].out},</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a>.<a class="code hl_function" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a>(<a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[2].in), <a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[2].out},</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a>.<a class="code hl_function" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a>(<a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[3].in), <a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[3].out},</div>
+<div class="line">    {<a class="code hl_variable" href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a>.<a class="code hl_function" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a>(<a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[4].in), <a class="code hl_variable" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a>[4].out}}</div>
+<div class="ttc" id="aCurves_8hpp_html_a258f6b8060168f42914191e7539ef5ef"><div class="ttname"><a href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef">CURVE_TABLE</a></div><div class="ttdeci">constexpr TablePoint&lt; uint16_t, int16_t &gt; CURVE_TABLE[5]</div><div class="ttdoc">Throttle mapping table.</div><div class="ttdef"><b>Definition:</b> <a href="Curves_8hpp_source.html#l00033">Curves.hpp:33</a></div></div>
+<div class="ttc" id="aCurves_8hpp_html_a2bea7404d01575dd3620323c59b6bdf5"><div class="ttname"><a href="Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5">APPS_5V_TABLE_INVERTED_MAP</a></div><div class="ttdeci">constexpr LinearInterp&lt; uint16_t, uint16_t, uint32_t, 2 &gt; APPS_5V_TABLE_INVERTED_MAP</div><div class="ttdoc">LinearInterp for APPS_5V_TABLE_INVERTED, used to get APPS reading from a desired percentage.</div><div class="ttdef"><b>Definition:</b> <a href="Curves_8hpp_source.html#l00082">Curves.hpp:82</a></div></div>
+<div class="ttc" id="aclassLinearInterp_html_a3c1654f4a47bb4db5386e38a8bdd6bc1"><div class="ttname"><a href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">LinearInterp::interp</a></div><div class="ttdeci">constexpr Tout interp(Tin input) const</div><div class="ttdoc">Performs linear interpolation for the given input value, using the table.</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00045">Interp.hpp:45</a></div></div>
 </div><!-- fragment -->
-<p>Throttle mapping table. </p>
+<p>Throttle mapping table (calculated), maps APPS_5V readings to torque values. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef" title="Throttle mapping table.">CURVE_TABLE</a>, <a class="el" href="Curves_8hpp.html#abea8d96694cbce83613206c8dc606658" title="APPS_5V to percent mapping table, maps 5V readings to percent throttle (0-60000)">APPS_5V_PERCENT_TABLE</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00035">35</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Curves_8hpp_source.html#l00088">88</a> of file <a class="el" href="Curves_8hpp_source.html">Curves.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00140">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00149">loop()</a>.</p>
 
 </div>
 </div>
@@ -464,7 +577,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_878c97e183bae1c6712242243e36474e.html">ee_sw_vcu_2025</a></li><li class="navelem"><a class="el" href="dir_4c0538ce41e9062460ce6922c8b17483.html">include</a></li><li class="navelem"><a class="el" href="Curves_8hpp.html">Curves.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_912669a89c5ad31930a81ceabf9e60c2.html">vehicle_control_unit</a></li><li class="navelem"><a class="el" href="dir_4534eaa201cb28a3db60a9c0c8fd114c.html">include</a></li><li class="navelem"><a class="el" href="Curves_8hpp.html">Curves.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

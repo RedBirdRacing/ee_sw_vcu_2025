@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('classLinearInterp.html',''); initResiz
 <div class="dynheader">
 Collaboration diagram for LinearInterp&lt; Tin, Tout, Tmid, size &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classLinearInterp__coll__graph.svg" width="154" height="162"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLinearInterp__coll__graph.svg" width="154" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -118,14 +118,17 @@ Collaboration diagram for LinearInterp&lt; Tin, Tout, Tmid, size &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a45153c62e0b76bbcb7edc6ab205cf879"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#a45153c62e0b76bbcb7edc6ab205cf879">LinearInterp</a> ()=delete</td></tr>
 <tr class="separator:a45153c62e0b76bbcb7edc6ab205cf879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af72b5de83caf0b632acbde7231c81abf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#af72b5de83caf0b632acbde7231c81abf">LinearInterp</a> (const <a class="el" href="structTablePoint.html">TablePoint</a>&lt; Tin, Tout &gt;(&amp;table_)[size])</td></tr>
-<tr class="separator:af72b5de83caf0b632acbde7231c81abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a889aaf1a88ab071815c751f56bae278f"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#a889aaf1a88ab071815c751f56bae278f">LinearInterp</a> (const <a class="el" href="structTablePoint.html">TablePoint</a>&lt; Tin, Tout &gt;(&amp;table_)[size])</td></tr>
+<tr class="separator:a889aaf1a88ab071815c751f56bae278f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c1654f4a47bb4db5386e38a8bdd6bc1"><td class="memItemLeft" align="right" valign="top">constexpr Tout&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">interp</a> (Tin input) const</td></tr>
 <tr class="memdesc:a3c1654f4a47bb4db5386e38a8bdd6bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs linear interpolation for the given input value, using the table.  <br /></td></tr>
 <tr class="separator:a3c1654f4a47bb4db5386e38a8bdd6bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade361a63c34c53564a1bd9e8ae5b6c4b"><td class="memItemLeft" align="right" valign="top">constexpr Tin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b">start</a> () const</td></tr>
 <tr class="memdesc:ade361a63c34c53564a1bd9e8ae5b6c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the starting input value of the interpolation table.  <br /></td></tr>
 <tr class="separator:ade361a63c34c53564a1bd9e8ae5b6c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9928dbf5a866f066fa19a3c4794bf71a"><td class="memItemLeft" align="right" valign="top">constexpr Tin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLinearInterp.html#a9928dbf5a866f066fa19a3c4794bf71a">range</a> () const</td></tr>
+<tr class="memdesc:a9928dbf5a866f066fa19a3c4794bf71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the input range of the interpolation table (last input - first input)  <br /></td></tr>
+<tr class="separator:a9928dbf5a866f066fa19a3c4794bf71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -175,8 +178,8 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
 
 </div>
 </div>
-<a id="af72b5de83caf0b632acbde7231c81abf" name="af72b5de83caf0b632acbde7231c81abf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af72b5de83caf0b632acbde7231c81abf">&#9670;&#160;</a></span>LinearInterp() <span class="overload">[2/2]</span></h2>
+<a id="a889aaf1a88ab071815c751f56bae278f" name="a889aaf1a88ab071815c751f56bae278f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889aaf1a88ab071815c751f56bae278f">&#9670;&#160;</a></span>LinearInterp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +190,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classLinearInterp.html">LinearInterp</a>&lt; Tin, Tout, Tmid, size &gt;<a class="el" href="classLinearInterp.html">::LinearInterp</a> </td>
+          <td class="memname">constexpr <a class="el" href="classLinearInterp.html">LinearInterp</a>&lt; Tin, Tout, Tmid, size &gt;<a class="el" href="classLinearInterp.html">::LinearInterp</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structTablePoint.html">TablePoint</a>&lt; Tin, Tout &gt;(&amp;)&#160;</td>
           <td class="paramname"><em>table_</em>[size]</td><td>)</td>
@@ -196,7 +199,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -246,11 +249,51 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
 
 <p class="reference">References <a class="el" href="Interp_8hpp_source.html#l00022">TablePoint&lt; Tin, Tout &gt;::in</a>, and <a class="el" href="Interp_8hpp_source.html#l00023">TablePoint&lt; Tin, Tout &gt;::out</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00224">Pedal::checkPedalFault()</a>, and <a class="el" href="Pedal_8cpp_source.html#l00184">Pedal::pedalTorqueMapping()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLinearInterp_a3c1654f4a47bb4db5386e38a8bdd6bc1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLinearInterp_a3c1654f4a47bb4db5386e38a8bdd6bc1_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a9928dbf5a866f066fa19a3c4794bf71a" name="a9928dbf5a866f066fa19a3c4794bf71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9928dbf5a866f066fa19a3c4794bf71a">&#9670;&#160;</a></span>range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr Tin <a class="el" href="classLinearInterp.html">LinearInterp</a>&lt; Tin, Tout, Tmid, size &gt;::range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the input range of the interpolation table (last input - first input) </p>
+<dl class="section return"><dt>Returns</dt><dd>The input range of the table </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00083">83</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00224">Pedal::checkPedalFault()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLinearInterp_a9928dbf5a866f066fa19a3c4794bf71a_icgraph.svg" width="632" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -286,7 +329,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
 
 <p class="definition">Definition at line <a class="el" href="Interp_8hpp_source.html#l00074">74</a> of file <a class="el" href="Interp_8hpp_source.html">Interp.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00184">Pedal::pedalTorqueMapping()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -326,7 +369,7 @@ template&lt;typename Tin , typename Tout , typename Tmid , uint8_t size&gt; </di
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>ee_sw_vcu_2025/include/<a class="el" href="Interp_8hpp_source.html">Interp.hpp</a></li>
+<li>vehicle_control_unit/include/<a class="el" href="Interp_8hpp_source.html">Interp.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

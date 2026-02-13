@@ -16,11 +16,11 @@ var searchData=
   ['telemetryframebms_13',['TelemetryFrameBms',['../structTelemetryFrameBms.html',1,'']]],
   ['telemetryframemotor_14',['TelemetryFrameMotor',['../structTelemetryFrameMotor.html',1,'']]],
   ['telemetryframepedal_15',['TelemetryFramePedal',['../structTelemetryFramePedal.html',1,'']]],
-  ['throttle_5ffault_16',['throttle_fault',['../namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522',1,'Debug_CAN::throttle_fault()'],['../namespaceDebug__Serial.html#a766d8d681d61acd184fea01310e7277e',1,'Debug_Serial::throttle_fault(PedalFault fault_status)'],['../namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2',1,'Debug_Serial::throttle_fault(PedalFault fault_status, uint16_t value)'],['../namespaceDebug__CAN.html#aff1ba009c1c228e994e83c89c4243e08',1,'Debug_CAN::throttle_fault(PedalFault fault_status)']]],
+  ['throttle_5ffault_16',['throttle_fault',['../namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2',1,'Debug_Serial::throttle_fault()'],['../namespaceDebug__CAN.html#aff1ba009c1c228e994e83c89c4243e08',1,'Debug_CAN::throttle_fault(PedalFault fault_status)'],['../namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522',1,'Debug_CAN::throttle_fault(PedalFault fault_status, uint16_t value)'],['../namespaceDebug__Serial.html#a766d8d681d61acd184fea01310e7277e',1,'Debug_Serial::throttle_fault()']]],
   ['throttle_5ffault_5fmsg_17',['THROTTLE_FAULT_MSG',['../namespaceDebug__CAN.html#a64497e2ec71e82d81603aad44aaca13d',1,'Debug_CAN']]],
   ['throttle_5fin_18',['throttle_in',['../namespaceDebug__CAN.html#a5c26a2303b6fa92439c0a693728d760e',1,'Debug_CAN::throttle_in()'],['../namespaceDebug__Serial.html#a9e68fe4f00e7b1bf1a9c2addc2222a9b',1,'Debug_Serial::throttle_in()']]],
   ['throttle_5fin_5fmsg_19',['THROTTLE_IN_MSG',['../namespaceDebug__CAN.html#a3c319bb5783d23f4c306add7f3c61af1',1,'Debug_CAN']]],
-  ['throttle_5fmap_20',['THROTTLE_MAP',['../classPedal.html#a00a561a684cde0825561fa6606fd062c',1,'Pedal']]],
+  ['throttle_5fmap_20',['THROTTLE_MAP',['../classPedal.html#a5f4ba934e57009aa760e4b10a946f552',1,'Pedal']]],
   ['throttle_5fout_21',['throttle_out',['../namespaceDebug__CAN.html#ace21ce4da40cf6ae391410d839c59cb3',1,'Debug_CAN::throttle_out()'],['../namespaceDebug__Serial.html#a75dcfc17e13215b801dd9dafa6f7c515',1,'Debug_Serial::throttle_out()']]],
   ['throttle_5fout_5fmsg_22',['THROTTLE_OUT_MSG',['../namespaceDebug__CAN.html#a397dd1cd5b54162c75f21ea841573cf6',1,'Debug_CAN']]],
   ['throttle_5ftable_23',['THROTTLE_TABLE',['../Curves_8hpp.html#a5f35ab827c7c75990e4f28729b8fd04f',1,'Curves.hpp']]],
@@ -28,6 +28,5 @@ var searchData=
   ['throttlelow_25',['ThrottleLow',['../Enums_8hpp.html#ad084009f7e1f2139381bc18bb5bc210faa816e588b7137d8f974a9ffb21859b28',1,'Enums.hpp']]],
   ['tocanframe_26',['toCanFrame',['../structTelemetryFrameBms.html#a6b03b160b930c3a40a06e99f6e6cb175',1,'TelemetryFrameBms::toCanFrame()'],['../structTelemetryFrameMotor.html#a34bcb5a8f27caa3a1098c35c051236aa',1,'TelemetryFrameMotor::toCanFrame()'],['../structTelemetryFramePedal.html#af36459761c019b01b84e3844f8c38f49',1,'TelemetryFramePedal::toCanFrame()']]],
   ['torque_5fmsg_27',['torque_msg',['../classPedal.html#ae00465a23de214b9a9c5bf48f5b93587',1,'Pedal']]],
-  ['torque_5fval_28',['torque_val',['../structTelemetryFrameMotor.html#ae225aab3e58dc02ca22908ff4dbb18b8',1,'TelemetryFrameMotor']]],
-  ['tx_5fthrottle_5fmsg_29',['tx_throttle_msg',['../main_8cpp.html#aeadd5ff15bba21c8292acef541061396',1,'main.cpp']]]
+  ['torque_5fval_28',['torque_val',['../structTelemetryFrameMotor.html#ae225aab3e58dc02ca22908ff4dbb18b8',1,'TelemetryFrameMotor']]]
 ];

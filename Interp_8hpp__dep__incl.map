@@ -1,7 +1,7 @@
-<map id="ee_sw_vcu_2025/include/Interp.hpp" name="ee_sw_vcu_2025/include/Interp.hpp">
-<area shape="rect" id="node1" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="54,5,237,45"/>
-<area shape="rect" id="node2" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="54,93,237,133"/>
-<area shape="rect" id="node3" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="5,269,157,309"/>
-<area shape="rect" id="node4" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="183,181,335,221"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="181,269,336,309"/>
+<map id="vehicle_control_unit/include/Interp.hpp" name="vehicle_control_unit/include/Interp.hpp">
+<area shape="rect" id="node1" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="68,5,221,45"/>
+<area shape="rect" id="node2" href="$Curves_8hpp.html" title="Definition of throttle and brake mapping tables." alt="" coords="68,93,221,133"/>
+<area shape="rect" id="node3" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="5,269,159,309"/>
+<area shape="rect" id="node4" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="183,181,336,221"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="183,269,336,309"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="schedulerTelemetryMotor" name="schedulerTelemetryMotor">
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,193,38"/>
+<area shape="rect" id="node2" href="$classTelemetry.html#a24571b8d560d99079a460857669231a1" title="Internal helper to get and send the motor telemetry frame." alt="" coords="241,13,404,38"/>
+<area shape="rect" id="node3" href="$structTelemetryFrameMotor.html#a34bcb5a8f27caa3a1098c35c051236aa" title="Converts the TelemetryFrameMotor to a CAN frame." alt="" coords="452,5,619,45"/>
+</map>

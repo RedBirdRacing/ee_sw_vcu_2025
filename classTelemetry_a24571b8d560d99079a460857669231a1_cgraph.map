@@ -1,0 +1,4 @@
+<map id="Telemetry::sendMotor" name="Telemetry::sendMotor">
+<area shape="rect" id="node1" title="Internal helper to get and send the motor telemetry frame." alt="" coords="5,13,168,38"/>
+<area shape="rect" id="node2" href="$structTelemetryFrameMotor.html#a34bcb5a8f27caa3a1098c35c051236aa" title="Converts the TelemetryFrameMotor to a CAN frame." alt="" coords="216,5,383,45"/>
+</map>

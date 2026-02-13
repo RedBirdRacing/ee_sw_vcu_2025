@@ -1,4 +1,4 @@
 var files_dup =
 [
-    [ "ee_sw_vcu_2025", "dir_878c97e183bae1c6712242243e36474e.html", "dir_878c97e183bae1c6712242243e36474e" ]
+    [ "vehicle_control_unit", "dir_912669a89c5ad31930a81ceabf9e60c2.html", "dir_912669a89c5ad31930a81ceabf9e60c2" ]
 ];

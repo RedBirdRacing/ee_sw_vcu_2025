@@ -1,18 +1,18 @@
-<map id="ee_sw_vcu_2025/include/Enums.hpp" name="ee_sw_vcu_2025/include/Enums.hpp">
-<area shape="rect" id="node1" title="Enumeration definitions for the VCU." alt="" coords="890,5,1073,45"/>
-<area shape="rect" id="node2" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="418,93,601,133"/>
-<area shape="rect" id="node3" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="5,269,157,309"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="545,269,700,309"/>
-<area shape="rect" id="node10" href="$Debug_8hpp.html" title="Debugging macros and functions for serial and CAN output." alt="" coords="93,181,245,221"/>
-<area shape="rect" id="node11" href="$Debug__can_8hpp.html" title="Declaration of the Debug_CAN namespace for CAN debugging functions." alt="" coords="1150,93,1322,133"/>
-<area shape="rect" id="node13" href="$Debug__serial_8cpp.html" title="Implementation of the Debug_Serial namespace for serial debugging functions." alt="" coords="1464,181,1648,221"/>
-<area shape="rect" id="node14" href="$Debug__serial_8hpp.html" title="Declaration of the Debug_Serial namespace for serial debugging functions." alt="" coords="1346,93,1531,133"/>
-<area shape="rect" id="node15" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="889,93,1074,133"/>
-<area shape="rect" id="node16" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="1035,181,1218,221"/>
-<area shape="rect" id="node4" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="547,181,699,221"/>
-<area shape="rect" id="node6" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="207,269,359,309"/>
-<area shape="rect" id="node7" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="320,181,472,221"/>
-<area shape="rect" id="node8" href="$Telemetry_8hpp.html" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="773,181,960,221"/>
-<area shape="rect" id="node9" href="$Telemetry_8cpp.html" title="Implementation of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="774,269,959,309"/>
-<area shape="rect" id="node12" href="$Debug__can_8cpp.html" title="Implementation of the Debug_CAN namespace for CAN debugging functions." alt="" coords="1243,181,1413,221"/>
+<map id="vehicle_control_unit/include/Enums.hpp" name="vehicle_control_unit/include/Enums.hpp">
+<area shape="rect" id="node1" title="Enumeration definitions for the VCU." alt="" coords="947,5,1101,45"/>
+<area shape="rect" id="node2" href="$CarState_8hpp.html" title="Definition of the CarState structure representing the state of the car." alt="" coords="350,93,511,133"/>
+<area shape="rect" id="node3" href="$BMS_8cpp.html" title="Implementation of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="1013,269,1166,309"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="473,269,626,309"/>
+<area shape="rect" id="node10" href="$Debug_8hpp.html" title="Debugging macros and functions for serial and CAN output." alt="" coords="803,181,965,221"/>
+<area shape="rect" id="node11" href="$Debug__can_8hpp.html" title="Declaration of the Debug_CAN namespace for CAN debugging functions." alt="" coords="655,93,847,133"/>
+<area shape="rect" id="node13" href="$Debug__serial_8cpp.html" title="Implementation of the Debug_Serial namespace for serial debugging functions." alt="" coords="990,181,1194,221"/>
+<area shape="rect" id="node14" href="$Debug__serial_8hpp.html" title="Declaration of the Debug_Serial namespace for serial debugging functions." alt="" coords="921,93,1127,133"/>
+<area shape="rect" id="node15" href="$Scheduler_8hpp.html" title="Declaration of the Scheduler class template, for scheduling tasks on multiple MCP2515 instances." alt="" coords="1305,93,1511,133"/>
+<area shape="rect" id="node16" href="$Scheduler_8tpp.html" title="Implementation of the Scheduler class template." alt="" coords="1447,181,1649,221"/>
+<area shape="rect" id="node4" href="$BMS_8hpp.html" title="Declaration of the BMS class for managing the Accumulator (Kclear BMS) via CAN bus." alt="" coords="1218,181,1371,221"/>
+<area shape="rect" id="node6" href="$Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs." alt="" coords="26,269,179,309"/>
+<area shape="rect" id="node7" href="$Pedal_8hpp.html" title="Declaration of the Pedal class for handling throttle and brake pedal inputs." alt="" coords="26,181,179,221"/>
+<area shape="rect" id="node8" href="$Telemetry_8hpp.html" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="203,181,410,221"/>
+<area shape="rect" id="node9" href="$Telemetry_8cpp.html" title="Implementation of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="204,269,409,309"/>
+<area shape="rect" id="node12" href="$Debug__can_8cpp.html" title="Implementation of the Debug_CAN namespace for CAN debugging functions." alt="" coords="587,181,778,221"/>
 </map>

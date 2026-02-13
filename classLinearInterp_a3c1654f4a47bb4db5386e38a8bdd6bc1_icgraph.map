@@ -1,7 +1,10 @@
 <map id="LinearInterp::interp" name="LinearInterp::interp">
-<area shape="rect" id="node1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="724,5,871,31"/>
-<area shape="rect" id="node2" href="$classPedal.html#ae82e0ae8a1a0c6918d43fb27bf8d9d0d" title="Maps the pedal ADC to a torque value. If no braking requested, maps throttle normally...." alt="" coords="475,5,676,31"/>
-<area shape="rect" id="node3" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame to the motor based on pedal and car state." alt="" coords="288,5,427,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,5,240,31"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+<area shape="rect" id="node1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="724,31,871,56"/>
+<area shape="rect" id="node2" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="490,5,661,31"/>
+<area shape="rect" id="node5" href="$classPedal.html#ae82e0ae8a1a0c6918d43fb27bf8d9d0d" title="Maps the pedal ADC to a torque value. If no braking requested, maps throttle normally...." alt="" coords="475,55,676,80"/>
+<area shape="rect" id="node3" href="$classPedal.html#a0ec014fb5ce414deded33ae3db05e231" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="302,5,413,31"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules." alt="" coords="151,5,201,31"/>
+<area shape="rect" id="node6" href="$classPedal.html#a1027941444ce0b3f32ab8991e05c2015" title="Sends the appropriate CAN frame to the motor based on pedal and car state." alt="" coords="288,55,427,80"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,55,240,80"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,55,64,80"/>
 </map>

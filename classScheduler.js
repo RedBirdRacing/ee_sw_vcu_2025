@@ -8,6 +8,7 @@ var classScheduler =
     [ "getPeriodUs", "classScheduler.html#a8a3ab307c604b13baa2b03d84be9ad33", null ],
     [ "removeTask", "classScheduler.html#a3d83583589e7251bfcebc0ff852d59c5", null ],
     [ "runTasks", "classScheduler.html#af413dbf9319b061e919a7beb192920c4", null ],
+    [ "synchronize", "classScheduler.html#a4c5eaffcb5f1b4f2c1e82ba99a54f963", null ],
     [ "update", "classScheduler.html#a02be1adb4980fd98aafd357a973c3467", null ],
     [ "cycle_count", "classScheduler.html#abd8e19c5fc655a2069f609d3e3c6a177", null ],
     [ "last_fire_us", "classScheduler.html#a54ea25d2f91d490669b932aaa31bb965", null ],

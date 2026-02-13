@@ -1,0 +1,5 @@
+<map id="Telemetry::sendBms" name="Telemetry::sendBms">
+<area shape="rect" id="node1" title="Internal helper to get and send the BMS telemetry frame." alt="" coords="339,5,493,31"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a6ce4f6f8e1e47dc50c24b0240f7390c4" title=" " alt="" coords="112,5,291,31"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+</map>

@@ -1,8 +1,10 @@
 <map id="Pedal::update" name="Pedal::update">
 <area shape="rect" id="node1" title="Updates pedal sensor readings, applies filtering, and checks for faults." alt="" coords="5,70,116,95"/>
 <area shape="rect" id="node2" href="$classExponentialFilter.html#a4128176cf6dbe847a521df4dba8d962d" title="Adds a new sample to the ExponentialFilter. Updates the filtered value using the exponential moving a..." alt="" coords="179,5,319,45"/>
-<area shape="rect" id="node3" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="164,70,335,95"/>
-<area shape="rect" id="node4" href="$Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="383,95,555,121"/>
-<area shape="rect" id="node5" href="$namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="607,56,762,96"/>
-<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="603,120,767,160"/>
+<area shape="rect" id="node3" href="$classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7" title="Checks for a fault between two pedal sensor readings." alt="" coords="164,121,335,146"/>
+<area shape="rect" id="node4" href="$Debug_8hpp.html#a83973b3fea610da634610d01cd98e2d8" title="Sends throttle fault debug info via CAN or serial (if enabled). Overloads for fault status with or wi..." alt="" coords="383,70,555,95"/>
+<area shape="rect" id="node7" href="$classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1" title="Performs linear interpolation for the given input value, using the table." alt="" coords="395,119,542,145"/>
+<area shape="rect" id="node8" href="$classLinearInterp.html#a9928dbf5a866f066fa19a3c4794bf71a" title="Returns the input range of the interpolation table (last input &#45; first input)" alt="" coords="396,169,541,194"/>
+<area shape="rect" id="node5" href="$namespaceDebug__CAN.html#aded6aa4b3ac940a9ea0941569e157522" title="Sends a debug throttle fault message over CAN with a float value." alt="" coords="607,31,762,71"/>
+<area shape="rect" id="node6" href="$namespaceDebug__Serial.html#a190255790b41055a6f76fb66879f99d2" title="Prints a throttle fault message to the serial console. This function formats and sends the throttle f..." alt="" coords="603,95,767,135"/>
 </map>

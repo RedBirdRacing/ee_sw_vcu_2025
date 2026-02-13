@@ -1,4 +1,0 @@
-<map id="Telemetry::schedulerPedal" name="Telemetry::schedulerPedal">
-<area shape="rect" id="node1" title="Internal helper to get and send the Pedal telemetry frame." alt="" coords="5,13,199,38"/>
-<area shape="rect" id="node2" href="$structTelemetryFramePedal.html#af36459761c019b01b84e3844f8c38f49" title="Converts the TelemetryFramePedal to a CAN frame." alt="" coords="247,5,411,45"/>
-</map>

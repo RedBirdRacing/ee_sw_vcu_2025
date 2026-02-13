@@ -1,5 +1,5 @@
-<map id="ee_sw_vcu_2025/lib/Telemetry/Telemetry.hpp" name="ee_sw_vcu_2025/lib/Telemetry/Telemetry.hpp">
-<area shape="rect" id="node1" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="102,5,289,45"/>
-<area shape="rect" id="node2" href="$Telemetry_8cpp.html" title="Implementation of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="5,93,191,133"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="215,93,370,133"/>
+<map id="vehicle_control_unit/lib/Telemetry/Telemetry.hpp" name="vehicle_control_unit/lib/Telemetry/Telemetry.hpp">
+<area shape="rect" id="node1" title="Declaration of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="106,5,313,45"/>
+<area shape="rect" id="node2" href="$Telemetry_8cpp.html" title="Implementation of the Telemetry class for sending telemetry data over CAN bus." alt="" coords="5,93,211,133"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Main VCU program entry point." alt="" coords="235,93,389,133"/>
 </map>

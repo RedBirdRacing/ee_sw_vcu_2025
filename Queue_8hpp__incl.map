@@ -1,4 +1,4 @@
-<map id="ee_sw_vcu_2025/lib/Queue/Queue.hpp" name="ee_sw_vcu_2025/lib/Queue/Queue.hpp">
-<area shape="rect" id="node1" title="Declaration of a simple RingBuffer (circular buffer) template class." alt="" coords="5,5,157,45"/>
-<area shape="rect" id="node2" title=" " alt="" coords="46,93,117,119"/>
+<map id="vehicle_control_unit/lib/Queue/Queue.hpp" name="vehicle_control_unit/lib/Queue/Queue.hpp">
+<area shape="rect" id="node1" title="Declaration of a simple RingBuffer (circular buffer) template class." alt="" coords="5,5,168,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="51,93,122,119"/>
 </map>

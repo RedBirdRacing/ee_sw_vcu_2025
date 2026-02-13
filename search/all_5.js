@@ -9,6 +9,5 @@ var searchData=
   ['filter_3c_20uint16_5ft_2c_20uint16_5ft_20_3e_6',['Filter&lt; uint16_t, uint16_t &gt;',['../classFilter.html',1,'']]],
   ['flip_5fmotor_5fdir_7',['FLIP_MOTOR_DIR',['../Pedal_8hpp.html#a2814e9aff83da9c45d2a6fadbea27309',1,'Pedal.hpp']]],
   ['force_5fstop_8',['force_stop',['../structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html#ae0bb98c2e1538ca0aaeb07d4d0e2b9d0',1,'TelemetryFramePedal::StateByteStatus::Bits']]],
-  ['frames_5ffreq_5fratio_9',['FRAMES_FREQ_RATIO',['../classTelemetry.html#a76e86a10e559c8365049c7fea1084827',1,'Telemetry']]],
-  ['frg_10',['FRG',['../boardConf_8h.html#abfa15a856e2d40258527d676c5023292',1,'boardConf.h']]]
+  ['frg_9',['FRG',['../boardConf_8h.html#abfa15a856e2d40258527d676c5023292',1,'boardConf.h']]]
 ];

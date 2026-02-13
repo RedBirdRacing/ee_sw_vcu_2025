@@ -1,7 +1,6 @@
 <map id="TelemetryFrameBms::toCanFrame" name="TelemetryFrameBms::toCanFrame">
-<area shape="rect" id="node1" title="Converts the TelemetryFrameBms to a CAN frame." alt="" coords="784,5,949,45"/>
-<area shape="rect" id="node2" href="$classTelemetry.html#a25e2add208dc38e8a1f4e453db89d7f6" title="Internal helper to get and send the BMS telemetry frame." alt="" coords="549,13,736,38"/>
-<area shape="rect" id="node3" href="$classTelemetry.html#a892ba1df53bea0797e63b8e7a0030d91" title="Sends telemetry data based on the scheduling logic." alt="" coords="311,13,501,38"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a18a2a13352158a1c448c163c58e2b486" title=" " alt="" coords="112,13,263,38"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,13,64,38"/>
+<area shape="rect" id="node1" title="Converts the TelemetryFrameBms to a CAN frame." alt="" coords="541,5,707,45"/>
+<area shape="rect" id="node2" href="$classTelemetry.html#a9b8b2cf254f25b0133b5f3bafd1b80e1" title="Internal helper to get and send the BMS telemetry frame." alt="" coords="339,13,493,38"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a6ce4f6f8e1e47dc50c24b0240f7390c4" title=" " alt="" coords="112,13,291,38"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,13,64,38"/>
 </map>

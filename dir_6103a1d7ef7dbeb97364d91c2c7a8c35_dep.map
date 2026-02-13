@@ -1,0 +1,10 @@
+<map id="vehicle_control_unit/lib/BMS" name="vehicle_control_unit/lib/BMS">
+<area shape="rect" id="node1" href="dir_3a8c15631fc924f005cf6fa85b529cf5.html" title="The Scheduler library contains the Scheduler class template, which manages the scheduling of tasks fo..." alt="" coords="27,125,114,151"/>
+<area shape="rect" id="node2" href="dir_f6d9364198a163704575b5bbec1250d9.html" title="The Debug library contains debugging macros and functions for serial and CAN output,..." alt="" coords="139,125,203,151"/>
+<area shape="rect" id="node3" href="dir_6103a1d7ef7dbeb97364d91c2c7a8c35.html" title="The BMS library contains the BMS class for managing the Accumulator (Kclear BMS) via CAN bus,..." alt="" coords="145,52,196,77"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000000_000006.html" title="1" alt="" coords="102,114,111,129"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000000_000001.html" title="1" alt="" coords="174,100,184,114"/>
+<area shape="rect" id="node4" href="dir_4534eaa201cb28a3db60a9c0c8fd114c.html" title="Contains all header&#45;only files." alt="" coords="227,125,296,151"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000000_000002.html" title="3" alt="" coords="233,100,242,115"/>
+<area shape="rect" id="clust1" href="dir_52d0e02f24663f586f5c4084165e2919.html" title="Contains all the libraries. Each library is in its own folder of the same name." alt="" coords="16,16,213,161"/>
+</map>

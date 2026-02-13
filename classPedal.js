@@ -7,11 +7,13 @@ var classPedal =
     [ "sendCyclicRead", "classPedal.html#aec7ba639c6b2e3596d3ae1d14d3572ea", null ],
     [ "sendFrame", "classPedal.html#a1027941444ce0b3f32ab8991e05c2015", null ],
     [ "update", "classPedal.html#a0ec014fb5ce414deded33ae3db05e231", null ],
+    [ "APPS_3V3_SCALE_MAP", "classPedal.html#a12f10e100e17f5fda62272fe03804f9b", null ],
     [ "brake_filter", "classPedal.html#aafba982f924e1ec95e605765d719b3f9", null ],
-    [ "BRAKE_MAP", "classPedal.html#aed3c9216a2b2cdfd04b4edfa41acfbda", null ],
+    [ "BRAKE_MAP", "classPedal.html#a441534f673b157a7a268917a1a121b20", null ],
     [ "car", "classPedal.html#a62eed1bcc4b9bb0cc4b1419cd77472da", null ],
     [ "ERR_PERIOD", "classPedal.html#ae972bf9614c8a1998b661e5c6830ba98", null ],
     [ "fault_start_millis", "classPedal.html#aed35c8681adf86717b4e577058395159", null ],
+    [ "last_motor_read_millis", "classPedal.html#aa77d57d64ab05bad7316e93d5a03ceaf", null ],
     [ "motor_can", "classPedal.html#a5976c83166dab08ed33d48529f10e830", null ],
     [ "MOTOR_READ", "classPedal.html#a6508d34b5f953e1be3753df02a19ada0", null ],
     [ "MOTOR_SEND", "classPedal.html#abee50582bc518967542f5015046c51a6", null ],
@@ -22,7 +24,7 @@ var classPedal =
     [ "RPM_PERIOD", "classPedal.html#aaf1aba44f03aafca858465c8078f1ec5", null ],
     [ "SPEED_IST", "classPedal.html#ad86a098ba9009911a6218d29613fa0ef", null ],
     [ "stop_frame", "classPedal.html#a85f0168c8a81fa64e1e311f9250e9f19", null ],
-    [ "THROTTLE_MAP", "classPedal.html#a00a561a684cde0825561fa6606fd062c", null ],
+    [ "THROTTLE_MAP", "classPedal.html#a5f4ba934e57009aa760e4b10a946f552", null ],
     [ "torque_msg", "classPedal.html#ae00465a23de214b9a9c5bf48f5b93587", null ],
     [ "WARN_ERR", "classPedal.html#a43ef37c7fadfc7d636938fe9ecf7bab9", null ]
 ];

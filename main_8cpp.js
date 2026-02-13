@@ -9,7 +9,9 @@ var main_8cpp =
     [ "pedal", "main_8cpp.html#a22decc8e5af13f6021fb6ad2aaa765be", null ],
     [ "scheduler_bms", "main_8cpp.html#a55b57abe9bcb30f6af0fb927f7d576a4", null ],
     [ "scheduler_pedal", "main_8cpp.html#a1174b6795782479542559289cd623faf", null ],
-    [ "schedulerTelemetry", "main_8cpp.html#a18a2a13352158a1c448c163c58e2b486", null ],
+    [ "schedulerTelemetryBms", "main_8cpp.html#a6ce4f6f8e1e47dc50c24b0240f7390c4", null ],
+    [ "schedulerTelemetryMotor", "main_8cpp.html#af749f68ca5ebf490db3de9a27bf7bfc6", null ],
+    [ "schedulerTelemetryPedal", "main_8cpp.html#a2e1609fa80a6555982d945314147b005", null ],
     [ "setup", "main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
     [ "bms", "main_8cpp.html#ac77c8df52a00079a8991b07c5b1c23b5", null ],
     [ "BMS_OVERRIDE_MILLIS", "main_8cpp.html#aa91c7d6cc540d6a614fe9936ba08b4dd", null ],
@@ -24,6 +26,5 @@ var main_8cpp =
     [ "pins_in", "main_8cpp.html#ac81c886455652a75221096759b0b39ca", null ],
     [ "pins_out", "main_8cpp.html#ab31c3e7c8bfd2740573b89eb4a2b1d48", null ],
     [ "scheduler", "main_8cpp.html#aaff62e0a1868f071ac6a22e167be1548", null ],
-    [ "telem", "main_8cpp.html#a195436960f942e58a1499aa0434267fd", null ],
-    [ "tx_throttle_msg", "main_8cpp.html#aeadd5ff15bba21c8292acef541061396", null ]
+    [ "telem", "main_8cpp.html#a195436960f942e58a1499aa0434267fd", null ]
 ];

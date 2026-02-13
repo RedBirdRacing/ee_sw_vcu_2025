@@ -1,5 +1,5 @@
-<map id="ee_sw_vcu_2025/include/Enums.hpp" name="ee_sw_vcu_2025/include/Enums.hpp">
-<area shape="rect" id="node1" title="Enumeration definitions for the VCU." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="node2" title=" " alt="" coords="17,93,88,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="112,93,169,119"/>
+<map id="vehicle_control_unit/include/Enums.hpp" name="vehicle_control_unit/include/Enums.hpp">
+<area shape="rect" id="node1" title="Enumeration definitions for the VCU." alt="" coords="8,5,161,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,93,76,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="100,93,157,119"/>
 </map>

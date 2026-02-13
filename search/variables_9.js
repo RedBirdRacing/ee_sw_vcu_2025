@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['max_5fframe_5fcounter_0',['MAX_FRAME_COUNTER',['../classTelemetry.html#a47013f41e5648dae8e9e31e2be20e8dd',1,'Telemetry']]],
+  ['max_5fmotor_5fread_5fmillis_0',['MAX_MOTOR_READ_MILLIS',['../Pedal_8hpp.html#ada683a00c3800bf498a8ae407897f2d2',1,'Pedal.hpp']]],
   ['max_5fmotor_5frpm_1',['MAX_MOTOR_RPM',['../namespacePedalConstants.html#a5a2ba2e8dd4cb873c7515da5f10a593d',1,'PedalConstants']]],
   ['max_5ftorque_5fval_2',['MAX_TORQUE_VAL',['../namespacePedalConstants.html#ac07d4fd37acc735345f8a99d2d463213',1,'PedalConstants']]],
   ['mcp2515_3',['mcp2515',['../classTelemetry.html#ade142dcc49cf5242a92cc82cc0845bb1',1,'Telemetry']]],
@@ -12,8 +12,9 @@ var searchData=
   ['motor_9',['motor',['../structCarState.html#a815a8f9dcd8dd8a295a8c790b771ea7a',1,'CarState']]],
   ['motor_5fcan_10',['motor_can',['../classPedal.html#a5976c83166dab08ed33d48529f10e830',1,'Pedal']]],
   ['motor_5ferror_11',['motor_error',['../structTelemetryFrameMotor.html#a239b50f5dcc87885a5f62a5cb2b70f36',1,'TelemetryFrameMotor']]],
-  ['motor_5fread_12',['MOTOR_READ',['../classPedal.html#a6508d34b5f953e1be3753df02a19ada0',1,'Pedal']]],
-  ['motor_5frpm_13',['motor_rpm',['../structTelemetryFrameMotor.html#a83aa4cf1a92356179d1508de54b1100d',1,'TelemetryFrameMotor']]],
-  ['motor_5fsend_14',['MOTOR_SEND',['../classPedal.html#abee50582bc518967542f5015046c51a6',1,'Pedal']]],
-  ['motor_5fwarn_15',['motor_warn',['../structTelemetryFrameMotor.html#a7a0f53a9eb76f25025d60090029196d2',1,'TelemetryFrameMotor']]]
+  ['motor_5fno_5fread_12',['motor_no_read',['../structTelemetryFramePedal_1_1StateByteStatus_1_1Bits.html#a038f8a35892aacac331d2dc2fa6b7675',1,'TelemetryFramePedal::StateByteStatus::Bits']]],
+  ['motor_5fread_13',['MOTOR_READ',['../classPedal.html#a6508d34b5f953e1be3753df02a19ada0',1,'Pedal']]],
+  ['motor_5frpm_14',['motor_rpm',['../structTelemetryFrameMotor.html#a83aa4cf1a92356179d1508de54b1100d',1,'TelemetryFrameMotor']]],
+  ['motor_5fsend_15',['MOTOR_SEND',['../classPedal.html#abee50582bc518967542f5015046c51a6',1,'Pedal']]],
+  ['motor_5fwarn_16',['motor_warn',['../structTelemetryFrameMotor.html#a7a0f53a9eb76f25025d60090029196d2',1,'TelemetryFrameMotor']]]
 ];

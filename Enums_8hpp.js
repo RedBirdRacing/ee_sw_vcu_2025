@@ -2,7 +2,6 @@ var Enums_8hpp =
 [
     [ "BmsStatus", "Enums_8hpp.html#af9f10f99b9e1fe09756feb57c6520cd8", [
       [ "NoMsg", "Enums_8hpp.html#af9f10f99b9e1fe09756feb57c6520cd8a05d8eec9edce9e81ed389f33db6a491f", null ],
-      [ "WrongId", "Enums_8hpp.html#af9f10f99b9e1fe09756feb57c6520cd8ade7d3a7c5530b161c412a84e47ee2755", null ],
       [ "Waiting", "Enums_8hpp.html#af9f10f99b9e1fe09756feb57c6520cd8a5706de961fb376d701be6e7762d8b09c", null ],
       [ "Starting", "Enums_8hpp.html#af9f10f99b9e1fe09756feb57c6520cd8ac2efe4bbd13e6cb0db293e72884273c0", null ],
       [ "Started", "Enums_8hpp.html#af9f10f99b9e1fe09756feb57c6520cd8a8428552d86c0d262a542a528af490afa", null ],

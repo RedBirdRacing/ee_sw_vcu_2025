@@ -34,7 +34,7 @@
 <text text-anchor="start" x="8" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ state_unknown</text>
 <text text-anchor="start" x="8" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ hv_ready</text>
 <text text-anchor="start" x="8" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bms_no_msg</text>
-<text text-anchor="start" x="8" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bms_wrong_id</text>
+<text text-anchor="start" x="8" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ motor_no_read</text>
 <text text-anchor="start" x="8" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ screenshot</text>
 <text text-anchor="start" x="8" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ force_stop</text>
 <polyline fill="none" stroke="#666666" points="0,-135.5 126,-135.5 "/>

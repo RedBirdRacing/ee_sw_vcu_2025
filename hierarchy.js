@@ -12,6 +12,7 @@ var hierarchy =
     [ "Filter< uint16_t, uint16_t >", "classFilter.html", null ],
     [ "LinearInterp< Tin, Tout, Tmid, size >", "classLinearInterp.html", null ],
     [ "LinearInterp< uint16_t, int16_t, int32_t, 5 >", "classLinearInterp.html", null ],
+    [ "LinearInterp< uint16_t, uint16_t, uint32_t, 2 >", "classLinearInterp.html", null ],
     [ "Pedal", "classPedal.html", null ],
     [ "RingBuffer< T, size >", "classRingBuffer.html", null ],
     [ "Scheduler< NUM_TASKS, NUM_MCP2515 >", "classScheduler.html", null ],

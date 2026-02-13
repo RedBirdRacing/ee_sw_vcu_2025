@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Bird Racing VCU: ee_sw_vcu_2025/include/Interp.hpp Source File</title>
+<title>Red Bird Racing VCU: vehicle_control_unit/include/Interp.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,8 +102,8 @@ $(document).ready(function(){initNavTree('Interp_8hpp_source.html',''); initResi
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file Interp.hpp</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author Planeson, Red Bird Racing</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Declaration and definition of the LinearInterp class template for linear interpolation</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @version 1.0</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @date 2026-01-15</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @version 1.2.3</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @date 2026-02-09</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef INTERP_HPP</span></div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('Interp_8hpp_source.html',''); initResi
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classLinearInterp.html#a45153c62e0b76bbcb7edc6ab205cf879">   37</a></span>    <a class="code hl_function" href="classLinearInterp.html#a45153c62e0b76bbcb7edc6ab205cf879">LinearInterp</a>() = <span class="keyword">delete</span>; <span class="comment">/**&lt; Default constructor deleted to prevent instantiation without a table */</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classLinearInterp.html#af72b5de83caf0b632acbde7231c81abf">   38</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classLinearInterp.html#af72b5de83caf0b632acbde7231c81abf">LinearInterp</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTablePoint.html">TablePoint&lt;Tin, Tout&gt;</a> (&amp;table_)[size]) : table(table_) {} <span class="comment">/**&lt; Normal constructor */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classLinearInterp.html#a889aaf1a88ab071815c751f56bae278f">   38</a></span>    <span class="keyword">explicit</span> <span class="keyword">constexpr</span> <a class="code hl_function" href="classLinearInterp.html#a889aaf1a88ab071815c751f56bae278f">LinearInterp</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTablePoint.html">TablePoint&lt;Tin, Tout&gt;</a> (&amp;table_)[size]) : table(table_) {} <span class="comment">/**&lt; Normal constructor */</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">    /**</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     * @brief Performs linear interpolation for the given input value, using the table</span></div>
@@ -175,17 +175,27 @@ $(document).ready(function(){initNavTree('Interp_8hpp_source.html',''); initResi
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> table[0].in;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classLinearInterp.html#afc1ffe8f9bfb02768c1a719c2935fab8">   80</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structTablePoint.html">TablePoint&lt;Tin, Tout&gt;</a> (&amp;table)[size]; <span class="comment">/**&lt; Reference to the interpolation table */</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">// INTERP_HPP</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"></span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">     * @brief Returns the input range of the interpolation table (last input - first input)</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">     * @return The input range of the table</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classLinearInterp.html#a9928dbf5a866f066fa19a3c4794bf71a">   83</a></span>    <span class="keyword">constexpr</span> Tin <a class="code hl_function" href="classLinearInterp.html#a9928dbf5a866f066fa19a3c4794bf71a">range</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> table[size - 1].in - table[0].in;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classLinearInterp.html#afc1ffe8f9bfb02768c1a719c2935fab8">   89</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structTablePoint.html">TablePoint&lt;Tin, Tout&gt;</a> (&amp;table)[size]; <span class="comment">/**&lt; Reference to the interpolation table */</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span><span class="comment">// INTERP_HPP</span></div>
 <div class="ttc" id="aclassLinearInterp_html"><div class="ttname"><a href="classLinearInterp.html">LinearInterp</a></div><div class="ttdoc">Class template for performing linear interpolation using a lookup table.</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00034">Interp.hpp:35</a></div></div>
 <div class="ttc" id="aclassLinearInterp_html_a3c1654f4a47bb4db5386e38a8bdd6bc1"><div class="ttname"><a href="classLinearInterp.html#a3c1654f4a47bb4db5386e38a8bdd6bc1">LinearInterp::interp</a></div><div class="ttdeci">constexpr Tout interp(Tin input) const</div><div class="ttdoc">Performs linear interpolation for the given input value, using the table.</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00045">Interp.hpp:45</a></div></div>
 <div class="ttc" id="aclassLinearInterp_html_a45153c62e0b76bbcb7edc6ab205cf879"><div class="ttname"><a href="classLinearInterp.html#a45153c62e0b76bbcb7edc6ab205cf879">LinearInterp::LinearInterp</a></div><div class="ttdeci">LinearInterp()=delete</div></div>
+<div class="ttc" id="aclassLinearInterp_html_a889aaf1a88ab071815c751f56bae278f"><div class="ttname"><a href="classLinearInterp.html#a889aaf1a88ab071815c751f56bae278f">LinearInterp::LinearInterp</a></div><div class="ttdeci">constexpr LinearInterp(const TablePoint&lt; Tin, Tout &gt;(&amp;table_)[size])</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00038">Interp.hpp:38</a></div></div>
+<div class="ttc" id="aclassLinearInterp_html_a9928dbf5a866f066fa19a3c4794bf71a"><div class="ttname"><a href="classLinearInterp.html#a9928dbf5a866f066fa19a3c4794bf71a">LinearInterp::range</a></div><div class="ttdeci">constexpr Tin range() const</div><div class="ttdoc">Returns the input range of the interpolation table (last input - first input)</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00083">Interp.hpp:83</a></div></div>
 <div class="ttc" id="aclassLinearInterp_html_ade361a63c34c53564a1bd9e8ae5b6c4b"><div class="ttname"><a href="classLinearInterp.html#ade361a63c34c53564a1bd9e8ae5b6c4b">LinearInterp::start</a></div><div class="ttdeci">constexpr Tin start() const</div><div class="ttdoc">Returns the starting input value of the interpolation table.</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00074">Interp.hpp:74</a></div></div>
-<div class="ttc" id="aclassLinearInterp_html_af72b5de83caf0b632acbde7231c81abf"><div class="ttname"><a href="classLinearInterp.html#af72b5de83caf0b632acbde7231c81abf">LinearInterp::LinearInterp</a></div><div class="ttdeci">LinearInterp(const TablePoint&lt; Tin, Tout &gt;(&amp;table_)[size])</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00038">Interp.hpp:38</a></div></div>
 <div class="ttc" id="astructTablePoint_html"><div class="ttname"><a href="structTablePoint.html">TablePoint</a></div><div class="ttdoc">Structure representing a point in the interpolation table.</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00020">Interp.hpp:21</a></div></div>
 <div class="ttc" id="astructTablePoint_html_a2b67380aebf633ea1cd441d4cc2cdb01"><div class="ttname"><a href="structTablePoint.html#a2b67380aebf633ea1cd441d4cc2cdb01">TablePoint::in</a></div><div class="ttdeci">Tin in</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00022">Interp.hpp:22</a></div></div>
 <div class="ttc" id="astructTablePoint_html_a72d272937ff127743e008674e8a7a38a"><div class="ttname"><a href="structTablePoint.html#a72d272937ff127743e008674e8a7a38a">TablePoint::out</a></div><div class="ttdeci">Tout out</div><div class="ttdef"><b>Definition:</b> <a href="Interp_8hpp_source.html#l00023">Interp.hpp:23</a></div></div>
@@ -194,7 +204,7 @@ $(document).ready(function(){initNavTree('Interp_8hpp_source.html',''); initResi
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_878c97e183bae1c6712242243e36474e.html">ee_sw_vcu_2025</a></li><li class="navelem"><a class="el" href="dir_4c0538ce41e9062460ce6922c8b17483.html">include</a></li><li class="navelem"><a class="el" href="Interp_8hpp.html">Interp.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_912669a89c5ad31930a81ceabf9e60c2.html">vehicle_control_unit</a></li><li class="navelem"><a class="el" href="dir_4534eaa201cb28a3db60a9c0c8fd114c.html">include</a></li><li class="navelem"><a class="el" href="Interp_8hpp.html">Interp.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

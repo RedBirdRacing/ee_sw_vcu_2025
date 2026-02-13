@@ -1,4 +1,4 @@
-<map id="ee_sw_vcu_2025/include/Interp.hpp" name="ee_sw_vcu_2025/include/Interp.hpp">
-<area shape="rect" id="node1" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="node2" title=" " alt="" coords="61,93,132,119"/>
+<map id="vehicle_control_unit/include/Interp.hpp" name="vehicle_control_unit/include/Interp.hpp">
+<area shape="rect" id="node1" title="Declaration and definition of the LinearInterp class template for linear interpolation." alt="" coords="5,5,159,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="47,93,117,119"/>
 </map>

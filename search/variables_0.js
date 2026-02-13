@@ -6,12 +6,14 @@ var searchData=
   ['apps_5f3v3_5flow_3',['apps_3v3_low',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#aec393b5cc6c91d4d980f791c4bbd13fa',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
   ['apps_5f3v3_5fmax_4',['APPS_3V3_MAX',['../Curves_8hpp.html#abf9aa96004a0358d0a8caceb05d31e62',1,'Curves.hpp']]],
   ['apps_5f3v3_5fmin_5',['APPS_3V3_MIN',['../Curves_8hpp.html#a15bc3e3092556f8a92bb9b0ec187d3ee',1,'Curves.hpp']]],
-  ['apps_5f3v3_5fscaled_6',['apps_3v3_scaled',['../structTelemetryFramePedal.html#a1d0b7e126e91ec089371d007c8878fd7',1,'TelemetryFramePedal']]],
-  ['apps_5f5v_7',['apps_5v',['../structTelemetryFramePedal.html#aa66abfcefed201f950dfcb8c62f8c29e',1,'TelemetryFramePedal']]],
-  ['apps_5f5v_5fhigh_8',['apps_5v_high',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a4c7ff0401f6f7e75279f1cc6f2dc26d3',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
-  ['apps_5f5v_5flow_9',['apps_5v_low',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a1d92bac4819980a949a19f9f42c1f9c2',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
-  ['apps_5f5v_5fmax_10',['APPS_5V_MAX',['../Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753',1,'Curves.hpp']]],
-  ['apps_5f5v_5fmin_11',['APPS_5V_MIN',['../Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db',1,'Curves.hpp']]],
-  ['apps_5ffinal_5fmax_12',['APPS_FINAL_MAX',['../Curves_8hpp.html#aa0e06b3cb6e2848cf1974301e0cdbd13',1,'Curves.hpp']]],
-  ['apps_5ffinal_5fmin_13',['APPS_FINAL_MIN',['../Curves_8hpp.html#a54ef37a723911176988c201d77472fbd',1,'Curves.hpp']]]
+  ['apps_5f3v3_5fscale_5fmap_6',['APPS_3V3_SCALE_MAP',['../classPedal.html#a12f10e100e17f5fda62272fe03804f9b',1,'Pedal']]],
+  ['apps_5f3v3_5fscale_5ftable_7',['APPS_3V3_SCALE_TABLE',['../Curves_8hpp.html#a7319b955b5bc8bd900d393f63c05c11f',1,'Curves.hpp']]],
+  ['apps_5f5v_8',['apps_5v',['../structTelemetryFramePedal.html#aa66abfcefed201f950dfcb8c62f8c29e',1,'TelemetryFramePedal']]],
+  ['apps_5f5v_5fhigh_9',['apps_5v_high',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a4c7ff0401f6f7e75279f1cc6f2dc26d3',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['apps_5f5v_5flow_10',['apps_5v_low',['../structTelemetryFramePedal_1_1StateByteFaults_1_1Bits.html#a1d92bac4819980a949a19f9f42c1f9c2',1,'TelemetryFramePedal::StateByteFaults::Bits']]],
+  ['apps_5f5v_5fmax_11',['APPS_5V_MAX',['../Curves_8hpp.html#afbdd46bf9fad2de4083425d25cd3a753',1,'Curves.hpp']]],
+  ['apps_5f5v_5fmin_12',['APPS_5V_MIN',['../Curves_8hpp.html#ac78f73e16d168cd0a220ffd18f8ff9db',1,'Curves.hpp']]],
+  ['apps_5f5v_5fpercent_5ftable_13',['APPS_5V_PERCENT_TABLE',['../Curves_8hpp.html#abea8d96694cbce83613206c8dc606658',1,'Curves.hpp']]],
+  ['apps_5f5v_5ftable_5finverted_14',['APPS_5V_TABLE_INVERTED',['../Curves_8hpp.html#ad0105e161a69aa07d6aa47ca1a9d9742',1,'Curves.hpp']]],
+  ['apps_5f5v_5ftable_5finverted_5fmap_15',['APPS_5V_TABLE_INVERTED_MAP',['../Curves_8hpp.html#a2bea7404d01575dd3620323c59b6bdf5',1,'Curves.hpp']]]
 ];

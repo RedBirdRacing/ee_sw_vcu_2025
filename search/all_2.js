@@ -10,11 +10,12 @@ var searchData=
   ['carstatus_7',['CarStatus',['../Enums_8hpp.html#a58f8cbaf767061986ce7afe35238e4be',1,'Enums.hpp']]],
   ['checkhv_8',['checkHv',['../classBMS.html#a7de82f50c43e50529739213e98b9b634',1,'BMS']]],
   ['checkpedalfault_9',['checkPedalFault',['../classPedal.html#a4025bb96ea422dbba6d3b604a1066bc7',1,'Pedal']]],
-  ['count_10',['count',['../classTelemetry.html#a254dec4fa5e5049f863d8da53d8d5a25',1,'Telemetry::count()'],['../classRingBuffer.html#a375926eb439fc06803b497e1a19add6a',1,'RingBuffer::count()']]],
+  ['count_10',['count',['../classRingBuffer.html#a375926eb439fc06803b497e1a19add6a',1,'RingBuffer']]],
   ['cs_5fcan_5fbms_11',['CS_CAN_BMS',['../boardConf_8h.html#ab476064511df004d8a67875afbd3521b',1,'boardConf.h']]],
   ['cs_5fcan_5fdl_12',['CS_CAN_DL',['../boardConf_8h.html#a661f70456357c09fff639665b5e89852',1,'boardConf.h']]],
   ['cs_5fcan_5fmotor_13',['CS_CAN_MOTOR',['../boardConf_8h.html#a65b24582a92e368f91aca95b4dbe5847',1,'boardConf.h']]],
-  ['curves_2ehpp_14',['Curves.hpp',['../Curves_8hpp.html',1,'']]],
-  ['cycle_5fcount_15',['cycle_count',['../classScheduler.html#abd8e19c5fc655a2069f609d3e3c6a177',1,'Scheduler']]],
-  ['cyclesneeded_16',['cyclesNeeded',['../classScheduler.html#a9e44ac674f314b307d08a42456cb6c8a',1,'Scheduler']]]
+  ['curve_5ftable_14',['CURVE_TABLE',['../Curves_8hpp.html#a258f6b8060168f42914191e7539ef5ef',1,'Curves.hpp']]],
+  ['curves_2ehpp_15',['Curves.hpp',['../Curves_8hpp.html',1,'']]],
+  ['cycle_5fcount_16',['cycle_count',['../classScheduler.html#abd8e19c5fc655a2069f609d3e3c6a177',1,'Scheduler']]],
+  ['cyclesneeded_17',['cyclesNeeded',['../classScheduler.html#a9e44ac674f314b307d08a42456cb6c8a',1,'Scheduler']]]
 ];

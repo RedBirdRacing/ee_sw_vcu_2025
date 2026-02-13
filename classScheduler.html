@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('classScheduler.html',''); initResizabl
 <div class="dynheader">
 Collaboration diagram for Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classScheduler__coll__graph.svg" width="196" height="308"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classScheduler__coll__graph.svg" width="196" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -132,6 +132,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a02be1adb4980fd98aafd357a973c3467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a02be1adb4980fd98aafd357a973c3467">update</a> (unsigned long(*const current_time_us)())</td></tr>
 <tr class="memdesc:a02be1adb4980fd98aafd357a973c3467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the scheduler, checking if tasks need to be run based on the current time.  <br /></td></tr>
 <tr class="separator:a02be1adb4980fd98aafd357a973c3467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c5eaffcb5f1b4f2c1e82ba99a54f963"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a4c5eaffcb5f1b4f2c1e82ba99a54f963">synchronize</a> (unsigned long(*const current_time_us)())</td></tr>
+<tr class="memdesc:a4c5eaffcb5f1b4f2c1e82ba99a54f963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchonize the scheduler to the current time, resetting all task counters, used when starting multiple Schedulers across different boards together.  <br /></td></tr>
+<tr class="separator:a4c5eaffcb5f1b4f2c1e82ba99a54f963"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97fa8261d31149edae09155ab7393280"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScheduler.html#a97fa8261d31149edae09155ab7393280">addTask</a> (const <a class="el" href="Enums_8hpp.html#a098a5b38d959b3584152e8c220708721">McpIndex</a> mcp_index, const <a class="el" href="classScheduler.html#aef38c5dff1035cdf967ee737322daefe">TaskFn</a> task, const uint8_t tick_interval)</td></tr>
 <tr class="memdesc:a97fa8261d31149edae09155ab7393280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a task to the scheduler for a specific MCP2515 index.  <br /></td></tr>
 <tr class="separator:a97fa8261d31149edae09155ab7393280"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -338,7 +341,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the task was added successfully, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00091">91</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00114">114</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
 
 </div>
 </div>
@@ -377,9 +380,9 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of cycles needed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00076">76</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00077">77</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Scheduler_8hpp_source.html#l00083">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::PERIOD_US</a>.</p>
+<p class="reference">References <a class="el" href="Scheduler_8hpp_source.html#l00084">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::PERIOD_US</a>.</p>
 
 </div>
 </div>
@@ -411,9 +414,9 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 <p>Returns the period of the scheduler in microseconds. </p>
 <dl class="section return"><dt>Returns</dt><dd>The period in microseconds. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00069">69</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00070">70</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Scheduler_8hpp_source.html#l00083">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::PERIOD_US</a>.</p>
+<p class="reference">References <a class="el" href="Scheduler_8hpp_source.html#l00084">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::PERIOD_US</a>.</p>
 
 </div>
 </div>
@@ -462,7 +465,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the task was removed successfully, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00117">117</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00140">140</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
 
 </div>
 </div>
@@ -497,7 +500,44 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00154">154</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00177">177</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
+
+</div>
+</div>
+<a id="a4c5eaffcb5f1b4f2c1e82ba99a54f963" name="a4c5eaffcb5f1b4f2c1e82ba99a54f963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c5eaffcb5f1b4f2c1e82ba99a54f963">&#9670;&#160;</a></span>synchronize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classScheduler.html">Scheduler</a>&lt; NUM_TASKS, NUM_MCP2515 &gt;::synchronize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long(*)()&#160;</td>
+          <td class="paramname"><em>current_time_us</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Synchonize the scheduler to the current time, resetting all task counters, used when starting multiple Schedulers across different boards together. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">NUM_TASKS</td><td>Number of tasks per MCP2515 </td></tr>
+    <tr><td class="paramname">NUM_MCP2515</td><td>Number of MCP2515 instances </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_time_us</td><td>Function pointer to a function returning the current time in microseconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Scheduler_8tpp_source.html#l00088">88</a> of file <a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +594,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>counts number of scheduler cycles since start, useful for other timers. </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00063">63</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00064">64</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -581,7 +621,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Last time scheduler fired, overridden if missed more than one period. </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00085">85</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00086">86</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -608,9 +648,9 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Period (tick length). </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00083">83</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00084">84</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Scheduler_8hpp_source.html#l00076">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::cyclesNeeded()</a>, and <a class="el" href="Scheduler_8hpp_source.html#l00069">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::getPeriodUs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Scheduler_8hpp_source.html#l00077">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::cyclesNeeded()</a>, and <a class="el" href="Scheduler_8hpp_source.html#l00070">Scheduler&lt; NUM_TASKS, NUM_MCP2515 &gt;::getPeriodUs()</a>.</p>
 
 </div>
 </div>
@@ -637,7 +677,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Threshold to switch from letting non-scheduler task in <a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Main loop function for the VCU system. Handles car state transitions, pipes dataflow between modules.">loop()</a> run, to spin-locking (to ensure on time firing). </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00084">84</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00085">85</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -664,7 +704,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Array of number of tasks per MCP2515. </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00082">82</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00083">83</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -691,7 +731,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Counter to hold firing for n ticks, "how many ticks left before firing?". </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00081">81</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00082">82</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -718,7 +758,7 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Period (in ticks) of each function, 1 is fire every tick, 0 is disabled. </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00080">80</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00081">81</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -745,13 +785,13 @@ template&lt;uint8_t NUM_TASKS, uint8_t NUM_MCP2515&gt; </div>
 </div><div class="memdoc">
 <p>Array of tasks, sorted by each MCP2515. </p>
 
-<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00079">79</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Scheduler_8hpp_source.html#l00080">80</a> of file <a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>ee_sw_vcu_2025/lib/Scheduler/<a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a></li>
-<li>ee_sw_vcu_2025/lib/Scheduler/<a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a></li>
+<li>vehicle_control_unit/lib/Scheduler/<a class="el" href="Scheduler_8hpp_source.html">Scheduler.hpp</a></li>
+<li>vehicle_control_unit/lib/Scheduler/<a class="el" href="Scheduler_8tpp_source.html">Scheduler.tpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

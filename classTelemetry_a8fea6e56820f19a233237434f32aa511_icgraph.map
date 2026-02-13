@@ -1,0 +1,5 @@
+<map id="Telemetry::sendPedal" name="Telemetry::sendPedal">
+<area shape="rect" id="node1" title="Internal helper to get and send the Pedal telemetry frame." alt="" coords="347,5,508,31"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#a2e1609fa80a6555982d945314147b005" title=" " alt="" coords="112,5,299,31"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,5,64,31"/>
+</map>

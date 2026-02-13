@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Bird Racing VCU: ee_sw_vcu_2025/lib/Pedal/Pedal.hpp File Reference</title>
+<title>Red Bird Racing VCU: vehicle_control_unit/lib/Pedal/Pedal.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -148,6 +148,8 @@ Variables</h2></td></tr>
 <tr class="separator:abe6462cc59bc27f9ee242502b2ae7a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f676082bc7fd63bc8fe2e624e9f5ef4"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#a0f676082bc7fd63bc8fe2e624e9f5ef4">FAULT_CHECK_HEX</a> = <a class="el" href="Pedal_8hpp.html#abe6462cc59bc27f9ee242502b2ae7a94">BRAKE_RELIABLE</a> ? 0xFE : 0x3E</td></tr>
 <tr class="separator:a0f676082bc7fd63bc8fe2e624e9f5ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada683a00c3800bf498a8ae407897f2d2"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Pedal_8hpp.html#ada683a00c3800bf498a8ae407897f2d2">MAX_MOTOR_READ_MILLIS</a> = 100</td></tr>
+<tr class="separator:ada683a00c3800bf498a8ae407897f2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aade589de825faaaa5f05b7c94e1a3e86"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePedalConstants.html#aade589de825faaaa5f05b7c94e1a3e86">PedalConstants::MIN_REGEN_KMH</a> = 10</td></tr>
 <tr class="separator:aade589de825faaaa5f05b7c94e1a3e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a884d0592b281835f7e176a4a5aa64708"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePedalConstants.html#a884d0592b281835f7e176a4a5aa64708">PedalConstants::GEAR_RATIO_NUMERATOR</a> = 60</td></tr>
@@ -174,8 +176,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Declaration of the <a class="el" href="classPedal.html" title="Pedal class for managing throttle and brake pedal inputs. Handles filtering, fault detection,...">Pedal</a> class for handling throttle and brake pedal inputs. </p>
 <dl class="section author"><dt>Author</dt><dd>Planeson, Red Bird Racing </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.4.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-02-07 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.6 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-02-12 </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="Pedal_8cpp.html" title="Implementation of the Pedal class for handling throttle pedal inputs.">Pedal.cpp</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
@@ -201,7 +203,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Size of the ADC reading buffer for filtering. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00059">59</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00061">61</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +255,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00034">34</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00058">Pedal::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00061">Pedal::update()</a>.</p>
 
 </div>
 </div>
@@ -280,7 +282,34 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00030">30</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00125">Pedal::sendFrame()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00128">Pedal::sendFrame()</a>.</p>
+
+</div>
+</div>
+<a id="ada683a00c3800bf498a8ae407897f2d2" name="ada683a00c3800bf498a8ae407897f2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada683a00c3800bf498a8ae407897f2d2">&#9670;&#160;</a></span>MAX_MOTOR_READ_MILLIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t MAX_MOTOR_READ_MILLIS = 100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Maximum time in milliseconds between motor data reads before disabling regen. </p>
+
+<p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00036">36</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00258">Pedal::readMotor()</a>.</p>
 
 </div>
 </div>
@@ -307,7 +336,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Pedal_8hpp_source.html#l00028">28</a> of file <a class="el" href="Pedal_8hpp_source.html">Pedal.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00180">Pedal::pedalTorqueMapping()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Pedal_8cpp_source.html#l00184">Pedal::pedalTorqueMapping()</a>.</p>
 
 </div>
 </div>
@@ -316,7 +345,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_878c97e183bae1c6712242243e36474e.html">ee_sw_vcu_2025</a></li><li class="navelem"><a class="el" href="dir_d6c487d3697a32a5301425d1373bccad.html">lib</a></li><li class="navelem"><a class="el" href="dir_521993b07a58bc5a1ed6c4cf7cb851a5.html">Pedal</a></li><li class="navelem"><a class="el" href="Pedal_8hpp.html">Pedal.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_912669a89c5ad31930a81ceabf9e60c2.html">vehicle_control_unit</a></li><li class="navelem"><a class="el" href="dir_52d0e02f24663f586f5c4084165e2919.html">lib</a></li><li class="navelem"><a class="el" href="dir_d365d50cf827582a435b82b5ddb7202e.html">Pedal</a></li><li class="navelem"><a class="el" href="Pedal_8hpp.html">Pedal.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

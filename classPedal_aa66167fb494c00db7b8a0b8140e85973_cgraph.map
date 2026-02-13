@@ -1,0 +1,5 @@
+<map id="Pedal::readMotor" name="Pedal::readMotor">
+<area shape="rect" id="node1" title="Reads motor data from the CAN bus and updates the CarState." alt="" coords="5,5,139,31"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84" title="Prints a throttle debug message to the serial console." alt="" coords="187,5,313,31"/>
+<area shape="rect" id="node3" href="$namespaceDebug__Serial.html#aecd80296d8a3c5d2f9c51d623e11ff9f" title="Prints a string to the serial console." alt="" coords="361,5,508,31"/>
+</map>

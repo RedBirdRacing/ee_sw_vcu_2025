@@ -1,6 +1,10 @@
-<map id="ee_sw_vcu_2025/lib/Debug/Debug.hpp" name="ee_sw_vcu_2025/lib/Debug/Debug.hpp">
-<area shape="rect" id="node1" title="Debugging macros and functions for serial and CAN output." alt="" coords="9,5,161,45"/>
-<area shape="rect" id="node2" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="37,93,132,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,167,76,192"/>
-<area shape="rect" id="node4" title=" " alt="" coords="100,167,157,192"/>
+<map id="vehicle_control_unit/lib/Debug/Debug.hpp" name="vehicle_control_unit/lib/Debug/Debug.hpp">
+<area shape="rect" id="node1" title="Debugging macros and functions for serial and CAN output." alt="" coords="97,5,259,45"/>
+<area shape="rect" id="node2" href="$Enums_8hpp.html" title="Enumeration definitions for the VCU." alt="" coords="131,167,225,192"/>
+<area shape="rect" id="node5" href="$Debug__serial_8hpp.html" title="Declaration of the Debug_Serial namespace for serial debugging functions." alt="" coords="5,93,140,119"/>
+<area shape="rect" id="node7" href="$Debug__can_8hpp.html" title="Declaration of the Debug_CAN namespace for CAN debugging functions." alt="" coords="215,93,338,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="99,240,169,265"/>
+<area shape="rect" id="node4" title=" " alt="" coords="193,240,251,265"/>
+<area shape="rect" id="node6" title=" " alt="" coords="23,167,107,192"/>
+<area shape="rect" id="node8" title=" " alt="" coords="249,167,344,192"/>
 </map>

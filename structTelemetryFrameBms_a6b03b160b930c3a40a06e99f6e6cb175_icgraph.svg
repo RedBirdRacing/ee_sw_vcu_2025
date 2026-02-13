@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 716;
+var viewWidth = 534;
 var viewHeight = 38;
 var sectionId = 'dynsection-1';
 </script>
@@ -58,71 +58,56 @@ var sectionId = 'dynsection-1';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Converts the TelemetryFrameBms to a CAN frame.">
-<polygon fill="#999999" stroke="#666666" points="708,-30 584,-30 584,0 708,0 708,-30"/>
-<text text-anchor="start" x="592" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFrameBms::</text>
-<text text-anchor="middle" x="646" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">toCanFrame</text>
+<polygon fill="#999999" stroke="#666666" points="526,-30 402,-30 402,0 526,0 526,-30"/>
+<text text-anchor="start" x="410" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">TelemetryFrameBms::</text>
+<text text-anchor="middle" x="464" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">toCanFrame</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classTelemetry.html#a25e2add208dc38e8a1f4e453db89d7f6" target="_top" xlink:title="Internal helper to get and send the BMS telemetry frame.">
-<polygon fill="white" stroke="#666666" points="548,-24.5 408,-24.5 408,-5.5 548,-5.5 548,-24.5"/>
-<text text-anchor="middle" x="478" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Telemetry::schedulerBms</text>
+<g id="a_node2"><a xlink:href="classTelemetry.html#a9b8b2cf254f25b0133b5f3bafd1b80e1" target="_top" xlink:title="Internal helper to get and send the BMS telemetry frame.">
+<polygon fill="white" stroke="#666666" points="366,-24.5 250,-24.5 250,-5.5 366,-5.5 366,-24.5"/>
+<text text-anchor="middle" x="308" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Telemetry::sendBms</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M573.52,-15C565.12,-15 556.57,-15 548.2,-15"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="573.66,-18.5 583.66,-15 573.66,-11.5 573.66,-18.5"/>
+<path fill="none" stroke="#63b8ff" d="M391.69,-15C383.11,-15 374.43,-15 366.09,-15"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="391.69,-18.5 401.69,-15 391.69,-11.5 391.69,-18.5"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classTelemetry.html#a892ba1df53bea0797e63b8e7a0030d91" target="_top" xlink:title="Sends telemetry data based on the scheduling logic.">
-<polygon fill="white" stroke="#666666" points="372,-24.5 229,-24.5 229,-5.5 372,-5.5 372,-24.5"/>
-<text text-anchor="middle" x="300.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Telemetry::sendTelemetry</text>
+<g id="a_node3"><a xlink:href="main_8cpp.html#a6ce4f6f8e1e47dc50c24b0240f7390c4" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="214,-24.5 80,-24.5 80,-5.5 214,-5.5 214,-24.5"/>
+<text text-anchor="middle" x="147" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">schedulerTelemetryBms</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="#63b8ff" d="M397.65,-15C389.19,-15 380.63,-15 372.28,-15"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="397.89,-18.5 407.89,-15 397.89,-11.5 397.89,-18.5"/>
+<path fill="none" stroke="#63b8ff" d="M239.5,-15C231.14,-15 222.59,-15 214.24,-15"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="239.6,-18.5 249.6,-15 239.6,-11.5 239.6,-18.5"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="main_8cpp.html#a18a2a13352158a1c448c163c58e2b486" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="193,-24.5 80,-24.5 80,-5.5 193,-5.5 193,-24.5"/>
-<text text-anchor="middle" x="136.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">schedulerTelemetry</text>
+<g id="a_node4"><a xlink:href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules...">
+<polygon fill="white" stroke="#666666" points="44,-24.5 0,-24.5 0,-5.5 44,-5.5 44,-24.5"/>
+<text text-anchor="middle" x="22" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="#63b8ff" d="M218.79,-15C210.15,-15 201.5,-15 193.24,-15"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="218.92,-18.5 228.92,-15 218.92,-11.5 218.92,-18.5"/>
-</g>
-<!-- Node5 -->
-<g id="node5" class="node">
-<title>Node5</title>
-<g id="a_node5"><a xlink:href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules...">
-<polygon fill="white" stroke="#666666" points="44,-24.5 0,-24.5 0,-5.5 44,-5.5 44,-24.5"/>
-<text text-anchor="middle" x="22" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
-<title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="#63b8ff" d="M69.8,-15C60.57,-15 51.69,-15 44.19,-15"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="69.91,-18.5 79.91,-15 69.91,-11.5 69.91,-18.5"/>
+<path fill="none" stroke="#63b8ff" d="M69.59,-15C60.3,-15 51.49,-15 44.09,-15"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="69.82,-18.5 79.82,-15 69.82,-11.5 69.82,-18.5"/>
 </g>
 </g>
 </svg>

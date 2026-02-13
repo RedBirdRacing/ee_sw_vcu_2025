@@ -1,6 +1,9 @@
 <map id="Debug_Serial::print" name="Debug_Serial::print">
-<area shape="rect" id="node1" title="Prints a string to the serial console." alt="" coords="180,55,327,80"/>
-<area shape="rect" id="node2" href="$Debug_8hpp.html#a9d60671317b513353287b53444954a4b" title="Prints a general debug message to the serial console." alt="" coords="9,5,128,31"/>
-<area shape="rect" id="node3" href="$Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475" title="Prints a status message to the serial console." alt="" coords="15,55,122,80"/>
-<area shape="rect" id="node4" href="$Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84" title="Prints a throttle debug message to the serial console." alt="" coords="5,104,132,129"/>
+<area shape="rect" id="node1" title="Prints a string to the serial console." alt="" coords="644,55,791,80"/>
+<area shape="rect" id="node2" href="$Debug_8hpp.html#a9d60671317b513353287b53444954a4b" title="Prints a general debug message to the serial console." alt="" coords="473,5,592,31"/>
+<area shape="rect" id="node3" href="$Debug_8hpp.html#a3c41dd69d26e414610765b6feb86c475" title="Prints a status message to the serial console." alt="" coords="479,55,586,80"/>
+<area shape="rect" id="node4" href="$Debug_8hpp.html#a9d3888b021fa82a4c78185a961fdad84" title="Prints a throttle debug message to the serial console." alt="" coords="469,104,596,129"/>
+<area shape="rect" id="node5" href="$classPedal.html#aa66167fb494c00db7b8a0b8140e85973" title="Reads motor data from the CAN bus and updates the CarState." alt="" coords="288,104,421,129"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a1174b6795782479542559289cd623faf" title=" " alt="" coords="112,104,240,129"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup function for initializing the VCU system. Initializes MCP2515s, IO pins, as well as own modules..." alt="" coords="5,104,64,129"/>
 </map>
