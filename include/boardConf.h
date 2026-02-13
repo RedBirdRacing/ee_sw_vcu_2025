@@ -28,9 +28,9 @@
 
 #ifdef USE_VCU_V3_2
 // === CAN bus pins ===
-#define CS_CAN_MOTOR PIN_PD1 // CAN 1
-#define CS_CAN_BMS PIN_PB2   // CAN 3
-#define CS_CAN_DL PIN_PB1    // CAN 2
+#define CS_CAN_MOTOR PIN_PD1 // CAN 3
+#define CS_CAN_BMS PIN_PB2   // CAN 2
+#define CS_CAN_DL PIN_PB1    // CAN 1
 
 // === APPS and Brake pins ===
 #define APPS_5V PIN_A6

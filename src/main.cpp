@@ -46,6 +46,7 @@ MCP2515 mcp2515_DL(CS_CAN_DL);       // datalogger CAN
 
 #define mcp2515_motor mcp2515_DL
 #define mcp2515_BMS mcp2515_DL
+//#define mcp2515_DL mcp2515_motor
 
 constexpr uint8_t NUM_MCP = 3;
 MCP2515 MCPS[NUM_MCP] = {mcp2515_motor, mcp2515_BMS, mcp2515_DL};
@@ -74,10 +75,12 @@ Pedal pedal(mcp2515_motor, car, car.pedal.apps_5v);
 BMS bms(mcp2515_BMS, car);
 Telemetry telem(mcp2515_DL, car);
 
-void scheduler_pedal()
+void schedulerMotorRead(){
+    pedal.readMotor();
+}
+void schedulerPedalSend()
 {
     pedal.sendFrame();
-    pedal.readMotor();
 }
 void scheduler_bms()
 {
@@ -96,7 +99,7 @@ void schedulerTelemetryBms()
     telem.sendBms();
 }
 
-Scheduler<2, NUM_MCP> scheduler(
+Scheduler<3, NUM_MCP> scheduler(
     10000, // period_us
     500    // spin_threshold_us
 );
@@ -135,7 +138,8 @@ void setup()
     DBGLN_GENERAL("Debug CAN initialized");
 #endif
 
-    scheduler.addTask(McpIndex::Motor, scheduler_pedal, 1);
+    scheduler.addTask(McpIndex::Motor, schedulerMotorRead, 1);
+    scheduler.addTask(McpIndex::Motor, schedulerPedalSend, 1);
     scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryPedal, 1);
     scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryMotor, 1);
     scheduler.addTask(McpIndex::Datalogger, schedulerTelemetryBms, 10);

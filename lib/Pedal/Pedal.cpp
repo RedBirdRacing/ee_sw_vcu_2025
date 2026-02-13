@@ -223,6 +223,10 @@ constexpr int16_t Pedal::pedalTorqueMapping(const uint16_t pedal, const uint16_t
  */
 bool Pedal::checkPedalFault()
 {
+    if (car.pedal.apps_5v < APPS_5V_PERCENT_TABLE[0].in)
+    {
+        return false;
+    }
     const int16_t delta = (int16_t)car.pedal.apps_5v - (int16_t)APPS_3V3_SCALE_MAP.interp(car.pedal.apps_3v3);
     constexpr int16_t MAX_DELTA = THROTTLE_MAP.range() / 10; /**< MAX_DELTA is floor of 10% of APPS_5V valid range, later comparison will give rounding room */
     // if more than 10% difference between the two pedals, consider it a fault
